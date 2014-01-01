@@ -148,23 +148,14 @@ nginx_connections=`netstat -anp|grep nginx|grep ESTABLISHED|wc -l`; \
 echo "srs_connections: $srs_connections"; \
 echo "nginx_connections: $nginx_connections";
 ```
-* 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits：
+* 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
 ```
-[root@dev6 nginx-rtmp]# dstat
-----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
+[root@dev6 nginx-rtmp]# dstat -N lo 30
+----total-cpu-usage---- -dsk/total- -net/lo- ---paging-- ---system--
 usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
   0   0  96   0   0   3|   0     0 |1860B   58k|   0     0 |2996   465 
   0   1  96   0   0   3|   0     0 |1800B   56k|   0     0 |2989   463 
   0   0  97   0   0   2|   0     0 |1500B   46k|   0     0 |2979   461 
-  1   1  95   0   0   3|   0     0 |1620B   51k|   0     0 |3023   432 
-  0   0  97   0   0   2|   0     0 |1500B   40k|   0     0 |2980   444 
-  0   1  95   0   0   4|   0     0 |1410B   43k|   0     0 |2979   452 
-  0   0  97   0   0   3|   0     0 |1080B   28k|   0     0 |3015   450 
-  1   1  95   0   0   3|   0     0 |1860B   60k|   0     0 |3032   462 
-  0   1  97   0   0   2|   0     0 |2760B   92k|   0     0 |3033   423 
-  0   0  97   0   0   2|   0     0 |2502B   68k|   0     0 |2968   444 
-  0   1  96   0   0   3|   0     0 |2734B   74k|   0     0 |3048   463 
-  0   1  96   0   0   3|   0     0 |1532B   39k|   0     0 |3004   454 
 ```
 * 数据见下表：
 
@@ -177,6 +168,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>连接数</td>
   <td>期望带宽</td>
   <td>实际带宽</td>
+  <td>客户端延迟</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -186,6 +178,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>3</td>
   <td>不适用</td>
   <td>不适用</td>
+  <td>0.8秒</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -195,6 +188,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>2</td>
   <td>不适用</td>
   <td>不适用</td>
+  <td>0.8秒</td>
 </tr>
 </table>
 
@@ -202,7 +196,9 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 实际带宽：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
 
-其中，带宽“不适用”是指还未开始测试带宽，所以未记录数据。
+客户端延迟：粗略计算即为客户端的缓冲区长度，假设服务器端的缓冲区可以忽略不计。一般RTMP直播播放器的缓冲区设置为0.8秒，由于网络原因，或者服务器性能问题，数据未能及时发送到客户端，就会造成客户端卡（缓冲区空），网络好时将队列中的数据全部给客户端（缓冲区变大）。
+
+其中，“不适用”是指还未开始测试带宽，所以未记录数据。
 
 其中，srs的三个连接是：
 * FFMPEG推流连接。
@@ -216,3 +212,31 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 ## 测试SRS服务器
 
 开始启动st-load模拟客户端并发测试SRS的性能。
+
+* 启动500客户端：
+```
+./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:1935/live/livestream >/dev/null &
+```
+* 客户端开始播放30秒以上，并记录数据：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>CPU时间</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>17.6%</td>
+  <td>8MB</td>
+  <td>1:18.07</td>
+  <td>503</td>
+  <td>100Mbps</td>
+  <td>实际带宽</td>
+  <td>客户端延迟</td>
+</tr>
+</table>
