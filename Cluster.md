@@ -5,7 +5,8 @@ srs定位为源站服务器，其中一项重要的功能是forward，即将服�
 forward本身是用做热备，即用户推一路流上来，可以被SRS转发（或者转码后转发）到多个源站，CDN边缘可以回多个源，实现故障热备的功能，构建强容错系统。
 
 forward也可以用作搭建小型集群。架构图如下：
-```
+
+```bash
                                                     +-------------+    +------------------+
                                                 +-->+  Edge(1935) +->--+  Player(3000)    +
                                                 |   +-------------+    +------------------+
@@ -28,7 +29,8 @@ forward也可以用作搭建小型集群。架构图如下：
 ## Encoder编码器
 
 编码器使用FFMPEG推流。编码参数如下：
-```
+
+```bash
 for((;;)); do\
     ./objs/ffmpeg/bin/ffmpeg \
     -re -i doc/source.200kbps.768x320.flv \
@@ -41,7 +43,7 @@ done
 
 SRS（192.168.1.5）的配置如下：
 
-```
+```bash
 listen              1935;
 max_connections     10240;
 vhost __defaultVhost__ {
@@ -62,7 +64,7 @@ vhost __defaultVhost__ {
 
 配置文件`srs.1935.conf`配置如下：
 
-```
+```bash
 listen              1935;
 max_connections     10240;
 vhost __defaultVhost__ {
@@ -72,7 +74,7 @@ vhost __defaultVhost__ {
 
 配置文件`srs.1936.conf`配置如下：
 
-```
+```bash
 listen              1936;
 max_connections     10240;
 vhost __defaultVhost__ {
@@ -82,7 +84,7 @@ vhost __defaultVhost__ {
 
 启动两个SRS进程：
 
-```
+```bash
 nohup ./objs/srs -c srs.1935.conf >/dev/null 2>&1 &
 nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 ```
@@ -141,7 +143,7 @@ nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 
 forward的瓶颈在于流的数目，假设每个SRS只侦听一个端口：
 
-```
+```bash
 系统中流的数目 = 编码器的流数目 × 节点数目 × 端口数目
 ```
 
