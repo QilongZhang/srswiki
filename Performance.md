@@ -31,6 +31,7 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 
 * NGINX: nginx-1.5.7.tar.gz
 * NGINX-RTMP: nginx-rtmp-module-1.0.4.tar.gz
+* 下载页面，包含编译脚本：[下载nginx-rtmp](http://download.csdn.net/download/winlinvip/6795467)
 * 编译参数：
 ```
 ./configure --prefix=`pwd`/../_release \
@@ -41,7 +42,6 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 ```
 user  root;
 worker_processes  1;
-
 events {
     worker_connections  10240;
 }
@@ -94,6 +94,33 @@ vhost __defaultVhost__ {
 [root@dev6 trunk]# netstat -anp|grep "1935 "
 tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      6583/srs
 ```
+
+## 推流和观看
+
+使用ffmpeg推送SRS的实例流到SRS，SRS转发给nginx-rtmp，可以通过vlc/srs-players观看。
+
+推送RTMP流到服务器和观看。
+
+* 启动FFMPEG循环推流：
+```
+for((;;)); do \
+    ./objs/ffmpeg/bin/ffmpeg \
+        -re -i doc/source.200kbps.768x320.flv \
+        -acodec copy -vcodec copy \
+        -f flv -y rtmp://127.0.0.1:1935/live/livestream; \
+    sleep 1; 
+done
+```
+* 查看服务器的地址：`192.168.2.101`
+```
+[root@dev6 nginx-rtmp]# ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94  
+          inet addr:192.168.2.101  Bcast:192.168.2.255  Mask:255.255.255.0
+```
+* SRS的流地址：`rtmp://192.168.2.101:1935/live/livestream`
+* 通过srs-players播放SRS流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* nginx-rtmp的流地址：`rtmp://192.168.2.101:19350/live/livestream`
+* 通过srs-players播放nginx-rtmp流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
 ## 客户端
 
