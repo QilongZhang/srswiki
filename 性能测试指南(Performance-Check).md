@@ -19,6 +19,7 @@
 
 * 设置连接数：`ulimit -HSn 10240`
 * 查看连接数：
+
 ```
 [root@dev6 ~]# ulimit -n
 10240
@@ -33,12 +34,14 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 * NGINX-RTMP: nginx-rtmp-module-1.0.4.tar.gz
 * 下载页面，包含编译脚本：[下载nginx-rtmp](http://download.csdn.net/download/winlinvip/6795467)
 * 编译参数：
+
 ```
 ./configure --prefix=`pwd`/../_release \
 --add-module=`pwd`/../nginx-rtmp-module-1.0.4 \
 --with-http_ssl_module && make && make install
 ```
 * 配置nginx：`_release/conf/nginx.conf`
+
 ```
 user  root;
 worker_processes  1;
@@ -55,12 +58,14 @@ rtmp{
 }
 ```
 * 确保连接数没有限制：
+
 ```
 [root@dev6 nginx-rtmp]# ulimit -n
 10240
 ```
 * 启动命令：``./_release/sbin/nginx``
 * 确保nginx启动成功：
+
 ```
 [root@dev6 nginx-rtmp]# netstat -anp|grep 19350
 tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      6486/nginx
@@ -75,6 +80,7 @@ SRS的版本和编译参数。
 * SRS: [SRS 0.9](https://github.com/winlinvip/simple-rtmp-server/releases/tag/0.9)
 * 编译参数：``./configure && make``
 * 配置SRS：`conf/srs.conf`
+
 ```
 listen              1935;
 max_connections     10240;
@@ -84,12 +90,14 @@ vhost __defaultVhost__ {
 }
 ```
 * 确保连接数没有限制：
+
 ```
 [root@dev6 trunk]# ulimit -n
 10240
 ```
 * 启动命令：``nohup ./objs/srs -c conf/srs.conf >/dev/null 2>&1 &``
 * 确保srs启动成功：
+
 ```
 [root@dev6 trunk]# netstat -anp|grep "1935 "
 tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      6583/srs
@@ -102,6 +110,7 @@ tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LIST
 推送RTMP流到服务器和观看。
 
 * 启动FFMPEG循环推流：
+
 ```
 for((;;)); do \
     ./objs/ffmpeg/bin/ffmpeg \
@@ -112,6 +121,7 @@ for((;;)); do \
 done
 ```
 * 查看服务器的地址：`192.168.2.101`
+
 ```
 [root@dev6 nginx-rtmp]# ifconfig eth0
 eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94  
@@ -136,6 +146,7 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 测试前，记录SRS和nginx-rtmp的各项资源使用指标，用作对比。
 
 * top命令：
+
 ```
 srs_pid=`ps aux|grep srs|grep conf|awk '{print $2}'`; \
 nginx_pid=`ps aux|grep nginx|grep worker|awk '{print $2}'`; \
@@ -143,6 +154,7 @@ load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{ORS=",";print $2}'`; \
 top -p $load_pids$srs_pid,$nginx_pid
 ```
 * 查看连接数命令：
+
 ```
 srs_connections=`netstat -anp|grep srs|grep ESTABLISHED|wc -l`; \
 nginx_connections=`netstat -anp|grep nginx|grep ESTABLISHED|wc -l`; \
@@ -150,6 +162,7 @@ echo "srs_connections: $srs_connections"; \
 echo "nginx_connections: $nginx_connections";
 ```
 * 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
+
 ```
 [root@dev6 nginx-rtmp]# dstat -N lo 30
 ----total-cpu-usage---- -dsk/total- -net/lo- ---paging-- ---system--
@@ -217,10 +230,12 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 开始启动st-load模拟客户端并发测试SRS的性能。
 
 * 启动500客户端：
+
 ```
 ./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:1935/live/livestream >/dev/null &
 ```
 * 客户端开始播放30秒以上，并记录数据：
+
 <table>
 <tr>
   <td>Server</td>
@@ -245,6 +260,7 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </table>
 * 再启动一个模拟500个连接的st-load，共1000个连接。
 * 客户端开始播放30秒以上，并记录数据：
+
 <table>
 <tr>
   <td>Server</td>
@@ -269,6 +285,7 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </table>
 * 再启动一个模拟500个连接的st-load，共1500个连接。
 * 客户端开始播放30秒以上，并记录数据：
+
 <table>
 <tr>
   <td>Server</td>
@@ -293,6 +310,7 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </table>
 * 再启动一个模拟500个连接的st-load，共2000个连接。
 * 客户端开始播放30秒以上，并记录数据：
+
 <table>
 <tr>
   <td>Server</td>
@@ -317,6 +335,7 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </table>
 * 再启动一个模拟500个连接的st-load，共2500个连接。
 * 客户端开始播放30秒以上，并记录数据：
+
 <table>
 <tr>
   <td>Server</td>
@@ -340,8 +359,8 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </tr>
 </table>
 
-由于虚拟机能力的限制，只能测试到2500并发。
-SRS的数据如下：
+由于虚拟机能力的限制，只能测试到2500并发。SRS的数据如下：
+
 <table>
 <tr>
   <td>Server</td>
@@ -401,6 +420,40 @@ SRS的数据如下：
   <td>500Mbps</td>
   <td>613Mbps</td>
   <td>24%</td>
+  <td>0.8秒</td>
+</tr>
+</table>
+
+## 测试nginx-rtmp服务器
+
+开始启动st-load模拟客户端并发测试SRS的性能。
+
+* 启动500客户端：
+
+```
+./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:19350/live/livestream >/dev/null &
+```
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>nginx-rtmp</td>
+  <td>8.3%</td>
+  <td>13MB</td>
+  <td>502</td>
+  <td>100Mbps</td>
+  <td>120Mbps</td>
+  <td>16.3%</td>
   <td>0.8秒</td>
 </tr>
 </table>
