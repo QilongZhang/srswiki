@@ -23,7 +23,7 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 
 ## NGINX配置文件
 
-NGINX的配置文件为：`cat _release/conf/nginx.conf`
+NGINX的配置文件为：`_release/conf/nginx.conf`
 
     user  winlin;
     worker_processes  1;
@@ -39,3 +39,23 @@ NGINX的配置文件为：`cat _release/conf/nginx.conf`
             }
         }
     }
+
+## SRS
+
+SRS的版本和编译参数。
+
+* SRS: [SRS 0.9](https://github.com/winlinvip/simple-rtmp-server/releases/tag/0.9)
+* 编译参数：./configure --with-ssl --with-hls --with-ffmpeg --with-http
+
+## SRS配置文件
+
+SRS接受RTMP流，并转发给nginx-rtmp做为对比。配置文件为：`conf/srs.conf`
+
+    listen              1935;
+    max_connections     10240;
+    vhost __defaultVhost__ {
+        gop_cache       on;
+        forward         127.0.0.1:19350;
+    }
+
+
