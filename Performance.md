@@ -20,10 +20,11 @@
 * 设置连接数：`ulimit -HSn 10240`
 * 查看连接数：
 
-```
+```bash
 [root@dev6 ~]# ulimit -n
 10240
 ```
+
 * 注意：启动服务器前必须确保连接数限制打开。
 
 ## NGINX-RTMP
@@ -35,14 +36,15 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 * 下载页面，包含编译脚本：[下载nginx-rtmp](http://download.csdn.net/download/winlinvip/6795467)
 * 编译参数：
 
-```
+```bash
 ./configure --prefix=`pwd`/../_release \
 --add-module=`pwd`/../nginx-rtmp-module-1.0.4 \
 --with-http_ssl_module && make && make install
 ```
+
 * 配置nginx：`_release/conf/nginx.conf`
 
-```
+```bash
 user  root;
 worker_processes  1;
 events {
@@ -57,16 +59,18 @@ rtmp{
     }
 }
 ```
+
 * 确保连接数没有限制：
 
-```
+```bash
 [root@dev6 nginx-rtmp]# ulimit -n
 10240
 ```
+
 * 启动命令：``./_release/sbin/nginx``
 * 确保nginx启动成功：
 
-```
+```bash
 [root@dev6 nginx-rtmp]# netstat -anp|grep 19350
 tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      6486/nginx
 ```
@@ -81,7 +85,7 @@ SRS的版本和编译参数。
 * 编译参数：``./configure && make``
 * 配置SRS：`conf/srs.conf`
 
-```
+```bash
 listen              1935;
 max_connections     10240;
 vhost __defaultVhost__ {
@@ -89,16 +93,18 @@ vhost __defaultVhost__ {
     forward         127.0.0.1:19350;
 }
 ```
+
 * 确保连接数没有限制：
 
-```
+```bash
 [root@dev6 trunk]# ulimit -n
 10240
 ```
+
 * 启动命令：``nohup ./objs/srs -c conf/srs.conf >/dev/null 2>&1 &``
 * 确保srs启动成功：
 
-```
+```bash
 [root@dev6 trunk]# netstat -anp|grep "1935 "
 tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      6583/srs
 ```
@@ -111,7 +117,7 @@ tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LIST
 
 * 启动FFMPEG循环推流：
 
-```
+```bash
 for((;;)); do \
     ./objs/ffmpeg/bin/ffmpeg \
         -re -i doc/source.200kbps.768x320.flv \
@@ -120,13 +126,15 @@ for((;;)); do \
     sleep 1; 
 done
 ```
+
 * 查看服务器的地址：`192.168.2.101`
 
-```
+```bash
 [root@dev6 nginx-rtmp]# ifconfig eth0
 eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94  
           inet addr:192.168.2.101  Bcast:192.168.2.255  Mask:255.255.255.0
 ```
+
 * SRS的流地址：`rtmp://192.168.2.101:1935/live/livestream`
 * 通过srs-players播放SRS流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 * nginx-rtmp的流地址：`rtmp://192.168.2.101:19350/live/livestream`
@@ -147,23 +155,25 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 
 * top命令：
 
-```
+```bash
 srs_pid=`ps aux|grep srs|grep conf|awk '{print $2}'`; \
 nginx_pid=`ps aux|grep nginx|grep worker|awk '{print $2}'`; \
 load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{ORS=",";print $2}'`; \
 top -p $load_pids$srs_pid,$nginx_pid
 ```
+
 * 查看连接数命令：
 
-```
+```bash
 srs_connections=`netstat -anp|grep srs|grep ESTABLISHED|wc -l`; \
 nginx_connections=`netstat -anp|grep nginx|grep ESTABLISHED|wc -l`; \
 echo "srs_connections: $srs_connections"; \
 echo "nginx_connections: $nginx_connections";
 ```
+
 * 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
 
-```
+```bash
 [root@dev6 nginx-rtmp]# dstat -N lo 30
 ----total-cpu-usage---- -dsk/total- -net/lo- ---paging-- ---system--
 usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
@@ -171,6 +181,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   0   1  96   0   0   3|   0     0 |1800B   56k|   0     0 |2989   463 
   0   0  97   0   0   2|   0     0 |1500B   46k|   0     0 |2979   461 
 ```
+
 * 数据见下表：
 
 <table>
@@ -231,9 +242,10 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 
 * 启动500客户端：
 
-```
+```bash
 ./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:1935/live/livestream >/dev/null &
 ```
+
 * 客户端开始播放30秒以上，并记录数据：
 
 <table>
@@ -258,6 +270,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共1000个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -283,6 +296,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共1500个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -308,6 +322,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共2000个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -333,6 +348,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共2500个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -367,7 +383,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 
 * 启动500客户端：
 
-```
+```bash
 ./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:19350/live/livestream >/dev/null &
 ```
 * 客户端开始播放30秒以上，并记录数据：
@@ -394,6 +410,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共1000个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -419,6 +436,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共1500个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -444,6 +462,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共2000个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
@@ -469,6 +488,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>0.8秒</td>
 </tr>
 </table>
+
 * 再启动一个模拟500个连接的st-load，共2500个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
