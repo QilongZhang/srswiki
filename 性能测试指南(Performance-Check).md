@@ -315,3 +315,92 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
   <td>0.8秒</td>
 </tr>
 </table>
+* 再启动一个模拟500个连接的st-load，共2500个连接。
+* 客户端开始播放30秒以上，并记录数据：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>72.9%</td>
+  <td>38MB</td>
+  <td>2503</td>
+  <td>500Mbps</td>
+  <td>613Mbps</td>
+  <td>24%</td>
+  <td>0.8秒</td>
+</tr>
+</table>
+
+由于虚拟机能力的限制，只能测试到2500并发。
+SRS的数据如下：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>9.0%</td>
+  <td>8MB</td>
+  <td>503</td>
+  <td>100Mbps</td>
+  <td>112Mbps</td>
+  <td>12.6%</td>
+  <td>0.8秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>23.6%</td>
+  <td>13MB</td>
+  <td>1003</td>
+  <td>200Mbps</td>
+  <td>239Mbps</td>
+  <td>16.6%</td>
+  <td>0.8秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>38.6%</td>
+  <td>20MB</td>
+  <td>1503</td>
+  <td>300Mbps</td>
+  <td>360Mbps</td>
+  <td>17%</td>
+  <td>0.8秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>65.2%</td>
+  <td>34MB</td>
+  <td>2003</td>
+  <td>400Mbps</td>
+  <td>480Mbps</td>
+  <td>22%</td>
+  <td>0.8秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>72.9%</td>
+  <td>38MB</td>
+  <td>2503</td>
+  <td>500Mbps</td>
+  <td>613Mbps</td>
+  <td>24%</td>
+  <td>0.8秒</td>
+</tr>
+</table>
