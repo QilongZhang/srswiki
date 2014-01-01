@@ -139,8 +139,8 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 ```
 srs_pid=`ps aux|grep srs|grep conf|awk '{print $2}'`; \
 nginx_pid=`ps aux|grep nginx|grep worker|awk '{print $2}'`; \
-load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{OFS=",";print $2}'`; \
-top -p $srs_pid,$nginx_pid,$load_pids
+load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{ORS=",";print $2}'`; \
+top -p $load_pids$srs_pid,$nginx_pid
 ```
 * 查看连接数命令：
 ```
@@ -258,12 +258,12 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </tr>
 <tr>
   <td>SRS</td>
-  <td>15.6%</td>
-  <td>11MB</td>
+  <td>23.6%</td>
+  <td>13MB</td>
   <td>1003</td>
   <td>200Mbps</td>
-  <td>224Mbps</td>
-  <td>22.6%</td>
+  <td>239Mbps</td>
+  <td>16.6%</td>
   <td>0.8</td>
 </tr>
 </table>
