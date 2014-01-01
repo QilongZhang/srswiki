@@ -457,3 +457,28 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
   <td>0.8秒</td>
 </tr>
 </table>
+* 再启动一个模拟500个连接的st-load，共1000个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>nginx-rtmp</td>
+  <td>27.3%</td>
+  <td>19MB</td>
+  <td>1002</td>
+  <td>200Mbps</td>
+  <td>240Mbps</td>
+  <td>30%</td>
+  <td>0.8秒</td>
+</tr>
+</table>
