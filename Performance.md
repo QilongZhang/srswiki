@@ -13,49 +13,90 @@
 * CPU: 3 Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz
 × 内存: 2007MB
 
+## OS设置
+
+超过1024的连接数测试需要打开linux的限制。且必须以root登录和执行。
+
+* 设置连接数：`ulimit -HSn 10240`
+* 查看连接数：
+```
+[root@dev6 ~]# ulimit -n
+10240
+```
+* 注意：启动服务器前必须确保连接数限制打开。
+
 ## NGINX-RTMP
 
 NGINX-RTMP使用的版本信息，以及编译参数。
 
 * NGINX: nginx-1.5.7.tar.gz
 * NGINX-RTMP: nginx-rtmp-module-1.0.4.tar.gz
-* 编译参数：./configure --prefix=\`pwd\`/../_release --add-module=\`pwd\`/../nginx-rtmp-module-1.0.4 --with-http_ssl_module
+* 编译参数：
+```
+./configure --prefix=`pwd`/../_release \
+--add-module=`pwd`/../nginx-rtmp-module-1.0.4 \
+--with-http_ssl_module && make && make install
+```
+* 配置nginx：`_release/conf/nginx.conf`
+```
+user  root;
+worker_processes  1;
 
-## NGINX配置文件
-
-NGINX的配置文件为：`_release/conf/nginx.conf`
-
-    user  winlin;
-    worker_processes  1;
-
-    events {
-        worker_connections  10240;
-    }
-    rtmp{
-        server{
-            listen 19350;
-            application live{
-                live on;
-            }
+events {
+    worker_connections  10240;
+}
+rtmp{
+    server{
+        listen 19350;
+        application live{
+            live on;
         }
     }
+}
+```
+* 确保连接数没有限制：
+```
+[root@dev6 nginx-rtmp]# ulimit -n
+10240
+```
+* 启动命令：``./_release/sbin/nginx``
+* 确保nginx启动成功：
+```
+[root@dev6 nginx-rtmp]# netstat -anp|grep 19350
+tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      6486/nginx
+```
 
 ## SRS
+
+SRS接受RTMP流，并转发给nginx-rtmp做为对比。
 
 SRS的版本和编译参数。
 
 * SRS: [SRS 0.9](https://github.com/winlinvip/simple-rtmp-server/releases/tag/0.9)
-* 编译参数：./configure --with-ssl --with-hls --with-ffmpeg --with-http
+* 编译参数：``./configure && make``
+* 配置SRS：`conf/srs.conf`
+```
+listen              1935;
+max_connections     10240;
+vhost __defaultVhost__ {
+    gop_cache       on;
+    forward         127.0.0.1:19350;
+}
+```
+* 确保连接数没有限制：
+```
+[root@dev6 trunk]# ulimit -n
+10240
+```
+* 启动命令：``nohup ./objs/srs -c conf/srs.conf >/dev/null 2>&1 &``
+* 确保srs启动成功：
+```
+[root@dev6 trunk]# netstat -anp|grep "1935 "
+tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      6583/srs
+```
 
-## SRS配置文件
+## 客户端
 
-SRS接受RTMP流，并转发给nginx-rtmp做为对比。配置文件为：`conf/srs.conf`
+使用linux工具模拟RTMP客户端访问，参考：[st-load](https://github.com/winlinvip/st-load)
 
-    listen              1935;
-    max_connections     10240;
-    vhost __defaultVhost__ {
-        gop_cache       on;
-        forward         127.0.0.1:19350;
-    }
-
-
+* 编译：`./configure && make`
