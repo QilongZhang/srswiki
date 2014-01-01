@@ -2,7 +2,7 @@
 
 对比SRS和高性能nginx-rtmp的Performance，SRS为单进程，nginx-rtmp支持多进程，为了对比nginx-rtmp也只开启一个进程。
 
-提供详细的性能测试的过程，可以为其他性能测试做出参数，譬如测试nginx-rtmp的多进程，和srs的forward对比之类。
+提供详细的性能测试的过程，可以为其他性能测试做参考，譬如测试nginx-rtmp的多进程，和srs的forward对比之类。
 
 ## 硬件环境
 
