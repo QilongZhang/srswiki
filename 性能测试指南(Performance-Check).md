@@ -1,4 +1,4 @@
-# Performance
+# 性能测试指南(Performance Check)
 
 对比SRS和高性能nginx-rtmp的Performance，SRS为单进程，nginx-rtmp支持多进程，为了对比nginx-rtmp也只开启一个进程。
 
@@ -148,15 +148,35 @@ nginx_connections=`netstat -anp|grep nginx|grep ESTABLISHED|wc -l`; \
 echo "srs_connections: $srs_connections"; \
 echo "nginx_connections: $nginx_connections";
 ```
+* 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits：
+```
+[root@dev6 nginx-rtmp]# dstat
+----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
+usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
+  0   0  96   0   0   3|   0     0 |1860B   58k|   0     0 |2996   465 
+  0   1  96   0   0   3|   0     0 |1800B   56k|   0     0 |2989   463 
+  0   0  97   0   0   2|   0     0 |1500B   46k|   0     0 |2979   461 
+  1   1  95   0   0   3|   0     0 |1620B   51k|   0     0 |3023   432 
+  0   0  97   0   0   2|   0     0 |1500B   40k|   0     0 |2980   444 
+  0   1  95   0   0   4|   0     0 |1410B   43k|   0     0 |2979   452 
+  0   0  97   0   0   3|   0     0 |1080B   28k|   0     0 |3015   450 
+  1   1  95   0   0   3|   0     0 |1860B   60k|   0     0 |3032   462 
+  0   1  97   0   0   2|   0     0 |2760B   92k|   0     0 |3033   423 
+  0   0  97   0   0   2|   0     0 |2502B   68k|   0     0 |2968   444 
+  0   1  96   0   0   3|   0     0 |2734B   74k|   0     0 |3048   463 
+  0   1  96   0   0   3|   0     0 |1532B   39k|   0     0 |3004   454 
+```
 * 数据见下表：
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Time</td>
-  <td>Connections</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>CPU时间</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -164,6 +184,8 @@ echo "nginx_connections: $nginx_connections";
   <td>3MB</td>
   <td>0:12.97</td>
   <td>3</td>
+  <td>不适用</td>
+  <td>不适用</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -171,8 +193,16 @@ echo "nginx_connections: $nginx_connections";
   <td>8MB</td>
   <td>0:03.28</td>
   <td>2</td>
+  <td>不适用</td>
+  <td>不适用</td>
 </tr>
 </table>
+
+期望带宽：譬如测试码率为200kbps时，若模拟1000个并发，应该是1000*200kbps=200Mbps带宽。
+
+实际带宽：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
+
+其中，带宽“不适用”是指还未开始测试带宽，所以未记录数据。
 
 其中，srs的三个连接是：
 * FFMPEG推流连接。
@@ -182,3 +212,7 @@ echo "nginx_connections: $nginx_connections";
 其中，nginx-rtmp的两个连接是：
 * SRS forward RTMP的一个连接。
 * 观看连接：[播放地址](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+
+## 测试SRS服务器
+
+开始启动st-load模拟客户端并发测试SRS的性能。
