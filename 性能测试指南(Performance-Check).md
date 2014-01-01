@@ -165,7 +165,6 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>Server</td>
   <td>CPU占用率</td>
   <td>内存</td>
-  <td>CPU时间</td>
   <td>连接数</td>
   <td>期望带宽</td>
   <td>实际带宽</td>
@@ -176,7 +175,6 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>SRS</td>
   <td>1.0%</td>
   <td>3MB</td>
-  <td>0:12.97</td>
   <td>3</td>
   <td>不适用</td>
   <td>不适用</td>
@@ -187,7 +185,6 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>nginx-rtmp</td>
   <td>0.7%</td>
   <td>8MB</td>
-  <td>0:03.28</td>
   <td>2</td>
   <td>不适用</td>
   <td>不适用</td>
@@ -229,7 +226,6 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
   <td>Server</td>
   <td>CPU占用率</td>
   <td>内存</td>
-  <td>CPU时间</td>
   <td>连接数</td>
   <td>期望带宽</td>
   <td>实际带宽</td>
@@ -240,11 +236,34 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
   <td>SRS</td>
   <td>9.0%</td>
   <td>8MB</td>
-  <td>1:18.07</td>
   <td>503</td>
   <td>100Mbps</td>
-  <td>108Mbps</td>
+  <td>112Mbps</td>
   <td>12.6%</td>
+  <td>0.8</td>
+</tr>
+</table>
+* 再启动一个模拟500个连接的st-load，共1000个连接。
+* 客户端开始播放30秒以上，并记录数据：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
   <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>15.6%</td>
+  <td>11MB</td>
+  <td>1003</td>
+  <td>200Mbps</td>
+  <td>224Mbps</td>
+  <td>22.6%</td>
+  <td>0.8</td>
 </tr>
 </table>
