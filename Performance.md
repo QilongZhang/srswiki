@@ -120,7 +120,7 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94
 * SRS的流地址：`rtmp://192.168.2.101:1935/live/livestream`
 * 通过srs-players播放SRS流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 * nginx-rtmp的流地址：`rtmp://192.168.2.101:19350/live/livestream`
-* 通过srs-players播放nginx-rtmp流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* 通过srs-players播放nginx-rtmp流：[播放nginx-rtmp的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
 ## 客户端
 
