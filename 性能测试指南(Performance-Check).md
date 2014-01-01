@@ -11,7 +11,7 @@
 * 硬件: 虚拟机
 * 系统: CentOS 6.0 x86_64 Linux 2.6.32-71.el6.x86_64
 * CPU: 3 Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz
-× 内存: 2007MB
+* 内存: 2007MB
 
 ## OS设置
 
@@ -306,12 +306,12 @@ st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CP
 </tr>
 <tr>
   <td>SRS</td>
-  <td>%</td>
-  <td>MB</td>
-  <td>1503</td>
-  <td>300Mbps</td>
-  <td>Mbps</td>
-  <td>%</td>
-  <td>秒</td>
+  <td>65.2%</td>
+  <td>34MB</td>
+  <td>2003</td>
+  <td>400Mbps</td>
+  <td>480Mbps</td>
+  <td>22%</td>
+  <td>0.8秒</td>
 </tr>
 </table>
