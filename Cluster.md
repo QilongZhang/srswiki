@@ -152,3 +152,13 @@ forward的瓶颈在于流的数目，假设每个SRS只侦听一个端口：
 另外，forward需要播放器随机访问多个端口，实现负载均衡，或者播放器访问api服务器，api服务器实现负载均衡，对于CDN来讲也不合适（需要客户改播放器）。
 
 总之，forward适用于小型规模的集群，不适用于CDN大规模集群应用。
+
+## 高级应用
+
+forward还可以结合hls和transcoder功能使用，即在源站将流转码，然后forward到边缘节点，边缘节点支持rtmp同时切HLS。
+
+因为用户推上来的流，或者编码器（譬如FMLE）可能不是h264+aac，需要先转码为h264+aac（可以只转码音频）后才能切片为hls。
+
+需要结合vhost，先将流transcode送到另外一个vhost，这个vhost将流转发到边缘。这样可以只转发转码的流。
+
+参考vhost，hls和transcoder相关wiki。
