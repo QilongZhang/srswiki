@@ -139,7 +139,8 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 ```
 srs_pid=`ps aux|grep srs|grep conf|awk '{print $2}'`; \
 nginx_pid=`ps aux|grep nginx|grep worker|awk '{print $2}'`; \
-top -p $srs_pid,$nginx_pid
+load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{OFS=",";print $2}'`; \
+top -p $srs_pid,$nginx_pid,$load_pids
 ```
 * 查看连接数命令：
 ```
@@ -168,6 +169,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>连接数</td>
   <td>期望带宽</td>
   <td>实际带宽</td>
+  <td>st-load</td>
   <td>客户端延迟</td>
 </tr>
 <tr>
@@ -176,6 +178,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>3MB</td>
   <td>0:12.97</td>
   <td>3</td>
+  <td>不适用</td>
   <td>不适用</td>
   <td>不适用</td>
   <td>0.8秒</td>
@@ -188,6 +191,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>2</td>
   <td>不适用</td>
   <td>不适用</td>
+  <td>不适用</td>
   <td>0.8秒</td>
 </tr>
 </table>
@@ -197,6 +201,8 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 实际带宽：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
 
 客户端延迟：粗略计算即为客户端的缓冲区长度，假设服务器端的缓冲区可以忽略不计。一般RTMP直播播放器的缓冲区设置为0.8秒，由于网络原因，或者服务器性能问题，数据未能及时发送到客户端，就会造成客户端卡（缓冲区空），网络好时将队列中的数据全部给客户端（缓冲区变大）。
+
+st-load：指模客户端的st-load的平均CPU，确保st-load没有瓶颈，CPU不超过80%。
 
 其中，“不适用”是指还未开始测试带宽，所以未记录数据。
 
@@ -227,16 +233,18 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   <td>连接数</td>
   <td>期望带宽</td>
   <td>实际带宽</td>
+  <td>st-load</td>
   <td>客户端延迟</td>
 </tr>
 <tr>
   <td>SRS</td>
-  <td>17.6%</td>
+  <td>9.0%</td>
   <td>8MB</td>
   <td>1:18.07</td>
   <td>503</td>
   <td>100Mbps</td>
-  <td>实际带宽</td>
+  <td>108Mbps</td>
+  <td>12.6%</td>
   <td>客户端延迟</td>
 </tr>
 </table>
