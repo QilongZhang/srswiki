@@ -118,4 +118,10 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
 <td>SRS提供的测速工具，分为flash客户端和linux命令行工具，<br/>1.flash测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>flash测速提供全js接口，方便嵌入页面<br/>2.linux测速：./objs/bandwidth<br/>典型场景：<br/>1.推流前测速，看用户带宽是否达到要求<br/>2.排查卡顿问题，查看节点之间带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
+<tr>
+<td>小型集群</td>
+<td>RTMP(Basic)</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
+</tr>
 </table>
