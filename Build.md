@@ -187,3 +187,11 @@ make
 <td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
+
+## 查看DEMO
+
+编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。
+
+假设服务器的ip是：192.168.2.101
+
+DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
