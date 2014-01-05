@@ -143,8 +143,6 @@ make
 
 在configure时，会根据选择的功能编译需要的库和工具。configure完成后，make就可以编译SRS。
 
-## 查看DEMO
-
 编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
 
 ```
