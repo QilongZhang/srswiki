@@ -1,5 +1,11 @@
 # 编译SRS
 
+## 操作系统
+
+* README中的Usage，在Centos6下面测试成功。按照Step操作后，浏览器中打开服务器地址就能观看所有的DEMO。
+* DEMO演示了所有SRS的功能，特别是ffmpeg依赖的库巨多，因此为了简化，推荐使用CentOS6.
+* 若的确需要在其他系统下编译SRS，下面说明SRS依赖的各种库，可以关掉某些功能减少编译的依赖。
+
 ## SRS依赖关系
 
 SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx，openssl-devel。
