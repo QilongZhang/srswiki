@@ -65,7 +65,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 </tr>
 </table>
 
-## 常见需求
+## 应用场景
 
 下面是常见的几种应用场景，以及对应的编译选项。
 
@@ -99,5 +99,23 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)<br/>Transcode</td>
 <td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http \<br/>--with-ffmpeg</td>
 <td>希望对RTMP进行转码后输出，<br/>譬如，flash推流到SRS，编码是vp6和speex，<br/>希望转码为h264和aac后输出HLS，<br/>譬如，编码器推送较高码率到SRS，转码输出较低码率，<br/>譬如，加水印后输出，<br/>譬如，只对音频进行转码，将speex/mp3转码为aac给手机端播放，<br/>转码是wowza里面很贵的一个插件，应用场景可见一斑<br/>典型场景：<br/>1.需要输出HLS，但是输入流不是h264/aac<br/>2.高码率输入，多路输出，手机端播放低码率的流<br/>3.各种FFMPEG滤镜的应用<br/>注意：所有转码的流可以再经过SRS进行HLS切片和forward</td>
+</tr>
+<tr>
+<td>逻辑控制</td>
+<td>RTMP(Basic)<br/>ApiServer</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http \<br/>--without-ffmpeg</td>
+<td>希望对服务器上的各种事件进行控制，<br/>譬如，连接到SRS后，到ApiServer进行验证，<br/>通过后再进行服务，<br/>譬如，希望统计当前连接数，各个流的数据等，<br/>典型场景：<br/>1.视频会议，ApiServer可以知道SRS上的流<br/>2.统计，统计在线人数，带宽等（cli也可以查询）<br/>3.认证，通过认证后才进行服务，<br/>注意：当事件发生时，SRS调用http地址告知ApiServer，<br/>若ApiServer需要主动控制SRS，可以通过cli</td>
+</tr>
+<tr>
+<td>客户端</td>
+<td>HLS</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>SRS提供了以下客户端：<br/>1.播放器，research/players/srs_player<br/>research/players/srs_player.html<br/>2.编码器，research/players/srs_publisher<br/>research/players/srs_publisher.html<br/>3.测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>4.jwplayer：research/players/jwplayer6.html<br/>5.osmf播放器：research/players/osmf.html<br/>srs提供的客户端(srs-player/publisher)都是全js接口，<br/>flash元素只有video播放，<br/>典型场景：<br/>1.希望播放RTMP/HLS流<br/>2.希望使用flash推流<br/>3.希望测试客户端到服务器带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
+</tr>
+<tr>
+<td>测速</td>
+<td>HLS</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>SRS提供的测速工具，分为flash客户端和linux命令行工具，<br/>1.flash测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>flash测速提供全js接口，方便嵌入页面<br/>2.linux测速：./objs/bandwidth<br/>典型场景：<br/>1.推流前测速，看用户带宽是否达到要求<br/>2.排查卡顿问题，查看节点之间带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
 </table>
