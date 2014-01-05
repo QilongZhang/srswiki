@@ -2,7 +2,7 @@ Welcome to the simple-rtmp-server wiki!
 
 ## [编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
-编译SRS的常见选项，SRS的功能，以及应用场景。链接：[编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
 
