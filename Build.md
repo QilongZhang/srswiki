@@ -132,7 +132,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 </tr>
 </table>
 
-## 开始编译
+## 编译和启动
 
 确定用什么编译选项后，编译SRS其实很简单。譬如，demo使用的选项：
 
