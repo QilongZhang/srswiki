@@ -176,4 +176,14 @@ make
 <td>./objs/ffmpeg/bin/ffmpeg</td>
 <td>SRS转码用的FFMPEG，DEMO推流也是用它</td>
 </tr>
+<tr>
+<td>DEMO<br/>(关闭ApiServer)</td>
+<td>./objs/nginx/html/players</td>
+<td>SRS的DEMO的静态页面，当没有开启ApiServer时</td>
+</tr>
+<tr>
+<td>DEMO<br/>(开启ApiServer)</td>
+<td>research/api-server/static-dir/players</td>
+<td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
+</tr>
 </table>
