@@ -149,6 +149,8 @@ make
 sudo ./objs/nginx/sbin/nginx 
 nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
 sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
+bash scripts/_step.start.ffmpeg.demo.sh 
+bash scripts/_step.start.ffmpeg.players.sh
 ```
 
 假设服务器的ip是：192.168.2.101
