@@ -32,7 +32,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td><strong>必选</strong></td>
 <td>无</td>
 <td>st-1.9</td>
-<td>RTMP服务器，st为处理并发的基础库<br/>forward,vhost,refer,reload为基础功能。</td>
+<td>RTMP服务器，st为处理并发的基础库<br/>forward,vhost,refer,reload为基础功能。<br/>st-1.9的依赖很少，在各种linux下都可以编译，<br/>测试过的有CentOS 4/5/6，其他问题也不大</td>
 </tr>
 <tr>
 <td>RTMP<br/>(H.264/AAC)</td>
@@ -59,8 +59,8 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>ApiServer</td>
 <td>可选</td>
 <td>--with-http<br/>--without-http</td>
-<td>cherrypy</td>
-<td>当某些事件发生，SRS可以调用http地址，<br/>譬如on_connect，为客户端连接到服务器时，<br/>SRS自带了一个research/api-server，<br/>提供了这些http api的默认实现，<br/>使用Cherrypy。另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server</td>
+<td>cherrypy<br/>http-parser2.1</td>
+<td>当某些事件发生，SRS可以调用http地址，<br/>譬如on_connect，为客户端连接到服务器时，<br/>SRS自带了一个research/api-server，<br/>提供了这些http api的默认实现，<br/>使用Cherrypy。另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/>http-parser2.1在各种linux下编译问题也不大</td>
 </tr>
 <tr>
 <td>DEMO</td>
