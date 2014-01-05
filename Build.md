@@ -197,3 +197,5 @@ make
 DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
 
 呃，浏览器，当然是Chrome/Firefox/Safari/Opera效果都很好，主要是bootstrap里面的css3和jquery支持得比较好。其实IE10以上虽然丑但是还可以，其他的IE内核的“鹌鹑”浏览器之类的，真的是没有办法，很丑。
+
+OK，结论就是：用Chrome浏览 [http://192.168.2.101](http://192.168.2.101)
