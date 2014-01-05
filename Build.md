@@ -148,13 +148,13 @@ make
 ```bash
 echo "启动HLS/DEMO要用到的web服务器"
 sudo ./objs/nginx/sbin/nginx
-echo "启动DEMO(视频会议)要用到的Api服务器" 
+echo "启动DEMO(视频会议)和HttpHooks要用到的Api服务器" 
 nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
-echo "启动SRS服务器" 
+echo "启动SRS服务器，默认配置文件" 
 sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
-echo "启动推流脚本，DEMO中的1进12出的演示" 
+echo "推一路流到SRS(live?vhost=demo.srs.com/livestream)，DEMO中的1进12出的演示" 
 bash scripts/_step.start.ffmpeg.demo.sh 
-echo "启动推流脚本，DEMO中的播放器播放的流" 
+echo "推一路流到SRS(live?vhost=players/livestream)，DEMO中的播放器播放的流" 
 bash scripts/_step.start.ffmpeg.players.sh
 ```
 
