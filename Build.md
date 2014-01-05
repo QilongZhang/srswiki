@@ -190,7 +190,13 @@ make
 
 ## 查看DEMO
 
-编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。
+编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
+
+```
+sudo ./objs/nginx/sbin/nginx 
+nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
+sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
+```
 
 假设服务器的ip是：192.168.2.101
 
