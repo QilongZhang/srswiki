@@ -154,6 +154,7 @@ bash scripts/_step.start.ffmpeg.players.sh
 ```
 
 注意：scripts/run.sh其实就是做的上面的几步，这些脚本就是把[Usage(detail)](https://github.com/winlinvip/simple-rtmp-server#usagedetail)中的命令写到脚本中了而已。
+
 假设服务器的ip是：192.168.2.101
 
 DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
