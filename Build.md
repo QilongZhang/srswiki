@@ -131,3 +131,49 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
 </tr>
 </table>
+
+## 开始编译
+
+确定用什么编译选项后，编译SRS其实很简单。譬如，demo使用的选项：
+
+```
+./configure --with-ssl --with-hls --with-http --with-ffmpeg &&
+make
+```
+
+在configure时，会根据选择的功能编译需要的库和工具。configure完成后，make就可以编译SRS。
+
+编译SRS将生成以下目录：
+
+<table>
+<tr>
+<td><strong>生成项目</strong></td>
+<td><strong>使用方法</strong></td>
+<td><strong>说明</strong></td>
+</tr>
+<tr>
+<td>./objs/srs</td>
+<td>./objs/srs -c conf/srs.conf</td>
+<td>启动SRS服务器</td>
+</tr>
+<tr>
+<td>./objs/bandwidth</td>
+<td>./objs/bandwidth -h</td>
+<td>linux测速工具</td>
+</tr>
+<tr>
+<td>./objs/nginx</td>
+<td>sudo ./objs/nginx/sbin/nginx</td>
+<td>HLS/DEMO用到的nginx服务器</td>
+</tr>
+<tr>
+<td>ApiServer</td>
+<td>python research/api-server/server.py 8085</td>
+<td>启动HTTP hooks和DEMO视频会议用到的ApiServer</td>
+</tr>
+<tr>
+<td>FFMPEG</td>
+<td>./objs/ffmpeg/bin/ffmpeg</td>
+<td>SRS转码用的FFMPEG，DEMO推流也是用它</td>
+</tr>
+</table>
