@@ -143,7 +143,29 @@ make
 
 在configure时，会根据选择的功能编译需要的库和工具。configure完成后，make就可以编译SRS。
 
-编译SRS将生成以下目录：
+## 查看DEMO
+
+编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
+
+```
+sudo ./objs/nginx/sbin/nginx 
+nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
+sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
+```
+
+假设服务器的ip是：192.168.2.101
+
+DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
+
+呃，浏览器，当然是Chrome/Firefox/Safari/Opera效果都很好，主要是bootstrap里面的css3和jquery支持得比较好。其实IE10以上虽然丑但是还可以，其他的IE内核的“鹌鹑”浏览器之类的，真的是没有办法，很丑。
+
+OK，结论就是：用Chrome浏览 [http://192.168.2.101](http://192.168.2.101)
+
+## 编译的生成项目
+
+configure和make将会生成一些项目，都在objs目录。有些文件在research目录，configure会自动软链到objs目录。
+
+ApiServer的目录为research/api-server，没有做软链，可以直接启动。详细参考下面的方法。
 
 <table>
 <tr>
@@ -187,21 +209,3 @@ make
 <td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
-
-## 查看DEMO
-
-编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
-
-```
-sudo ./objs/nginx/sbin/nginx 
-nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
-sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
-```
-
-假设服务器的ip是：192.168.2.101
-
-DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
-
-呃，浏览器，当然是Chrome/Firefox/Safari/Opera效果都很好，主要是bootstrap里面的css3和jquery支持得比较好。其实IE10以上虽然丑但是还可以，其他的IE内核的“鹌鹑”浏览器之类的，真的是没有办法，很丑。
-
-OK，结论就是：用Chrome浏览 [http://192.168.2.101](http://192.168.2.101)
