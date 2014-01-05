@@ -146,10 +146,15 @@ make
 编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
 
 ```
-sudo ./objs/nginx/sbin/nginx 
+echo "启动HLS/DEMO要用到的web服务器"
+sudo ./objs/nginx/sbin/nginx
+echo "启动DEMO(视频会议)要用到的Api服务器" 
 nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
+echo "启动SRS服务器" 
 sudo ./objs/srs -c conf/srs.conf >srs.log 2>&1 &
+echo "启动推流脚本，DEMO中的1进12出的演示" 
 bash scripts/_step.start.ffmpeg.demo.sh 
+echo "启动推流脚本，DEMO中的播放器播放的流" 
 bash scripts/_step.start.ffmpeg.players.sh
 ```
 
