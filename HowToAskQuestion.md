@@ -78,7 +78,7 @@
     * 客户端播放的方式：
     使用vlc播放流成功 rtmp://192.168.1.170/live/livestream
     使用vlc播放流失败 rtmp://192.168.1.170:1936/live/livestream
-    * SRS服务器(侦听1935)日志：
+    * SRS(1935)服务器日志：
     ```
     [winlin@dev6 trunk]$ cat t.1935.log
     [2014-01-06 19:33:17.054][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
@@ -88,7 +88,7 @@
     [2014-01-06 19:36:27.691][3][trace][handshake_with_client] srand initialized the random.
     [2014-01-06 19:36:27.693][3][trace][handshake_with_client] complex handshake success.
     ```
-    * SRS服务器(侦听1935)日志：
+    * SRS(1936)服务器日志：
     ```
     [winlin@dev6 trunk]$ cat t.1936.log
     2014-01-06 19:42:44.060][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
