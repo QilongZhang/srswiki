@@ -31,11 +31,73 @@
 ## 提问范例
 
 提问时，需要收集以下重要信息：
-* 运行环境：操作系统（位数，版本）
+* 问题描述：先描述问题。
+* 运行环境：操作系统（位数，版本），服务器多少台，服务器IP等信息
+* 网络架构：编码器如何推流到SRS，SRS如何分发到播放器。
 * SRS的版本：是master分支最新代码，还是某个版本。执行命令获取SRS的版本：`./objs/srs -v`
+* 编码器推流方式：不要说用ffmpeg推流，要说明具体的方式。
 * SRS的配置文件：请不要说我是参考的哪个wiki，因为wiki上的大家也记不住，直接把配置文件内容粘贴出来。
+* SRS的启动脚本：请不要参考的README的启动方式，给出具体的启动方式。
+* 客户端播放的方式：不要说客户端播放不了，应该说明详细的播放方式，以及日志。
 * SRS服务器日志：把SRS服务器日志发出来，可以和配置一起打个包。
-* 其他脚本：譬如启动推流的脚本，播放流的脚本。
 
 举个实际的例子：
 
+    大家好，我翻遍了wiki，仔细阅读了Readme和所有的Wiki，都找不到原因和解决办法，不得不麻烦大家帮忙看看。
+    * 问题描述：VLC可以观看1935，但是看不了1936端口的流。
+    * 运行环境：CentOS 6.0 64bits，服务器192.168.1.170
+    * 网络架构：FFMPEG推流到SRS(1935端口），SRS(1935)转发给SRS(1936)，使用VLC观看。
+    * SRS的版本：master分支最新代码
+    * 编码器推流方式：使用FFMPEG推流，命令如下
+    ```
+    ./objs/ffmpeg/bin/ffmpeg -re -i ./doc/source.200kbps.768x320.flv \
+        -vcodec copy -acodec copy \
+        -f flv -y rtmp://127.0.0.1/live/livestream;
+    ```
+    * SRS(1935)的配置文件：
+    ```
+    [winlin@dev6 trunk]$ cat 1935.conf 
+    listen              1935;
+    vhost __defaultVhost__ {
+        enabled         on;
+        gop_cache       on;
+        forward         127.0.0.1:1936;
+    }
+    ```
+    * SRS(1935)的启动脚本：`nohup ./objs/srs -c 1935.conf >t.1935.log 2>&1 &`
+    * SRS(1936)的配置文件：
+    ```
+    [winlin@dev6 trunk]$ cat 1936.conf 
+    listen              1936;
+    vhost __defaultVhost__ {
+        enabled         on;
+        gop_cache       on;
+    }
+    ```
+    * SRS(1936)的启动脚本：`nohup ./objs/srs -c 1936.conf >t.1936.log 2>&1 &`
+    * 客户端播放的方式：
+    使用vlc播放流成功 rtmp://192.168.1.170/live/livestream
+    使用vlc播放流失败 rtmp://192.168.1.170:1936/live/livestream
+    * SRS服务器(侦听1935)日志：
+    ```
+    [winlin@dev6 trunk]$ cat t.1935.log
+    [2014-01-06 19:33:17.054][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
+    [2014-01-06 19:33:17.071][1][trace][listen] server started, listen at port=1935, fd=4
+    [2014-01-06 19:33:17.071][2][trace][thread_cycle] thread cycle start
+    [2014-01-06 19:36:27.691][3][trace][do_cycle] get peer ip success. ip=127.0.0.1, send_to=30000000, recv_to=30000000
+    [2014-01-06 19:36:27.691][3][trace][handshake_with_client] srand initialized the random.
+    [2014-01-06 19:36:27.693][3][trace][handshake_with_client] complex handshake success.
+    ```
+    * SRS服务器(侦听1935)日志：
+    ```
+    [winlin@dev6 trunk]$ cat t.1936.log
+    2014-01-06 19:42:44.060][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
+    [2014-01-06 19:42:44.061][1][trace][listen] server started, listen at port=1936, fd=4
+    [2014-01-06 19:42:44.061][2][trace][thread_cycle] thread cycle start
+    [2014-01-06 19:42:46.797][3][trace][do_cycle] get peer ip success. ip=127.0.0.1, send_to=30000000, recv_to=30000000
+    [2014-01-06 19:42:46.797][3][trace][handshake_with_client] srand initialized the random.
+    [2014-01-06 19:42:46.798][3][trace][handshake_with_client] simple handshake success.
+    ```
+    拜托，谢谢～
+
+这个问题就很快能得到排查，开发人员能按照配置进行复现。
