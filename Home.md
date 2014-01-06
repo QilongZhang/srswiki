@@ -1,5 +1,9 @@
 Welcome to the simple-rtmp-server wiki!
 
+## [如何提问](https://github.com/winlinvip/simple-rtmp-server/wiki/HowToAskQuestion)
+
+提问是一门艺术，不是别人不待见你，是你提的问题实在不招人待见。提问前务必参考：[如何提问](https://github.com/winlinvip/simple-rtmp-server/wiki/HowToAskQuestion)
+
 ## [编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
