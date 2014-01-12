@@ -166,6 +166,25 @@ vhost show.wasu.cn {
 
 总之，这两个Vhost的配置完全没有关系，不会相互影响。
 
+## __defaultVhost__
+
+FMS的__defaultVhost__是默认的vhost，当用户请求的vhost没有匹配成功时，若配置了defaultVhost，则使用它来提供服务。若匹配失败，也没有defaultVhost，则返回错误。
+
+譬如，服务器192.168.1.10上的SRS配置如下：
+
+```bash
+listen              1935;
+vhost demo.srs.com {
+    enabled         on;
+}
+```
+
+那么，只有当用户访问以下vhost时：
+* rtmp://demo.srs.com/live/livestream：成功，匹配vhost为demo.srs.com
+* rtmp://192.168.1.10/live/livestream：失败，没有找到vhost，也没有defaultVhost。
+
+defaultVhost和其他vhost的规则一样，只是用来匹配那些没有匹配成功的vhost的请求的。
+
 ## 访问指定的Vhost
 
 如何访问某台服务器上的Vhost？有两个方法：
@@ -186,7 +205,6 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 ```
 
 各种访问方式见下表：
-
 
 <table>
 <thead>
