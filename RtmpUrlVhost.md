@@ -309,7 +309,29 @@ SRS的RTMP URL使用标准的RTMP URL，一般不需要对app和stream加参数�
 * vhost支持参数访问：为了方便运维访问某台服务器的vhost，不需要设置hosts。不影响普通用户。
 * 支持token验证：为了支持token验证，在app后面带参数，这个是token验证必须的方式。
 
-常见的三种SRS RTMP URL，详细见下表：
+另外，SRS建议用户使用一级app和一级stream，不使用多级app和多级stream。譬如：
+
+```bash
+// 不推荐使用的多级app或stream
+rtmp://demo.srs.com/show/live/livestream
+rtmp://demo.srs.com/show/live/livestream/2013
+```
+
+srs播放器(srs_player)和srs编码器(srs_publisher)不支持多级app和stream，他们认为最后一个斜杠（/）后面的就是stream，前面的是app。即：
+
+```bash
+// srs_player和srs_publisher的解析方式：
+// play or publish the following rtmp URL:
+rtmp://demo.srs.com/show/live/livestream/2013
+schema: rtmp
+host/vhost: demo.srs.com
+app: show/live/livestream
+stream: 2013
+```
+
+做此简化的好处是，srs播放器和编码器，只需要指定一个url，而且两者的url是一样的。
+
+SRS常见的三种RTMP URL，详细见下表：
 <table>
 <thead>
 <tr>
