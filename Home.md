@@ -12,10 +12,14 @@ Welcome to the simple-rtmp-server wiki!
 
 SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
 
-## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
+## [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/_preview)
 
-对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
+搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/_preview)
 
 ## [搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
 使用forward搭建小型集群的配置方法。链接：[搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
+
+## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
+
+对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
