@@ -12,9 +12,9 @@ Welcome to the simple-rtmp-server wiki!
 
 SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
 
-## [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/_preview)
+## [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
 
-搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/_preview)
+搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
 
 ## [搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
