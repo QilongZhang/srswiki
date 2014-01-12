@@ -166,9 +166,9 @@ vhost show.wasu.cn {
 
 总之，这两个Vhost的配置完全没有关系，不会相互影响。
 
-## __defaultVhost__
+## \_\_defaultVhost\_\_
 
-FMS的__defaultVhost__是默认的vhost，当用户请求的vhost没有匹配成功时，若配置了defaultVhost，则使用它来提供服务。若匹配失败，也没有defaultVhost，则返回错误。
+FMS的\_\_defaultVhost\_\_是默认的vhost，当用户请求的vhost没有匹配成功时，若配置了defaultVhost，则使用它来提供服务。若匹配失败，也没有defaultVhost，则返回错误。
 
 譬如，服务器192.168.1.10上的SRS配置如下：
 
@@ -179,7 +179,7 @@ vhost demo.srs.com {
 }
 ```
 
-那么，只有当用户访问以下vhost时：
+那么，当用户访问以下vhost时：
 * rtmp://demo.srs.com/live/livestream：成功，匹配vhost为demo.srs.com
 * rtmp://192.168.1.10/live/livestream：失败，没有找到vhost，也没有defaultVhost。
 
