@@ -7,13 +7,16 @@ RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对�
 标准RTMP URL指的是最大兼容的RTMP URL，基本上所有的服务器和播放器都能识别的URL，和HTTP URL其实很相似，例如：
 
 <table>
+<thead>
 <tr>
-<td><strong>HTTP</strong></td>
-<td><strong>Schema</strong></td>
-<td><strong>Host</strong></td>
-<td><strong>Port</strong></td>
-<td colspan=2><strong>Path</strong></td>
+<th><strong>HTTP</strong></th>
+<th><strong>Schema</strong></th>
+<th><strong>Host</strong></th>
+<th><strong>Port</strong></th>
+<th colspan=2><strong>Path</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>http://42.121.5.85:80/players/srs_player.html</td>
 <td>http</td>
@@ -29,12 +32,15 @@ RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对�
 <td>live</td>
 <td>livestream</td>
 </tr>
+</tbody>
+<tfoot>
 <tr>
-<td><strong>RTMP</strong></td>
-<td><strong>Schema</strong></td>
-<td><strong>Host</strong></td>
-<td><strong>Port</strong></td>
-<td><strong>App</strong></td>
-<td><strong>Stream</strong></td>
+<th><strong>RTMP</strong></th>
+<th><strong>Schema</strong></th>
+<th><strong>Host</strong></th>
+<th><strong>Port</strong></th>
+<th><strong>App</strong></th>
+<th><strong>Stream</strong></th>
 </tr>
+</tfoot>
 </table>
