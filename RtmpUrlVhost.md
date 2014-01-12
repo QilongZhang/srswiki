@@ -301,6 +301,38 @@ stream.play("livestream");
 * NetConnection.connect(vhost+app)：这一步会完成握手，connect到vhost，切换到app。类似于登录到vhost后，cd到app这个目录。也就是vhost的验证，都可以在这一步做，也就是指定vhost也是在一步了，所以app后面跟的参数都是和vhost/app相关的。
 * NetStream.play(stream)：这一步是播放指定的直播流。所以和stream相关的事件，都可以传递参数，譬如Adobe的event。SRS是没有这些事件的，流启动时，若配置了HLS会自动开始切片。
 
+## SRS的URL规则
+
+SRS只做简化的事情，绝对不把简单的事情搞复杂。
+
+SRS的RTMP URL使用标准的RTMP URL，一般不需要对app和stream加参数，或者更改他们的意义。除了两个地方：
+* vhost支持参数访问：为了方便运维访问某台服务器的vhost，不需要设置hosts。不影响普通用户。
+* 支持token验证：为了支持token验证，在app后面带参数，这个是token验证必须的方式。
+
+常见的三种SRS RTMP URL，详细见下表：
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rtmp://demo.srs.com/live/livestream</td>
+<td>普通用户的标准访问方式，观看直播流</td>
+</tr>
+<tr>
+<td>rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream</td>
+<td>运维对特定服务器排错</td>
+</tr>
+<tr>
+<td>rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream</td>
+<td>token验证用户，或者带宽测试的key验证</td>
+</tr>
+</tbody>
+</table>
+
 ## SRS的Vhost
 
 SRS的srs.conf默认配置文件中，有很多Vhost，主要是为了说明各个功能，每个功能都单独列出一个vhost。所有功能都放在demo.srs.com这个vhost中。
