@@ -226,3 +226,37 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 </table>
 
 访问其他服务器的流也类似。
+
+## FMLE的奇怪URL方式
+
+FMLE推流时，URL那个地方，有三个可以输入的框，参考[Adobe FMLE](http://help.adobe.com/en_US/FlashMediaLiveEncoder/3.0/Using/WS5b3ccc516d4fbf351e63e3d11c104ba878-7ff7.html)：
+* FMS URL: 需要输入rtmp://host:port/app，例如：rtmp://demo.srs.com/live
+* Backup URL: 备份的服务器，格式同FMS URL。若指定了备份服务器，FMLE会同时推送给这两个服务器。
+* Stream: 流名称，例如：livestream
+
+实际上是将RTMP URL分成了两部分，stream前面那部分和stream。为何要这么搞？我猜想有以下原因：
+* 支持多级app和Stream：我们目前举的例子都是一级app和一级stream，实际上RTMP支持多级app和stream，就像子文件夹，实际上很少用得到。所以SRS的URL都是一个地址，默认最后一个/后面就是stream，前面是app。
+* 支持流名称带参数：Adobe的鬼HLS/HDS非常之麻烦，那个地址是个恶心的完全不一致。参考[FMS livepkgr](http://help.adobe.com/en_US/flashmediaserver/devguide/WSd391de4d9c7bd609-52e437a812a3725dfa0-8000.html#WSd391de4d9c7bd609-52e437a812a3725dfa0-7ff5)，例如发布一个rtmp和HLS的流：
+```bash
+FMLE:
+FMS URL: rtmp://demo.srs.com/livepkgr
+Stream: livestream?adbe-live-event=liveevent
+
+Client:
+RTMP:  rtmp://demo.srs.com/livepkgr/livestream
+HLS: http://demo.srs.com/hls-live/livepkgr/_definst_/liveevent/livestream.m3u8
+HDS: http://demo.srs.com/hds-live/livepkgr/_definst_/liveevent/livestream.f4m
+```
+没有比这个更恶心的东西了。比较SRS的简洁方案：
+```bash
+FMLE: 
+FMS URL: rtmp://demo.srs.com/livepkgr
+Stream: livestream
+
+Client:
+RTMP: rtmp://demo.srs.com/livepkgr/livestream
+HLS: http://demo.srs.com/livepkgr/livestream.m3u8
+HDS: not support yet.
+```
+
+既然谈到了RTMP URL中的参数，下一章就说说这个。
