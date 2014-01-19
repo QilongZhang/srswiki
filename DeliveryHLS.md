@@ -333,4 +333,4 @@ vhost hls.transcode.vhost.com {
     }
 }
 ```
-该FFMPEG转码参数，指定gop为100/20=5秒，fps（vfps=20），gop（g=100）。
+该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
