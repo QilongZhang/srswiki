@@ -16,6 +16,10 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 
 搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
 
+## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+
+如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+
 ## [搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
 使用forward搭建小型集群的配置方法。链接：[搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
