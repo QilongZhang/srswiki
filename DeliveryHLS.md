@@ -302,7 +302,8 @@ Forward的流和普通流不做区分，若forward的流所在的VHOST配置了H
 Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
 
 配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
-```bashvhost hls.transcode.vhost.com {
+```bash
+vhost hls.transcode.vhost.com {
     transcode {
         enabled     on;
         ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
