@@ -25,9 +25,9 @@ HLS和RTMP两种分发方式，就可以支持所有的终端。
 <tbody>
 <tr>
 <td>RTMP</td>
-<td>Windows PC</td>
+<td>Windows Flash</td>
 <td>RTMP</td>
-<td>Adobe Flash</td>
+<td>Adobe</td>
 <td>主流的低延时分发方式，<br/>Adobe对RTMP是Flash原生支持方式，<br/>FMS（Adobe Media Server前身），<br/>就是Flash Media Server的简写，可见Flash播放RTMP是多么“原生”，<br/>就像浏览器打开http网页一样“原生”，<br/>经测试，Flash播放RTMP流可以10天以上不间断播放。</td>
 </tr>
 <tr>
