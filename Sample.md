@@ -13,7 +13,7 @@ SRS真实的应用实例，大家可以添加自己的应用实例。（请拷�
 主要流程：
 * 在教室使用播控系统（摄像机+采集卡或者摄像机+导播台）推送RTMP流到主SRS
 * 主SRS自动Forward给从SRS（参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)）
-* PC客户端（Flash）使用FlowerPlayer，
+* PC客户端（Flash）使用FlowerPlayer，支持多个服务器的负载均衡
 * FlowerPlayer支持在两个主从SRS，自动选择一个服务器，实现负载均衡
 
 主要的活动包括：
