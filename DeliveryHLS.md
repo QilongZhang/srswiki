@@ -107,8 +107,7 @@ HLS的主要流程是：<br/>
 
 SRS的`with-hls.vhost.com`VHOST是HLS配置的实例：
 ```bash
-# the vhost with hls specified.
-vhost with-hls.vhost.com {
+vhost __defaultVhost__ {
     hls {
         # whether the hls is enabled.
         # if off, donot write hls(ts and m3u8) when publish.
