@@ -24,6 +24,10 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 
 如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
+## [低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
+
+如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
+
 ## [HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
 
 如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
