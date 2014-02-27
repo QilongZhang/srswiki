@@ -131,6 +131,8 @@ vhost __defaultVhost__ {
 }
 ```
 
+备注：可以参考conf/srs.conf配置文件中的hooks.callback.vhost.com实例。
+
 ## 默认的HTTP服务器
 
 SRS自带了一个默认的处理HTTP Callback的服务器，启动时需要指定端口，譬如8085端口。
