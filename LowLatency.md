@@ -97,4 +97,6 @@ vhost __defaultVhost__ {
 }
 ```
 
+当然，服务器的性能也要考虑，不可以让一个SRS进程跑太高带宽，一般CPU在80%以下不会影响延迟，连接数参考[性能](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)。
+
 Winlin
