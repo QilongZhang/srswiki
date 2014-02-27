@@ -95,6 +95,14 @@ livestream-67.ts
 
 譬如，每个ts切片为10秒，窗口为60秒，那么m3u8中会保存6个ts切片。
 
+## HLS流程
+
+HLS的主要流程是：
+1. FFMPEG或FMLE或编码器，推送RTMP流到SRS，编码为H264/AAC（其他编码需要SRS转码）
+2. SRS将RTMP切片成TS，并生成M3U8。若流非H264和AAC，则停止输出HLS（可使用SRS转码到SRS其他vhost或流，然后再切HLS）。
+3. 访问m3u8，nginx提供HTTP服务。
+注意：SRS只需要在Vhost上配置HLS，会自动根据流的app创建目录。
+
 ## 配置方法
 
 SRS的`with-hls.vhost.com`VHOST是HLS配置的实例：
@@ -334,3 +342,5 @@ public:
     }
 };
 ```
+
+Winlin
