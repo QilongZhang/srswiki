@@ -137,6 +137,22 @@ SRS自带了一个默认的处理HTTP Callback的服务器，启动时需要指�
 
 启动方法：`python research/api-server/server.py 8085`
 
+启动日志如下：
+
+```bash
+[winlin@dev6 srs]$ python research/api-server/server.py 8085
+[2014-02-27 09:42:25][trace] api server listen at port: 8085, static_dir: /home/winlin/git/simple-rtmp-server/trunk/research/api-server/static-dir
+[2014-02-27 09:42:25][trace] start cherrypy server
+[27/Feb/2014:09:42:25] ENGINE Listening for SIGHUP.
+[27/Feb/2014:09:42:25] ENGINE Listening for SIGTERM.
+[27/Feb/2014:09:42:25] ENGINE Listening for SIGUSR1.
+[27/Feb/2014:09:42:25] ENGINE Bus STARTING
+[27/Feb/2014:09:42:25] ENGINE Started monitor thread '_TimeoutMonitor'.
+[27/Feb/2014:09:42:25] ENGINE Started monitor thread 'Autoreloader'.
+[27/Feb/2014:09:42:25] ENGINE Serving on 0.0.0.0:8085
+[27/Feb/2014:09:42:25] ENGINE Bus STARTED
+```
+
 ## 推流和播放
 
 推流到SRS时，会调用HTTP接口：
