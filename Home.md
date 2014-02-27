@@ -31,3 +31,7 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 ## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
 
 对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
+
+## [服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
+
+SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
