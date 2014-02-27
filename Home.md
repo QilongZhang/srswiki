@@ -35,3 +35,7 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 ## [服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
+
+## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
+
+C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
