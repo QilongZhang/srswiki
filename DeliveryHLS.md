@@ -105,7 +105,7 @@ HLS的主要流程是：<br/>
 
 ## 配置方法
 
-SRS的`with-hls.vhost.com`VHOST是HLS配置的实例：
+conf/srs.conf中的with-hls.vhost.com是HLS配置的实例，可以拷贝到默认的Vhost，例如：
 ```bash
 vhost __defaultVhost__ {
     hls {
