@@ -95,6 +95,107 @@ livestream-67.ts
 
 譬如，每个ts切片为10秒，窗口为60秒，那么m3u8中会保存6个ts切片。
 
+## 配置方法
+
+SRS的`with-hls.vhost.com`VHOST是HLS配置的实例：
+```bash
+# the vhost with hls specified.
+vhost with-hls.vhost.com {
+    hls {
+        # whether the hls is enabled.
+        # if off, donot write hls(ts and m3u8) when publish.
+        # default: off
+        enabled         on;
+        # the hls output path.
+        # the app dir is auto created under the hls_path.
+        # for example, for rtmp stream:
+        #   rtmp://127.0.0.1/live/livestream
+        #   http://127.0.0.1/live/livestream.m3u8
+        # where hls_path is /hls, srs will create the following files:
+        #   /hls/live       the app dir for all streams.
+        #   /hls/live/livestream.m3u8   the HLS m3u8 file.
+        #   /hls/live/livestream-1.ts   the HLS media/ts file.
+        # in a word, the hls_path is for vhost.
+        # default: ./objs/nginx/html
+        hls_path        /data/nginx/html;
+        # the hls fragment in seconds, the duration of a piece of ts.
+        # default: 10
+        hls_fragment    10;
+        # the hls window in seconds, the number of ts in m3u8.
+        # default: 60
+        hls_window      60;
+    }
+}
+```
+
+其中hls配置就是HLS的配置，主要配置项如下：
+* enabled：是否开启HLS，on/off，默认off。
+* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
+```bash
+对于RTMP流：rtmp://localhost/live/livestream
+HLS配置路径：hls_path        /data/nginx/html;
+那么会生成以下文件：
+/data/nginx/html/live/livestream.m3u8
+/data/nginx/html/live/livestream-0.ts
+/data/nginx/html/live/livestream-1.ts
+/data/nginx/html/live/livestream-2.ts
+```
+* hls_fragment：秒，指定ts切片的最小长度。实际上ts文件的长度由以下公式决定：
+```bash
+ts文件时长 = max(hls_fragment, gop_size)
+hls_fragment：配置文件中的长度。譬如：5秒。
+gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，gop为200帧，则gop_size=gop/fps=10秒。
+那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
+```
+* hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
+```bash
+hls_window >= sum(m3u8中每个ts的时长)
+```
+
+## HLS和Forward
+
+Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
+
+因此，可以对原始流进行Transcode之后，保证流符合h.264/aac的规范，然后forward到多个配置了HLS的VHOST进行切片。支持多个源站的热备。
+
+## HLS和Transcode
+
+Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
+
+配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
+```bash
+vhost hls.transcode.vhost.com {
+    transcode {
+        enabled     on;
+        ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
+        engine hls {
+            enabled         on;
+            vfilter {
+            }
+            vcodec          libx264;
+            vbitrate        500;
+            vfps            20;
+            vwidth          768;
+            vheight         320;
+            vthreads        2;
+            vprofile        baseline;
+            vpreset         superfast;
+            vparams {
+                g           100;
+            }
+            acodec          libaacplus;
+            abitrate        45;
+            asample_rate    44100;
+            achannels       2;
+            aparams {
+            }
+            output          rtmp://127.0.0.1:[port]/[app]?vhost=[vhost]/[stream]_[engine];
+        }
+    }
+}
+```
+该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
+
 ## SRS如何支持HLS
 
 SRS的HLS主要参考了nginx-rtmp的HLS实现方式，SRS没有做什么事情，都是nginx-rtmp实现的。而分发m3u8和ts文件，也是使用nginx分发的。
@@ -233,104 +334,3 @@ public:
     }
 };
 ```
-
-## 配置方法
-
-SRS的`with-hls.vhost.com`VHOST是HLS配置的实例：
-```bash
-# the vhost with hls specified.
-vhost with-hls.vhost.com {
-    hls {
-        # whether the hls is enabled.
-        # if off, donot write hls(ts and m3u8) when publish.
-        # default: off
-        enabled         on;
-        # the hls output path.
-        # the app dir is auto created under the hls_path.
-        # for example, for rtmp stream:
-        #   rtmp://127.0.0.1/live/livestream
-        #   http://127.0.0.1/live/livestream.m3u8
-        # where hls_path is /hls, srs will create the following files:
-        #   /hls/live       the app dir for all streams.
-        #   /hls/live/livestream.m3u8   the HLS m3u8 file.
-        #   /hls/live/livestream-1.ts   the HLS media/ts file.
-        # in a word, the hls_path is for vhost.
-        # default: ./objs/nginx/html
-        hls_path        /data/nginx/html;
-        # the hls fragment in seconds, the duration of a piece of ts.
-        # default: 10
-        hls_fragment    10;
-        # the hls window in seconds, the number of ts in m3u8.
-        # default: 60
-        hls_window      60;
-    }
-}
-```
-
-其中hls配置就是HLS的配置，主要配置项如下：
-* enabled：是否开启HLS，on/off，默认off。
-* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
-```bash
-对于RTMP流：rtmp://localhost/live/livestream
-HLS配置路径：hls_path        /data/nginx/html;
-那么会生成以下文件：
-/data/nginx/html/live/livestream.m3u8
-/data/nginx/html/live/livestream-0.ts
-/data/nginx/html/live/livestream-1.ts
-/data/nginx/html/live/livestream-2.ts
-```
-* hls_fragment：秒，指定ts切片的最小长度。实际上ts文件的长度由以下公式决定：
-```bash
-ts文件时长 = max(hls_fragment, gop_size)
-hls_fragment：配置文件中的长度。譬如：5秒。
-gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，gop为200帧，则gop_size=gop/fps=10秒。
-那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
-```
-* hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
-```bash
-hls_window >= sum(m3u8中每个ts的时长)
-```
-
-## HLS和Forward
-
-Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
-
-因此，可以对原始流进行Transcode之后，保证流符合h.264/aac的规范，然后forward到多个配置了HLS的VHOST进行切片。支持多个源站的热备。
-
-## HLS和Transcode
-
-Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
-
-配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
-```bash
-vhost hls.transcode.vhost.com {
-    transcode {
-        enabled     on;
-        ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
-        engine hls {
-            enabled         on;
-            vfilter {
-            }
-            vcodec          libx264;
-            vbitrate        500;
-            vfps            20;
-            vwidth          768;
-            vheight         320;
-            vthreads        2;
-            vprofile        baseline;
-            vpreset         superfast;
-            vparams {
-                g           100;
-            }
-            acodec          libaacplus;
-            abitrate        45;
-            asample_rate    44100;
-            achannels       2;
-            aparams {
-            }
-            output          rtmp://127.0.0.1:[port]/[app]?vhost=[vhost]/[stream]_[engine];
-        }
-    }
-}
-```
-该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
