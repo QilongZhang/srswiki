@@ -20,6 +20,10 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 
 搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
 
+## [FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+
+如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG
+
 ## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
