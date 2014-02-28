@@ -164,14 +164,22 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++，编译方法是：
 
 ```bash
-export CXX=arm-linux-g++ && ./configure --with-ssl --without-hls --without-http --without-ffmpeg && make
+export CXX=arm-linux-g++ && 
+export GCC=arm-linux-gcc && 
+export CC=arm-linux-gcc && 
+export AR=arm-linux-ar && 
+export RANLIB=arm-linux-ranlib && 
+./configure --without-ssl --without-hls --without-http --without-ffmpeg && make
 ```
 
 可以定义的其他编译变量是：
-* CXXFLAGS: c++编译器参数。默认：-ansi -Wall -g -O0
-* CXX: c++编译器。默认：g++
-* LINK：链接器。默认和CXX一样。
-* AR：库生成器。默认：ar
+* GCC: c编译器。SRS默认：gcc
+* CC: c编译器。SRS默认：gcc。ST默认：cc。
+* CXX: c++编译器。SRS默认：g++
+* AR：库生成器。ST默认：ar
+* RANLIB：ST默认：ranlib
+
+注意：SRS和ST都可以通过编译前设置变量编译，但是ssl需要手动修改Makefile。还好ssl不用每次都编译。
 
 ## 编译和启动
 
