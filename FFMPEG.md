@@ -280,9 +280,9 @@ conf/srs.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的�
 ## FFMPEG
 
 FFMPEG相关链接：
-[ffmpeg.org](http://ffmpeg.org)
-[ffmpeg命令行](http://ffmpeg.org/ffmpeg.html)
-[ffmpeg滤镜](http://ffmpeg.org/ffmpeg-filters.html)
-[ffmpeg编解码参数](http://ffmpeg.org/ffmpeg-codecs.html)
+* [ffmpeg.org](http://ffmpeg.org)
+* [ffmpeg命令行](http://ffmpeg.org/ffmpeg.html)
+* [ffmpeg滤镜](http://ffmpeg.org/ffmpeg-filters.html)
+* [ffmpeg编解码参数](http://ffmpeg.org/ffmpeg-codecs.html)
 
 Winlin
