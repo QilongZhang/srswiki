@@ -22,7 +22,7 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 
 ## [FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
-如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG
+如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
 ## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
