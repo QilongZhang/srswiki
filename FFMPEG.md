@@ -276,3 +276,13 @@ conf/srs.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的�
 * ffempty.transcode.vhost.com 一个ffmpeg的mock，不转码只打印参数。
 * app.transcode.vhost.com 对指定的app的流转码。
 * stream.transcode.vhost.com 对指定的流转码。
+
+## FFMPEG
+
+FFMPEG相关链接：
+[ffmpeg.org](http://ffmpeg.org)
+[ffmpeg命令行](http://ffmpeg.org/ffmpeg.html)
+[ffmpeg滤镜](http://ffmpeg.org/ffmpeg-filters.html)
+[ffmpeg编解码参数](http://ffmpeg.org/ffmpeg-codecs.html)
+
+Winlin
