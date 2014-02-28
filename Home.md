@@ -28,6 +28,10 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](h
 
 如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
+## [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
+
+如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
+
 ## [低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
 
 如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
