@@ -12,7 +12,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
 * librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
 * 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
-* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他的服务器部分代码没有冗余。
+* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他的服务器部分代码没有编译到srs-librtmp中，避免了代码冗余。
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
 
