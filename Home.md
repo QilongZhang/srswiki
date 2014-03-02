@@ -56,9 +56,9 @@ SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://git
 
 如何使用SRS提供的客户端rtmp库？为何要提供？结构是什么？主要流程是什么？实例如何使用？参考：[SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp)
 
-## [ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
+## [SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 
-linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
+linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？参考：[SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 
 ## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
 
