@@ -93,7 +93,7 @@ SRS比nginx-rtmp优点
 
 ### Red5 PK SRS
 
-Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同时开源软件，相煎何太急。
+Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同是开源软件，相煎何太急。
 
 ### crtmpd PK SRS
 
