@@ -62,6 +62,34 @@ SRS编译成功后，用户就可以使用这些库开发
 ## srs-librtmp实例
 
 SRS提供了实例sample，也会在编译srs时自动编译：
+* research/librtmp/srs_play.c：播放RTMP流实例。
+* research/librtmp/srs_publish.c：推送RTMP流实例。
+
+依赖ssl的编译方法（支持复杂握手和简单握手）：
+
+```bash
+# 编译srs时自动编译这些实例
+cd /home/winlin/git/simple-rtmp-server/trunk
+./configure --with-ssl && make
+#
+#实例的单独编译方法为：
+cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
+make ssl
+```
+
+不需要ssl（不支持复杂握手，只支持简单握手）编译方法：
+
+```bash
+# 编译srs时自动编译这些实例
+cd /home/winlin/git/simple-rtmp-server/trunk
+./configure --without-ssl && make
+#
+#实例的单独编译方法为：
+cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
+make nossl
+```
+
+实例编译的二进制文件：
 * research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。
 * research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
 * research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。
@@ -109,9 +137,9 @@ srs-librtmp的主要逻辑流程如下图：
 * 脚本数据格式参考：`E.4.4.1 SCRIPTDATA`，p80，譬如，onMetadata，流的信息（宽高，码率，分辨率等）
 
 数据类型(int type)定义如下（`E.4.1 FLV Tag`，page 75）：
-* 音频：8 = audio
-* 视频：9 = video
-* 脚本数据：18 = script data
+* 音频：8 = audio，宏定义：SRS_RTMP_TYPE_AUDIO
+* 视频：9 = video，宏定义：SRS_RTMP_TYPE_VIDEO
+* 脚本数据：18 = script data，宏定义：SRS_RTMP_TYPE_SCRIPT
 
 其他的数据，譬如时间戳，都是通过参数接受和发送。
 
