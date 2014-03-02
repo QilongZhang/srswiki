@@ -325,6 +325,14 @@ int srs_publish_stream(srs_rtmp_t rtmp);
 // 18 = script data
 #define SRS_RTMP_TYPE_SCRIPT 18
 /**
+* convert the flv tag type to string.
+* 	SRS_RTMP_TYPE_AUDIO to "Audio"
+* 	SRS_RTMP_TYPE_VIDEO to "Video"
+* 	SRS_RTMP_TYPE_SCRIPT to "Data"
+* 	otherwise, "Unknown"
+*/
+const char* srs_type2string(int type);
+/**
 * read a audio/video/script-data packet from rtmp stream.
 * @param type, output the packet type, macros:
 *			SRS_RTMP_TYPE_AUDIO, FlvTagAudio
@@ -337,9 +345,12 @@ int srs_publish_stream(srs_rtmp_t rtmp);
 *			FlvTagScript, @see "E.4.4.1 SCRIPTDATA"
 * @param size, size of packet.
 * @return the error code. 0 for success; otherwise, error.
+*
+* @remark: for read, user must free the data.
+* @remark: for write, user should never free the data, even if error.
 */
-int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size);
-int srs_write_packet(int type, u_int32_t timestamp, char* data, int size);
+int srs_read_packet(srs_rtmp_t rtmp, int* type, u_int32_t* timestamp, char** data, int* size);
+int srs_write_packet(srs_rtmp_t rtmp, int type, u_int32_t timestamp, char* data, int size);
 
 /**
 * whether srs is compiled with ssl,
