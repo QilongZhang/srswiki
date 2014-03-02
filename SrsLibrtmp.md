@@ -100,6 +100,11 @@ srs-librtmp的主要逻辑流程如下图：
 * 视频数据格式参考：`E.4.3.1 VIDEODATA`，p78，譬如，h.264编码的视频数据。
 * 脚本数据格式参考：`E.4.4.1 SCRIPTDATA`，p80，譬如，onMetadata，流的信息（宽高，码率，分辨率等）
 
+数据类型定义如下（`E.4.1 FLV Tag`，page 75）：
+* 音频：8 = audio
+* 视频：9 = video
+* 脚本数据：18 = script data
+
 另外，文档其他重要信息：
 * flv文件头格式：`E.2 The FLV header`，p74。
 * flv文件主体格式：`E.3 The FLV File Body`，p74。
@@ -114,8 +119,8 @@ srs-librtmp的主要逻辑流程如下图：
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
 
 数据接口：
-* 读取数据包：int srs_read_packet(FlvTagType* type, u_int32_t* timestamp, char** data, int* size)
-* 发送数据包：int srs_write_packet(FlvTagType type, u_int32_t timestamp, char* data, int size)
+* 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
+* 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
 
 ## srs-librtmp接口说明
 
