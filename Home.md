@@ -4,6 +4,10 @@ Welcome to the simple-rtmp-server wiki!
 
 提问是一门艺术，不是别人不待见你，是你提的问题实在不招人待见。提问前务必参考：[如何提问](https://github.com/winlinvip/simple-rtmp-server/wiki/HowToAskQuestion)
 
+## [SRS产品定位] (https://github.com/winlinvip/simple-rtmp-server/wiki/Product)
+
+SRS产品定位是什么？SRS亮点是什么？和其他产品对比呢？参考：[SRS产品定位] (https://github.com/winlinvip/simple-rtmp-server/wiki/Product)
+
 ## [应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/Sample)
 
 SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/Sample)
