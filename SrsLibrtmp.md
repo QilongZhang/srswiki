@@ -154,6 +154,58 @@ srs-librtmp的主要逻辑流程如下图：
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
 
+## 运行实例
+
+启动SRS：
+
+```bash
+[winlin@dev6 srs]$ make && ./objs/srs -c srs.conf 
+[2014-03-02 18:28:03.857][trace][1][16] server started, listen at port=1935, fd=4
+[2014-03-02 18:28:03.857][trace][2][16] thread cycle start
+```
+
+推流实例：
+
+```bash
+[winlin@dev6 srs]$ make && ./research/librtmp/srs_publish_ssl 
+publish rtmp stream to server like FMLE/FFMPEG/Encoder
+srs(simple-rtmp-server) client librtmp library.
+version: 0.9.9
+simple handshake success
+connect vhost/app success
+publish stream success
+sent packet: type=Video, time=40, size=4096
+sent packet: type=Video, time=80, size=4096
+sent packet: type=Video, time=120, size=4096
+sent packet: type=Video, time=160, size=4096
+sent packet: type=Video, time=200, size=4096
+sent packet: type=Video, time=240, size=4096
+```
+
+播放实例：
+
+```bash
+[winlin@dev6 trunk]$ make && ./research/librtmp/srs_play_ssl 
+suck rtmp stream like rtmpdump
+srs(simple-rtmp-server) client librtmp library.
+version: 0.9.9
+simple handshake success
+connect vhost/app success
+play stream success
+got packet: type=Data, time=0, size=24
+got packet: type=Data, time=0, size=44
+got packet: type=Video, time=40, size=4096
+got packet: type=Video, time=80, size=4096
+got packet: type=Video, time=120, size=4096
+got packet: type=Video, time=160, size=4096
+got packet: type=Video, time=200, size=4096
+got packet: type=Video, time=240, size=4096
+got packet: type=Video, time=280, size=4096
+got packet: type=Video, time=320, size=4096
+got packet: type=Video, time=360, size=4096
+got packet: type=Video, time=400, size=4096
+```
+
 ## srs-librtmp接口说明
 
 srs-librtmp接口参考头文件`srs_librtmp.h`：
