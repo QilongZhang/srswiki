@@ -57,7 +57,11 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 </tr>
 </table>
 
-用户可以使用这些库开发，同时SRS提供了实例sample，也会在编译srs时自动编译：
+SRS编译成功后，用户就可以使用这些库开发
+
+## srs-librtmp实例
+
+SRS提供了实例sample，也会在编译srs时自动编译：
 * research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。
 * research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
 * research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。
