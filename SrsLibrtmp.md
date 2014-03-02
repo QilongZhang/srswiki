@@ -156,7 +156,7 @@ srs-librtmp的主要逻辑流程如下图：
 
 ## srs-librtmp接口说明
 
-srs-librtmp接口参考头文件`srs_librtmp.h`，接口包括：
+srs-librtmp接口参考头文件`srs_librtmp.h`：
 
 ```c
 /*
