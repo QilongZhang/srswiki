@@ -99,7 +99,7 @@ srs-librtmp的主要逻辑流程如下图：
 * 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
 
-接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件`video_file_format_spec_v10_1.pdf`
+接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件[video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
 * 视频数据格式参考：`E.4.3.1 VIDEODATA`，p78，譬如，h.264编码的视频数据。
 * 脚本数据格式参考：`E.4.4.1 SCRIPTDATA`，p80，譬如，onMetadata，流的信息（宽高，码率，分辨率等）
