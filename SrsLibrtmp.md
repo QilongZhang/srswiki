@@ -78,6 +78,21 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 -rwxrwxr-x 1 winlin winlin 747276 Mar  2 12:03 srs_publish_nossl
 ```
 
+## 主要流程
+
+srs-librtmp的主要逻辑流程如下图：
+<pre>
+                                                                srs_play_stream
+                                                                +------------+     
+                                                             +--+    play    +---+    
+  +--------+          +-----------+       +-------------+    |  +------------+   |    +------------+    +-----------+
+  | create +------->--+ handshake +----->-+ connect-app +-->-+                   +-->-+ read/write +-->-+  destroy  +
+  +--------+          +-----------+       +-------------+    |  +------------+   |    +------------+    +-----------+
+ srs_rtmp_create   srs_simple_handshake   srs_connect_app    +--+   publish  +---+    srs_read_packet   srs_rtmp_destroy
+                  srs_complex_handshake                         +------------+        srs_write_packet
+                     srs_ssl_enabled                           srs_publish_stream
+</pre>
+
 ## 数据格式
 
 接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件`video_file_format_spec_v10_1.pdf`
