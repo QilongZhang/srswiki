@@ -95,32 +95,32 @@ srs-librtmp的主要逻辑流程如下图：
 
 ## 数据格式
 
+数据接口：
+* 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
+* 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
+
 接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件`video_file_format_spec_v10_1.pdf`
 * 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
 * 视频数据格式参考：`E.4.3.1 VIDEODATA`，p78，譬如，h.264编码的视频数据。
 * 脚本数据格式参考：`E.4.4.1 SCRIPTDATA`，p80，譬如，onMetadata，流的信息（宽高，码率，分辨率等）
 
-数据类型定义如下（`E.4.1 FLV Tag`，page 75）：
+数据类型(int type)定义如下（`E.4.1 FLV Tag`，page 75）：
 * 音频：8 = audio
 * 视频：9 = video
 * 脚本数据：18 = script data
+
+其他的数据，譬如时间戳，都是通过参数接受和发送。
 
 另外，文档其他重要信息：
 * flv文件头格式：`E.2 The FLV header`，p74。
 * flv文件主体格式：`E.3 The FLV File Body`，p74。
 * tag头格式：`E.4.1 FLV Tag`，p75。
 
-其他的数据，譬如时间戳，都是通过参数接受和发送。
-
 使用flv格式的原因：
 * flv的格式足够简单。
 * ffmpeg也是用的这种格式
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
-
-数据接口：
-* 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
-* 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
 
 ## srs-librtmp接口说明
 
