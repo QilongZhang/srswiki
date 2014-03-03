@@ -31,7 +31,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 <td>不依赖openssl，<br/>不支持复杂握手，<br/>只支持简单握手</td>
 <td>
 objs/include/srs_librtmp.h<br/>
-objs/lib/srs_librtmp.a
+objs/lib/libsrs_rtmp.a
 </td>
 <td>
 一般客户端使用简单握手即可：<br/>
@@ -44,7 +44,7 @@ objs/lib/srs_librtmp.a
 <td>依赖openssl，<br/>支持复杂握手，<br/>支持简单握手</td>
 <td>
 objs/include/srs_librtmp.h<br/>
-objs/lib/srs_librtmp.a<br/>
+objs/lib/libsrs_rtmp.a<br/>
 objs/openssl/lib/libssl.a<br/>
 objs/openssl/lib/libcrypto.a
 </td>
@@ -104,7 +104,7 @@ make nossl
 [winlin@dev6 srs]$ ll objs/include/
 -rw-r--r-- 1 winlin winlin 2891 Mar  2 12:03 srs_librtmp.h
 [winlin@dev6 srs]$ ll objs/lib/
--rw-rw-r-- 1 winlin winlin 1540950 Mar  2 12:03 srs_librtmp.a
+-rw-rw-r-- 1 winlin winlin 1540950 Mar  2 12:03 libsrs_rtmp.a
 [winlin@dev6 srs]$ ll research/librtmp/
 -rwxrwxr-x 1 winlin winlin 747265 Mar  2 12:03 srs_play_nossl
 -rwxrwxr-x 1 winlin winlin 747276 Mar  2 12:03 srs_publish_nossl
