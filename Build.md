@@ -268,7 +268,7 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 
 ## jobs:加速编译
 
-由于SRS在configure时需要编译ffmpeg/nginx/openssl，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
+由于SRS在configure时需要编译ffmpeg/nginx，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
 * configure: 在编译srs依赖的工具时可以并行编译。
 * make: 在编译srs时可以使用并行编译。
 
