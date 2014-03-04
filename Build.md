@@ -265,3 +265,26 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
+
+## jobs:加速编译
+
+由于SRS在configure时需要编译ffmpeg/nginx/openssl，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
+* configure: 在编译srs依赖的工具时可以并行编译。
+* make: 在编译srs时可以使用并行编译。
+
+configure使用并行编译的方法如下：
+
+```bash
+./configure --jobs=16
+```
+
+注意：configure不支持make那样的"-jN"，只支持"--jobs[=N]"。
+
+make使用并行编译的方法如下：
+
+```bash
+// or make --jobs=16
+make -j16
+```
+
+Winlin
