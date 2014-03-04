@@ -6,6 +6,8 @@ librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库�
 * 基于同步阻塞socket，客户端用可以了。
 * arm？可能能编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
 
+备注：关于ssl，握手协议，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)
+
 ## SRS为何提供librtmp
 
 srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
