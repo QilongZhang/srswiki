@@ -272,6 +272,17 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 * configure: 在编译srs依赖的工具时可以并行编译。
 * make: 在编译srs时可以使用并行编译。
 
+srs并行编译和串行编译的项目包括（srs会自动判断，不需要用户指定）：
+* srs: 支持并行编译。
+* st-1.9: 串行编译，库比较小，编译时间很短。
+* http-parser: 串行编译，库比较小，编译时间很短。
+* openssl: 串行编译，并行编译有问题。
+* nginx: 支持并行编译。
+* ffmpeg: 支持并行编译。
+* lame: 支持并行编译。ffmpeg用到的mp3库。
+* libaacplus: 串行编译，并行编译有问题。ffmpeg用到的aac库。
+* x264: 支持并行编译。ffmpeg用到的x264库。
+
 configure使用并行编译的方法如下：
 
 ```bash
