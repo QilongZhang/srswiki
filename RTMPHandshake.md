@@ -6,7 +6,7 @@ rtmp 1.0规范中，指定了RTMP的握手协议：
 * c2/s2: 1536字节，4字节时间1，4字节时间2，1528随机数和s1相同。
 这个就是srs以及其他开源软件所谓的simple handshake，简单握手，标准握手，FMLE也是使用这个握手协议。
 
-Flash播放器连接服务器时，若服务器只支持简单握手，则无法播放h264和aac的流，可能是adobe的限制。adobe将简单握手改为了有一系列加密算法的复杂握手（complex handshake） ，具体参考[变更的RTMP握手](http://blog.csdn.net/win_lin/article/details/13006803)
+Flash播放器连接服务器时，若服务器只支持简单握手，则无法播放h264和aac的流，可能是adobe的限制。adobe将简单握手改为了有一系列加密算法的复杂握手（complex handshake） ，详细协议分析参考[变更的RTMP握手](http://blog.csdn.net/win_lin/article/details/13006803)
 
 下表为总结：
 
