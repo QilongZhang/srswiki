@@ -6,3 +6,5 @@ arm芯片上，如何使用SRS？一般arm上的硬件可以获取到h.264裸码
 * arm上运行SRS：在arm上运行SRS，使用上面两个方案将h.264裸码流推送到arm上的SRS。客户端或者RTMP边缘直接从arm上的SRS源站取RTMP流。
 
 推荐第一种方案，“arm推送RTMP到SRS”。
+
+备注：“arm上运行SRS”这个方案目前不可行，在arm上编译能通过，运行时st库会报错。
