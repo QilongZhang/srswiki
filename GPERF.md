@@ -45,6 +45,8 @@ Leak of 56 bytes in 1 objects allocated from:
 
 备注：st创建stack的内存泄漏，应该不是问题，属于误报。
 
+另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker/heap_checker.cc
+
 ## 
 
 Winlin 2014.3
