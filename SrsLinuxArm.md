@@ -20,4 +20,4 @@ SRS在ARM上主要是源站：
 
 备注：“arm上运行SRS”需要在编译时用arm编译命令，并且st要使用linux-optimized选项，否则运行失败。
 
-Winlin
+Winlin 2014.2
