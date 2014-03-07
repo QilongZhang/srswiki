@@ -298,4 +298,21 @@ make使用并行编译的方法如下：
 make -j16
 ```
 
+## 配置参数说明
+
+SRS的配置(configure)参数说明如下：
+* --help 配置的帮助信息
+* --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)。
+* --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+* --with-http 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
+* --with-ffmpeg 支持直播流转码。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+* --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
+* --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
+* --with-gperf 是否使用google的tcmalloc库，默认关闭。
+* --with-gmc 是否使用gperf的内存检测，编译后启动srs会检测内存错误。这个选项会导致低性能，只应该在找内存泄漏时才开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
+* --with-gmp 是否使用gperf的内存性能分析，编译后srs退出时会生成内存分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
+* --with-gcp 是否启用gperf的CPU性能分析，编译后srs退出时会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
+* --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/GPROF)
+* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
+
 Winlin 2014.2
