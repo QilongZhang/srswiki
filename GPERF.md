@@ -47,7 +47,7 @@ Leak of 56 bytes in 1 objects allocated from:
 
 备注：st创建stack的内存泄漏，应该不是问题，属于误报。
 
-另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker/heap_checker.cc
+另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker
 
 ## GMP内存性能
 
@@ -83,6 +83,8 @@ Total: 0.1 MB
      0.0   0.4%  99.5%      0.0  27.9% st_init
 ```
 
+另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-profiler
+
 ## GCP-CPU性能分析
 
 使用gcp时，需要将tcmalloc编译进去（或者动态链接），具体参考官方文档。
@@ -115,6 +117,8 @@ Total: 20 samples
        0   0.0% 100.0%        5  25.0% SrsClient::fmle_publish
        0   0.0% 100.0%        1   5.0% SrsClient::process_publish_message
 ```
+
+另外，SRS有例子说明如何使用gmc，参考：research/gperftools/cpu-profiler
 
 ## 同时使用
 
