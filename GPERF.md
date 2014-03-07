@@ -19,6 +19,8 @@ SRS开启gmc的方法是：
 * 启动时指定环境变量：`env PPROF_PATH=./objs/pprof HEAPCHECK=normal ./objs/srs -c conf/srs.conf`
 * 停止srs，打印gmc结果：`CTRL+C` 或者发送SIGINT信号给SRS
 
+备注：make编译SRS成功后，会打印出这些操作命令。
+
 注意：必须导出pprof环境变量`PPROF_PATH`，否则函数的地址和符合对应不上
 
 若能打印下面的信息，说明gmc成功启动：
@@ -58,6 +60,8 @@ SRS开启gmp的方法是：
 * 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
 * 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gmp*`
 
+备注：make编译SRS成功后，会打印出这些操作命令。
+
 若能打印下面的信息，则表示成功启动gmp：
 
 ```bash
@@ -89,6 +93,8 @@ SRS开启gcp的方法是：
 * 正常启动srs就开始内存性能分析：`rm -f gperf.srs.gcp*; ./objs/srs -c conf/srs.conf`
 * 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
 * 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gcp*`
+
+备注：make编译SRS成功后，会打印出这些操作命令。
 
 性能分析的结果如下：
 
