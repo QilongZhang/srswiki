@@ -8,3 +8,5 @@ Windows平台，一般中国开发者用IDE还是windows，用什么IDE？推荐
 * SRS编译和调试当然还是在linux，windows下只是编辑，让他们做各自擅长的事情。
 
 我也比较过其他的IDE，可以参考：[开源日志：关于IDE/源代码编辑](http://blog.csdn.net/win_lin/article/details/8142981)
+
+Winlin 2014.2
