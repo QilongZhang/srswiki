@@ -285,4 +285,4 @@ FFMPEG相关链接：
 * [ffmpeg滤镜](http://ffmpeg.org/ffmpeg-filters.html)
 * [ffmpeg编解码参数](http://ffmpeg.org/ffmpeg-codecs.html)
 
-Winlin
+Winlin 2014.2
