@@ -164,3 +164,5 @@ forward还可以结合hls和transcoder功能使用，即在源站将流转码，
 需要结合vhost，先将流transcode送到另外一个vhost，这个vhost将流转发到边缘。这样可以只转发转码的流。
 
 参考vhost，hls和transcoder相关wiki。
+
+Winlin 2014.2
