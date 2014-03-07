@@ -109,4 +109,4 @@ crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以
 
 如果你希望知道其他服务器和SRS的PK结果，在QQ群里告知我，我看看然后加上。如果还不错，可以PK一下的话。
 
-Winlin
+Winlin 2014
