@@ -71,3 +71,5 @@ linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？�
 ## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
 
 C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
+
+Winlin 2014.2
