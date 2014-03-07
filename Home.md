@@ -68,6 +68,10 @@ SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://git
 
 linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？参考：[SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 
+## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
+
+如何查找内存泄漏？valgrind不支持st怎么办？如何知道哪个函数占用内存多？哪个函数性能有问题？参考：[GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
+
 ## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
 
 C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/IDE)
