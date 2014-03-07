@@ -127,4 +127,6 @@ Total: 20 samples
 * gmc和gcp：支持同时开启。检测内存泄漏和测试CPU性能瓶颈。
 * gmp和gcp：支持同时开启。检测内存瓶颈和CPU性能瓶颈。
 
+备注：SRS的configure脚本会检查是否可以同时开启。
+
 Winlin 2014.3
