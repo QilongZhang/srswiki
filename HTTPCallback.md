@@ -171,4 +171,4 @@ SRS自带了一个默认的处理HTTP Callback的服务器，启动时需要指�
 127.0.0.1 - - [27/Feb/2014:09:41:50] "POST /api/v1/clients HTTP/1.1" 200 1 "" "srs(simple rtmp server)0.9.2"
 ```
 
-Winlin
+Winlin 2014.2
