@@ -298,4 +298,4 @@ make使用并行编译的方法如下：
 make -j16
 ```
 
-Winlin
+Winlin 2014.2
