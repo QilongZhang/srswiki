@@ -10,4 +10,4 @@ Reload的方法为：`killall -1 srs`
 
 或者指定发送的SRS进程：`kill -1 7635`
 
-Winlin
+Winlin 2014.2
