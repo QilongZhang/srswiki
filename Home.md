@@ -96,7 +96,7 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发RTMP流？参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
-## [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
 使用实例：如何部署SRS的DEMO（提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等）？参考：[Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
