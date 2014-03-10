@@ -6,7 +6,7 @@ RTMP指Adobe的RTMP(Realtime Message Protocol)，广泛应用于低延时直播�
 
 HLS指Apple的HLS(Http Live Streaming)，本身就是Live（直播）的，不过Vod（点播）也能支持。HLS是Apple平台的标准流媒体协议，和RTMP在PC上一样支持得天衣无缝。
 
-HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
+HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)。
 
 ## 分发方式比较
 
