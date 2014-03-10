@@ -91,8 +91,6 @@ Stream: livestream
 * 观看原始流：rtmp://192.168.1.170:1935/live/livestream
 * 观看转码流：rtmp://192.168.1.170:1935/live/livestream_ff
 
-<strong>
-
 <strong>第五步，观看RTMP流。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
