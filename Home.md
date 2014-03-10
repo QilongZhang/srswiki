@@ -32,6 +32,10 @@ RTMP为何要依赖ssl？什么是RTMP简单握手和复杂握手？什么时候
 
 如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
+## [RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
+
+SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
+
 ## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
