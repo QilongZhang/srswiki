@@ -85,7 +85,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>ApiServer</td>
 <td>可选</td>
-<td>--with-http<br/>--without-http</td>
+<td>--with-http-callback<br/>--without-http-callback</td>
 <td>cherrypy<br/>http-parser2.1<br/>python2</td>
 <td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用on_connect接口，<br/>SRS自带了一个research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
 </tr>
@@ -136,7 +136,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>逻辑控制</td>
 <td>RTMP(Basic)<br/>ApiServer</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http-callback \<br/>--without-ffmpeg</td>
 <td>希望对服务器上的各种事件进行控制，<br/>譬如，连接到SRS后，到ApiServer进行验证，<br/>通过后再进行服务，<br/>譬如，希望统计当前连接数，各个流的数据等，<br/>典型场景：<br/>1.视频会议，ApiServer可以知道SRS上的流<br/>2.统计，统计在线人数，带宽等（cli也可以查询）<br/>3.认证，通过认证后才进行服务，<br/>注意：当事件发生时，SRS调用http地址告知ApiServer，<br/>若ApiServer需要主动控制SRS，可以通过cli</td>
 </tr>
 <tr>
@@ -186,7 +186,7 @@ export RANLIB=arm-linux-ranlib &&
 确定用什么编译选项后，编译SRS其实很简单。譬如，demo使用的选项：
 
 ```
-./configure --with-ssl --with-hls --with-http --with-ffmpeg &&
+./configure --with-ssl --with-hls --with-http-callback --with-ffmpeg &&
 make
 ```
 
@@ -262,7 +262,7 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <tr>
 <td>DEMO<br/>(开启ApiServer)</td>
 <td>research/api-server/static-dir/players</td>
-<td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
+<td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http-callback)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
 
@@ -304,7 +304,7 @@ SRS的配置(configure)参数说明如下：
 * --help 配置的帮助信息
 * --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)。
 * --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
-* --with-http 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
+* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
 * --with-ffmpeg 支持直播流转码。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
 * --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
