@@ -24,6 +24,10 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
+RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
+
+部署分发RTMP流的实例，参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+
 如下图所示：
 ![FMLE推流到SRS](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/wiki/FMLE.png)
 
