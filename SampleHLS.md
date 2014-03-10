@@ -23,7 +23,7 @@ git pull
 ./configure && make
 ```
 
-<strong>第三步，启动分发hls（m3u8/ts）的nginx。[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+<strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
@@ -31,7 +31,7 @@ sudo ./objs/nginx/sbin/nginx
 
 备注：请确定nginx已经启动，可以访问[http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html)，若能看到`nginx is ok`则没有问题。
 
-<strong>第四步，编写SRS配置文件。</strong>[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+<strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 将以下内容保存为文件，譬如`conf/hls.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
