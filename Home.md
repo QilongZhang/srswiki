@@ -88,4 +88,8 @@ C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://ww
 
 SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎么办？参考：[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/Git)
 
+## [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+
+使用实例：如何使用SRS分发RTMP流？参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+
 Winlin 2014.2
