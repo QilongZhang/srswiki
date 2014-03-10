@@ -31,4 +31,8 @@ Stream: livestream
 
 可以使用支持RTMP流的播放器播放，譬如vlc/flash player，播放地址：`rtmp://192.168.1.170/live/livestream`
 
+## RTMP流的低延时配置
+
+RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
+
 Winlin
