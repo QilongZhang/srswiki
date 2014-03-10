@@ -104,6 +104,10 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleForward)
 
+## [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRealtime)
+
+使用实例：如何尽量降低延迟到1秒之内？SRS最低延迟的配置？参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRealtime)
+
 ## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
 使用实例：如何部署SRS的DEMO（提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等）？参考：[Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
