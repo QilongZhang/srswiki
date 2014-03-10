@@ -8,6 +8,8 @@ HLS指Apple的HLS(Http Live Streaming)，本身就是Live（直播）的，不�
 
 HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)。
 
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+
 ## 分发方式比较
 
 详见下表：
@@ -159,6 +161,8 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 ```bash
 hls_window >= sum(m3u8中每个ts的时长)
 ```
+
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
 ## HLS和Forward
 
