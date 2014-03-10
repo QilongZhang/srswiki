@@ -2,7 +2,7 @@
 
 RTMP部署的步骤。
 
-第一步，获取SRS。详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/Git)
+<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/Git)
 
 ```bash
 git clone https://github.com/winlinvip/simple-rtmp-server
@@ -15,7 +15,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-第二步，编译SRS。详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+<strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
 ./configure && make
