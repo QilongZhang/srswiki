@@ -60,8 +60,6 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-<strong>
-
 <strong>第五步，观看RTMP流。</strong>详细参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
