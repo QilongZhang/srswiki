@@ -208,6 +208,10 @@ vhost hls.transcode.vhost.com {
 ```
 该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
 
+## HLS自适应码流
+
+SRS目前不支持HLS自适应码流，需要调研这个功能。
+
 ## SRS如何支持HLS
 
 SRS的HLS主要参考了nginx-rtmp的HLS实现方式，SRS没有做什么事情，都是nginx-rtmp实现的。而分发m3u8和ts文件，也是使用nginx分发的。
