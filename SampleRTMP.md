@@ -25,6 +25,8 @@ git pull
 
 <strong>第三步，编写SRS配置文件。</strong>详细参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
 
+将以下内容保存为文件，譬如`conf/rtmp.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
+
 ```bash
 # conf/rtmp.conf
 listen              1935;
@@ -39,6 +41,8 @@ vhost __defaultVhost__ {
 ```
 
 <strong>第四步，启动推流编码器。</strong>详细参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)
+
+使用FFMPEG命令推流：
 
 ```bash
     for((;;)); do \
