@@ -2,6 +2,10 @@
 
 SRS不支持服务器脚本（参考：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)），服务器端定制有一个重要的替代功能，就是HTTP回调。譬如当客户端连接到SRS时，回调指定的http地址，这样可以实现验证功能。
 
+## 编译时支持HTTP回调
+
+HTTP回调功能提供了编译选项，可以开启或者关闭这个功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+
 ## HTTP回调事件
 
 SRS的回调事件包括：
