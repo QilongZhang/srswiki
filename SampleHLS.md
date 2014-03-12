@@ -67,7 +67,7 @@ vhost __defaultVhost__ {
     done
 ```
 
-或使用FMLE推流：
+或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleTranscode2HLS)）：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
