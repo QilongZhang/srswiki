@@ -105,7 +105,10 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 * 确认m3u8文件能下载：浏览器打开`http://192.168.1.170/live/livestream.m3u8`，ip地址换成你服务器的IP地址。
 * 若m3u8能下载，可能是jwplayer的问题，使用vlc播放地址：`http://192.168.1.170/live/livestream.m3u8`，ip地址换成你服务器的IP地址。
 * 若VLC不能播放，将m3u8下载后，用文本编辑器打开，将m3u8文件内容发到QQ群中，或者贴到issue中。寻求帮助。
+* 还有可能是编码问题，参考下面的“RTMP流和HLS流内容不一致”
 
-备注：若m3u8不能下载，或者VLC播放的流和RTMP的流内容不一样，可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考[HLS+Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
+<strong>RTMP流内容和HLS流内容不一致</strong>
+* 一般这种问题出现在使用上面的例子推流，然后换成别的编码器推流，或者换个文件推流。
+* 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考[HLS+Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
 
 Winlin 2014.3
