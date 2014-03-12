@@ -98,4 +98,11 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
+## Q&A
+
+<strong>RTMP流能看，HLS看不了</strong>
+* 确认nginx启动并且可以访问：`nginx is ok`页面能访问。
+* 确认m3u8文件能下载：浏览器打开`http://192.168.1.170/live/livestream.m3u8`，ip地址换成你服务器的IP地址。
+* 将m3u8内容发到QQ群中，或者贴到issue中。寻求帮助。
+
 Winlin 2014.3
