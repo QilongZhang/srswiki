@@ -96,6 +96,10 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发RTMP流？参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
+## [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/Transcode2HLS)
+
+使用实例：如何对不符合要求的流(h.264+aac)进行HLS流分发？参考：[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/Transcode2HLS)
+
 ## [Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleFFMPEG)
 
 使用实例：如何使用SRS实时转码RTMP流？编码器不能输出h264+aac如何转码后分发HLS？参考：[Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleFFMPEG)
