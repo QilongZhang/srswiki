@@ -172,6 +172,8 @@ Forward的流和普通流不做区分，若forward的流所在的VHOST配置了H
 
 ## HLS和Transcode
 
+HLS要求RTMP流的编码为h.264+aac，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
+
 Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
 
 配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
