@@ -103,8 +103,9 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 <strong>RTMP流能看，HLS看不了</strong>
 * 确认nginx启动并且可以访问：`nginx is ok`页面能访问。
 * 确认m3u8文件能下载：浏览器打开`http://192.168.1.170/live/livestream.m3u8`，ip地址换成你服务器的IP地址。
-* 若m3u8不能下载，可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考[HLS+Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
 * 若m3u8能下载，可能是jwplayer的问题，使用vlc播放地址：`http://192.168.1.170/live/livestream.m3u8`，ip地址换成你服务器的IP地址。
 * 若VLC不能播放，将m3u8下载后，用文本编辑器打开，将m3u8文件内容发到QQ群中，或者贴到issue中。寻求帮助。
+
+备注：若m3u8不能下载，或者VLC播放的流和RTMP的流内容不一样，可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考[HLS+Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
 
 Winlin 2014.3
