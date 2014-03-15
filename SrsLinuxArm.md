@@ -71,10 +71,26 @@ qemu-img create -f raw hda.img 4G
 开始安装：
 
 ```bash
-qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 256
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -hda hda.img -initrd initrd.gz -append "root=/dev/ram" -m 256
 ```
 
 安装过程中，镜像源选择China或者Taiwan。
+
+安装完成后，需要从hda.img硬盘中将启动映像拷贝出来，下次qemu就从它开始引导。
+
+```bash
+file -s hda.img 
+#hda.img: x86 boot sector; 
+#    partition 1: ID=0x83, starthead 32, startsector 2048, 7936000 sectors; 
+#    partition 2: ID=0x5, starthead 63, startsector 7940094, 446466 sectors, code offset 0xb8
+#第一扇区的起始地址是2048，挂载映像到文件夹：
+mkdir -p disk && sudo mount ./hda.img ./disk -o offset=$((2048*256))
+#取出启动内核：
+cp disk/boot/initrd.img-3.2.0-4-versatile .
+#使用新启动内核启动：
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
+```
 
 ## ARM和License
 
