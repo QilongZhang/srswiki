@@ -64,30 +64,6 @@ qemu-img create -f raw hda.img 4G
 * 网络安装，下载网络安装镜像后启动。
 * ISO映像安装，下载ISO文件，然后安装。就像一般装其他虚拟机一样。
 
-ISO映像安装方式，先下载ISO映像：
-
-```bash
-CD镜像：
-ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-cd/debian-7.4.0-armel-CD-1.iso
-ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-cd/debian-7.4.0-armel-CD-2.iso
-ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-cd/debian-7.4.0-armel-CD-3.iso
-或DVD镜像：
-ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-dvd/debian-7.4.0-armel-DVD-1.iso
-```
-
-下载的文件和hda.img可以放一起，启动安装：
-
-```bash
-qemu-system-arm -m 512 -hda hda.img -cdrom debian-7.4.0-armel-DVD-1.iso -boot d
-```
-
-若使用CD镜像，可能需要更换光盘：
-* 在qemu窗口中，按`CTRL+ALT+2`，进入qemu控制台。
-* 输入命令：`info block` 可以看到当前的设备，譬如`ide1-cd0 xxx.iso`说明是光驱是这个设备。
-* 弹出光驱：`eject ide1-cd0`
-* 加载新的ISO文件：`change ide1-cd0 new.iso` 更换iso成功。
-* 按`CTRL+ALT+1`切换到VGA输出。
-
 ## ARM和License
 
 ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
