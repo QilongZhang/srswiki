@@ -27,6 +27,56 @@ SRS在ARM上主要是源站：
 3. 给srs的st打个patch，我增加一个编译选项，先用你的patch。等st接受你的patch了，我再升级合并过去。<br/>
 arm上支持有几个人提过，但无论如何，linux x86平台srs是必须保证的。我只能保证不影响linux x86平台运行时，加入arm支持。只能加编译选项和打st的patch，这样就完全不影响x86平台。
 
+## 搭建ARM虚拟环境
+
+qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
+
+qemu依赖于SDL（图形界面），SDL依赖于图形linux，所以最好用ubuntu桌面版和CentOS开发版，进入图形界面后安装sdl。
+* CentOS SDL安装：`sudo yum install -y SDL-devel`
+* Ubuntu SDL安装：`sudo aptitude install -y libsdl1.2-dev`
+
+然后下载qemu，好像网站被墙了，所以可以用迅雷下，它的p2p网络会去找这个文件：
+
+```html
+http://wiki.qemu-project.org/download/qemu-1.7.0.tar.bz2
+```
+
+编译和安装qemu
+
+```bash
+tar xf qemu-1.7.0.tar.bz2 && cd qemu-1.7.0 && ./configure && make && sudo make install
+···
+
+qemu两个重要的工具：
+
+```bash
+/usr/local/bin/qemu-img
+/usr/local/bin/qemu-system-arm
+```
+
+qemu就是类似于virtualbox，所以需要下载arm系统映像（类似于iso），可以采用debian-arm映像：
+
+```bash
+http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz
+http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile
+```
+
+下载网络安装映像后，就创建虚拟机使用的硬盘：
+
+```bash
+qemu-img create -f raw hda.img 4G
+```
+
+然后启动虚拟机，开始安装：
+
+```bash
+qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -append "root=/dev/ram" -m 256
+```
+
+安装注意事项：
+* 地区选China
+* 镜像源选ftp.cn.debian.org速度很快400KBps左右
+
 ## ARM和License
 
 ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
