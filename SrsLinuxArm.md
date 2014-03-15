@@ -54,28 +54,27 @@ qemu两个重要的工具：
 /usr/local/bin/qemu-system-arm
 ```
 
-qemu就是类似于virtualbox，所以需要下载arm系统映像（类似于iso），可以采用debian-arm映像：
-
-```bash
-http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz
-http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile
-```
-
-下载网络安装映像后，就创建虚拟机使用的硬盘：
+创建虚拟机使用的硬盘：
 
 ```bash
 qemu-img create -f raw hda.img 4G
 ```
 
-然后启动虚拟机，开始安装：
+安装方式，可以选择：
+* 网络安装，下载网络安装镜像后启动。
+* ISO映像安装，下载ISO文件，然后安装。就像一般装其他虚拟机一样。
+
+ISO映像安装方式，先下载ISO映像：
 
 ```bash
-qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -append "root=/dev/ram" -m 256
+ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-dvd/debian-7.4.0-armel-DVD-1.iso
 ```
 
-安装注意事项：
-* 地区选China
-* 镜像源选ftp.cn.debian.org速度很快400KBps左右
+下载的文件和hda.img可以放一起，启动安装：
+
+```bash
+qemu-system-arm -m 512 -hda hda.img -cdrom debian-7.4.0-armel-DVD-1.iso -boot d
+```
 
 ## ARM和License
 
