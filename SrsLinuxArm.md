@@ -45,7 +45,7 @@ http://wiki.qemu-project.org/download/qemu-1.7.0.tar.bz2
 
 ```bash
 tar xf qemu-1.7.0.tar.bz2 && cd qemu-1.7.0 && ./configure && make && sudo make install
-···
+```
 
 qemu两个重要的工具：
 
