@@ -74,7 +74,7 @@ qemu-img create -f raw hda.img 4G
 qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 512
 ```
 
-安装过程中，镜像源选择Japan或者Taiwan，国内的源下载似乎有点问题。
+安装过程中，镜像源选择China或者Taiwan。
 
 ## ARM和License
 
