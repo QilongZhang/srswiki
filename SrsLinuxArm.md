@@ -27,7 +27,7 @@ SRS在ARM上主要是源站：
 3. 给srs的st打个patch，我增加一个编译选项，先用你的patch。等st接受你的patch了，我再升级合并过去。<br/>
 arm上支持有几个人提过，但无论如何，linux x86平台srs是必须保证的。我只能保证不影响linux x86平台运行时，加入arm支持。只能加编译选项和打st的patch，这样就完全不影响x86平台。
 
-## 搭建ARM虚拟环境
+## 网络安装ARM虚拟环境
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
 
@@ -60,9 +60,7 @@ qemu两个重要的工具：
 qemu-img create -f raw hda.img 4G
 ```
 
-安装方式，可以选择：
-* 网络安装，下载网络安装镜像后启动。
-* ISO映像安装，下载ISO文件，然后安装。就像一般装其他虚拟机一样。
+安装方式，可以选择网络安装，下载网络安装镜像后启动。
 
 网络安装，先下载内核镜像：
 * [initrd.gz](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz)
@@ -92,6 +90,43 @@ cp disk/boot/initrd.img-3.2.0-4-versatile .
 qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
     -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
 ```
+
+## 直接使用已经安装好的镜像
+
+网络安装很慢，而且有时候安装失败。可以直接使用已经安装好的镜像。
+
+首先是下载编译qemu，参考前面一章。
+
+下载已经安装好的镜像，引导内核：
+* [vmlinuz-3.2.0-4-versatile](http://people.debian.org/~aurel32/qemu/armel/vmlinuz-3.2.0-4-versatile)
+* [initrd.img-3.2.0-4-versatile](http://people.debian.org/~aurel32/qemu/armel/initrd.img-3.2.0-4-versatile)
+* [debian_wheezy_armel_standard.qcow2](http://people.debian.org/~aurel32/qemu/armel/debian_wheezy_armel_standard.qcow2)
+
+下载后直接启动qemu：
+
+```bash
+qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_standard.qcow2 -append "root=/dev/sda1"
+```
+
+登录信息：
+* ROOT密码：root
+* 用户名：user
+* 用户密码：user
+
+网络设置：
+
+arm虚拟机如何对外提供服务？桥接的方式很麻烦，有一种简单的方式，就是[端口转发](http://en.wikibooks.org/wiki/QEMU/Networking)，启动qemu时指定宿主host的端口和虚拟机的端口绑定，这样就可以访问宿主的端口来访问虚拟机了。譬如：
+
+```bash
+qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_standard.qcow2 -append "root=/dev/sda1" \
+    -redir tcp:8000::80 -redir tcp:4450::445 -redir tcp:2200::22 -redir tcp:19350::1935
+```
+
+启动后，连接宿主的2200就可以登录到arm虚拟机。访问宿主的8000就是访问arm的80，访问19350就是访问arm的流媒体1935。445是samba端口，宿主可以将arm的共享挂载到自己的目录，对外提供共享。
+
+备注：注意，端口不能太小，譬如800:80就不行。
 
 ## ARM和License
 
