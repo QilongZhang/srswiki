@@ -71,7 +71,7 @@ qemu-img create -f raw hda.img 4G
 开始安装：
 
 ```bash
-qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 512
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 256
 ```
 
 安装过程中，镜像源选择China或者Taiwan。
