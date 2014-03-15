@@ -64,6 +64,21 @@ qemu-img create -f raw hda.img 4G
 * 网络安装，下载网络安装镜像后启动。
 * ISO映像安装，下载ISO文件，然后安装。就像一般装其他虚拟机一样。
 
+网络安装，先下载内核镜像：
+
+```bash
+http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz
+http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile
+```
+
+开始安装：
+
+```bash
+qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 512
+```
+
+安装过程中，镜像源选择Japan或者Taiwan，国内的源下载似乎有点问题。
+
 ## ARM和License
 
 ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
