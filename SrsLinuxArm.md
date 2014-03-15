@@ -89,7 +89,8 @@ mkdir -p disk && sudo mount ./hda.img ./disk -o offset=$((2048*256))
 #取出启动内核：
 cp disk/boot/initrd.img-3.2.0-4-versatile .
 #使用新启动内核启动：
-qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
 ```
 
 ## ARM和License
