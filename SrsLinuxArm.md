@@ -65,16 +65,13 @@ qemu-img create -f raw hda.img 4G
 * ISO映像安装，下载ISO文件，然后安装。就像一般装其他虚拟机一样。
 
 网络安装，先下载内核镜像：
-
-```bash
-http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz
-http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile
-```
+* [initrd.gz](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz)
+* [vmlinuz-3.2.0-4-versatile](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile)
 
 开始安装：
 
 ```bash
-qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 512
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile -hda hda.img -initrd initrd.gz -m 512
 ```
 
 安装过程中，镜像源选择Japan或者Taiwan，国内的源下载似乎有点问题。
