@@ -67,6 +67,9 @@ qemu-img create -f raw hda.img 4G
 ISO映像安装方式，先下载ISO映像：
 
 ```bash
+CD镜像：
+ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-cd/debian-7.4.0-armel-CD-1.iso
+或DVD镜像：
 ftp://ftp.cn.debian.org/debian-cd/7.4.0/armel/iso-dvd/debian-7.4.0-armel-DVD-1.iso
 ```
 
