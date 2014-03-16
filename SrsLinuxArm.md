@@ -94,7 +94,9 @@ typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
 root@debian-armhf:~# uname -a
 Linux debian-armhf 3.2.0-4-vexpress #1 SMP Debian 3.2.51-1 armv7l GNU/Linux
 root@debian-armhf:~# file srs
-srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, not stripped
+srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, 
+for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, 
+not stripped
 root@debian-armhf:~# ./srs -c rtmp.conf 
 [2014-03-16 09:48:30.114][error][0][0] end of file. ret=409
 [2014-03-16 09:48:30.120][trace][1][0] server started, listen at port=1935, fd=3
