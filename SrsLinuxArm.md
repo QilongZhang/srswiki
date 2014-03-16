@@ -18,7 +18,7 @@ SRS在ARM上主要是源站：
 
 等ARM上SRS运行没有问题，SRS会新开一个分支，去掉其他的东西，只保留必要的东西。
 
-## ST支持ARM的BUG
+## ST-ARM-BUG-FIX
 
 st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
 * i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
