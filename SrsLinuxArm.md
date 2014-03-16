@@ -18,7 +18,9 @@ SRS在ARM上主要是源站：
 
 等ARM上SRS运行没有问题，SRS会新开一个分支，去掉其他的东西，只保留必要的东西。
 
-备注：st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
+## ST支持ARM的BUG
+
+st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
 * i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
 * x86_64的sp偏移量是6：env[0].__jmp_buf[6]=(long)sp
 * armhf(v7cpu)的sp偏移量是8，但是st写的是20，所以就崩溃了。
@@ -72,6 +74,18 @@ typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
 10-26: d8-d15 17words
 27: fpscr
 //所以应该sp是env[8]，设置它就对了。
+```
+
+修正方法，srs已经打了patch，会向st提交：
+
+```bash
+#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
+```
+
+改为：
+
+```bash
+#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[8]
 ```
 
 ## Ubuntu/CentOS编译arm-srs
