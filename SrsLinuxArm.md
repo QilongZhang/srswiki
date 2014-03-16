@@ -101,7 +101,9 @@ root@debian-armhf:~# ./srs -c rtmp.conf
 [2014-03-16 09:48:30.126][trace][2][0] thread cycle start
 [2014-03-16 09:48:31.344][trace][3][11] get peer ip success. ip=192.168.2.101, send_to=30000000, recv_to=30000000
 [2014-03-16 09:48:31.355][trace][3][11] simple handshake success.
-[2014-03-16 09:48:31.363][trace][3][11] rtmp connect app success. tcUrl=rtmp://192.168.2.111:19350/live, pageUrl=, swfUrl=rtmp://192.168.2.111:19350/live, schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
+[2014-03-16 09:48:31.363][trace][3][11] rtmp connect app success. 
+tcUrl=rtmp://192.168.2.111:19350/live, pageUrl=, swfUrl=rtmp://192.168.2.111:19350/live, 
+schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
 [2014-03-16 09:48:31.376][trace][3][11] set ack window size to 2500000
 [2014-03-16 09:48:31.381][trace][3][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
 [2014-03-16 09:48:31.387][trace][3][11] identify client success. type=FMLEPublish, stream_name=livestream
