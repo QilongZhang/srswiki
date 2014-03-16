@@ -37,6 +37,59 @@ srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用a
 sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 ```
 
+编译工具对比：
+
+<table>
+<tr><th>x86</td><td>arm</td></tr>
+<tr><td>gcc</td><td>arm-linux-gnueabi-gcc</td></tr>
+<tr><td>g++</td><td>arm-linux-gnueabi-g++</td></tr>
+<tr><td>ar</td><td>arm-linux-gnueabi-ar</td></tr>
+<tr><td>as</td><td>arm-linux-gnueabi-as</td></tr>
+<tr><td>ld</td><td>arm-linux-gnueabi-ld</td></tr>
+<tr><td>ranlib</td><td>arm-linux-gnueabi-ranlib</td></tr>
+<tr><td>strip</td><td>arm-linux-gnueabi-strip</td></tr>
+</table>
+
+## Armel和Armhf
+
+有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
+
+写一个简单的测试程序，测试编译环境：
+
+```cpp
+/*
+ arm-linux-gnueabi-g++ -o test test.cpp -static
+ arm-linux-gnueabi-strip test
+*/
+#include <stdio.h>
+
+int main(int argc, char** argv) {
+    printf("hello, arm!\n");
+    return 0;
+}
+```
+
+编译出test后，使用工具查看目标CPU：
+
+```bash
+arm-linux-gnueabi-readelf --file-header --arch-specific test
+运行结果如下：
+  Machine:                           ARM
+File Attributes
+  Tag_CPU_name: "7-A"
+  Tag_CPU_arch: v7
+```
+
+可见Ubuntu12的交叉环境是cpuv7（debian armhf），所以arm虚拟机需要是v7的。
+
+若使用debian armel，cpu是v5的，信息如下：
+
+```bash
+root@debian-armel:~# cat /proc/cpuinfo 
+Processor	: ARM926EJ-S rev 5 (v5l)
+CPU revision	: 5
+```
+
 ## 安装QEMU虚拟机环境
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
@@ -70,16 +123,17 @@ qemu两个重要的工具：
 
 首先是下载编译qemu，参考前面一章。
 
-下载已经安装好的镜像，引导内核：
-* [vmlinuz-3.2.0-4-versatile](http://people.debian.org/~aurel32/qemu/armel/vmlinuz-3.2.0-4-versatile)
-* [initrd.img-3.2.0-4-versatile](http://people.debian.org/~aurel32/qemu/armel/initrd.img-3.2.0-4-versatile)
-* [debian_wheezy_armel_standard.qcow2](http://people.debian.org/~aurel32/qemu/armel/debian_wheezy_armel_standard.qcow2)
+下载已经安装好的镜像(armhf对应ubuntu12交叉环境），引导内核：
+* [vmlinuz-3.2.0-4-vexpress](http://people.debian.org/~aurel32/qemu/armhf/vmlinuz-3.2.0-4-vexpress)
+* [initrd.img-3.2.0-4-vexpress](http://people.debian.org/~aurel32/qemu/armhf/initrd.img-3.2.0-4-vexpress)
+* [debian_wheezy_armhf_standard.qcow2](http://people.debian.org/~aurel32/qemu/armhf/debian_wheezy_armhf_standard.qcow2)
 
 下载后直接启动qemu：
 
 ```bash
-qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
-    -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_standard.qcow2 -append "root=/dev/sda1"
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress \
+    -initrd initrd.img-3.2.0-4-vexpress -drive if=sd,file=debian_wheezy_armhf_standard.qcow2 \
+    -append "root=/dev/mmcblk0p2"
 ```
 
 登录信息：
@@ -92,8 +146,9 @@ qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
 arm虚拟机如何对外提供服务？桥接的方式很麻烦，有一种简单的方式，就是[端口转发](http://en.wikibooks.org/wiki/QEMU/Networking)，启动qemu时指定宿主host的端口和虚拟机的端口绑定，这样就可以访问宿主的端口来访问虚拟机了。譬如：
 
 ```bash
-qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
-    -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_standard.qcow2 -append "root=/dev/sda1" \
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress \
+    -initrd initrd.img-3.2.0-4-vexpress -drive if=sd,file=debian_wheezy_armhf_standard.qcow2 \
+    -append "root=/dev/mmcblk0p2" \
     -redir tcp:8000::80 -redir tcp:4450::445 -redir tcp:2200::22 -redir tcp:19350::1935
 ```
 
