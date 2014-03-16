@@ -119,9 +119,13 @@ schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
 [2014-03-16 09:48:35.391][trace][3][11] <- time=1067984, obytes=4168, ibytes=82561, okbps=8, ikbps=164
 ```
 
-## Ubuntu/CentOS编译arm-srs
+备注：另外，ST还有个bug，多进程启动时，st只能在fork之后启动。否则会有问题。
 
-srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。（srs会在将来新加一个编译选项）
+## Ubuntu编译arm-srs
+
+srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。
+
+推荐在Ubuntu12下交叉编译，Ubuntu12对交叉编译支持得比较完善。CentOS6不太好使。
 
 以Ubuntu12为例，arm编译器的安装：
 
@@ -141,6 +145,8 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 <tr><td>ranlib</td><td>arm-linux-gnueabi-ranlib</td></tr>
 <tr><td>strip</td><td>arm-linux-gnueabi-strip</td></tr>
 </table>
+
+交叉编译SRS：
 
 ## Armel和Armhf
 
