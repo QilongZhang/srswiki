@@ -132,7 +132,7 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 编译工具对比：
 
 <table>
-<tr><th>x86</td><td>arm</td></tr>
+<tr><th>x86</th><th>armhf(v7cpu)</th></tr>
 <tr><td>gcc</td><td>arm-linux-gnueabi-gcc</td></tr>
 <tr><td>g++</td><td>arm-linux-gnueabi-g++</td></tr>
 <tr><td>ar</td><td>arm-linux-gnueabi-ar</td></tr>
