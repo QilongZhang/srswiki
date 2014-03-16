@@ -18,14 +18,54 @@ SRS在ARM上主要是源站：
 
 等ARM上SRS运行没有问题，SRS会新开一个分支，去掉其他的东西，只保留必要的东西。
 
-备注：“arm上运行SRS”需要在编译时用arm编译命令，并且st要使用linux-optimized选项，否则运行失败。
-备注：arm上运行srs，主要st的移植性有问题，有人报告说会运行失败。应该是st的汇编不支持arm平台。总之，目前arm上运行srs服务器还是不靠谱的事情。
+备注：st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
+* i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
+* x86_64的sp偏移量是6：env[0].__jmp_buf[6]=(long)sp
+* armhf(v7cpu)的sp偏移量是8，但是st写的是20，所以就崩溃了。
 
-建议有arm需求的研发可以：<br/>
-1. 看下st的汇编部分，看能否直接用linux api，这个靠谱<br/>
-2. 给st邮件列表发个邮件问下，看大牛怎么说。<br/>
-3. 给srs的st打个patch，我增加一个编译选项，先用你的patch。等st接受你的patch了，我再升级合并过去。<br/>
-arm上支持有几个人提过，但无论如何，linux x86平台srs是必须保证的。我只能保证不影响linux x86平台运行时，加入arm支持。只能加编译选项和打st的patch，这样就完全不影响x86平台。
+```bash
+// md.h
+        #elif defined(__i386__)
+            #if defined(__GLIBC__) && __GLIBC__ >= 2
+                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[4]
+        #elif defined(__amd64__) || defined(__x86_64__)
+            #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[6]
+        #elif defined(__arm__)
+            #if defined(__GLIBC__) && __GLIBC__ >= 2
+                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
+// x86_64: https://gfiber.googlesource.com/kernel/prism/+/dbb415ed05d5cea3d84dec3400669fb4f9b4c727%5E/arch/um/sys-x86_64/setjmp.S
+# The jmp_buf is assumed to contain the following, in order:
+#       %rbx
+#       %rsp (post-return)
+#       %rbp
+#       %r12
+#       %r13
+#       %r14
+#       %r15
+#       <return address>
+// 从下往上数，sp是倒数第二个。
+
+// arm
+// /usr/arm-linux-gnueabi/include/bits/setjmp.h
+#ifndef _ASM
+/* The exact set of registers saved may depend on the particular core
+   in use, as some coprocessor registers may need to be saved.  The C
+   Library ABI requires that the buffer be 8-byte aligned, and
+   recommends that the buffer contain 64 words.  The first 28 words
+   are occupied by v1-v6, sl, fp, sp, pc, d8-d15, and fpscr.  (Note
+   that d8-15 require 17 words, due to the use of fstmx.)  */
+typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
+#endif
+//布局应该是：words=ints
+0-5: v1-v6 
+6: sl
+7: fp
+8: sp
+9: pc
+10-26: d8-d15 17words
+27: fpscr
+//所以应该sp是env[8]，设置它就对了。
+```
 
 ## Ubuntu/CentOS编译arm-srs
 
