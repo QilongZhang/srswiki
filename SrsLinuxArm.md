@@ -15,8 +15,7 @@ ARM跑SRS主要原因：
 SRS在ARM上主要是源站：
 * 只需要st，ssl，提供基本的RTMP流源站即可。
 * 不需要http-parser，nginx，ffmpeg，api-server，边缘，其他都不需要。
-
-等ARM上SRS运行没有问题，SRS会新开一个分支，去掉其他的东西，只保留必要的东西。
+* 支持RTMP/HLS，RTMP需要ssl，HLS不需要额外的支持，只是切片成文件。
 
 ## ST-ARM-BUG-FIX
 
@@ -147,6 +146,28 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 </table>
 
 交叉编译SRS：
+
+```bash
+./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp &&
+make
+```
+
+其中，
+* --with-arm-ubuntu12：必选，指定为arm编译。注意目前只支持ubuntu，CentOS的交叉环境不好搭。
+* --with-ssl：可选，支持复杂握手。参考：[握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)
+* --with-hls：可选，支持将RTMP流切成HLS片。注意不会编译nginx，在i386/x86_64平台上srs会编译nginx用于分发。
+* --with-librtmp：可选，编译客户端库，arm客户端可以调用这个库将流推送到srs。
+
+编译成功后，srs即为arm上可运行：
+
+```bash
+winlin@winlin-VirtualBox:~/srs$ file objs/srs
+objs/srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, 
+for GNU/Linux 2.6.31, BuildID[sha1]=0xfba434cea50d6b02fd6e21ce67f01c39772c724b, 
+not stripped
+```
+
+备注：在x86和arm平台切换时，譬如之前是为arm编译的，现在为x86平台编译，不需要手动删除东西，直接执行configure就可以，脚本会自动判断。
 
 ## Armel和Armhf
 
