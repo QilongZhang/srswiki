@@ -64,43 +64,6 @@ qemu两个重要的工具：
 /usr/local/bin/qemu-system-arm
 ```
 
-创建虚拟机使用的硬盘：
-
-```bash
-qemu-img create -f raw hda.img 4G
-```
-
-安装方式，可以选择网络安装，下载网络安装镜像后启动。
-
-网络安装，先下载内核镜像：
-* [initrd.gz](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz)
-* [vmlinuz-3.2.0-4-versatile](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile)
-
-开始安装：
-
-```bash
-qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
-    -hda hda.img -initrd initrd.gz -append "root=/dev/ram" -m 256
-```
-
-安装过程中，镜像源选择China或者Taiwan。
-
-安装完成后，需要从hda.img硬盘中将启动映像拷贝出来，下次qemu就从它开始引导。
-
-```bash
-file -s hda.img 
-#hda.img: x86 boot sector; 
-#    partition 1: ID=0x83, starthead 32, startsector 2048, 7936000 sectors; 
-#    partition 2: ID=0x5, starthead 63, startsector 7940094, 446466 sectors, code offset 0xb8
-#第一扇区的起始地址是2048，挂载映像到文件夹：
-mkdir -p disk && sudo mount ./hda.img ./disk -o offset=$((2048*256))
-#取出启动内核：
-cp disk/boot/initrd.img-3.2.0-4-versatile .
-#使用新启动内核启动：
-qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
-    -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
-```
-
 ## 直接使用已经安装好的镜像
 
 网络安装很慢，而且有时候安装失败。可以直接使用已经安装好的镜像。
@@ -124,7 +87,7 @@ qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile \
 * 用户名：user
 * 用户密码：user
 
-网络设置：
+## ARM虚拟机网络设置
 
 arm虚拟机如何对外提供服务？桥接的方式很麻烦，有一种简单的方式，就是[端口转发](http://en.wikibooks.org/wiki/QEMU/Networking)，启动qemu时指定宿主host的端口和虚拟机的端口绑定，这样就可以访问宿主的端口来访问虚拟机了。譬如：
 
@@ -163,5 +126,46 @@ srs: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), dynamically linke
 ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
 
 License也是很多ARM厂商考虑SRS的原因。
+
+## 其他：网络安装debian-arm虚拟机
+
+除了直接使用已有的镜像，还可以通过网络安装（但网络比较慢，安装过程容易出错，不推荐）。
+
+创建虚拟机使用的硬盘：
+
+```bash
+qemu-img create -f raw hda.img 4G
+```
+
+安装方式，可以选择网络安装，下载网络安装镜像后启动。
+
+网络安装，先下载内核镜像：
+* [initrd.gz](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/initrd.gz)
+* [vmlinuz-3.2.0-4-versatile](http://ftp.de.debian.org/debian/dists/stable/main/installer-armel/current/images/versatile/netboot/vmlinuz-3.2.0-4-versatile)
+
+开始安装：
+
+```bash
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -hda hda.img -initrd initrd.gz -append "root=/dev/ram" -m 256
+```
+
+安装过程中，镜像源选择China或者Taiwan。
+
+安装完成后，需要从hda.img硬盘中将启动映像拷贝出来，下次qemu就从它开始引导。
+
+```bash
+file -s hda.img 
+#hda.img: x86 boot sector; 
+#    partition 1: ID=0x83, starthead 32, startsector 2048, 7936000 sectors; 
+#    partition 2: ID=0x5, starthead 63, startsector 7940094, 446466 sectors, code offset 0xb8
+#第一扇区的起始地址是2048，挂载映像到文件夹：
+mkdir -p disk && sudo mount ./hda.img ./disk -o offset=$((2048*256))
+#取出启动内核：
+cp disk/boot/initrd.img-3.2.0-4-versatile .
+#使用新启动内核启动：
+qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
+    -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
+```
 
 Winlin 2014.2
