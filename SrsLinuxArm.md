@@ -278,7 +278,9 @@ root@debian-armel:~# ls -lh
 total 3.3M
 -rwxr-xr-x 1 root root 3.3M Mar 15 19:01 srs
 root@debian-armel:~# file srs
-srs: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=0x678e75d2547bc219be05864ef6582a3a7a4ad734, not stripped
+srs: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), dynamically linked (uses shared 
+libs), for GNU/Linux 2.6.24, BuildID[sha1]=0x678e75d2547bc219be05864ef6582a3a7a4ad734, 
+not stripped
 ```
 
 若srs编译时指定arm，则可以启动，推流和观看宿主的19350，就是arm提供服务了。
