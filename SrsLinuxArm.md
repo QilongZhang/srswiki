@@ -88,6 +88,33 @@ typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
 #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[8]
 ```
 
+运行结果：
+
+```bash
+root@debian-armhf:~# uname -a
+Linux debian-armhf 3.2.0-4-vexpress #1 SMP Debian 3.2.51-1 armv7l GNU/Linux
+root@debian-armhf:~# file srs
+srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, not stripped
+root@debian-armhf:~# ./srs -c rtmp.conf 
+[2014-03-16 09:48:30.114][error][0][0] end of file. ret=409
+[2014-03-16 09:48:30.120][trace][1][0] server started, listen at port=1935, fd=3
+[2014-03-16 09:48:30.126][trace][2][0] thread cycle start
+[2014-03-16 09:48:31.344][trace][3][11] get peer ip success. ip=192.168.2.101, send_to=30000000, recv_to=30000000
+[2014-03-16 09:48:31.355][trace][3][11] simple handshake success.
+[2014-03-16 09:48:31.363][trace][3][11] rtmp connect app success. tcUrl=rtmp://192.168.2.111:19350/live, pageUrl=, swfUrl=rtmp://192.168.2.111:19350/live, schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
+[2014-03-16 09:48:31.376][trace][3][11] set ack window size to 2500000
+[2014-03-16 09:48:31.381][trace][3][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
+[2014-03-16 09:48:31.387][trace][3][11] identify client success. type=FMLEPublish, stream_name=livestream
+[2014-03-16 09:48:31.393][trace][3][11] set output chunk size to 60000
+[2014-03-16 09:48:31.393][trace][3][11] set chunk_size=60000 success
+[2014-03-16 09:48:32.888][trace][3][11] <- time=1065756, obytes=4168, ibytes=4973, okbps=22, ikbps=26
+[2014-03-16 09:48:32.896][trace][3][11] dispatch metadata success.
+[2014-03-16 09:48:32.898][trace][3][11] process onMetaData message success.
+[2014-03-16 09:48:32.935][trace][3][11] set input chunk size to 157
+[2014-03-16 09:48:33.895][trace][3][11] <- time=1066860, obytes=4168, ibytes=49187, okbps=13, ikbps=156
+[2014-03-16 09:48:35.391][trace][3][11] <- time=1067984, obytes=4168, ibytes=82561, okbps=8, ikbps=164
+```
+
 ## Ubuntu/CentOS编译arm-srs
 
 srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。（srs会在将来新加一个编译选项）
