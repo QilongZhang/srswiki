@@ -37,7 +37,7 @@ srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用a
 sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 ```
 
-## 网络安装ARM虚拟环境
+## 安装QEMU虚拟机环境
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
 
@@ -64,7 +64,7 @@ qemu两个重要的工具：
 /usr/local/bin/qemu-system-arm
 ```
 
-## 直接使用已经安装好的镜像
+## 直接使用已经安装好的ARM虚拟机镜像
 
 网络安装很慢，而且有时候安装失败。可以直接使用已经安装好的镜像。
 
