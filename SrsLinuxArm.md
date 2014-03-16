@@ -90,6 +90,21 @@ Processor	: ARM926EJ-S rev 5 (v5l)
 CPU revision	: 5
 ```
 
+若使用debian armhf，cpu是v7的，信息如下：
+
+```bash
+root@debian-armhf:~# cat /proc/cpuinfo 
+Processor	: ARMv7 Processor rev 0 (v7l)
+CPU architecture: 7
+```
+
+将测试程序编译后scp到arm虚拟机，可以运行：
+
+```bash
+root@debian-armhf:~# ./test 
+hello, arm!
+```
+
 ## 安装QEMU虚拟机环境
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
