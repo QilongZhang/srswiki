@@ -27,6 +27,16 @@ SRS在ARM上主要是源站：
 3. 给srs的st打个patch，我增加一个编译选项，先用你的patch。等st接受你的patch了，我再升级合并过去。<br/>
 arm上支持有几个人提过，但无论如何，linux x86平台srs是必须保证的。我只能保证不影响linux x86平台运行时，加入arm支持。只能加编译选项和打st的patch，这样就完全不影响x86平台。
 
+## Ubuntu/CentOS编译arm-srs
+
+srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。（srs会在将来新加一个编译选项）
+
+以Ubuntu12为例，arm编译器的安装：
+
+```bash
+sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
+```
+
 ## 网络安装ARM虚拟环境
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
