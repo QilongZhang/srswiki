@@ -33,7 +33,11 @@ SRS在ARM上主要是源站：
         #elif defined(__arm__)
             #if defined(__GLIBC__) && __GLIBC__ >= 2
                 #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
-// x86_64: https://gfiber.googlesource.com/kernel/prism/+/dbb415ed05d5cea3d84dec3400669fb4f9b4c727%5E/arch/um/sys-x86_64/setjmp.S
+```
+
+x86_64的setjmp的env参数的布局：[参考资料](https://gfiber.googlesource.com/kernel/prism/+/dbb415ed05d5cea3d84dec3400669fb4f9b4c727%5E/arch/um/sys-x86_64/setjmp.S)
+
+```bash
 # The jmp_buf is assumed to contain the following, in order:
 #       %rbx
 #       %rsp (post-return)
@@ -43,9 +47,12 @@ SRS在ARM上主要是源站：
 #       %r14
 #       %r15
 #       <return address>
-// 从下往上数，sp是倒数第二个。
+// 从下往上数，sp是倒数第二个。所以st写的6是对的。
+```
 
-// arm
+arm直接看头文件的说明：
+
+```bash
 // /usr/arm-linux-gnueabi/include/bits/setjmp.h
 #ifndef _ASM
 /* The exact set of registers saved may depend on the particular core
