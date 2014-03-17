@@ -17,109 +17,6 @@ SRS在ARM上主要是源站：
 * 不需要http-parser，nginx，ffmpeg，api-server，边缘，其他都不需要。
 * 支持RTMP/HLS，RTMP需要ssl，HLS不需要额外的支持，只是切片成文件。
 
-## ST-ARM-BUG-FIX
-
-st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
-* i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
-* x86_64的sp偏移量是6：env[0].__jmp_buf[6]=(long)sp
-* armhf(v7cpu)的sp偏移量是8，但是st写的是20，所以就崩溃了。
-
-```bash
-// md.h
-        #elif defined(__i386__)
-            #if defined(__GLIBC__) && __GLIBC__ >= 2
-                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[4]
-        #elif defined(__amd64__) || defined(__x86_64__)
-            #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[6]
-        #elif defined(__arm__)
-            #if defined(__GLIBC__) && __GLIBC__ >= 2
-                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
-```
-
-x86_64的setjmp的env参数的布局：[参考资料](https://gfiber.googlesource.com/kernel/prism/+/dbb415ed05d5cea3d84dec3400669fb4f9b4c727%5E/arch/um/sys-x86_64/setjmp.S)
-
-```bash
-# The jmp_buf is assumed to contain the following, in order:
-#       %rbx
-#       %rsp (post-return)
-#       %rbp
-#       %r12
-#       %r13
-#       %r14
-#       %r15
-#       <return address>
-// 从下往上数，sp是倒数第二个。所以st写的6是对的。
-```
-
-arm直接看头文件的说明：
-
-```bash
-// /usr/arm-linux-gnueabi/include/bits/setjmp.h
-#ifndef _ASM
-/* The exact set of registers saved may depend on the particular core
-   in use, as some coprocessor registers may need to be saved.  The C
-   Library ABI requires that the buffer be 8-byte aligned, and
-   recommends that the buffer contain 64 words.  The first 28 words
-   are occupied by v1-v6, sl, fp, sp, pc, d8-d15, and fpscr.  (Note
-   that d8-15 require 17 words, due to the use of fstmx.)  */
-typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
-#endif
-//布局应该是：words=ints
-0-5: v1-v6 
-6: sl
-7: fp
-8: sp
-9: pc
-10-26: d8-d15 17words
-27: fpscr
-//所以应该sp是env[8]，设置它就对了。
-```
-
-修正方法，srs已经打了patch，会向st提交：
-
-```bash
-#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
-```
-
-改为：
-
-```bash
-#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[8]
-```
-
-运行结果：
-
-```bash
-root@debian-armhf:~# uname -a
-Linux debian-armhf 3.2.0-4-vexpress #1 SMP Debian 3.2.51-1 armv7l GNU/Linux
-root@debian-armhf:~# file srs
-srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, 
-for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, 
-not stripped
-root@debian-armhf:~# ./srs -c rtmp.conf 
-[2014-03-16 09:48:30.114][error][0][0] end of file. ret=409
-[2014-03-16 09:48:30.120][trace][1][0] server started, listen at port=1935, fd=3
-[2014-03-16 09:48:30.126][trace][2][0] thread cycle start
-[2014-03-16 09:48:31.344][trace][3][11] get peer ip success. ip=192.168.2.101, send_to=30000000, recv_to=30000000
-[2014-03-16 09:48:31.355][trace][3][11] simple handshake success.
-[2014-03-16 09:48:31.363][trace][3][11] rtmp connect app success. 
-tcUrl=rtmp://192.168.2.111:19350/live, pageUrl=, swfUrl=rtmp://192.168.2.111:19350/live, 
-schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
-[2014-03-16 09:48:31.376][trace][3][11] set ack window size to 2500000
-[2014-03-16 09:48:31.381][trace][3][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
-[2014-03-16 09:48:31.387][trace][3][11] identify client success. type=FMLEPublish, stream_name=livestream
-[2014-03-16 09:48:31.393][trace][3][11] set output chunk size to 60000
-[2014-03-16 09:48:31.393][trace][3][11] set chunk_size=60000 success
-[2014-03-16 09:48:32.888][trace][3][11] <- time=1065756, obytes=4168, ibytes=4973, okbps=22, ikbps=26
-[2014-03-16 09:48:32.896][trace][3][11] dispatch metadata success.
-[2014-03-16 09:48:32.898][trace][3][11] process onMetaData message success.
-[2014-03-16 09:48:32.935][trace][3][11] set input chunk size to 157
-[2014-03-16 09:48:33.895][trace][3][11] <- time=1066860, obytes=4168, ibytes=49187, okbps=13, ikbps=156
-[2014-03-16 09:48:35.391][trace][3][11] <- time=1067984, obytes=4168, ibytes=82561, okbps=8, ikbps=164
-```
-
-备注：另外，ST还有个bug，多进程启动时，st只能在fork之后启动。否则会有问题。
-
 ## Ubuntu编译arm-srs
 
 srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。
@@ -168,6 +65,61 @@ not stripped
 ```
 
 备注：在x86和arm平台切换时，譬如之前是为arm编译的，现在为x86平台编译，不需要手动删除东西，直接执行configure就可以，脚本会自动判断。
+
+## 手动编译SRS
+
+如果你的环境不是Ubuntu12或者使用其他的交叉编译工具，可以使用手动编译SRS。
+
+首先，先让SRS编译通过，目标平台为x86/x64编译环境。ARM下只需要RTMP/SSL/HLS，将其他的选项禁用：
+
+```bash
+./configure --with-hls --with-ssl --with-librtmp \
+    --without-ffmpeg --without-http-callback --without-bwtc --without-research \
+    --without-utest --without-gperf --without-gmc --without-gmp --without-gcp \
+    --without-gprof --without-arm-ubuntu12
+```
+
+注意：configure之后，不要make，会生成x86/x64的.o，交叉编译st和ssl之后也不会编译这些.o文件。
+
+然后，重新编译ST，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
+
+```bash
+cd ~/git/simple-rtmp-server/trunk/objs/st-1.9 &&
+make clean && patch -p0 < ../../3rdparty/patches/1.st.arm.patch &&
+make CC=arm-linux-gnueabi-gcc AR=arm-linux-gnueabi-ar LD=arm-linux-gnueabi-ld \
+    RANDLIB=arm-linux-gnueabi-randlib linux-debug
+```
+
+接着，重新编译ssl，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
+
+```bash
+cd ~/git/simple-rtmp-server/trunk/objs/openssl-1.0.1f && 
+rm -rf _release && make clean &&
+./Configure --prefix=`pwd`/_release -no-shared no-asm linux-armv4 &&
+make CC=arm-linux-gnueabi-gcc GCC=arm-linux-gnueabi-gcc AR="arm-linux-gnueabi-ar r" \
+    LD=arm-linux-gnueabi-ld LINK=arm-linux-gnueabi-gcc RANDLIB=arm-linux-gnueabi-randlib &&
+make install
+```
+
+重新编辑srs，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
+
+```bash
+cd ~/git/simple-rtmp-server/trunk && 
+make GCC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ AR=arm-linux-gnueabi-ar LINK=arm-linux-gnueabi-g++ server librtmp
+```
+
+SRS生成的文件：
+* srs: ./objs/srs，srs服务器。
+* librtmp: ./objs/include, ./objs/lib，srs提供的客户端库。
+* librtmp-sample: ./research/librtmp，srs-librtmp的例子。
+
+```bash
+winlin@winlin-VirtualBox:~/git/simple-rtmp-server/trunk$ file objs/srs
+objs/srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), 
+for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, not stripped
+```
+
+拷贝到ARM上即可运行。
 
 ## Armel和Armhf
 
@@ -358,5 +310,108 @@ cp disk/boot/initrd.img-3.2.0-4-versatile .
 qemu-system-arm -machine versatilepb -kernel vmlinuz-3.2.0-4-versatile \
     -hda hda.img -initrd initrd.img-3.2.0-4-versatile -m 256 -append "root=/dev/sda1"
 ```
+
+## ST-ARM-BUG-FIX
+
+st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开辟新的stack空间，所以需要将sp设置为新开辟的空间。
+* i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
+* x86_64的sp偏移量是6：env[0].__jmp_buf[6]=(long)sp
+* armhf(v7cpu)的sp偏移量是8，但是st写的是20，所以就崩溃了。
+
+```bash
+// md.h
+        #elif defined(__i386__)
+            #if defined(__GLIBC__) && __GLIBC__ >= 2
+                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[4]
+        #elif defined(__amd64__) || defined(__x86_64__)
+            #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[6]
+        #elif defined(__arm__)
+            #if defined(__GLIBC__) && __GLIBC__ >= 2
+                #define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
+```
+
+x86_64的setjmp的env参数的布局：[参考资料](https://gfiber.googlesource.com/kernel/prism/+/dbb415ed05d5cea3d84dec3400669fb4f9b4c727%5E/arch/um/sys-x86_64/setjmp.S)
+
+```bash
+# The jmp_buf is assumed to contain the following, in order:
+#       %rbx
+#       %rsp (post-return)
+#       %rbp
+#       %r12
+#       %r13
+#       %r14
+#       %r15
+#       <return address>
+// 从下往上数，sp是倒数第二个。所以st写的6是对的。
+```
+
+arm直接看头文件的说明：
+
+```bash
+// /usr/arm-linux-gnueabi/include/bits/setjmp.h
+#ifndef _ASM
+/* The exact set of registers saved may depend on the particular core
+   in use, as some coprocessor registers may need to be saved.  The C
+   Library ABI requires that the buffer be 8-byte aligned, and
+   recommends that the buffer contain 64 words.  The first 28 words
+   are occupied by v1-v6, sl, fp, sp, pc, d8-d15, and fpscr.  (Note
+   that d8-15 require 17 words, due to the use of fstmx.)  */
+typedef int __jmp_buf[64] __attribute__((__aligned__ (8)));
+#endif
+//布局应该是：words=ints
+0-5: v1-v6 
+6: sl
+7: fp
+8: sp
+9: pc
+10-26: d8-d15 17words
+27: fpscr
+//所以应该sp是env[8]，设置它就对了。
+```
+
+修正方法，srs已经打了patch，会向st提交：
+
+```bash
+#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[20]
+```
+
+改为：
+
+```bash
+#define MD_GET_SP(_t) (_t)->context[0].__jmpbuf[8]
+```
+
+运行结果：
+
+```bash
+root@debian-armhf:~# uname -a
+Linux debian-armhf 3.2.0-4-vexpress #1 SMP Debian 3.2.51-1 armv7l GNU/Linux
+root@debian-armhf:~# file srs
+srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, 
+for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, 
+not stripped
+root@debian-armhf:~# ./srs -c rtmp.conf 
+[2014-03-16 09:48:30.114][error][0][0] end of file. ret=409
+[2014-03-16 09:48:30.120][trace][1][0] server started, listen at port=1935, fd=3
+[2014-03-16 09:48:30.126][trace][2][0] thread cycle start
+[2014-03-16 09:48:31.344][trace][3][11] get peer ip success. ip=192.168.2.101, send_to=30000000, recv_to=30000000
+[2014-03-16 09:48:31.355][trace][3][11] simple handshake success.
+[2014-03-16 09:48:31.363][trace][3][11] rtmp connect app success. 
+tcUrl=rtmp://192.168.2.111:19350/live, pageUrl=, swfUrl=rtmp://192.168.2.111:19350/live, 
+schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
+[2014-03-16 09:48:31.376][trace][3][11] set ack window size to 2500000
+[2014-03-16 09:48:31.381][trace][3][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
+[2014-03-16 09:48:31.387][trace][3][11] identify client success. type=FMLEPublish, stream_name=livestream
+[2014-03-16 09:48:31.393][trace][3][11] set output chunk size to 60000
+[2014-03-16 09:48:31.393][trace][3][11] set chunk_size=60000 success
+[2014-03-16 09:48:32.888][trace][3][11] <- time=1065756, obytes=4168, ibytes=4973, okbps=22, ikbps=26
+[2014-03-16 09:48:32.896][trace][3][11] dispatch metadata success.
+[2014-03-16 09:48:32.898][trace][3][11] process onMetaData message success.
+[2014-03-16 09:48:32.935][trace][3][11] set input chunk size to 157
+[2014-03-16 09:48:33.895][trace][3][11] <- time=1066860, obytes=4168, ibytes=49187, okbps=13, ikbps=156
+[2014-03-16 09:48:35.391][trace][3][11] <- time=1067984, obytes=4168, ibytes=82561, okbps=8, ikbps=164
+```
+
+备注：另外，ST还有个bug，多进程启动时，st只能在fork之后启动。否则会有问题。
 
 Winlin 2014.2
