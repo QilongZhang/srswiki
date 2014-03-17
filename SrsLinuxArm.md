@@ -105,7 +105,8 @@ make install
 
 ```bash
 cd ~/git/simple-rtmp-server/trunk && 
-make GCC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ AR=arm-linux-gnueabi-ar LINK=arm-linux-gnueabi-g++ server librtmp
+make GCC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ AR=arm-linux-gnueabi-ar \
+    LINK=arm-linux-gnueabi-g++ server librtmp
 ```
 
 SRS生成的文件：
