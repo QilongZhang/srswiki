@@ -248,10 +248,16 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
 </tr>
 <tr>
-<td>小型集群</td>
-<td>RTMP(Basic)</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
-<td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
+<td>ARM</td>
+<td>ARM</td>
+<td>./configure \<br/>--with-ssl \<br/>--with-arm-ubuntu12</td>
+<td>SRS在ARM上运行，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm">arm-srs</a></td>
+</tr>
+<tr>
+<td>srs-librtmp</td>
+<td>librtmp</td>
+<td>./configure \<br/>--with-librtmp</td>
+<td>SRS提供客户端推流/播放库，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a></td>
 </tr>
 </table>
 
@@ -297,6 +303,12 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <td>FFMPEG</td>
 <td>./objs/ffmpeg/bin/ffmpeg</td>
 <td>SRS转码用的FFMPEG，DEMO推流也是用它</td>
+</tr>
+<tr>
+<td>librtmp</td>
+<td>./objs/include/srs_librtmp.h<br/>
+./objs/lib/srs_librtmp.a</td>
+<td>SRS提供的客户端库，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a></td>
 </tr>
 <tr>
 <td>DEMO<br/>(关闭ApiServer)</td>
