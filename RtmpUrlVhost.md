@@ -429,6 +429,18 @@ SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功
 <tr>
 <td>Transcode</td><td>stream.transcode.vhost.com</td><td>转码实例：只对匹配的流进行转码。</td>
 </tr>
+</tbody>
+</table>
+
+SRS的demo.conf配置文件中，包含了demo用到的一些vhost，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)。
+
+<table>
+<thead>
+<th>Category</th>
+<th>Vhost</th>
+<th>说明</th>
+</thead>
+<tbody>
 <tr>
 <td>DEMO</td><td>players</td><td>srs_player播放的演示流，按照Readme的Step会推流到这个vhost，demo页面打开后播放的流就是这个vhost中的流</td>
 </tr>
