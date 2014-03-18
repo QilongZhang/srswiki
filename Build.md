@@ -21,17 +21,8 @@ sudo /sbin/chkconfig iptables off
 selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行下面的步骤：
 
 1. 编辑配置文件：`sudo vi /etc/sysconfig/selinux`
-2. 把SELINUX的值改为disabled：
-
-```bash
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=disabled
-```
-3. 重启系统：`sudo init 6`
+1. 把SELINUX的值改为disabled：`SELINUX=disabled`
+1. 重启系统：`sudo init 6`
 
 ## SRS依赖关系
 
@@ -43,7 +34,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td><strong>功能</strong></td>
 <td><strong>选项</strong></td>
-<td><strong>编译开关</strong></td>
+<td><strong>编译</strong></td>
 <td><strong>依赖库</strong></td>
 <td><strong>说明</strong></td>
 </tr>
@@ -64,51 +55,86 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>RTMP<br/>(H.264/AAC)</td>
 <td>可选</td>
-<td>--with-ssl<br/>--without-ssl</td>
+<td>--with-ssl</td>
 <td>ssl</td>
 <td>RTMP分发H.264/AAC，需要支持<a href="http://blog.csdn.net/win_lin/article/details/13006803">复杂握手</a><br/><br/>简单握手的内容为1537字节随机数，<br/>而复杂握手为按一定规则加密的数据<br/><br/>srs使用自己编译的ssl库</td>
 </tr>
 <tr>
 <td>HLS</td>
 <td>可选</td>
-<td>--with-hls<br/>--without-hls</td>
+<td>--with-hls</td>
 <td>nginx</td>
 <td>将RTMP流切片成ts，并生成m3u8，<br/>即AppleHLS流分发，打开此功能后会编译<a href="http://nginx.org/">nginx</a>，<br/>通过nginx分发m3u8和ts静态文件</td>
 </tr>
 <tr>
 <td>Transcode</td>
 <td>可选</td>
-<td>--with-ffmpeg<br/>--without-ffmpeg</td>
+<td>--with-ffmpeg</td>
 <td>ffmpeg<br/>(libaacplus,<br/>lame,yasm,<br/>x264,ffmpeg)</td>
 <td>将RTMP流转码后输出RTMP流，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*系统</td>
 </tr>
 <tr>
 <td>ApiServer</td>
 <td>可选</td>
-<td>--with-http-callback<br/>--without-http-callback</td>
+<td>--with-http-callback</td>
 <td>cherrypy<br/>http-parser2.1<br/>python2</td>
 <td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
 </tr>
 <tr>
 <td>ARM</td>
 <td>可选</td>
-<td>--with-arm-ubuntu12<br/>--without-arm-ubuntu12</td>
+<td>--with-arm-ubuntu12</td>
 <td>无额外依赖</td>
 <td>SRS可运行于ARM，<br/>若需要支持<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake">复杂握手</a>则需要依赖ssl，<br/>目前在Ubuntu12下编译，<br/>debian-armhf(v7cpu)下测试通过</td>
 </tr>
 <tr>
 <td>librtmp</td>
 <td>可选</td>
-<td>--with-librtmp<br/>--without-librtmp</td>
+<td>--with-librtmp</td>
 <td>无额外依赖</td>
 <td>SRS提供客户端库<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a>，<br/>若需要支持<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake">复杂握手</a>则需要依赖ssl，<br/>支持客户端推RTMP流到SRS，或者播放RTMP流<br/><br/>srs-librtmp使用同步socket，协议栈和SRS<br/>服务端一致，和librtmp一样，只适合用作客户端，<br/>不可用作服务端。</td>
 </tr>
 <tr>
 <td>DEMO</td>
 <td>可选</td>
-<td>--with-hls<br/>--without-hls</td>
+<td>--with-ssl<br/>--with-hls<br/>--with-ffmpeg<br/></td>
 <td>nginx/cherrypy</td>
 <td>SRS的演示播放器/转码输出的流/编码器/视频会议，<br/>因为需要http服务器，所以依赖于nginx，<br/><br/>另外，视频会议因为需要知道大家发布的流名称，<br/>所以需要ApiServer支持</td>
+</tr>
+<tr>
+<td>GPERF</td>
+<td>可选</td>
+<td>--with-gperf</td>
+<td>gperftools</td>
+<td>使用Google的tcmalloc内存分配库，<br/>gmc/gmp/gcp依赖这个选项，参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF">GPERF</a></td>
+</tr>
+<tr>
+<td>GPERF(GMC)</td>
+<td>可选</td>
+<td>--with-gmc</td>
+<td>gperftools</td>
+<td>内存检查gperf-memory-check，<br/>gmc依赖gperf，参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF">GPERF</a></td>
+</tr>
+<tr>
+<td>GPERF(GMP)</td>
+<td>可选</td>
+<td>--with-gmp</td>
+<td>gperftools</td>
+<td>内存性能分析gperf-memory-profile，<br/>gmp依赖gperf，参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF">GPERF</a></td>
+</tr>
+<tr>
+<td>GPERF(GCP)</td>
+<td>可选</td>
+<td>--with-gcp</td>
+<td>gperftools</td>
+<td>CPU性能分析gperf-cpu-profile，<br/>gcp依赖gperf，参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF">GPERF</a></td>
+</tr>
+<tr>
+<td>GPROF</td>
+<td>可选</td>
+<td>--with-gprof</td>
+<td>gprof</td>
+<td>GNU CPU profile性能分析工具，<br/>参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/GPROF">GPROF</a></td>
 </tr>
 </table>
 
@@ -126,25 +152,25 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>RTMP功能</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)</td>
-<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>只有基本的RTMP功能，作为RTMP源站提供服务。<br/>包含Forward/Reload/Refer/Vhost等核心功能。<br/>没有HLS，也没有转码，没有ApiServer。<br/>典型场景：<br/>1.RTMP网络电视台<br/>2.美女主播<br/>3.视频会议<br/>4.低延时的交互类应用<br/>5.其他RTMP应用</td>
 </tr>
 <tr>
 <td>快速预览<br/>最小依赖</td>
 <td>RTMP(Basic)</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>只保留系统核心功能，连RTMP分发h.264/aac都去掉。<br/>可以编译速度最快，几乎在所有的linux都能编译成功<br/>包含RTMP(Basic)基本流分发功能，<br/>包含Forward/Reload/Refer/Vhost核心功能<br/>典型场景：<br/>1.想快速编译SRS<br/>2.想在很老的系统下编译SRS<br/>3.VP6推RTMP流就可以</td>
 </tr>
 <tr>
 <td>多屏分发</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)<br/>HLS</td>
-<td>./configure \<br/>--with-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--with-ssl \<br/>--with-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>希望支持PC(RTMP)，Apple(HLS)和Android(HLS)观看，<br/>PC上自然是adobe的flash观看效果最佳，<br/>1. flash自然是播放RTMP最稳定，<br/>测试显示10天连续播放都没有问题，<br/>2. Apple平台自然是HLS，<br/>就是看到HLS在Apple上完美表现，<br/>SRS才决定支持HLS，<br/>3. Android上的流媒体没有稳定的分发方式，<br/>相对而言，HLS是较好的选择，<br/>Andorid上播放器用HTML5播放m3u8<br/>典型场景：<br/>1.多屏分发的广播流<br/>2.对延时不那么关心（HLS延时至少一个ts切片）<br/>3.需要支持移动端<br/>注意：HLS需要h264和AAC编码，若编码器不支持，则需要转码</td>
 </tr>
 <tr>
 <td>转码</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)<br/>Transcode</td>
-<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http \<br/>--with-ffmpeg</td>
+<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--with-ffmpeg</td>
 <td>希望对RTMP进行转码后输出，<br/>譬如，flash推流到SRS，编码是vp6和speex，<br/>希望转码为h264和aac后输出HLS，<br/>譬如，编码器推送较高码率到SRS，转码输出较低码率，<br/>譬如，加水印后输出，<br/>譬如，只对音频进行转码，将speex/mp3转码为aac给手机端播放，<br/>转码是wowza里面很贵的一个插件，应用场景可见一斑<br/>典型场景：<br/>1.需要输出HLS，但是输入流不是h264/aac<br/>2.高码率输入，多路输出，手机端播放低码率的流<br/>3.各种FFMPEG滤镜的应用<br/>注意：所有转码的流可以再经过SRS进行HLS切片和forward</td>
 </tr>
 <tr>
@@ -156,19 +182,25 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>客户端</td>
 <td>HLS</td>
-<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>SRS提供了以下客户端：<br/>1.播放器，research/players/srs_player<br/>research/players/srs_player.html<br/>2.编码器，research/players/srs_publisher<br/>research/players/srs_publisher.html<br/>3.测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>4.jwplayer：research/players/jwplayer6.html<br/>5.osmf播放器：research/players/osmf.html<br/>srs提供的客户端(srs-player/publisher)都是全js接口，<br/>flash元素只有video播放，<br/>典型场景：<br/>1.希望播放RTMP/HLS流<br/>2.希望使用flash推流<br/>3.希望测试客户端到服务器带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
 <tr>
 <td>测速</td>
 <td>HLS</td>
-<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>SRS提供的测速工具，分为flash客户端和linux命令行工具，<br/>1.flash测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>flash测速提供全js接口，方便嵌入页面<br/>2.linux测速：./objs/bandwidth<br/>典型场景：<br/>1.推流前测速，看用户带宽是否达到要求<br/>2.排查卡顿问题，查看节点之间带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
 <tr>
 <td>小型集群</td>
 <td>RTMP(Basic)</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
+</tr>
+<tr>
+<td>小型集群</td>
+<td>RTMP(Basic)</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
 <td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
 </tr>
 </table>
@@ -178,7 +210,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++，编译方法是：
 
 ```bash
-./configure --without-ssl --without-hls --without-http --without-ffmpeg && 
+./configure --without-ssl --without-hls --without-http-callback --without-ffmpeg && 
     make CXX=arm-linux-g++ GCC=arm-linux-gcc CC=arm-linux-gcc AR=arm-linux-ar \
     RANLIB=arm-linux-ranlib
 ```
@@ -324,6 +356,7 @@ SRS的配置(configure)参数说明如下：
 * --with-gmp 是否使用gperf的内存性能分析，编译后srs退出时会生成内存分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 * --with-gcp 是否启用gperf的CPU性能分析，编译后srs退出时会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 * --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/GPROF)
+* --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。
 * --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
 
 Winlin 2014.2
