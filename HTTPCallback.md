@@ -135,7 +135,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：可以参考conf/srs.conf配置文件中的hooks.callback.vhost.com实例。
+备注：可以参考conf/full.conf配置文件中的hooks.callback.vhost.com实例。
 
 ## 默认的HTTP服务器
 
