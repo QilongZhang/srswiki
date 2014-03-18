@@ -61,6 +61,8 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 </tr>
 </table>
 
+<strong>备注：推荐使用--without-ssl方式，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
+
 SRS编译成功后，用户就可以使用这些库开发
 
 ## srs-librtmp实例
