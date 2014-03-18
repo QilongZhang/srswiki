@@ -24,6 +24,56 @@ selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行�
 1. 把SELINUX的值改为disabled：`SELINUX=disabled`
 1. 重启系统：`sudo init 6`
 
+## 编译和启动
+
+确定用什么编译选项后（参考下面的说明），编译SRS其实很简单。譬如，demo使用的选项：
+
+```
+./configure --with-ssl && make
+```
+
+指定配置文件，即可启动SRS：
+
+```bash
+./objs/srs -c conf/rtmp.conf
+```
+
+推RTMP流和观看，参考[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+
+更多使用方法，参考[Usage](https://github.com/winlinvip/simple-rtmp-server#usage)
+
+## jobs:加速编译
+
+由于SRS在configure时需要编译ffmpeg/nginx，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
+* configure: 在编译srs依赖的工具时可以并行编译。
+* make: 在编译srs时可以使用并行编译。
+
+srs并行编译和串行编译的项目包括（srs会自动判断，不需要用户指定）：
+* srs: 支持并行编译。
+* st-1.9: 串行编译，库比较小，编译时间很短。
+* http-parser: 串行编译，库比较小，编译时间很短。
+* openssl: 串行编译，并行编译有问题。
+* nginx: 支持并行编译。
+* ffmpeg: 支持并行编译。
+* lame: 支持并行编译。ffmpeg用到的mp3库。
+* libaacplus: 串行编译，并行编译有问题。ffmpeg用到的aac库。
+* x264: 支持并行编译。ffmpeg用到的x264库。
+
+configure使用并行编译的方法如下：
+
+```bash
+./configure --jobs=16
+```
+
+注意：configure不支持make那样的"-jN"，只支持"--jobs[=N]"。
+
+make使用并行编译的方法如下：
+
+```bash
+// or make --jobs=16
+make -j16
+```
+
 ## SRS依赖关系
 
 SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx，openssl-devel，python2。
@@ -207,58 +257,9 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 
 ## 自定义编译参数
 
-SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++，编译方法是：
-
-```bash
-./configure --without-ssl --without-hls --without-http-callback --without-ffmpeg && 
-    make CXX=arm-linux-g++ GCC=arm-linux-gcc CC=arm-linux-gcc AR=arm-linux-ar \
-    RANLIB=arm-linux-ranlib
-```
-
-可以定义的其他编译变量是：
-* GCC: c编译器。SRS默认：gcc
-* CC: c编译器。SRS默认：gcc。ST默认：cc。
-* CXX: c++编译器。SRS默认：g++
-* AR：库生成器。ST默认：ar
-* RANLIB：ST默认：ranlib
+SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++。参考[ARM：手动编译](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm#%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91srs)
 
 注意：SRS和ST都可以通过编译前设置变量编译，但是ssl需要手动修改Makefile。还好ssl不用每次都编译。
-
-## 编译和启动
-
-确定用什么编译选项后，编译SRS其实很简单。譬如，demo使用的选项：
-
-```
-./configure --with-ssl --with-hls --with-http-callback --with-ffmpeg &&
-make
-```
-
-在configure时，会根据选择的功能编译需要的库和工具。configure完成后，make就可以编译SRS。
-
-编译成功后，启动SRS/nginx/ApiServer，启动推流的实例（可以查看[README](https://github.com/winlinvip/simple-rtmp-server)的[Usage](https://github.com/winlinvip/simple-rtmp-server#usagesimple)）。譬如：
-
-```bash
-echo "启动HLS/DEMO要用到的web服务器"
-sudo ./objs/nginx/sbin/nginx
-echo "启动DEMO(视频会议)和HttpHooks要用到的Api服务器" 
-nohup python research/api-server/server.py 8085 >/dev/null 2>&1 &
-echo "启动SRS服务器，默认配置文件" 
-sudo ./objs/srs -c conf/srs.conf >objs/logs/srs.log 2>&1 &
-echo "推一路流到SRS(live?vhost=demo.srs.com/livestream)，DEMO中的1进12出的演示" 
-bash scripts/_step.start.ffmpeg.demo.sh 
-echo "推一路流到SRS(live?vhost=players/livestream)，DEMO中的播放器播放的流" 
-bash scripts/_step.start.ffmpeg.players.sh
-```
-
-注意：scripts/run.sh其实就是做的上面的几步，这些脚本就是把[Usage(detail)](https://github.com/winlinvip/simple-rtmp-server#usagedetail)中的命令写到脚本中了而已。
-
-假设服务器的ip是：192.168.2.101
-
-DEMO地址为：[http://192.168.2.101](http://192.168.2.101)
-
-呃，浏览器，当然是Chrome/Firefox/Safari/Opera效果都很好，主要是bootstrap里面的css3和jquery支持得比较好。其实IE10以上虽然丑但是还可以，其他的IE内核的“鹌鹑”浏览器之类的，真的是没有办法，很丑。
-
-OK，结论就是：用Chrome浏览 [http://192.168.2.101](http://192.168.2.101)
 
 ## 编译的生成项目
 
@@ -308,38 +309,6 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http-callback)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
-
-## jobs:加速编译
-
-由于SRS在configure时需要编译ffmpeg/nginx，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
-* configure: 在编译srs依赖的工具时可以并行编译。
-* make: 在编译srs时可以使用并行编译。
-
-srs并行编译和串行编译的项目包括（srs会自动判断，不需要用户指定）：
-* srs: 支持并行编译。
-* st-1.9: 串行编译，库比较小，编译时间很短。
-* http-parser: 串行编译，库比较小，编译时间很短。
-* openssl: 串行编译，并行编译有问题。
-* nginx: 支持并行编译。
-* ffmpeg: 支持并行编译。
-* lame: 支持并行编译。ffmpeg用到的mp3库。
-* libaacplus: 串行编译，并行编译有问题。ffmpeg用到的aac库。
-* x264: 支持并行编译。ffmpeg用到的x264库。
-
-configure使用并行编译的方法如下：
-
-```bash
-./configure --jobs=16
-```
-
-注意：configure不支持make那样的"-jN"，只支持"--jobs[=N]"。
-
-make使用并行编译的方法如下：
-
-```bash
-// or make --jobs=16
-make -j16
-```
 
 ## 配置参数说明
 
