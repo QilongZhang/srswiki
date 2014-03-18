@@ -8,6 +8,8 @@ librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库�
 
 备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)
 
+备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
+
 ## SRS为何提供librtmp
 
 srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
