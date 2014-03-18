@@ -2,6 +2,8 @@
 
 SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等。
 
+<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage](https://github.com/winlinvip/simple-rtmp-server#usage)的每个单独的使用，然后再动demo。</strong>
+
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
 <strong>第一步，设置客户端hosts，注意是客户端（需要将demo.srs.com这个域名/vhost解析到服务器）</strong>
