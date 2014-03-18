@@ -265,7 +265,7 @@ vhost __defaultVhost__ {
 
 ## 其他转码配置
 
-conf/srs.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
+conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
 * mirror.transcode.vhost.com 将视频流上半截，翻转到下半截，看起来像个镜子。
 * drawtext.transcode.vhost.com 加文字水印。
 * crop.transcode.vhost.com 剪裁视频。
