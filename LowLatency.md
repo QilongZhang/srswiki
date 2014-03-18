@@ -55,7 +55,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：参考conf/srs.conf的min.delay.com配置。
+备注：参考conf/full.conf的min.delay.com配置。
 
 ## 累积延迟
 
