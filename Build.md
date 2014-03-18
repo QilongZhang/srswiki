@@ -337,7 +337,8 @@ SRS的配置(configure)参数说明如下：
 * --with-gmp 是否使用gperf的内存性能分析，编译后srs退出时会生成内存分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 * --with-gcp 是否启用gperf的CPU性能分析，编译后srs退出时会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 * --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/GPROF)
-* --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。
+* --with-librtmp 客户端推流/播放库，参考[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp)
+* --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 * --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
 
 Winlin 2014.2
