@@ -391,7 +391,7 @@ root@debian-armhf:~# file srs
 srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), statically linked, 
 for GNU/Linux 2.6.31, BuildID[sha1]=0xba18634b92775bdb1314ea02db23b1e233d30df3, 
 not stripped
-root@debian-armhf:~# ./srs -c rtmp.conf 
+root@debian-armhf:~# ./srs -c conf/srs.conf 
 [2014-03-16 09:48:30.114][error][0][0] end of file. ret=409
 [2014-03-16 09:48:30.120][trace][1][0] server started, listen at port=1935, fd=3
 [2014-03-16 09:48:30.126][trace][2][0] thread cycle start
