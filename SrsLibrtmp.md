@@ -18,30 +18,15 @@ librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库�
 ./configure --with-librtmp --without-ssl
 ```
 
-<strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
-
-## SRS为何提供librtmp
-
-srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
-* librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
-* librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
-* 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
-* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
-* 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
-* 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
-
-一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
-
-## srs-librtmp结构
-
-[srs编译](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)后，在srs当前目录创建objs作为编译的主目录，默认会编译出srs-librtmp和对应的sample，主要文件见下表。
+编译会生成srs-librtmp和对应的sample，主要文件见下表。
 
 <table>
 <tr>
 <th>SRS编译选项</th><th>编译说明</th><th>srs-librtmp文件</th><th>说明</th>
 </tr>
 <tr>
-<td>./configure --without-ssl</td>
+<td>./configure \<br/>
+--with-librtmp --without-ssl</td>
 <td>不依赖openssl，<br/>不支持复杂握手，<br/>只支持简单握手</td>
 <td>
 objs/include/srs_librtmp.h<br/>
@@ -54,7 +39,8 @@ objs/lib/libsrs_rtmp.a
 </td>
 </tr>
 <tr>
-<td>./configure --with-ssl</td>
+<td>./configure \<br/>
+--with-librtmp --with-ssl</td>
 <td>依赖openssl，<br/>支持复杂握手，<br/>支持简单握手</td>
 <td>
 objs/include/srs_librtmp.h<br/>
@@ -71,62 +57,45 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 </tr>
 </table>
 
+<strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
+
 SRS编译成功后，用户就可以使用这些库开发
 
 ## srs-librtmp实例
 
-SRS提供了实例sample，也会在编译srs时自动编译：
+SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_play.c：播放RTMP流实例。
 * research/librtmp/srs_publish.c：推送RTMP流实例。
 
 依赖ssl的编译方法（支持复杂握手和简单握手）：
 
 ```bash
-# 编译srs时自动编译这些实例
-cd /home/winlin/git/simple-rtmp-server/trunk
-./configure --with-ssl && make
-#
-#实例的单独编译方法为：
+# 编译srs-librtmp时自动编译这些实例
+# 实例的单独编译方法为：
 cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
 make ssl
 ```
 
-不需要ssl（不支持复杂握手，只支持简单握手）编译方法：
+不需要ssl（不支持复杂握手，只支持简单握手）编译方法(<strong>推荐</strong>)：
 
 ```bash
-# 编译srs时自动编译这些实例
-cd /home/winlin/git/simple-rtmp-server/trunk
-./configure --without-ssl && make
-#
-#实例的单独编译方法为：
+# 编译srs-librtmp时自动编译这些实例
+# 实例的单独编译方法为：
 cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
 make nossl
 ```
 
 实例编译的二进制文件：
-* research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。
+* research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
 * research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。
+* research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
 * research/librtmp/srs_publish_ssl：推送RTMP流，有ssl，支持简单握手和复杂握手。
-
-## 主要流程
-
-srs-librtmp的主要逻辑流程如下图：
-<pre>
-                                                                srs_play_stream
-                                                                +------------+     
-                                                             +--+    play    +---+    
-  +--------+          +-----------+       +-------------+    |  +------------+   |    +------------+    +-----------+
-  | create +------->--+ handshake +----->-+ connect-app +-->-+                   +-->-+ read/write +-->-+  destroy  +
-  +--------+          +-----------+       +-------------+    |  +------------+   |    +------------+    +-----------+
- srs_rtmp_create   srs_simple_handshake   srs_connect_app    +--+   publish  +---+    srs_read_packet   srs_rtmp_destroy
-                  srs_complex_handshake                         +------------+        srs_write_packet
-                     srs_ssl_enabled                           srs_publish_stream
-</pre>
 
 ## 数据格式
 
-数据接口：
+srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到服务器，或者从服务器读取音视频数据。
+
+数据接口包括：
 * 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
 
@@ -204,6 +173,18 @@ got packet: type=Video, time=320, size=4096
 got packet: type=Video, time=360, size=4096
 got packet: type=Video, time=400, size=4096
 ```
+
+## SRS为何提供librtmp
+
+srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
+* librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
+* librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
+* 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
+* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
+* 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
+* 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
+
+一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
 ## srs-librtmp接口说明
 
