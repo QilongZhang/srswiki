@@ -357,7 +357,7 @@ SRS常见的三种RTMP URL，详细见下表：
 
 ## SRS的Vhost
 
-SRS的srs.conf默认配置文件中，有很多Vhost，主要是为了说明各个功能，每个功能都单独列出一个vhost。所有功能都放在demo.srs.com这个vhost中。
+SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功能，每个功能都单独列出一个vhost。所有功能都放在demo.srs.com这个vhost中。
 
 <table>
 <thead>
