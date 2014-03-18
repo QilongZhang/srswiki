@@ -10,6 +10,16 @@ librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库�
 
 备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
 
+## 编译srs-librtmp
+
+编译SRS时，会自动编译srs-librtmp，譬如：
+
+```bash
+./configure --with-librtmp --without-ssl
+```
+
+<strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
+
 ## SRS为何提供librtmp
 
 srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
@@ -61,8 +71,6 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 </tr>
 </table>
 
-<strong>备注：推荐使用--without-ssl方式，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
-
 SRS编译成功后，用户就可以使用这些库开发
 
 ## srs-librtmp实例
@@ -100,21 +108,6 @@ make nossl
 * research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
 * research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。
 * research/librtmp/srs_publish_ssl：推送RTMP流，有ssl，支持简单握手和复杂握手。
-
-## 编译srs-librtmp
-
-编译SRS时，会自动编译srs-librtmp，譬如：
-
-```bash
-[winlin@dev6 srs]$ ./configure --without-ssl && make
-[winlin@dev6 srs]$ ll objs/include/
--rw-r--r-- 1 winlin winlin 2891 Mar  2 12:03 srs_librtmp.h
-[winlin@dev6 srs]$ ll objs/lib/
--rw-rw-r-- 1 winlin winlin 1540950 Mar  2 12:03 libsrs_rtmp.a
-[winlin@dev6 srs]$ ll research/librtmp/
--rwxrwxr-x 1 winlin winlin 747265 Mar  2 12:03 srs_play_nossl
--rwxrwxr-x 1 winlin winlin 747276 Mar  2 12:03 srs_publish_nossl
-```
 
 ## 主要流程
 
