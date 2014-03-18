@@ -150,6 +150,8 @@ sent packet: type=Video, time=200, size=4096
 sent packet: type=Video, time=240, size=4096
 ```
 
+备注：推流实例发送的视频数据不是真正的视频数据，实际使用时，譬如从摄像头取出h.264裸码流，需要封装成接口要求的数据，然后调用接口发送出去。
+
 播放实例：
 
 ```bash
