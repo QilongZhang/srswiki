@@ -4,15 +4,15 @@ SRS（Simple RTMP Server）分发RTMP是核心功能，srs的主要定位就是�
 
 ## 配置RTMP流
 
-SRS只需要配置vhost就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)）：
+SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)）：
 
 ```bash
-# srs.conf
+listen              1935;
 vhost __defaultVhost__ {
 }
 ```
 
-启动服务器：`./objs/srs -c srs.conf`
+启动服务器：`./objs/srs -c conf/rtmp.conf`
 
 ## 推送RTMP流
 
