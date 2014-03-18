@@ -49,14 +49,14 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 </tr>
 <tr>
 <td>编译器</td>
-<td><strong>必选</strong></td>
+<td>必选</td>
 <td>无</td>
 <td>linux,g++,gcc,make</td>
 <td>基础编译环境</td>
 </tr>
 <tr>
 <td>RTMP(Basic)</td>
-<td><strong>必选</strong></td>
+<td>必选</td>
 <td>无</td>
 <td>st-1.9</td>
 <td>RTMP服务器，st为处理并发的基础库<br/>forward,vhost,refer,reload为基础功能。<br/><br/>st-1.9没有再依赖其他库，在各种linux下都可以编译，<br/>测试过的有CentOS 4/5/6，其他问题也不大</td>
@@ -65,8 +65,8 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>RTMP<br/>(H.264/AAC)</td>
 <td>可选</td>
 <td>--with-ssl<br/>--without-ssl</td>
-<td>openssl-devel</td>
-<td>RTMP分发H.264/AAC，需要支持<a href="http://blog.csdn.net/win_lin/article/details/13006803">复杂握手</a><br/><br/>简单握手的内容为1537字节随机数，<br/>而复杂握手为按一定规则加密的数据</td>
+<td>ssl</td>
+<td>RTMP分发H.264/AAC，需要支持<a href="http://blog.csdn.net/win_lin/article/details/13006803">复杂握手</a><br/><br/>简单握手的内容为1537字节随机数，<br/>而复杂握手为按一定规则加密的数据<br/><br/>srs使用自己编译的ssl库</td>
 </tr>
 <tr>
 <td>HLS</td>
@@ -87,7 +87,21 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>可选</td>
 <td>--with-http-callback<br/>--without-http-callback</td>
 <td>cherrypy<br/>http-parser2.1<br/>python2</td>
-<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用on_connect接口，<br/>SRS自带了一个research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
+<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
+</tr>
+<tr>
+<td>ARM</td>
+<td>可选</td>
+<td>--with-arm-ubuntu12<br/>--without-arm-ubuntu12</td>
+<td>无额外依赖</td>
+<td>SRS可运行于ARM，<br/>若需要支持<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake">复杂握手</a>则需要依赖ssl，<br/>目前在Ubuntu12下编译，<br/>debian-armhf(v7cpu)下测试通过</td>
+</tr>
+<tr>
+<td>librtmp</td>
+<td>可选</td>
+<td>--with-librtmp<br/>--without-librtmp</td>
+<td>无额外依赖</td>
+<td>SRS提供客户端库<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a>，<br/>若需要支持<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake">复杂握手</a>则需要依赖ssl，<br/>支持客户端推RTMP流到SRS，或者播放RTMP流<br/><br/>srs-librtmp使用同步socket，协议栈和SRS<br/>服务端一致，和librtmp一样，只适合用作客户端，<br/>不可用作服务端。</td>
 </tr>
 <tr>
 <td>DEMO</td>
