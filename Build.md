@@ -2,8 +2,8 @@
 
 ## 操作系统
 
-* README中的Usage，在<strong>Centos6.x</strong>下面测试成功。按照Step操作后，浏览器中打开服务器地址就能观看所有的DEMO。
-* DEMO演示了所有SRS的功能，特别是ffmpeg依赖的库巨多，因此为了简化，推荐使用<strong>Centos6.x</strong>.
+* README中的Usage，在<strong>Centos6.x/Ubuntu12</strong>下面测试成功。按照Step操作后，浏览器中打开服务器地址就能观看所有的DEMO。
+* DEMO演示了所有SRS的功能，特别是ffmpeg依赖的库巨多，因此为了简化，推荐使用<strong>Centos6.x/Ubuntu12</strong>.
 * 若的确需要在其他系统下编译SRS，下面说明SRS依赖的各种库，可以关掉某些功能减少编译的依赖。
 
 ## 关闭防火墙和selinux
@@ -50,7 +50,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>必选</td>
 <td>无</td>
 <td>st-1.9</td>
-<td>RTMP服务器，st为处理并发的基础库<br/>forward,vhost,refer,reload为基础功能。<br/><br/>st-1.9没有再依赖其他库，在各种linux下都可以编译，<br/>测试过的有CentOS 4/5/6，其他问题也不大</td>
+<td>RTMP服务器，st为处理并发的基础库<br/>forward,vhost,refer,reload为基础功能。<br/><br/>st-1.9没有再依赖其他库，在各种linux下都可以编译，<br/>测试过的有CentOS4/5/6，Ubuntu12，Debian-Armhf，其他问题也不大</td>
 </tr>
 <tr>
 <td>RTMP<br/>(H.264/AAC)</td>
@@ -71,14 +71,14 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>可选</td>
 <td>--with-ffmpeg</td>
 <td>ffmpeg<br/>(libaacplus,<br/>lame,yasm,<br/>x264,ffmpeg)</td>
-<td>将RTMP流转码后输出RTMP流，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*系统</td>
+<td>将RTMP流转码后输出RTMP流，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*/Ubuntu12系统</td>
 </tr>
 <tr>
 <td>ApiServer</td>
 <td>可选</td>
 <td>--with-http-callback</td>
 <td>cherrypy<br/>http-parser2.1<br/>python2</td>
-<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
+<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6/Ubuntu12下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
 </tr>
 <tr>
 <td>ARM</td>
