@@ -45,8 +45,7 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 交叉编译SRS：
 
 ```bash
-./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp &&
-make
+./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp && make
 ```
 
 其中，
