@@ -2,6 +2,8 @@
 
 RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对于没有使用过的同学来讲，还是很容易混淆。几乎每个新人都必问的问题：RTMP那个URL推流时应该填什么，什么是vhost，什么是app？
 
+RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+
 ## 标准RTMP URL
 
 标准RTMP URL指的是最大兼容的RTMP URL，基本上所有的服务器和播放器都能识别的URL，和HTTP URL其实很相似，例如：
