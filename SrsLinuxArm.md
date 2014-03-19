@@ -101,7 +101,7 @@ make CC=arm-linux-gnueabi-gcc GCC=arm-linux-gnueabi-gcc AR="arm-linux-gnueabi-ar
 make install
 ```
 
-重新编辑srs，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
+重新编译srs，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
 
 ```bash
 cd ~/git/simple-rtmp-server/trunk && 
