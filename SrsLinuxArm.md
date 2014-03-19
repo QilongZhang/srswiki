@@ -76,10 +76,11 @@ not stripped
 ./configure --with-hls --with-ssl --with-librtmp \
     --without-ffmpeg --without-http-callback --without-bwtc --without-research \
     --without-utest --without-gperf --without-gmc --without-gmp --without-gcp \
-    --without-gprof --without-arm-ubuntu12
+    --without-gprof --without-arm-ubuntu12 --static
 ```
 
 注意：configure之后，不要make，会生成x86/x64的.o，交叉编译st和ssl之后也不会编译这些.o文件。
+注意：必须指定--static静态链接，否则编译可以通过但是在arm上无法运行。
 
 然后，重新编译ST，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
 
