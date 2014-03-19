@@ -340,5 +340,6 @@ SRS的配置(configure)参数说明如下：
 * --with-librtmp 客户端推流/播放库，参考[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp)
 * --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 * --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
+* --static 使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 
 Winlin 2014.2
