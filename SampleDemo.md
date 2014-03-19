@@ -43,6 +43,12 @@ bash scripts/run.sh
 
 访问SRS的DEMO：[http://demo.srs.com](http://demo.srs.com)
 
+<strong>第四步，停止SRS的DEMO，停止ffmpeg/nginx/srs等。</strong>
+
+```bash
+bash scripts/stop.sh
+```
+
 备注：DEMO的所有链接都是可以点的，所有功能都是可用的。
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
