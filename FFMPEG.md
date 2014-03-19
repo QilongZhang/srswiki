@@ -34,6 +34,7 @@ vhost __defaultVhost__ {
             # video encoder name. can be:
             # libx264: use h.264(libx264) video encoder.
             # copy: donot encoder the video stream, copy it.
+            # vn: disable video output.
             vcodec          libx264;
             # video bitrate, in kbps
             vbitrate        1500;
@@ -58,6 +59,7 @@ vhost __defaultVhost__ {
             # audio encoder name. can be:
             # libaacplus: use aac(libaacplus) audio encoder.
             # copy: donot encoder the audio stream, copy it.
+            # an: disable audio output.
             acodec          libaacplus;
             # audio bitrate, in kbps. [16, 72] for libaacplus.
             abitrate        70;
@@ -263,6 +265,35 @@ vhost __defaultVhost__ {
 }
 ```
 
+## 禁用
+
+可以禁用视频或者音频，只输出音频或视频。譬如，电台可以丢弃视频，对音频转码为aac后输出HLS。
+
+可以配置vcodec为vn，acodec为an实现禁用。例如：
+
+```bash
+listen              1935;
+vhost __defaultVhost__ {
+    transcode {
+        enabled     on;
+        ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
+        engine vn {
+            enabled         on;
+            vcodec          vn;
+            acodec          libaacplus;
+            abitrate        45;
+            asample_rate    44100;
+            achannels       2;
+            aparams {
+            }
+            output          rtmp://127.0.0.1:[port]/[app]?vhost=[vhost]/[stream]_[engine];
+        }
+    }
+}
+```
+
+该配置只输出纯音频，编码为aac。
+
 ## 其他转码配置
 
 conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
@@ -276,6 +307,7 @@ conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的
 * ffempty.transcode.vhost.com 一个ffmpeg的mock，不转码只打印参数。
 * app.transcode.vhost.com 对指定的app的流转码。
 * stream.transcode.vhost.com 对指定的流转码。
+* vn.transcode.vhost.com 只输出音频，禁止视频输出。
 
 ## FFMPEG
 
