@@ -32,7 +32,7 @@ git pull
 <strong>第三步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
-./configure && make
+./configure --with-ssl --with-hls --with-nginx --with-ffmpeg --with-http-callback && make
 ```
 
 <strong>第三步，启动SRS的DEMO，启动ffmpeg/nginx/srs等。</strong>
