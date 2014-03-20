@@ -25,7 +25,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 
 ```bash
-./configure --with-arm-ubuntu12 --with-ssl && make
+./configure --with-ssl --with-arm-ubuntu12 && make
 ```
 
 <strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
