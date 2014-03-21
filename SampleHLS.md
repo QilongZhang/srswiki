@@ -100,6 +100,8 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 注意：VLC无法观看纯音频流，jwplayer可以观看。
 
+分发纯音频流参考：[HLS audio only](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#hlsaudioonly)
+
 ## Q&A
 
 <strong>RTMP流能看，HLS看不了</strong>
