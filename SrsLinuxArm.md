@@ -65,6 +65,29 @@ not stripped
 
 备注：在x86和arm平台切换时，譬如之前是为arm编译的，现在为x86平台编译，不需要手动删除东西，直接执行configure就可以，脚本会自动判断。
 
+备注：srs都是使用静态链接，不依赖st/ssl，链接.a库。
+
+## 使用其他交叉编译工具
+
+ubuntu12默认的arm交叉编译工具是arm7，如何使用自己的交叉编译工具，修改configure即可：
+
+```bash
+SrsArmCC="arm-linux-gnueabi-gcc"
+SrsArmGCC="arm-linux-gnueabi-gcc"
+SrsArmCXX="arm-linux-gnueabi-g++"
+SrsArmAR="arm-linux-gnueabi-ar"
+SrsArmLD="arm-linux-gnueabi-ld"
+SrsArmRANDLIB="arm-linux-gnueabi-ranlib"
+```
+
+修改后和前面一样运行configure和make：
+
+```bash
+./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp && make
+```
+
+拷贝到目标机器上执行即可。
+
 ## 手动编译SRS
 
 如果你的环境不是Ubuntu12或者使用其他的交叉编译工具，可以使用手动编译SRS。
