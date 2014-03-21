@@ -55,6 +55,28 @@ RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-serve
 * App：RTMP的Application（应用）名称，可以类比为文件夹。以文件夹来分类不同的流，没有特殊约定，可以任意划分。
 * Stream：RTMP的Stream（流）名称，可以类比为文件。
 
+## NoVhost
+
+其实，vhost大多数用户都用不到，而且不推荐用，有点复杂。一般的用户用app就可以了。因为vhost/app/stream，只是一个分类方法而已；vhost需要在配置文件中说明，app/stream都不需要配置。
+
+什么时候用vhost？如果你是提供服务，譬如你有100个客户，都要用一套平台，走同样的流媒体服务器分发。那可以每个客户一个vhost，这样他们的app和stream可以相同都可以。
+
+一般的用法，举个例子，有个视频网站，自己搭建服务器，所以只有他自己一个客户，就不要用vhost了。假设视频网站提供聊天服务，聊天有不同的话题类型，譬如：军事栏目，读书栏目，历史栏目三个分类，每个分类下面有很多聊天室。只要这么配置就好：
+
+```bash
+listen              1935;
+vhost __defaultVhost__ {
+}
+```
+
+生成网页时，譬如军事栏目的网页，都用app名称为`military`，某个聊天室叫做`火箭`，这个页面的流可以用：`rtmp://yourdomain.com/military/rock`，编码器也推这个流，所有观看这个`军事栏目/火箭`聊天室的页面的人，都播放这个流。
+
+军事栏目另外的网页，都用同样的app名称`military`，但是流不一样，譬如某个聊天室叫做`雷达`，这个页面的流可以用：`rtmp://yourdomain.com/military/radar`，推流和观看一样。
+
+如此类推，军事栏目页面生成时，不用更改srs的任何配置。也就是说，新增聊天室，不用改服务器配置；新增分类，譬如加个`公开课`的聊天室，也不用改服务器配置。足够简单！
+
+另外，读书栏目可以用app名称为`reader`，栏目下的某个聊天室叫`红楼梦`，这个页面的流可以用：`rtmp://yourdomain.com/reader/red_mansion`，所有在这个聊天室的人都是播放这个流。
+
 ## Vhost的应用
 
 RTMP的Vhost和HTTP的Vhost概念是一样的：虚拟主机。详见下表（假设域名demo.srs.com被解析到IP为192.168.1.10的服务器）：
