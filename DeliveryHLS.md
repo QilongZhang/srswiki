@@ -164,6 +164,14 @@ hls_window >= sum(m3u8中每个ts的时长)
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
+## HLSAudioOnly
+
+SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleTranscode2HLS)），SRS只切片音频。
+
+若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
+
+分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+
 ## HLS和Forward
 
 Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
