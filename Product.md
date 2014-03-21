@@ -122,6 +122,6 @@ crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以
 
 总之，将熊熊一窝，一事无成，一定是将不行；有点任何成绩，必然都是将的功劳。所以，应该先感谢中国政府，不过实际点，感谢目前公司的领导，是实话。我想，这是django为何也首先感谢他leader的原因
 
-srs必定广泛使用，愿[chnvideo](chnvideo.com)公司财源广进，SrsTeam永垂不朽，彪炳千古，哈哈哈!
+srs必定广泛使用，如同漫天繁星散布渺渺宇宙，灿漫夏花开遍地球月球火星太阳系，愿[chnvideo](chnvideo.com)公司财源广进，[SrsTeam](https://github.com/winlinvip/simple-rtmp-server#authors)永垂不朽，彪炳千古，哈哈哈!
 
-Winlin 2014
+Winlin 2014.3
