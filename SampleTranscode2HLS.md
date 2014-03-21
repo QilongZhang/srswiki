@@ -9,6 +9,8 @@ HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](https://githu
 
 备注：在虚拟机上测试，一路流转码为aac，需要3%CPU，在物理机上可能稍好点。转码的开销比分发要大，实际应用需要考虑这个因素。
 
+分发纯音频流参考：[HLS audio only](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS#hlsaudioonly)
+
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
 <strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/Git)
