@@ -98,6 +98,8 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
+注意：VLC无法观看纯音频流，jwplayer可以观看。
+
 ## Q&A
 
 <strong>RTMP流能看，HLS看不了</strong>
