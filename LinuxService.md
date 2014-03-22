@@ -86,7 +86,7 @@ Reload SRS：
 /etc/init.d/simple-rtmp-server reload
 ```
 
-## 安装DEMO
+## 安装DEMO-API
 
 SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
 
@@ -103,5 +103,11 @@ make install-demo
 ```
 
 即可以观看demo的页面。推流需要自己手动推流。若需要观看所有演示，直接用脚本启动，参考：[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
+
+注意：安装demo-api适用于使用播放器的客户，使用推流编码器的客户，以及使用视频会议demo的客户。总之只会启动api-server，所以默认那些演示流是不会起来的。
+
+注意：也可以直接在srs的git目录启动`./etc/init.d/simple-rtmp-servr-api start`，不必安装。
+
+注意：也可以以系统服务方式启动api-server，参考前面srs以系统服务方式启动的例子。
 
 Winlin 2014.3
