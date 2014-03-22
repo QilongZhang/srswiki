@@ -67,6 +67,12 @@ sudo update-rc.d simple-rtmp-server defaults
 
 ## 使用init.d脚本管理SRS
 
+查看SRS状态：
+
+```bash
+/etc/init.d/simple-rtmp-server status
+```
+
 启动SRS：
 
 ```bash
