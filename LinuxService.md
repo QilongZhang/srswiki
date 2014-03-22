@@ -1,9 +1,8 @@
 # SRS系统服务
 
-SRS提供`simple-rtmp-server/trunk/etc/init.d/simple-rtmp-server`脚本，可以作为CentOS或者Ubuntu的系统服务自动启动。
-* 同一的启动停止方式，像sshd一样管理。
-* 系统重启后会作为服务自动启动，不用手动启动。
-* 提供简单的CLI管理（启动，停止，重启，reload等）。
+SRS提供多种启动的方式，包括：
+* 在git目录直接启动，简单直接，但系统重启后需要手动启动。
+* 系统服务，init.d脚本：SRS提供`simple-rtmp-server/trunk/etc/init.d/simple-rtmp-server`脚本，可以作为CentOS或者Ubuntu的系统服务自动启动。
 
 ## 直接启动
 
@@ -86,5 +85,23 @@ Reload SRS：
 ```bash
 /etc/init.d/simple-rtmp-server reload
 ```
+
+## 安装DEMO
+
+SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
+
+安装命令：
+
+```bash
+make install-demo
+```
+
+安装后，可以启动api：
+
+```bash
+/usr/local/srs/etc/init.d/simple-rtmp-server-api start
+```
+
+即可以观看demo的页面。推流需要自己手动推流。若需要观看所有演示，直接用脚本启动，参考：[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
 Winlin 2014.3
