@@ -25,7 +25,7 @@ SRS作为系统服务启动，需要以下几步：
 编译SRS后，可执行命令安装SRS：
 
 ```bash
-sudo make install
+make && sudo make install
 ```
 
 安装命令会将srs默认安装到`/usr/local/srs`中，可以在configure时指定其他目录，譬如```./configure --prefix=`pwd`/_release```可以安装到当前目录的_release目录（可以不用sudo安装，直接用`make install`即可安装。
@@ -99,7 +99,7 @@ SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改
 安装命令：
 
 ```bash
-make install-demo
+make && sudo make install-demo
 ```
 
 安装后，可以启动api：
