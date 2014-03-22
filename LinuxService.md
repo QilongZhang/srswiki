@@ -116,4 +116,19 @@ make && sudo make install-demo
 
 注意：也可以以系统服务方式启动api-server，参考前面srs以系统服务方式启动的例子。
 
+软链脚本：
+
+```bash
+sudo ln -sf \
+    /usr/local/srs/etc/init.d/simple-rtmp-server-api \
+    /etc/init.d/simple-rtmp-server-api
+```
+
+加入服务：
+
+```bash
+#centos 6
+sudo /sbin/chkconfig --add simple-rtmp-server-api
+```
+
 Winlin 2014.3
