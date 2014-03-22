@@ -17,7 +17,7 @@ cd /home/winlin/_git/simple-rtmp-server/trunk &&
 ## LinuxService
 
 SRS作为系统服务启动，需要以下几步：
-* 安装srs：安装脚本会自动修改init.d脚本
+* 安装srs：安装脚本会自动修改init.d脚本，将`ROOT="./"`改为安装目录。
 * 链接安装目录的`init.d/simple-rtmp-server`到`/etc/init.d/simple-rtmp-server`
 * 添加到系统服务，CentOS和Ubuntu方法不一样。
 
