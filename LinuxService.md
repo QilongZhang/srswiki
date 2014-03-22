@@ -131,4 +131,37 @@ sudo ln -sf \
 sudo /sbin/chkconfig --add simple-rtmp-server-api
 ```
 
+或者
+
+```bash
+#ubuntu12
+sudo update-rc.d simple-rtmp-server-api defaults
+```
+
+管理SRS-api服务：
+
+查看SRS-api状态：
+
+```bash
+/etc/init.d/simple-rtmp-server-api status
+```
+
+启动SRS-api：
+
+```bash
+/etc/init.d/simple-rtmp-server-api start
+```
+
+停止SRS-api：
+
+```bash
+/etc/init.d/simple-rtmp-server-api stop
+```
+
+重启SRS-api：
+
+```bash
+/etc/init.d/simple-rtmp-server-api restart
+```
+
 Winlin 2014.3
