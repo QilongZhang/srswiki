@@ -90,6 +90,12 @@ Reload SRS：
 
 SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
 
+配置时打开demo支持：
+
+```bash
+./configure --with-hls --with-ffmpeg --with-http-callback --with-ffmpeg
+```
+
 安装命令：
 
 ```bash
