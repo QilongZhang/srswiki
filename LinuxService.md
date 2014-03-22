@@ -17,39 +17,29 @@ cd /home/winlin/_git/simple-rtmp-server/trunk &&
 ## LinuxService
 
 SRS作为系统服务启动，需要以下几步：
-* 修改脚本的根目录
-* 链接`simple-rtmp-server/trunk/etc/init.d/simple-rtmp-server`到`/etc/init.d/simple-rtmp-server`
+* 安装srs：安装脚本会自动修改init.d脚本
+* 链接安装目录的`init.d/simple-rtmp-server`到`/etc/init.d/simple-rtmp-server`
 * 添加到系统服务，CentOS和Ubuntu方法不一样。
 
-<strong>Step1:</strong> 修改脚本根目录
+<strong>Step1:</strong> 安装SRS
 
-脚本的根目录默认在`simple-rtmp-server/trunk`，也就是若你直接执行命令`./etc/init.d/simple-rtmp-server`是可以启动的，脚本默认使用相对目录（无法知道绝对目录，需要用户指定）。
-
-编辑脚本，修改为绝对目录，在任何地方都可以启动了：
+编译SRS后，可执行命令安装SRS：
 
 ```bash
-ROOT="./"
-APP="./objs/srs"
-CONFIG="./conf/srs.conf"
-DEFAULT_PID_FILE='./objs/srs.pid'
+sudo make install
 ```
 
-一般只需要修改ROOT，譬如：
-
-```bash
-ROOT="/home/winlin/_git/simple-rtmp-server/trunk"
-APP="./objs/srs"
-CONFIG="./conf/srs.conf"
-DEFAULT_PID_FILE='./objs/srs.pid'
-```
+安装命令会将srs默认安装到`/usr/local/srs`中，可以在configure时指定其他目录，譬如```./configure --prefix=`pwd`/_release```可以安装到当前目录的_release目录（可以不用sudo安装，直接用`make install`即可安装。
 
 <strong>Step2:</strong> 链接脚本：
 
 ```bash
 sudo ln -sf \
-    /home/winlin/_git/simple-rtmp-server/trunk/etc/init.d/simple-rtmp-server \
+    /usr/local/srs/etc/init.d/simple-rtmp-server \
     /etc/init.d/simple-rtmp-server
 ```
+
+备注：若SRS安装到其他目录，将`/usr/local/srs`替换成其他目录。
 
 <strong>Step3:</strong>添加服务：
 
