@@ -20,6 +20,10 @@ SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](ht
 
 如何以系统服务启动SRS？如何后台启动SRS？如何linux启动时自动启动SRS？如何启动SRS和DEMO的api，播放器/编码器/视频会议，但不用观看那些演示流？参考：[SRS启动](https://github.com/winlinvip/simple-rtmp-server/wiki/LinuxService)
 
+## [SRS日志](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLog)
+
+如何查看SRS的日志？如何不以nohup但是后台启动？如何将日志打印到控制台？参考：[SRS日志](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLog)
+
 ## [SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
 
 SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
