@@ -88,9 +88,13 @@ Reload SRS：
 /etc/init.d/srs reload
 ```
 
-## 安装DEMO-API
+## 安装SRS-API
 
-SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
+SRS支持安装SRS到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
+
+SRS的API即api-server，SRS可以调用api-server提供的http接口，需要打开`--with-http-callback`支持。SRS使用python(cherrypy)编写的server.py，直接运行脚本。
+
+API服务器主要提供http调用服务，提供demo运行的页面，播放器和编码器视频会议等DEMO。也就是说，启动api之后，可以访问`http://192.168.1.170:8085`即可以看到DEMO的页面，播放器/编码器/视频会议都可以使用，不过有些DEMO的功能不支持（譬如测速，演示流等，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)）。
 
 <strong>Step1:</strong> 配置时打开demo支持：
 
@@ -98,7 +102,7 @@ SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改
 ./configure --with-hls --with-ffmpeg --with-http-callback --with-ffmpeg
 ```
 
-<strong>Step2:</strong> 安装DEMO：
+<strong>Step2:</strong> 安装api：
 
 ```bash
 make && sudo make install-api
@@ -112,13 +116,13 @@ make && sudo make install-api
 
 即可以观看demo的页面。推流需要自己手动推流。若需要观看所有演示，直接用脚本启动，参考：[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
-注意：安装demo-api适用于使用播放器的客户，使用推流编码器的客户，以及使用视频会议demo的客户。总之只会启动api-server，所以默认那些演示流是不会起来的。
+注意：安装srs-api适用于使用播放器的客户，使用推流编码器的客户，以及使用视频会议demo的客户。总之只会启动api-server，所以默认那些演示流是不会起来的。
 
 注意：也可以直接在srs的git目录启动`./etc/init.d/simple-rtmp-servr-api start`，不必安装。
 
 注意：也可以以系统服务方式启动api-server，参考前面srs以系统服务方式启动的例子。
 
-<strong>Step3:</strong> 软链DEMO脚本：
+<strong>Step3:</strong> 软链api脚本：
 
 ```bash
 sudo ln -sf \
