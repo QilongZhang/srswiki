@@ -101,7 +101,7 @@ SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改
 <strong>Step2:</strong> 安装DEMO：
 
 ```bash
-make && sudo make install-demo
+make && sudo make install-api
 ```
 
 安装后，可以启动api：
