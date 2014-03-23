@@ -35,7 +35,7 @@ selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行�
 指定配置文件，即可启动SRS：
 
 ```bash
-./objs/srs -c conf/rtmp.conf
+./objs/srs -c conf/srs.conf
 ```
 
 推RTMP流和观看，参考[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
