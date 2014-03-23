@@ -17,7 +17,7 @@ cd /home/winlin/_git/simple-rtmp-server/trunk &&
 
 SRS作为系统服务启动，需要以下几步：
 * 安装srs：安装脚本会自动修改init.d脚本，将`ROOT="./"`改为安装目录。
-* 链接安装目录的`init.d/simple-rtmp-server`到`/etc/init.d/srs`
+* 链接安装目录的`init.d/srs`到`/etc/init.d/srs`
 * 添加到系统服务，CentOS和Ubuntu方法不一样。
 
 <strong>Step1:</strong> 安装SRS
@@ -40,20 +40,20 @@ sudo ln -sf \
 
 备注：若SRS安装到其他目录，将`/usr/local/srs`替换成其他目录。
 
-备注：也可以使用其他的名称，譬如`/etc/init.d/simple-rtmp-server`，可以任意名称，启动时也用该名称。
+备注：也可以使用其他的名称，譬如`/etc/init.d/srs`，可以任意名称，启动时也用该名称。
 
 <strong>Step3:</strong>添加服务：
 
 ```bash
 #centos 6
-sudo /sbin/chkconfig --add simple-rtmp-server
+sudo /sbin/chkconfig --add srs
 ```
 
 或者
 
 ```bash
 #ubuntu12
-sudo update-rc.d simple-rtmp-server defaults
+sudo update-rc.d srs defaults
 ```
 
 ## 使用init.d脚本管理SRS
@@ -130,14 +130,14 @@ sudo ln -sf \
 
 ```bash
 #centos 6
-sudo /sbin/chkconfig --add simple-rtmp-server-api
+sudo /sbin/chkconfig --add srs-api
 ```
 
 或者
 
 ```bash
 #ubuntu12
-sudo update-rc.d simple-rtmp-server-api defaults
+sudo update-rc.d srs-api defaults
 ```
 
 管理SRS-api服务：
