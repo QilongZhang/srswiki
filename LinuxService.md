@@ -40,6 +40,8 @@ sudo ln -sf \
 
 备注：若SRS安装到其他目录，将`/usr/local/srs`替换成其他目录。
 
+备注：也可以使用其他的名称，譬如`/etc/init.d/simple-rtmp-server`，可以任意名称，启动时也用该名称。
+
 <strong>Step3:</strong>添加服务：
 
 ```bash
