@@ -92,13 +92,13 @@ Reload SRS：
 
 SRS支持安装DEMO到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
 
-配置时打开demo支持：
+<strong>Step1:</strong> 配置时打开demo支持：
 
 ```bash
 ./configure --with-hls --with-ffmpeg --with-http-callback --with-ffmpeg
 ```
 
-安装命令：
+<strong>Step2:</strong> 安装DEMO：
 
 ```bash
 make && sudo make install-demo
@@ -118,7 +118,7 @@ make && sudo make install-demo
 
 注意：也可以以系统服务方式启动api-server，参考前面srs以系统服务方式启动的例子。
 
-软链脚本：
+<strong>Step3:</strong> 软链DEMO脚本：
 
 ```bash
 sudo ln -sf \
@@ -126,7 +126,7 @@ sudo ln -sf \
     /etc/init.d/srs-api
 ```
 
-加入服务：
+<strong>Step4:</strong> 加入服务：
 
 ```bash
 #centos 6
@@ -140,7 +140,7 @@ sudo /sbin/chkconfig --add srs-api
 sudo update-rc.d srs-api defaults
 ```
 
-管理SRS-api服务：
+<strong>Step5:</strong> 管理SRS-api服务：
 
 查看SRS-api状态：
 
