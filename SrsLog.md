@@ -33,4 +33,6 @@ vhost __defaultVhost__ {
 
 系统默认方式是daemon+log2file，具体参考`full.conf`的说明。
 
+注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
+
 Winlin 2014.3
