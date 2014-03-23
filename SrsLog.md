@@ -25,6 +25,12 @@ vhost __defaultVhost__ {
 }
 ```
 
+启动方式：
+
+```bash
+./objs/srs -c conf/console.conf 
+```
+
 系统默认方式是daemon+log2file，具体参考`full.conf`的说明。
 
 Winlin 2014.3
