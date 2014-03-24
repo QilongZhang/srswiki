@@ -48,6 +48,8 @@ vhost __defaultVhost__ {
 }
 ```
 
+备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。
+
 <strong>第五步，启动SRS。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 ```bash
