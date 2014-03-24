@@ -103,7 +103,7 @@ HLS的主要流程是：<br/>
 1. FFMPEG或FMLE或编码器，推送RTMP流到SRS，编码为H264/AAC（其他编码需要SRS转码）<br/>
 2. SRS将RTMP切片成TS，并生成M3U8。若流非H264和AAC，则停止输出HLS（可使用SRS转码到SRS其他vhost或流，然后再切HLS）。<br/>
 3. 访问m3u8，nginx提供HTTP服务。<br/>
-注意：SRS只需要在Vhost上配置HLS，会自动根据流的app创建目录<br/>
+注意：SRS只需要在Vhost上配置HLS，会自动根据流的app创建目录，但是配置的hls_path必须自己创建<br/>
 
 ## 配置方法
 
