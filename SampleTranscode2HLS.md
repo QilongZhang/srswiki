@@ -105,6 +105,10 @@ Stream: livestream
 * 转码后的RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
 * 转码后的HLS流地址为： `http://192.168.1.170/live/livestream_ff.m3u8`
 
+备注：因为FMLE推上来的音频有问题，不是aac，所以srs会报错（当然啦，不然就不用转码了）。这个错误可以忽略，srs是说，rtmp流没有问题，但是无法切片为hls，因为音频编码不对。没有关系，ffmpeg会转码后重新推一路流给srs。
+
+备注：如何只对符合要求的流切hls？可以用vhost。默认的vhost不切hls，将转码后的流推送到另外一个vhost，这个vhost切hls。
+
 <strong>第七步，观看RTMP流。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
