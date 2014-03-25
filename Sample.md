@@ -19,6 +19,20 @@ SRS真实的应用实例，大家可以添加自己的应用实例。（请拷�
 主要的活动包括：
 * 2014-02-23，丘成桐清华演讲
 
+## ARM+HLS监控
+
+一般监控摄像头只支持输出RTMP/RTSP，或者支持RTSP方式读取流。如果想在IOS譬如IPad上看监控的流，怎么办？先部署一套rtmp服务器譬如nginx-rtmp/crtmpd/wowza/red5之类，然后用ffmpeg把rtsp流转成rtmp（或者摄像头直接推流到rtmp服务器），然后让服务器切片成hls输出，在IOS上观看。想想都觉得比较麻烦额，如果摄像头比较多怎么办？一个服务器还扛不住，部署集群？
+
+最简单的方式是什么？摄像头自己支持输出HLS流不就好了？也就是摄像头有个内网ip作为服务器，摄像头给出一个hls的播放地址，IOS客户端譬如IPad可以播放这个HLS地址。
+
+SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleARM)，只需要[改下configure的交叉编译工具](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7)就可以编译了。
+
+主要流程：
+* 编译arm下的srs，部署到树莓派，在摄像头中启动srs。
+* 使用ffmpeg将摄像头的rtsp以RTMP方式推到srs。或者用自己程序采集设备数据推送RTMP流到srs。
+* srs分发RTMP流和HLS流。其实PC上也可以看了。
+* IOS譬如IPad上播放HLS地址。
+
 ## 实例名称
 
 实例说明，[链接](http://yourlink)
