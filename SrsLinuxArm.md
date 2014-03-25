@@ -69,7 +69,11 @@ not stripped
 
 ## 使用其他交叉编译工具
 
-ubuntu12默认的arm交叉编译工具是arm7，如何使用自己的交叉编译工具，修改configure即可：
+ubuntu12默认的arm交叉编译工具是arm7，如何使用自己的交叉编译工具：
+* 修改configure后编译。
+* 导出环境变量，然后configure和编译。
+
+<strong>第一种方法，修改configure并编译</strong>：
 
 ```bash
 SrsArmCC="arm-linux-gnueabi-gcc"
@@ -83,6 +87,18 @@ SrsArmRANDLIB="arm-linux-gnueabi-ranlib"
 修改后和前面一样运行configure和make：
 
 ```bash
+./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp && make
+```
+
+<strong>第二种方法，导出环境变量并编译：</strong>
+
+```bash
+export SrsArmCC="arm-linux-gnueabi-gcc" &&
+export SrsArmGCC="arm-linux-gnueabi-gcc" &&
+export SrsArmCXX="arm-linux-gnueabi-g++" &&
+export SrsArmAR="arm-linux-gnueabi-ar" &&
+export SrsArmLD="arm-linux-gnueabi-ld" &&
+export SrsArmRANDLIB="arm-linux-gnueabi-ranlib" &&
 ./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp && make
 ```
 
