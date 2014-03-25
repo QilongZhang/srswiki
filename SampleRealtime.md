@@ -71,7 +71,7 @@ Stream: livestream
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
-可以使用VLC观看(<strong>VLC的延迟会很大</strong>)。
+注意：不要使用VLC观看，<strong>VLC的延迟会很大</strong>，虽然VLC能看到流。
 
 或者使用在线SRS播放器播放：[http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream)
 
