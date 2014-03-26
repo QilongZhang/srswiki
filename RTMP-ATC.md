@@ -40,4 +40,13 @@ vhost __defaultVhost__ {
 }
 ```
 
+## ATC和flash的兼容性
+
+开启ATC之后，flash客户端播放SRS流时，流的起始时间不是0而是ATC时间。需要调整时间的包：
+* sequence header: 调整为第一个音视频包的时间。若有gop cache，则调整为gop cache中的第一个音视频包的时间。
+* metadata: 调整为第一个音视频包的时间。nginx-rtmp没有调整metadata包的时间（为0），所以平均每20次就有一次卡死。
+
+经过测试，SRS打开和关闭ATC，flash播放器都能播放SRS的RTMP流。
+
+
 Winlin 2014.3
