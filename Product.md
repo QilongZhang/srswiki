@@ -96,8 +96,8 @@ SRS比nginx-rtmp优点
 
 实际使用NGINX-RTMP发现有几个问题：
 1. 没有vhost，需要自己做开发支持。
-2. 跑几天后连上没有数据。抓包显示到NetStream.Play.Start和|RtmpSampleAccess就没有数据了。
-3. flash播放nginx-rtmp流，随机的会不能播放，抓包显示有数据。编码器推一会之后譬如100秒，flash的NetStream.time若从100开始就没有问题，若从0开始就会卡死。
+1. 跑几天后连上没有数据。抓包显示到NetStream.Play.Start和|RtmpSampleAccess就没有数据了。
+1. flash播放nginx-rtmp流，随机的会不能播放，抓包显示有数据。编码器推一会之后譬如100秒，flash的NetStream.time若从100开始就没有问题，若从0开始就会卡死。
 
 ### Red5 PK SRS
 
