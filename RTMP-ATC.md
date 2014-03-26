@@ -7,14 +7,16 @@ HLS热备怎么做？边缘从某个源站拿不到ts切片时，会去另外一
 如果HLS的源站需要做热备，怎么办？参考：[HDS/HLS热备](http://www.adobe.com/cn/devnet/adobe-media-server/articles/varnish-sample-for-failover.html)，如下图所示：
 
 ```bash
-                              +----------+
-               +---ATC-RTMP->-+  server  +---+
-+----------+   |              +----------+   |   +---------------+    +-------+
-| encoder  +->-+                             +->-+ Reverse Proxy +-->-+  CDN  +
-+----------+   |              +----------+   |   +---------------+    +-------+
-               +---ATC-RTMP->-+  server  +---+
-                              +----------+
+                        +----------+        +----------+
+               +--ATC->-+  server  +--ATC->-+ packager +-+   +-----------------+
++----------+   | RTMP   +----------+ RTMP   +----------+ |   |     Reverse     |    +-------+
+| encoder  +->-+                                         +->-+      Proxy      +-->-+  CDN  +
++----------+   |        +----------+        +----------+ |   | (nginx,varnish) |    +-------+
+               +--ATC->-+  server  +--ATC->-+ packager +-+   +-----------------+
+                 RTMP   +----------+ RTMP   +----------+
 ```
+
+实际上，adobe文中所说的是encoder输出的是ATC RTMP流，也没有packager直接server就打包了。如果你需要自己做打包，譬如基于ffmpeg写个工具，自定义HLS流的打包，编码器可以将ATC RTMP流推送到SRS，SRS会以ATC RTMP形式不修改时间戳分发给你的工具。
 
 所以ATC RTMP说白了就是绝对时间，server需要能接入绝对时间，若切片在server上则根据绝对时间切片，若server和ReverseProxy之间还有切片工具，那server应该给切片工具绝对时间。
 
