@@ -4,7 +4,7 @@ RTMP的热备怎么做？当边缘回源时，上层出现故障，可以切换�
 
 HLS热备怎么做？边缘从某个源站拿不到ts切片时，会去另外一个服务器拿。所以就要求两个上层的ts切片一样，当然如果上层服务器都从一个源站取片，是没有问题的。
 
-如果HLS的源站需要做热备，怎么办？参考：[HDS/HLS热备](http://www.adobe.com/cn/devnet/adobe-media-server/articles/varnish-sample-for-failover.html)，如下图所示：
+如果HLS的源站需要做热备，怎么办？参考：[Adobe: HDS/HLS热备](http://www.adobe.com/cn/devnet/adobe-media-server/articles/varnish-sample-for-failover.html)，如下图所示：
 
 ```bash
                         +----------+        +----------+
