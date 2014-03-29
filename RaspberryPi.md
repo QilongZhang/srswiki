@@ -34,10 +34,15 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 * RaspberryPi提供的img：2014-01-07-wheezy-raspbian.img
 * <strong>uname</strong>: Linux raspberrypi 3.10.25+ #622 PREEMPT Fri Jan 3 18:41:00 GMT 2014 armv6l GNU/Linux
 * <strong>cpu</strong>: arm61
+* <strong>服务器</strong>: srs 0.9.38
+* <strong>客户端</strong>：flash + [st-load](https://github.com/winlinvip/st-load)
+* <strong>网络</strong>: 百兆交换机（pi只支持百兆）
 
 流信息：
 * 码率：200kbps
 * 分辨率：720x576
 * 音频：无音频
+
+环境搭建参考：[SRS: arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm#raspberrypi)
 
 Winlin 2014.3
