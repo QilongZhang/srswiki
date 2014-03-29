@@ -68,6 +68,10 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
 
+## [RaspberryPi性能测试](https://github.com/winlinvip/simple-rtmp-server/wiki/RaspberryPi)
+
+SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参考：[Performance: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/RaspberryPi)
+
 ## [服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
