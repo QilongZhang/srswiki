@@ -169,6 +169,14 @@ for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, 
 
 干脆就git clone了一个srs，在pi下面直接编译，速度是慢点，但以后就快了，然打包放到release中，其他pi就不用自己编译了。
 
+若需要在RaspberryPi下编译srs，需要：
+* 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`，或者下载`wget http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/pool/main/l/lsb/lsb-release_4.1+Debian12+rpi1_all.deb && sudo dpkg -i lsb-release_4.1+Debian12+rpi1_all.deb`
+* 安装zip，打包需要：`sudo aptitude install -y zip`，或者下载`wget http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/pool/main/z/zip/zip_3.0-8_armhf.deb && udo dpkg -i zip_3.0-8_armhf.deb`
+* 编译srs：`./configure --with-hls --with-ssl --static && make`
+* 打包srs：`./scripts/package.sh --no-build`
+
+就可以生成安装包。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
+
 ## Armel和Armhf
 
 有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
