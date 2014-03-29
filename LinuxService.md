@@ -4,6 +4,8 @@ SRS提供多种启动的方式，包括：
 * 在git目录直接启动，简单直接，但系统重启后需要手动启动。
 * 系统服务，init.d脚本：SRS提供`simple-rtmp-server/trunk/etc/init.d/srs`脚本，可以作为CentOS或者Ubuntu的系统服务自动启动。
 
+可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/simple-rtmp-server))或者[国内镜像: release](http://demo.chnvideo.com:8085/srs/releases)
+
 ## 直接启动
 
 若不需要添加到系统服务，每次重启后需要手动启动SRS，可以直接在srs的trunk目录执行脚本：
