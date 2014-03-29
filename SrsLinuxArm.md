@@ -161,6 +161,14 @@ for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, 
 
 拷贝到ARM上即可运行。
 
+## RaspberryPi
+
+我个人买了个树莓派（应该是B型），在京东上买的，树莓派基本上跑起来很容易。参考：[RaspberryPi](http://blog.csdn.net/win_lin/article/details/22468687)
+
+我用的是respberrypi最新的img，运行起来后发现什么都有。gcc/g++/gdb/git，应有尽有。发现release的那些包，ubuntu12下面编译出来的包是armv7的，raspberrypi是armv6的体系，所以跑不了。
+
+干脆就git clone了一个srs，在pi下面直接编译，速度是慢点，但以后就快了，然打包放到release中，其他pi就不用自己编译了。
+
 ## Armel和Armhf
 
 有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
