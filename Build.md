@@ -1,12 +1,12 @@
 # 编译SRS
 
+本文说明了如何编译和打包SRS，另外，可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/simple-rtmp-server))或者[国内镜像: release](http://demo.chnvideo.com:8085/srs/releases)
+
 ## 操作系统
 
 * README中的Usage，在<strong>Centos6.x/Ubuntu12</strong>下面测试成功。按照Step操作后，浏览器中打开服务器地址就能观看所有的DEMO。
 * DEMO演示了所有SRS的功能，特别是ffmpeg依赖的库巨多，因此为了简化，推荐使用<strong>Centos6.x/Ubuntu12</strong>.
 * 若的确需要在其他系统下编译SRS，下面说明SRS依赖的各种库，可以关掉某些功能减少编译的依赖。
-
-另外，可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/simple-rtmp-server))或者[国内镜像: release](http://demo.chnvideo.com:8085/srs/releases)
 
 ## 关闭防火墙和selinux
 
