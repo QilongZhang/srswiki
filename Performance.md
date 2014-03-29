@@ -521,7 +521,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 
 ## 性能对比
 
-SRS和nginx-rtmp的数据对比如下：
+CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
 
 <table>
 <tr>
