@@ -76,6 +76,21 @@ make使用并行编译的方法如下：
 make -j16
 ```
 
+## Package
+
+SRS提供了打包脚本，可以将srs打包（不包含nginx/ffmpeg等外部程序）。安装包也提供下载，参考本文开头部分。
+
+打包脚本会编译srs，然后将srs的文件打包为zip（zip比tar通用）。详细参考package的帮助：
+
+```bash
+[winlin@dev6 srs]$ ./scripts/package.sh --help
+
+  --help                   print this message
+
+  --arm                    configure with arm and make srs. use arm tools to get info.
+  --no-build               donot build srs, user has builded. only make install.
+```
+
 ## SRS依赖关系
 
 SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx，openssl-devel，python2。
