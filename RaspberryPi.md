@@ -301,7 +301,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 </tr>
 <tr>
   <td>SRS</td>
-  <td>12%</td>
+  <td>80%</td>
   <td>2.8MB</td>
   <td>51</td>
   <td>11.7Mbps</td>
@@ -394,7 +394,7 @@ RaspberryPi B型，230Kbps视频性能测试如下表：
 </tr>
 <tr>
   <td>SRS</td>
-  <td>12%</td>
+  <td>80%</td>
   <td>2.8MB</td>
   <td>51</td>
   <td>11.7Mbps</td>
