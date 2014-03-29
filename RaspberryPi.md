@@ -2,7 +2,7 @@
 
 SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能指标。
 
-## 运行
+## 准备服务器
 
 树莓派下安装和运行SRS，有以下方式：
 * 编译源站和运行：SRS在arm/raspberrypi下的编译，参考[Build: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm#raspberrypi)
@@ -10,7 +10,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 查看SRS是否启动：`/etc/init.d/srs status`
 
-## 环境
+## 测试环境
 
 本次测试的硬件环境如下：
 * [RaspberryPi](http://item.jd.com/1014155.html)：B型
@@ -35,7 +35,10 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 * <strong>uname</strong>: Linux raspberrypi 3.10.25+ #622 PREEMPT Fri Jan 3 18:41:00 GMT 2014 armv6l GNU/Linux
 * <strong>cpu</strong>: arm61
 * <strong>服务器</strong>: srs 0.9.38
-* <strong>客户端</strong>：flash + [st-load](https://github.com/winlinvip/st-load)
+* <strong>服务器类型</strong>: raspberry pi
+* <strong>客户端</strong>：[st-load](https://github.com/winlinvip/st-load)
+* <strong>客户端类型</strong>: 虚拟机，CentOS6
+* <strong>观看客户端</strong>: PC win7, flash
 * <strong>网络</strong>: 百兆交换机（pi只支持百兆）
 
 流信息：
@@ -63,7 +66,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 ## 推流和观看
 
-可以使用centos虚拟机推流到srs，或者用FMLE推流到raspberry-pi的SRS。
+可以使用centos虚拟机推流到srs，或者用FMLE推流到raspberry-pi的SRS。假设raspberry-pi服务器的ip是`192.168.1.105`，请换成你自己的服务器ip。
 
 推送RTMP流到服务器和观看。
 
@@ -102,16 +105,27 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 
 ## 开始负载测试前
 
-测试前，记录SRS和nginx-rtmp的各项资源使用指标，用作对比。
+测试前，记录SRS的各项资源使用指标，用作对比。
 
-* 查看连接数命令：
+* 查看服务器端srs消耗的CPU：
 
 ```bash
-srs_connections=`netstat -anp|grep srs|grep ESTABLISHED|wc -l`; \
-echo "srs_connections: $srs_connections"
+pid=`ps aux|grep srs|grep objs|awk '{print $2}'` && top -p $pid
 ```
 
-* 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
+* 查看客户端st-load消耗的CPU：
+
+```bash
+pid=`ps aux|grep load|grep rtmp|awk '{print $2}'` && top -p $pid
+```
+
+* 查看客户端连接数命令：
+
+```bash
+for((;;)); do srs_connections=`netstat -anp|grep 1935|grep ESTABLISHED|wc -l`; echo "srs_connections: $srs_connections"; sleep 5; done
+```
+
+* 查看客户端消耗带宽(不影响服务器CPU)，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
 
 ```bash
 [winlin@dev6 ~]$ dstat 30
@@ -156,5 +170,250 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客户端没有问题，若模拟1000个，则CPU简单除以2。
 
 其中，“不适用”是指还未开始测试带宽，所以未记录数据。
+## 测试SRS服务器
+
+开始启动st-load模拟客户端并发测试SRS的性能。
+
+树莓派一般10个以内的连接比较常用，所以我们先测试10个链接的情况。加上推流链接实际上11个。
+
+* 启动10客户端：
+
+```bash
+./objs/st_rtmp_load -c 10 -r rtmp://192.168.1.105:1935/live/livestream >/dev/null &
+```
+
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>20.0%</td>
+  <td>1.4MB</td>
+  <td>11</td>
+  <td>2.53Mbps</td>
+  <td>2.65Mbps</td>
+  <td>1.3%</td>
+  <td>1.5秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共20个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>40%</td>
+  <td>1.78MB</td>
+  <td>21</td>
+  <td>4.83Mbps</td>
+  <td>5.26Mbps</td>
+  <td>2%</td>
+  <td>1.9秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共30个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>60%</td>
+  <td>1.99MB</td>
+  <td>31</td>
+  <td>7.1Mbps</td>
+  <td>8.4Mbps</td>
+  <td>4.3%</td>
+  <td>3.2秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共40个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>63.5%</td>
+  <td>2.13MB</td>
+  <td>41</td>
+  <td>9.43Mbps</td>
+  <td>11.3Mbps</td>
+  <td>5%</td>
+  <td>2.6秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共50个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>12%</td>
+  <td>2.8MB</td>
+  <td>51</td>
+  <td>11.7Mbps</td>
+  <td>13.7Mbps</td>
+  <td>6%</td>
+  <td>4.6秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共60个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>97%</td>
+  <td>3.68MB</td>
+  <td>61</td>
+  <td>14Mbps</td>
+  <td>16Mbps</td>
+  <td>7.7%</td>
+  <td>5.8秒</td>
+</tr>
+</table>
+
+## 性能总结
+
+汇总如下：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>20.0%</td>
+  <td>1.4MB</td>
+  <td>11</td>
+  <td>2.53Mbps</td>
+  <td>2.65Mbps</td>
+  <td>1.3%</td>
+  <td>1.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>40%</td>
+  <td>1.78MB</td>
+  <td>21</td>
+  <td>4.83Mbps</td>
+  <td>5.26Mbps</td>
+  <td>2%</td>
+  <td>1.9秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>60%</td>
+  <td>1.99MB</td>
+  <td>31</td>
+  <td>7.1Mbps</td>
+  <td>8.4Mbps</td>
+  <td>4.3%</td>
+  <td>3.2秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>63.5%</td>
+  <td>2.13MB</td>
+  <td>41</td>
+  <td>9.43Mbps</td>
+  <td>11.3Mbps</td>
+  <td>5%</td>
+  <td>2.6秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>12%</td>
+  <td>2.8MB</td>
+  <td>51</td>
+  <td>11.7Mbps</td>
+  <td>13.7Mbps</td>
+  <td>6%</td>
+  <td>4.6秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>97%</td>
+  <td>3.68MB</td>
+  <td>61</td>
+  <td>14Mbps</td>
+  <td>16Mbps</td>
+  <td>7.7%</td>
+  <td>5.8秒</td>
+</tr>
+</table>
+
+可见，RaspberryPi B型能支持的并发，码率为230kbps时，大约为50个，网络带宽占用13Mbps。
 
 Winlin 2014.3
