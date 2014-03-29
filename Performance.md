@@ -25,6 +25,8 @@
 10240
 ```
 
+* 重启srs：`sudo /etc/init.d/srs restart`
+
 * 注意：启动服务器前必须确保连接数限制打开。
 
 ## NGINX-RTMP
@@ -136,9 +138,9 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94
 ```
 
 * SRS的流地址：`rtmp://192.168.2.101:1935/live/livestream`
-* 通过srs-players播放SRS流：[播放SRS的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* 通过srs-players播放SRS流：[播放SRS的流](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 * nginx-rtmp的流地址：`rtmp://192.168.2.101:19350/live/livestream`
-* 通过srs-players播放nginx-rtmp流：[播放nginx-rtmp的流](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* 通过srs-players播放nginx-rtmp流：[播放nginx-rtmp的流](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
 ## 客户端
 
@@ -230,11 +232,11 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 其中，srs的三个连接是：
 * FFMPEG推流连接。
 * Forward给nginx RTMP流的一个连接。
-* 观看连接：[播放地址](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* 观看连接：[播放地址](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
 其中，nginx-rtmp的两个连接是：
 * SRS forward RTMP的一个连接。
-* 观看连接：[播放地址](http://42.121.5.85:8085/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* 观看连接：[播放地址](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
 ## 测试SRS服务器
 
