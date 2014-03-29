@@ -122,7 +122,11 @@ pid=`ps aux|grep load|grep rtmp|awk '{print $2}'` && top -p $pid
 * 查看客户端连接数命令：
 
 ```bash
-for((;;)); do srs_connections=`netstat -anp|grep 1935|grep ESTABLISHED|wc -l`; echo "srs_connections: $srs_connections"; sleep 5; done
+for((;;)); do \
+    srs_connections=`netstat -anp|grep 1935|grep ESTABLISHED|wc -l`;  \
+    echo "srs_connections: $srs_connections";  \
+    sleep 5;  \
+done
 ```
 
 * 查看客户端消耗带宽(不影响服务器CPU)，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
