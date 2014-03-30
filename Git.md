@@ -36,4 +36,12 @@ SRS会不定期将代码更新到CSDN，基本上是同步的。csdn的git仓库
 git clone https://code.csdn.net/winlinvip/srs-csdn.git
 ```
 
+可以在CSDN上建立自己的仓库，然后和github上的srs同步，可以运行脚本：
+
+```bash
+bash scripts/csdn.mirror.sh 
+```
+
+可以参考脚本中的提示，创建自己的分支，每次可执行该脚本和github的srs同步。
+
 Winlin 2014.3
