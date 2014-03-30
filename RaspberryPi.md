@@ -174,7 +174,10 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客户端没有问题，若模拟1000个，则CPU简单除以2。
 
 其中，“不适用”是指还未开始测试带宽，所以未记录数据。
-## 测试SRS服务器
+
+## SRS-Select
+
+本章测试SRS使用Select机制的性能。
 
 开始启动st-load模拟客户端并发测试SRS的性能。
 
