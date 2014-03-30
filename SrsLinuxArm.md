@@ -204,10 +204,10 @@ sudo apt-get update
 若需要在RaspberryPi下编译srs，需要：
 * 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`
 * 安装zip，打包需要：`sudo aptitude install -y zip`
-* 编译srs：`./configure --with-hls --with-ssl --static && make`
-* 打包srs：`./scripts/package.sh --no-build`
+* 编译srs：`./configure --pi && make`
+* 打包srs：`./scripts/package-raspberrypi.sh`
 
-就可以生成安装包，譬如`objs/SRS-Raspbian7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
+就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
 
 ## Armel和Armhf
 
