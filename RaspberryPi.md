@@ -344,9 +344,9 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 </tr>
 </table>
 
-## 性能总结
+## SRS-Select性能总结
 
-RaspberryPi B型，230Kbps视频性能测试如下表：
+SRS使用select模型时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 <table>
 <tr>
