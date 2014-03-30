@@ -504,14 +504,63 @@ SRS使用select模型时，RaspberryPi B型，230Kbps视频性能测试如下表
 </tr>
 <tr>
   <td>SRS</td>
-  <td>%</td>
-  <td>MB</td>
+  <td>50%</td>
+  <td>4MB</td>
   <td>31</td>
   <td>7.1Mbps</td>
-  <td>Mbps</td>
-  <td>%</td>
-  <td>秒</td>
+  <td>8Mbps</td>
+  <td>4%</td>
+  <td>2秒</td>
 </tr>
 </table>
+
+## SRS-Epoll性能总结
+
+SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>17%</td>
+  <td>1.4MB</td>
+  <td>11</td>
+  <td>2.53Mbps</td>
+  <td>2.6Mbps</td>
+  <td>1.3%</td>
+  <td>1.7秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>23%</td>
+  <td>2MB</td>
+  <td>21</td>
+  <td>4.83Mbps</td>
+  <td>5.5Mbps</td>
+  <td>2.3%</td>
+  <td>1.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>50%</td>
+  <td>4MB</td>
+  <td>31</td>
+  <td>7.1Mbps</td>
+  <td>8Mbps</td>
+  <td>4%</td>
+  <td>2秒</td>
+</tr>
+</table>
+
+可见，RaspberryPi B型，SD卡class4，能支持的并发，SRS使用EPOLL时，码率为230kbps时，大约为xxxx个，网络带宽占用xxxxMbps。
 
 Winlin 2014.3
