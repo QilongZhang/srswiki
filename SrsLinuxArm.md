@@ -169,9 +169,31 @@ for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, 
 
 干脆就git clone了一个srs，在pi下面直接编译，速度是慢点，但以后就快了，然打包放到release中，其他pi就不用自己编译了。
 
+RaspberryPi默认推荐的系统是debian，即Raspbian。官方的源在国内很慢，推荐用东软或者清华的源：
+
+```bash
+raspbian
+默认的源太慢，不如改成国内镜像的源：
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
+    sudo vi /etc/apt/sources.list
+系统默认为：
+    deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
+改为国内镜像镜像列表为（注意url后面的/是不能多也不能少）：
+    东软 deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi
+    清华 deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+    成都凝聚工作室 deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi
+    华中科大 deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi
+    中科大 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+    中山大学 deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi
+其他地区：
+    新加坡大学 deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi
+更新源：
+sudo apt-get update
+```
+
 若需要在RaspberryPi下编译srs，需要：
-* 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`，或者下载`wget http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/pool/main/l/lsb/lsb-release_4.1+Debian12+rpi1_all.deb && sudo dpkg -i lsb-release_4.1+Debian12+rpi1_all.deb`
-* 安装zip，打包需要：`sudo aptitude install -y zip`，或者下载`wget http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/pool/main/z/zip/zip_3.0-8_armhf.deb && udo dpkg -i zip_3.0-8_armhf.deb`
+* 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`
+* 安装zip，打包需要：`sudo aptitude install -y zip`
 * 编译srs：`./configure --with-hls --with-ssl --static && make`
 * 打包srs：`./scripts/package.sh --no-build`
 
