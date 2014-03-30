@@ -420,4 +420,16 @@ RaspberryPi B型，230Kbps视频性能测试如下表：
 
 可见，RaspberryPi B型能支持的并发，码率为230kbps时，大约为50个，网络带宽占用13Mbps。
 
+## 超频800MHZ
+
+SD卡换成Class4，16GB。
+超频RaspberryPi到800MHZ，`sudo raspi-config`中选择overlock：
+
+```bash
+Chose overclock preset
+Modest 800MHz ARM, 250MHz core, 400MHz SDRAM, 0 overvolt
+```
+
+对srs的并发再次测试。
+
 Winlin 2014.3
