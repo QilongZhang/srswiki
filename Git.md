@@ -26,4 +26,14 @@ git pull
 
 另外，不需要删除objs后编译srs，只需要make就可以编译。若make出错，则执行configure之后再make，可能有配置项更新。
 
+## CSDN镜像
+
+SRS在CSDN上有镜像，参考网址：https://code.csdn.net/winlinvip/srs-csdn
+
+SRS会不定期将代码更新到CSDN，基本上是同步的。csdn的git仓库是：
+
+```bash
+git clone https://code.csdn.net/winlinvip/srs-csdn.git
+```
+
 Winlin 2014.3
