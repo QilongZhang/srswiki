@@ -172,22 +172,32 @@ for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, 
 RaspberryPi默认推荐的系统是debian，即Raspbian。官方的源在国内很慢，推荐用东软或者清华的源：
 
 ```bash
-raspbian
-默认的源太慢，不如改成国内镜像的源：
-    sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
-    sudo vi /etc/apt/sources.list
-系统默认为：
-    deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
-改为国内镜像镜像列表为（注意url后面的/是不能多也不能少）：
-    东软 deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi
-    清华 deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
-    成都凝聚工作室 deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi
-    华中科大 deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi
-    中科大 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
-    中山大学 deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi
-其他地区：
-    新加坡大学 deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi
-更新源：
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
+sudo vi /etc/apt/sources.list
+```
+
+系统默认的源是：
+
+```bash
+deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
+```
+
+可以改为下表的Source：
+
+<table>
+<tr><th>说明</th><th>Source</th></tr>
+<tr><td>东软</td><td>deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+<tr><td>清华</td><td>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>成都凝聚工作室</td><td>deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>华中科大</td><td>deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+<tr><td>中科大</td><td>deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>中山大学</td><td>deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>新加坡大学</td><td>deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+</table>
+
+然后更新安装源：
+
+```bash
 sudo apt-get update
 ```
 
