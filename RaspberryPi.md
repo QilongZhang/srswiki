@@ -123,7 +123,7 @@ pid=`ps aux|grep load|grep rtmp|awk '{print $2}'` && top -p $pid
 
 ```bash
 for((;;)); do \
-    srs_connections=`netstat -anp|grep 1935|grep ESTABLISHED|wc -l`;  \
+    srs_connections=`sudo netstat -anp|grep 1935|grep ESTABLISHED|wc -l`;  \
     echo "srs_connections: $srs_connections";  \
     sleep 5;  \
 done
@@ -421,6 +421,97 @@ SRS使用select模型时，RaspberryPi B型，230Kbps视频性能测试如下表
 </tr>
 </table>
 
-可见，RaspberryPi B型能支持的并发，码率为230kbps时，大约为50个，网络带宽占用13Mbps。
+可见，RaspberryPi B型，SD卡class2，能支持的并发，SRS使用select时，码率为230kbps时，大约为50个，网络带宽占用13Mbps。
+
+## SRS-Epoll
+
+本章测试SRS使用Epoll机制的性能。
+
+开始启动st-load模拟客户端并发测试SRS的性能。
+
+树莓派一般10个以内的连接比较常用，所以我们先测试10个链接的情况。加上推流链接实际上11个。
+
+* 启动10客户端：
+
+```bash
+./objs/st_rtmp_load -c 10 -r rtmp://192.168.1.105:1935/live/livestream >/dev/null &
+```
+
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>17%</td>
+  <td>1.4MB</td>
+  <td>11</td>
+  <td>2.53Mbps</td>
+  <td>2.6Mbps</td>
+  <td>1.3%</td>
+  <td>1.7秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共20个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>23%</td>
+  <td>2MB</td>
+  <td>21</td>
+  <td>4.83Mbps</td>
+  <td>5.5Mbps</td>
+  <td>2.3%</td>
+  <td>1.5秒</td>
+</tr>
+</table>
+
+* 再启动一个模拟10个连接的st-load，共30个连接。
+* 客户端开始播放30秒以上，并记录数据：
+
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>%</td>
+  <td>MB</td>
+  <td>31</td>
+  <td>7.1Mbps</td>
+  <td>Mbps</td>
+  <td>%</td>
+  <td>秒</td>
+</tr>
+</table>
 
 Winlin 2014.3
