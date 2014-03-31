@@ -11,7 +11,7 @@ SRS使用gprof分析的步骤如下：
 * 退出SRS：`killall -2 srs # or CTRL+C to stop gprof`
 * 生成gprof报告：`gprof -b ./objs/srs gmon.out > gprof.srs.log && rm -f gmon.out`
 
-可以打开`gprof.srs.log`查看性能报告，譬如(arm下30个连接的性能数据）：
+可以打开`gprof.srs.log`查看性能报告，譬如([raspberry-pi下30个连接的性能数据](https://github.com/winlinvip/simple-rtmp-server/wiki/RaspberryPi)）：
 ```bash
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
