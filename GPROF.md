@@ -7,7 +7,7 @@ SRS支持gprof性能分析。
 SRS使用gprof分析的步骤如下：
 * 配置：`./configure --with-gprof`
 * 编译：`make`
-* 直接启动即可：`rm -f gmon.out; ./objs/srs -c conf/srs.conf`
+* 直接启动即可：`rm -f gmon.out; ./objs/srs -c conf/console.conf`
 * 退出SRS：`killall -2 srs # or CTRL+C to stop gprof`
 * 生成gprof报告：`gprof -b ./objs/srs gmon.out > gprof.srs.log && rm -f gmon.out`
 
@@ -38,7 +38,7 @@ Each sample counts as 0.01 seconds.
 gprof还能图形化，可以将结果绘制成调用图：
 * 编译SRS：参考上一节`SRS性能分析`。
 * 编译图形化工具：`(cd 3rdparty/gprof && bash build_gprof2dot.sh)`
-* 启动服务器（按CTRL+C生成数据）：`./objs/srs -c conf/srs.conf`
+* 启动服务器（按CTRL+C或者killall -2 srs生成数据）：`./objs/srs -c conf/console.conf`
 * 生成gprof数据：`gprof -b ./objs/srs gmon.out > gprof.srs.log`
 * 将报表转换为图片：`./3rdparty/gprof/gprof2dot.py gprof.srs.log | dot -Tpng -o winlin.png`
 
