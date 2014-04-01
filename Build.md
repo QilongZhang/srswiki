@@ -151,6 +151,22 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6/Ubuntu12下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
 </tr>
 <tr>
+<td>HttpServer</td>
+<td>可选</td>
+<td>--with-http-server</td>
+<td>http-parser2.1</td>
+<td>SRS内嵌了一个web服务器，实现基本的http协议，主要用于文件分发。<br/>
+参考: [HTTPServer](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)</td>
+</tr>
+<tr>
+<td>HttpApi</td>
+<td>可选</td>
+<td>--with-http-api</td>
+<td>http-parser2.1</td>
+<td>SRS提供http-api（内嵌了web服务器），支持http方式管理服务器。<br/>
+参考: [HTTPApi](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)</td>
+</tr>
+<tr>
 <td>ARM</td>
 <td>可选</td>
 <td>--with-arm-ubuntu12</td>
