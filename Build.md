@@ -155,7 +155,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>可选</td>
 <td>--with-http-server</td>
 <td>http-parser2.1</td>
-<td>SRS内嵌了一个web服务器，实现基本的http协议，主要用于文件分发。<br/>
+<td>SRS内嵌了一个web服务器，实现基本的http协议，<br/>主要用于文件分发。<br/>
 参考: [HTTPServer](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)</td>
 </tr>
 <tr>
