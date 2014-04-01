@@ -68,9 +68,9 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
 
-## [HTTP接口](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
+## [HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
 
-如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP接口](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
+如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
 
 ## [搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
