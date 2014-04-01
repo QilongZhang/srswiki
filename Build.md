@@ -144,11 +144,11 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>将RTMP流转码后输出RTMP流，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*/Ubuntu12系统</td>
 </tr>
 <tr>
-<td>ApiServer</td>
+<td>HttpCallback</td>
 <td>可选</td>
 <td>--with-http-callback</td>
 <td>cherrypy<br/>http-parser2.1<br/>python2</td>
-<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了ApiServer，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6/Ubuntu12下才有，<br/>所以CentOS5启动ApiServer会报json模块找不到</td>
+<td>当某些事件发生，SRS可以调用http地址<br/><br/>譬如客户端连接到服务器时，SRS会调用<br/>on_connect接口，SRS自带了一个<br/>research/api-server(使用Cherrypy)，<br/>提供了这些http api的默认实现。<br/><br/>另外，若开启了HttpCallback，<br/>players的演示默认会跳转到api-server<br/><br/>http-parser2.1在各种linux下编译问题也不大<br/><br/>python2.6/2.7在CentOS6/Ubuntu12下才有，<br/>所以CentOS5启动HttpCallback会报json模块找不到</td>
 </tr>
 <tr>
 <td>HttpServer</td>
@@ -185,7 +185,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>可选</td>
 <td>--with-ssl<br/>--with-hls<br/>--with-nginx<br/>--with-ffmpeg<br/></td>
 <td>nginx/cherrypy</td>
-<td>SRS的演示播放器/转码输出的流/编码器/视频会议，<br/>因为需要http服务器，所以依赖于nginx，<br/><br/>另外，视频会议因为需要知道大家发布的流名称，<br/>所以需要ApiServer支持</td>
+<td>SRS的演示播放器/转码输出的流/编码器/视频会议，<br/>因为需要http服务器，所以依赖于nginx，<br/><br/>另外，视频会议因为需要知道大家发布的流名称，<br/>所以需要HttpCallback支持</td>
 </tr>
 <tr>
 <td>GPERF</td>
@@ -239,7 +239,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <td>RTMP功能</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)</td>
 <td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
-<td>只有基本的RTMP功能，作为RTMP源站提供服务。<br/>包含Forward/Reload/Refer/Vhost等核心功能。<br/>没有HLS，也没有转码，没有ApiServer。<br/>典型场景：<br/>1.RTMP网络电视台<br/>2.美女主播<br/>3.视频会议<br/>4.低延时的交互类应用<br/>5.其他RTMP应用</td>
+<td>只有基本的RTMP功能，作为RTMP源站提供服务。<br/>包含Forward/Reload/Refer/Vhost等核心功能。<br/>没有HLS，也没有转码，没有HttpCallback。<br/>典型场景：<br/>1.RTMP网络电视台<br/>2.美女主播<br/>3.视频会议<br/>4.低延时的交互类应用<br/>5.其他RTMP应用</td>
 </tr>
 <tr>
 <td>快速预览<br/>最小依赖</td>
@@ -261,9 +261,9 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 </tr>
 <tr>
 <td>逻辑控制</td>
-<td>RTMP(Basic)<br/>ApiServer</td>
+<td>RTMP(Basic)<br/>HttpCallback</td>
 <td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http-callback \<br/>--without-ffmpeg</td>
-<td>希望对服务器上的各种事件进行控制，<br/>譬如，连接到SRS后，到ApiServer进行验证，<br/>通过后再进行服务，<br/>譬如，希望统计当前连接数，各个流的数据等，<br/>典型场景：<br/>1.视频会议，ApiServer可以知道SRS上的流<br/>2.统计，统计在线人数，带宽等（cli也可以查询）<br/>3.认证，通过认证后才进行服务，<br/>注意：当事件发生时，SRS调用http地址告知ApiServer，<br/>若ApiServer需要主动控制SRS，可以通过cli</td>
+<td>希望对服务器上的各种事件进行控制，<br/>譬如，连接到SRS后，到api-server进行验证，<br/>通过后再进行服务，<br/>譬如，希望统计当前连接数，各个流的数据等，<br/>典型场景：<br/>1.视频会议，api-server可以知道SRS上的流<br/>2.统计，统计在线人数，带宽等（cli也可以查询）<br/>3.认证，通过认证后才进行服务，<br/>注意：当事件发生时，SRS调用http地址告知api-server，<br/>若api-server需要主动控制SRS，可以通过cli</td>
 </tr>
 <tr>
 <td>客户端</td>
@@ -307,7 +307,7 @@ SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++。�
 
 configure和make将会生成一些项目，都在objs目录。有些文件在research目录，configure会自动软链到objs目录。
 
-ApiServer的目录为research/api-server，没有做软链，可以直接启动。详细参考下面的方法。
+HttpCallback(及其服务端api-server)的目录为research/api-server，没有做软链，可以直接启动。详细参考下面的方法。
 
 <table>
 <tr>
@@ -331,9 +331,9 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <td>HLS/DEMO用到的nginx服务器</td>
 </tr>
 <tr>
-<td>ApiServer</td>
+<td>api-server</td>
 <td>python research/api-server/server.py 8085</td>
-<td>启动HTTP hooks和DEMO视频会议用到的ApiServer</td>
+<td>启动HTTP hooks和DEMO视频会议用到的api-server</td>
 </tr>
 <tr>
 <td>FFMPEG</td>
@@ -347,14 +347,14 @@ ApiServer的目录为research/api-server，没有做软链，可以直接启动�
 <td>SRS提供的客户端库，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a></td>
 </tr>
 <tr>
-<td>DEMO<br/>(关闭ApiServer)</td>
+<td>DEMO<br/>(关闭HttpCallback)</td>
 <td>./objs/nginx/html/players</td>
-<td>SRS的DEMO的静态页面，当没有开启ApiServer时</td>
+<td>SRS的DEMO的静态页面，当没有开启HttpCallback时</td>
 </tr>
 <tr>
-<td>DEMO<br/>(开启ApiServer)</td>
+<td>DEMO<br/>(开启HttpCallback)</td>
 <td>research/api-server/static-dir/players</td>
-<td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当ApiServer开启（--with-http-callback)，<br/>nginx的index.html会默认跳转到ApiServer的首页，<br/>原因是视频会议的DEMO需要ApiServer，<br/>2.若ApiServer没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
+<td>SRS的DEMO的静态页面，<br/>和nginx里面的静态目录是一个目录，软链到research/players，<br/>1.当HttpCallback开启（--with-http-callback)，<br/>nginx的index.html会默认跳转到HttpCallback的首页，<br/>原因是视频会议的DEMO需要HttpCallback，<br/>2.若HttpCallback没有开启，<br/>则默认浏览的是Nginx里面的DEMO，<br/>当然视频会议会无法演示</td>
 </tr>
 </table>
 
