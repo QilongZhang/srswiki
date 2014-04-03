@@ -51,7 +51,7 @@ Swap:  2064376k total,        0k used,  2064376k free,   486620k cached
 ```
 
 ```bash
-[winlin@dev6 csdn]$ time for((i=0;i<10000;i++)); do curl http://127.0.0.1:1985/api >/dev/null 2>&1; done
+[winlin@dev6 srs]$ time for((i=0;i<10000;i++)); do curl http://127.0.0.1:1985/api >/dev/null 2>&1; done
 
 real	0m27.375s
 user	0m8.223s
