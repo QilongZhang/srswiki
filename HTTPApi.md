@@ -34,4 +34,28 @@ vhost __defaultVhost__ {
 
 访问api：浏览器打开地址[http://192.168.1.170:1985/api/v1](http://192.168.1.170:1985/api/v1)
 
+## 性能
+
+机器：虚拟机CentOS6-64位，4CPU，T430笔记本，VirtualBox
+
+10%CPU，10000次请求，27秒，平均370次请求/秒，30毫秒一个请求
+
+```bash
+top - 09:59:49 up 3 days, 50 min,  4 users,  load average: 0.00, 0.00, 0.00
+Tasks: 140 total,   1 running, 139 sleeping,   0 stopped,   0 zombie
+Cpu(s): 11.6%us, 20.0%sy,  0.0%ni, 66.7%id,  0.0%wa,  0.0%hi,  1.8%si,  0.0%st
+Mem:   2055440k total,   990148k used,  1065292k free,   228544k buffers
+Swap:  2064376k total,        0k used,  2064376k free,   486620k cached
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+29696 winlin    20   0 15872 1592 1360 S  9.3  0.1   0:14.21 ./objs/srs -c console.conf
+```
+
+```bash
+[winlin@dev6 csdn]$ time for((i=0;i<10000;i++)); do curl http://127.0.0.1:1985/api >/dev/null 2>&1; done
+
+real	0m27.375s
+user	0m8.223s
+sys	0m16.289s
+```
+
 Winlin 2014.4
