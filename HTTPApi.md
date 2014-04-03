@@ -140,4 +140,6 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
+SRS的API属于“自解释型，HTTP RESTful API”
+
 Winlin 2014.4
