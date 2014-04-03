@@ -10,6 +10,16 @@ SRS提供两种打印日志的方式，通过配置`srs_log_tank`：
 * console：打印日志到控制台。当配置文件没有加载时，也打印到控制台。
 * file: 默认，打印日志到文件。必须指定配置`srs_log_file`，日志文件。日志文件默认为：`./objs/srs.log`
 
+配置文件中的说明：
+
+```bash
+# the log tank, console or file.
+# if console, print log to console.
+# if file, write log to file. requires srs_log_file if log to file.
+# default: file.
+srs_log_tank        file;
+```
+
 ## LogLevel
 
 LogLevel就是log的级别，什么级别的日志才会打印出来。
@@ -20,6 +30,15 @@ SRS支持设置日志级别，通过设置`srs_log_level`：
 * trace: 重要的日志，比较少，SRS默认使用这个级别。
 * warn: 警告日志，SRS在控制台以黄色显示。若SRS运行较稳定，可以只打开这个日志。建议使用trace级别。
 * error: 错误日志，SRS在控制台以红色显示。
+
+配置文件中的说明：
+
+```bash
+# the log level, for all log tanks.
+# can be: verbose, info, trace, warn, error
+# defualt: trace
+srs_log_level       trace;
+```
 
 注意事项：
 * 设置了低级别的日志，自动会打印高级别的。譬如设置为trace，那么trace/warn/error日志都会打印出来。
