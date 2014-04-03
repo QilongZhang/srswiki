@@ -171,7 +171,6 @@ SRS的API属于“自解释型，HTTP RESTful API”
 ```bash
 HTTP/1.1 404 Not Found
 Server: SRS/0.9.43
-Server: SRS/0.9.43
 Content-Type: application/json;charset=utf-8
 Allow: DELETE, GET, HEAD, OPTIONS, POST, PUT
 Content-Length: 81
