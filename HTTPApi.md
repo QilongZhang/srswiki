@@ -67,6 +67,8 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 * urls表示是面包屑导航，该api下面的子api（链接）。
 * data表示最后一级提供服务的api，返回的数据。
 
+另外，提供服务的api按照HTTP RESTful规则是复数，譬如versions/authors，表示资源。HTTP的各种方法表示操作，譬如GET查询，PUT更新，DELETE删除。参考：[Redmine HTTP Rest api](http://www.redmine.org/projects/redmine/wiki/Rest_api)
+
 根目录：
 
 ```bash
