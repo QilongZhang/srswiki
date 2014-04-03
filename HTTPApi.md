@@ -147,4 +147,36 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 
 SRS的API属于“自解释型，HTTP RESTful API”
 
+## 错误码
+
+当HTTP错误时，譬如404，默认的HTTP服务器会返回错误页面，SRS返回的永远是程序能解析的json。
+
+譬如，浏览器打开地址`http://192.168.1.102:1985/apis`，api多写了个s，是404，服务器返回：
+
+```bash
+{
+
+    "code": 804,
+    "data": {
+        "status_code": 404,
+        "reason_phrase": "Not Found",
+        "url": "/apis"
+    }
+
+}
+```
+
+查看HTTP的响应头为：
+
+```bash
+HTTP/1.1 404 Not Found
+Server: SRS/0.9.43
+Server: SRS/0.9.43
+Content-Type: application/json;charset=utf-8
+Allow: DELETE, GET, HEAD, OPTIONS, POST, PUT
+Content-Length: 81
+```
+
+SRS提供HTTP服务的基本原则是支持少量的HTTP协议，并且只提供给程序读的信息。尽量保证提供的信息都是可读的json，除非连不上服务器，或者服务器崩溃，否则数据都是json。
+
 Winlin 2014.4
