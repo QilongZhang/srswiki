@@ -58,4 +58,86 @@ user	0m8.223s
 sys	0m16.289s
 ```
 
+## 访问api
+
+直接在浏览器中就可以访问，或者用curl发起http请求。
+
+SRS提供了api的面包屑，可以从根目录开始导航，不需要任何记忆。
+
+根目录：
+
+```bash
+# curl http://192.168.1.102:1985/
+{
+
+    "code": 0,
+    "urls": {
+        "api": "the api root"
+    }
+
+}
+```
+
+返回的urls表示子链接可以访问。接着访问：
+
+```bash
+# curl http://192.168.1.102:1985/api/
+{
+
+    "code": 0,
+    "urls": {
+        "v1": "the api version 1.0"
+    }
+
+}
+```
+
+继续：
+
+```bash
+# curl http://192.168.1.102:1985/api/v1/
+{
+
+    "code": 0,
+    "urls": {
+        "version": "the version of SRS",
+        "authors": "the primary authors and contributors"
+    }
+
+}
+```
+
+继续：
+
+```bash
+# curl http://192.168.1.102:1985/api/v1/version
+{
+
+    "code": 0,
+    "data": {
+        "major": 0,
+        "minor": 9,
+        "revision": 43,
+        "version": "0.9.43"
+    }
+
+}
+```
+
+或者：
+
+```bash
+# curl http://192.168.1.102:1985/api/v1/authors
+{
+
+    "code": 0,
+    "data": {
+        "primary_authors": "winlin,wenjie.zhao",
+        "contributors_link": "https://github.com/winlinvip/simple-rtmp-server/blob/master/AUTHORS.txt",
+        "contributors": "winlin<winlin@vip.126.com> wenjie.zhao<740936897@qq.com> xiangcheng.liu<liuxc0116@foxmail.com> naijia.liu<youngcow@youngcow.net> alcoholyi<alcoholyi@qq.com> "
+    }
+
+}
+```
+
 Winlin 2014.4
