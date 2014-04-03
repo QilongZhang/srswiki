@@ -103,7 +103,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 
     "code": 0,
     "urls": {
-        "version": "the version of SRS",
+        "versions": "the version of SRS",
         "authors": "the primary authors and contributors"
     }
 
@@ -113,7 +113,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 继续：
 
 ```bash
-# curl http://192.168.1.102:1985/api/v1/version
+# curl http://192.168.1.102:1985/api/v1/versions
 {
 
     "code": 0,
