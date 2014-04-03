@@ -1,8 +1,18 @@
 # SRS系统日志
 
+SRS支持打印到console和file，支持设置level。
+
+## LogTank
+
+LogTank即log的容器，日志打印到什么地方。
+
 SRS提供两种打印日志的方式，通过配置`srs_log_tank`：
 * console：打印日志到控制台。当配置文件没有加载时，也打印到控制台。
 * file: 默认，打印日志到文件。必须指定配置`srs_log_file`，日志文件。日志文件默认为：`./objs/srs.log`
+
+## LogLevel
+
+LogLevel就是log的级别，什么级别的日志才会打印出来。
 
 SRS支持设置日志级别，通过设置`srs_log_level`：
 * verbose: 非常详细的日志，性能会很低，日志会非常多。SRS默认是编译时禁用这些日志，提高性能。
@@ -16,7 +26,11 @@ SRS支持设置日志级别，通过设置`srs_log_level`：
 * 默认verbose和info是编译时禁用的，若需要打开这两个日志，需要修改`srs_kernel_log.hpp`，将对应的禁用编译宏打开。
 * 推荐使用trace级别，重要的日志不多，对于排错很方便。如果有错误，建议用gdb调试，不要依赖日志。只有在不得已时才用日志排错。
 
-另外，一个相关的配置是守护进程方式启动，这样就不要nohup启动了（实际上是程序实现了nohup）：
+## 守护进程
+
+为何默认启动srs时只有一条日志呢？原因是守护进程方式启动时，日志会打印到文件。
+
+一个相关的配置是守护进程方式启动，这样就不要nohup启动了（实际上是程序实现了nohup）：
 
 ```bash
 # whether start as deamon
