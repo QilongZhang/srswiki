@@ -115,7 +115,7 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
 
 可以使用VLC观看。
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
+或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
@@ -125,7 +125,7 @@ HLS流地址为： `http://192.168.1.170/live/livestream_ff.m3u8`
 
 可以使用VLC观看。
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
+或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
