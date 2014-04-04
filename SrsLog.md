@@ -1,6 +1,6 @@
 # SRS系统日志
 
-SRS支持打印到console和file，支持设置level。
+SRS支持打印到console和file，支持设置level，支持连接级别的日志。
 
 ## LogTank
 
