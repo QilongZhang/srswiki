@@ -72,9 +72,14 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 [2014-04-04 11:39:24.176][trace][0][0] config parsed EOF
 [2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
 [2014-04-04 11:39:24.177][trace][0][0] srs(simple-rtmp-server) 0.9.46
-[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 #1 SMP Fri May 20 03:51:51 BST 2011 x86_64 x86_64 x86_64 GNU/Linux
+[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 
+#1 SMP Fri May 20 03:51:51 BST 2011 x86_64 x86_64 x86_64 GNU/Linux
 [2014-04-04 11:39:24.177][trace][0][0] build: 2014-04-03 18:38:23, little-endian
-[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx --with-ssl --with-ffmpeg --with-http-callback --with-http-server --with-http-api --with-librtmp --with-bwtc --with-research --with-utest --without-gperf --without-gmc --without-gmp --without-gcp --without-gprof --without-arm-ubuntu12 --jobs=1 --prefix=/usr/local/srs
+[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx 
+--with-ssl --with-ffmpeg --with-http-callback --with-http-server --with-http-api 
+--with-librtmp --with-bwtc --with-research --with-utest --without-gperf --without-gmc 
+--without-gmp --without-gcp --without-gprof --without-arm-ubuntu12 --jobs=1 
+--prefix=/usr/local/srs
 [2014-04-04 11:39:24.177][trace][0][0] write pid=4021 to ./objs/srs.pid success!
 [2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1935, type=0, fd=6
 [2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1985, type=1, fd=7
@@ -87,16 +92,20 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 ```
 
 主要信息包括：
-* 日志文件：[2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
-* 系统版本：[2014-04-04 11:39:24.177][trace][0][0] srs(simple-rtmp-server) 0.9.46
-* 编译系统信息：[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 #1 SMP Fri May 20 03:51:51 BST 2011 x86_64 x86_64 x86_64 GNU/Linux
-* 编译日期：[2014-04-04 11:39:24.177][trace][0][0] build: 2014-04-03 18:38:23, little-endian
-* 编译参数：[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx --with-ssl --with-ffmpeg --with-http-callback --with-http-server --with-http-api --with-librtmp --with-bwtc --with-research --with-utest --without-gperf --without-gmc --without-gmp --without-gcp --without-gprof --without-arm-ubuntu12 --jobs=1 --prefix=/usr/local/srs
-* PID文件：[2014-04-04 11:39:24.177][trace][0][0] write pid=4021 to ./objs/srs.pid success!
-* 侦听端口1935（RTMP）：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1935, type=0, fd=6
-* 侦听1985（HTTP接口）：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1985, type=1, fd=7
-* 侦听8080（HTTP服务）：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=8080, type=2, fd=8
-* 侦听循环开始，准备接受连接：[2014-04-04 11:39:24.177][trace][101][16] listen cycle start, port=1935, type=0, fd=6
+* <strong>日志文件</strong>：[2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
+* <strong>系统版本</strong>：[2014-04-04 11:39:24.177][trace][0][0] srs(simple-rtmp-server) 0.9.46
+* <strong>编译系统信息</strong>：[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 
+#1 SMP Fri May 20 03:51:51 BST 2011 x86_64 x86_64 x86_64 GNU/Linux
+* <strong>编译日期</strong>：[2014-04-04 11:39:24.177][trace][0][0] build: 2014-04-03 18:38:23, little-endian
+* <strong>编译参数</strong>：[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx 
+--with-ssl --with-ffmpeg --with-http-callback --with-http-server --with-http-api --with-librtmp 
+--with-bwtc --with-research --with-utest --without-gperf --without-gmc --without-gmp 
+--without-gcp --without-gprof --without-arm-ubuntu12 --jobs=1 --prefix=/usr/local/srs
+* <strong>PID文件</strong>：[2014-04-04 11:39:24.177][trace][0][0] write pid=4021 to ./objs/srs.pid success!
+* <strong>侦听端口1935（RTMP）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1935, type=0, fd=6
+* <strong>侦听1985（HTTP接口）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1985, type=1, fd=7
+* <strong>侦听8080（HTTP服务）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=8080, type=2, fd=8
+* <strong>侦听循环开始，准备接受连接</strong>：[2014-04-04 11:39:24.177][trace][101][16] listen cycle start, port=1935, type=0, fd=6
 
 ### 基于连接的日志
 
@@ -109,13 +118,18 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 假设需要知道推流的编码器的日志，流是`rtmp://192.168.1.107:1935/live/livestream`，那么先需要观察日志，一般推流的日志如下：
 
 ```bash
-[2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, send_to=30000000us, recv_to=30000000us
+[2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, 
+send_to=30000000us, recv_to=30000000us
 [2014-04-04 11:56:06.080][trace][104][11] srand initialized the random.
 [2014-04-04 11:56:06.082][trace][104][11] simple handshake with client success.
-[2014-04-04 11:56:06.083][trace][104][11] rtmp connect app success. tcUrl=rtmp://192.168.1.107:1935/live, pageUrl=, swfUrl=rtmp://192.168.1.107:1935/live, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
+[2014-04-04 11:56:06.083][trace][104][11] rtmp connect app success. 
+tcUrl=rtmp://192.168.1.107:1935/live, pageUrl=, swfUrl=rtmp://192.168.1.107:1935/live, 
+schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
 [2014-04-04 11:56:06.288][trace][104][11] set ack window size to 2500000
-[2014-04-04 11:56:06.288][trace][104][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
-[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
+[2014-04-04 11:56:06.288][trace][104][11] identify ignore messages except AMF0/AMF3 
+command message. type=0x5
+[2014-04-04 11:56:06.288][trace][104][11] identify client success. 
+type=publish(FMLEPublish), stream_name=livestream
 ```
 
 查找标识id：
@@ -126,31 +140,36 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log|grep -ina "identify client success. type=publish"
-20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
-43:[2014-04-04 11:56:18.138][trace][105][11] identify client success. type=publish(FMLEPublish), stream_name=winlin
-65:[2014-04-04 11:56:29.531][trace][106][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
-86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
+20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish, stream_name=livestream
+43:[2014-04-04 11:56:18.138][trace][105][11] identify client success. type=publish, stream_name=winlin
+65:[2014-04-04 11:56:29.531][trace][106][11] identify client success. type=publish, stream_name=livestream
+86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish, stream_name=livestream
 ```
 
 可见有几次推流，还有其他的流。可是根据时间过滤，或者根据流名称：
 
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log|grep -ina "identify client success. type=publish"|grep -a "livestream"
-20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
-65:[2014-04-04 11:56:29.531][trace][106][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
-86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
+20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish, stream_name=livestream
+65:[2014-04-04 11:56:29.531][trace][106][11] identify client success. type=publish, stream_name=livestream
+86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish, stream_name=livestream
 ```
 
 找到了三个推流连接，还可以继续筛选。假设我们看第一个，那么标识是`104`，可以grep关键字`\[104\]\[`，譬如：
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log |grep -ina "\[104\]\["
-14:[2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, send_to=30000000us, recv_to=30000000us
+14:[2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, 
+send_to=30000000us, recv_to=30000000us
 15:[2014-04-04 11:56:06.080][trace][104][11] srand initialized the random.
 16:[2014-04-04 11:56:06.082][trace][104][11] simple handshake with client success.
-17:[2014-04-04 11:56:06.083][trace][104][11] rtmp connect app success. tcUrl=rtmp://192.168.1.107:1935/live, pageUrl=, swfUrl=rtmp://192.168.1.107:1935/live, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
+17:[2014-04-04 11:56:06.083][trace][104][11] rtmp connect app success. 
+tcUrl=rtmp://192.168.1.107:1935/live, pageUrl=, swfUrl=rtmp://192.168.1.107:1935/live, 
+schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
 18:[2014-04-04 11:56:06.288][trace][104][11] set ack window size to 2500000
-19:[2014-04-04 11:56:06.288][trace][104][11] identify ignore messages except AMF0/AMF3 command message. type=0x5
-20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. type=publish(FMLEPublish), stream_name=livestream
+19:[2014-04-04 11:56:06.288][trace][104][11] identify ignore messages except AMF0/AMF3 
+command message. type=0x5
+20:[2014-04-04 11:56:06.288][trace][104][11] identify client success. 
+type=publish(FMLEPublish), stream_name=livestream
 21:[2014-04-04 11:56:06.288][trace][104][11] set output chunk size to 60000
 22:[2014-04-04 11:56:06.288][trace][104][11] set chunk_size=60000 success
 23:[2014-04-04 11:56:07.397][trace][104][11] <- time=225273, obytes=4168, ibytes=7607, okbps=32, ikbps=59
@@ -165,7 +184,7 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 32:[2014-04-04 11:56:11.219][trace][104][11] ignore AMF0/AMF3 command message.
 33:[2014-04-04 11:56:11.419][trace][104][11] drop the AMF0/AMF3 command message, command_name=deleteStream
 34:[2014-04-04 11:56:11.420][trace][104][11] ignore AMF0/AMF3 command message.
-35:[2014-04-04 11:56:12.620][error][104][104] recv identify client message failed. ret=207(Connection reset by peer)
+35:[2014-04-04 11:56:12.620][error][104][104] recv client message failed. ret=207(Connection reset by peer)
 36:[2014-04-04 11:56:12.620][error][104][104] identify client failed. ret=207(Connection reset by peer)
 37:[2014-04-04 11:56:12.620][warn][104][104] client disconnect peer. ret=204
 [winlin@dev6 srs]$ 
