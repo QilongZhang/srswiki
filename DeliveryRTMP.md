@@ -4,6 +4,8 @@ SRS（Simple RTMP Server）分发RTMP是核心功能，srs的主要定位就是�
 
 RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
+部署RTMP的实例参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+
 ## 配置RTMP流
 
 SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)）：
