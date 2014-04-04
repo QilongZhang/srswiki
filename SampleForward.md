@@ -35,6 +35,9 @@ git pull
 ```bash
 # conf/forward.master.conf
 listen              1935;
+pid                 ./objs/srs.master.pid;
+srs_log_tank        file;
+srs_log_file        ./objs/srs.master.log;
 vhost __defaultVhost__ {
     forward         127.0.0.1:19350;
 }
@@ -53,6 +56,9 @@ vhost __defaultVhost__ {
 ```bash
 # conf/forward.slave.conf
 listen              19350;
+pid                 ./objs/srs.slave.pid;
+srs_log_tank        file;
+srs_log_file        ./objs/srs.slave.log;
 vhost __defaultVhost__ {
 }
 ```
