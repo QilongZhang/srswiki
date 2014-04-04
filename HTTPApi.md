@@ -2,7 +2,7 @@
 
 SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可以直接控制和获取服务器的各种信息）。
 
-下面是chnvideo一台演示SRS的二维码：
+下面是chnvideo一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本（可以做更高级的功能，扫描即可发现bug，扫描即可管理，扫描即可重启，等等）：
 
 ![chnvideo-SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png)
 
