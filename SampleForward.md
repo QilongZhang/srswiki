@@ -69,6 +69,14 @@ vhost __defaultVhost__ {
 ./objs/srs -c conf/forward.slave.conf
 ```
 
+注意：启动srs后查看下srs是否启动成功，错误可以查看日志。
+
+```bash
+[winlin@dev6 srs]$ sudo netstat -anp|grep srs
+tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      7826/srs            
+tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      7834/srs
+```
+
 <strong>第七步，启动推流编码器。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
 使用FFMPEG命令推流：
