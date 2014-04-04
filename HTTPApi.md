@@ -2,6 +2,10 @@
 
 SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可以直接控制和获取服务器的各种信息）。
 
+下面是chnvideo一台演示SRS的二维码：
+
+![chnvideo-SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png)
+
 ## 设计原则
 
 SRS的HTTP接口遵循最简单原则，主要包括：
