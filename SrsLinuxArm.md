@@ -106,6 +106,56 @@ export SrsArmRANDLIB="arm-linux-gnueabi-ranlib" &&
 
 拷贝到目标机器上执行即可。
 
+## RaspberryPi
+
+可以在arm环境下直接编译，如果可以的话，譬如raspbian。
+
+我个人买了个树莓派（应该是B型），在京东上买的，树莓派基本上跑起来很容易。参考：[RaspberryPi](http://blog.csdn.net/win_lin/article/details/22468687)
+
+我用的是respberrypi最新的img，运行起来后发现什么都有。gcc/g++/gdb/git，应有尽有。发现release的那些包，ubuntu12下面编译出来的包是armv7的，raspberrypi是armv6的体系，所以跑不了。
+
+干脆就git clone了一个srs，在pi下面直接编译，速度是慢点，但以后就快了，然打包放到release中，其他pi就不用自己编译了。
+
+RaspberryPi默认推荐的系统是debian，即Raspbian。官方的源在国内很慢，推荐用东软或者清华的源：
+
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
+sudo vi /etc/apt/sources.list
+```
+
+系统默认的源是：
+
+```bash
+deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
+```
+
+可以改为下表的Source：
+
+<table>
+<tr><th>说明</th><th>Source</th></tr>
+<tr><td>东软</td><td>deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+<tr><td>清华</td><td>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>成都凝聚工作室</td><td>deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>华中科大</td><td>deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+<tr><td>中科大</td><td>deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>中山大学</td><td>deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi</td></tr>
+<tr><td>新加坡大学</td><td>deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
+</table>
+
+然后更新安装源：
+
+```bash
+sudo apt-get update
+```
+
+若需要在RaspberryPi下编译srs，需要：
+* 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`
+* 安装zip，打包需要：`sudo aptitude install -y zip`
+* 编译srs：`./configure --pi && make`
+* 打包srs：`./scripts/package-raspberrypi.sh`
+
+就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
+
 ## 手动编译SRS
 
 如果你的环境不是Ubuntu12或者使用其他的交叉编译工具，可以使用手动编译SRS。
@@ -162,54 +212,6 @@ for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, 
 ```
 
 拷贝到ARM上即可运行。
-
-## RaspberryPi
-
-我个人买了个树莓派（应该是B型），在京东上买的，树莓派基本上跑起来很容易。参考：[RaspberryPi](http://blog.csdn.net/win_lin/article/details/22468687)
-
-我用的是respberrypi最新的img，运行起来后发现什么都有。gcc/g++/gdb/git，应有尽有。发现release的那些包，ubuntu12下面编译出来的包是armv7的，raspberrypi是armv6的体系，所以跑不了。
-
-干脆就git clone了一个srs，在pi下面直接编译，速度是慢点，但以后就快了，然打包放到release中，其他pi就不用自己编译了。
-
-RaspberryPi默认推荐的系统是debian，即Raspbian。官方的源在国内很慢，推荐用东软或者清华的源：
-
-```bash
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
-sudo vi /etc/apt/sources.list
-```
-
-系统默认的源是：
-
-```bash
-deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
-```
-
-可以改为下表的Source：
-
-<table>
-<tr><th>说明</th><th>Source</th></tr>
-<tr><td>东软</td><td>deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-<tr><td>清华</td><td>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>成都凝聚工作室</td><td>deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>华中科大</td><td>deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-<tr><td>中科大</td><td>deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>中山大学</td><td>deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>新加坡大学</td><td>deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-</table>
-
-然后更新安装源：
-
-```bash
-sudo apt-get update
-```
-
-若需要在RaspberryPi下编译srs，需要：
-* 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`
-* 安装zip，打包需要：`sudo aptitude install -y zip`
-* 编译srs：`./configure --pi && make`
-* 打包srs：`./scripts/package-raspberrypi.sh`
-
-就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
 
 ## Armel和Armhf
 
