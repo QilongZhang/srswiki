@@ -50,7 +50,7 @@ srs_log_level       trace;
 SRS的日志可以定位到某个连接，可以在混杂了成千上万个链接中找到一个连接的日志，譬如要看某个客户端的日志。这个功能和SRS的日志格式设计相关，譬如：
 
 ```bash
-[2014-04-04 11:21:29.183][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, send_to=30000000us, recv_to=30000000us
+[2014-04-04 11:21:29.183][trace][104][11] rtmp get peer ip success. ip=192.168.1.179
 ```
 
 日志格式如下：
