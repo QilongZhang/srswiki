@@ -45,13 +45,15 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 交叉编译SRS：
 
 ```bash
-./configure --with-arm-ubuntu12 --with-ssl --with-hls --with-librtmp && make
+./configure --with-arm-ubuntu12 && make
 ```
 
 其中，
 * --with-arm-ubuntu12：必选，指定为arm编译。注意目前只支持ubuntu，CentOS的交叉环境不好搭。
-* --with-ssl：可选，支持复杂握手。参考：[握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)
-* --with-hls：可选，支持将RTMP流切成HLS片。注意不会编译nginx，在i386/x86_64平台上srs会编译nginx用于分发。
+* --with-ssl：默认，可选，支持复杂握手。参考：[握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMPHandshake)
+* --with-hls：默认，可选，支持将RTMP流切成HLS片。注意不会编译nginx，在i386/x86_64平台上srs会编译nginx用于分发。
+* --with-http-server: 默认，可选，开启[内嵌的http服务器分发hls](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)。
+* --with-http-api: 默认，可选，支持[http api](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)。
 * --with-librtmp：可选，编译客户端库，arm客户端可以调用这个库将流推送到srs。
 
 编译成功后，srs即为arm上可运行：
