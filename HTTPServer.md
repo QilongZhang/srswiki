@@ -86,4 +86,9 @@ vhost __defaultVhost__ {
 <tr><td>其他</td><td>Content-Type: text/html;charset=utf-8</td>
 </table>
 
+## Method
+
+支持的Method包括：
+* GET: 下载文件。
+
 Winlin 2014.4
