@@ -69,4 +69,21 @@ winlin    3592 51.2  3.4  41620 13408 pts/0    R+   07:04   1:43 ./objs/ffmpeg/b
 -y rtmp://127.0.0.1:1935/live?vhost=hls/livestream
 ```
 
+生成的文件：
+
+```bash
+winlin@raspberrypi:~/srs$ ll objs/nginx/html/live/
+total 6.1M
+-rw-r--r-- 1 winlin winlin 936K Apr  5 07:07 livestream-21.ts
+-rw-r--r-- 1 winlin winlin 935K Apr  5 07:08 livestream-22.ts
+-rw-r--r-- 1 winlin winlin 155K Apr  5 07:08 livestream-23.ts
+-rw-r--r-- 1 winlin winlin 833K Apr  5 07:08 livestream-24.ts
+-rw-r--r-- 1 winlin winlin 905K Apr  5 07:08 livestream-25.ts
+-rw-r--r-- 1 winlin winlin 934K Apr  5 07:08 livestream-26.ts
+-rw-r--r-- 1 winlin winlin 933K Apr  5 07:08 livestream-27.ts
+-rw-r--r-- 1 winlin winlin 529K Apr  5 07:09 livestream-28.ts.tmp
+-rw-r--r-- 1 winlin winlin  155 Apr  5 06:43 livestream.html
+-rw-r--r-- 1 winlin winlin  339 Apr  5 07:08 livestream.m3u8
+```
+
 Winlin 2014
