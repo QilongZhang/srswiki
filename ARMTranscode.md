@@ -54,7 +54,8 @@ KiB Mem:    383156 total,   168808 used,   214348 free,    11704 buffers
 KiB Swap:   102396 total,        0 used,   102396 free,   117676 cached
 
   PID USER      PR  NI  VIRT  RES  SHR S  %CPU %MEM    TIME+  COMMAND                                                    
- 3592 winlin    20   0 41620  13m 3880 R  52.1  3.5   1:32.72 ./objs/ffmpeg/bin/ffmpeg -f flv -i rtmp://127.0.0.1:1935/l 
+ 3592 winlin    20   0 41620  13m 3880 R  52.1  3.5   1:32.72 ./objs/ffmpeg/bin/ffmpeg 
+-f flv -i rtmp://127.0.0.1:1935/l 
  3591 winlin    20   0  3400 1464 1056 R  17.4  0.4   0:29.06 ./objs/srs -c console.conf
 ```
 
@@ -62,7 +63,9 @@ KiB Swap:   102396 total,        0 used,   102396 free,   117676 cached
 
 ```bash
 winlin@raspberrypi:~/srs$ ps aux|grep ffmpeg
-winlin    3592 51.2  3.4  41620 13408 pts/0    R+   07:04   1:43 ./objs/ffmpeg/bin/ffmpeg -f flv -i rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream -vcodec copy -acodec aac -b:a 48000 -ar 44100 -ac 2 -strict experimental -f flv -y rtmp://127.0.0.1:1935/live?vhost=hls/livestream
+winlin    3592 51.2  3.4  41620 13408 pts/0    R+   07:04   1:43 ./objs/ffmpeg/bin/ffmpeg 
+-f flv -i rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream -vcodec copy 
+-acodec aac -b:a 48000 -ar 44100 -ac 2 -strict experimental -f flv -y rtmp://127.0.0.1:1935/live?vhost=hls/livestream
 ```
 
 Winlin 2014
