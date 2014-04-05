@@ -44,6 +44,7 @@ SRS支持RTMP/HLS的最简单配置：
 listen              1935;
 http_stream {
     enabled         on;
+    listen          80;
 }
 vhost __defaultVhost__ {
     hls {
