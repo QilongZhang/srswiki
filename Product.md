@@ -6,7 +6,8 @@ SRS虽然是开源项目，但是窃以为，任何软件产品还是要有规�
 
 SRS的核心目标是做流媒体服务器核心，不做流媒体方案，以最简方式满足用户需求，提供完善接口配合商业方案：
 * 方案就是端到端，从视频源到流媒体服务器，到边缘服务器，到客户端播放器，都需要做开发。
-* SRS只做直播，因为点播一般是http，而且基本上都是方案，需要播放器和api服务器交互。譬如，若点播走HLS方案，则直接使用nginx或squid就可以做分发，不是SRS的菜。
+* SRS重点做直播，因为点播一般是http，而且基本上都是方案，需要播放器和api服务器交互。譬如，若点播走HLS方案，则直接使用nginx或squid就可以做分发，不是SRS的菜。
+× 当然，直播和点播的方案都需要服务器做支持，只是直播需要做更多的事情，点播基本上HLS就足够了。SRS会提供直播/点播服务器部分必须做的，但不会提供管理系统，视频库，播放器等方案。
 * 直播流的接入部分，SRS提供[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp)，可以推送RTMP流到RTMP服务器。SRS的接入是标准的RTMP，一般不做其他的接入方式（要做也是将其他流转换成RTMP）。
 * 录制和时移：直播流转点播文件，需要播放器做支持（从api服务器拿到播放列表），所以SRS不会做。不过RTMP写入文件，属于流媒体服务器的范畴，SRS可以考虑。
 * 直播HLS流：IOS的直播一般是[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)，而HLS实际上也是方案（客户端一般是apple做了），SRS也只是将RTMP流写入ts文件，生成m3u8列表。SRS不会做分发。
@@ -22,7 +23,9 @@ SRS的核心目标是做流媒体服务器核心，不做流媒体方案，以�
 * Reload：SRS可应用于365x24小时不间断服务，修改配置文件后[Reloadd](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)即可生效，现有客户端连接不受影响。那就是说，改变ffmpeg编码参数，客户端不会断开连接，就可以看到效果。
 * 低延时：SRS由于逻辑简单，依赖的st库也性能极高（和直接用epoll没有差异），SRS能做到[延迟最低](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)（RTMP最低延迟基本上在0.8秒以上），高性能才能低延迟。
 * HTTP回调：SRS提供各种事件的回调函数([HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback))，方便和外部系统对接。为了简洁，SRS不会支持lua或者as等[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)语言。
-* CLI：SRS提供cli，基于socket，能远程管理SRS，提供各种控制接口。
+* API：SRS提供HTTP RESTful API，管理系统的html/js就可以直接管理服务器。
+* ARM：SRS尽量依赖少量的库，依赖的库也是小而且足够成熟。譬如openssl是通用的开源库。state-threads，http-parser，都是小巧而且在各种平台都能编译通过。因为如此，SRS可以在ARM上编译和运行。
+* 内嵌HTTP服务器：为了方便直播/点播的HLS的分发，SRS内嵌了HTTP服务器，支持简单的文件的分发。流媒体的特点，特别是直播，可以支持少部分HTTP协议即可。
 
 各项功能的研发计划，参考SRS首页：[SRS功能](https://github.com/winlinvip/simple-rtmp-server#summary)
 
@@ -34,6 +37,22 @@ SRS的核心目标是做流媒体服务器核心，不做流媒体方案，以�
 * SRS作者乐天派，总是能看到自己长处，对不利的消息往往视而不见。
 * SRS以商业定位做开源软件，比商业软件开放，比开源软件谨慎。
 * SRS作者水平一般，只喜欢古老和熟烂的东西，代码也不敢写太高深（自己看不懂）。SRS至少能保持一个亮点：简洁。
+
+SRS支持RTMP/HLS的最简单配置：
+
+```bash
+listen              1935;
+http_stream {
+    enabled         on;
+}
+vhost __defaultVhost__ {
+    hls {
+        enabled         on;
+    }
+}
+```
+
+有见过更简单的么？
 
 ### FMS PK SRS
 
