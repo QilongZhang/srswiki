@@ -2,6 +2,8 @@
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
+## 产品定位
+
 它的定位很简单：智能手机上的摄像头。
 
 Nginx/Apache/lighthttpd等众多HTTP server大佬就是专业的单反，老长老长镜头了。难道有了单反智能手机上就不能有摄像头？不会吧！而且必须有。所以不是要和nginx拼个你死我活，定位不一样，就像fms内嵌apache一样（不过fms嵌得很烂），真的有必要而且方便。
@@ -15,5 +17,71 @@ srs会一如既往的保持最简单，http的代码不会有多少行，功能�
 * SRS依然可以用nginx作为反向代理，或者禁用这个选项，使用nginx分发。
 
 实际上，RTMP协议本身比HTTP复杂很多，所以st来做http分发，没有任何不可以的地方，更何况只是做部分。所以，淡定～
+
+## 配置
+
+需要配置全局的HTTP端口和根目录的路径。
+
+```bash
+# embeded http server in srs.
+# the http streaming config, for HLS/HDS/DASH/HTTPProgressive
+# global config for http streaming, user must config the http section for each vhost.
+# the embed http server used to substitute nginx in ./objs/nginx,
+# for example, srs runing in arm, can provides RTMP and HTTP service, only with srs installed.
+# user can access the http server pages, generally:
+#       curl http://192.168.1.170:80/srs.html
+# which will show srs version and welcome to srs.
+# @remeark, the http embeded stream need to config the vhost, for instance, the __defaultVhost__
+# need to open the feature http of vhost.
+http_stream {
+    # whether http streaming service is enabled.
+    # default: off
+    enabled         on;
+    # the http streaming port
+    # @remark, if use lower port, for instance 80, user must start srs by root.
+    # default: 8080
+    listen          8080;
+    # the default dir for http root.
+    # default: ./objs/nginx/html
+    dir             ./objs/nginx/html;
+}
+```
+
+同时，vhost上可以指定虚拟目录（默认根目录），若不指定，根目录可以访问。
+
+```bash
+vhost __defaultVhost__ {
+    # http vhost specified config
+    http {
+        # whether enable the http streaming service for vhost.
+        # default: off
+        enabled     on;
+        # the virtual directory root for this vhost to mount at
+        # for example, if mount to /hls, user access by http://server/hls
+        # default: /
+        mount       /hls;
+        # main dir of vhost,
+        # to delivery HTTP stream of this vhost.
+        # default: ./objs/nginx/html
+        dir         ./objs/nginx/html;
+    }
+}
+```
+
+## MIME
+
+支持少量的MIME，见下表。
+
+<table>
+<tr><th>文件扩展名</th><th>Content-Type</th></tr>
+<tr><td>.ts</td><td>Content-Type: video/MP2T;charset=utf-8</td>
+<tr><td>.m3u8</td><td>Content-Type: application/x-mpegURL;charset=utf-8</td>
+<tr><td>.json</td><td>Content-Type: application/json;charset=utf-8</td>
+<tr><td>.css</td><td>Content-Type: text/css;charset=utf-8</td>
+<tr><td>.swf</td><td>Content-Type: application/x-shockwave-flash;charset=utf-8</td>
+<tr><td>.js</td><td>Content-Type: text/javascript;charset=utf-8</td>
+<tr><td>.xml</td><td>Content-Type: text/xml;charset=utf-8</td>
+<tr><td>其他</td><td>Content-Type: text/html;charset=utf-8</td>
+</table>
 
 Winlin 2014.4
