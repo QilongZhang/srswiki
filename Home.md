@@ -144,6 +144,10 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何搭建ARM虚拟开发环境？如何在ARM上部署SRS服务器端？参考：[Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleARM)
 
+## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHTTP)
+
+使用实例：如何不依赖外部服务器分发HLS流？如何使用SRS内置的HTTP Server？参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHTTP)
+
 ## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
 
 使用实例：如何部署SRS的DEMO（提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等）？参考：[Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo)
