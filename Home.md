@@ -84,6 +84,10 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参考：[Performance: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/RaspberryPi)
 
+## [RaspberryPi下转码](https://github.com/winlinvip/simple-rtmp-server/wiki/ARMTranscode)
+
+如何在RaspberryPi下转码音频？如何在pi下面开启HTTP服务器分发HLS？参考：[RaspberryPi下转码](https://github.com/winlinvip/simple-rtmp-server/wiki/ARMTranscode)
+
 ## [服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)
