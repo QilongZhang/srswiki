@@ -47,7 +47,7 @@ http_stream {
 }
 ```
 
-同时，vhost上可以指定虚拟目录（默认根目录），若不指定，根目录可以访问。
+同时，vhost上可以指定虚拟目录（默认根目录）。
 
 ```bash
 vhost __defaultVhost__ {
@@ -67,6 +67,8 @@ vhost __defaultVhost__ {
     }
 }
 ```
+
+注意：vhost的http配置是可选的，就算不配置，http根目录依然可以访问。
 
 ## MIME
 
