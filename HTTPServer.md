@@ -2,6 +2,8 @@
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
+部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHTTP)
+
 ## 产品定位
 
 它的定位很简单：智能手机上的摄像头。
