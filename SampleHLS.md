@@ -29,6 +29,8 @@ git pull
 sudo ./objs/nginx/sbin/nginx
 ```
 
+备注：为了突出HLS的配置，我们在HLS的实例中没有使用SRS内置的HTTP Server，可以配置几行就可以不用nginx。参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHTTP)
+
 备注：请确定nginx已经启动，可以访问[http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html)，若能看到`nginx is ok`则没有问题。
 
 <strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
