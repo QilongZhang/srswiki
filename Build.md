@@ -385,7 +385,7 @@ SRS的配置(configure)参数说明如下：
 * --with-http-api 打开HTTP管理接口。参考：[HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)
 * --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
-* --with-transcode 直播流转码功能。需要在配置中指定转码工具。
+* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
 * --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
 * --with-gperf 是否使用google的tcmalloc库，默认关闭。
