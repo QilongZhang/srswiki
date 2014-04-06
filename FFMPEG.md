@@ -297,17 +297,17 @@ vhost __defaultVhost__ {
 ## 其他转码配置
 
 conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
-* mirror.transcode.vhost.com 将视频流上半截，翻转到下半截，看起来像个镜子。
-* drawtext.transcode.vhost.com 加文字水印。
-* crop.transcode.vhost.com 剪裁视频。
-* logo.transcode.vhost.com 添加图片logo。
-* audio.transcode.vhost.com 只对音频转码。
-* copy.transcode.vhost.com 不转码只转封装，类似于SRS的Forward。
-* all.transcode.vhost.com 转码参数的详细说明。
-* ffempty.transcode.vhost.com 一个ffmpeg的mock，不转码只打印参数。
-* app.transcode.vhost.com 对指定的app的流转码。
-* stream.transcode.vhost.com 对指定的流转码。
-* vn.transcode.vhost.com 只输出音频，禁止视频输出。
+* mirror.transcode.srs.com 将视频流上半截，翻转到下半截，看起来像个镜子。
+* drawtext.transcode.srs.com 加文字水印。
+* crop.transcode.srs.com 剪裁视频。
+* logo.transcode.srs.com 添加图片logo。
+* audio.transcode.srs.com 只对音频转码。
+* copy.transcode.srs.com 不转码只转封装，类似于SRS的Forward。
+* all.transcode.srs.com 转码参数的详细说明。
+* ffempty.transcode.srs.com 一个ffmpeg的mock，不转码只打印参数。
+* app.transcode.srs.com 对指定的app的流转码。
+* stream.transcode.srs.com 对指定的流转码。
+* vn.transcode.srs.com 只输出音频，禁止视频输出。
 
 ## ARM下转码
 
