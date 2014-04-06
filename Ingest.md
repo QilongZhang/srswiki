@@ -9,7 +9,7 @@
 采集的主要应用场景包括：
 * 虚拟直播：将文件编码为直播流。可以指定多个文件后，SRS会循环播放。
 * RTSP摄像头对接：以前安防摄像头都支持访问RTSP地址，RTSP无法在互联网播放。可以将RTSP采集后，以RTMP推送到SRS，后面的东西就不用讲了。
-* 编码器采集设备：可以采集设备，譬如video4linux和alsa设备，编码为h264/aac后输出RTMP到SRS。
+* 直接采集设备：SRS采集功能可以作为编码器采集设备上的未压缩图像数据，譬如video4linux和alsa设备，编码为h264/aac后输出RTMP到SRS。
 * 将HTTP流采集为RTMP：有些老的设备，能输出HTTP的ts或FLV流，可以采集后转封装为RTMP，支持HLS输出。
 
 总之，采集的应用场景主要是“SRS拉流”；能拉任意的流，只要ffmpeg支持；不是h264/aac都没有关系，ffmpeg能转码。
