@@ -131,7 +131,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>HLS</td>
 <td>可选</td>
-<td>--with-hls<br/>
+<td>--with-hls \<br/>
 --with-nginx</td>
 <td>nginx</td>
 <td>--with-hls<br/>将RTMP流切片成ts，并生成m3u8，<br/>即AppleHLS流分发。参考：<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS">HLS</a><br/><br/>
@@ -140,11 +140,19 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 </td>
 </tr>
 <tr>
-<td>Transcode</td>
+<td>FFMPEG</td>
 <td>可选</td>
 <td>--with-ffmpeg</td>
 <td>ffmpeg<br/>(libaacplus,<br/>lame,yasm,<br/>x264,ffmpeg)</td>
-<td>将RTMP流转码后输出RTMP流，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*/Ubuntu12系统<br/>
+<td>转码，转封装，采集工具，<br/>FFMPEG依赖的项目实在太多，<br/>而且在老版本的linux上这些库很难编译成功，<br/><br/>因此若不需要转码功能，建议关闭此功能，<br/>若需要转码，推荐使用CentOS6.*/Ubuntu12系统<br/>
+参考: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG">FFMPEG</a></td>
+</tr>
+<tr>
+<td>Transcode</td>
+<td>可选</td>
+<td>--with-transcode</td>
+<td>转码工具<br/>譬如FFMPEG</td>
+<td>将RTMP流转码后输出RTMP流，<br/>一般转码需要FFMPEG工具，<br/>或者禁用FFMPEG后指定自己的工具<br/>
 参考: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG">FFMPEG</a></td>
 </tr>
 <tr>
@@ -190,7 +198,7 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>DEMO</td>
 <td>可选</td>
-<td>--with-ssl<br/>--with-hls<br/>--with-nginx<br/>--with-ffmpeg<br/></td>
+<td>--with-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--with-ffmpeg \<br/>--with-transcode<br/></td>
 <td>nginx/cherrypy</td>
 <td>SRS的演示播放器/转码输出的流/编码器/视频会议，<br/>因为需要http服务器，所以依赖于nginx，<br/><br/>另外，视频会议因为需要知道大家发布的流名称，<br/>所以需要HttpCallback支持<br/>
 参考: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SampleDemo">SampleDemo</td>
@@ -252,49 +260,49 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 <tr>
 <td>快速预览<br/>最小依赖</td>
 <td>RTMP(Basic)</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode \<br/>--without-http-server \<br/>--without-http-api</td>
 <td>只保留系统核心功能，连RTMP分发h.264/aac都去掉。<br/>可以编译速度最快，几乎在所有的linux都能编译成功<br/>包含RTMP(Basic)基本流分发功能，<br/>包含Forward/Reload/Refer/Vhost核心功能<br/>典型场景：<br/>1.想快速编译SRS<br/>2.想在很老的系统下编译SRS<br/>3.VP6推RTMP流就可以</td>
 </tr>
 <tr>
 <td>多屏分发</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)<br/>HLS</td>
-<td>./configure \<br/>--with-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--with-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode</td>
 <td>希望支持PC(RTMP)，Apple(HLS)和Android(HLS)观看，<br/>PC上自然是adobe的flash观看效果最佳，<br/>1. flash自然是播放RTMP最稳定，<br/>测试显示10天连续播放都没有问题，<br/>2. Apple平台自然是HLS，<br/>就是看到HLS在Apple上完美表现，<br/>SRS才决定支持HLS，<br/>3. Android上的流媒体没有稳定的分发方式，<br/>相对而言，HLS是较好的选择，<br/>Andorid上播放器用HTML5播放m3u8<br/>典型场景：<br/>1.多屏分发的广播流<br/>2.对延时不那么关心（HLS延时至少一个ts切片）<br/>3.需要支持移动端<br/>注意：HLS需要h264和AAC编码，若编码器不支持，则需要转码</td>
 </tr>
 <tr>
 <td>转码</td>
 <td>RTMP(Basic)<br/>RTMP(H.264/AAC)<br/>Transcode</td>
-<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--with-ffmpeg</td>
+<td>./configure \<br/>--with-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--with-ffmpeg \<br/>--with-transcode</td>
 <td>希望对RTMP进行转码后输出，<br/>譬如，flash推流到SRS，编码是vp6和speex，<br/>希望转码为h264和aac后输出HLS，<br/>譬如，编码器推送较高码率到SRS，转码输出较低码率，<br/>譬如，加水印后输出，<br/>譬如，只对音频进行转码，将speex/mp3转码为aac给手机端播放，<br/>转码是wowza里面很贵的一个插件，应用场景可见一斑<br/>典型场景：<br/>1.需要输出HLS，但是输入流不是h264/aac<br/>2.高码率输入，多路输出，手机端播放低码率的流<br/>3.各种FFMPEG滤镜的应用<br/>注意：所有转码的流可以再经过SRS进行HLS切片和forward</td>
 </tr>
 <tr>
 <td>逻辑控制</td>
 <td>RTMP(Basic)<br/>HttpCallback</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--with-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode</td>
 <td>希望对服务器上的各种事件进行控制，<br/>譬如，连接到SRS后，到api-server进行验证，<br/>通过后再进行服务，<br/>譬如，希望统计当前连接数，各个流的数据等，<br/>典型场景：<br/>1.视频会议，api-server可以知道SRS上的流<br/>2.统计，统计在线人数，带宽等（cli也可以查询）<br/>3.认证，通过认证后才进行服务，<br/>注意：当事件发生时，SRS调用http地址告知api-server，<br/>若api-server需要主动控制SRS，可以通过cli</td>
 </tr>
 <tr>
 <td>客户端</td>
 <td>HLS</td>
-<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode</td>
 <td>SRS提供了以下客户端：<br/>1.播放器，research/players/srs_player<br/>research/players/srs_player.html<br/>2.编码器，research/players/srs_publisher<br/>research/players/srs_publisher.html<br/>3.测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>4.jwplayer：research/players/jwplayer6.html<br/>5.osmf播放器：research/players/osmf.html<br/>srs提供的客户端(srs-player/publisher)都是全js接口，<br/>flash元素只有video播放，<br/>典型场景：<br/>1.希望播放RTMP/HLS流<br/>2.希望使用flash推流<br/>3.希望测试客户端到服务器带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
 <tr>
 <td>测速</td>
 <td>HLS</td>
-<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--with-hls \<br/>--with-nginx \<br/>--without-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode</td>
 <td>SRS提供的测速工具，分为flash客户端和linux命令行工具，<br/>1.flash测速：research/players/srs_bwt<br/>research/players/srs_bwt.html<br/>flash测速提供全js接口，方便嵌入页面<br/>2.linux测速：./objs/bandwidth<br/>典型场景：<br/>1.推流前测速，看用户带宽是否达到要求<br/>2.排查卡顿问题，查看节点之间带宽<br/>注意：HLS提供的nginx，只是用做分发静态文件，<br/>可以把对应的目录拷贝到其他web服务器下也可以观看</td>
 </tr>
 <tr>
 <td>小型集群</td>
 <td>RTMP(Basic)</td>
-<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg</td>
+<td>./configure \<br/>--without-ssl \<br/>--without-hls \<br/>--without-http-callback \<br/>--without-ffmpeg \<br/>--without-transcode</td>
 <td>SRS的Forward可组建小型集群，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster">Cluster</a></td>
 </tr>
 <tr>
 <td>ARM</td>
 <td>ARM</td>
-<td>./configure \<br/>--with-ssl \<br/>--with-arm-ubuntu12</td>
+<td>./configure \<br/>--with-arm-ubuntu12</td>
 <td>SRS在ARM上运行，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm">arm-srs</a></td>
 </tr>
 <tr>
@@ -374,7 +382,8 @@ SRS的配置(configure)参数说明如下：
 * --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 * --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
 * --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback)
-* --with-ffmpeg 支持直播流转码。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+* --with-transcode 直播流转码功能。需要在配置中指定转码工具。
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
 * --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
 * --with-gperf 是否使用google的tcmalloc库，默认关闭。
