@@ -2,6 +2,10 @@
 
 ARM下，譬如raspberry pi，转码音频还是可行的。ffmpeg转码音频的CPU占用50%。
 
+## 编译
+
+使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：--with-transcode --without-ffmpeg，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+
 ## 配置文件
 
 使用下面的配置：
