@@ -156,6 +156,14 @@ SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx�
 参考: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG">FFMPEG</a></td>
 </tr>
 <tr>
+<td>Ingest</td>
+<td>可选</td>
+<td>--with-ingest</td>
+<td>采集工具<br/>譬如FFMPEG</td>
+<td>将文件/流/设备数据抓取后推送到SRS，<br/>一般采集需要FFMPEG工具，<br/>或者禁用FFMPEG后指定自己的工具<br/>
+参考: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/Ingest">Ingest</a></td>
+</tr>
+<tr>
 <td>HttpCallback</td>
 <td>可选</td>
 <td>--with-http-callback</td>
@@ -386,6 +394,7 @@ SRS的配置(configure)参数说明如下：
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)
 * --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 * --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+× --with-ingest 采集文件/流/设备数据，封装为RTMp流后，推送到SRS。参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/Ingest)
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
 * --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
 * --with-gperf 是否使用google的tcmalloc库，默认关闭。
