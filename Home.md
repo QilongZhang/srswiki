@@ -72,6 +72,10 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPApi)
 
+## [Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/Ingest)
+
+SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将设备中的媒体数据编码为流输出？参考：[Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/Ingest)
+
 ## [搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
 
 使用forward搭建小型集群的配置方法。链接：[搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
