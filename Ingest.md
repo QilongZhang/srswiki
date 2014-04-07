@@ -18,4 +18,64 @@ SRS默认是支持“推流”，即等待编码器推流上来，可以是专�
 
 如此，SRS的接入方式可以是“推流到SRS”和“SRS主动拉流”，基本上作为源站的功能就完善了。
 
+## 编译
+
+Ingest需要在编译时打开：`--with-ingest`。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+
+Ingeest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+
+## 配置
+
+Ingest的配置如下：
+
+```bash
+    # ingest file/stream/device then push to SRS over RTMP.
+    ingest {
+        # whether enable ingest features
+        # default: off
+        enable      on;
+        # input file/stream/device
+        # @remark only support one input.
+        input {
+            # the type of input.
+            # can be file/stream/device, that is,
+            #   file: ingest file specifies by url.
+            #   stream: ingest stream specifeis by url.
+            #   device: not support yet.
+            # default: file
+            type    file;
+            # the url of file/stream.
+            url     ./doc/source.200kbps.768x320.flv;
+        }
+        # the ffmpeg 
+        ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
+        # the transcode engine, @see all.transcode.srs.com
+        # @remark, the output is specified following.
+        engine {
+            # @see enabled of transcode engine.
+            # if disabled or vcodec/acodec not specified, use copy.
+            # default: off.
+            enable          off;
+            # output stream. variables:
+            # [vhost] current vhost which start the ingest.
+            # [port] system RTMP stream port.
+            output          rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
+        }
+    }
+```
+
+其中，`type`指定了输入的几种类型：
+* file: 输入为文件，url指定了文件的路径。srs会给ffmpeg传递-re参数。
+* stream: 输入为流，url指定了流地址。
+* device: 暂时不支持。
+
+`engine`指定了转码引擎参数：
+* enable: 指定是否转码，若off或者vcodec/acodec没有指定，则不转码，使用ffmpeg-copy。
+* output：输出路径。有两个变量可以使用：port为系统侦听的RTMP端口，vhost为配置了ingest的vhost。
+* 其他参考转码的配置：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
+
+注意：engine默认为copy，当：
+* engine的enable为off，没有开启转码engine，则使用copy。
+* engine的vcodec/acodec没有指定，则使用copy。
+
 Winlin 2014.4
