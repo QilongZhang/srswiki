@@ -1,6 +1,10 @@
 # SRS提供的librtmp
 
-librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库：
+librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库。
+
+## 应用场景
+
+librtmp的主要应用场景包括：
 * 播放RTMP流：譬如rtmpdump，将服务器的流读取后保存为flv文件。
 * 推流？不知道是否提供推流接口，可能有。
 * 基于同步阻塞socket，客户端用可以了。
