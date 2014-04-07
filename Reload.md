@@ -14,4 +14,6 @@ Reload的方法为：`killall -1 srs`
 
 或者指定发送的SRS进程：`kill -1 7635`
 
+使用启动脚本：`/etc/init.d/srs reload`
+
 Winlin 2014.2
