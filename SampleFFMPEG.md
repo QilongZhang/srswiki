@@ -20,7 +20,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
-./configure --with-ssl --with-ffmpeg && make
+./configure --with-ssl --with-transcode && make
 ```
 
 <strong>第三步，编写SRS配置文件。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
