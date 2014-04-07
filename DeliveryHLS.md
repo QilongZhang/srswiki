@@ -10,6 +10,16 @@ HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP�
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
+## 应用场景
+
+HLS主要的应用场景包括：
+* 跨平台：PC主要的直播方案是RTMP，也有一些库能播放HLS，譬如jwplayer，基于osmf的hls插件也一大堆。所以实际上如果选一种协议能跨PC/Android/IOS，那就是HLS。
+* IOS上苛刻的稳定性要求：IOS上最稳定的当然是HLS，稳定性不差于RTMP在PC-flash上的表现。
+* 友好的CDN分发方式：目前CDN对于RTMP也是基本协议，但是HLS分发的基础是HTTP，所以CDN的接入和分发会比RTMP更加完善。能在各种CDN之间切换，RTMP也能，只是可能需要对接测试。
+* 简单：HLS作为流媒体协议非常简单，apple支持得也很完善。Android对HLS的支持也会越来越完善。至于DASH/HDS，好像没有什么特别的理由，就像linux已经大行其道而且开放，其他的系统很难再广泛应用。
+
+总之，SRS支持HLS主要是作为输出的分发协议，直播以RTMP+HLS分发，满总各种应用场景。点播以HLS为主。
+
 ## 分发方式比较
 
 详见下表：
