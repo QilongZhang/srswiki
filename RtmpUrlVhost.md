@@ -4,6 +4,14 @@ RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对�
 
 RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
 
+## 应用场景
+
+Vhost的主要应用场景包括：
+* 一个分发网络支持多个客户：譬如CDN，一个分发网络中，有N个客户公用一套流媒体系统，如何区分用户，计费，监控等等？通过app么？大家可能都叫做live之类。最好是通过各自的域名。
+* 不同的应用配置：譬如FMLE推上来的流是h264+mp3，可以将音频转码后放到其他的vhost分发hls，这样接入h264+mp3的vhost就不用切hls。
+
+总之，vhost作为应用配置的单元，能隔离客户，应用不同的配置。
+
 ## 标准RTMP URL
 
 标准RTMP URL指的是最大兼容的RTMP URL，基本上所有的服务器和播放器都能识别的URL，和HTTP URL其实很相似，例如：
