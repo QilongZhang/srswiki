@@ -31,7 +31,7 @@ git pull
 # conf/ingest.conf
 listen              1935;
 vhost __defaultVhost__ {
-    ingest {
+    ingest livestream {
         enable      on;
         input {
             type    file;
