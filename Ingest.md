@@ -30,7 +30,9 @@ Ingest的配置如下：
 
 ```bash
     # ingest file/stream/device then push to SRS over RTMP.
-    ingest {
+    # the name/id used to identify the ingest, must be unique in global.
+    # ingest id is used in reload or http api management.
+    ingest livestream {
         # whether enable ingest features
         # default: off
         enable      on;
@@ -63,6 +65,8 @@ Ingest的配置如下：
         }
     }
 ```
+
+ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest。在reload/http-api管理时才知道操作的是哪个。譬如，reload时用来检测哪些ingest更新了，需要通知那些已经存在的ingest，停止已经不存在的ingest。
 
 其中，`type`指定了输入的几种类型：
 * file: 输入为文件，url指定了文件的路径。srs会给ffmpeg传递-re参数。
