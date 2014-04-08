@@ -4,6 +4,8 @@
 
 采集基本上就是使用FFMPEG作为编码器，或者转封装器，将外部流主动抓取到SRS。
 
+采集的部署实例参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleIngest)
+
 ## 应用场景
 
 采集的主要应用场景包括：
