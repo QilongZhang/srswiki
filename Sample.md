@@ -62,11 +62,11 @@ SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://git
 * 观看端：PC/Android/IOS。要求PC端的延迟在3秒内。Android/IOS延迟在20秒之内。
 
 主要流程包括：
-1. 采集端启动：IPC摄像头像监控中心注册，获得发布地址，譬如：rtmp://myfactory/live/live1，并告知采集端一些信息，譬如摄像头的位置之类。
-1. 采集端开始推流：IPC摄像头使用librtmp发布到地址rtmp://myfactory/live/live1，即将音频视频数据推送到RTMP流媒体服务器。
-1. 流媒体服务器接收流：流媒体服务器使用SRS，接收采集端的RTMP流。FMS-3/3.5/4.5都有问题，估计是和librtmp对接问题。
-1. 观看端观看：用户使用PC/Android/IOS登录监控中心后，监控中心返回所有的摄像头信息和流地址。PC端使用flash，延迟在3秒之内；Android/IOS使用HLS，延迟在20秒之内。
-1. 时移：监控中心会开启录制计划，将RTMP流录制为FLV文件。用户可以在监控中心观看录制的历史视频。
+* 采集端启动：IPC摄像头像监控中心注册，获得发布地址，譬如：rtmp://myfactory/live/live1，并告知采集端一些信息，譬如摄像头的位置之类。
+* 采集端开始推流：IPC摄像头使用librtmp发布到地址rtmp://myfactory/live/live1，即将音频视频数据推送到RTMP流媒体服务器。
+* 流媒体服务器接收流：流媒体服务器使用SRS，接收采集端的RTMP流。FMS-3/3.5/4.5都有问题，估计是和librtmp对接问题。
+* 观看端观看：用户使用PC/Android/IOS登录监控中心后，监控中心返回所有的摄像头信息和流地址。PC端使用flash，延迟在3秒之内；Android/IOS使用HLS，延迟在20秒之内。
+* 时移：监控中心会开启录制计划，将RTMP流录制为FLV文件。用户可以在监控中心观看录制的历史视频。
 
 ## 实例名称
 
