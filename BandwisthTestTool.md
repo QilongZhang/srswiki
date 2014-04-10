@@ -25,4 +25,12 @@ vhost bandcheck.srs.com {
 
 启动后用带宽测试客户端就可以查看：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170](http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170)
 
+备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+
+检测完毕后会提示带宽，譬如：
+
+```bash
+检测结束: 服务器: 192.168.1.107 上行: 2170 kbps 下行: 3955 kbps 测试时间: 7.012 秒
+```
+
 Winlin
