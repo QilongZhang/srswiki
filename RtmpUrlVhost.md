@@ -1,4 +1,4 @@
-# RTMP的URL规则和Vhost规则
+# RTMP的URL/Vhost规则
 
 RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对于没有使用过的同学来讲，还是很容易混淆。几乎每个新人都必问的问题：RTMP那个URL推流时应该填什么，什么是vhost，什么是app？
 
