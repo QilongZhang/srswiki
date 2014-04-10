@@ -55,63 +55,12 @@ SRS群和邮件列表，不是老师的黑板和学生举手的问题，80%的�
 
 举个实际的例子：
 
-    大家好，我翻遍了wiki，仔细阅读了Readme和所有的Wiki，都找不到原因和解决办法，不得不麻烦大家帮忙看看。
-    * 问题描述：VLC可以观看1935，但是看不了1936端口的流。
-    * 运行环境：CentOS 6.0 64bits，服务器192.168.1.170
-    * 网络架构：FFMPEG推流到SRS(1935端口），SRS(1935)转发给SRS(1936)，使用VLC观看。
-    * SRS的版本：master分支最新代码
-    * 编码器推流方式：使用FFMPEG推流，命令如下
-    ```
-    ./objs/ffmpeg/bin/ffmpeg -re -i ./doc/source.200kbps.768x320.flv \
-        -vcodec copy -acodec copy \
-        -f flv -y rtmp://127.0.0.1/live/livestream;
-    ```
-    * SRS(1935)的配置文件：
-    ```
-    [winlin@dev6 trunk]$ cat 1935.conf 
-    listen              1935;
-    vhost __defaultVhost__ {
-        enabled         on;
-        gop_cache       on;
-        forward         127.0.0.1:1936;
-    }
-    ```
-    * SRS(1935)的启动脚本：`nohup ./objs/srs -c 1935.conf >t.1935.log 2>&1 &`
-    * SRS(1936)的配置文件：
-    ```
-    [winlin@dev6 trunk]$ cat 1936.conf 
-    listen              1936;
-    vhost __defaultVhost__ {
-        enabled         on;
-        gop_cache       on;
-    }
-    ```
-    * SRS(1936)的启动脚本：`nohup ./objs/srs -c 1936.conf >t.1936.log 2>&1 &`
-    * 客户端播放的方式：
-    使用vlc播放流成功 rtmp://192.168.1.170/live/livestream
-    使用vlc播放流失败 rtmp://192.168.1.170:1936/live/livestream
-    * SRS(1935)服务器日志：
-    ```
-    [winlin@dev6 trunk]$ cat t.1935.log
-    [2014-01-06 19:33:17.054][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
-    [2014-01-06 19:33:17.071][1][trace][listen] server started, listen at port=1935, fd=4
-    [2014-01-06 19:33:17.071][2][trace][thread_cycle] thread cycle start
-    [2014-01-06 19:36:27.691][3][trace][do_cycle] get peer ip success. ip=127.0.0.1, send_to=30000000, recv_to=30000000
-    [2014-01-06 19:36:27.691][3][trace][handshake_with_client] srand initialized the random.
-    [2014-01-06 19:36:27.693][3][trace][handshake_with_client] complex handshake success.
-    ```
-    * SRS(1936)服务器日志：
-    ```
-    [winlin@dev6 trunk]$ cat t.1936.log
-    2014-01-06 19:42:44.060][0][error][read_token] end of file. ret=409 errno=2(No such file or directory)
-    [2014-01-06 19:42:44.061][1][trace][listen] server started, listen at port=1936, fd=4
-    [2014-01-06 19:42:44.061][2][trace][thread_cycle] thread cycle start
-    [2014-01-06 19:42:46.797][3][trace][do_cycle] get peer ip success. ip=127.0.0.1, send_to=30000000, recv_to=30000000
-    [2014-01-06 19:42:46.797][3][trace][handshake_with_client] srand initialized the random.
-    [2014-01-06 19:42:46.798][3][trace][handshake_with_client] simple handshake success.
-    ```
-    拜托，谢谢～
+    有人发现播放RTMP流延迟越来越大，不能一直说延迟大什么问题，谁知道什么问题啊？！得说明具体情况。
+    * 编码器：用什么编码器？版本是什么？编码参数是什么？流地址是什么？
+    * 服务器：用SRS什么版本？配置是什么？日志是什么？
+    * 客户端：用什么客户端？版本是什么？
+    * 问题和重现步骤：问题是什么？重现步骤是什么？
 
-这个问题就很快能得到排查，开发人员能按照配置进行复现。
+这个问题就很快能得到排查，开发人员能按照重现步骤进行复现。
 
 Winlin 2014.1
