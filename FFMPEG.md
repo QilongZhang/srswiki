@@ -319,6 +319,14 @@ SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](h
 
 注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
+## FFMPEG转码flash流
+
+flash可以当作编码器推流，参考演示中的编码器或者视频会议。flash只支持speex/nellymoser/pcma/pcmu，但flash会有一个特性，没有声音时就没有音频包。FFMPEG会依赖于这些音频包，如果没有会认为没有音频。
+
+所以FFMPEG用来转码flash推上来的RTMP流时，可能会有一个问题：ffmpeg认为没有音频。
+
+另外，FFMPEG取flash的流的时间会很长，也可能是在等待这些音频包。
+
 ## FFMPEG
 
 FFMPEG相关链接：
