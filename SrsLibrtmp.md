@@ -14,6 +14,18 @@ librtmp的主要应用场景包括：
 
 备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
 
+## librtmp做Server
+
+群里有很多人问，librtmp如何做server，实在不胜其骚扰，所以单列一章。
+
+server的特点是会有多个客户端连接，至少有两个：一个推流连接，一个播放连接。所以server有两种策略：
+* 每个连接一个线程或进程：像apache。这样可以用同步socket来收发数据（同步简单）。坏处就是没法支持很高并发，1000个已经到顶了，得开1000个线程/进程啊。
+* 使用单进程，但是用异步socket：像nginx这样。好处就是能支持很高并发。坏处就是异步socket麻烦。
+
+rtmpdump提供的librtmp，当然是基于同步socket的。所以使用librtmp做server，只能采取第一种方法，即用多线程处理多个连接。多线程多麻烦啊！要锁，同步，而且还支持不了多少个。
+
+librtmp的定位就是客户端程序，偏偏要超越它的定位去使用，这种大约只有中国人才能这样“无所畏惧”。
+
 ## 编译srs-librtmp
 
 编译SRS时，会自动编译srs-librtmp，譬如：
