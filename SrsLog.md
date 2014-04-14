@@ -227,12 +227,14 @@ vhost __defaultVhost__ {
 
 注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
 
-注意：一般以daemon后台启动，并将日志写到文件（默认），srs只会在控制台打印一条消息，表示配置文件解析成功了。
+注意：一般以daemon后台启动，并将日志写到文件（默认），srs会提示配置解析成功，日志写到文件。
 
 ```bash
-[winlin@dev6 srs]$ ./objs/srs -c conf/hls.conf 
-[2014-04-02 15:05:43.302][trace][0][0] config parsed EOF
-[winlin@dev6 srs]$
+[winlin@dev6 srs]$ ./objs/srs -c conf/srs.conf 
+[2014-04-14 12:12:57.775][trace][0][0] config parse complete
+[2014-04-14 12:12:57.775][trace][0][0] write log to file ./objs/srs.log
+[2014-04-14 12:12:57.775][trace][0][0] you can: tailf ./objs/srs.log
+[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLog
 ```
 
 Winlin 2014.3
