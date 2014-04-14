@@ -26,6 +26,8 @@ rtmpdump提供的librtmp，当然是基于同步socket的。所以使用librtmp�
 
 librtmp的定位就是客户端程序，偏偏要超越它的定位去使用，这种大约只有中国人才能这样“无所畏惧”。
 
+嵌入式设备上做rtmp server，当然可以用srs/crtmpd/nginx-rtmp，轮也轮不到librtmp。
+
 ## 编译srs-librtmp
 
 编译SRS时，会自动编译srs-librtmp，譬如：
