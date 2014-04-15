@@ -56,6 +56,10 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何不依赖外部web服务器直接可分发HTTP流譬如HLS？SRS为何支持内置的HTTP服务器？参考：[内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)
 
+## [DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/DVR)
+
+如何将直播RTMP流录制为flv文件？参考：[DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/DVR)
+
 ## [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
 
 如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
