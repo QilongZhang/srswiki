@@ -44,6 +44,18 @@ selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行�
 
 更多使用方法，参考[Usage](https://github.com/winlinvip/simple-rtmp-server#usage)
 
+## 编译选项和预设集
+
+SRS提供了详细的编译选项来控制功能的开关，以及提供了一些有用的预设，针对不同的应用场景默认选项。
+
+SRS会先应用预设集，然后应用用户的选项，譬如：`./configure --rtmp-hls --with-http-api`，应用顺序为：
+* 首先应用预设集：--rtmp-hls，开启ssl/hls，其他功能都处于关闭状态。
+* 应用用户选项：--with-http-api，开启http api接口。
+
+所以这个编译命令最后支持的功能是：RTMP+HLS+HTTP接口
+
+支持的预设集参考末尾的参数列表，或者执行：`./configure -h`查看。
+
 ## jobs:加速编译
 
 由于SRS在configure时需要编译ffmpeg/nginx，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
@@ -406,5 +418,14 @@ SRS的配置(configure)参数说明如下：
 * --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
 * --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
 * --static 使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm)
+
+预设集：
+* --x86-x64，默认预设集，一般的x86或x64服务器使用。release使用这个配置编译。
+* --pi，树莓派预设集，arm的子集。树莓派的release用这个配置编译。
+* --arm，ubuntu下交叉编译，等价于--with-arm-ubuntu12。release使用这个配置。
+* --dev，开发选项，尽可能开启功能。
+* --fast，关闭所有功能，只支持基本RTMP（不支持h264/aac），最快的编译速度。
+* --pure-rtmp，支持RTMP（支持h264+aac），需要编译ssl。
+* --rtmp-hls，支持RTMP和HLS，典型的应用方式。还可以加上内置的http服务器（--with-http-server）。
 
 Winlin 2014.2
