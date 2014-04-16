@@ -33,4 +33,11 @@ vhost bandcheck.srs.com {
 检测结束: 服务器: 192.168.1.107 上行: 2170 kbps 下行: 3955 kbps 测试时间: 7.012 秒
 ```
 
+另外，SRS还提供了带宽检测命令行工具：
+
+```bash
+[winlin@dev6 srs]$ ./objs/bandwidth -i 127.0.0.1 -p 1935 -v bandcheck.srs.com -k 35c9b402c12a7246868752e2878f7e0e
+[2014-04-16 16:11:23.335][trace][0][11] result: play 3742 kbps, publish 149 kbps, check time 7.0900 S
+```
+
 Winlin
