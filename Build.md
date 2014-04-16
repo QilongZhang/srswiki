@@ -428,4 +428,7 @@ SRS的配置(configure)参数说明如下：
 * --pure-rtmp，支持RTMP（支持h264+aac），需要编译ssl。
 * --rtmp-hls，支持RTMP和HLS，典型的应用方式。还可以加上内置的http服务器（--with-http-server）。
 
+专家选项：有可能编译失败，不是专家就不要用这个。
+* --use-sys-ssl 使用系统的ssl，不单独编译ssl（在--with-ssl时有效）。
+
 Winlin 2014.2
