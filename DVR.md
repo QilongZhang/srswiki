@@ -18,9 +18,8 @@ DVR的配置文件说明：
 
 ```bash
     # dvr RTMP stream to file,
-    # when encoder(FMLE/ffmpeg/flash) start to publish,
-    # start the dvr and record RTMP to file(flv).
-    # stop record when encoder stop to publish.
+    # start to record to file when encoder publish,
+    # reap flv according by specified dvr_plan.
     dvr {
         # whether enabled dvr features
         # default: off
@@ -39,7 +38,7 @@ DVR的配置文件说明：
         dvr_path    ./objs/nginx/html;
         # the dvr plan. canbe:
         #   session reap flv when session end(unpublish).
-        #   segment reap flv when flv duration exceed the specified duration.
+        #   segment reap flv when flv duration exceed the specified dvr_duration.
         # default: session
         dvr_plan        session;
         # the param for plan(segment), in seconds.
