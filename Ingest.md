@@ -35,9 +35,9 @@ Ingest的配置如下：
     # the name/id used to identify the ingest, must be unique in global.
     # ingest id is used in reload or http api management.
     ingest livestream {
-        # whether enable ingest features
+        # whether enabled ingest features
         # default: off
-        enable      on;
+        enabled      on;
         # input file/stream/device
         # @remark only support one input.
         input {
@@ -59,7 +59,7 @@ Ingest的配置如下：
             # @see enabled of transcode engine.
             # if disabled or vcodec/acodec not specified, use copy.
             # default: off.
-            enable          off;
+            enabled          off;
             # output stream. variables:
             # [vhost] current vhost which start the ingest.
             # [port] system RTMP stream port.
@@ -76,12 +76,12 @@ ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest
 * device: 暂时不支持。
 
 `engine`指定了转码引擎参数：
-* enable: 指定是否转码，若off或者vcodec/acodec没有指定，则不转码，使用ffmpeg-copy。
+* enabled: 指定是否转码，若off或者vcodec/acodec没有指定，则不转码，使用ffmpeg-copy。
 * output：输出路径。有两个变量可以使用：port为系统侦听的RTMP端口，vhost为配置了ingest的vhost。
 * 其他参考转码的配置：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
 注意：engine默认为copy，当：
-* engine的enable为off，没有开启转码engine，则使用copy。
+* engine的enabled为off，没有开启转码engine，则使用copy。
 * engine的vcodec/acodec没有指定，则使用copy。
 
 Winlin 2014.4
