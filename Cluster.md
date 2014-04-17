@@ -2,6 +2,8 @@
 
 srs定位为源站服务器，其中一项重要的功能是forward，即将服务器的流转发到其他服务器。
 
+备注：SRS的边缘RTMP方案在计划中。
+
 forward本身是用做热备，即用户推一路流上来，可以被SRS转发（或者转码后转发）到多个源站，CDN边缘可以回多个源，实现故障热备的功能，构建强容错系统。
 
 转发的部署实例参考：[Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleForward)
