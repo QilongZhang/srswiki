@@ -32,14 +32,14 @@ git pull
 listen              1935;
 vhost __defaultVhost__ {
     ingest livestream {
-        enable      on;
+        enabled      on;
         input {
             type    file;
             url     ./doc/source.200kbps.768x320.flv;
         }
         ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
         engine {
-            enable          off;
+            enabled          off;
             output          rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
         }
     }
