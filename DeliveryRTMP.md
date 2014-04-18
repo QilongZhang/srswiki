@@ -27,6 +27,7 @@ RTMP最初就是adobe在flash上的协议，flash播放RTMP只需要几行as代�
 var conn = new NetConnection();
 var stream = new NetStream(conn);
 var video = new Video();
+this.addChild(video);
 video.attachNetStream(stream);
 conn.connect("rtmp://192.168.1.170/live");
 stream.play("livestream");
