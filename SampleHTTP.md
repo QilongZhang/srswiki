@@ -22,7 +22,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
-./configure --with-hls --with-ssl --with-http-server && make
+./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
 <strong>第三步，编写SRS配置文件。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPServer)
