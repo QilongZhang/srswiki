@@ -29,7 +29,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
-./configure --with-ssl --with-hls --with-nginx --with-ffmpeg && make
+./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make
 ```
 
 <strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
