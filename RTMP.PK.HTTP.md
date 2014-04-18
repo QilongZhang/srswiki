@@ -10,7 +10,7 @@
 另外，HTTP的也分为几种：
 * HTTP progressive：早期流媒体服务器分发http文件时，以普通的http文件分发，这种叫做渐进式下载，意思就是如果文件很大譬如1小时时长1GB大小，想从中间开始播放是不行的。但这种方式已经是作古了，很多http服务器支持http文件的seek，就是从中间开始播放。
 * HTTP stream：支持seek的HTTP流，譬如各家视频网站的点播分发方式。或者稍微复杂点的，譬如把一个大文件切几段之后分发。目前在pc/flash上点播国内的主流分发是这种方式。
-* HLS：这种是现在适配方式最广（除了flash），在PC上有vlc，Android/IOS原生播放器就支持播放HLS，HTML5里面的url可以写HLS地址。总之，在移动端是以HLS为主。
+* HLS：这种是现在适配方式最广（除了flash, 需要额外的as库支持），在PC上有vlc，Android/IOS原生播放器就支持播放HLS，HTML5里面的url可以写HLS地址。总之，在移动端是以HLS为主。
 * HDS：adobe自己的HLS，一坨屎。
 * DASH：各家提出的HLS，目前还没有广泛应用。
 
