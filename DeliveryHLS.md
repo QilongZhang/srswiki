@@ -8,6 +8,8 @@ HLS指Apple的HLS(Http Live Streaming)，本身就是Live（直播）的，不�
 
 HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)。
 
+RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP.PK.HTTP)
+
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
 
 ## 应用场景
