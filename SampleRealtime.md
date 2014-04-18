@@ -22,7 +22,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
 
 ```bash
-./configure --with-ssl && make
+./configure --disable-all --with-ssl && make
 ```
 
 <strong>第三步，编写SRS配置文件。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
