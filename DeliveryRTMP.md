@@ -19,6 +19,19 @@ SRS直播将RTMP作为基本协议，以各种方式转码为RTMP后输入到SRS
 
 SRS点播还在计划中，不会使用RTMP作为点播协议，点播还是文件为主，即HTTP协议为主。
 
+## FlashRTMP
+
+RTMP最初就是adobe在flash上的协议，flash播放RTMP只需要几行as代码：
+
+```bash
+var conn = new NetConnection();
+var stream = new NetStream(conn);
+var video = new Video();
+video.attachNetStream(stream);
+conn.connect("rtmp://192.168.1.170/live");
+stream.play("livestream");
+```
+
 ## 配置RTMP流
 
 SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)）：
