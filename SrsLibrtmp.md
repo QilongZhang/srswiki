@@ -84,6 +84,8 @@ SRS编译成功后，用户就可以使用这些库开发
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_play.c：播放RTMP流实例。
 * research/librtmp/srs_publish.c：推送RTMP流实例。
+* research/librtmp/srs_ingest_flv.c：读取本地文件并推送RTMP流实例。
+* research/librtmp/srs_ingest_rtmp.c：读取RTMP流并推送RTMP流实例。
 
 依赖ssl的编译方法（支持复杂握手和简单握手）：
 
@@ -108,6 +110,10 @@ make nossl
 * research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
 * research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
 * research/librtmp/srs_publish_ssl：推送RTMP流，有ssl，支持简单握手和复杂握手。
+* research/librtmp/srs_ingest_flv_nossl：采集flv文件并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
+* research/librtmp/srs_ingest_flv_ssl：采集flv文件并推送RTMP流，有ssl，支持简单握手和复杂握手。
+* research/librtmp/srs_ingest_rtmp_nossl：采集RTMP流并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
+* research/librtmp/srs_ingest_rtmp_ssl：采集RTMP流并推送RTMP流，有ssl，支持简单握手和复杂握手。
 
 ## 数据格式
 
