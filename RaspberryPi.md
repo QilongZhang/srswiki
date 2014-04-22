@@ -645,4 +645,16 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 </tr>
 </table>
 
+## HLS测试
+
+一次性能测试记录：
+* 硬件：raspberry-pi，B型，700MHZCPU，500MB内存，百兆有线网络
+* 编码器：SRS自己采集，视频码率516kbps，音频码率63kbps，数据码率580kbps。时长220秒。avatar宣传片。
+* 服务器：SRS 0.9.72。服务器至少有一个连接：采集程序推流到SRS。
+* 客户端：flash播放器，RTMP协议，st-load（HLS负载测试工具）。
+
+备注：延迟指RTMP客户端延迟，HLS延迟太大不计入指标。
+
+数据如下：
+
 Winlin 2014.3
