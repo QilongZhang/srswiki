@@ -566,10 +566,83 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 ## RTMP测试
 
 一次性能测试记录：
+* 硬件：raspberry-pi，B型，700MHZCPU，500MB内存，百兆有线网络
 * 编码器：SRS自己采集，视频码率516kbps，音频码率63kbps，数据码率580kbps。时长220秒。avatar宣传片。
 * 服务器：SRS 0.9.72。服务器至少有一个连接：采集程序推流到SRS。
 * 客户端：flash播放器，RTMP协议，st-load（RTMP负载测试工具）
 
 数据如下：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>5%</td>
+  <td>2MB</td>
+  <td>2</td>
+  <td>1Mbps</td>
+  <td>1.2Mbps</td>
+  <td>0%</td>
+  <td>1.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>20%</td>
+  <td>2MB</td>
+  <td>12</td>
+  <td>6.9Mbps</td>
+  <td>6.6Mbps</td>
+  <td>2.8%</td>
+  <td>2秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>36%</td>
+  <td>2.4MB</td>
+  <td>22</td>
+  <td>12.7Mbps</td>
+  <td>12.9Mbps</td>
+  <td>2.3%</td>
+  <td>2.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>47%</td>
+  <td>3.1MB</td>
+  <td>32</td>
+  <td>18.5Mbps</td>
+  <td>18.5Mbps</td>
+  <td>5%</td>
+  <td>2.0秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>62%</td>
+  <td>3.4MB</td>
+  <td>42</td>
+  <td>24.3Mbps</td>
+  <td>25.7Mbps</td>
+  <td>9.3%</td>
+  <td>3.4秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>85%</td>
+  <td>3.7MB</td>
+  <td>52</td>
+  <td>30.2Mbps</td>
+  <td>30.7Mbps</td>
+  <td>13.6%</td>
+  <td>3.5秒</td>
+</tr>
+</table>
 
 Winlin 2014.3
