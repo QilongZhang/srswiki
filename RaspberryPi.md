@@ -567,7 +567,7 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 一次性能测试记录：
 * 编码器：SRS自己采集，视频码率516kbps，音频码率63kbps，数据码率580kbps。时长220秒。avatar宣传片。
-* 服务器：SRS 0.9.72
+* 服务器：SRS 0.9.72。服务器至少有一个连接：采集程序推流到SRS。
 * 客户端：flash播放器，RTMP协议，st-load（RTMP负载测试工具）
 
 数据如下：
