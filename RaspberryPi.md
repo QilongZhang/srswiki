@@ -563,4 +563,13 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 可见，RaspberryPi B型，SD卡class4，能支持的并发，SRS使用EPOLL时，码率为230kbps时，大约为xxxx个，网络带宽占用xxxxMbps。
 
+## RTMP测试
+
+一次性能测试记录：
+* 编码器：SRS自己采集，视频码率516kbps，音频码率63kbps，数据码率580kbps。时长220秒。avatar宣传片。
+* 服务器：SRS 0.9.72
+* 客户端：flash播放器，RTMP协议，st-load（RTMP负载测试工具）
+
+数据如下：
+
 Winlin 2014.3
