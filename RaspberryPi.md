@@ -656,5 +656,79 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 备注：延迟指RTMP客户端延迟，HLS延迟太大不计入指标。
 
 数据如下：
+<table>
+<tr>
+  <td>Server</td>
+  <td>CPU占用率</td>
+  <td>内存</td>
+  <td>连接数</td>
+  <td>期望带宽</td>
+  <td>实际带宽</td>
+  <td>st-load</td>
+  <td>客户端延迟</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>5%</td>
+  <td>2MB</td>
+  <td>2</td>
+  <td>1Mbps</td>
+  <td>1.2Mbps</td>
+  <td>0%</td>
+  <td>1.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>12%</td>
+  <td>2.6MB</td>
+  <td>12</td>
+  <td>6.9Mbps</td>
+  <td>6.7Mbps</td>
+  <td>0.7%</td>
+  <td>1秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>21%</td>
+  <td>2.3MB</td>
+  <td>22</td>
+  <td>12.7Mbps</td>
+  <td>13.1Mbps</td>
+  <td>3.7%</td>
+  <td>1.5秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>33%</td>
+  <td>2.7MB</td>
+  <td>32</td>
+  <td>18.5Mbps</td>
+  <td>21Mbps</td>
+  <td>2.3%</td>
+  <td>1.2秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>57%</td>
+  <td>2MB</td>
+  <td>42</td>
+  <td>24.3Mbps</td>
+  <td>24Mbps</td>
+  <td>2.7%</td>
+  <td>2秒</td>
+</tr>
+<tr>
+  <td>SRS</td>
+  <td>70%</td>
+  <td>2.8MB</td>
+  <td>52</td>
+  <td>30.2Mbps</td>
+  <td>32Mbps</td>
+  <td>3.8%</td>
+  <td>3秒</td>
+</tr>
+</table>
+
+备注：SRS的HTTP还有待优化，目前未优化前就这个指标。
 
 Winlin 2014.3
