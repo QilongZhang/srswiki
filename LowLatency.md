@@ -112,6 +112,7 @@ vhost __defaultVhost__ {
 
 SRS: 0.9.55
 编码器：FMLE, video(h264, profile=baseline, level=3.1, keyframe-frequency=5seconds), fps=15, input=640x480, output(500kbps, 640x480), 无音频输出（FMLE的音频切片HLS有问题）
+网络：推流为PC在北京公司内网，观看为PC北京公司内网，服务器为阿里云青岛节点。
 服务器配置：
 
 ```bash
