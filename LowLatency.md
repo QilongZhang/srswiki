@@ -108,4 +108,27 @@ vhost __defaultVhost__ {
 
 当然，服务器的性能也要考虑，不可以让一个SRS进程跑太高带宽，一般CPU在80%以下不会影响延迟，连接数参考[性能](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)。
 
+## 实测
+
+SRS: 0.9.55
+编码器：FMLE, video(h264, profile=baseline, level=3.1, keyframe-frequency=5seconds), fps=15, input=640x480, output(500kbps, 640x480), 无音频输出（FMLE的音频切片HLS有问题）
+服务器配置：
+
+```bash
+listen              1935;
+vhost __defaultVhost__ {
+    enabled         on;
+    gop_cache       off;
+    hls {
+        enabled         on;
+        hls_path        ./objs/nginx/html;
+        hls_fragment    5;
+        hls_window      20;
+    }
+}
+```
+
+结论：RTMP延迟2秒，HLS延迟24秒。
+参考：![RTMP-HLS-latency](http://winlinvip.github.io/srs.release/wiki/images/rtmp-hls-latency.png)
+
 Winlin 2014.2
