@@ -120,6 +120,10 @@ linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？�
 
 如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP-ATC)
 
+## [FlashP2P](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
+
+SRS如何支持FlashP2P？chnvideo的P2P架构是在怎样和SRS对接的？参考：[FlashP2P](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
+
 ## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 
 如何查找内存泄漏？valgrind不支持st怎么办？如何知道哪个函数占用内存多？哪个函数性能有问题？参考：[GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
