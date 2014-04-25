@@ -79,6 +79,20 @@ flash播放vp6+mp3/speex时只需要简单握手，<br/>
 
 SRS编译成功后，用户就可以使用这些库开发
 
+## Windows下编译srs-librtmp
+
+srs-librtmp可以只依赖于c++和socket，可以在windows下编译。不过srs没有提供直接编译的方法，可行的方法是：
+* 先在linux下编译通过：`./configure --disable-all --with-librtmp && make`
+* 头文件就是`src/libs/srs_librtmp.hpp`，将以下文件拷贝到windows下编译：
+
+```bash
+objs/srs_auto_headers.hpp
+src/core/*
+src/kernel/*
+src/rtmp/*
+src/libs/*
+```
+
 ## srs-librtmp实例
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
