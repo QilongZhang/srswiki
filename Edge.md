@@ -39,4 +39,8 @@ SRS边缘是非常重要的功能，需要考虑以下因素：
 
 备注：RTMP多进程（计划中）的核心原则是用多进程作为完全镜像代理，连接到本地的服务器（源站或边缘），完全不考虑其他业务因素，透明代理。这样可以简单，而且利用多CPU能力。HTTP多进程是不考虑支持的，用NGINX是最好选择，SRS的HTTP服务器只是用在嵌入式设备中，没有性能要求的场合。
 
+边缘的状态图分析如下：
+
+![RTMP-HLS-latency](http://winlinvip.github.io/srs.release/wiki/images/edge-state.jpg)
+
 Winlin 2014.4
