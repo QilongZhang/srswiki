@@ -45,4 +45,6 @@ SRS边缘是非常重要的功能，需要考虑以下因素：
 
 ![RTMP-HLS-latency](http://winlinvip.github.io/srs.release/wiki/images/edge-state.jpg)
 
+注意：这种细节的文档很难保持不变，以代码为最新标准。
+
 Winlin 2014.4
