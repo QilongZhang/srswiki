@@ -93,6 +93,8 @@ src/rtmp/*
 src/libs/*
 ```
 
+注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
+
 ## srs-librtmp实例
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
