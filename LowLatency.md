@@ -137,4 +137,10 @@ vhost __defaultVhost__ {
 
 参考：![RTMP-HLS-latency](http://winlinvip.github.io/srs.release/wiki/images/rtmp-hls-latency.png)
 
+## Edge实测
+
+SRS集群不会增加延迟。这个是Edge模式比ingest要高级的地方，ingest需要启动进程，延迟会大。ingest主要适配多种协议，也可以主动从源站采集流，但Edge是专业的边缘模式。
+
+参考：![Edge-latency](http://winlinvip.github.io/srs.release/wiki/images/edge-latency)
+
 Winlin 2014.2
