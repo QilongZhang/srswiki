@@ -156,63 +156,6 @@ sudo apt-get update
 
 就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
 
-## 手动编译SRS
-
-如果你的环境不是Ubuntu12或者使用其他的交叉编译工具，可以使用手动编译SRS。
-
-首先，先让SRS编译通过，目标平台为x86/x64编译环境。ARM下只需要RTMP/SSL/HLS，将其他的选项禁用：
-
-```bash
-./configure --with-hls --with-ssl --with-librtmp \
-    --without-ffmpeg --without-http-callback --without-bwtc --without-research \
-    --without-utest --without-gperf --without-gmc --without-gmp --without-gcp \
-    --without-gprof --without-arm-ubuntu12 --static
-```
-
-注意：configure之后，不要make，会生成x86/x64的.o，交叉编译st和ssl之后也不会编译这些.o文件。
-注意：必须指定--static静态链接，否则编译可以通过但是在arm上无法运行。
-
-然后，重新编译ST，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
-
-```bash
-cd ~/git/simple-rtmp-server/trunk/objs/st-1.9 &&
-make clean && patch -p0 < ../../3rdparty/patches/1.st.arm.patch &&
-make CC=arm-linux-gnueabi-gcc AR=arm-linux-gnueabi-ar LD=arm-linux-gnueabi-ld \
-    RANDLIB=arm-linux-gnueabi-randlib linux-debug
-```
-
-接着，重新编译ssl，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
-
-```bash
-cd ~/git/simple-rtmp-server/trunk/objs/openssl-1.0.1f && 
-rm -rf _release && make clean &&
-./Configure --prefix=`pwd`/_release -no-shared no-asm linux-armv4 &&
-make CC=arm-linux-gnueabi-gcc GCC=arm-linux-gnueabi-gcc AR="arm-linux-gnueabi-ar r" \
-    LD=arm-linux-gnueabi-ld LINK=arm-linux-gnueabi-gcc RANDLIB=arm-linux-gnueabi-randlib &&
-make install
-```
-
-重新编译srs，使用arm交叉编译工具(把make时指定的工具换成你的工具)：
-
-```bash
-cd ~/git/simple-rtmp-server/trunk && 
-make GCC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ AR=arm-linux-gnueabi-ar \
-    LINK=arm-linux-gnueabi-g++ server librtmp
-```
-
-SRS生成的文件：
-* srs: ./objs/srs，srs服务器。
-* librtmp: ./objs/include, ./objs/lib，srs提供的客户端库。
-* librtmp-sample: ./research/librtmp，srs-librtmp的例子。
-
-```bash
-winlin@winlin-VirtualBox:~/git/simple-rtmp-server/trunk$ file objs/srs
-objs/srs: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), 
-for GNU/Linux 2.6.31, BuildID[sha1]=0x36ad57b29b16c6ac25c6295b9cf9c87382afd7b3, not stripped
-```
-
-拷贝到ARM上即可运行。
-
 ## Armel和Armhf
 
 有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
