@@ -3,7 +3,8 @@
 SRS配置完全支持Reload，即在不中断服务时应用配置的修改。
 
 注意：daemon选项当然是不支持reload的。
-注意：mode选项，即决定vhost是源站还是边缘，不支持reload，这个过于复杂。
+
+注意：mode选项，即决定vhost是源站还是边缘，不支持reload，这个过于复杂。若修改mode之后reload会导致server异常退出，由看门狗重启。
 
 ## 应用场景
 
