@@ -81,6 +81,8 @@ SRS编译成功后，用户就可以使用这些库开发
 
 ## Windows下编译srs-librtmp
 
+参考项目：[https://github.com/winlinvip/srs.librtmp.win](https://github.com/winlinvip/srs.librtmp.win)，由`chad.wang<chad.wang.cn@gmail.com>`提供。
+
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。不过srs没有提供直接编译的方法，可行的方法是：
 * 先在linux下编译通过：`./configure --disable-all --with-librtmp && make`
 * 头文件就是`src/libs/srs_librtmp.hpp`，将以下文件拷贝到windows下编译：
