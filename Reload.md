@@ -2,9 +2,15 @@
 
 SRS配置完全支持Reload，即在不中断服务时应用配置的修改。
 
-注意：daemon选项当然是不支持reload的。
+## NotSupportedFeatures
 
-注意：mode选项，即决定vhost是源站还是边缘，不支持reload。若修改mode之后reload会导致server异常退出，由看门狗重启。原因在于：
+不支持reload的功能包括：
+* deamon，是否后台启动。
+* mode，vhost的模式。
+
+daemon选项当然是不支持reload的。
+
+mode选项，即决定vhost是源站还是边缘，不支持reload。若修改mode之后reload会导致server异常退出，由看门狗重启。原因在于：
 * 源站和边缘角色切换过于复杂。
 * 一般源站会建立设备组，全部做源站，不会突然变成边缘
 * 上层和源站重启后，对最终用户没有影响，只是表现会切换上层的卡顿（客户端缓冲区设为3秒以上时，卡顿都不会出现）。
