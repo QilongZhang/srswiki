@@ -9,6 +9,25 @@ Edge的主要应用场景：
 * 小规模集群，但是流比较多，需要按需回源。
 * 骨干带宽低，边缘服务器强悍，可以内部分发RTMP后边缘切片HLS，避免RTMP和HLS都回源。
 
+## 配置
+
+edge属于vhost的配置，将某个vhost配置为edge后，该vhost会回源取流（播放时）或者将流转发给源站（发布时）。
+
+```bash
+vhost __defaultVhost__ {
+    # the mode of vhost, local or remote.
+    #       local: vhost is origin vhost, which provides stream source.
+    #       remote: vhost is edge vhost, which pull/push to origin.
+    # default: local
+    mode            remote;
+    # for edge(remote mode), user must specifies the origin server
+    # format as: <server_name|ip>[:port]
+    # @remark user can specifies multiple origin for error backup, by space,
+    # for example, 192.168.1.100:1935 192.168.1.101:1935 192.168.1.102:1935
+    origin          127.0.0.1:1935 localhost:1935;
+}
+```
+
 ## 下行边缘结构设计
 
 下行边缘指的是下行加速边缘，即客户端播放边缘服务器的流，边缘服务器从上层或源站取流。
