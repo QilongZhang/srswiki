@@ -84,4 +84,12 @@ ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest
 * engine的enabled为off，没有开启转码engine，则使用copy。
 * engine的vcodec/acodec没有指定，则使用copy。
 
+## 采集多个文件。
+
+实现方法：
+* 可以把输入文件变成文件列表。自己写工具实现采集列表。
+* 修改配置文件后，使用reload加载。
+
+参考：https://github.com/winlinvip/simple-rtmp-server/issues/55
+
 Winlin 2014.4
