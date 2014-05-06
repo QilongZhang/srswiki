@@ -150,4 +150,16 @@ crtmp(svnversion为811版本）的代码行数是119491行代码，是SRS(0.9.90
 
 srs必定广泛使用，如同漫天繁星散布渺渺宇宙，灿漫夏花开遍地球月球火星太阳系，愿[chnvideo](chnvideo.com)公司财源广进，[SrsTeam](https://github.com/winlinvip/simple-rtmp-server#authors)永垂不朽，彪炳千古，哈哈哈!
 
+## Vision
+
+只有crtmp的1/3代码，nginx-rtmp的1/2代码；更少代码完成的东西就是好，我不掩饰这一点。
+
+我希望beijing的签名能在地球上横行。
+
+我希望软件界能改变外界对中国人的看法，贪婪、索取、闭门造车、封闭、小气、代码很次。
+
+所以我给SRS选择MIT协议，让开源界和商界都能广泛使用。
+
+虽然核心是st，用了stl，跑在linux上，抄袭了nginx-rtmp。这些不正是仰仗各位大牛去换成china创造么？
+
 Winlin 2014.3
