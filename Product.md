@@ -101,6 +101,10 @@ SRS比Wowza优点
 
 nginx-rtmp是2012.3.17发布的0.0.1，基本上那个时候开始做的。参考：[nginx-rtmp release 0.0.1](https://github.com/arut/nginx-rtmp-module/releases/tag/v0.0.1)。
 
+nginx-rtmp(1.1.4版本)的代码行数是30957行代码，和SRS(0.9.90 38610行，其中st有4839行)是差不多的，功能和SRS差不多吗？
+
+可惜，nginx-rtmp不能单独运行，得基于nginx运行。nginx1.5的代码是141534行，核心的服务器部分（core, event)是37926行。也就是说，nginx-rtmp实际上是68883行，是SRS（38610行）的1.784倍，功能能有SRS的2倍吗？这就是SRS强大的地方吧。
+
 nginx-rtmp比SRS优点
 * 作者牛逼：能在nginx上写rtmp扩展的人，真心是牛逼。SRS作者以前做过类似的事情，不是在nginx上，是照着nginx的底层结构，用linux/epoll/多进程单线程/非阻塞异步socket实现RTMP协议，发现越到后面那个异步状态处理越麻烦。不得不承认，nginx-rtmp作者能力比SRS作者能力高出N个数量级。
 * 支持多进程：nginx的多进程是个硬指标。SRS有研发计划，但目前还没有支持多进程（多进程不Simple），好消息是在不久将来，SRS就可以在这点上不成为弱点了。
@@ -122,7 +126,7 @@ Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有�
 
 crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以为crtmpd是以c的思维习惯来写c++代码，就像c++作者讲的，拿着c++这个电钻当铁锤锤钉子————不仅仅没有效果，还可能会砸到自己的手。
 
-crtmp的代码行数是119491行代码，比SRS(0.9.90 33771行)多3倍，功能不会比SRS多3倍吧？这就是SRS强大的地方。
+crtmp(svnversion为811版本）的代码行数是119491行代码，是SRS(0.9.90 38610行，其中st有4839行)的3.0948倍，功能不会比SRS多3倍吧？这就是SRS强大的地方。
 
 而且，crtmpd还支持lua，这个是开源软件的通病，喜欢什么都往里面加，窃以为不可取。所以有人抱怨说crtmpd太大，是的，大得不得了。
 
