@@ -101,13 +101,13 @@ SRS比Wowza优点
 
 nginx-rtmp是2012.3.17发布的0.0.1，基本上那个时候开始做的。参考：[nginx-rtmp release 0.0.1](https://github.com/arut/nginx-rtmp-module/releases/tag/v0.0.1)。
 
-nginx-rtmp(1.1.4版本)的代码行数是30957行代码，和SRS(0.9.90 38610行，其中st有4839行)是差不多的，功能和SRS差不多吗？
+nginx-rtmp(1.1.4版本)的代码行数是30957行代码，和SRS(0.9.90 33679行，另外st有4839行)是差不多的，功能和SRS差不多吗？
 
-可惜，nginx-rtmp不能单独运行，得基于nginx运行。nginx1.5的代码是141534行，核心的服务器部分（core, event)是37926行。也就是说，nginx-rtmp实际上是68883行，是SRS（38610行）的1.784倍，功能能有SRS的2倍吗？这就是ST强大的地方吧。
+可惜，nginx-rtmp不能单独运行，得基于nginx运行。nginx1.5的代码是141534行，核心的服务器部分（core, event)是37678行。也就是说，nginx-rtmp实际上是68883行，是SRS（38610行）的1.784倍，功能能有SRS的2倍吗？这就是ST强大的地方吧。
 
-SRS的注释（可使用工具research/code-statistic/csr.py统计）是2388行，占总代码行数的7.91%。ST的注释是158行，占代码总行数比例为5.44%。
+SRS的注释（可使用工具research/code-statistic/csr.py统计）是5944行，占总代码行数的17.65%。ST的注释是754行，占代码总行数比例为15.58%。合在一起是6698行，占总数的17.39%。
 
-Nginx的注释是450行，占代码总行数的1.62%。NginxRTMP的注释是247行，占代码总行数的1.28%。混合在一起的行数是697行，占总行数的1.48%。
+Nginx的注释是1644行，占代码总行数的4.36%。NginxRTMP的注释是946行，占代码总行数的3.06%。混合在一起的行数是2598行，占总行数的3.77%。
 
 nginx-rtmp比SRS优点
 * 作者牛逼：能在nginx上写rtmp扩展的人，真心是牛逼。SRS作者以前做过类似的事情，不是在nginx上，是照着nginx的底层结构，用linux/epoll/多进程单线程/非阻塞异步socket实现RTMP协议，发现越到后面那个异步状态处理越麻烦。不得不承认，nginx-rtmp作者能力比SRS作者能力高出N个数量级。
@@ -130,11 +130,48 @@ Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有�
 
 crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以为crtmpd是以c的思维习惯来写c++代码，就像c++作者讲的，拿着c++这个电钻当铁锤锤钉子————不仅仅没有效果，还可能会砸到自己的手。
 
-crtmp(svnversion为811版本）的代码行数是119491行代码，是SRS(0.9.90 38610行，其中st有4839行)的3.0948倍，功能不会比SRS多3倍吧？这就是ST强大的地方。
+crtmp(svnversion为811版本）的代码行数是93450行代码，是SRS(0.9.90 38518行，其中st有4839行)的2.426倍，功能不会比SRS多3倍吧？这就是ST强大的地方。
 
-SRS的注释（可使用工具research/code-statistic/csr.py统计）是2388行，占总代码行数的7.91%。ST的注释是158行，占代码总行数比例为5.44%。
+SRS的注释（可使用工具research/code-statistic/csr.py统计）是5944行，占总代码行数的17.65%。ST的注释是754行，占代码总行数比例为15.58%。合在一起是6698行，占总数的17.39%。
 
-CRTMPD的注释是3811行，占代码总行数的4.70%。
+CRTMPD的注释是15891行，占代码总行数的17.00%。
+
+```bash
+# CRTMPD
+python ~/srs/research/code-statistic/csr.py ~/git/crtmpserver/sources/ *.h,*.cpp .svn,tests
+#total:93450 code:77559 comments:15891(17.00%) block:13123 line:2768
+```
+
+```bash
+#NGINX1.5(event,core)
+python ~/srs/research/code-statistic/csr.py ~/tools/nginx-rtmp/nginx-1.5.7/src/ *.h,*.c http,mail,misc,os
+#total:37678 code:36034 comments:1644(4.36%) block:1644 line:0
+```
+
+```bash
+#NGINX-RTMP1.1.4
+python ~/srs/research/code-statistic/csr.py ~/tools/nginx-rtmp/nginx-rtmp-module-1.1.4/ *.h,*.c
+#total:30957 code:30011 comments:946(3.06%) block:946 line:0
+```
+
+```bash
+# NGINX(event,core)+NGINX-RTMP
+python ~/srs/research/code-statistic/csr.py ~/tools/nginx-rtmp/mixed/ *.h,*.c
+#total:68883 code:66285 comments:2598(3.77%) block:2598 line:0
+```
+```
+
+```bash
+# ST
+python ~/srs/research/code-statistic/csr.py ~/srs/objs/st-1.9/ *.h,*.c examples,extensions,LINUX
+#total:4839 code:4085 comments:754(15.58%) block:754 line:0
+```
+
+```bash
+# SRS
+python ~/srs/research/code-statistic/csr.py ~/srs/src *.*pp utest,upp
+#total:33679 code:27735 comments:5944(17.65%) block:4126 line:1818
+```
 
 而且，crtmpd还支持lua，这个是开源软件的通病，喜欢什么都往里面加，窃以为不可取。所以有人抱怨说crtmpd太大，是的，大得不得了。
 
@@ -160,7 +197,7 @@ srs必定广泛使用，如同漫天繁星散布渺渺宇宙，灿漫夏花开�
 
 ## Vision
 
-SRS只有crtmp的1/3代码，nginx-rtmp的1/2代码；更少代码完成的东西就是好，ST就是强大，我不掩饰这一点。SRS注释为7.91%，nginx-rtmp的注释是1.48%，crtmpd的注释是4.70%。
+SRS只有crtmp的1/3代码，nginx-rtmp的1/2代码；更少代码完成的东西就是好，ST就是强大，我不掩饰这一点。SRS注释为17.39%，nginx-rtmp的注释是3.77%，crtmpd的注释是17.00%。
 
 我希望beijing的签名能在地球上横行。
 
