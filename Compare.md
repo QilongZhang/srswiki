@@ -4,7 +4,7 @@
 
 ## History
 
-![Media Stream Servers History](http://winlinvip.github.io/srs.release/wiki/images/100.release.png)
+![Media Stream Servers History](http://winlinvip.github.io/srs.release/wiki/images/compare/100.release.png)
 
 ## 术语表
 
@@ -22,30 +22,30 @@
 
 ## Protocol
 
-![Media Stream Servers Protocol](http://winlinvip.github.io/srs.release/wiki/images/200.protocol.png)
+![Media Stream Servers Protocol](http://winlinvip.github.io/srs.release/wiki/images/compare/200.protocol.png)
 
 ## Feature
 
-![Media Stream Servers Feature](http://winlinvip.github.io/srs.release/wiki/images/300.feature.png)
+![Media Stream Servers Feature](http://winlinvip.github.io/srs.release/wiki/images/compare/300.feature.png)
 
 ## Deploy
 
-![Media Stream Servers Deploy](http://winlinvip.github.io/srs.release/wiki/images/400.deploy.png)
+![Media Stream Servers Deploy](http://winlinvip.github.io/srs.release/wiki/images/compare/400.deploy.png)
 
 ## Deploy
 
-![Media Stream Servers Architecture](http://winlinvip.github.io/srs.release/wiki/images/500.arch.png)
+![Media Stream Servers Architecture](http://winlinvip.github.io/srs.release/wiki/images/compare/500.arch.png)
 
 ## CDN/VDN
 
-![Media Stream Servers CDN/VDN](http://winlinvip.github.io/srs.release/wiki/images/600.cdn.png)
+![Media Stream Servers CDN/VDN](http://winlinvip.github.io/srs.release/wiki/images/compare/600.cdn.png)
 
 ## Code
 
-![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/700.code.png)
+![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png)
 
 ## SRS history
 
-![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/800.srs.higtory.png)
+![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png)
 
 Winlin 2014.5
