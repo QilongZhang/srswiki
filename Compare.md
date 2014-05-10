@@ -4,7 +4,7 @@
 
 SRS聚焦在某些方面，这些都是由[产品定位](https://github.com/winlinvip/simple-rtmp-server/wiki/Product)决定的，有所不为才能有所为。
 
-SRS优势的基础在于基础架构，采用轻量线程，和其他流媒体系统的根本区别（类似于GO），参考[SRS架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
+SRS优势的基础在于基础架构，采用ST轻量线程，SRS和其他流媒体系统的根本区别（类似于GO）就是轻量线程，参考[SRS架构](https://github.com/winlinvip/simple-rtmp-server/wiki/Architecture)
 
 详细的功能列表，以及研发计划，参考：[产品功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/Features)
 
