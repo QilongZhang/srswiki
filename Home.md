@@ -8,6 +8,10 @@ Welcome to the simple-rtmp-server wiki!
 
 SRS产品定位是什么？SRS亮点是什么？和其他产品对比呢？参考：[SRS产品定位] (https://github.com/winlinvip/simple-rtmp-server/wiki/Product)
 
+## [产品对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Compare)
+
+SRS和其他流媒体产品的对比，差别在哪里，定位、区别、优势、劣势在哪里？参考：[产品对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Compare)
+
 ## [SRS功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/Features)
 
 SRS支持的功能，包括已经支持的，计划中的，和没有计划的。参考[SRS功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/Features)
