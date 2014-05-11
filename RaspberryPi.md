@@ -731,4 +731,8 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 备注：SRS的HTTP还有待优化，目前未优化前就这个指标。
 
+## cubieboard性能
+
+cubieboard是armv7 CPU，双核，性能比树莓派强很多。初步测试SRS支持300个客户端，占用一个CPU80%，可惜没有多进程；要是有多进程，能支持600个客户端，比较实用了。
+
 Winlin 2014.3
