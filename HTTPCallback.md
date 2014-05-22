@@ -22,7 +22,7 @@ SRS的回调事件包括：
     "action": "on_connect",
     "client_id": 1985,
     "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
-    "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
+    "tcUrl": "rtmp://video.test.com/live?key=xxx",
     "pageUrl": "http://www.test.com/live.html"
 }
 </pre>
