@@ -51,4 +51,6 @@ DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主�
 * session：按照session来关闭flv文件，即编码器停止推流时关闭flv，整个session录制为一个flv。
 * segment：按照时间分段录制，flv文件时长配置为dvr_duration。注意：不按关键帧切flv，所以会导致后面的flv启动时会花屏。
 
+参考`conf/dvr.segment.conf`和`conf/dvr.session.conf`配置实例。
+
 Winlin 2014.4
