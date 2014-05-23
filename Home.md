@@ -16,6 +16,10 @@ SRS和其他流媒体产品的对比，差别在哪里，定位、区别、优�
 
 SRS支持的功能，包括已经支持的，计划中的，和没有计划的。参考[SRS功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/Features)
 
+## [公用服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/LiveShow)
+
+SRS是否提供公用服务器？供大家测试，演示，版本发布，自动编译等。是否有现成的SRS服务器可以推流和播放？参考[公用服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/LiveShow)
+
 ## [应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/Sample)
 
 SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/Sample)
