@@ -11,21 +11,21 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 这些机器的列表：
 
 <table>
-<th>
-<td>供应商</td>
-<td>公网IP</td>
-<td>是否开放</td>
-<td>带宽</td>
-<td>默认流</td>
-<td>DEMO</td>
-</th>
+<tr>
+<th>供应商</th>
+<th>公网IP</th>
+<th>是否开放</th>
+<th>带宽</th>
+<th>默认流</th>
+<th>DEMO</th>
+</tr>
 <tr>
 <td><a href="http://www.aliyun.com/product/ecs/">阿里云主机</a></td>
 <td>182.92.80.26</td>
 <td>开放</td>
 <td>5Mbps</td>
-<td><a href="http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true">livestream</a></td>
-<td><a href="http://182.92.80.26:8085">DEMO</a></td>
+<td><a href="http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true" target="_blank">livestream</a></td>
+<td><a href="http://182.92.80.26:8085" target="_blank">DEMO</a></td>
 </tr>
 </table>
 
