@@ -28,7 +28,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <th>DEMO</th>
 </tr>
 <tr>
-<td><a href="http://www.aliyun.com/product/ecs/">阿里云主机</a></td>
+<td><a href="http://www.aliyun.com/product/ecs/">阿里云</a></td>
 <td>182.92.80.26</td>
 <td>北京</td>
 <td>开放</td>
