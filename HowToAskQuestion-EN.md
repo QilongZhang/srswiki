@@ -30,3 +30,28 @@ SRS group and mailing list, not the teacher's blackboard and students raise the 
 Do not ask abstract questions, such as how to achieve SRS RTMP? How the HLS stream? How to handle concurrency? How to thread synchronization?
 Asked very specific questions, such as how to deal with the timestamp ts do not ask, but asking: xxx first line of code to calculate pts = dts + cts, cts whether the timestamp rtmp package? Of course, this problem can be understood under the debugger.
 Do not generalities to ask questions, read the README, read WIKI, own debugging code, and then ask questions. Only allow the developer to ask specific questions.
+
+## **Notice to users**
+***
+
+Asked what needs to be done before? Ensure that others have encountered similar problems, or wiki already explained, do not mention this problem.
+
+Here are some basic questions:
+
+How to compile: Reference Build
+SRS what hardware environment: Reference Build
+SRS what software environment: Reference Build
+Why not see the stream? May be a firewall issue, refer Build
+How to build a cluster: Reference Cluster
+How to measure the performance of SRS: Reference Performance
+SRS authorization is MIT? Reference License
+How to see the SRS DEMO? Reference Readme
+Step by step how to compile the SRS DEMO? Reference Readme
+Who is the lead author of the SRS? Reference Readme
+What is the structure of SRS? Reference Readme
+What SRS function, which is the development of? Reference Readme
+SRS releases what? Reference Readme
+SRS and Nginx-Rtmp/CRtmpServer/Red5/Wowza/FMS/Helix compared advantage? Reference Readme
+SRS developers every day what to do? Reference Reaame
+If the above is not what you want to raise this issue, see Wiki , if all rummaged Wiki, or not, then refer to the following question asked a question it.
+
