@@ -23,6 +23,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <th>地域</th>
 <th>是否开放</th>
 <th>带宽</th>
+<th>磁盘</th>
 <th>默认流</th>
 <th>DEMO</th>
 </tr>
@@ -32,6 +33,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <td>北京</td>
 <td>开放</td>
 <td>5Mbps</td>
+<td>100GB</td>
 <td><a href="http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true" target="_blank">livestream</a></td>
 <td><a href="http://182.92.80.26:8085" target="_blank">DEMO</a></td>
 </tr>
@@ -79,7 +81,9 @@ vhost __defaultVhost__ {
 ## 默认演示流轮播
 
 大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
+
 使用ftp上传地址：`ftp://ftpuser:srs@182.92.80.26`
+
 上传完毕后请告知我，推荐使用ftp工具上传，编码使用utf-8。
 
 ## SRS
