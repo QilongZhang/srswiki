@@ -1,4 +1,6 @@
-**How to ask questions**
+## **How to ask questions**
+***
+
 
 In order to reduce communication costs, to help you solve the problem directly, please read the wiki before asking to help you ask better questions, solve problems more quickly and efficiently.
 
