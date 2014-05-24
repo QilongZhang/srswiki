@@ -45,7 +45,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 * [SRS官方主页](http://www.ossrs.net) SRS的官方主页。
 * [SRS官方HTTP-API](http://www.ossrs.net:1985/api/v1/summaries) SRS官方服务器的SRS的api。
 * [SRS虚拟直播流](http://www.ossrs.net:8085/players/srs_player.html?vhost=www.ossrs.net&stream=livestream&autostart=true) 观看服务器上的虚拟轮播流（虚拟直播流）。大家可以上传=>自动转码=>人工审查=>发布视频到直播流。
-* SRS虚拟直播流上传 `ftp://ftpuser:srs@www.ossrs.net` 上传到服务器后，服务器转码集群会自动转码，转码完毕后需要人工视频审查，审查没有问题请通知我，将上传的文件加入轮播流。
+* [SRS虚拟直播流上传](https://github.com/winlinvip/simple-rtmp-server/wiki/LiveShow#%E9%BB%98%E8%AE%A4%E6%BC%94%E7%A4%BA%E6%B5%81%E8%BD%AE%E6%92%AD) `ftp://ftpuser:srs@www.ossrs.net` 上传到服务器后，服务器转码集群会自动转码，转码完毕后需要人工视频审查，审查没有问题请通知我，将上传的文件加入轮播流。
 * [SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
 * [SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址，审查通过后通知我将视频发布到虚拟直播流。
 
