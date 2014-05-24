@@ -53,15 +53,15 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 
 大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
 
-使用ftp上传地址：`ftp://ftpuser:srs@www.ossrs.net`
-
-上传完毕后请告知我，推荐使用ftp工具上传，编码使用utf-8。
-
 主要流程：
 * 上传： `ftp://ftpuser:srs@www.ossrs.net` 上传到服务器后，服务器转码集群会自动转码，转码完毕后需要人工视频审查，审查没有问题请通知我，将上传的文件加入轮播流。
 * 系统自动转码：[SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
 * 人工审查：[SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址
 * 发布：审查通过后通知我将视频发布到虚拟直播流。
+
+使用ftp上传地址：`ftp://ftpuser:srs@www.ossrs.net`
+
+推荐使用ftp工具上传，编码使用utf-8。
 
 ## SRS配置
 
