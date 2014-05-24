@@ -76,6 +76,14 @@ vhost __defaultVhost__ {
 
 实例流的播放地址：[http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true](http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true)
 
+## 默认演示流轮播
+
+大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
+使用ftp上传地址：`ftp://ftpuser:srs@182.92.80.26`
+上传完毕后请告知我，推荐使用ftp工具上传，编码使用utf-8。
+
+## SRS
+
 ![SRS](http://182.92.80.26:8085/srs/wiki/images/srs.qq.jpg)
 
 Winlin 2014.5
