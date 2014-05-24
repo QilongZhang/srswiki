@@ -55,3 +55,27 @@ SRS and Nginx-Rtmp/CRtmpServer/Red5/Wowza/FMS/Helix compared advantage? Referenc
 SRS developers every day what to do? Reference Reaame
 If the above is not what you want to raise this issue, see Wiki , if all rummaged Wiki, or not, then refer to the following question asked a question it.
 
+## **Sample questions**
+***
+
+When you ask questions, you need to collect the following important information:
+
+Problem Description: first description of the problem.
+Operating Environment: Operating System (median, version), how many servers, the server IP and other information
+Network Architecture: How to push encoder flow SRS, SRS how to distribute to the player.
+SRS version: master branch is the latest code, or a version. SRS execute command to get the version: . / objs / srs-V
+Encoder plug-flow mode: Do not say that with ffmpeg plug flow, to illustrate specific ways.
+SRS configuration file: Please do not say that I was a reference which wiki, because you can not remember on the wiki, paste the contents of the configuration file directly to it.
+SRS startup script: Please do not refer to the README way to start, give a specific start-up mode.
+Client playback mode: Do not say a client can not play, it should be described in detail in playback mode, and logs.
+SRS server log: server logs sent to the SRS, can be configured together to make a package.
+
+For practical example:
+
+When submitting bug, or ask questions, explain the following:
+* System: What operating system? 32 or 64? Compiler version number?
+* Encoder: What encoder? What version? What encoding parameters? What is the current address?
+* Server: Using SRS what version? What configuration? What logs are?
+* Client: what client? What version?
+* Problems and steps to reproduce: What is the question? What are the steps to reproduce?
+
