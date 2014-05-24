@@ -76,4 +76,6 @@ vhost __defaultVhost__ {
 
 实例流的播放地址：[http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true](http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true)
 
+![SRS](http://182.92.80.26:8085/srs/wiki/images/srs.qq.jpg)
+
 Winlin 2014.5
