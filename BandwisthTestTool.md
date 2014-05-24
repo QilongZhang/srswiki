@@ -1,43 +1,43 @@
-# 带宽测试
+# Bandwidth test
 
-视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。
+Video very card to play this , suddenly a large buffer , pushing up the mountain stream , there may be a low -bandwidth , SRS supports testing client- server bandwidth .
 
-SRS配置文件中需要打开带宽测试配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
+SRS configuration files need to open the bandwidth test configuration , plus a separate vhost generally support gun . SRS configuration `conf / bandwidth.conf`. For example :
 
-```bash
-listen              1935;
-vhost __defaultVhost__ {
+`` `bash
+listen 1935;
+vhost __ defaultVhost__ {
 }
 
 vhost bandcheck.srs.com {
-    enabled         on;
-    chunk_size      65000;
+    enabled on;
+    chunk_size 65000;
     bandcheck {
-        enabled         on;
-        key             "35c9b402c12a7246868752e2878f7e0e";
-        interval        30;
-        limit_kbps      4000;
+        enabled on;
+        key "35c9b402c12a7246868752e2878f7e0e";
+        interval 30;
+        limit_kbps 4000;
     }
 }
-```
+`` `
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong> Assuming the server IP is : 192.168.1.170 </ strong>
 
-启动后用带宽测试客户端就可以查看：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170](http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170)
+After starting with a bandwidth test client can see : [http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170] (http://winlinvip.github .io / srs.release / trunk / research / players / srs_bwt.html? server = 192.168.1.170)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Keep all instances are replaced by IP address 192.168.1.170 IP address of the server deployment.
 
-检测完毕后会提示带宽，譬如：
+After the completion of the bandwidth detection prompts , such as:
 
-```bash
-检测结束: 服务器: 192.168.1.107 上行: 2170 kbps 下行: 3955 kbps 测试时间: 7.012 秒
-```
+`` `bash
+Detect the end : Server : 192.168.1.107 Uplink : 2170 kbps downstream : 3955 kbps Test time: 7.012 seconds
+`` `
 
-另外，SRS还提供了带宽检测命令行工具：
+In addition , SRS also provides bandwidth detection command-line tool :
 
-```bash
-[winlin@dev6 srs]$ ./objs/bandwidth -i 127.0.0.1 -p 1935 -v bandcheck.srs.com -k 35c9b402c12a7246868752e2878f7e0e
-[2014-04-16 16:11:23.335][trace][0][11] result: play 3742 kbps, publish 149 kbps, check time 7.0900 S
-```
+`` `bash
+[winlin @ dev6 srs] $. / objs / bandwidth-i 127.0.0.1-p 1935-v bandcheck.srs.com-k 35c9b402c12a7246868752e2878f7e0e
+[2014-04-16 16:11:23.335] [trace] [0] [11] result: play 3742 kbps, publish 149 kbps, check time 7.0900 S
+`` `
 
 Winlin
