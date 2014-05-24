@@ -24,8 +24,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <th>开放</th>
 <th>带宽</th>
 <th>磁盘</th>
-<th>默认流</th>
-<th>DEMO</th>
+<th>链接</th>
 </tr>
 <tr>
 <td><a href="http://www.aliyun.com/product/ecs/">阿里云</a></td>
@@ -34,8 +33,7 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <td>开放</td>
 <td>5Mbps</td>
 <td>100GB</td>
-<td><a href="http://182.92.80.26:8085/players/srs_player.html?vhost=182.92.80.26&stream=livestream&autostart=true" target="_blank">livestream</a></td>
-<td><a href="http://182.92.80.26:8085" target="_blank">DEMO</a></td>
+<td><a href="http://182.92.80.26" target="_blank">SRS</a></td>
 </tr>
 </table>
 
