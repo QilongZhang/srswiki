@@ -22,7 +22,7 @@ Do not ask open-ended questions, ask closed questions. This is all a question of
 Before asking questions over again wiki, basically all have the answer your question in the wiki, does it have to find someone to help you wiki link it?
 
 
-**## Developers Conditions**
+## **Developers Conditions**
 ***
 
 SRS group and mailing list, not the teacher's blackboard and students raise the question, 80% of the questions do not deserve answers, as 80% of the problems are "looking at the code." Do not show their childish and lazy, to get their own problems, why should someone else do it?
