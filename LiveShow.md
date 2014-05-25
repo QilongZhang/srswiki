@@ -56,7 +56,13 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 * 系统自动转码：[SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
 * 人工审查：[SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址
 * 发布：审查通过后通知我将视频发布到虚拟直播流。
-* [观看](http://www.ossrs.net:8085/players/srs_player.html?vhost=www.ossrs.net&stream=livestream&autostart=true)：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
+* 观看：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
+
+观看地址：
+* [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
+* [HLS: verycloud加速](http://182.92.80.26:8085/players/jwplayer6.html?server=srs-hls.verycloud.cn&stream=livestream&hls_autostart=true&hls_port=80)
+* [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
+* [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
 ## SRS配置
 
