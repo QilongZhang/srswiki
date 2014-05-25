@@ -2,6 +2,29 @@
 
 公用机器是SRS提供给所有人使用的服务器。
 
+## 官方域名
+
+感谢JOHNNY贡献了[ossrs.net](http://www.ossrs.net)域名
+
+## 默认演示流轮播
+
+大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
+
+主要流程：
+* 上传： `ftp://ftpuser:srs@www.ossrs.net` 推荐使用ftp工具上传，编码使用utf-8。
+* 系统自动转码：[SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
+* 人工审查：[SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址
+* 发布：审查通过后通知我将视频发布到虚拟直播流。
+* 观看：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
+
+观看地址：
+* [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
+* [HLS: verycloud加速](http://182.92.80.26:8085/players/jwplayer6.html?server=srs-hls.verycloud.cn&stream=livestream&hls_autostart=true&hls_port=80)
+* [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
+* [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
+
+感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
+
 ## 用途
 
 SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这些机器的用处：
@@ -36,29 +59,6 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 <td><a href="http://182.92.80.26" target="_blank">SRS</a></td>
 </tr>
 </table>
-
-## 官方域名
-
-感谢JOHNNY贡献了[ossrs.net](http://www.ossrs.net)域名
-
-## 默认演示流轮播
-
-大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
-
-主要流程：
-* 上传： `ftp://ftpuser:srs@www.ossrs.net` 推荐使用ftp工具上传，编码使用utf-8。
-* 系统自动转码：[SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
-* 人工审查：[SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址
-* 发布：审查通过后通知我将视频发布到虚拟直播流。
-* 观看：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
-
-观看地址：
-* [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
-* [HLS: verycloud加速](http://182.92.80.26:8085/players/jwplayer6.html?server=srs-hls.verycloud.cn&stream=livestream&hls_autostart=true&hls_port=80)
-* [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
-* [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
-
-感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
 
 ## SRS配置
 
