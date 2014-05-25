@@ -58,6 +58,8 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 * [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
 * [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
+感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
+
 ## SRS配置
 
 公用机器上配置了默认vhost，有需要可以联系我添加新的vhost。
