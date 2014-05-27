@@ -87,24 +87,81 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 ![客户端显示id](http://winlinvip.github.io/srs.release/wiki/images/client.log.png)
 能看到SrsIp，即服务器ip为192.168.1.107，对于DNS解析而言，这个很重要，知道是哪个边缘节点。SrsPid为9131，SrsId为117，所以去这个服务器上grep关键字"\[9131\]\[117\]"就可以。
 ```bash
-[winlin@dev6 srs]$ grep -ina "\[9131\]\[117\]" objs/edge.log 
-875:[2014-05-27 16:49:16.699][trace][9131][117] serve client, peer ip=192.168.1.113
-876:[2014-05-27 16:49:16.706][trace][9131][117] complex handshake with client success
-877:[2014-05-27 16:49:16.706][trace][9131][117] rtmp connect app success. tcUrl=rtmp://dev:1935/live, pageUrl=http://demo.chnvideo.com:8085/srs/trunk/research/players/srs_player.html?server=192.168.1.107&vhost=192.168.1.107&stream=livestream, swfUrl=http://demo.chnvideo.com:8085/srs/trunk/research/players/srs_player/release/srs_player.swf?_version=1.23, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
-878:[2014-05-27 16:49:16.908][trace][9131][117] set ack window size to 2500000
-879:[2014-05-27 16:49:16.908][trace][9131][117] identify ignore messages except AMF0/AMF3 command message. type=0x5
-880:[2014-05-27 16:49:16.917][trace][9131][117] ignored. set buffer length to 800
-881:[2014-05-27 16:49:16.917][trace][9131][117] identify ignore messages except AMF0/AMF3 command message. type=0x4
-882:[2014-05-27 16:49:16.939][trace][9131][117] identity client type=play, stream_name=livestream, duration=-1.00
-883:[2014-05-27 16:49:16.939][trace][9131][117] identify client success. type=Play, stream_name=livestream, duration=-1.00
-884:[2014-05-27 16:49:16.939][trace][9131][117] set output chunk size to 4096
-885:[2014-05-27 16:49:16.940][trace][9131][117] set chunk_size=4096 success
-886:[2014-05-27 16:49:16.940][trace][9131][117] source found, ip=192.168.1.113, url=__defaultVhost__/live/livestream, enabled_cache=1, edge=1
-887:[2014-05-27 16:49:16.940][trace][9131][117] dispatch cached gop success. count=23, duration=323
-888:[2014-05-27 16:49:16.940][trace][9131][117] create consumer, queue_size=30.00, tba=44100, tbv=1000
-891:[2014-05-27 16:49:16.940][trace][9131][117] ignored. set buffer length to 800
-902:[2014-05-27 16:49:19.345][trace][9131][117] -> PLA time=2419, msgs=14, okbps=234,0,0, ikbps=12,0,0
+[winlin@dev6 srs]$ grep -ina "\[12665\]\[114\]" objs/edge.log
+1307:[2014-05-27 19:21:27.276][trace][12665][114] serve client, peer ip=192.168.1.113
+1308:[2014-05-27 19:21:27.284][trace][12665][114] complex handshake with client success
+1309:[2014-05-27 19:21:27.284][trace][12665][114] rtmp connect app success. tcUrl=rtmp://dev:1935/live, pageUrl=http://182.92.80.26:8085/players/srs_player.html?vhost=dev&stream=livestream&server=dev&port=1935, swfUrl=http://182.92.80.26:8085/players/srs_player/release/srs_player.swf?_version=1.21, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
+1310:[2014-05-27 19:21:27.486][trace][12665][114] set ack window size to 2500000
+1311:[2014-05-27 19:21:27.486][trace][12665][114] identify ignore messages except AMF0/AMF3 command message. type=0x5
+1312:[2014-05-27 19:21:27.501][trace][12665][114] ignored. set buffer length to 800
+1313:[2014-05-27 19:21:27.501][trace][12665][114] identify ignore messages except AMF0/AMF3 command message. type=0x4
+1314:[2014-05-27 19:21:27.518][trace][12665][114] identity client type=play, stream_name=livestream, duration=-1.00
+1315:[2014-05-27 19:21:27.518][trace][12665][114] identify client success. type=Play, stream_name=livestream, duration=-1.00
+1316:[2014-05-27 19:21:27.518][trace][12665][114] set output chunk size to 4096
+1317:[2014-05-27 19:21:27.518][trace][12665][114] source url=__defaultVhost__/live/livestream, ip=192.168.1.113, cache=1, is_edge=1, id=-1
+1318:[2014-05-27 19:21:27.518][trace][12665][114] dispatch cached gop success. count=0, duration=0
+1319:[2014-05-27 19:21:27.518][trace][12665][114] create consumer, queue_size=30.00, tba=0, tbv=0
+1322:[2014-05-27 19:21:27.518][trace][12665][114] ignored. set buffer length to 800
+1333:[2014-05-27 19:21:27.718][trace][12665][114] update source_id=115
+1334:[2014-05-27 19:21:27.922][trace][12665][114] -> PLA time=301, msgs=12, okbps=1072,0,0, ikbps=48,0,0
 ```
+
+会发现回源连接的id为115，所以查找这个链接：
+```
+[winlin@dev6 srs]$ grep -ina "\[12665\]\[115\]" objs/edge.log
+1320:[2014-05-27 19:21:27.518][trace][12665][115] edge connected, can_publish=1, url=rtmp://dev:1935/live/livestream, server=127.0.0.1:19350
+1321:[2014-05-27 19:21:27.518][trace][12665][115] connect to server success. server=127.0.0.1, ip=127.0.0.1, port=19350
+1323:[2014-05-27 19:21:27.519][trace][12665][115] complex handshake with server success.
+1324:[2014-05-27 19:21:27.561][trace][12665][115] set ack window size to 2500000
+1325:[2014-05-27 19:21:27.602][trace][12665][115] drop unknown message, type=6
+1326:[2014-05-27 19:21:27.602][trace][12665][115] connected, version=0.9.119, ip=127.0.0.1, pid=12633, id=141
+1327:[2014-05-27 19:21:27.602][trace][12665][115] set output chunk size to 60000
+1328:[2014-05-27 19:21:27.602][trace][12665][115] edge change from 100 to state 101 (ingest connected).
+1329:[2014-05-27 19:21:27.603][trace][12665][115] set input chunk size to 60000
+1330:[2014-05-27 19:21:27.603][trace][12665][115] dispatch metadata success.
+1331:[2014-05-27 19:21:27.603][trace][12665][115] update video sequence header success. size=46
+1332:[2014-05-27 19:21:27.603][trace][12665][115] update audio sequence header success. size=4
+1335:[2014-05-27 19:21:37.653][trace][12665][115] <- EIG time=10163, okbps=0,0,0, ikbps=234,254,231
+```
+
+发现回源链接在服务器上的标识为：`connected, version=0.9.119, ip=127.0.0.1, pid=12633, id=141`
+```
+[winlin@dev6 srs]$ grep -ina "\[12633\]\[141\]" objs/srs.log
+783:[2014-05-27 19:21:27.518][trace][12633][141] serve client, peer ip=127.0.0.1
+784:[2014-05-27 19:21:27.519][trace][12633][141] complex handshake with client success
+785:[2014-05-27 19:21:27.561][trace][12633][141] rtmp connect app success. tcUrl=rtmp://dev:1935/live, pageUrl=, swfUrl=, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
+786:[2014-05-27 19:21:27.561][trace][12633][141] set ack window size to 2500000
+787:[2014-05-27 19:21:27.561][trace][12633][141] identify ignore messages except AMF0/AMF3 command message. type=0x5
+788:[2014-05-27 19:21:27.602][trace][12633][141] identity client type=play, stream_name=livestream, duration=-1.00
+789:[2014-05-27 19:21:27.602][trace][12633][141] identify client success. type=Play, stream_name=livestream, duration=-1.00
+790:[2014-05-27 19:21:27.602][trace][12633][141] set output chunk size to 60000
+791:[2014-05-27 19:21:27.602][trace][12633][141] source url=__defaultVhost__/live/livestream, ip=127.0.0.1, cache=1, is_edge=0, id=131
+792:[2014-05-27 19:21:27.602][trace][12633][141] dispatch cached gop success. count=241, duration=3638
+793:[2014-05-27 19:21:27.602][trace][12633][141] create consumer, queue_size=30.00, tba=44100, tbv=1000
+794:[2014-05-27 19:21:27.602][trace][12633][141] ignored. set buffer length to 65564526
+795:[2014-05-27 19:21:27.604][trace][12633][141] set input chunk size to 60000
+798:[2014-05-27 19:21:32.420][trace][12633][141] -> PLA time=4809, msgs=14, okbps=307,0,0, ikbps=5,0,0
+848:[2014-05-27 19:22:54.414][trace][12633][141] -> PLA time=86703, msgs=12, okbps=262,262,0, ikbps=0,0,0
+867:[2014-05-27 19:22:57.225][trace][12633][141] update source_id=149
+```
+
+同样发现这个源头是149，即编码器推流上来的id。
+```
+[winlin@dev6 srs]$ grep -ina "\[12633\]\[149\]" objs/srs.log
+857:[2014-05-27 19:22:56.919][trace][12633][149] serve client, peer ip=127.0.0.1
+858:[2014-05-27 19:22:56.921][trace][12633][149] complex handshake with client success
+859:[2014-05-27 19:22:56.960][trace][12633][149] rtmp connect app success. tcUrl=rtmp://127.0.0.1:19350/live?vhost=__defaultVhost__, pageUrl=, swfUrl=, schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
+860:[2014-05-27 19:22:57.040][trace][12633][149] identify client success. type=publish(FMLEPublish), stream_name=livestream, duration=-1.00
+861:[2014-05-27 19:22:57.040][trace][12633][149] set output chunk size to 60000
+862:[2014-05-27 19:22:57.040][trace][12633][149] source url=__defaultVhost__/live/livestream, ip=127.0.0.1, cache=1, is_edge=0, id=-1
+863:[2014-05-27 19:22:57.123][trace][12633][149] set input chunk size to 60000
+864:[2014-05-27 19:22:57.210][trace][12633][149] dispatch metadata success.
+865:[2014-05-27 19:22:57.210][trace][12633][149] update video sequence header success. size=46
+866:[2014-05-27 19:22:57.210][trace][12633][149] update audio sequence header success. size=4
+870:[2014-05-27 19:23:04.970][trace][12633][149] <- CPB time=8117, okbps=4,0,0, ikbps=320,0,0
+```
+
+O了，快速直接！
 
 ### 系统信息
 
