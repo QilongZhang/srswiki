@@ -1,0 +1,2 @@
+# Product Compare
+Thanks for your interest in SRS, Below are some Comparison of several well-known commercial streaming media server and open source streaming media server which ranked by star ratings. Please contact us through email or qq group(212189142).
