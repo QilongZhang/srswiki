@@ -72,10 +72,11 @@ SRS server log: server logs sent to the SRS, can be configured together to make 
 
 For practical example:
 
-When submitting bug, or ask questions, explain the following:
+<pre>When submitting bug, or ask questions, explain the following:
 * System: What operating system? 32 or 64? Compiler version number?
 * Encoder: What encoder? What version? What encoding parameters? What is the current address?
 * Server: Using SRS what version? What configuration? What logs are?
 * Client: what client? What version?
-* Problems and steps to reproduce: What is the question? What are the steps to reproduce?
+* Problems and steps to reproduce: What is the question? What are the steps to reproduce?</pre>
 
+This problem will soon be able to get the investigation, developers can follow the steps to reproduce reproduction.
