@@ -1,5 +1,5 @@
 ## **How to ask questions**
-***
+
 
 
 In order to reduce communication costs, to help you solve the problem directly, please read the wiki before asking to help you ask better questions, solve problems more quickly and efficiently.
@@ -12,7 +12,7 @@ If you are a user, simply run the SRS, or need to find a bug report bug, then se
 
 
 ## **Community Code**
-***
+
 
 
 Some basic rules:
@@ -23,7 +23,7 @@ Before asking questions over again wiki, basically all have the answer your ques
 
 
 ## **Developers Conditions**
-***
+
 
 SRS group and mailing list, not the teacher's blackboard and students raise the question, 80% of the questions do not deserve answers, as 80% of the problems are "looking at the code." Do not show their childish and lazy, to get their own problems, why should someone else do it?
 
@@ -32,7 +32,7 @@ Asked very specific questions, such as how to deal with the timestamp ts do not 
 Do not generalities to ask questions, read the README, read WIKI, own debugging code, and then ask questions. Only allow the developer to ask specific questions.
 
 ## **Notice to users**
-***
+
 
 Asked what needs to be done before? Ensure that others have encountered similar problems, or wiki already explained, do not mention this problem.
 
@@ -56,7 +56,7 @@ SRS developers every day what to do? Reference Reaame
 If the above is not what you want to raise this issue, see Wiki , if all rummaged Wiki, or not, then refer to the following question asked a question it.
 
 ## **Sample questions**
-***
+
 
 When you ask questions, you need to collect the following important information:
 
