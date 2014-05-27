@@ -83,6 +83,29 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 
 客户端或者边缘能拿到自己在上层服务器的ID，就是日志的快速索引。我举个例子：
 
+播放流：rtmp://dev:1935/live/livestream
+![客户端显示id](http://winlinvip.github.io/srs.release/wiki/images/client.log.png)
+能看到SrsIp，即服务器ip为192.168.1.107，对于DNS解析而言，这个很重要，知道是哪个边缘节点。SrsPid为9131，SrsId为117，所以去这个服务器上grep关键字"\[9131\]\[117\]"就可以。
+```bash
+[winlin@dev6 srs]$ grep -ina "\[9131\]\[117\]" objs/edge.log 
+875:[2014-05-27 16:49:16.699][trace][9131][117] serve client, peer ip=192.168.1.113
+876:[2014-05-27 16:49:16.706][trace][9131][117] complex handshake with client success
+877:[2014-05-27 16:49:16.706][trace][9131][117] rtmp connect app success. tcUrl=rtmp://dev:1935/live, pageUrl=http://demo.chnvideo.com:8085/srs/trunk/research/players/srs_player.html?server=192.168.1.107&vhost=192.168.1.107&stream=livestream, swfUrl=http://demo.chnvideo.com:8085/srs/trunk/research/players/srs_player/release/srs_player.swf?_version=1.23, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live
+878:[2014-05-27 16:49:16.908][trace][9131][117] set ack window size to 2500000
+879:[2014-05-27 16:49:16.908][trace][9131][117] identify ignore messages except AMF0/AMF3 command message. type=0x5
+880:[2014-05-27 16:49:16.917][trace][9131][117] ignored. set buffer length to 800
+881:[2014-05-27 16:49:16.917][trace][9131][117] identify ignore messages except AMF0/AMF3 command message. type=0x4
+882:[2014-05-27 16:49:16.939][trace][9131][117] identity client type=play, stream_name=livestream, duration=-1.00
+883:[2014-05-27 16:49:16.939][trace][9131][117] identify client success. type=Play, stream_name=livestream, duration=-1.00
+884:[2014-05-27 16:49:16.939][trace][9131][117] set output chunk size to 4096
+885:[2014-05-27 16:49:16.940][trace][9131][117] set chunk_size=4096 success
+886:[2014-05-27 16:49:16.940][trace][9131][117] source found, ip=192.168.1.113, url=__defaultVhost__/live/livestream, enabled_cache=1, edge=1
+887:[2014-05-27 16:49:16.940][trace][9131][117] dispatch cached gop success. count=23, duration=323
+888:[2014-05-27 16:49:16.940][trace][9131][117] create consumer, queue_size=30.00, tba=44100, tbv=1000
+891:[2014-05-27 16:49:16.940][trace][9131][117] ignored. set buffer length to 800
+902:[2014-05-27 16:49:19.345][trace][9131][117] -> PLA time=2419, msgs=14, okbps=234,0,0, ikbps=12,0,0
+```
+
 ### 系统信息
 
 日志中有版本和配置信息，以及使用的pid文件，侦听的端口，启动前几条日志就是：
@@ -111,6 +134,8 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 [2014-04-04 11:39:26.799][trace][0][11] get a signal, signo=2
 [2014-04-04 11:39:26.799][trace][0][11] user terminate program
 ```
+
+可以看到这个边缘
 
 主要信息包括：
 * <strong>日志文件</strong>：[2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
