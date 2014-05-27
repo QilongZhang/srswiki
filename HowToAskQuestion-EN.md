@@ -39,9 +39,16 @@ Asked what needs to be done before? Ensure that others have encountered similar 
 Here are some basic questions:
 
 How to compile: Reference [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/EN-Build)
+
+
 SRS what hardware environment: Reference [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/EN-Build)
+
 SRS what software environment: Reference [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/EN-Build)
+
+
 Why not see the stream? May be a firewall issue, refer [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/EN-Build)
+
+
 How to build a cluster: Reference Cluster
 How to measure the performance of SRS: Reference Performance
 SRS authorization is MIT? Reference License
