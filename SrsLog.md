@@ -45,6 +45,19 @@ srs_log_level       trace;
 * 默认verbose和info是编译时禁用的，若需要打开这两个日志，需要修改`srs_kernel_log.hpp`，将对应的禁用编译宏打开。
 * 推荐使用trace级别，重要的日志不多，对于排错很方便。如果有错误，建议用gdb调试，不要依赖日志。只有在不得已时才用日志排错。
 
+## 工具的日志
+
+Transcode/Ingest等都是用到了外部工具，譬如FFMPEG，所以我们统称ffmpeg日志。
+
+SRS可以配置ffmpeg的日志路径，若配置为`/dev/null`则禁用ffmpeg日志，在某些嵌入式系统磁盘较小时比较有用，需要减少日志时有用：
+```bash
+# the logs dir.
+# if enabled ffmpeg, each stracoding stream will create a log file.
+# "/dev/null" to disable the log.
+# default: ./objs
+ff_log_dir          ./objs;
+```
+
 ## 日志格式
 
 SRS的日志可以定位到某个连接，可以在混杂了成千上万个链接的日志中找到某一个连接的日志，譬如要看某个客户端的日志。这个功能和SRS的日志格式设计相关，譬如：
