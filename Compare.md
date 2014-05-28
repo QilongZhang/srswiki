@@ -61,7 +61,7 @@ SRS优势的基础在于基础架构，采用ST轻量线程，SRS和其他流媒
 
 对于CDN/VDN，往往有很多特殊的要求，这些只有在CDN里面的运维最清楚。CDN的软件系统，应该做到不需要运维半夜三更职守升级，这个很容易？你没有在CDN混过吧。
 
-![Media Stream Servers CDN/VDN](http://winlinvip.github.io/srs.release/wiki/images/compare/600.cdn.png)
+![Media Stream Servers CDN/VDN](http://winlinvip.github.io/srs.release/wiki/images/compare/600.cdn.png?version=1.0)
 
 ## Code
 
