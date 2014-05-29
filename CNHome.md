@@ -140,6 +140,10 @@ SRS在windows上支持到什么程度？客户端库支持得如何？服务器�
 
 SRS如何支持FlashP2P？chnvideo的P2P架构是在怎样和SRS对接的？参考：[FlashP2P](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
 
+## [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
+
+SRS如何以心跳形式汇报自己的信息？譬如arm嵌入式设备上运行服务器，每隔一定时间将自己的信息上报到api服务器。参考：[Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
+
 ## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 
 如何查找内存泄漏？valgrind不支持st怎么办？如何知道哪个函数占用内存多？哪个函数性能有问题？参考：[GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
