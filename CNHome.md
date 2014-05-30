@@ -144,6 +144,10 @@ SRS如何支持FlashP2P？chnvideo的P2P架构是在怎样和SRS对接的？参�
 
 SRS如何以心跳形式汇报自己的信息？譬如arm嵌入式设备上运行服务器，每隔一定时间将自己的信息上报到api服务器。参考：[Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/Heartbeat)
 
+## [点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/FlvVodStream)
+
+SRS如何支持点播？FLV流如何支持？如何支持时移？录制的文件如何作为点播分发？参考：[点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/FlvVodStream)
+
 ## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
 
 如何查找内存泄漏？valgrind不支持st怎么办？如何知道哪个函数占用内存多？哪个函数性能有问题？参考：[GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/GPERF)
