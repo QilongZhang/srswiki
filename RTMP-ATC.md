@@ -50,5 +50,23 @@ vhost __defaultVhost__ {
 
 经过测试，SRS打开和关闭ATC，flash播放器都能播放SRS的RTMP流。
 
+## ATC和编码器
+
+编码器开启atc之后，若在metadata中自动写入"bravo_atc"="true"，srs会自动的开启atc。
+
+可以禁用这个功能：
+
+```bash
+vhost atc.srs.com {
+    # whether enable the auto atc,
+    # if enabled, detect the bravo_atc="true" in onMetaData packet,
+    # set atc to on if matched.
+    # always ignore the onMetaData if atc_auto is off.
+    # default: on
+    atc_auto        off;
+}
+```
+
+将自动atc关闭即可。
 
 Winlin 2014.3
