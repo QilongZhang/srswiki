@@ -48,6 +48,12 @@ token比refer更强悍，可以指定超时时间，可以变更token之类。�
 1. 配置srs的http回调，`on_connect http://127.0.0.1:8085/api/v1/clients;`，参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback#%E9%85%8D%E7%BD%AEsrs)
 1. 用户推流时，srs会回调那个地址，解析请求的内容，里面的tcUrl就有那些认证信息。按同样的算法验证，如果md5变了就返回错误，srs就会拒绝连接。如果返回0就会接受连接。
 
+TokenTraverse
+
+Token防盗链的穿越，指的是在origin-edge集群中，客户播放edge边缘服务器的流时，边缘将认证的token发送给源站进行验证，即token穿越。
+
+FMS的edge和FMS的origin使用私有协议，使用一个连接回源取数据，一个连接回源传输控制命令，譬如token穿越就是在这个连接做的。参考：https://github.com/winlinvip/simple-rtmp-server/issues/104
+
 ## Access服务器
 
 SRS暂时不支持。
