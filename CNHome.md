@@ -72,6 +72,10 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何将直播RTMP流录制为flv文件？参考：[DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/DVR)
 
+## [DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/DRM)
+
+SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/DRM)
+
 ## [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
 
 如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)
