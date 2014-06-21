@@ -30,6 +30,32 @@ vhost __defaultVhost__ {
 
 可配置`多个`源站，在故障时会切换到下一个源站。
 
+## 集群配置
+
+下面举例说明如何配置一个源站和集群。
+
+源站配置，参考`origin.conf`：
+
+```bash
+listen              19350;
+pid                 objs/origin.pid;
+srs_log_file        ./objs/origin.log;
+vhost __defaultVhost__ {
+}
+```
+
+边缘配置，参考`edge.conf`：
+
+```bash
+listen              1935;
+pid                 objs/edge.pid;
+srs_log_file        ./objs/edge.log;
+vhost __defaultVhost__ {
+    mode            remote;
+    origin          127.0.0.1:19350;
+}
+```
+
 ## 下行边缘结构设计
 
 下行边缘指的是下行加速边缘，即客户端播放边缘服务器的流，边缘服务器从上层或源站取流。
