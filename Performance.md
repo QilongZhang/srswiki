@@ -636,4 +636,52 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
 </tr>
 </table>
 
+## 性能例行报告
+
+今天做了性能优化，默认演示流（即采集doc/source.200kbps.768x320.flv文件为流）达到4k以上并发没有问题。
+
+```
+[winlin@dev6 srs]$ ./objs/srs -v
+0.9.130
+```
+
+```
+top - 19:52:35 up 1 day, 11:11,  8 users,  load average: 1.20, 1.05, 0.92
+Tasks: 171 total,   4 running, 167 sleeping,   0 stopped,   0 zombie
+Cpu0  : 26.0%us, 23.0%sy,  0.0%ni, 34.0%id,  0.3%wa,  0.0%hi, 16.7%si,  0.0%st
+Cpu1  : 26.4%us, 20.4%sy,  0.0%ni, 34.1%id,  0.7%wa,  0.0%hi, 18.4%si,  0.0%st
+Cpu2  : 22.5%us, 15.4%sy,  0.0%ni, 45.3%id,  1.0%wa,  0.0%hi, 15.8%si,  0.0%st
+Mem:   2055440k total,  1972196k used,    83244k free,   136836k buffers
+Swap:  2064376k total,     3184k used,  2061192k free,   926124k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                          
+17034 root      20   0  415m 151m 2040 R 94.4  7.6  14:29.33 ./objs/srs -c console.conf                                                        
+ 1063 winlin    20   0  131m  68m 1336 S 17.9  3.4  54:05.77 ./objs/st_rtmp_load -c 800 -r rtmp://127.0.0.1:1935/live/livestream               
+ 1011 winlin    20   0  132m  68m 1336 R 17.6  3.4  54:45.53 ./objs/st_rtmp_load -c 800 -r rtmp://127.0.0.1:1935/live/livestream               
+18736 winlin    20   0  113m  48m 1336 S 17.6  2.4   1:37.96 ./objs/st_rtmp_load -c 800 -r rtmp://127.0.0.1:1935/live/livestream               
+ 1051 winlin    20   0  131m  68m 1336 S 16.9  3.4  53:25.04 ./objs/st_rtmp_load -c 800 -r rtmp://127.0.0.1:1935/live/livestream               
+18739 winlin    20   0  104m  39m 1336 R 15.6  2.0   1:25.71 ./objs/st_rtmp_load -c 800 -r rtmp://127.0.0.1:1935/live/livestream   
+```
+
+```
+[winlin@dev6 ~]$ dstat -N lo 30
+----total-cpu-usage---- -dsk/total- ---net/lo-- ---paging-- ---system--
+usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
+  3   2  92   0   0   3|  11k   27k|   0     0 |   1B   26B|3085   443 
+ 32  17  33   0   0  17| 273B   60k|  69M   69M|   0     0 |4878  6652 
+ 34  18  32   0   0  16|   0    38k|  89M   89M|   0     0 |4591  6102 
+ 35  19  30   0   0  17| 137B   41k|  91M   91M|   0     0 |4682  6064 
+ 33  17  33   0   0  17|   0    31k|  55M   55M|   0     0 |4920  7785 
+ 33  18  31   0   0  17|2867B   34k|  90M   90M|   0     0 |4742  6530 
+ 32  18  33   0   0  17|   0    31k|  66M   66M|   0     0 |4922  7666 
+ 33  17  32   0   0  17| 137B   39k|  65M   65M|   0     0 |4841  7299 
+ 35  18  30   0   0  17|   0    28k| 100M  100M|   0     0 |4754  6752 
+ 32  17  33   0   0  18|   0    41k|  44M   44M|   0     0 |5130  8251 
+ 34  18  32   0   0  16|   0    30k| 104M  104M|   0     0 |4456  5718 
+```
+
+![SRS监控4k并发](http://winlinvip.github.io/srs.release/wiki/images/srs.4k.png)
+
+不过我是在虚拟机测试，物理机的实际情况还有待数据观察。
+
 Winlin 2014.2
