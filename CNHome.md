@@ -140,6 +140,10 @@ SRS在windows上支持到什么程度？客户端库支持得如何？服务器�
 
 如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP-ATC)
 
+## [TimeJitter时间戳矫正](https://github.com/winlinvip/simple-rtmp-server/wiki/TimeJitter)
+
+SRS如何矫正时间戳？时间戳抖动如何处理？RTMP时间戳单增如何处理？参考：[TimeJitter时间戳矫正](https://github.com/winlinvip/simple-rtmp-server/wiki/TimeJitter)
+
 ## [FlashP2P](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
 
 SRS如何支持FlashP2P？chnvideo的P2P架构是在怎样和SRS对接的？参考：[FlashP2P](https://github.com/winlinvip/simple-rtmp-server/wiki/FlashP2P)
