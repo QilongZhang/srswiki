@@ -19,8 +19,6 @@
 
 观看地址：
 * [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
-* [HLS: verycloud加速, M3U8](http://srs-hls.verycloud.cn/live/livestream.m3u8)
-* [HLS: verycloud加速, JWPlayer](http://182.92.80.26:8085/players/jwplayer6.html?server=srs-hls.verycloud.cn&stream=livestream&hls_autostart=true&hls_port=80)
 * [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
 * [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
