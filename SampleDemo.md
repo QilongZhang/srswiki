@@ -41,7 +41,7 @@ bash scripts/build.sh
 bash scripts/run.sh
 ```
 
-访问SRS的DEMO：[http://demo.srs.com](http://demo.srs.com)
+访问SRS的DEMO：[http://demo.srs.com:8085](http://demo.srs.com:8085)
 
 <strong>第四步，停止SRS的DEMO，停止ffmpeg/nginx/srs等。</strong>
 
