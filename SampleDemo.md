@@ -53,4 +53,6 @@ bash scripts/stop.sh
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
+备注：DEMO不依赖nginx，使用cherrypy做演示网站以及分发HLS，依赖FFMPEG需要演示转码。
+
 Winlin 2014.3
