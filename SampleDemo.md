@@ -35,7 +35,7 @@ git pull
 bash scripts/build.sh
 ```
 
-<strong>第三步，启动SRS的DEMO，启动ffmpeg/nginx/srs等。</strong>
+<strong>第三步，启动SRS的DEMO，启动ffmpeg/api-server/srs等。</strong>
 
 ```bash
 bash scripts/run.sh
@@ -43,7 +43,7 @@ bash scripts/run.sh
 
 访问SRS的DEMO：[http://demo.srs.com:8085](http://demo.srs.com:8085)
 
-<strong>第四步，停止SRS的DEMO，停止ffmpeg/nginx/srs等。</strong>
+<strong>第四步，停止SRS的DEMO，停止ffmpeg/api-server/srs等。</strong>
 
 ```bash
 bash scripts/stop.sh
