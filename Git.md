@@ -26,6 +26,17 @@ git pull
 
 另外，不需要删除objs后编译srs，只需要make就可以编译。若make出错，则执行configure之后再make，可能有配置项更新。
 
+## 为何更新失败？
+
+如果本地有修改，譬如改了SRS的代码，那么git pull会提示无法更新。这时候可以撤销所有本地的修改，然后更新：
+
+```
+git reset --hard
+git pull
+```
+
+注意，这个会导致所有的修改都丢弃，只适用于不需要保留修改代码的情况。如果你需要提交代码，请参考git详细的用法。
+
 ## CSDN-Mirror
 
 SRS在CSDN上有镜像，参考网址：https://code.csdn.net/winlinvip/srs-csdn
