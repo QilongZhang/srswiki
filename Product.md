@@ -1,69 +1,16 @@
 # SRS产品规划
 
-SRS虽然是开源项目，但是窃以为，任何软件产品还是要有规划，没有定位，就不知道不做什么，不知道不做什么就不知道做什么，不知道做什么就做不好。
+SRS定位是运营级的互联网直播服务器，追求更好的概念完整性和最简单实现的代码。
 
-干活的是下等人，态度还得好，活还得不错，还得谦恭顺良；不做事的是爷。软件这个东西，就像史记中记载的xx，表面上大家都觉得不错，实际上心里都说“要我弄我也能做得更好”，自古如此。
+* 运营级：商业运营追求极高的稳定性，良好的系统对接，以及错误排查和处理机制。譬如日志文件格式，reload，系统HTTP接口，提供init.d脚本，转发，转码，边缘回多源站，都是根据CDN运营经验作为判断这些功能作为核心的依据。
+* 互联网：互联网最大的特征是变化，唯一不变的就是不断变化的客户要求，唯一不变的是基础结构的概念完整性和简洁性。互联网还意味着参与性，听取用户的需求和变更，持续改进和维护。
+* 直播服务器：直播和点播这两种截然不同的业务类型，导致架构和目标完全不一致，从运营的设备组，应对的挑战都完全不同。两种都支持只能说明没有重心，或者低估了代价。
+* 概念完整性：虽然代码甚至结构都在变化，但是结构的概念完整性是一直追求的目标。从SRS服务器，P2P，ARM监控产业，MIPS路由器，服务器监控管理，ARM智能手机，SRS的规模不再是一个服务器而已。
+* 简单实现：对于过于复杂的实现，宁可不加入这个功能，也不牺牲前面提到的要求。对于已经实现的功能的代码，总会在一个版本release前给予充分的时间来找出最简答案。不求最高性能，最优雅，最牛逼，但求最简单易懂。
 
-实际上得到广泛认同的是大商人，历史上叫做“素封”，除非非常有钱，否则世人是不会认同的。譬如盖茨和乔布斯都认为是神，而linus大多说这家伙嘴巴大，实际上嘴巴最大的是乔布斯。
+备注：概念完整性可以参考Brooks的相关文献，在宏观方面他还是很有造诣。
 
-人家尚且如此，何况我们这些小娄娄。srs我还是把关注点放在代码上，什么应用广阔、媲美商业服务器、知名度、参与的人多、认同的人多，通通都不是我所应该考虑的。
-
-## SRS目标
-
-SRS定位是运营级的互联网流媒体服务器，追求更好的设计完整性和最简单实现的代码。
-* SRS不仅仅是流媒体服务器，也不提供方案
-* SRS强大的地方在于api，能提供http的api，能接入各种监控系统（注：[BSM监控系统](http://www.ossrs.net:1977)是商业系统，能和SRS无缝对接）。
-* 方案就是端到端，从视频源到流媒体服务器，到边缘服务器，到客户端播放器，都需要做开发。
-* SRS重点做直播，因为点播一般是http，而且基本上都是方案，需要播放器和api服务器交互。譬如，若点播走HLS方案，则直接使用nginx或squid就可以做分发，不是SRS的菜。
-* 当然，直播和点播的方案都需要服务器做支持，只是直播需要做更多的事情，点播基本上HLS就足够了。SRS会提供直播/点播服务器部分必须做的，但不会提供管理系统，视频库，播放器等方案。
-* 直播流的接入部分，SRS提供[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp)，可以推送RTMP流到RTMP服务器。SRS的接入是标准的RTMP，一般不做其他的接入方式（要做也是将其他流转换成RTMP）。
-* 录制和时移：直播流转点播文件，需要播放器做支持（从api服务器拿到播放列表），所以SRS不会做。不过RTMP写入文件，属于流媒体服务器的范畴，SRS可以考虑。
-* 直播HLS流：IOS的直播一般是[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)，而HLS实际上也是方案（客户端一般是apple做了），SRS也只是将RTMP流写入ts文件，生成m3u8列表。SRS不会做分发。
-* 直播DASH流：和HLS类似，SRS也只是生成文件不分发。不过目前国内市场没有反应，SRS不会做的。
-* 直播HDS流：和HLS类似，但是HDS国内没有市场，而且HDS协议比较繁琐，不够简洁，SRS不建议做。
-* 直播RTMP边缘：一般作为CDN会有需求，源站和边缘走RTMP能较好支持热备，延迟也没有影响，属于流服务器的范畴。SRS有开发计划。
-* DRM：DRM属于方案，有些简单的DRM（譬如Refer防盗链）SRS做了支持，其他需要对接的方案，SRS也提供HTTP callback，需要额外的自定义开发才能支持。
-* 直播RTMP加密：属于服务器范畴，主要市场没有反应，有需要SRS可以考虑支持。
-* 直播RTMP流转码：转码属于方案，但使用[FFMPEG转码](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)（实现比较简单）SRS做了支持，可以使用HTTP callback对接商业编码器，实现较好的直播RTMP转码。
-* 直播RTMP转发：SRS可以将流转发给其他RTMP服务器，作为备份，和边缘热备一样属于服务器的范畴。SRS已经支持，并可以支持基于[Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)的简单集群。
-* 最小依赖：SRS的核心RTMP只依赖于st，srs-librtmp不依赖于其他软件，支持复杂握手依赖于ssl。SRS最小只有1.8MB，strip后只有504KB。加上ssl后只有2.9MB，strip后只有1.5MB。
-* 应用广泛：由于SRS的最小依赖，可以运行在Centos4/5/6系统，linux各种发行版。srs-librtmp只用到了c/c++标准库（复杂握手需要加上ssl，一般不需要）。
-* Reload：SRS可应用于365x24小时不间断服务，修改配置文件后[Reloadd](https://github.com/winlinvip/simple-rtmp-server/wiki/Reload)即可生效，现有客户端连接不受影响。那就是说，改变ffmpeg编码参数，客户端不会断开连接，就可以看到效果。
-* 低延时：SRS由于逻辑简单，依赖的st库也性能极高（和直接用epoll没有差异），SRS能做到[延迟最低](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)（RTMP最低延迟基本上在0.8秒以上），高性能才能低延迟。
-* HTTP回调：SRS提供各种事件的回调函数([HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/HTTPCallback))，方便和外部系统对接。为了简洁，SRS不会支持lua或者as等[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/ServerSideScript)语言。
-* API：SRS提供HTTP RESTful API，管理系统的html/js就可以直接管理服务器。
-* ARM：SRS尽量依赖少量的库，依赖的库也是小而且足够成熟。譬如openssl是通用的开源库。state-threads，http-parser，都是小巧而且在各种平台都能编译通过。因为如此，SRS可以在ARM上编译和运行。
-* 内嵌HTTP服务器：为了方便直播/点播的HLS的分发，SRS内嵌了HTTP服务器，支持简单的文件的分发。流媒体的特点，特别是直播，可以支持少部分HTTP协议即可。
-
-各项功能的研发计划，参考SRS首页：[SRS功能](https://github.com/winlinvip/simple-rtmp-server#summary)
-
-## SRS亮点
-
-亮点只有在对比才能有亮点，对比各种流媒体服务器，SRS的亮点总结如下。不过我也会列出其他产品有的，但是SRS还没有的点，人总是自大的，看我对SRS的优点罗列就能看出来，哈哈。
-
-为何SRS总有亮点：
-* SRS作者乐天派，总是能看到自己长处，对不利的消息往往视而不见。
-* SRS以商业定位做开源软件，比商业软件开放，比开源软件谨慎。
-* SRS作者水平一般，只喜欢古老和熟烂的东西，代码也不敢写太高深（自己看不懂）。SRS至少能保持一个亮点：简洁。
-
-SRS支持RTMP/HLS的最简单配置：
-
-```bash
-listen              1935;
-http_stream {
-    enabled         on;
-    listen          80;
-}
-vhost __defaultVhost__ {
-    hls {
-        enabled         on;
-    }
-}
-```
-
-有见过更简单的么？
-
-### FMS PK SRS
+## FMS PK SRS
 
 FMS是adobe的流媒体服务器，RTMP协议就是adobe提出来的，FMS一定是重量级的产品。
 
@@ -85,7 +32,7 @@ SRS比FMS优点
 * 不支持录制：FMS的录制是在FMLE上有个DVR的按钮，然后配置服务器端脚本实现，不靠谱。SRS的录制和时移只会做一部分，但是也会比那种脚本方案要靠谱很多（脚本不可能不出问题，亲身经历）。
 * 没有代码：FMS最重要一点，不提供代码，有bug？找adobe。想要定制？找adobe。那基本上就不要有那个念想了。SRS代码都是开源的，SRS作者水平一般，所以写出来代码就需要很小心，尽量写得清楚，不然自己看不懂，哈哈。
 
-### Wowza PK SRS
+## Wowza PK SRS
 
 Wowza也是个很了不起的产品，据说公司快上市了，Wowza和SRS在功能上很像，不过也是比SRS强大很多。
 
@@ -103,7 +50,7 @@ SRS比Wowza优点
 * 没有热备：wowza的热备似乎是个插件，也有可能没有，这点不太确定。不过SRS原生支持热备，发生故障时切换时间以毫秒计算，也就是上层服务器没有流了，马上切换到其他服务器，用户不会断也不会有感觉。
 * 没有代码：wowza也是没有代码的，比FMS好的是它提供了plugin方案。等等，plugin方案和nginx的模块，哪个好？当然是后者，后者直接编译进去，接口都可见，甚至把nginx自己代码改了都可以。SRS不支持nginx的模块，原因是觉得那个太麻烦，本身代码就没有多少，不如直接改。
 
-### NginxRtmp PK SRS
+## NginxRtmp PK SRS
 
 可以说，nginx-rtmp是最现代化的流服务器，几乎无可挑剔，所以现在崛起也很快。主要得益于nginx的基础做得好。
 
@@ -130,11 +77,11 @@ SRS比nginx-rtmp优点
 * 中文文档：SRS中文文档基本覆盖了SRS的功能，而且会根据大家的问题更新，还是很适合中文水平不错的人。
 * 有QQ群：nginx-rtmp人家不是国人嘛，当然不会有QQ群的。所以对于国内用户的声音，nginx-rtmp更像典型的开源软件；坦白讲，SRS的QQ群的实时沟通，还是能更明确大家到底在如何使用SRS，以及SRS的方向。
 
-### Red5 PK SRS
+## Red5 PK SRS
 
 Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同是开源软件，相煎何太急。
 
-### crtmpd PK SRS
+## crtmpd PK SRS
 
 crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以为crtmpd是以c的思维习惯来写c++代码，就像c++作者讲的，拿着c++这个电钻当铁锤锤钉子————不仅仅没有效果，还可能会砸到自己的手。
 
@@ -184,7 +131,7 @@ python ~/srs/research/code-statistic/csr.py ~/srs/src *.*pp utest,upp
 
 我测试过crtmpd性能，还是不错的，应该和SRS差不多。可惜crtmpd走的是单进程方向，各种扩展和协议，没有支持多进程和边缘集群方向，所以大家道不同不相为谋，也没有什么好比较的了。
 
-### 其他
+## 其他
 
 以上就是我所知道的流媒体服务器，特别是是直播流媒体服务器，目前来看SRS还是相当让我满意的。
 
@@ -201,20 +148,6 @@ python ~/srs/research/code-statistic/csr.py ~/srs/src *.*pp utest,upp
 总之，将熊熊一窝，一事无成，一定是将不行；有点任何成绩，必然都是将的功劳。所以，应该先感谢中国政府，不过实际点，感谢目前公司的领导，是实话。我想，这是django为何也首先感谢他leader的原因
 
 srs必定广泛使用，如同漫天繁星散布渺渺宇宙，灿漫夏花开遍地球月球火星太阳系，愿[chnvideo](chnvideo.com)公司财源广进，[SrsTeam](https://github.com/winlinvip/simple-rtmp-server#authors)永垂不朽，彪炳千古，哈哈哈!
-
-## Vision
-
-SRS只有crtmp的1/3代码，nginx-rtmp的1/2代码；更少代码完成的东西就是好，ST就是强大，我不掩饰这一点。SRS注释为17.39%，nginx-rtmp的注释是3.77%，crtmpd的注释是17.00%。
-
-我希望beijing的签名能在地球上横行。
-
-我希望软件界能改变外界对中国人的看法，贪婪、索取、闭门造车、封闭、小气、代码很次。
-
-所以我给SRS选择MIT协议，让开源界和商界都能广泛使用。
-
-虽然核心是st，用了stl，跑在linux上，抄袭了nginx-rtmp。这些不正是仰仗各位大牛去换成china创造么？
-
-备注：代码比较的版本是SRS(0.9.90)，crtmp(r811)，nginx-rtmp(1.1.4)，nginx(1.5)
 
 Beijing, 2014.3<br/>
 Winlin
