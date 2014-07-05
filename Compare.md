@@ -146,6 +146,12 @@ SRS比nginx-rtmp优点
 
 ![nginx-rtmp crash](http://winlinvip.github.io/srs.release/wiki/images/nginx-rtmp-1.1.4-crash.png)
 
+对比下代码，响应connect-app这个包的发送的代码：
+
+![nginx-pk-srs.send-conn-response](http://winlinvip.github.io/srs.release/wiki/images/nginx-pk-srs.send-conn-response.png)
+
+这个就是同步和异步socket的区别，以及问题的分解导致的一致性（组包和发包两个层次，而不是nginx那样设置数据，更改全局配置，调用发送函数），对象层次的互动和数据操作（或者说数据隐藏和层次化，和数据结构）这两个编程方法的区别。
+
 ## Red5 PK SRS
 
 Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同是开源软件，相煎何太急。
