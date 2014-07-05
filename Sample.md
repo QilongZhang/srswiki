@@ -72,4 +72,8 @@ SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://git
 
 农场中摄像头支持RTSP访问，FFMPEG将RTSP转换成RTMP推送到SRS，flash客户端播放RTMP流。同时flash客户端可以和控制服务器通信，控制农场的浇水和施肥。
 
+![农场植物开花了](http://winlinvip.github.io/srs.release/wiki/images/application/farm.jpg)
+
+截图：农场的植物开花了，据说种的是萝卜。。。
+
 Winlin 2014.2
