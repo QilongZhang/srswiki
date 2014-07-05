@@ -26,6 +26,62 @@ git pull
 
 另外，不需要删除objs后编译srs，只需要make就可以编译。若make出错，则执行configure之后再make，可能有配置项更新。
 
+## 如何和主分支保持同步
+
+fork之后，可以在github上点击pull request和主分支保持同步。
+
+下面以和angularjs同步为例，我fork了angularjs，然后一个月之后和主分支同步。
+
+step 1：点击pull request
+
+![pull request](http://winlinvip.github.io/srs.release/wiki/images/sync.master/01.pull.png)
+
+step 2: 切换为同步模式
+
+![switch to sync](http://winlinvip.github.io/srs.release/wiki/images/sync.master/02.switch.png)
+
+默认是将你的修改同步给作者，也就是作者在左边，你的修改在右边。
+
+点击`switching the base`会将你放在左边，作者放在右边，同步总是从右边同步到左边。
+
+step 3: 提交同步请求
+
+![create pull request](http://winlinvip.github.io/srs.release/wiki/images/sync.master/03.create.png)
+
+点击`Create pull request`按钮，开始将作者的修改同步到你的github分支。
+
+注意：点击一次后开始发起请求，有时候请求完了也没有响应，再点一次`Create pull request`按钮就好了。
+
+step 4: 创建请求
+
+![create pull request](http://winlinvip.github.io/srs.release/wiki/images/sync.master/04.create2.png)
+
+输入信息，点击`Create pull request`按钮。
+
+step 5: 创建请求成功
+
+![create pull request](http://winlinvip.github.io/srs.release/wiki/images/sync.master/05.create3.png)
+
+可以看到成功创建了同步请求，提交到自己的分支的pull request中了。
+
+拖动滚动条到页面最后，开始合并请求，即和作者同步。
+
+step 6: 合并修改
+
+![merge pull request](http://winlinvip.github.io/srs.release/wiki/images/sync.master/06.merge.png)
+
+点击按钮合并请求。
+
+step 7: 确认合并
+
+![merge confirm](http://winlinvip.github.io/srs.release/wiki/images/sync.master/07.merge2.png)
+
+step 8: 同步成功
+
+![sync ok](http://winlinvip.github.io/srs.release/wiki/images/sync.master/08.ok.png)
+
+然后在自己的虚拟机上`git pull`就可以将自己的github的项目同步到虚拟机。
+
 ## 为何更新失败？
 
 如果本地有修改，譬如改了SRS的代码，那么git pull会提示无法更新。这时候可以撤销所有本地的修改，然后更新：
