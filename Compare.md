@@ -142,6 +142,10 @@ SRS比nginx-rtmp优点
 * 中文文档：SRS中文文档基本覆盖了SRS的功能，而且会根据大家的问题更新，还是很适合中文水平不错的人。
 * 有QQ群：nginx-rtmp人家不是国人嘛，当然不会有QQ群的。所以对于国内用户的声音，nginx-rtmp更像典型的开源软件；坦白讲，SRS的QQ群的实时沟通，还是能更明确大家到底在如何使用SRS，以及SRS的方向。
 
+我也fork了nginx-rtmp代码，RTMP和HLS部分都是参考了nginx-rtmp，大牛还是大牛啊。nginx-rtmp 1.1.4的一些提交，还是在fix crash，直接异步的方式做RTMP还是比较难的：
+
+![nginx-rtmp crash](http://winlinvip.github.io/srs.release/wiki/images/nginx-rtmp-1.1.4-crash.png)
+
 ## Red5 PK SRS
 
 Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同是开源软件，相煎何太急。
