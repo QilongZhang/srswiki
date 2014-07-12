@@ -2,6 +2,8 @@
 
 视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。
 
+## SRS配置
+
 SRS配置文件中需要打开带宽测试配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
 
 ```bash
@@ -23,6 +25,8 @@ vhost bandcheck.srs.com {
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
+## Flash测速工具
+
 启动后用带宽测试客户端就可以查看：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170](http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170)
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
@@ -32,6 +36,8 @@ vhost bandcheck.srs.com {
 ```bash
 检测结束: 服务器: 192.168.1.107 上行: 2170 kbps 下行: 3955 kbps 测试时间: 7.012 秒
 ```
+
+## Linux工具测速
 
 另外，SRS还提供了带宽检测命令行工具：
 
