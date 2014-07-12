@@ -23,6 +23,11 @@ vhost bandcheck.srs.com {
 }
 ```
 
+其中：
+* key：服务器的key，若客户端给出的key和配置的不一致，断开连接。
+* interval：测速的间隔，单位为秒，可为小数。若连续发起测速，时间间隔小于interval，服务器拒绝连接。
+* limit_kbps：测速的最大带宽，即可以测出来的最大带宽，防止服务器收到攻击。
+
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
 ## Flash测速工具
