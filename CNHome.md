@@ -134,7 +134,7 @@ SRS在windows上支持到什么程度？客户端库支持得如何？服务器�
 
 ## [SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwidthTestTool)
 
-视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwidthTestTool)
+视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwidthTestTool)(BandwidthTestTool, BWTC)
 
 ## [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP-ATC)
 
