@@ -132,9 +132,9 @@ linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？�
 
 SRS在windows上支持到什么程度？客户端库支持得如何？服务器能在windows跑吗？参考：[SRS的windows分支](https://github.com/winlinvip/simple-rtmp-server/wiki/WindowsSRS)
 
-## [SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwisthTestTool)
+## [SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwidthTestTool)
 
-视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwisthTestTool)
+视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/BandwidthTestTool)
 
 ## [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP-ATC)
 
