@@ -35,7 +35,8 @@ vhost bandcheck.srs.com {
 
 ```bash
 检测结束: 192.168.1.170 上行: 1965 kbps 下行: 3631 kbps 测试时间: 6.0 秒
-server:SRS 0.9.156 (github.com/winlinvip/simple-rtmp-server), authors:winlin,wenjie.zhao, srs_id:123, srs_pid:32057, ip:192.168.1.170
+server:SRS 0.9.156 (github.com/winlinvip/simple-rtmp-server), 
+authors:winlin,wenjie.zhao, srs_id:123, srs_pid:32057, ip:192.168.1.170
 ```
 
 ## 测速库
