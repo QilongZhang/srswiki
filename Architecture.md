@@ -1,11 +1,11 @@
-# SRS architecture
+# SRS的架构
 
-SRS is a single process using epoll asynchronous socket operation of high-performance server architecture and nginx homologous (same as non-blocking, asynchronous, single-threaded), in addition to multi-process nginx is outside the SRS is a single process.
+SRS是单进程使用epoll进行异步socket操作的高性能服务器，架构和nginx同源（同为非阻塞、异步、单线程），除了nginx是多进程SRS是单进程之外。
 
-SRS does not directly deal with the state to use epoll, but the use of the coroutine library state-threads, referred st (details can be seen below: [high-performance, high-concurrency, high scalability and readability of web server architecture: StateThreads] (http://blog.csdn.net/win_lin/article/details/8242653)).
+SRS没有直接使用epoll进行状态处理，而是使用了协程库state-threads，简称st（详细介绍可以看文章：[高性能、高并发、高扩展性和可读性的网络服务器架构：StateThreads](http://blog.csdn.net/win_lin/article/details/8242653)）。
 
-ST Reference: [ST] (https://github.com/winlinvip/state-threads)
+ST参考：[ST](https://github.com/winlinvip/state-threads)
 
-In addition, SRS multi-process research and development program is expected to be supported in 2015.
+另外，SRS多进程在研发计划中，预计在2015年可以支持。
 
 Winlin 2014.2
