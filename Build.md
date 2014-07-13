@@ -285,7 +285,7 @@ HttpCallback(及其服务端api-server)的目录为research/api-server，没有�
 </tr>
 <tr>
 <td>./objs/research/<br/>librtmp/<br/>srs_bandwidth_check</td>
-<td>./objs/research/librtmp/srs_bandwidth_check -h</td>
+<td>./objs/research/<br/>librtmp/<br/>srs_bandwidth_check -h</td>
 <td>linux测速工具</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@ HttpCallback(及其服务端api-server)的目录为research/api-server，没有�
 </tr>
 <tr>
 <td>api-server</td>
-<td>python research/api-server/server.py 8085</td>
+<td>python research/api-server/<br/>server.py 8085</td>
 <td>启动HTTP hooks和DEMO视频会议用到的api-server</td>
 </tr>
 <tr>
@@ -311,7 +311,7 @@ HttpCallback(及其服务端api-server)的目录为research/api-server，没有�
 </tr>
 <tr>
 <td>DEMO<br/>(关闭HttpCallback)</td>
-<td>./objs/nginx/html/players</td>
+<td>./objs/nginx/<br/>html/players</td>
 <td>SRS的DEMO的静态页面，当没有开启HttpCallback时</td>
 </tr>
 <tr>
