@@ -63,8 +63,44 @@ JS的库，需要拷贝`srs_bwt.swf`和`srs.bandwidth.js`，调用方法参考js
 另外，SRS还提供了带宽检测命令行工具：
 
 ```bash
-[winlin@dev6 srs]$ ./objs/bandwidth -i 127.0.0.1 -p 1935 -v bandcheck.srs.com -k 35c9b402c12a7246868752e2878f7e0e
-[2014-04-16 16:11:23.335][trace][0][11] result: play 3742 kbps, publish 149 kbps, check time 7.0900 S
+
+[winlin@dev6 srs]$ cd objs/research/librtmp/
+[winlin@dev6 librtmp]$ ./srs_bandwidth_check 
+RTMP bandwidth check/test with server.
+Usage: ./srs_bandwidth_check <rtmp_url>
+   rtmp_url     RTMP bandwidth url to check. format: rtmp://server:port/app?key=xxx&&vhost=xxx
+For example:
+   ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com
+   ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null
+@remark, output text to stdout, while json to stderr.
+```
+
+直接执行将打印文本和json信息：
+```
+[winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com
+RTMP bandwidth check/test with server.
+srs(simple-rtmp-server) client librtmp library.
+version: 0.9.158
+bandwidth check/test url: rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com
+simple handshake success
+connect vhost/app success
+bandwidth check/test success
+
+SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server), winlin,wenjie.zhao
+127.0.0.1, 0.9.158, srs_pid=15264, srs_id=107
+duration: 6395ms(3165+3148)
+play: 3578kbps
+publish: 4035kbps
+
+terminate with ret=0
+
+{"code":0,"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", "srs_primary_authors":"winlin,wenjie.zhao", "srs_server_ip":"127.0.0.1", "srs_version":"0.9.158", "srs_pid":15264, "srs_id":107, "duration":6395, "play_duration":3165, "play_kbps":3148, "publish_kbps":3578}[winlin@dev6 librtmp]$ 
+```
+
+可以只打印json信息：
+```
+[winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null 
+{"code":0,"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", "srs_primary_authors":"winlin,wenjie.zhao", "srs_server_ip":"127.0.0.1", "srs_version":"0.9.158", "srs_pid":15264, "srs_id":109, "duration":6354, "play_duration":3092, "play_kbps":3177, "publish_kbps":3662}
 ```
 
 Winlin
