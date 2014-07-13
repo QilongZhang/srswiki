@@ -94,13 +94,33 @@ publish: 4035kbps
 
 terminate with ret=0
 
-{"code":0,"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", "srs_primary_authors":"winlin,wenjie.zhao", "srs_server_ip":"127.0.0.1", "srs_version":"0.9.158", "srs_pid":15264, "srs_id":107, "duration":6395, "play_duration":3165, "play_kbps":3148, "publish_kbps":3578}[winlin@dev6 librtmp]$ 
+{"code":0,
+"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", 
+"srs_primary_authors":"winlin,wenjie.zhao", 
+"srs_server_ip":"127.0.0.1", 
+"srs_version":"0.9.158", 
+"srs_pid":15264, 
+"srs_id":107, 
+"duration":6395, 
+"play_duration":3165, 
+"play_kbps":3148, 
+"publish_kbps":3578}
 ```
 
 可以只打印json信息：
 ```
 [winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null 
-{"code":0,"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", "srs_primary_authors":"winlin,wenjie.zhao", "srs_server_ip":"127.0.0.1", "srs_version":"0.9.158", "srs_pid":15264, "srs_id":109, "duration":6354, "play_duration":3092, "play_kbps":3177, "publish_kbps":3662}
+{"code":0,
+"srs_server":"SRS 0.9.158 (github.com/winlinvip/simple-rtmp-server)", 
+"srs_primary_authors":"winlin,wenjie.zhao", 
+"srs_server_ip":"127.0.0.1", 
+"srs_version":"0.9.158", 
+"srs_pid":15264, 
+"srs_id":109, 
+"duration":6354, 
+"play_duration":3092, 
+"play_kbps":3177, 
+"publish_kbps":3662}
 ```
 
 Winlin
