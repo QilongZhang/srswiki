@@ -4,7 +4,7 @@
 
 ## SRS配置
 
-SRS配置文件中需要打开带宽测试配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
+SRS配置文件中需要打开`--with-librtmp`配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
 
 ```bash
 listen              1935;
