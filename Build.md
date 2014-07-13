@@ -284,7 +284,7 @@ HttpCallback(及其服务端api-server)的目录为research/api-server，没有�
 <td>启动SRS服务器</td>
 </tr>
 <tr>
-<td>./objs/research/<br/>librtmp/srs_bandwidth_check</td>
+<td>./objs/research/<br/>librtmp/<br/>srs_bandwidth_check</td>
 <td>./objs/research/librtmp/srs_bandwidth_check -h</td>
 <td>linux测速工具</td>
 </tr>
