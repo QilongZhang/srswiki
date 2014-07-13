@@ -68,7 +68,7 @@ JS的库，需要拷贝`srs_bwt.swf`和`srs.bandwidth.js`，调用方法参考js
 [winlin@dev6 librtmp]$ ./srs_bandwidth_check 
 RTMP bandwidth check/test with server.
 Usage: ./srs_bandwidth_check <rtmp_url>
-   rtmp_url     RTMP bandwidth url to check. format: rtmp://server:port/app?key=xxx&&vhost=xxx
+   rtmp_url     RTMP bandwidth url to check. format: rtmp://server:port/app?key=xxx,vhost=xxx
 For example:
    ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com
    ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null
