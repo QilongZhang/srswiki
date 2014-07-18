@@ -2,6 +2,10 @@
 
 SRS真实的应用实例，目前是免费张贴，我会改成收广告费形式的，可作为广告位。
 
+## chnvideo
+
+2014.7 [chnvideo](http://chnvideo.com/)编码器内置SRS提供RTMP和HLS拉服务。
+
 ## verycloud
 
 2014.6 [verycloud](http://verycloud.cn/)开始用srs。
