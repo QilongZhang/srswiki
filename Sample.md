@@ -2,28 +2,6 @@
 
 SRS真实的应用实例，目前是免费张贴，我会改成收广告费形式的，可作为广告位。
 
-## web秀场
-
-2014.7 by 刘重驰
-
-我们目前正在调研 准备用到web秀场 和 移动端流媒体服务上
-
-## 视频直播
-
-2014.7 by 大腰怪
-
-## 远程视频直播
-
-2014.7 by 韧
-
-我们的分发服务器用的就是srs，简单易用，稳定性好
-
-我们以前也用过几个分发软件，都没有srs好用，真心的
-
-## chnvideo
-
-2014.7 [chnvideo](http://chnvideo.com/)编码器内置SRS提供RTMP和HLS拉服务。
-
 ## verycloud
 
 2014.6 [verycloud](http://verycloud.cn/)开始用srs。
@@ -63,4 +41,39 @@ SRS真实的应用实例，目前是免费张贴，我会改成收广告费形�
 
 一般监控摄像头只支持输出RTMP/RTSP，或者支持RTSP方式读取流。如果想在IOS譬如IPad上看监控的流，怎么办？先部署一套rtmp服务器譬如nginx-rtmp/crtmpd/wowza/red5之类，然后用ffmpeg把rtsp流转成rtmp（或者摄像头直接推流到rtmp服务器），然后让服务器切片成hls输出，在IOS上观看。想想都觉得比较麻烦额，如果摄像头比较多怎么办？一个服务器还扛不住，部署集群？
 
-最简单的方式是什么？摄像头自己支持输出HLS流不就好了？也就是摄像头有个内网ip作为服务器，摄像头给出
+最简单的方式是什么？摄像头自己支持输出HLS流不就好了？也就是摄像头有个内网ip作为服务器，摄像头给出一个hls的播放地址，IOS客户端譬如IPad可以播放这个HLS地址。
+
+SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleARM)，只需要[改下configure的交叉编译工具](https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLinuxArm#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7)就可以编译了。
+
+主要流程：
+* 编译arm下的srs，部署到树莓派，在摄像头中启动srs。
+* 使用ffmpeg将摄像头的rtsp以RTMP方式推到srs。或者用自己程序采集设备数据推送RTMP流到srs。
+* srs分发RTMP流和HLS流。其实PC上也可以看了。
+* IOS譬如IPad上播放HLS地址。
+
+## 清华活动直播
+
+2014.2 by youngcow(5706022)
+
+清华大学每周都会有活动，譬如名家演讲等，使用SRS支持，少量的机器即可满足高并发。
+
+主要流程：
+* 在教室使用播控系统（摄像机+采集卡或者摄像机+导播台）推送RTMP流到主SRS
+* 主SRS自动Forward给从SRS（参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)）
+* PC客户端（Flash）使用FlowerPlayer，支持多个服务器的负载均衡
+* FlowerPlayer支持在两个主从SRS，自动选择一个服务器，实现负载均衡
+
+主要的活动包括：
+* 2014-02-23，丘成桐清华演讲
+
+## 某农场监控
+
+2014.1 by 孙悟空
+
+农场中摄像头支持RTSP访问，FFMPEG将RTSP转换成RTMP推送到SRS，flash客户端播放RTMP流。同时flash客户端可以和控制服务器通信，控制农场的浇水和施肥。
+
+![农场植物开花了](http://winlinvip.github.io/srs.release/wiki/images/application/farm.jpg)
+
+截图：农场的植物开花了，据说种的是萝卜。。。
+
+Winlin 2014.2
