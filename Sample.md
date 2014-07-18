@@ -8,6 +8,8 @@ SRS真实的应用实例，目前是免费张贴，我会改成收广告费形�
 
 我们的分发服务器用的就是srs，简单易用，稳定性好
 
+我们以前也用过几个分发软件，都没有srs好用，真心的
+
 ## chnvideo
 
 2014.7 [chnvideo](http://chnvideo.com/)编码器内置SRS提供RTMP和HLS拉服务。
