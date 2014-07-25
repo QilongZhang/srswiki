@@ -25,10 +25,10 @@ git pull
 
 <strong>第三步，编写SRS配置文件。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 
-将以下内容保存为文件，譬如`conf/ffmpeg.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
+将以下内容保存为文件，譬如`conf/ffmpeg.transcode.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
 ```bash
-# conf/ffmpeg.conf
+# conf/ffmpeg.transcode.conf
 listen              1935;
 vhost __defaultVhost__ {
     transcode {
