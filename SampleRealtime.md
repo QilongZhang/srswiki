@@ -32,6 +32,7 @@ git pull
 ```bash
 # conf/realtime.conf
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
     gop_cache       off;
     queue_length    10;
