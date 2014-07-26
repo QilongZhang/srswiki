@@ -30,6 +30,7 @@ git pull
 ```bash
 # conf/ingest.conf
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
     ingest livestream {
         enabled      on;
