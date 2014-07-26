@@ -35,6 +35,7 @@ git pull
 ```bash
 # conf/forward.master.conf
 listen              1935;
+max_connections     1000;
 pid                 ./objs/srs.master.pid;
 srs_log_tank        file;
 srs_log_file        ./objs/srs.master.log;
