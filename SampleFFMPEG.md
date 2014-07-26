@@ -30,6 +30,7 @@ git pull
 ```bash
 # conf/ffmpeg.transcode.conf
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
     transcode {
         enabled     on;
