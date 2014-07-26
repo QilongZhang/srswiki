@@ -32,6 +32,7 @@ git pull
 ```bash
 # conf/http.hls.conf
 listen              1935;
+max_connections     1000;
 http_stream {
     enabled         on;
     listen          8080;
