@@ -49,6 +49,7 @@ sudo ./objs/nginx/sbin/nginx
 ```bash
 # conf/transcode2hls.audio.only.conf
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
     hls {
         enabled         on;
