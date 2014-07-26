@@ -31,7 +31,9 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 
 SRS 2.0+ 的功能列表，可能的方向：
 
-* HTTP方向：HTTP集群[https://github.com/winlinvip/simple-rtmp-server/issues/130](HLS边缘)
+* HTTP方向：<a href="https://github.com/winlinvip/simple-rtmp-server/issues/130" target="_blank">HLS边缘</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/129" target="_blank">HTTP FLV分发</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/83" target="_blank">HTTP API认证</a>
+* 超低延迟方向：<a href="https://github.com/winlinvip/simple-rtmp-server/issues/120" target="_blank">FRSC百毫秒延迟</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/94" target="_blank">集群内部使用UDP</a>
+* 富RTMP方向：<a href="https://github.com/winlinvip/simple-rtmp-server/issues/106" target="_blank">转发调用</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/92" target="_blank">支持RTMP302跳转</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/71" target="_blank">RTMP推流认证</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/131" target="_blank">支持AMF3</a>，<a href="https://github.com/winlinvip/simple-rtmp-server/issues/132" target="_blank">SharedObject和文本分发</a>。
 
 ## BigThanks
 
