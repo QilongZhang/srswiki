@@ -31,7 +31,7 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 
 SRS 2.0+ 的功能列表，可能的方向：
 
-* HTTP方向：HTTP集群（[https://github.com/winlinvip/simple-rtmp-server/issues/130](HLS边缘)）
+* HTTP方向：HTTP集群[https://github.com/winlinvip/simple-rtmp-server/issues/130](HLS边缘)
 
 ## BigThanks
 
