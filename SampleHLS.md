@@ -40,6 +40,7 @@ sudo ./objs/nginx/sbin/nginx
 ```bash
 # conf/hls.conf
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
     hls {
         enabled         on;
