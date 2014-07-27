@@ -53,7 +53,10 @@ stats {
     # the index of device ip.
     # we may retrieve more than one network device.
     # default: 0
-    network_device_index    0;
+    network         0;
+    # the device name to stat the disk iops.
+    # ignore the device of /proc/diskstats if not configed.
+    disk            sda sdb xvda xvdb;
 }
 ```
 
