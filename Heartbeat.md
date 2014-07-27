@@ -14,6 +14,8 @@
 在全局配置以下信息即可以开启心跳：
 ```bash
 # heartbeat to api server
+# @remark, the ip report to server, is retrieve from system stat,
+#       which need the config item stats.network_device_index.
 heartbeat {
     # whether heartbeat is enalbed.
     # default: off
@@ -32,11 +34,33 @@ heartbeat {
     url             http://127.0.0.1:8085/api/v1/servers;
     # the id of devide.
     device_id       "my-srs-device";
+    # whether report with summaries
+    # if true, put /api/v1/summaries to the request data:
+    #   {
+    #       "summaries": summaries object.
+    #   }
+    # @remark: optional config.
+    # default: off
+    summaries       off;
+}
+# system statistics section.
+# the main cycle will retrieve the system stat,
+# for example, the cpu/mem/network/disk-io data,
+# the http api, for instance, /api/v1/summaries will show these data.
+# @remark the heartbeat depends on the network_device_index,
+#       for example, the eth0 maybe the device which index is 0.
+stats {
+    # the index of device ip.
+    # we may retrieve more than one network device.
+    # default: 0
+    network_device_index    0;
 }
 ```
 
 注意：enabled默认是off的，必须打开才行。
 
-默认SRS会将设备内网IP，设备名POST到url指定的地址。
+注意：需要配置stats中的设备索引，获取正确的ip。
+
+默认SRS会将设备内网IP(在stats中配置设备的索引)，设备名POST到url指定的地址。
 
 Winlin 2014.5
