@@ -49,6 +49,7 @@ SRS（192.168.1.5）的配置如下：
 
 ```bash
 listen              1935;
+pid                 ./objs/srs.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
     gop_cache       on;
@@ -70,6 +71,7 @@ vhost __defaultVhost__ {
 
 ```bash
 listen              1935;
+pid                 ./objs/srs.1935.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
     gop_cache       on;
@@ -80,6 +82,7 @@ vhost __defaultVhost__ {
 
 ```bash
 listen              1936;
+pid                 ./objs/srs.1936.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
     gop_cache       on;
