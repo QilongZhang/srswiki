@@ -36,7 +36,8 @@ SRS 2.0+ 的功能列表，可能的方向：
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/129" target="_blank">HTTP FLV分发</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/83" target="_blank">HTTP API认证</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/139" target="_blank">HLS快速缓存技术</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/140" target="_blank">HTTP支持vhost</a>
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/140" target="_blank">HTTP支持vhost</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/52" target="_blank">HTTP访问时回调</a>
 * 增强的RTMP方向：
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/106" target="_blank">转发调用</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/92" target="_blank">支持RTMP302跳转</a>，
