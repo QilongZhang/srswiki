@@ -179,22 +179,150 @@ O了，快速直接！
 可以知道这个播放连接107是一个SRS回源链接，它在服务器192.168.1.159上面，进程是21435，回源链接id是108。查询这个日志：
 
 ```
-[winlin@dev6 srs]$ grep -ina "\[108\]" objs/srs.log 
-29:[2014-08-06 09:41:31.598][trace][21435][108] edge pull connected, can_publish=1, url=rtmp://dev:1935/live/livestream, server=127.0.0.1:1936
-30:[2014-08-06 09:41:31.610][trace][21435][108] complex handshake success.
-31:[2014-08-06 09:41:31.689][trace][21435][108] connected, version=0.9.189, ip=127.0.0.1, pid=21433, id=107
-32:[2014-08-06 09:41:31.690][trace][21435][108] out chunk size to 60000
-33:[2014-08-06 09:41:31.690][trace][21435][108] ignore the disabled transcode: 
-34:[2014-08-06 09:41:31.690][trace][21435][108] edge change from 100 to state 101 (pull).
-35:[2014-08-06 09:41:31.690][trace][21435][108] input chunk size to 60000
-36:[2014-08-06 09:41:31.690][trace][21435][108] got metadata, width=768, height=320, vcodec=7, acodec=10
-37:[2014-08-06 09:41:31.732][trace][21435][108] 46B video sh, codec(7, profile=100, level=32, 0x0, 0kbps, 0fps, 0s)
-38:[2014-08-06 09:41:31.732][trace][21435][108] 4B audio sh, codec(10, profile=1, 2channels, 0kbps, 44100HZ), flv(16bits, 2channels, 44100HZ)
-41:[2014-08-06 09:41:41.753][trace][21435][108] <- EIG time=10009, okbps=3,0,0, ikbps=437,0,0
-42:[2014-08-06 09:41:46.215][warn][21435][108][4] origin disconnected, retry. ret=1007
+[winlin@dev6 srs]$ grep --color -ina "\[108\]" objs/srs.log 
+29:[2014-08-06 10:09:34.579][trace][22314][108] edge pull connected, can_publish=1, url=rtmp://dev:1935/live/livestream, server=127.0.0.1:1936
+30:[2014-08-06 10:09:34.591][trace][22314][108] complex handshake success.
+31:[2014-08-06 10:09:34.671][trace][22314][108] connected, version=0.9.190, ip=127.0.0.1, pid=22288, id=107
+32:[2014-08-06 10:09:34.672][trace][22314][108] out chunk size to 60000
+33:[2014-08-06 10:09:34.672][trace][22314][108] ignore the disabled transcode: 
+34:[2014-08-06 10:09:34.672][trace][22314][108] edge change from 100 to state 101 (pull).
+35:[2014-08-06 10:09:34.672][trace][22314][108] input chunk size to 60000
+36:[2014-08-06 10:09:34.672][trace][22314][108] got metadata, width=768, height=320, vcodec=7, acodec=10
+37:[2014-08-06 10:09:34.672][trace][22314][108] 46B video sh, codec(7, profile=100, level=32, 0x0, 0kbps, 0fps, 0s)
+38:[2014-08-06 10:09:34.672][trace][22314][108] 4B audio sh, codec(10, profile=1, 2channels, 0kbps, 44100HZ), flv(16bits, 2channels, 44100HZ)
+39:[2014-08-06 10:09:34.779][trace][22314][107] update source_id=108[108]
+46:[2014-08-06 10:09:36.853][trace][22314][110] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=108[108]
+50:[2014-08-06 10:09:44.949][trace][22314][108] <- EIG time=10293, okbps=3,0,0, ikbps=441,0,0
+53:[2014-08-06 10:09:47.805][warn][22314][108][4] origin disconnected, retry. ret=1007
 ```
 
-以此类推。
+以此类推，查回源链接的信息时，可以看到所有连接到该回源链接的客户端id（grep时先过滤进程号，然后过滤id）：
+
+```
+39:[2014-08-06 10:09:34.779][trace][22314][107] update source_id=108[108]
+46:[2014-08-06 10:09:36.853][trace][22314][110] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=108[108]
+```
+
+可以看到有两个连接，一个是107，一个是110。连接107是播放后才回源，110是已经在回源了然后播放的。
+
+### 可任意追溯
+
+以为支持可追溯以及可倒追溯日志，所以我们在任意节点开始都可以找到整个分发链路。
+
+开启一个边缘一个源站，源站ingest推流，两个客户端连接到边缘播放，边缘回源站取流。
+
+假设我知道流名称，或者不知道流名称，反正任意信息，譬如我知道播放的链接会打一个"type=Play"的标记出来，就从这一点开始。假设从源站开始：
+
+```
+[winlin@dev6 srs]$ grep -ina "type=Play" objs/srs.origin.log 
+31:[2014-08-06 10:09:34.671][trace][22288][107] client identified, type=Play, stream_name=livestream, duration=-1.00
+```
+
+发现有个107的链接播放了源站信息，查看它的日志：
+
+```
+[winlin@dev6 srs]$ grep -ina "\[107\]" objs/srs.origin.log 
+27:[2014-08-06 10:09:34.589][trace][22288][107] RTMP client ip=127.0.0.1
+28:[2014-08-06 10:09:34.591][trace][22288][107] complex handshake success
+29:[2014-08-06 10:09:34.631][trace][22288][107] connect app, tcUrl=rtmp://dev:1935/live, pageUrl=http://www.ossrs.net/players/srs_player.html?vhost=dev&stream=livestream&server=dev&port=1935, swfUrl=http://www.ossrs.net/players/srs_player/release/srs_player.swf?_version=1.23, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live, args=(obj)
+30:[2014-08-06 10:09:34.631][trace][22288][107] edge-srs ip=192.168.1.159, version=0.9.190, pid=22314, id=108
+31:[2014-08-06 10:09:34.671][trace][22288][107] client identified, type=Play, stream_name=livestream, duration=-1.00
+32:[2014-08-06 10:09:34.671][trace][22288][107] out chunk size to 60000
+33:[2014-08-06 10:09:34.671][trace][22288][107] source url=__defaultVhost__/live/livestream, ip=127.0.0.1, cache=1, is_edge=0, source_id=105[105]
+34:[2014-08-06 10:09:34.672][trace][22288][107] dispatch cached gop success. count=307, duration=4515
+35:[2014-08-06 10:09:34.672][trace][22288][107] create consumer, queue_size=30.00, tba=44100, tbv=25
+36:[2014-08-06 10:09:34.672][trace][22288][107] ignored. set buffer length to 1000
+37:[2014-08-06 10:09:34.673][trace][22288][107] input chunk size to 60000
+40:[2014-08-06 10:09:44.748][trace][22288][107] -> PLA time=10007, msgs=0, okbps=464,0,0, ikbps=3,0,0
+41:[2014-08-06 10:09:47.805][warn][22288][107][104] client disconnect peer. ret=1004
+```
+
+可以看到源id是105，查这个源：
+
+```
+[winlin@dev6 srs]$ grep --color -ina "\[105\]" objs/srs.origin.log 
+16:[2014-08-06 10:09:30.331][trace][22288][105] RTMP client ip=127.0.0.1
+17:[2014-08-06 10:09:30.331][trace][22288][105] srand initialized the random.
+18:[2014-08-06 10:09:30.332][trace][22288][105] simple handshake success.
+19:[2014-08-06 10:09:30.373][trace][22288][105] connect app, tcUrl=rtmp://127.0.0.1:1936/live?vhost=__defaultVhost__, pageUrl=, swfUrl=, schema=rtmp, vhost=__defaultVhost__, port=1936, app=live, args=null
+21:[2014-08-06 10:09:30.417][trace][22288][105] client identified, type=publish(FMLEPublish), stream_name=livestream, duration=-1.00
+22:[2014-08-06 10:09:30.417][trace][22288][105] out chunk size to 60000
+23:[2014-08-06 10:09:30.418][trace][22288][105] source url=__defaultVhost__/live/livestream, ip=127.0.0.1, cache=1, is_edge=0, source_id=-1[-1]
+24:[2014-08-06 10:09:30.466][trace][22288][105] got metadata, width=768, height=320, vcodec=7, acodec=10
+25:[2014-08-06 10:09:30.466][trace][22288][105] 46B video sh, codec(7, profile=100, level=32, 0x0, 0kbps, 0fps, 0s)
+26:[2014-08-06 10:09:30.466][trace][22288][105] 4B audio sh, codec(10, profile=1, 2channels, 0kbps, 44100HZ), flv(16bits, 2channels, 44100HZ)
+33:[2014-08-06 10:09:34.671][trace][22288][107] source url=__defaultVhost__/live/livestream, ip=127.0.0.1, cache=1, is_edge=0, source_id=105[105]
+38:[2014-08-06 10:09:40.732][trace][22288][105] <- CPB time=10100, okbps=3,0,0, ikbps=332,0,0
+```
+
+可见这个就是ingest的连接，即编码器推流连接。已经查到了源头。
+
+同时可以看到107这个其实是srs的回源链接：
+
+```
+30:[2014-08-06 10:09:34.631][trace][22288][107] edge-srs ip=192.168.1.159, version=0.9.190, pid=22314, id=108
+```
+
+可以去边缘服务器上查它的信息，id是108：
+
+```
+[winlin@dev6 srs]$ grep --color -ina "\[108\]" objs/srs.log 
+29:[2014-08-06 10:09:34.579][trace][22314][108] edge pull connected, can_publish=1, url=rtmp://dev:1935/live/livestream, server=127.0.0.1:1936
+30:[2014-08-06 10:09:34.591][trace][22314][108] complex handshake success.
+31:[2014-08-06 10:09:34.671][trace][22314][108] connected, version=0.9.190, ip=127.0.0.1, pid=22288, id=107
+32:[2014-08-06 10:09:34.672][trace][22314][108] out chunk size to 60000
+33:[2014-08-06 10:09:34.672][trace][22314][108] ignore the disabled transcode: 
+34:[2014-08-06 10:09:34.672][trace][22314][108] edge change from 100 to state 101 (pull).
+35:[2014-08-06 10:09:34.672][trace][22314][108] input chunk size to 60000
+36:[2014-08-06 10:09:34.672][trace][22314][108] got metadata, width=768, height=320, vcodec=7, acodec=10
+37:[2014-08-06 10:09:34.672][trace][22314][108] 46B video sh, codec(7, profile=100, level=32, 0x0, 0kbps, 0fps, 0s)
+38:[2014-08-06 10:09:34.672][trace][22314][108] 4B audio sh, codec(10, profile=1, 2channels, 0kbps, 44100HZ), flv(16bits, 2channels, 44100HZ)
+39:[2014-08-06 10:09:34.779][trace][22314][107] update source_id=108[108]
+46:[2014-08-06 10:09:36.853][trace][22314][110] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=108[108]
+50:[2014-08-06 10:09:44.949][trace][22314][108] <- EIG time=10293, okbps=3,0,0, ikbps=441,0,0
+53:[2014-08-06 10:09:47.805][warn][22314][108][4] origin disconnected, retry. ret=1007
+```
+
+这个边缘服务器上这个回源链接有两个客户端连接上，107和110：
+
+```
+[winlin@dev6 srs]$ grep --color -ina "\[107\]" objs/srs.log
+18:[2014-08-06 10:09:34.281][trace][22314][107] RTMP client ip=192.168.1.179
+19:[2014-08-06 10:09:34.282][trace][22314][107] srand initialized the random.
+20:[2014-08-06 10:09:34.291][trace][22314][107] complex handshake success
+21:[2014-08-06 10:09:34.291][trace][22314][107] connect app, tcUrl=rtmp://dev:1935/live, pageUrl=http://www.ossrs.net/players/srs_player.html?vhost=dev&stream=livestream&server=dev&port=1935, swfUrl=http://www.ossrs.net/players/srs_player/release/srs_player.swf?_version=1.23, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live, args=null
+22:[2014-08-06 10:09:34.532][trace][22314][107] ignored. set buffer length to 800
+23:[2014-08-06 10:09:34.568][trace][22314][107] client identified, type=Play, stream_name=livestream, duration=-1.00
+24:[2014-08-06 10:09:34.568][trace][22314][107] out chunk size to 60000
+25:[2014-08-06 10:09:34.568][trace][22314][107] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=-1[-1]
+26:[2014-08-06 10:09:34.579][trace][22314][107] dispatch cached gop success. count=0, duration=0
+27:[2014-08-06 10:09:34.579][trace][22314][107] create consumer, queue_size=30.00, tba=0, tbv=0
+28:[2014-08-06 10:09:34.579][trace][22314][107] ignored. set buffer length to 800
+39:[2014-08-06 10:09:34.779][trace][22314][107] update source_id=108[108]
+54:[2014-08-06 10:09:47.805][trace][22314][107] cleanup when unpublish
+55:[2014-08-06 10:09:47.805][trace][22314][107] edge change from 101 to state 0 (init).
+56:[2014-08-06 10:09:47.805][warn][22314][107][9] client disconnect peer. ret=1004
+```
+
+107是触发回源的连接。查看110这个链接：
+
+```
+[winlin@dev6 srs]$ grep --color -ina "\[110\]" objs/srs.log
+40:[2014-08-06 10:09:36.609][trace][22314][110] RTMP client ip=192.168.1.179
+41:[2014-08-06 10:09:36.613][trace][22314][110] complex handshake success
+42:[2014-08-06 10:09:36.613][trace][22314][110] connect app, tcUrl=rtmp://dev:1935/live, pageUrl=http://www.ossrs.net/players/srs_player.html?vhost=dev&stream=livestream&server=dev&port=1935, swfUrl=http://www.ossrs.net/players/srs_player/release/srs_player.swf?_version=1.23, schema=rtmp, vhost=__defaultVhost__, port=1935, app=live, args=null
+43:[2014-08-06 10:09:36.835][trace][22314][110] ignored. set buffer length to 800
+44:[2014-08-06 10:09:36.853][trace][22314][110] client identified, type=Play, stream_name=livestream, duration=-1.00
+45:[2014-08-06 10:09:36.853][trace][22314][110] out chunk size to 60000
+46:[2014-08-06 10:09:36.853][trace][22314][110] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=108[108]
+47:[2014-08-06 10:09:36.853][trace][22314][110] dispatch cached gop success. count=95, duration=1573
+48:[2014-08-06 10:09:36.853][trace][22314][110] create consumer, queue_size=30.00, tba=44100, tbv=25
+49:[2014-08-06 10:09:36.853][trace][22314][110] ignored. set buffer length to 800
+51:[2014-08-06 10:09:45.919][trace][22314][110] -> PLA time=8759, msgs=21, okbps=461,0,0, ikbps=3,0,0
+52:[2014-08-06 10:09:46.247][warn][22314][110][104] client disconnect peer. ret=1004
+```
+
+可见110也是个flash播放连接。
 
 ### 系统信息
 
