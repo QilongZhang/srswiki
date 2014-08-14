@@ -100,9 +100,9 @@ SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将�
 
 SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Edge)
 
-## [Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
+## [Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Forward)
 
-使用forward搭建小型集群的配置方法。链接：[搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Cluster)
+使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/Forward)
 
 ## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/Performance)
 
