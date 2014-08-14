@@ -5,8 +5,8 @@ SRS可以将送到SRS的流转发给其他RTMP服务器，实现简单集群/热
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
 Forward就是SRS将流拷贝输出给其他的RTMP服务器，以SRS转发给SRS为例：
-* 主SRS：编码器推流到主SRS，主SRS将流处理的同时，将流转发到备SRS
-* 备SRS：主SRS转发流到备SRS，就像编码器推送流到备用SRS一样。
+* 主SRS：Master, 编码器推流到主SRS，主SRS将流处理的同时，将流转发到备SRS
+* 备SRS：Slave, 主SRS转发流到备SRS，就像编码器推送流到备用SRS一样。
 我们的部署实例中，主SRS侦听1935端口，备SRS侦听19350端口。
 
 <strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/Git)
