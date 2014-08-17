@@ -335,6 +335,7 @@ SRS的配置(configure)参数说明如下：
 * --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 * --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG)
 * --with-ingest 采集文件/流/设备数据，封装为RTMP流后，推送到SRS。参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/Ingest)
+* --with-stat 是否开启数据统计功能，SRS可以采集cpu/内存/网络/磁盘IO等数据，共监控系统通过http-api获取。（目前osx不支持）。
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
 * --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
 * --with-gperf 是否使用google的tcmalloc库，默认关闭。
@@ -349,13 +350,18 @@ SRS的配置(configure)参数说明如下：
 
 预设集：
 * --x86-x64，默认预设集，一般的x86或x64服务器使用。release使用这个配置编译。
+* --osx，苹果MAC OSX（Darwin）系统下编译，安装好xcode和brew后，可以使用这个选项。
 * --pi，树莓派预设集，arm的子集。树莓派的release用这个配置编译。
+* --cubie，在cubieboard下直接编译的选项，使用ubuntu差不多的配置集。
 * --arm，ubuntu下交叉编译，等价于--with-arm-ubuntu12。release使用这个配置。
+* --mips，ubuntu下交叉编译，为hiwifi的mips路由器编译。（目前srs在mips上有内存泄漏，2天左右会把路由器跑死）。
 * --dev，开发选项，尽可能开启功能。
 * --fast，关闭所有功能，只支持基本RTMP（不支持h264/aac），最快的编译速度。
 * --pure-rtmp，支持RTMP（支持h264+aac），需要编译ssl。
 * --rtmp-hls，支持RTMP和HLS，典型的应用方式。还可以加上内置的http服务器（--with-http-server）。
 * --disable-all, 禁用所有功能，只支持rtmp（vp6）。
+* --demo，SRS的演示编译选项。
+* --full，开启SRS所有的功能。
 
 专家选项：有可能编译失败，不是专家就不要用这个。
 * --use-sys-ssl 使用系统的ssl，不单独编译ssl（在--with-ssl时有效）。
