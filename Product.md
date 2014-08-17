@@ -44,6 +44,7 @@ SRS 2.0+ 的功能列表，可能的方向：
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/71" target="_blank">RTMP推流认证</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/131" target="_blank">支持AMF3</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/132" target="_blank">SharedObject和文本分发</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/156" target="_blank">一个连接多个流</a>，
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/93" target="_blank">支持RTMFP协议</a>
 * 超低延迟方向：
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/120" target="_blank">FRSC百毫秒延迟</a>，
