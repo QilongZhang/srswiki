@@ -8,6 +8,8 @@ srs定位为源站服务器，其中一项重要的功能是forward，即将服�
 
 注意：若只需要中转流给源站，不必用forward，直接使用edge模式即可。可以直接支持推流和拉流的中转，简单快捷。Forward应用于目标服务器是多个，譬如将一路流主动送给多路服务器；edge虽然配置了多台服务器，但是只用了一台，有故障时才切换。
 
+注意：优先使用edge，除非知道必须用forward，才使用forward。
+
 forward本身是用做热备，即用户推一路流上来，可以被SRS转发（或者转码后转发）到多个slave源站，CDN边缘可以回多个slave源，实现故障热备的功能，构建强容错系统。
 
 转发的部署实例参考：[Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleForward)
