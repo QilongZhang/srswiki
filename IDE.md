@@ -41,6 +41,8 @@ http://sourceforge.net/project/downloading.php?group_id=93970&filename=upp-win32
 
 默认的智能补全键是CTRL+空格键，这个组合键实际上用来切换输入法。
 
+打开 Setup=>Keyboard shortcuts，找到Assist并设置（在最后），设置如下图：
+
 ![智能补全键](http://winlinvip.github.io/srs.release/wiki/images/upp/005.assist.shortcuts.png)
 
 非常简单！
