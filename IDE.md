@@ -37,6 +37,12 @@ http://sourceforge.net/project/downloading.php?group_id=93970&filename=upp-win32
 
 ![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/004.ok.png)
 
+<strong>设置智能补全键，按CTRL+J出现说明</strong>4
+
+默认的智能补全键是CTRL+空格键，这个组合键实际上用来切换输入法。
+
+![智能补全键](http://winlinvip.github.io/srs.release/wiki/images/upp/005.assist.shortcuts.png)
+
 非常简单！
 
 Winlin 2014.2
