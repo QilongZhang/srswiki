@@ -9,4 +9,34 @@ Windows平台，一般中国开发者用IDE还是windows，用什么IDE？推荐
 
 我也比较过其他的IDE，可以参考：[开源日志：关于IDE/源代码编辑](http://blog.csdn.net/win_lin/article/details/8142981)
 
+## UPP开发SRS
+
+SRS使用UPP的开发，好处是：
+* 只需要一个配置文件，不会在源码生成乱七八糟的文件。像vs之类就讨厌这个。
+* 不编译，只用来编辑代码，因为windows下面编译过不了。在linux编译和调试。
+* hpp和cpp之间跳转方便，可以方便的在类成员函数和实现之间跳转。
+* 解析宏定义，类定义和函数，模板函数等等，解析都正确，不像SourceInsight解析不对。
+
+下面讲讲使用过程：
+
+<strong>第一步，下载和安装upp</strong>
+
+http://sourceforge.net/project/downloading.php?group_id=93970&filename=upp-win32-5485.exe
+
+<strong>第二步，打开UPP后，新建assembly</strong>
+
+![新建assembly](http://winlinvip.github.io/srs.release/wiki/images/upp/001.new.assembly.png)
+
+<strong>第三步，导入srs</strong>
+
+![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/002.setup.assembly.png)
+
+![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/003.open.assembly.png)
+
+<strong>OK</strong>
+
+![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/004.ok.png)
+
+非常简单！
+
 Winlin 2014.2
