@@ -45,7 +45,7 @@ http://sourceforge.net/project/downloading.php?group_id=93970&filename=upp-win32
 
 ![智能补全键](http://winlinvip.github.io/srs.release/wiki/images/upp/005.assist.shortcuts.png)
 
-注意：记得把Navigate的快件键去掉（CTRL+J，在前面点位置），否则Assist的新快捷键不会生效。
+注意：记得把Navigate的快件键改为CTRL+F1（CTRL+J，在前面点位置），否则Assist的新快捷键不会生效。
 
 非常简单！
 
