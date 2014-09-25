@@ -44,12 +44,18 @@ DVR的配置文件说明：
         # the param for plan(segment), in seconds.
         # default: 30
         dvr_duration    30;
+        # the param for plan(segment),
+        # whether wait keyframe to reap segment,
+        # if off, reap segment when duration exceed the dvr_duration,
+        # if on, reap segment when duration exceed and got keyframe.
+        # default: on
+        dvr_wait_keyframe       on;
     }
 ```
 
 DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主要的录制计划包括：
 * session：按照session来关闭flv文件，即编码器停止推流时关闭flv，整个session录制为一个flv。
-* segment：按照时间分段录制，flv文件时长配置为dvr_duration。注意：不按关键帧切flv，所以会导致后面的flv启动时会花屏。
+* segment：按照时间分段录制，flv文件时长配置为dvr_duration和dvr_wait_keyframe。注意：若不按关键帧切flv（即dvr_wait_keyframe配置为off），所以会导致后面的flv启动时会花屏。
 
 参考`conf/dvr.segment.conf`和`conf/dvr.session.conf`配置实例。
 
