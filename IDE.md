@@ -25,7 +25,7 @@ CLion的主要亮点：
 
 使用方法：OpenProject，选择srs的trunk目录下的CMakeLists.txt，点OK即可。
 
-linux版的，在centos下也挺好用，需要下载cmake2.8：http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz和gdb：http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.gz，然后指定toolchain为：/usr/local/bin/cmake和/usr/local/bin/gdb，因为centos6默认的cmake和gdb都太老了。
+linux版的，在centos下也挺好用，需要下载cmake2.8：[http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz](http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz)和gdb：[http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.gz](http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.gz)，然后指定toolchain为：/usr/local/bin/cmake和/usr/local/bin/gdb，因为centos6默认的cmake和gdb都太老了。
 
 另外，还需要java虚拟机，可以下载jdk7之类：jdk-7u45-linux-x64.tar.gz，然后编辑环境脚本：`sudo vi /etc/profile`，在文件尾部加入：
 ```
