@@ -23,6 +23,8 @@ CLion的主要亮点：
 1. 还有个牛逼的东西，选中后按CTRL+F，自动高亮。这个是非常非常常用的功能，比notepad++好。upp就是没有这个愁死我了。
 术业有专攻，JetBrains的IDE做得非常之用心，只要CLion出来，我就果断抛弃upp。
 
+使用方法：OpenProject，选择srs的trunk目录下的CMakeLists.txt，点OK即可。
+
 ## UPP开发SRS
 
 SRS使用UPP的开发，好处是：
