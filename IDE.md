@@ -9,6 +9,18 @@ Windows平台，一般中国开发者用IDE还是windows，用什么IDE？推荐
 
 我也比较过其他的IDE，可以参考：[开源日志：关于IDE/源代码编辑](http://blog.csdn.net/win_lin/article/details/8142981)
 
+## JetBrains
+
+JetBrains终于放出来c++的IDE了。目前是60天的预览版，下载：[http://www.jetbrains.com/clion/](http://www.jetbrains.com/clion/)
+
+CLion的主要亮点：
+1. windows下linux程序的IDE。别纠缠vs是不是王中之王，用vs打开srs代码错误就一坨一坨的，没法正常使用。
+1. 支持基本功能：函数跳转，类跳转，头文件跳转，hpp和cpp直接跳转，智能提示，没用的宏定义的提示。
+1. 支持FindUsage：函数或者类在什么地方使用了，这个功能对于代码阅读和修改很有用。
+1. 支持Refactor：Rename，Extract，Move，ChangeSignature，PullMemberUp/Down众多减少苦力的功能。
+1. 还有个牛逼的东西，选中后按CTRL+F，自动高亮。这个是非常非常常用的功能，比notepad++好。upp就是没有这个愁死我了。
+术业有专攻，JetBrains的IDE做得非常之用心，只要CLion出来，我就果断抛弃upp。
+
 ## UPP开发SRS
 
 SRS使用UPP的开发，好处是：
