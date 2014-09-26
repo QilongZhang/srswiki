@@ -16,6 +16,7 @@ JetBrains终于放出来c++的IDE了。目前是60天的预览版，下载：[ht
 CLion的主要亮点：
 
 1. windows下linux程序的IDE。别纠缠vs是不是王中之王，用vs打开srs代码错误就一坨一坨的，没法正常使用。
+1. 可以忽略编译，当作编辑器使用。windows下的linux代码无法编译过，mingw有时也不好使，但是CLion可以当作编辑器使用。
 1. 支持基本功能：函数跳转，类跳转，头文件跳转，hpp和cpp直接跳转，智能提示，没用的宏定义的提示。
 1. 支持FindUsage：函数或者类在什么地方使用了，这个功能对于代码阅读和修改很有用。
 1. 支持Refactor：Rename，Extract，Move，ChangeSignature，PullMemberUp/Down众多减少苦力的功能。
