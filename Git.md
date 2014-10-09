@@ -111,4 +111,16 @@ bash scripts/csdn.mirror.sh
 
 可以参考脚本中的提示，创建自己的分支，每次可执行该脚本和github的srs同步。
 
+## BranchAndTag
+
+一个仓库(project/repository)可以有多个branch，每个branch上都可以有tag（里程碑，一般release分支有）。
+
+SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，所以没有feature分支；也没有hotfix分支，直接在对应的release分支hotfix后打tag。
+
+![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
+
+参考：[http://nvie.com/posts/a-successful-git-branching-model/](http://nvie.com/posts/a-successful-git-branching-model/)
+
+参考：[http://blog.csdn.net/sabalol/article/details/7049851](http://blog.csdn.net/sabalol/article/details/7049851)
+
 Winlin 2014.3
