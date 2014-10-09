@@ -119,6 +119,10 @@ SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，�
 
 SRS只有master（develop）和release分支，假设现在是SRS4.0时代，那么master就是正在开发的SRS4.0，有三个release分支分别是1.0release、2.0release和3.0release。
 
+SRS的默认分支是最新的release，github上可以设置默认分支（由于master和develop是一个分支）。
+
+也就是说SRS的master是开发版，其他的release分支是发行版；默认的是最新的发行版。这个是最简单的git分支使用了。
+
 ![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
 
 参考：[http://nvie.com/posts/a-successful-git-branching-model/](http://nvie.com/posts/a-successful-git-branching-model/)
