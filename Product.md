@@ -27,9 +27,17 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 
 目前，功能均已实现，处于测试和改进阶段。预计在2014年年底之前发布release 1.0.
 
+## Release2.0
+
+SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
+
+* 学习和简化st，只保留linux/arm/darwin部分代码。
+* 简化RTMP包发送逻辑，在充分了解st的基础上，使用最高效直接的方式管理客户端连接。
+* 其他小功能的完善，譬如dvr录制为一个文件，srslibrtmp支持h264之类。
+
 ## Backlog
 
-SRS 2.0+ 的功能列表，可能的方向：
+SRS 3.0+ 的功能列表，可能的方向：
 
 * HTTP方向：
 <a href="https://github.com/winlinvip/simple-rtmp-server/issues/130" target="_blank">HLS边缘</a>，
