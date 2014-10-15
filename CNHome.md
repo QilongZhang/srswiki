@@ -1,5 +1,9 @@
 Welcome to the simple-rtmp-server wiki!
 
+## [QQ群](https://github.com/winlinvip/simple-rtmp-server/wiki/SRS-QQ-Dismissed)
+
+关于SRS的QQ群，参考：[https://github.com/winlinvip/simple-rtmp-server/wiki/SRS-QQ-Dismissed](https://github.com/winlinvip/simple-rtmp-server/wiki/SRS-QQ-Dismissed)
+
 ## [如何提问](https://github.com/winlinvip/simple-rtmp-server/wiki/HowToAskQuestion)
 
 提问是一门艺术，不是别人不待见你，是你提的问题实在不招人待见。提问前务必参考：[如何提问](https://github.com/winlinvip/simple-rtmp-server/wiki/HowToAskQuestion)
