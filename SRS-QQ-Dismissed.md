@@ -77,22 +77,29 @@ winlin真的很有破力(破坏别人心情的力)，我本来出于好心提了
 
 ===========================以下是正文=============================
 
-问题的核心就是trunk/3rdparty 内不能放一堆的zip包。(群里我的用词是“小建议”，是客气的说法) 
-然而这个wanlin针对我的“小建议”，不直接回复我，却针对所有人说：“有谁知道我为什么这么做吗？”
+问题的核心就是trunk/3rdparty 内不能放一堆的zip包。
+(群里我的用词是“小建议”，是客气的说法) 
+然而这个wanlin针对我的“小建议”，不直接回复我，
+却针对所有人说：“有谁知道我为什么这么做吗？”
 
-然我套用了他的语气，说了句“有谁知道现在的代码库会有什么严重的后果吗？”
+然我套用了他的语气，说了句“有谁知道现在的
+代码库会有什么严重的后果吗？”
 然后他说“建议你去看看openresty”
 
-看他这个臭架子还在，我失去耐心了，于是我说了句“如果openresty跟你一样管理代码，那么openresty 的代码库在三年内也会必死”
+看他这个臭架子还在，我失去耐心了，于是我说了句
+“如果openresty跟你一样管理代码，那么openresty 
+的代码库在三年内也会必死”
 
 于是我被踢了。
-于是我看了下openresty的github代码库，翻了一堆，却并没有看到不合理的情况，即把第三方依赖包放在git repo里。
+于是我看了下openresty的github代码库，翻了一堆，
+却并没有看到不合理的情况，即把第三方依赖包放在git repo里。
 
 FXXK...，
 winlin真TM变态！
 
 
-我说的“三年内必死”，意思就是，现在的代码库会越滚越大，撑不了多长时间。别跟我说你不打算更新trunk/3rdparty！
+我说的“三年内必死”，意思就是，现在的代码库会越滚越大，
+撑不了多长时间。别跟我说你不打算更新trunk/3rdparty！
 
 关于 “有谁知道我为什么这么做吗？”
 鬼才知道是什么，在我看来你的顾虑都是不存在的。
@@ -779,7 +786,8 @@ SRS Rebirth
 【吱之】猪八戒<yifeidong@qq.com> 15:04:15 
 哈哈，独孤求败了。
 【巨能】赵文杰(740936897) 15:04:27 
-点击链接加入群【SimpleRtmpServer】：http://jq.qq.com/?_wv=1027&k=WAZh2X
+点击链接加入群【SimpleRtmpServer】：
+http://jq.qq.com/?_wv=1027&k=WAZh2X
  2014-10-15 
 【吱之】亮～Liang(304917423) 15:05:27 
 @赵文杰 加我
@@ -881,7 +889,8 @@ srs也不做了？
 【吱之】wang<wxh_77777@qq.com> 15:33:47 
 365936885  应该是这个，我刚加入
 【巨能】赵文杰(740936897) 15:33:59 
-点击链接加入群【SimpleRtmpServer】：http://jq.qq.com/?_wv=1027&k=WAZh2X
+点击链接加入群【SimpleRtmpServer】：
+http://jq.qq.com/?_wv=1027&k=WAZh2X
 流媒体群欢迎加入
 【巨能】winlin<winterserver@126.com> 15:34:13 
 加群链接我一个一个都发给你们了啊。
@@ -1035,70 +1044,89 @@ hu lan 的
 From: ※陈祖平※ [mailto:153997085@qq.com] 
 Sent: Wednesday, October 15, 2014 3:17 PM
 To: wayne
-Cc: winlin; 2393867136; wenjie.zhao; winlin; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; heyu2000; fedora2008; dabieshan1456; ※陈祖平※; wangxydlut; xiaohm1983; 1507655812; 7yue.love
+Cc: winlin; 2393867136; wenjie.zhao; winlin; xiangcheng.liu; 
+naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; 
+karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; 
+heyu2000; fedora2008; dabieshan1456; ※陈祖平※; wangxydlut; 
+xiaohm1983; 1507655812; 7yue.love
 Subject: 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
 
- 阁下这样太没意思了吧，有本事就去做一个比SRS更好的开源项目来，winlin做出来了，拿出来和大家分享，我们应该赞叹和感激。再说了开源项目不是产品，主要是代码和思想的分享，为什么非得要追求完美呢。阁下这么做实在为我们所不耻！
+ 阁下这样太没意思了吧，有本事就去做一个比SRS更好的开源项目来，
+winlin做出来了，拿出来和大家分享，我们应该赞叹和感激。
+再说了开源项目不是产品，主要是代码和思想的分享，
+为什么非得要追求完美呢。阁下这么做实在为我们所不耻！
 
 
-From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of 微心理学
+From: auto_winlin+winlin=chnvideo.com@vip.126.com 
+[mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of 微心理学
 Sent: Wednesday, October 15, 2014 3:10 PM
 To: 'wayne'; winlin; 'wenjie.zhao'; 'winlin'
-Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi'; 'byteman'; 'chad.wang'; 'suhetao'; 'Johnny'; 'karthikeyan'; 'StevenLiu'; 'zhengfl'; 'root'; '79360404'; 'zhengfl_1989'; 'heyu2000'; 'fedora2008'; 'dabieshan1456'; '153997085'; 'wangxydlut'; 'xiaohm1983'; '1507655812'
-Subject: 回复： 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi';
+ 'byteman'; 'chad.wang'; 'suhetao'; 'Johnny'; 
+'karthikeyan'; 'StevenLiu'; 'zhengfl'; 'root'; 
+'79360404'; 'zhengfl_1989'; 'heyu2000'; 
+'fedora2008'; 'dabieshan1456'; '153997085'; 
+'wangxydlut'; 'xiaohm1983'; '1507655812'
+Subject: 回复： 回复：敬给尊敬的winlin阁下，关于SRS代码库
 
 作为一个旁观者，作为一个SRS的用户，是希望SRS发展越来越好的。
 我想简单的说下，您被踢出去的过程，如果有说的不好的地方，请诸位大神见谅。
 首先winlin,说的“同问”，还是非常谦虚地想知道问题的有什么影响，而且建议你看看openresty 。
-可以你以非常绝对的语气，一口拒绝。最关键的是，最后一句话，
+可是你以非常绝对的语气，一口拒绝。最关键的是，最后一句话，
 “
 不用看。如果openresty跟你现在一样管理代码，那么这个代码库在三年内必死
-”，这个刺激了winlin, SRS投入了winlin，太多的精力和热情，所以听到带有诅咒式的语言时，肯定不爽。
+”，这个刺激了winlin, SRS投入了winlin，太多的精力和热情，
+所以听到带有诅咒式的语言时，肯定不爽。
  
 497864872(497864872) 23:26:30
  
 绝对比现在的方式灵活
- 
-2014-10-15	 
-
-
-497864872(497864872) 0:08:31
- 
-谁知道现在这种方式会有什么严重的后果？
-【巨能】winlin<winterserver@126.com> 7:08:17
- 
-同问。
-【巨能】winlin<winterserver@126.com> 7:20:00
- 
-建议你看看openresty
-497864872(497864872) 8:42:06
- 
-不用看。如果openresty跟你现在一样管理代码，那么这个代码库在三年内必死
- 
 
 
 ------------------ 原始邮件 ------------------
 发件人: "&#39;wayne&#39;";<cymatics@foxmail.com>;
 发送时间: 2014年10月15日(星期三) 下午2:55
-收件人: "微心理学"<2393867136@qq.com>; "winlin"<winlin@chnvideo.com>; "wenjie.zhao"<740936897@qq.com>; "winlin"<winlin@vip.126.com>; 
-抄送: "xiangcheng.liu"<liuxc0116@foxmail.com>; "naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; "suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; "karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; "root"<root@kev7n.com>; "79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; "heyu2000"<heyu2000@foxmail.com>; "fedora2008"<fedora2008@163.com>; "dabieshan1456"<dabieshan1456@163.com>; "153997085"<153997085@qq.com>; "wangxydlut"<wangxydlut@gmail.com>; "xiaohm1983"<xiaohm1983@126.com>; "1507655812"<1507655812@qq.com>; 
+收件人: "微心理学"<2393867136@qq.com>; "winlin"<winlin@chnvideo.com>; 
+"wenjie.zhao"<740936897@qq.com>; "winlin"<winlin@vip.126.com>; 
+抄送: "xiangcheng.liu"<liuxc0116@foxmail.com>; 
+"naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; 
+"byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; 
+"suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; 
+"karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; 
+"zhengfl"<zhengfl_1989@126.com>; "root"<root@kev7n.com>; 
+"79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; 
+"heyu2000"<heyu2000@foxmail.com>; "fedora2008"<fedora2008@163.com>; 
+"dabieshan1456"<dabieshan1456@163.com>; "153997085"<153997085@qq.com>; 
+"wangxydlut"<wangxydlut@gmail.com>; "xiaohm1983"<xiaohm1983@126.com>; 
+"1507655812"<1507655812@qq.com>; 
 主题: Re: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
 要不我给个建设性的做法：
-你把我们在群内的聊天内容完整的截图出来，然后给大家说一下踢我的理由
+你把我们在群内的聊天内容完整的截图出来，
+然后给大家说一下踢我的理由
 
 然后大家围观，圈点,再继续？
 ============================
 重复一下：如果不就事论事，就免谈吧。
 
-
-
 ------------------ Original ------------------
 From:  "2393867136";<2393867136@qq.com>;
 Send time: Wednesday, Oct 15, 2014 2:42 PM
-To: "winlin"<winlin@chnvideo.com>; "wayne"<cymatics@foxmail.com>; "'wenjie.zhao'"<740936897@qq.com>; "'winlin'"<winlin@vip.126.com>; 
-Cc: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; "'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>; "'root'"<root@kev7n.com>; "'79360404'"<79360404@qq.com>; "'zhengfl_1989'"<zhengfl_1989@163.com>; "'heyu2000'"<heyu2000@foxmail.com>; "'fedora2008'"<fedora2008@163.com>; "'dabieshan1456'"<dabieshan1456@163.com>; "'153997085'"<153997085@qq.com>; "'wangxydlut'"<wangxydlut@gmail.com>; "'xiaohm1983'"<xiaohm1983@126.com>; "'1507655812'"<1507655812@qq.com>; 
+To: "winlin"<winlin@chnvideo.com>; 
+"wayne"<cymatics@foxmail.com>; "'wenjie.zhao'"<740936897@qq.com>;
+ "'winlin'"<winlin@vip.126.com>; 
+Cc: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; 
+"'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; 
+"'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; 
+"'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; 
+"'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; 
+"'zhengfl'"<zhengfl_1989@126.com>; "'root'"<root@kev7n.com>; 
+"'79360404'"<79360404@qq.com>; "'zhengfl_1989'"<zhengfl_1989@163.com>; 
+"'heyu2000'"<heyu2000@foxmail.com>; "'fedora2008'"<fedora2008@163.com>; 
+"'dabieshan1456'"<dabieshan1456@163.com>; "'153997085'"<153997085@qq.com>; 
+"'wangxydlut'"<wangxydlut@gmail.com>; "'xiaohm1983'"<xiaohm1983@126.com>; 
+"'1507655812'"<1507655812@qq.com>; 
 Subject:  回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
 +1
@@ -1107,8 +1135,20 @@ Subject:  回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS
 ------------------ 原始邮件 ------------------
 发件人: "winlin";<winlin@chnvideo.com>;
 发送时间: 2014年10月15日(星期三) 下午2:40
-收件人: "'wayne'"<cymatics@foxmail.com>; "'wenjie.zhao'"<740936897@qq.com>; "'winlin'"<winlin@vip.126.com>; 
-抄送: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; "'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>; "'root'"<root@kev7n.com>; "'79360404'"<79360404@qq.com>; "'zhengfl_1989'"<zhengfl_1989@163.com>; "微心理学"<2393867136@qq.com>; "'heyu2000'"<heyu2000@foxmail.com>; "'fedora2008'"<fedora2008@163.com>; "'dabieshan1456'"<dabieshan1456@163.com>; "'153997085'"<153997085@qq.com>; "'wangxydlut'"<wangxydlut@gmail.com>; "'xiaohm1983'"<xiaohm1983@126.com>; "'1507655812'"<1507655812@qq.com>; 
+收件人: "'wayne'"<cymatics@foxmail.com>; 
+"'wenjie.zhao'"<740936897@qq.com>; "'winlin'"<winlin@vip.126.com>; 
+抄送: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; 
+"'naijia.liu'"<youngcow@youngcow.net>; 
+"'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>; 
+"'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>;
+ "'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; 
+"'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>;
+ "'root'"<root@kev7n.com>; "'79360404'"<79360404@qq.com>; 
+"'zhengfl_1989'"<zhengfl_1989@163.com>; "微心理学"<2393867136@qq.com>;
+ "'heyu2000'"<heyu2000@foxmail.com>; "'fedora2008'"<fedora2008@163.com>; 
+"'dabieshan1456'"<dabieshan1456@163.com>; "'153997085'"<153997085@qq.com>;
+ "'wangxydlut'"<wangxydlut@gmail.com>; "'xiaohm1983'"<xiaohm1983@126.com>;
+ "'1507655812'"<1507655812@qq.com>; 
 主题: RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
 有本事把你的同事好友都加上，ok？
@@ -1119,15 +1159,20 @@ Subject:  回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS
 研发部 Create Bravo Software and Enjoy it!
 *******************************************
  
-From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
+From: auto_winlin+winlin=chnvideo.com@vip.126.com 
+[mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
 Sent: Wednesday, October 15, 2014 2:39 PM
 To: winlin; wenjie.zhao; winlin
-Cc: xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; 2393867136; heyu2000; fedora2008; dabieshan1456; 153997085; wangxydlut; xiaohm1983; 1507655812
+Cc: xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; 
+suhetao; Johnny; karthikeyan; StevenLiu; zhengfl; root; 79360404;
+ zhengfl_1989; 2393867136; heyu2000; fedora2008; dabieshan1456;
+ 153997085; wangxydlut; xiaohm1983; 1507655812
 Subject: Re: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
  
 请注意事情发展的因果链。”说你变态“是 我冷不丁的被你踢出群的结果。
-道歉可以，但要看你是否能给出一个踢我的理由（针对群内的聊天内容,别扯这个邮件的内容），只有大家都+1了，我才道歉。
+道歉可以，但要看你是否能给出一个踢我的理由（针对群内的聊天内容,别扯这个邮件的内容），
+只有大家都+1了，我才道歉。
  
 =========
 如果不就事论事，就免谈。 
@@ -1135,8 +1180,19 @@ Subject: Re: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 ------------------ Original ------------------
 From:  "winlin";<winlin@chnvideo.com>;
 Send time: Wednesday, Oct 15, 2014 2:19 PM
-To: "'winlin'"<winlin@chnvideo.com>; "wayne"<cymatics@foxmail.com>; "'wenjie.zhao'"<740936897@qq.com>; "'winlin'"<winlin@vip.126.com>; 
-Cc: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; "'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>; "root"<root@kev7n.com>; "79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; "2393867136"<2393867136@qq.com>; "153997085"<153997085@qq.com>; "heyu2000"<heyu2000@foxmail.com>; "fedora2008"<fedora2008@163.com>; "dabieshan1456"<dabieshan1456@163.com>; "153997085"<153997085@qq.com>; "wangxydlut"<wangxydlut@gmail.com>; "xiaohm1983"<xiaohm1983@126.com>; "1507655812"<1507655812@qq.com>; 
+To: "'winlin'"<winlin@chnvideo.com>; "wayne"<cymatics@foxmail.com>; 
+"'wenjie.zhao'"<740936897@qq.com>; "'winlin'"<winlin@vip.126.com>; 
+Cc: "'xiangcheng.liu'"<liuxc0116@foxmail.com>; "'naijia.liu'"<youngcow@youngcow.net>; 
+"'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>;
+ "'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>; 
+"'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; 
+"'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>; 
+"root"<root@kev7n.com>; "79360404"<79360404@qq.com>; 
+"zhengfl_1989"<zhengfl_1989@163.com>; "2393867136"<2393867136@qq.com>;
+ "153997085"<153997085@qq.com>; "heyu2000"<heyu2000@foxmail.com>; 
+"fedora2008"<fedora2008@163.com>; "dabieshan1456"<dabieshan1456@163.com>;
+ "153997085"<153997085@qq.com>; "wangxydlut"<wangxydlut@gmail.com>;
+ "xiaohm1983"<xiaohm1983@126.com>; "1507655812"<1507655812@qq.com>; 
 Subject:  RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 +1
@@ -1154,11 +1210,18 @@ Subject:  RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 From: winlin [mailto:winlin@chnvideo.com] 
 Sent: Wednesday, October 15, 2014 2:11 PM
 To: 'winlin'; 'wayne'; 'wenjie.zhao'; 'winlin'
-Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi'; 'byteman'; 'chad.wang'; 'suhetao'; 'Johnny'; 'karthikeyan'; 'StevenLiu'; 'zhengfl'; 'root@kev7n.com'; '79360404@qq.com'; 'zhengfl_1989@163.com'; '2393867136@qq.com'; '153997085@qq.com'; 'heyu2000@foxmail.com'; 'kdkdm@auroled.com'; 'fedora2008@163.com'; 'dabieshan1456@163.com'; '153997085@qq.com'; 'wangxydlut@gmail.com'; 'xiaohm1983@126.com'
+Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi'; 'byteman'; 
+'chad.wang'; 'suhetao'; 'Johnny'; 'karthikeyan'; 'StevenLiu';
+ 'zhengfl'; 'root@kev7n.com'; '79360404@qq.com'; 
+'zhengfl_1989@163.com'; '2393867136@qq.com'; '153997085@qq.com';
+ 'heyu2000@foxmail.com'; 'kdkdm@auroled.com'; 'fedora2008@163.com';
+ 'dabieshan1456@163.com'; '153997085@qq.com'; 'wangxydlut@gmail.com'; 
+'xiaohm1983@126.com'
 Subject: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 很多人表示比较关心这个事情。
-无论如何，请大家记住六度空间理论，即：任何两个人可能是彼此同事的直系亲属，或者亲属的同事，或者好朋友的亲戚。
+无论如何，请大家记住六度空间理论，即：任何两个人可能是彼此同事的直系亲属，
+或者亲属的同事，或者好朋友的亲戚。
 希望各位发表意见时别太过火，各抒己见，保持克制。
  
 *******************************************
@@ -1170,7 +1233,10 @@ Subject: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 From: winlin [mailto:winlin@chnvideo.com] 
 Sent: Wednesday, October 15, 2014 1:53 PM
 To: 'wayne'; 'wenjie.zhao'; 'winlin'
-Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi'; 'byteman'; 'chad.wang'; 'suhetao'; 'Johnny'; 'karthikeyan'; 'StevenLiu'; 'zhengfl'; 'root@kev7n.com'; '79360404@qq.com'; 'zhengfl_1989@163.com'; '2393867136@qq.com'
+Cc: 'xiangcheng.liu'; 'naijia.liu'; 'alcoholyi'; 'byteman'; 
+'chad.wang'; 'suhetao'; 'Johnny'; 'karthikeyan'; 'StevenLiu'; 
+'zhengfl'; 'root@kev7n.com'; '79360404@qq.com'; 
+'zhengfl_1989@163.com'; '2393867136@qq.com'
 Subject: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 有病么？我逼你干什么？你有可能是我同事的直系亲属，或者亲属的同事，或者好朋友的亲戚。
@@ -1182,10 +1248,12 @@ Subject: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 研发部 Create Bravo Software and Enjoy it!
 *******************************************
  
-From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
+From: auto_winlin+winlin=chnvideo.com@vip.126.com 
+[mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
 Sent: Wednesday, October 15, 2014 1:46 PM
 To: wenjie.zhao; winlin; winlin
-Cc: xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
+Cc: xiangcheng.liu; naijia.liu; alcoholyi; byteman; 
+chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
 Subject: Re: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 你在群里面吗？看看群里面的聊天记录（昨天晚上11点到今天上午的）。
@@ -1197,8 +1265,14 @@ Subject: Re: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 ------------------ Original ------------------
 From:  "wenjie.zhao";<740936897@qq.com>;
 Send time: Wednesday, Oct 15, 2014 1:40 PM
-To: "wayne"<cymatics@foxmail.com>; "winlin"<winlin@chnvideo.com>; "winlin"<winlin@vip.126.com>; 
-Cc: "xiangcheng.liu"<liuxc0116@foxmail.com>; "naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; "suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; "karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; 
+To: "wayne"<cymatics@foxmail.com>; "winlin"<winlin@chnvideo.com>; 
+"winlin"<winlin@vip.126.com>; 
+Cc: "xiangcheng.liu"<liuxc0116@foxmail.com>; 
+"naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; 
+"byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; 
+"suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>;
+ "karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>;
+ "zhengfl"<zhengfl_1989@126.com>; 
 Subject:  回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 有意见提很正常的，只是交流别太火药味了，
@@ -1210,7 +1284,12 @@ srs 也是winlin的心血，业余时间全被占据了！
 发件人: "wayne";<cymatics@foxmail.com>;
 发送时间: 2014年10月15日(星期三) 中午1:34
 收件人: "winlin"<winlin@chnvideo.com>; "winlin"<winlin@vip.126.com>; 
-抄送: ""<740936897@qq.com>; "xiangcheng.liu"<liuxc0116@foxmail.com>; "naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; "suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; "karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; 
+抄送: ""<740936897@qq.com>; "xiangcheng.liu"<liuxc0116@foxmail.com>; 
+"naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; 
+"byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>;
+ "suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; 
+"karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>;
+ "zhengfl"<zhengfl_1989@126.com>; 
 主题: Re: RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 你的括号真给力，想玩吗
@@ -1220,7 +1299,12 @@ srs 也是winlin的心血，业余时间全被占据了！
 From:  "winlin";<winlin@chnvideo.com>;
 Send time: Wednesday, Oct 15, 2014 1:29 PM
 To: "wayne"<cymatics@foxmail.com>; "'winlin'"<winlin@vip.126.com>; 
-Cc: "'wenjie.zhao'"<740936897@qq.com>; "'xiangcheng.liu'"<liuxc0116@foxmail.com>; "'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; "'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; "'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; "'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; "'zhengfl'"<zhengfl_1989@126.com>; 
+Cc: "'wenjie.zhao'"<740936897@qq.com>; "'xiangcheng.liu'"<liuxc0116@foxmail.com>; 
+"'naijia.liu'"<youngcow@youngcow.net>; "'alcoholyi'"<alcoholyi@qq.com>; 
+"'byteman'"<wangchen2011@gmail.com>; "'chad.wang'"<chad.wang.cn@gmail.com>; 
+"'suhetao'"<suhetao@gmail.com>; "'Johnny'"<fengjihu@163.com>; 
+"'karthikeyan'"<keyanmca@gmail.com>; "'StevenLiu'"<lq@chinaffmpeg.org>; 
+"'zhengfl'"<zhengfl_1989@126.com>; 
 Subject:  RE: 敬给尊敬的winlin阁下，关于SRS代码库
  
 你不知道六度空间吗？
@@ -1232,14 +1316,17 @@ Subject:  RE: 敬给尊敬的winlin阁下，关于SRS代码库
 研发部 Create Bravo Software and Enjoy it!
 *******************************************
  
-From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
+From: auto_winlin+winlin=chnvideo.com@vip.126.com 
+[mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
 Sent: Wednesday, October 15, 2014 1:19 PM
 To: winlin
-Cc: wenjie.zhao; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
+Cc: wenjie.zhao; xiangcheng.liu; naijia.liu; alcoholyi; byteman;
+chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
 Subject: 敬给尊敬的winlin阁下，关于SRS代码库
  
 有句话我没有机会在QQ群里说：
-    winlin真的很有破力(破坏别人心情的力)，我本来出于好心提了一点小建议，结果却被他的一副"臭架子"搞的心情全无。这货有必要一直hold这幅架子吗？
+    winlin真的很有破力(破坏别人心情的力)，我本来出于好心提了一点小建议，
+结果却被他的一副"臭架子"搞的心情全无。这货有必要一直hold这幅架子吗？
  
 我写这封邮件的目的是用我内在的正能量逼散被winlin传染过来的负心情。
 当然有一个我并不关心的副作用(本也是我的初衷)，就是给SRS项目提供正确的代码管理思路。
