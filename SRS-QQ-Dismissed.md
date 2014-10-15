@@ -58,7 +58,7 @@ srs.conf配置可以用include不，把其他文件里的配置包含进来
 【能说】灰狐青鱼(185760821) 11:09:28 
 
 【巨能】winlin<winterserver@126.com> 13:31:01 
-From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
+From: wayne [cymatics@foxmail.com]
 Sent: Wednesday, October 15, 2014 1:19 PM
 To: winlin
 Cc: wenjie.zhao; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
