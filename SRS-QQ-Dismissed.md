@@ -62,6 +62,12 @@ srs.conf配置可以用include不，把其他文件里的配置包含进来
 【能说】灰狐青鱼(185760821) 11:09:28 
 
 【巨能】winlin<winterserver@126.com> 13:31:01 
+From: auto_winlin+winlin=chnvideo.com@vip.126.com [mailto:auto_winlin+winlin=chnvideo.com@vip.126.com] On Behalf Of wayne
+Sent: Wednesday, October 15, 2014 1:19 PM
+To: winlin
+Cc: wenjie.zhao; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl
+Subject: 敬给尊敬的winlin阁下，关于SRS代码库
+
 有句话我没有机会在QQ群里说：
 winlin真的很有破力(破坏别人心情的力)，我本来出于好心提了一点小建议，结果却被他的一副"臭架子"搞的心情全无。这货有必要一直hold这幅架子吗？
 
