@@ -20,17 +20,17 @@ The key features of SRS, the implemented, in plan and not plan. Please see: [SRS
 
 Is there any public server for SRS demo? I provides server with public ip and name(ossrs.net) for all users to publish and play, it's free and only for test. Please see: [SRS Demo Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LiveShow)
 
-## [应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Sample)
+## [Applications](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Sample)
 
-SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Sample)
+Who are using SRS? What you can use SRS for your project and customers? Please see: [Applications](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Sample)
 
-## [编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
+## [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
 
-编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
+How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please see: [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
 
-## [SRS启动](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LinuxService)
+## [SRS Init.d Script](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LinuxService)
 
-如何以系统服务启动SRS？如何后台启动SRS？如何linux启动时自动启动SRS？如何启动SRS和DEMO的api，播放器/编码器/视频会议，但不用观看那些演示流？参考：[SRS启动](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LinuxService)
+How to use init.d script to start SRS as system service? How to run SRS in daemon? How to auto start SRS when system restart? How to start SRS demo pages(including the players, encoders and video meeting demo)? Please see: [SRS Init.d Script](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LinuxService)
 
 ## [SRS日志](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
 
