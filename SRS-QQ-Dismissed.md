@@ -1039,7 +1039,63 @@ hu lan 的
 邮件始末：
 
 ```
+发件人："杨成立" <winlin@vip.126.com>
+发送日期：2014-10-16 14:19:44
+收件人：'wayne' <cymatics@foxmail.com>
+抄送人：'153997085' <153997085@qq.com>,'2393867136' <2393867136@qq.com>,
+"'wenjie.zhao'" <740936897@qq.com>,"'xiangcheng.liu'" <liuxc0116@foxmail.com>,
+"'naijia.liu'" <youngcow@youngcow.net>,'alcoholyi' <alcoholyi@qq.com>,
+'byteman' <wangchen2011@gmail.com>,"'chad.wang'" <chad.wang.cn@gmail.com>,
+'suhetao' <suhetao@gmail.com>,'Johnny' <fengjihu@163.com>,
+'karthikeyan' <keyanmca@gmail.com>,'StevenLiu' <lq@chinaffmpeg.org>,
+'zhengfl' <zhengfl_1989@126.com>,'root' <root@kev7n.com>,
+'79360404' <79360404@qq.com>,'zhengfl_1989' <zhengfl_1989@163.com>,
+'heyu2000' <heyu2000@foxmail.com>,'fedora2008' <fedora2008@163.com>,
+'dabieshan1456' <dabieshan1456@163.com>,'wangxydlut' <wangxydlut@gmail.com>,
+'xiaohm1983' <xiaohm1983@126.com>,'1507655812' <1507655812@qq.com>,
+"'7yue.love'" <7yue.love@163.com>
+主题：Re:RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
+不如我向你道歉，非常抱歉对你没有礼貌把你踢出了群，请求你大人不计较小人过，原谅我吧？
+现在群也已经解散了，也没有办法加你了，不过杰哥新建了群，你可以加进去，链接：http://jq.qq.com/?_wv=1027&k=WAZh2X 
+SRS一定会再接再厉，满足所有人的期望，不管是什么样子的期望，也希望你们捐钱的时候大方一点，什么几百几百的太小气，
+大人有大量，也就大气度，否则怎么干大事？请几万几万的捐吧，也对得起我这道歉的邮件。
+要不咱就这样？你走你的阳关道，我过我的独木桥。
+
+鞠躬，道歉。
+--
+I will do my best!
+winlin.
+
+在 2014-10-16 13:39:40，"winlin" <winlin@chnvideo.com> 写道：
+说得太好了，其实就是一群乌合之众，一群不懂得维护自己尊严的傻逼，
+以为事不关己高高挂起，真的是骂的太活该了，就这么骂也没有什么脾气，
+Wayne，我现在变得崇拜起你来了，能受我一拜么？
+
+From: "'wayne'"<cymatics@foxmail.com>;
+Sent: Thursday, October 16, 2014 12:35 PM
+To: 153997085
+Cc: winlin; 2393867136; wenjie.zhao; winlin; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; heyu2000; fedora2008; dabieshan1456; 153997085; wangxydlut; xiaohm1983; 1507655812; 7yue.love
+Subject: Re: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+winlin是个性情中人。我对winlin没有敌意，只是恨铁不是金(人品角度的看法，技术TBD)。
+弱弱问一下唧唧咋咋的乌合之众们，你们有多少人看得懂事情的来龙去脉？
+我给winlin反应问题，winlin有权不尊重我，于是我也有权不尊重他（自卫）；
+winlin有权踢我，于是我也有权把技术问题发给SRS的AUTHORS.txt里面的人（合情合理的渠道）。
+为啥就没人从技术角度来定性呢，难道国人都喜欢这样无节操不动脑？
+我无意与国人为敌，相信没人觉得自己中枪,这里只是借用 winlin阁下 在SRS-QQ-Dismissed里的说辞：
+"表达对所有中国没有基本礼貌的程序员的不满，以及对于中国老程序员没有态度的不满，"
+OK, lte's move.
+
+其实呢,
+========
+1）winlin本来是可以以个人时间为由，比如说,这的确是一个存在的问题，只是没时间考虑而已. 然而他没这么做。
+2）这个问题本来可以在AUTHORS.txt的圈内讨论清楚的，然而winlin 耍小孩子脾气拉来更多的人，还解散QQ群.
+3) 关于“三年内必死”，有人说我搞个人攻击，是诅咒他。是吗？也只有非技术的才这么认为.
+4) 关于QQ技术群，本来就是一个让人神侃的时候偶尔还知道是可以问点技术问题的地方，你想把他打造成一个个人帝国，那真的还不如趁早散去(谢天谢地)。
+5）关于其他非技术的因素。什么winlin倾注太多心血，什么站着说话不腰疼有本事自己开发一个COS(kidding me?),
+说实话，从感情这招来起哄，很管用，我无言以对。但对一个技术问题讲感情能管用吗？就像前段时间，有人求winlin别踢他，winlin手下留情了吗?
+over.
 
 From: ※陈祖平※ [mailto:153997085@qq.com] 
 Sent: Wednesday, October 15, 2014 3:17 PM
