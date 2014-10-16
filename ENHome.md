@@ -1,6 +1,6 @@
 Welcome to the simple-rtmp-server wiki!
 
-## [How to ask questions](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
+## [How to Ask Questions](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
 
 To ask questions or file bug, please see [HowToAskQuestion](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
 
@@ -8,7 +8,7 @@ To ask questions or file bug, please see [HowToAskQuestion](https://github.com/w
 
 What's the product plan of SRS? What's the key features? Please see: [SRS Product] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product)
 
-## [Product comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
+## [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 
 Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 
