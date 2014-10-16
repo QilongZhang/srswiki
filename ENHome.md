@@ -32,9 +32,9 @@ How to build SRS? How to enable or disable the feature of SRS? How to build and 
 
 How to use init.d script to start SRS as system service? How to run SRS in daemon? How to auto start SRS when system restart? How to start SRS demo pages(including the players, encoders and video meeting demo)? Please see: [SRS Init.d Script](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LinuxService)
 
-## [SRS日志](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
+## [SRS Log](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
 
-如何查看SRS的日志？如何不以nohup但是后台启动？如何将日志打印到控制台？如何打印出更多或者更少的日志？如何打印出详细级别的日志？如何只打印出警告以上的日志？参考：[SRS日志](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
+How to get the log of SRS? How to trace log to console? How to get less log for log file too large? How to get more detail level log? How to get warn level log only? Please see: [SRS Log](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
 
 ## [SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Architecture)
 
