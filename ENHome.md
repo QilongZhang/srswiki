@@ -4,11 +4,11 @@ Welcome to the simple-rtmp-server wiki!
 
 To ask questions or file bug, please see [HowToAskQuestion](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
 
-## [SRS产品定位](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product)
+## [SRS Product](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product)
 
-SRS产品定位是什么？SRS亮点是什么？和其他产品对比呢？参考：[SRS产品定位] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product)
+What's the product plan of SRS? What's the key features? Please see: [SRS Product] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product)
 
-## [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
+## [Product comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 
 Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 
