@@ -1075,7 +1075,11 @@ Wayne，我现在变得崇拜起你来了，能受我一拜么？
 From: "'wayne'"<cymatics@foxmail.com>;
 Sent: Thursday, October 16, 2014 12:35 PM
 To: 153997085
-Cc: winlin; 2393867136; wenjie.zhao; winlin; xiangcheng.liu; naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; heyu2000; fedora2008; dabieshan1456; 153997085; wangxydlut; xiaohm1983; 1507655812; 7yue.love
+Cc: winlin; 2393867136; wenjie.zhao; winlin; xiangcheng.liu; 
+naijia.liu; alcoholyi; byteman; chad.wang; suhetao; Johnny; 
+karthikeyan; StevenLiu; zhengfl; root; 79360404; zhengfl_1989; 
+heyu2000; fedora2008; dabieshan1456; 153997085; wangxydlut; 
+xiaohm1983; 1507655812; 7yue.love
 Subject: Re: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
 
 winlin是个性情中人。我对winlin没有敌意，只是恨铁不是金(人品角度的看法，技术TBD)。
