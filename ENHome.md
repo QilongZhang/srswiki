@@ -1,6 +1,6 @@
 Welcome to the simple-rtmp-server wiki!
 
-## [How to Ask Questions](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
+## [How To Ask Questions](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
 
 To ask questions or file bug, please see [HowToAskQuestion](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HowToAskQuestion)
 
@@ -12,13 +12,13 @@ What's the product plan of SRS? What's the key features? Please see: [SRS Produc
 
 Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 
-## [SRS功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Features)
+## [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Features)
 
-SRS支持的功能，包括已经支持的，计划中的，和没有计划的。参考[SRS功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Features)
+The key features of SRS, the implemented, in plan and not plan. Please see: [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Features)
 
-## [公用服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LiveShow)
+## [SRS Demo Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LiveShow)
 
-SRS是否提供公用服务器？供大家测试，演示，版本发布，自动编译等。是否有现成的SRS服务器可以推流和播放？参考[公用服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LiveShow)
+Is there any public server for SRS demo? I provides server with public ip and name(ossrs.net) for all users to publish and play, it's free and only for test. Please see: [SRS Demo Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LiveShow)
 
 ## [应用实例](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Sample)
 
