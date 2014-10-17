@@ -132,17 +132,17 @@ How to use SRS on linux-arm device to delivery RTMP? What is the performance of 
 
 What is the status of SRS windows branch? Why SRS windows branch is experiment and not recomment to use? What about the srs-librtmp windows branch? Why srs-librtmp windows branch is ok for windows? Please see: [SRS windows Branch](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_WindowsSRS)
 
-## [SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_BandwidthTestTool)
+## [SRS Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_BandwidthTestTool)
 
-视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_BandwidthTestTool)(BandwidthTestTool, BWTC)
+What is the bandwidth between the player and the SRS server? SRS provides c(in srs-librtmp), js and flash sdk to test the bandwidth. Please see: [SRS Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_BandwidthTestTool)(BandwidthTestTool, BWTC)
 
 ## [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP-ATC)
 
-如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP-ATC)
+How to delivery stream with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please see: [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP-ATC)
 
-## [TimeJitter时间戳矫正](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_TimeJitter)
+## [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_TimeJitter)
 
-SRS如何矫正时间戳？时间戳抖动如何处理？RTMP时间戳单增如何处理？参考：[TimeJitter时间戳矫正](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_TimeJitter)
+How does SRS correct the timestamp of stream? How to correct the time jitter? How to ensure the timestamp of RTMP to monotonically increase? Please see: [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_TimeJitter)
 
 ## [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Heartbeat)
 
