@@ -16,51 +16,51 @@ Notes: the conceptual integrity refer to Brooks.
 
 ## Release1.0
 
-SRS release 1.0，预计研发周期为1年左右。主要的目标是：
+SRS release 1.0, about 1 year and the main aims:
 
-* 提供互联网直播的核心业务功能，即RTMP/HLS直播。能对接任意的编码器和播放器，集群支持对接任意的源站服务器。
-* 提供丰富的外围流媒体功能，譬如Forward，Transcode，Ingest，DVR。方便开展多种源站业务。
-* 完善的运维接口，reload，HTTP API，完善和保持更新的wiki。另外，提供配套的商业监控和排错系统。
-* 完备的utest机制，还有gperf（gmc，gmp，gcp）和gprof性能以及优化机制。提供c++层次足够满意的性能和内存错误查找机制。
-* 在ARM/MIPS等嵌入式CPU设备Linux上运行。另外，提供配套的内网监控和排错，cubieboard/raspberry-pi的嵌入式服务器。
+* Live stream for internet application: the RTMP and HLS stream delivering, support any origin, encoder and player.
+* Dozens of features, for example, Foward, Transcode, Ingest, DVR, to build your application very fast and stable. Comparing to FMS, user need a server-side dvr script and click the DVR button on FMLE, SRS only need 3lines conf to enable the dvr feature.
+* Features for CDN, for example, the vhost, http api, reload, tracable log and wiki. Vhost is very important for CDN to serve multiple customers specified by vhost on the same live streaming platform. Reload is neccessary to adjust at any time. Tracable to finger out what happent when get problem.
+* Full utest and benchmark mechenism: utest for core, kernel, protocol and some components of app. performance bechmark by gperf and gprof.
+* For ARM and MIPS, SRS can running on raspberry-pi and cubieboard.
 
-目前，功能均已实现，处于测试和改进阶段。预计在2014年年底之前发布release 1.0.
+SRS 1.0 beta is ok at 2014.10. We plan to release SRS 1.0 at 2014.12.
 
 ## Release2.0
 
-SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
+SRS release 2.0, about 6 months and the main aims:
 
-* 学习和简化st，只保留linux/arm/darwin部分代码。
-* 简化RTMP包发送逻辑，在充分了解st的基础上，使用最高效直接的方式管理连接。
-* 其他小功能的完善，譬如dvr录制为一个文件，srslibrtmp支持h264之类。
+* Research and simplify st, remove platform code to only support linux/arm.
+* Simplify RTMP packet send mechenism, base on better knowlegement of st.
+* Other small changes, for example, dvr to stream plan, add h264 to rtmp interface for srs-librtmp.
 
 ## Backlog
 
-SRS 3.0+ 的功能列表，可能的方向：
+SRS 3.0+ features backlog:
 
-* HTTP方向：
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/130" target="_blank">HLS边缘</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/129" target="_blank">HTTP FLV分发</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/83" target="_blank">HTTP API认证</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/139" target="_blank">HLS快速缓存技术</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/140" target="_blank">HTTP支持vhost</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/52" target="_blank">HTTP访问时回调</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/174" target="_blank">HTTP-MP4流</a>
-* 增强的RTMP方向：
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/106" target="_blank">转发调用</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/92" target="_blank">支持RTMP302跳转</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/71" target="_blank">RTMP推流认证</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/131" target="_blank">支持AMF3</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/132" target="_blank">SharedObject和文本分发</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/156" target="_blank">一个连接多个流</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/163" target="_blank">Forward支持额外参数</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/164" target="_blank">Edge支持额外参数</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/93" target="_blank">支持RTMFP协议</a>
-* 超低延迟方向：
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/120" target="_blank">FRSC百毫秒延迟</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/94" target="_blank">集群内部使用UDP</a>
-* 监控RTSP方向：
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/133" target="_blank">支持RTSP</a>
+* HTTP Streaming:
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/130" target="_blank">HLS edge</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/129" target="_blank">HTTP FLV delivering</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/83" target="_blank">HTTP API authentication</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/139" target="_blank">HLS fast cache</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/140" target="_blank">HTTP support vhost</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/52" target="_blank">HTTP trigger RTMP</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/174" target="_blank">HTTP-MP4 streaming</a>
+* Enhanced RTMP Streaming:
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/106" target="_blank">RTMP call forward</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/92" target="_blank">RTMP302 Redirection</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/71" target="_blank">RTMP publish authentication</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/131" target="_blank">AMF3 codec</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/132" target="_blank">SharedObject and text delivery</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/156" target="_blank">Multiple stream over the same connection</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/163" target="_blank">Forward with extra parameters</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/164" target="_blank">Edge with extra parameters</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/93" target="_blank">RTMFP protocol</a>
+* Realtime without latency:
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/120" target="_blank">FRSC realtime</a>，
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/94" target="_blank">UDP for server communication</a>
+* RTSP Streaming:
+<a href="https://github.com/winlinvip/simple-rtmp-server/issues/133" target="_blank">RTSP streaming</a>
 
 SRS对于所有新功能都持推延态度；有悖于系统一致性和概念完整性的功能绝对不做，譬如支持Windows系统就有悖于一致性和完整性（服务器系统的差异太大）；对于确定要做的功能SRS也会仔细斟酌最佳方案，譬如支持多进程就是在选最佳方案；对于已有方案要做到最好，譬如最低延迟方案。对于功能点，只要属于系统一致性和概念完整性范围内都会考虑添加，或者说，大部分都不做，要做就要做到最好，the best or nothing!
 
