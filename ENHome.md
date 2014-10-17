@@ -36,9 +36,9 @@ How to use init.d script to start SRS as system service? How to run SRS in daemo
 
 How to get the log of SRS? How to trace log to console? How to get less log for log file too large? How to get more detail level log? How to get warn level log only? Please see: [SRS Log](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLog)
 
-## [SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Architecture)
+## [SRS Architecture](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Architecture)
 
-SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Architecture)
+The architecture for all SRS developers。Please see: [SRS Architecture](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Architecture)
 
 ## [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RtmpUrlVhost)
 
