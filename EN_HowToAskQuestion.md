@@ -19,7 +19,7 @@ Some FAQs:
 * The key features of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#summary)
 * The releases of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#releases)
 * Comparaton to other servers: [Compare](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
-* The history of SRS: [Reaame](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#history)
+* The history of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#history)
 
 File new bug when you still have questions, please follow the following question template.
 
