@@ -186,30 +186,30 @@ Usage: How to use SRS to transcode stream(not h.264+aac) to delivery HLS? Please
 
 ## [Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleFFMPEG)
 
-使用实例：如何使用SRS实时转码RTMP流？编码器不能输出h264+aac如何转码后分发HLS？参考：[Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleFFMPEG)
+Usage: How to use SRS to transcode stream? How to transcode the codec for HLS? Please see: [Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleFFMPEG)
 
 ## [Usage: Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleIngest)
 
-使用实例：如何将文件变成直播流？如何将已有流采集到SRS？如何做虚拟直播？如何抓取RTSP流？参考：[Usage: Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleIngest)
+Usage: How to ingest file to live stream? How to ingest exists stream to SRS? How to use SRS for virtual live streaming? How to ingest RTSP to SRS? Please see: [Usage: Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleIngest)
 
 ## [Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleForward)
 
-使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleForward)
+Usage: How to use SRS to build tiny cluster? How to build origin backup cluster when only one stream? How to forward stream to other servers from SRS? How to forward stream to backup server from SRS? Please see: [Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleForward)
 
 ## [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRealtime)
 
-使用实例：如何尽量降低延迟到1秒之内？SRS最低延迟的配置？参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRealtime)
+Usage: How to descrease the lantecy to <1s? How to config SRS in mininum latency mode? Please see: [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRealtime)
 
 ## [Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleARM)
 
-使用实例：如何搭建ARM虚拟开发环境？如何在ARM上部署SRS服务器端？参考：[Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleARM)
+Usage: How to run SRS on ARM linux? Please see: [Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleARM)
 
 ## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHTTP)
 
-使用实例：如何不依赖外部服务器分发HLS流？如何使用SRS内置的HTTP Server？参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHTTP)
+Usage: How to delivery HLS without external HTTP server? How to use the embeded HTTP server of SRS? Please see: [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHTTP)
 
 ## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleDemo)
 
-使用实例：如何部署SRS的DEMO（提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等）？参考：[Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleDemo)
+Usage: How to deploy the demo of SRS? The SRS demo provides players, flash encoders, live meeting demo, flash HLS player, transcoding. Please see: [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleDemo)
 
 Winlin 2014.10
