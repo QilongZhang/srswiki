@@ -78,14 +78,8 @@ SRS features: the best or nothing!
 
 2014.10 startup [SRS2.0](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product#release20)develop，6 months to comlete，to research and master st, simplify client packet send model, with other small feature refine. [Other features](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Product#backlog) postpone to 3.0+。
 
-感谢我自己像个偏执狂一样独自坚持完成srs的定位，架构，编码，测试和文档。感谢父母的养育，老师的培养，尤其是初中的胡开群高昂老师，高中的周国文老师，大学的欧旭理老师。感谢刚毕业在大唐工作时何力对我的帮助，以及微软时期赵斌对于接口设计的教导。感谢蓝汛时期付亮副总裁，我的研发管理启蒙老师对我认可和支持；感谢蓝汛时期Micheal热情大气无私，以及精湛的能力教我解决蓝汛边缘服务器的异步状态问题，让我领悟到要不断学习和进步；感谢蓝汛流媒体团队的各位同事，陪我走过我技术发展的黄金时期之一，尤其是文杰和刘岐能把蓝汛流媒体团队发展更上一层楼。感谢观止创想各位老大信任和支持我的管理方法和工作，以及认同SRS的架构在SRS基础上开发商用服务器平台。感谢所有关注和使用SRS的公司和用户，以及SRS的贡献者和主作者们，共同推动SRS向前发展。
+Thanks winlin to create, arch, coding, test and write wiki for SRS. Thanks for my parents and teachers. Thanks colleague who help me. Thanks all contributors and users of SRS. Let's push SRS to be better together~
 
-SRS虽然是重新编码和架构(不使用一行任何公司的现有代码是开源软件的底线)，实际上过去三年在直播集群中积累的经验最重要。SRS是我对于软件设计和开发的一个总结，是我对于产品研发的最好诠释。周末没多少时间，不过好产品不是靠人力的，靠的是毅力，经验和信仰。我要做的是不断成长的产品，几十年的产品，不着急这一时半会儿。
-
-入软件行业有10年，写代码有7年了，一直看一些书、反思、实践、再看书；书上众说纷纭，总得试一试看谁说的是对的；所以我做SRS只是当作形成自己体系的一个机会。古人说，不能记住你给别人的帮助，不能忘记别人对你的帮助。开源项目更多是不能记住你给别人的帮助。能做大的开源项目，往往聚集了一些同样是“不忘记别人对你的帮助”的这些人，才能一起推动项目发展。
-
-商业公司永远无法做出我个人满意的产品，不是时间的原因。SRS一定会出现众多的修改闭源商业版本，但没有一个能比我的分支更完整和可延续。这就是因为不考虑利益时才能考虑长远的缘故。
-
-srs必定广泛使用，如同漫天繁星散布渺渺宇宙，灿漫夏花开遍地球月球火星太阳系，愿蓝汛和观止创想财源广进，[SRSTeam](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#authors)永垂不朽，彪炳千古，哈哈哈!
+SRS will be a very important member for server software development.
 
 Winlin, 2014.10
