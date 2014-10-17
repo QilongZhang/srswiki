@@ -1,6 +1,6 @@
 # How to Ask Question
 
-Before asking any question, please read the [Wiki](https://github.com/winlinvip/simple-rtmp-server/wiki) and try to answer the question yourself.
+Before you ask any question, please read the [Wiki](https://github.com/winlinvip/simple-rtmp-server/wiki) and try to answer the question yourself.
 
 ## FAQ
 
