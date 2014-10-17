@@ -112,25 +112,25 @@ How many concurrency connections can SRS to serve? What about the performance of
 
 What about the performance benchmark on arm(respberrypi)? How many concurrency connections support on arm for SRS? Please see: [RaspberryPi Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RaspberryPi)
 
-## [RaspberryPi下转码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ARMTranscode)
+## [RaspberryPi Transcoding](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ARMTranscode)
 
-如何在RaspberryPi下转码音频？如何在pi下面开启HTTP服务器分发HLS？参考：[RaspberryPi下转码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ARMTranscode)
+How to transcode live stream on raspberrypi? How to delivery HLS on raspberrypi? Please see: [RaspberryPi Transcoding](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ARMTranscode)
 
-## [服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ServerSideScript)
+## [ServerSide Script](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ServerSideScript)
 
-SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ServerSideScript)
+Why SRS does not support ServerSide Script? How to use http callback instead? Please see: [ServerSide Script](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ServerSideScript)
 
 ## [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
 
-如何使用SRS提供的客户端rtmp库？为何要提供？结构是什么？主要流程是什么？实例如何使用？参考：[SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
+Why SRS provides client rtmp library? How to use srs-librtmp? How to modify the amf0 metadata use srs-librtmp? How to get server debug info from srs-librtmp? Please see: [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
 
-## [SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
+## [SRS for linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
 
-linux-arm设备如何使用SRS分发RTMP流？linux-arm上SRS的性能如何？参考：[SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
+How to use SRS on linux-arm device to delivery RTMP? What is the performance of SRS on linux-arm? Please see: [SRS for linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
 
-## [SRS的windows分支](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_WindowsSRS)
+## [SRS windows Branch](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_WindowsSRS)
 
-SRS在windows上支持到什么程度？客户端库支持得如何？服务器能在windows跑吗？参考：[SRS的windows分支](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_WindowsSRS)
+What is the status of SRS windows branch? Why SRS windows branch is experiment and not recomment to use? What about the srs-librtmp windows branch? Why srs-librtmp windows branch is ok for windows? Please see: [SRS windows Branch](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_WindowsSRS)
 
 ## [SRS带宽测试](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_BandwidthTestTool)
 
