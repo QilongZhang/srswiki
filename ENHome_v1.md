@@ -146,23 +146,23 @@ How does SRS correct the timestamp of stream? How to correct the time jitter? Ho
 
 ## [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Heartbeat)
 
-SRS如何以心跳形式汇报自己的信息？譬如arm嵌入式设备上运行服务器，每隔一定时间将自己的信息上报到api服务器。参考：[Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Heartbeat)
+SRS can report the status to external HTTP server by POST to a http url. For example, the SRS on arm can report its data to management server. Please see: [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Heartbeat)
 
-## [点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FlvVodStream)
+## [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FlvVodStream)
 
-SRS如何支持点播？FLV流如何支持？如何支持时移？录制的文件如何作为点播分发？参考：[点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FlvVodStream)
+Does SRS support VOD? What about the FLV VOD stream? How to support time-shift for live stream? How to delivery the DVR files as VOD stream? Please see: [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FlvVodStream)
 
-## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
+## [GPERF Memory and Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
 
-如何查找内存泄漏？valgrind不支持st怎么办？如何知道哪个函数占用内存多？哪个函数性能有问题？参考：[GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
+How to finger out the memory leak? Why use gmc? Why valgrind not supported by SRS? How to finger out the bottle neck of performance. Please see: [GPERF Memory and Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
 
-## [GPROF性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
+## [GPROF Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
 
-如何对SRS做性能优化？如何用gprof分析SRS性能？如何看性能的函数调用图？参考：[GPROF性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
+How to finger out the performance issue of SRS? How to use gprof? How to draw the performance graph using dot? Please see: [GPROF Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
 
-## [Perf性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Perf)
+## [Perf Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Perf)
 
-如何使用内核性能分析工具分析srs性能？参考：[Perf性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Perf)
+How to use kernel performance tools perf to finger out the performance issue of SRS? Please see: [Perf Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Perf)
 
 ## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_IDE)
 
