@@ -42,23 +42,23 @@ The architecture for all SRS developers。Please see: [SRS Architecture](https:/
 
 ## [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RtmpUrlVhost)
 
-搞不清楚RTMP的那些个vhost/app/stream？特别还有参数的时候？参考链接：[RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RtmpUrlVhost)
+What is the vhost or app or stream of RTMP? How to pass the authentication params to server in RTMP url? Please see: [RTMP URL & Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RtmpUrlVhost)
 
-## [RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)
+## [RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)
 
-RTMP为何要依赖ssl？什么是RTMP简单握手和复杂握手？什么时候用Simple就足够了？参考：[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)
+Why build openssl for RTMP server? What is the simple and complex handshake of RTMP? Which scenario to use simple handshake? Please see: [RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)
 
-## [FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
+## [FFMPEG Live Transcoding](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
 
-如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
+How to use SRS to transcode live stream? How to transcode audio only? How to passthrough audio or video? How to add logo to stream? What is the transcode params and the sequence for FFPMEG? Please see: [FFMPEG Live Transcoding](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
 
-## [RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryRTMP)
+## [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryRTMP)
 
-SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryRTMP)
+How SRS to support RTMP streaming? How to config SRS to support RTMP? What is the benifit of RTMP? Please see: [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryRTMP)
 
-## [HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
+## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
 
-如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
+How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in SRS? Please see: [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
 
 ## [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP.PK.HTTP)
 
