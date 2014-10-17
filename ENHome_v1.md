@@ -164,25 +164,25 @@ How to finger out the performance issue of SRS? How to use gprof? How to draw th
 
 How to use kernel performance tools perf to finger out the performance issue of SRS? Please see: [Perf Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Perf)
 
-## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_IDE)
+## [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_IDE)
 
-C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_IDE)
+How to choose C++ IDE? We recomment the UltimateC++ or Clion. Please see: [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_IDE)
 
-## [GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Git)
+## [GIT Usage](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Git)
 
-SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎么办？参考：[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Git)
+How to get the stable release of SRS? How to merge master with your branch? How to use CSDN mirror in China? Please see: [GIT Usage](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Git)
 
 ## [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRTMP)
 
-使用实例：如何使用SRS分发RTMP流？参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRTMP)
+Usage: How to use SRS to delivery RTMP? Please see: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRTMP)
 
 ## [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHLS)
 
-使用实例：如何使用SRS分发HLS(m3u8/ts)流？参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHLS)
+Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleHLS)
 
 ## [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleTranscode2HLS)
 
-使用实例：如何对不符合要求的流(h.264+aac)进行HLS流分发？参考：[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleTranscode2HLS)
+Usage: How to use SRS to transcode stream(not h.264+aac) to delivery HLS? Please see: [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleTranscode2HLS)
 
 ## [Usage: FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleFFMPEG)
 
