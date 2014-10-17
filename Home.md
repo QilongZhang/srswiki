@@ -4,6 +4,6 @@ Welcome to SRS wiki!
 
 Please select your language:
 * [English](https://github.com/winlinvip/simple-rtmp-server/wiki/ENHome_v1)
-* [Chinese](https://github.com/winlinvip/simple-rtmp-server/wiki/CNHome)
+* [Chinese](https://github.com/winlinvip/simple-rtmp-server/wiki/CNHome_v1)
 
 Winlin 2014.5
