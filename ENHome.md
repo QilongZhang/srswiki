@@ -62,39 +62,39 @@ How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in S
 
 ## [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP.PK.HTTP)
 
-如何选择分发协议？RTMP的优势在哪里？什么时候用HTTP？HLS优势和缺点是什么？参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP.PK.HTTP)
+How to choose delivering protocol? What about RTMP? What about HTTP? What about HLS? The history and use scenarios of RTMP, HTTP and HLS. Please see: [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMP.PK.HTTP)
 
-## [内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
+## [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
 
-如何不依赖外部web服务器直接可分发HTTP流譬如HLS？SRS为何支持内置的HTTP服务器？参考：[内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
+Can SRS support HTTP? How to delivery files over HTTP by SRS? Why SRS support embeded HTTP server? Can you use external HTTP Server? Please see: [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
 
-## [DVR录制] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
+## [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
 
-如何将直播RTMP流录制为flv文件？参考：[DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
+How to record live stream to flv file? How to record to pieces of files which start from keyframe with similar duration? What is the dvr plan, for example, segment and session plan? Please see: [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
 
-## [DRM防盗链] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DRM)
+## [DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DRM)
 
-SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DRM)
+Does SRS support DRM? How to config refer DRM? How to implement token DRM? Does SRS support FMS token traverse? Please see: [DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DRM)
 
 ## [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Reload)
 
-如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Reload)
+How to reload SRS? How to add new vhost and donot restart server? How to change config and donot start server? Please see: [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Reload)
 
-## [低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LowLatency)
+## [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LowLatency)
 
-如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LowLatency)
+How to use SRS in pseudo realtime? What is the latency? What is the mininum latency of SRS in commercial scenario, for example, CDN network? Please see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_LowLatency)
 
-## [HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
+## [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
 
-如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
+How to authenticate the client? How to callback external http api when client publish stream? How to notice your system when client connect or disconnect? Please see: [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
 
-## [HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
+## [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
 
-如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
+How to manage server by http management api? How to manage server, for example, get server status in HTML pages? How your php/python management system to manage the SRS? Please see: [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
 
-## [Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
+## [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
 
-SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将设备中的媒体数据编码为流输出？参考：[Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
+How does SRS to pull specified RTMP/RTSP/HTTP stream to itself and delivery it? How to delivery your RTSP stream from your ancient RTSP camera to RTMP, then deverliry to CDN as RTMP or HLS? How to encode the singals from device to output to SRS then delivery to internet? Please see: [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
 
 ## [Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Edge)
 
