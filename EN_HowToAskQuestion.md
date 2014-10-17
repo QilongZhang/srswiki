@@ -14,12 +14,12 @@ Some FAQs:
 * The performance benchmark: [Performance](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Performance)
 * What is the license of SRS? Why MIT? Please see: [License](https://github.com/winlinvip/simple-rtmp-server/blob/master/LICENSE)
 * How to run the demo pages of SRS: [Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleDemo)
-* The authors and contributors: [Readme](https://github.com/winlinvip/simple-rtmp-server#authors)
-* The architecture of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server#architecture)
-* The key features of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server#summary)
-* The releases of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server#releases)
+* The authors and contributors: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#authors)
+* The architecture of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#architecture)
+* The key features of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#summary)
+* The releases of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#releases)
 * Comparaton to other servers: [Compare](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
-* The history of SRS: [Reaame](https://github.com/winlinvip/simple-rtmp-server#history)
+* The history of SRS: [Reaame](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#history)
 
 File new bug when you still have questions, please follow the following question template.
 
