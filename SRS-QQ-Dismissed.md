@@ -9,7 +9,7 @@ SRS的QQ群已解散，<br/>
 
 杰哥已经建立了新的群，有需要可以加进去：http://jq.qq.com/?_wv=1027&k=WAZh2X 
 
-以下是详细的聊天记录：
+## 聊天记录
 
 ```
 497864872(497864872) 23:10:41 
@@ -1036,9 +1036,109 @@ hu lan 的
 火气旺
 ```
 
-邮件始末：
+## 邮件始末
 
 ```
+From: ※陈祖平※ [mailto:153997085@qq.com] 
+Sent: Friday, October 17, 2014 6:55 PM
+To: wayne
+Cc: winlin; chad.wang; root; heyu2000; xiangcheng.liu; ※陈祖平※; fedora2008; alcoholyi; byteman; StevenLiu; zhengfl; naijia.liu; suhetao; 2393867136; wenjie.zhao; dabieshan1456; wangxydlut; 1507655812; 7yue.love; karthikeyan; winlin; 79360404; zhengfl_1989; xiaohm1983; Johnny
+Subject: 回复： 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+周末左右无事，再说几句吧。
+现在再纠结于整个事件的来龙去脉已经没有任何意义了。
+
+Winlin开发了SRS，而且还开源出来，而且还在博客已经相关文档介绍了SRS，特别是RTMP的复杂握手过程，国内应该是Winlin首先把代码整理出来。可以说Winlin做了对大家非常有益的事情，我们真的应该感激Winlin。另一方面Winlin可是说是我到目前为止见过的最热心的群主了，大家有什么问题，Winlin都会在第一时间回复，这是非常不容易的。我想Winlin也花费了相当多了心血。别的不说（如回答问题的方式），就冲这些Winlin就是值得我们尊敬了。
+
+
+我们加入群，主要是有问题虚心请教，还有就是听听群主和群里大牛的讨论，我想大家都是受益匪浅，即使他是沉默的。
+
+阁下加入群之后先对SRS指手画脚，然后对Winlin叽叽歪歪（说什么耍大牌，有本事你也可以耍），嘴皮子的功夫可谓是一流，最终成功解散SRS群。
+
+
+阁下损人不利己，自己没有开源项目，不知道有没有有影响力的技术博客（有的话拿出来秀一秀吧）。还要妨碍别人开发开源项目，还让我们没有了热心的群主，我们是不是都应该出来感谢一下你呢。
+
+阁下还是好自为之吧，做人缺什么都可以，不能缺德。
+
+
+------------------ 原始邮件 ------------------
+发件人: "wayne";<cymatics@foxmail.com>;
+发送时间: 2014年10月17日(星期五) 下午5:58
+收件人: "chad.wang"<chad.wang.cn@gmail.com>; 
+抄送: "root"<root@kev7n.com>; "winlin"<winlin@chnvideo.com>; "heyu2000"<heyu2000@foxmail.com>; "xiangcheng.liu"<liuxc0116@foxmail.com>; "※陈祖平※"<153997085@qq.com>; "fedora2008"<fedora2008@163.com>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; "naijia.liu"<youngcow@youngcow.net>; "suhetao"<suhetao@gmail.com>; "2393867136"<2393867136@qq.com>; "wenjie.zhao"<740936897@qq.com>; "dabieshan1456"<dabieshan1456@163.com>; "wangxydlut"<wangxydlut@gmail.com>; "1507655812"<1507655812@qq.com>; "7yue.love"<7yue.love@163.com>; "karthikeyan"<keyanmca@gmail.com>; "winlin"<winlin@vip.126.com>; "79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; "xiaohm1983"<xiaohm1983@126.com>; "Johnny"<fengjihu@163.com>; 
+主题: Re: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+sorry，没有， 
+
+
+------------------ Original ------------------
+From:  "chad.wang";<chad.wang.cn@gmail.com>;
+Send time: Friday, Oct 17, 2014 11:45 AM
+To: "wayne"<cymatics@foxmail.com>; 
+Cc: "root"<root@kev7n.com>; "winlin"<winlin@chnvideo.com>; "heyu2000"<heyu2000@foxmail.com>; "xiangcheng.liu"<liuxc0116@foxmail.com>; "153997085"<153997085@qq.com>; "fedora2008"<fedora2008@163.com>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; "naijia.liu"<youngcow@youngcow.net>; "suhetao"<suhetao@gmail.com>; "2393867136"<2393867136@qq.com>; "wenjie.zhao"<740936897@qq.com>; "dabieshan1456"<dabieshan1456@163.com>; "wangxydlut"<wangxydlut@gmail.com>; "1507655812"<1507655812@qq.com>; "7yue.love"<7yue.love@163.com>; "karthikeyan"<keyanmca@gmail.com>; "winlin"<winlin@vip.126.com>; "79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; "xiaohm1983"<xiaohm1983@126.com>; "Johnny"<fengjihu@163.com>; 
+Subject:  Re: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+Wayne  有开源项目吗？或者GitHub的提交？爆料下  
+
+来自邮件手机客户端
+
+在 2014年10月17日，上午8:38，"wayne" <cymatics@foxmail.com> 写道：
+shut up, OK?
+
+
+------------------ Original message ------------------
+From: "root"; 
+Sendtime: Friday, Oct 17, 2014 8:37 AM
+To: "wayne"; "winlin"; 
+Cc: "heyu2000"; "xiangcheng.liu"; "153997085"<153997085@qq.com>; "fedora2008"; "alcoholyi"; "byteman"; "StevenLiu"; "zhengfl"; "chad.wang"; "naijia.liu"; "suhetao"; "2393867136"<2393867136@qq.com>; "wenjie.zhao"<740936897@qq.com>; "dabieshan1456"; "wangxydlut"; "1507655812"<1507655812@qq.com>; "7yue.love"<7yue.love@163.com>; "karthikeyan"; "winlin"; "79360404"<79360404@qq.com>; "zhengfl_1989"; "xiaohm1983"; "Johnny"; 
+Subject: Re: RE: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+别再整些有的没的，居然喊我喷子？请叫我五毛，谢谢。你自己瞅瞅你自己最开始的几封邮件，跟尼玛疯狗一样还充技术大牛，这会充大蒜了？敢说必死就拿出你做成功的开源案例，没有就shut up。别装一副高大上的样子，点到为止，不装逼没人说你。
+发自我的iPhone
+
+------------------ Original ------------------
+From: wayne <cymatics@foxmail.com>
+Date: 周四,10月 16,2014 20:10
+To: root <root@kev7n.com>, winlin <winlin@chnvideo.com>
+Cc: 2393867136 <2393867136@qq.com>, wenjie.zhao <740936897@qq.com>, winlin <winlin@vip.126.com>, xiangcheng.liu <liuxc0116@foxmail.com>, naijia.liu <youngcow@youngcow.net>, alcoholyi <alcoholyi@qq.com>, byteman <wangchen2011@gmail.com>, chad.wang <chad.wang.cn@gmail.com>, suhetao <suhetao@gmail.com>, Johnny <fengjihu@163.com>, karthikeyan <keyanmca@gmail.com>, StevenLiu <lq@chinaffmpeg.org>, zhengfl <zhengfl_1989@126.com>, 79360404 <79360404@qq.com>, zhengfl_1989 <zhengfl_1989@163.com>, heyu2000 <heyu2000@foxmail.com>, fedora2008 <fedora2008@163.com>, dabieshan1456 <dabieshan1456@163.com>, wangxydlut <wangxydlut@gmail.com>, xiaohm1983 <xiaohm1983@126.com>, 1507655812 <1507655812@qq.com>, 7yue.love <7yue.love@163.com>, 153997085 <153997085@qq.com>
+Subject: Re: RE: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+蓝色
+------------------ Original ------------------
+From: "&#39;wayne&#39;";<cymatics@foxmail.com>;
+Date: Thu, Oct 16, 2014 06:21 PM
+To: "Kevin Wang"<root@kev7n.com>; "winlin"<winlin@chnvideo.com>; 
+Cc: "2393867136"<2393867136@qq.com>; "wenjie.zhao"<740936897@qq.com>; "winlin"<winlin@vip.126.com>; "xiangcheng.liu"<liuxc0116@foxmail.com>; "naijia.liu"<youngcow@youngcow.net>; "alcoholyi"<alcoholyi@qq.com>; "byteman"<wangchen2011@gmail.com>; "chad.wang"<chad.wang.cn@gmail.com>; "suhetao"<suhetao@gmail.com>; "Johnny"<fengjihu@163.com>; "karthikeyan"<keyanmca@gmail.com>; "StevenLiu"<lq@chinaffmpeg.org>; "zhengfl"<zhengfl_1989@126.com>; "79360404"<79360404@qq.com>; "zhengfl_1989"<zhengfl_1989@163.com>; "heyu2000"<heyu2000@foxmail.com>; "fedora2008"<fedora2008@163.com>; "dabieshan1456"<dabieshan1456@163.com>; "wangxydlut"<wangxydlut@gmail.com>; "xiaohm1983"<xiaohm1983@126.com>; "1507655812"<1507655812@qq.com>; "7yue.love"<7yue.love@163.com>; "153997085"<153997085@qq.com>; 
+Subject: Re: RE: 回复： 回复： RE: 回复：RE: RE: 回复： RE: 敬给尊敬的winlin阁下，关于SRS代码库
+
+“三年必死” 是说SRS当前的git代码库的必死，不等于SRS的必死，不懂技术的才会瞎几把恼火。
+看你这翻话，你一定是技术大牛吧? 来给大伙秀秀你的开源项目，大伙去膜拜一下。别尼玛的搞的好像技术很屌一样，欢迎你各种技术秀，别耍嘴皮子，请拿实际项目。另外请别站在制高点对人指指点点，有实力的人不会干你这种无聊的事情。
+-“必死“ 脱离语境单独摘出来，味道变了，我自己都嫌恶心，不怪你-
+这年头产品速度迭代这么快,.... 这跟开源有几毛钱的关系？ 
+你这是在逗我？开源的代码最后不会编译成产品形态？你更新功能，最后是不是需要增删代码？产品迭代到底跟开源有没有关系？开源项目就不要release了？
+-你没抓住我的潜台词，或者说我没表达出中心：开源没有交付的deadline，跳过吧，不怪你-
+你群发邮件想证明啥？ 你是AUTHORS.txt里的吗，你只不过是我点击"Reply All"的时候捎带进来的。
+看你说这么多智商不像很低的样子，这句话有何逻辑？搞的好像你是AUTHORS.txt里面的？貌似没看到你大名，没你名字你发给那么多人搞毛？想入AUTHORS.txt? 别说不关我屁事，关你屁事就关我屁事，你地，明白？
+-只有亲娘才心疼儿子，你是旁人，旁人难免会 talk cheap，包括我，也经常会talk cheap，不怪你哈-
+另外发邮件请注意邮件格式，别让人感觉那么业余行吗，别让年轻冲昏头脑。 你以为所有人跟你一样都使同一个Client？到底谁业余?
+这尼玛跟客户端又有半毛关系？你在逗我？你自己看看你第一份邮件写的内容格式，别跟我说是客户端自动搞成那样的。还尼玛教别人要谦虚，人家说你不对，句句找无理借口反驳，你的话送你： “Talk is always cheap and should never hurt.”
+-你不知道我的环境，我也不想跟你透露，你信不信我这句话对于我来说不重要-
+
+本来在上封邮件戳over的时候就决定 不再回复的。但看到winlin的两封邮件，我只好多说一句，也是最后一封，雷打不动。
+
+
+To winlin :
+Talk is always cheap and should never hurt. 
+Everything will mirror back for what you have done.
+and last, you are never alone.
+另外别充洋人了，你既然想跟人家好好沟通交流，动不动来个必死，这叫交流，充大牛？ 
+-本想来个编码的，屏蔽掉一些像你这样的喷子，后来顿生无聊感，就算了。
+语言这东西很容易玩欺骗，从始至终我都是娱乐的心态。
+来，咱们扔一个石子进去，看看这湖面会不会来个大浪，
+但我为什么要扔石子呢，因为我还有那份一丁点的好奇心，没有泯灭......-
+而现在，我当初的那一丁点好奇心已经摧残殆尽。Namaste.
+---end----
+
 发件人："杨成立" <winlin@vip.126.com>
 发送日期：2014-10-16 14:19:44
 收件人：'wayne' <cymatics@foxmail.com>
