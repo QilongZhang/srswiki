@@ -21,7 +21,7 @@ Some FAQs:
 * Comparaton to other servers: [Compare](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Compare)
 * The history of SRS: [Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#history)
 
-File new bug when you still have questions, please follow the following question template.
+File new bug when you still have questions, please follow the following bug template.
 
 ## Bug Template
 
