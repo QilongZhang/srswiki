@@ -1,19 +1,18 @@
-# SRS产品规划
+# SRS Roadmap
 
-关于SRS的来源，定位，愿景和计划。
+About the SRS History, Vision and Roadmap.
 
 ## Vision
 
-SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。
+SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation.
 
-* 运营级：商业运营追求极高的稳定性，良好的系统对接，以及错误排查和处理机制。譬如日志文件格式，reload，系统HTTP接口，提供init.d脚本，转发，转码，边缘回多源站，都是根据CDN运营经验作为判断这些功能作为核心的依据。
-* 互联网：互联网最大的特征是变化，唯一不变的就是不断变化的客户要求，唯一不变的是基础结构的概念完整性和简洁性。互联网还意味着参与性，听取用户的需求和变更，持续改进和维护。
-* 直播服务器：直播和点播这两种截然不同的业务类型，导致架构和目标完全不一致，从运营的设备组，应对的挑战都完全不同。两种都支持只能说明没有重心，或者低估了代价。
-* 集群：FMS(AMS)的集群还是很不错的，虽然在运营容错很差。SRS支持完善的直播集群，Vhost分为源站和边缘，容错支持多源站切换、测速、可追溯日志等。
-* 概念完整性：虽然代码甚至结构都在变化，但是结构的概念完整性是一直追求的目标。从SRS服务器，P2P，ARM监控产业，MIPS路由器，服务器监控管理，ARM智能手机，SRS的规模不再是一个服务器而已。
-* 简单实现：对于过于复杂的实现，宁可不加入这个功能，也不牺牲前面提到的要求。对于已经实现的功能的代码，总会在一个版本release前给予充分的时间来找出最简答案。不求最高性能，最优雅，最牛逼，但求最简单易懂。
+* Industrial-strength: SRS provides high available(right now we know a CDN of China use SRS to delivery 100Gbps+ live stream), high performance, tracable log, reload and vhost for internet live video streaming industrial-strength group.
+* Internet: SRS is refined again and again to get the best conceptual integrity and the simplest implementation, for the internet application is changed every day and evolve very fast, for everyone to master SRS in very short time.
+* Live Streaming: SRS never support both VOD and Live, for these two streaming is very very different. We recomment the VOD to use HTTP protocol, and live which required low latency use RTMP, both RTMP and HTTP are ok for live without latency.
+* Conceptual Integrity: SRS will refine again and again util code freezed to release. The integrity of conceptual is refined again and again. For example, we will finger out the tracable log, which involes identified id for each connection, and server id in response of RTMP, and upnode id for edge.
+* Simplest Implementation: SRS never add features which is very hard to implement, and we will finger out the simplest architecture and logic code, we will do our best to keep the code as simple as we can. Maybe SRS does not provides lots of features, maybe the code is not eligance, but it's the most simple we can archive.
 
-备注：概念完整性可以参考Brooks的相关文献，在宏观方面他还是很有造诣。
+Notes: the conceptual integrity refer to Brooks.
 
 ## Release1.0
 
