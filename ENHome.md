@@ -96,21 +96,21 @@ How to manage server by http management api? How to manage server, for example, 
 
 How does SRS to pull specified RTMP/RTSP/HTTP stream to itself and delivery it? How to delivery your RTSP stream from your ancient RTSP camera to RTMP, then deverliry to CDN as RTMP or HLS? How to encode the singals from device to output to SRS then delivery to internet? Please see: [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
 
-## [Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Edge)
+## [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Edge)
 
-SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Edge)
+How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, reload, http api and MIT source code? Why forward and ingest is not ok for huge live cluster? Does SRS support FMS edge mode? Please see: [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Edge)
 
-## [Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Forward)
+## [Forward: Tiny Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Forward)
 
-使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Forward)
+How to use SRS for few stream and servers cluster? How to build origin fault backup when only one stream? Please see: [Forward: Tiny Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Forward)
 
-## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Performance)
+## [Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Performance)
 
-对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Performance)
+How many concurrency connections can SRS to serve? What about the performance of SRS? We compare the high performance server nginx-rtmp and SRS, and provides some benchmarks for server performance check. Please see: [Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Performance)
 
-## [RaspberryPi性能测试](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RaspberryPi)
+## [RaspberryPi Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RaspberryPi)
 
-SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参考：[Performance: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RaspberryPi)
+What about the performance benchmark on arm(respberrypi)? How many concurrency connections support on arm for SRS? Please see: [RaspberryPi Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RaspberryPi)
 
 ## [RaspberryPi下转码](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_ARMTranscode)
 
