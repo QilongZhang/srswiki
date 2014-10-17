@@ -25,7 +25,7 @@ File new bug when you still have questions, please follow the following question
 
 ## Bug Template
 
-Please file bug with following descrition:
+Please file bug with following description:
 * Issue: the descrpition of your issue.
 * Environment: os(32/64bits, version), server deploy architecture.
 * StreamFlow: encoder info, how to publish to SRS, player how to play.
