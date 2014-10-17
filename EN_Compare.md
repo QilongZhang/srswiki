@@ -8,24 +8,24 @@ SRS use the best tech for RTMP protocol, the coroutine, which can simplify the s
 
 For detail feature and roadmap, see [Features](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Features)
 
-## 术语表
+## Introduction
 
-下面对比用到的术语：
-* RTMPS/E/T：RTMPS/E是加密协议，RTMPT是HTTP穿墙协议
-* DASH：各路诸侯对抗Apple的HLS提出的类似协议
-* 转换Vhost：上行publish加速往往使用特殊设备和域名，需要转换vhost为下行域名，在CDN/VDN中常用
-* 配置友好：FMS/Helix/Wowza的配置是XML时代产物，不是给人看的，极其不友好。Nginx配置是当代产物，简单明了易读。
-* 启动脚本：以linux服务启动的脚本，譬如init.d下面的脚本
-* 源站配套系统：其他辅助系统，譬如VMS、转码、编码、收录、P2P等等。
-* 扩展脚本语言：FMS有AS，crtmpd/nginx有lua，扩展语言难以调试，代码量较多时问题频繁发生，不觉得是个好东西
-* 单线程：单线程能支持10K级别并发，往往采用非阻塞异步机制
-* 轻量线程：轻量线程架构能使用“类同步”（本质异步）结构简化逻辑
-* 代码维护性：代码量，有效注释，注释百分比，逻辑复杂性，业务复杂性
-* 可追溯日志：客户端/边缘若知道自己在服务器的id，那么就很容易追溯整个流
+The keyword we using:
+* RTMPS/E/T：RTMPS/E is encrypt protocol, RTMPT is RTMP over HTTP to traverse firewalls.
+* DASH：the HLS similar protocol design by some company.
+* Change Vhost：for upnode speedup, to publish stream to RTMP cluster, CDN need to change vhost to use different device group for publish and play service.
+* Readable Config: FMS/Helix/Wowza use xml config, it's very ugly. nginx style config is json-similar, modern server config. SRS use nginx style config.
+* Service Script: linux system service script, see /etc/init.d/srs.
+* Origin Suite: other origin software suite, for example, vms, transcode system, encoder, recorder, p2p.
+* Server Side Script: the as of FMS, lua for crtmpd/nginx. SRS never support server-side script, for it's hard to debug and maintain and more bug introduced.
+* Single Thread: modern linux use epoll to support 10k+ concurrency by single thread and none-blocking async socket.
+* Coroutine: the coroutine is a domain of C, similar to eventlet of python, golang of google. A new domain of server side development tech.
+* Maintainable: to get more maintable code, for the same features, we must write less code, add more comments, simplify the logic and use the best arch for the problem domain.
+* Tracable log: client can get its id on server, edge can get its id on upnode, to get the log base on session by grep the id.
 
 ## History
 
-国家没有历史就没有文化，产品没有历史就没有品牌。开源软件也需要历史，只有不断更新和完善的产品才是好产品，尤其是资源紧缺的开源产品。
+The history of media stream industry.
 
 ![Media Stream Servers History](http://winlinvip.github.io/srs.release/wiki/images/compare/100.release.png)
 
