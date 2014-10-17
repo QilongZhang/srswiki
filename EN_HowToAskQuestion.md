@@ -23,7 +23,7 @@ Some FAQs:
 
 File new bug when you still have questions, please follow the following question template.
 
-## Question Template
+## Bug Template
 
 Please descript your problem:
 * Issue: the descrpition of your issue.
