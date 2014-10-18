@@ -31,17 +31,17 @@ The history of media stream industry.
 
 ## Protocol
 
-协议是服务器的基础，协议决定了关键应用场景，譬如毫秒级别延时只能用udp，秒级别延迟用RTMP，十秒级别可以用HLS。
+Specified use scenarios must use specified protocols, because specified protocol is design for specified use scenarios. For example, udp design for 0-1000ms latency use scenario, RTMP for 1s-10s, while HLS for 10s+, vice versa.
 
-可惜技术并不能十全十美，RTMP在PC上支持完善是因为adobe的flash支持得好，HLS在IOS上完善是因为apple支持得好，不代表RTMP协议就简单。
+There is no simple or good tech, and a tech is simple or good only when huge users and company spend time on it. For instance, RTMP for flash is ok for Adobe Player support it, user only need 4lines to play a RTMP stream, nothing more than NetConnection.connect(tcUrl) then NetStream.play(streamName). For example, HLS is ok for IOS/MAC for Apple Safari support it, user only need to use html5 or redirect to the http://xxx/xxx.m3u8. But, neither RTMP nor HLS is simple or good, both are complex and complex.
 
-所以什么协议都支持的服务器往往失去了重要的方向和定位，互联网上最重要的莫过于HTTP，即HLS协议，因此目前HLS大行其道。而实际PC平台浏览器中的的重要协议，是RTMP。
+For internet, a "open" protocol is very important, so the RTSP never use in internet for most of company are using RTSP as private protocol. HTTP is "open" enough, and HTTP/HLS can be used in internet streaming protocol. RTMP is private but supported by flash which running almost on all PC, and RTMP can be "open" protocol for internet(PC only), and mobile platform can use RTMP by FFMPEG or AVFormat library. So, RTMP on PC(flash) is very simple for client, but complex for mobile to support RTMP.
 
 ![Media Stream Servers Protocol](http://winlinvip.github.io/srs.release/wiki/images/compare/200.protocol.png)
 
 ## Feature
 
-流媒体不仅仅是能播放就可以，特别对于流媒体业务运营。配置几个参数就能转码，和写复杂的FFMPEG参数完全不一样，技术上容易1倍，到最终用户使用时会方便千百倍。
+It's not good enough for a streaming system to provides delivery feature, especially for public or private CDN. For example, nginx-rtmp can transcode by exec external FFMPEG, and SRS support FFMPEG by specifies the path and video/audio params and SRS will auto restart FFMPEG when quit. It's very important for user to simple the problem domain, for instance, user can modify the config item fps from 20 to 25, but it's very complex for user to modify the FFMPEG param -v:f which maybe changed for different version.
 
 ![Media Stream Servers Feature](http://winlinvip.github.io/srs.release/wiki/images/compare/300.feature.png)
 
