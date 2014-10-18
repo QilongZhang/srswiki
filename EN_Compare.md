@@ -53,25 +53,29 @@ SRS support all linux, including x86/x64/arm/mips cpu.
 
 ## Arch
 
-体系结构其实是时代特征，FMS/Helix/Wowza一看就是一个时代的，nginx/rtmpd/srs是这个时代的架构。
+First generation server arch: FMS/Helix/Wowza, multiple thread, single process, sync and blocking io.
+
+Second generation server arch: nginx/crtmpd, single thread, single/multiple process, async and none-blocking io.
+
+Third generation server arch: go/eventlet/srs, single thread, single/multiple process, async and none-blocking io.
 
 ![Media Stream Servers Architecture](http://winlinvip.github.io/srs.release/wiki/images/compare/500.arch.png)
 
 ## CDN/VDN
 
-对于CDN/VDN，往往有很多特殊的要求，这些只有在CDN里面的运维最清楚。CDN的软件系统，应该做到不需要运维半夜三更职守升级，这个很容易？你没有在CDN混过吧。
+Special key features for cdn(content delivery network) or vdn(video delivery network).
 
 ![Media Stream Servers CDN/VDN](http://winlinvip.github.io/srs.release/wiki/images/compare/600.cdn.png?version=1.0)
 
 ## Code
 
-代码行数往往没有什么意义，软件的基础是代码，所以比较下代码行数也没有关系。如果代码行数相差不大，功能也差不多，那没有什么奇怪的；如果功能少一倍，代码行数差不多，我会选择行数少的；如果功能少一倍，代码却多一倍，只有脑袋有问题的才会选择前者吧。
+Code lines and comments lines, maybe means nothing, whatever, it just a data of server comparation.
 
 ![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png?v=2)
 
 ## SRS history
 
-SRS的里程碑，服务器开发不是百米冲刺，而是马拉松，绝对的马拉松。
+Cook needs time, the server development also needs long long time to code, refine and evolve. The releases and milestone makes the Marathon easier.
 
 ![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png)
 
