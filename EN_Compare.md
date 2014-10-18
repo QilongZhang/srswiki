@@ -47,7 +47,7 @@ It's not good enough for a streaming system to provides delivery feature, especi
 
 ## Deploy
 
-部署不重要么？如果你有老旧的机器，运行着老系统，就不会那么认为了，不是所有系统都能更新到CENTOS6的，程序员往往喜欢写不能碰的软件，特别是系统，特别是早期的程序员。如果加上现在广泛应用的ARM呢？能在ARM上运行，不仅仅是很酷吧!
+SRS support all linux, including x86/x64/arm/mips cpu.
 
 ![Media Stream Servers Deploy](http://winlinvip.github.io/srs.release/wiki/images/compare/400.deploy.png)
 
