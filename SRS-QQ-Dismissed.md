@@ -1039,6 +1039,46 @@ hu lan 的
 ## 邮件始末
 
 ```
+From: winlin [mailto:winlin@chnvideo.com] 
+Sent: Saturday, October 18, 2014 9:47 AM
+To: 'wayne'; '153997085'
+Cc: 'chad.wang'; 'root'; 'heyu2000'; 'xiangcheng.liu'; '153997085'; 'fedora2008'; 'alcoholyi'; 'byteman'; 'StevenLiu'; 'zhengfl'; 'naijia.liu'; 'suhetao'; '2393867136'; 'wenjie.zhao'; 'dabieshan1456'; 'wangxydlut'; '1507655812'; '7yue.love'; 'karthikeyan'; 'winlin'; '79360404'; 'zhengfl_1989'; 'xiaohm1983'; 'Johnny'
+Subject: RE: 回复：敬给尊敬的winlin阁下，关于SRS代码库
+
+赞你们几个～
+人就是要有看法，不用管看法对不对，谁知道对不对呢？
+你们几个回邮件了的，比其他人确实值得尊重。
+
+From: wayne <cymatics@foxmail.com>
+Sent: Saturday, October 18, 2014 12:35 AM
+To: 153997085; winlin
+Cc: chad.wang; root; heyu2000; xiangcheng.liu; 153997085; fedora2008; alcoholyi; byteman; StevenLiu; zhengfl; naijia.liu; suhetao; 2393867136; wenjie.zhao; dabieshan1456; wangxydlut; 1507655812; 7yue.love; karthikeyan; winlin; 79360404; zhengfl_1989; xiaohm1983; Johnny
+Subject: Re: RE: 回复： 敬给尊敬的winlin阁下，关于SRS代码库
+
+我相信这些话是你经过沉淀说出来的，挺好的，我也沉淀下来了，所以，namaste.
+
+由于“周末左右无事”的你用“缺德”两个字 着实 勾起了我的兴趣，所以我不忌讳有人骂我闲的蛋疼，就跟你这个用词不痛不痒的多唠几句吧，看谁的干货多：
+-------------------------------------------------------------------
+我跟你看待事情的方式是不一样的。
+  你会因为某个东西投你所好，某个高大上的东西让你无法企及，而心生爱意。比如 winlin长得好看还倍有才华，不仅技术博客很牛B，而且在github上还有项目，于是你爱他的一切甚于自己，于是你用这个模子去看人。
+
+而我呢，我只关注我自己，关注我感兴趣的东西。关注开源君真正的驱动力，关注开源作品的生命周期，关注那些看不到自己内心的僵尸群体所形成的行为模式，关注那些公众人物的微心理，关注自己在创造和摧毁一个事物的时候自己的微情绪，关注自己在打字的时候那一闪而过的瞬间悲剧...
+
+winlin接下来在现在的代码库上会继续commit多少代码呢？曾经我还感兴趣，现在已经没有感觉，包括我现在说话的对象---你。
+
+哦，对了。还是要提及一下，免得有人看不懂母语以为我对winlin有敌意。其实恰恰是相反的。
+
+我挑了几个入口看了winlin的代码，细节上感觉有点粗糙很是着急，好像急着要兑现某个东西似的，是之前项目的代码吗，还是有人给你设了deadline。 
+-------------
+为什么我认为winlin的代码很着急，原因如下：
+1）trunk/src/app/srs_app_avc_aac.cpp 下的metadata_demux函数有点壮观，get_property跟进去竟然是vector实现，好省心，这种情况是我就果断用map，不过呢，如果老板催我赶进度，私下里我任何实现都有可能发生。
+2）std命名空间乱入乱出，不过，如果我很着急的话，懒得管这些细节
+3）耦合度偏高。文件内有多个类的实现，游离着好几个static变量；文件间extern偏多。如果老板催活，说不准我也会写出这样的代码，懒得管什么设计模式。
+
+说这这三条的目的就是，表明 “你在做，别人不看不要紧，天在看，我在看， :)
+
+对了，很关键很关键的一句话，SRS很有前景和吸引力，能把功能完整的实现出来着实体现了你的功力，必须给赞。
+
 From: ※陈祖平※ [mailto:153997085@qq.com] 
 Sent: Friday, October 17, 2014 6:55 PM
 To: wayne
