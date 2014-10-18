@@ -71,13 +71,13 @@ Special key features for cdn(content delivery network) or vdn(video delivery net
 
 Code lines and comments lines, maybe means nothing, whatever, it just a data of server comparation.
 
-![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png?v=2)
+![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png?v=3)
 
 ## SRS history
 
 Cook needs time, the server development also needs long long time to code, refine and evolve. The releases and milestone makes the Marathon easier.
 
-![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png)
+![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png?v=1)
 
 ## FMS PK SRS
 
