@@ -67,13 +67,13 @@ SRS优势的基础在于基础架构，采用ST轻量线程，SRS和其他流媒
 
 代码行数往往没有什么意义，软件的基础是代码，所以比较下代码行数也没有关系。如果代码行数相差不大，功能也差不多，那没有什么奇怪的；如果功能少一倍，代码行数差不多，我会选择行数少的；如果功能少一倍，代码却多一倍，只有脑袋有问题的才会选择前者吧。
 
-![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png?v=2)
+![Media Stream Servers Code](http://winlinvip.github.io/srs.release/wiki/images/compare/700.code.png?v=3)
 
 ## SRS history
 
 SRS的里程碑，服务器开发不是百米冲刺，而是马拉松，绝对的马拉松。
 
-![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png)
+![Media Stream Servers SRS History](http://winlinvip.github.io/srs.release/wiki/images/compare/800.srs.higtory.png?v=1)
 
 ## FMS PK SRS
 
