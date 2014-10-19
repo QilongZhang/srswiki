@@ -26,6 +26,8 @@ SRS release 1.0, about 1 year and the main aims:
 
 SRS 1.0 beta is ok at 2014.10. We plan to release SRS 1.0 at 2014.12.
 
+The bug hotfixed for 1.0release：[hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0.beta...1.0release)
+
 ## Release2.0
 
 SRS release 2.0, about 6 months and the main aims:
