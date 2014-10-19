@@ -27,6 +27,8 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 
 目前，功能均已实现，处于测试和改进阶段。预计在2014年年底之前发布release 1.0.
 
+查看1.0release之后的改动：[hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0.beta...1.0release)
+
 ## Release2.0
 
 SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
