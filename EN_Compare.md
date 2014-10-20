@@ -94,13 +94,13 @@ SRS better than SRS for:
 * Easy Config: the config is very complex of FMS, for the xml is ugly and complex to read and maintain. Why app for a live server? App is no use for a pure live server. SRS is vhost based config.
 * Reload：FMS does not support FMS, while reload is very very important for service.
 * Fast Restart: SRS restart very fast, <100ms, for there is no lock to wait and no resource to release. FMS need about 60s to restart. Restart is a very common feature when got unknown problem.
-* 日志不明：FMS的日志，就是没有什么用的东西，想知道某个IP的客户端为何死活播放不了？想知道有哪些客户端延迟较大？想知道目前服务器吞吐带宽？做梦吧，adobe根本没打算给出来，或许他们自己也不知道，哈哈。SRS呢？首先，记录完整日志，都有错误码，而且有client id，可以查询到某个客户端的整个信息（要在那么多客户端中找出一个，不简单）。其次，使用pithy print，做到智能化打印，SRS的日志输出还是比较能给人看的，不多不少。最后，SRS提供cli，能吐出json数据，想查带宽？想查流信息？cli都可以搞定，而且是json，现代系统标准接口。
-* 没有热备：FMS竟然没有热备？是的，不是adobe不行，几乎都不会考虑热备。SRS边缘可以回多个源站，一个挂了切另外一个。FMS如何做？得改配置，重启，等等，重启不是要一分钟吗？是的，简单来讲，FMS不支持热备。
-* 适应性强：FMS适应性如何不强？FMS4只能运行在Centos5 64位，FMS5要好点也好不到哪里去。SRS呢？估计linux-arm上都能跑，更别提什么linux发行版，什么机器，什么内存，都行！如果你有大量旧机器要跑流媒体？可以，上SRS吧。
-* url格式简单：这个也算？我觉得很算。看过FMS的RTMP对应的HDS/HLS流吧？多么长的地址，多么恐怖的adbevent！谁要是能立马配置FMS的HLS，然后输入地址播放，那真的是神。SRS呢？把rtmp换成http，后面加上.m3u8就是HLS，多么简单！
-* 不支持转码：FMS无法对直播流在服务器端转码。SRS使用ffmpeg做了支持。adobe是大公司，应该是没有办法使用ffmpeg转码。
-* 不支持录制：FMS的录制是在FMLE上有个DVR的按钮，然后配置服务器端脚本实现，不靠谱。SRS的录制和时移只会做一部分，但是也会比那种脚本方案要靠谱很多（脚本不可能不出问题，亲身经历）。
-* 没有代码：FMS最重要一点，不提供代码，有bug？找adobe。想要定制？找adobe。那基本上就不要有那个念想了。SRS代码都是开源的，SRS作者水平一般，所以写出来代码就需要很小心，尽量写得清楚，不然自己看不懂，哈哈。
+* Tracable Log: Although FMS provides log, but only access and error log, it is nothing to tell us why connect failed, we can not finger out the whole log of a specified connection from connect to play then close. SRS use session based log to grep by the connection id, which is send to flash client and edge node. SRS use tracable log, when we got any connection id, everything we got, that is, the source id for this connection, the id on the upnode, etc.
+* High Available: No backup server for edge, when fault or upnode server crash. SRS can fetch from multiple upnode server, when one failed, rollback to the next immediately.
+* For all Linux: FMS only run on Centos5 64bits, AMF can run on Centos5/6 32/64bits. SRS is ok for all Linux which has epoll, for x86/64/arm/mips cpu, that is, for Centos4/5/6 or Ubuntu or Debian or whatever linux.
+* Simple URL: It's simple to guess the HLS by the RTMP of SRS, vice versa. For example, RTMP is rtmp://server/live/livestream, then HLS is http://server/live/livestream.m3u8. What about FMS? Nobody can finger it out for rtmp and hds/hls is very complex.
+* Transcode: SRS support live stream transcode by fork a FFMPEG process.
+* DVR: SRS support dvr with some plans. FMS need some server-side scripts which always introduce bugs.
+* OpenSource: SRS use MIT license. FMS is not open source. If you want to master one server, only SRS is possible.
 
 ## Wowza PK SRS
 
