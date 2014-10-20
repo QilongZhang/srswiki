@@ -81,18 +81,19 @@ Cook needs time, the server development also needs long long time to code, refin
 
 ## FMS PK SRS
 
-FMS是adobe的流媒体服务器，RTMP协议就是adobe提出来的，FMS一定是重量级的产品。
+FMS is a media streaming server of Adobe, which created RTMP protocol. FMS is a very important one, and it evolved from 1.0 to 5.0. FMS(Flash Media Server) 5.0 renamed to AMS(Adobe Media Server).
 
-FMS比SRS优点
-* 功能全面：支持RTMP/RTMPE/RTMPS/RTMPT/RTMFP流协议，AMF0/AMF3编码，SharedObject协议，HLS/HDS协议，直播和点播，支持服务器脚本，支持多码率，支持Windows和Linux平台。能想到的好像都能支持。SRS呢？可怜兮兮的只有RTMP/AMF0/HLS/直播/linux。
-* 研发资源充分：adobe做FMS的多少人，看那个样子真是不少，还得不断改进和推出新版本。这个也算一个优势，不过也难讲，windows也不少人，对比起linux，服务器还是比不过后者。
+FMS better than SRS for:
+* Features：FMS supports RTMP/RTMPE/RTMPS/RTMPT/RTMFP protocol, AMF0/AMF3 codec, SharedObject, HLS/HDS, Live/Vod, ServerSide ActionScript1.0, FlashP2P, Windows/Linux; FMS supports everything whatever you know. SRS only support RTMP/AMF0/HLS/Live/linux.
+* Dev Resource: The developer resource of Adobe FMS is very large, maybe 100+. SRS only 2 primary authors.
 
-SRS比FMS优点
-* 更高性能：FMS的性能不算瓶颈，不过FMS一个进程开启246个线程的架构设计来看，FMS就是一个旧时代的产物。
-* 不跨平台：FMS支持跨平台，在我看来不过是多此一举，服务器为何要跑在windows上面？大约只是为了自宫练宝典。正是SRS不跨平台，才得以略去很多麻烦事。
-* 配置简单：FMS的配置巨麻烦无比，xml也是上一代技术的产物，真心xml作为配置是个不好用的东西。何况FMS的配置巨繁琐，创建vhost还得创建一个目录，拷贝配置，创建app也要建立目录，且小心了，别改错了。SRS呢？根本不用创建app，为什么要创建app？！创建vhost只要在配置文件加一行就搞定。
-* 不支持Reload：FMS没有Reload，所以某CDN公司的运维就很苦了，白天不能动FMS，不能加新客户，那会导致FMS重启。只能半夜三更起来，操作完了还要阿弥陀佛，因为研发一般这时候睡觉了，除了问题就只能自求多福。SRS呢？直接Reload就能生效，不影响在线用户，想怎么改都行。
-* 重启巨慢：c/c++程序嘛，总会出问题，解决这种问题，简单的方式就是看门狗重启。FMS惨了，重启要1分钟，我去，1分钟没有流啊，客户都要找上门赔钱了，不行的。SRS重启多长时间？以毫秒计算。
+SRS better than SRS for:
+* Simple: SRS focus on small problem domain, which is the most complex for all software(see OOAD). Because of lack of deveoper resource, SRS only provides features which is the most popular for internet. SRS is simple for and only for problem domain is simplified.
+* High Performance: FMS is not low performance, but the tech using by FMS is not modern high performance arch. The "modern" arch is single-thread, async and none-blocking, which introduced by epoll of linux, for example, nginx. FMS use multiple thread arch, about 265 threads running for FMS.
+* Only Linux: Why support windows for servers? Linux is not good enough as a server platform?
+* Easy Config: the config is very complex of FMS, for the xml is ugly and complex to read and maintain. Why app for a live server? App is no use for a pure live server. SRS is vhost based config.
+* Reload：FMS does not support FMS, while reload is very very important for service.
+* Fast Restart: SRS restart very fast, <100ms, for there is no lock to wait and no resource to release. FMS need about 60s to restart. Restart is a very common feature when got unknown problem.
 * 日志不明：FMS的日志，就是没有什么用的东西，想知道某个IP的客户端为何死活播放不了？想知道有哪些客户端延迟较大？想知道目前服务器吞吐带宽？做梦吧，adobe根本没打算给出来，或许他们自己也不知道，哈哈。SRS呢？首先，记录完整日志，都有错误码，而且有client id，可以查询到某个客户端的整个信息（要在那么多客户端中找出一个，不简单）。其次，使用pithy print，做到智能化打印，SRS的日志输出还是比较能给人看的，不多不少。最后，SRS提供cli，能吐出json数据，想查带宽？想查流信息？cli都可以搞定，而且是json，现代系统标准接口。
 * 没有热备：FMS竟然没有热备？是的，不是adobe不行，几乎都不会考虑热备。SRS边缘可以回多个源站，一个挂了切另外一个。FMS如何做？得改配置，重启，等等，重启不是要一分钟吗？是的，简单来讲，FMS不支持热备。
 * 适应性强：FMS适应性如何不强？FMS4只能运行在Centos5 64位，FMS5要好点也好不到哪里去。SRS呢？估计linux-arm上都能跑，更别提什么linux发行版，什么机器，什么内存，都行！如果你有大量旧机器要跑流媒体？可以，上SRS吧。
