@@ -160,13 +160,9 @@ Need to compare with Red5, which only supports about 100 connections.
 
 ## crtmpd PK SRS
 
-crtmpd（rtmpserver），c++的RTMP服务器，但是SRS也是C++的，私下以为crtmpd是以c的思维习惯来写c++代码，就像c++作者讲的，拿着c++这个电钻当铁锤锤钉子————不仅仅没有效果，还可能会砸到自己的手。
+CRTMPD(CrtmpServer) a RTMP server writen by c++. SRS also writen by c++. It seems crtmpd use c++ to writen c code. CRTMPD never think in c++, so the language introduced more complex. It's maybe better if CRTMPD is writen by c.
 
-crtmp(svnversion为811版本）的代码行数是93450行代码，是SRS(0.9.90 38518行，其中st有4839行)的2.426倍，功能不会比SRS多3倍吧？这就是ST强大的地方。
-
-SRS的注释（可使用工具research/code-statistic/csr.py统计）是5944行，占总代码行数的17.65%。ST的注释是754行，占代码总行数比例为15.58%。合在一起是6698行，占总数的17.39%。
-
-CRTMPD的注释是15891行，占代码总行数的17.00%。
+CRTMPD(svnversion 811) is 93450 lines, while SRS(1.0.0) is 43700 lines. CRTMPD 17% is comments, while SRS is 22%.
 
 ```bash
 # CRTMPD
@@ -201,17 +197,15 @@ python ~/srs/research/code-statistic/csr.py ~/srs/objs/st-1.9/ *.h,*.c examples,
 ```bash
 # SRS
 python ~/srs/research/code-statistic/csr.py ~/srs/src *.*pp utest,upp
-#total:33679 code:27735 comments:5944(17.65%) block:4126 line:1818
+total:43726 code:33984 comments:9742(22.28%) block:7160 line:2582
 ```
 
-而且，crtmpd还支持lua，这个是开源软件的通病，喜欢什么都往里面加，窃以为不可取。所以有人抱怨说crtmpd太大，是的，大得不得了。
+CRTMPD seems support lua, which I think it's not a good idea. The opensource team always add more and more features to it, it becomes more and more complex, are these features really used by user? I do not think so.
 
-我测试过crtmpd性能，还是不错的，应该和SRS差不多。可惜crtmpd走的是单进程方向，各种扩展和协议，没有支持多进程和边缘集群方向，所以大家道不同不相为谋，也没有什么好比较的了。
+The performance of CRTMPD is good, without multiple process support.
 
-## 其他
+## Others
 
-以上就是我所知道的流媒体服务器，特别是是直播流媒体服务器，目前来看SRS还是相当让我满意的。
-
-如果你希望知道其他服务器和SRS的PK结果，在QQ群里告知我，我看看然后加上。如果还不错，可以PK一下的话。
+The above is the media servers I know. SRS is ok for me, to keep it small grow and simple.
 
 Winlin 2014.10
