@@ -122,44 +122,41 @@ SRS better than Wowza for:
 
 ## NginxRtmp PK SRS
 
-可以说，nginx-rtmp是最现代化的流服务器，几乎无可挑剔，所以现在崛起也很快。主要得益于nginx的基础做得好。
+NginxRTMP is absolutely modern media streaming server, fast and graceful, capable and vigorous, all features are important.
 
-nginx-rtmp是2012.3.17发布的0.0.1（1.0是在2013.5.27），基本上那个时候开始做的。参考：[nginx-rtmp release 0.0.1](https://github.com/arut/nginx-rtmp-module/releases/tag/v0.0.1)。
+nginx-rtmp release 0.0.1 at 2012.3.17, while 1.0 at 2013.5.27. See：[nginx-rtmp release 0.0.1](https://github.com/arut/nginx-rtmp-module/releases/tag/v0.0.1)。
 
-nginx-rtmp(1.1.4版本)的代码行数是30957行代码，和SRS(0.9.90 33679行，另外st有4839行)是差不多的，功能和SRS差不多吗？
+nginx-rtmp(1.1.4) has 68883 lines code. SRS(1.0.0) is 43700 lines. Both support rtmp/hls/http, live, x86/x64/arm/mips linux, origin, dvr and http-api/http-callback/reload. NginxRTMP supports multiple process, DASH. SRS supports edge/vhost, transcode/ingest/forward, tracable log, EN/CH wiki.
 
-可惜，nginx-rtmp不能单独运行，得基于nginx运行。nginx1.5的代码是141534行，核心的服务器部分（core, event)是37678行。也就是说，nginx-rtmp实际上是68883行，是SRS（38610行）的1.784倍，功能能有SRS的2倍吗？这就是ST强大的地方吧。
+Remark: NginxRTMP and NGINX code lines. NginxRTMP(+nothing is 30957 lines)(+nginx is 131534 lines)(+core+event is 68883 lines).
 
-SRS的注释（可使用工具research/code-statistic/csr.py统计）是5944行，占总代码行数的17.65%。ST的注释是754行，占代码总行数比例为15.58%。合在一起是6698行，占总数的17.39%。
+The 22% code of SRS is comments, while nginx+nginx-rtmp is 3%.
 
-Nginx的注释是1644行，占代码总行数的4.36%。NginxRTMP的注释是946行，占代码总行数的3.06%。混合在一起的行数是2598行，占总行数的3.77%。
+nginx-rtmp better than SRS for:
+* Greate Author: Anyone who can write module of nginx is awesome. At 2012, I try to write a media server for a CDN, use linux/epoll/multiple process/single thread/async none-blocking socket, not base on nginx but directly write base on socket, it's very hard to process the state of RTMP, so I use ST(state-threads).
+* Multiple Process: SRS only single process, maybe support in future.
 
-nginx-rtmp比SRS优点
-* 作者牛逼：能在nginx上写rtmp扩展的人，真心是牛逼。SRS作者以前做过类似的事情，不是在nginx上，是照着nginx的底层结构，用linux/epoll/多进程单线程/非阻塞异步socket实现RTMP协议，发现越到后面那个异步状态处理越麻烦。不得不承认，nginx-rtmp作者能力比SRS作者能力高出N个数量级。
-* 支持多进程：nginx的多进程是个硬指标。SRS有研发计划，但目前还没有支持多进程（多进程不Simple），好消息是在不久将来，SRS就可以在这点上不成为弱点了。
+SRS better than nginx-rtmp for:
+* Simple: The high performance of nginx is single thread, async and none-blocking socket. SRS use ST, which also use the same arch. Futhermore, ST provides coroutine thread to simplify the code.
+* Vhost：The vhost is a very very important feature for CDN to serve multiple customers. Many many CDN who using nginx-rtmp develop the vhost themselves, and introduce bugs then crash again and again, because nginx-rtmp is too complex.
+* RTMP Edge: Although NginxRTMP provides pull and push, but it's similar to ingest and forward of SRS. The rtmp edge is a feature of FMS, similar to a proxy cache of origin.
+* Transcode: User can use exec to start FFMPEG process, but SRS provides more: SRS can manage the FFMPEG process, restart it when crash; SRS provides simple config for complex ffmpeg params, for instance, vbitrate to set the bitrate in kbps.
+* Less code: SRS(1.0.0) is 43700 lines with 22% comments; NginxRTMP(1.1.4) is 68883 lines with 3% comments. That is, SRS only 34k lines, NginxRTMP 66k.
+* Chinese+English Wiki: SRS provides both Chinese and English wiki, about 58*2 pages, while NginxRTMP with less wiki.
 
-SRS比nginx-rtmp优点
-* 简单：nginx高性能，原因是直接使用异步非阻塞socket。SRS本质上也是，所以说和nginx同源架构，但是在另外一个牛人的指点下，用了st这个库，避免了异步socket那些状态处理。所以SRS看起来的逻辑很简单。我一直以为，nginx-rtmp最大的挑战就是不稳定，太复杂了，越发展应该是越明显，不过nginx-rtmp作者很强大，这个就很难估计了。
-* Vhost：nginx-rtmp作者估计没有用过FMS，因为FMS的Vhost在客户较多时，会很有用（是个必选），也可能是支持vhost会导致RTMP状态更多吧。总之，没有vhost，对于CDN这种公司，有很多客户用同一套流媒体时，是不行的（如何计费呢？）
-* RTMP边缘：或许nginx-rtmp的pull和push也算边缘，但是实际上不完全是，边缘应该只需要知道源站的ip，所有信息都从源站取。这样对于大规模部署很方便。另外和上面一点相关，配置应该基于vhost，而不是app，app是不需要配置的，只有vhost才需要，配置vhost后随便客户推什么流上来啦。
-* 转码：nginx-rtmp其实也可以用ffmpeg转码，也是用ffmpeg，不过稍微没有往前走一步。nginx-rtmp的转码是通过事件，类似SRS的HTTP callback，在连接上来时转码。SRS往前走了一步，在配置文件里配置转码信息，SRS会自动管理进程，kill或者重启。使用起来还是方便不少的。
-* 代码少：nginx-rtmp是基于nginx的，nginx是web服务器，专业的牛逼的web服务器。所以nginx-rtmp的代码总数是16万行，而srs只有2万行。如果要在arm上编译，还是srs稍微瘦一点。如果打算维护，还是维护2万行代码的产品会好些。
-* 中文文档：SRS中文文档基本覆盖了SRS的功能，而且会根据大家的问题更新，还是很适合中文水平不错的人。
-* 有QQ群：nginx-rtmp人家不是国人嘛，当然不会有QQ群的。所以对于国内用户的声音，nginx-rtmp更像典型的开源软件；坦白讲，SRS的QQ群的实时沟通，还是能更明确大家到底在如何使用SRS，以及SRS的方向。
-
-我也fork了nginx-rtmp代码，RTMP和HLS部分都是参考了nginx-rtmp，大牛还是大牛啊。nginx-rtmp 1.1.4的一些提交，还是在fix crash，直接异步的方式做RTMP还是比较难的：
+I also forked NginxRTMP, it's a greate project and I study a lot from NginxRTMP. The complex is a challenge using async none-blocking socket and state space of RTMP protocol. The complex also introduce some bug to crash NginxRTMP, the following is some bug fix for keywork "crash":
 
 ![nginx-rtmp crash](http://winlinvip.github.io/srs.release/wiki/images/nginx-rtmp-1.1.4-crash.png)
 
-对比下代码，响应connect-app这个包的发送的代码：
+Comparing the code to send the ConnectApp response, SRS is more readable to NginxRTMP:
 
 ![nginx-pk-srs.send-conn-response](http://winlinvip.github.io/srs.release/wiki/images/nginx-pk-srs.send-conn-response.png)
 
-这个就是同步和异步socket的区别，以及问题的分解导致的一致性（组包和发包两个层次，而不是nginx那样设置数据，更改全局配置，调用发送函数），对象层次的互动和数据操作（或者说数据隐藏和层次化，和数据结构）这两个编程方法的区别。
+SRS focus on high level packets and objects, while nginx confused by set high level data, change global config, invoke low level async send methods.
 
 ## Red5 PK SRS
 
-Red5就算了，100个连接就不行了，有wowza的java的弱点，也没有特别的优点，就不要pk了。同是开源软件，相煎何太急。
+Need to compare with Red5, which only supports about 100 connections.
 
 ## crtmpd PK SRS
 
