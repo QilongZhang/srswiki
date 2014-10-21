@@ -100,7 +100,7 @@ SRS比FMS优点
 
 ## Wowza PK SRS
 
-Wowza也是个很了不起的产品，据说公司快上市了，Wowza和SRS在功能上很像，不过也是比SRS强大很多。
+Wowza也是个很了不起的产品，据说公司快上市了，Wowza和SRS在功能上很像，不过wowza也是在功能方面比SRS多很多。
 
 Wowza比SRS优点
 * 功能全面：和FMS类似，Wowza支持的功能很多，估计比FMS不会少。
