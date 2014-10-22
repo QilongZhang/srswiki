@@ -1,67 +1,67 @@
 # LiveShow
 
-SRS provdies a server with public ip for all to test.
+公用机器是SRS提供给所有人使用的服务器。
 
-## SRS Website
+## 官方域名
 
-Thanks JOHNNY who contribute the dns name [ossrs.net](http://www.ossrs.net).
+感谢JOHNNY贡献了[ossrs.net](http://www.ossrs.net)域名
 
-## Virtual Live Stream
+## 默认演示流轮播
 
-There is 100GB data on the public server, anyone can upload movies and I will check it and add to the virtual live stream.
+大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
 
-You can:
-* Upload by ftp: `ftp://ftpuser:srs@www.ossrs.net`, recomment to use ftp tools, using utf-8 encoding.
-* System auto transcode: SRS use [transcoding cluster](http://www.ossrs.net:1971/) to transcode the uploaded movies to h.264+aac in mp4 format. The cluster is provided by [chnvideo.com](http://chnvideo.com).
-* Check: I will check the movie at [SRS preview](http://www.ossrs.net/srs-preview/)
-* Publish: When check ok, I will add to the playlist of virtual live stream of SRS.
-* Play: User can play the virtual live stream of SRS.
+主要流程：
+* 上传： `ftp://ftpuser:srs@www.ossrs.net` 推荐使用ftp工具上传，编码使用utf-8。
+* 系统自动转码：[SRS使用的转码集群](http://www.ossrs.net:1971/) SRS官方服务器的虚拟直播流的转码集群，由[chnvideo.com](http://chnvideo.com)供应。
+* 人工审查：[SRS官方视频审查](http://www.ossrs.net/srs-preview/) SRS官方服务器的虚拟直播流的审查地址
+* 发布：审查通过后通知我将视频发布到虚拟直播流。
+* 观看：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
 
-You can play the virtual live stream of SRS：
-* [RTMP: speedup by verycloud](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
-* [Origin RTMP, directly play on public server of SRS](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
-* [Origin HLS, directly play on public server of SRS](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
+观看地址：
+* [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
+* [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
+* [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
-Thanks [verycloud.cn](http://verycloud.cn/) to speedup the virtual live stream of SRS.
+感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
 
-## Usage For Public server
+## 用途
 
-Thanks all to donate SRS, I spent these money to buy the virtual public server. You can:
-* Test to play or publish the RTMP stream to SRS.
-* Use the demo of SRS on public server.
-* Do performance test.
-* Auto build and test.
-* SRS release server, to download the SRS releases.
-* To download SRS files.
+SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这些机器的用处：
+* 大家测试和学习使用
+* 部署SRS的demo环境
+* 做性能测试
+* 自动编译和回归测试
+* 版本发布
+* 发行版本下载
 
-## Machine Info
+## 机器信息
 
-The public server list：
+这些机器的列表：
 
 <table>
 <tr>
-<th>Provider</th>
-<th>Internet IP</th>
-<th>City</th>
-<th>Open?</th>
-<th>Bandwidth</th>
-<th>Disk</th>
-<th>Link</th>
+<th>供应商</th>
+<th>公网IP</th>
+<th>地域</th>
+<th>开放</th>
+<th>带宽</th>
+<th>磁盘</th>
+<th>链接</th>
 </tr>
 <tr>
-<td><a href="http://www.aliyun.com/product/ecs/">Aliyun</a></td>
+<td><a href="http://www.aliyun.com/product/ecs/">阿里云</a></td>
 <td>182.92.80.26</td>
-<td>Beijing</td>
-<td>Open</td>
+<td>北京</td>
+<td>开放</td>
 <td>5Mbps</td>
 <td>100GB</td>
 <td><a href="http://182.92.80.26" target="_blank">SRS</a></td>
 </tr>
 </table>
 
-## SRS Config
+## SRS配置
 
-The public server use default vhost, contact me if need add your vhost:
+公用机器上配置了默认vhost，有需要可以联系我添加新的vhost。
 
 ```
 listen              1935;
