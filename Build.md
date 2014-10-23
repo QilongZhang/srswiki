@@ -1,6 +1,6 @@
 # 编译SRS
 
-本文说明了如何编译和打包SRS，另外，可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/srs.release/releases/))或者[国内镜像: release](http://winlinvip.github.io/srs.release/releases/)
+本文说明了如何编译和打包SRS，另外，可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release](http://winlinvip.github.io/srs.release/releases/)或者[国内镜像: release](http://winlinvip.github.io/srs.release/releases/)
 
 ## 操作系统
 
