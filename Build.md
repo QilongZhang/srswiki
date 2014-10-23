@@ -99,7 +99,7 @@ SRS提供了打包脚本，可以将srs打包（不包含nginx/ffmpeg等外部�
 
   --help                   print this message
 
-  --x86-x64                configure with x86-x64and make srs. 
+  --x86-x64                configure with x86-x64 and make srs. 
   --arm                    configure with arm and make srs.
 ```
 
