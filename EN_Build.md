@@ -100,7 +100,7 @@ The package script will build SRS, then zip the files. See help of package scrip
   --help                   print this message
 
   --x86-x64                configure with x86-x64and make srs. 
-  --arm                    configure with arm and make srs. use arm tools to get info.
+  --arm                    configure with arm and make srs.
 ```
 
 ## SRS依赖关系
