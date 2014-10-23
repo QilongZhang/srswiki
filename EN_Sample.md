@@ -1,16 +1,14 @@
-SRS真实的应用实例。
+The real users who are using SRS.
 
 ## 北京云博视
 
-2014.10.10 by 谁变  63110982
+2014.10.10 by 谁变  63110982<br/>
 [http://www.y-bos.com/](http://www.y-bos.com/)
 
 ## verycdn
 
-[verycdn](http://www.verycdn.cn/) 开始用SRS。
-
 2014.9.13 by 1163202026 11:19:35<br/>
-目前SRS在测试中，没用过别的，直接上的srs，目前测试下来比较OK，没什么大问题。
+[verycdn](http://www.verycdn.cn/) 
 
 ## SRS产品使用者
 
@@ -50,7 +48,7 @@ me没怎么去具体分析srs只是觉得作者文档写得比较流畅不乏幽
 
 ## verycloud
 
-2014.6 [verycloud](http://verycloud.cn/)开始用srs。
+2014.6 [verycloud](http://verycloud.cn/)
 
 ## 某工厂监控系统
 
