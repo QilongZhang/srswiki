@@ -8,7 +8,7 @@ You can directly use the release binaries, or build SRS step by step. See: [Gith
 * Recomment to use <strong>Centos6.x/Ubuntu12</strong> for demo of SRS, because it's complex to compile FFMPEG.
 * Turn some features off when you need to compile SRS on other OS.
 
-## iptables and selinux
+## Iptables and Selinux
 
 Sometimes the stream play failed, but without any error message, or server cann't connect to. Please check the iptables and selinux.
 
@@ -44,44 +44,44 @@ Publish RTMP, please see: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp
 
 More usages, please see: [Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)
 
-## 编译选项和预设集
+## Build Options and Presets
 
-SRS提供了详细的编译选项来控制功能的开关，以及提供了一些有用的预设，针对不同的应用场景默认选项。
+Each big feature is controlled by a build option, while a preset provides a set of options.
 
-SRS会先应用预设集，然后应用用户的选项，譬如：`./configure --rtmp-hls --with-http-api`，应用顺序为：
-* 首先应用预设集：--rtmp-hls，开启ssl/hls，其他功能都处于关闭状态。
-* 应用用户选项：--with-http-api，开启http api接口。
+SRS will apply preset first, then apply user specified options, for example, `./configure --rtmp-hls --with-http-api` will:
+* apply preset: --rtmp-hls, enable rtmp ssl and hls, disable others.
+* apply user specified options: --with-http-api, enable http api.
 
-所以这个编译命令最后支持的功能是：RTMP+HLS+HTTP接口
+So, the built SRS will support RTMP+HLS+HttpApi.
 
-支持的预设集参考末尾的参数列表，或者执行：`./configure -h`查看。
+All preset and options supported is specified by command `./configure -h`.
 
-## jobs:加速编译
+## jobs: Speedup Build
 
-由于SRS在configure时需要编译ffmpeg/nginx，这个过程会很漫长，如果你有多核机器，那么可以使用jobs来并行编译。
-* configure: 在编译srs依赖的工具时可以并行编译。
-* make: 在编译srs时可以使用并行编译。
+It will take long time to compile SRS when ffmpeg/nginx enabled. You can use multiple cpu to speedup, similar to the `make --jobs=N`.
+* configure --jobs=N: to speedup when compile ffmpeg/nginx.
+* make --jobs=N: to speedup when compile SRS.
 
-srs并行编译和串行编译的项目包括（srs会自动判断，不需要用户指定）：
-* srs: 支持并行编译。
-* st-1.9: 串行编译，库比较小，编译时间很短。
-* http-parser: 串行编译，库比较小，编译时间很短。
-* openssl: 串行编译，并行编译有问题。
-* nginx: 支持并行编译。
-* ffmpeg: 支持并行编译。
-* lame: 支持并行编译。ffmpeg用到的mp3库。
-* libaacplus: 串行编译，并行编译有问题。ffmpeg用到的aac库。
-* x264: 支持并行编译。ffmpeg用到的x264库。
+The following components can be speedup, SRS will auto apply the --jobs automatically:
+* SRS: support.
+* st-1.9: not support, for it's small.
+* http-parser: not support, for it's small.
+* openssl: not support.
+* nginx: support.
+* ffmpeg: support.
+* lame: support.
+* libaacplus: not support.
+* x264: support.
 
-configure使用并行编译的方法如下：
+The usage to speedup configure:
 
 ```bash
 ./configure --jobs=16
 ```
 
-注意：configure不支持make那样的"-jN"，只支持"--jobs[=N]"。
+Note: configure donot support `-jN`, only support `--jobs=N`.
 
-make使用并行编译的方法如下：
+The usage to speedup make SRS:
 
 ```bash
 // or make --jobs=16
@@ -90,17 +90,17 @@ make -j16
 
 ## Package
 
-SRS提供了打包脚本，可以将srs打包（不包含nginx/ffmpeg等外部程序）。安装包也提供下载，参考本文开头部分。
+SRS provides package script, to package the install zip on release website.
 
-打包脚本会编译srs，然后将srs的文件打包为zip（zip比tar通用）。详细参考package的帮助：
+The package script will build SRS, then zip the files. See help of package script:
 
 ```bash
 [winlin@dev6 srs]$ ./scripts/package.sh --help
 
   --help                   print this message
 
+  --x86-x64                configure with x86-x64and make srs. 
   --arm                    configure with arm and make srs. use arm tools to get info.
-  --no-build               donot build srs, user has builded. only make install.
 ```
 
 ## SRS依赖关系
