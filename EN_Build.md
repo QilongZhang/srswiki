@@ -2,17 +2,17 @@
 
 You can directly use the release binaries, or build SRS step by step. See: [Github: release](http://winlinvip.github.io/srs.release/releases/) or [Mirror of China: release](http://www.ossrs.net/srs.release/releases/)
 
-## 操作系统
+## OS
 
-* README中的Usage，在<strong>Centos6.x/Ubuntu12</strong>下面测试成功。按照Step操作后，浏览器中打开服务器地址就能观看所有的DEMO。
-* DEMO演示了所有SRS的功能，特别是ffmpeg依赖的库巨多，因此为了简化，推荐使用<strong>Centos6.x/Ubuntu12</strong>.
-* 若的确需要在其他系统下编译SRS，下面说明SRS依赖的各种库，可以关掉某些功能减少编译的依赖。
+* <strong>Centos6.x/Ubuntu12</strong> is proved for Usage of README.
+* Recomment to use <strong>Centos6.x/Ubuntu12</strong> for demo of SRS, because it's complex to compile FFMPEG.
+* Turn some features off when you need to compile SRS on other OS.
 
-## 关闭防火墙和selinux
+## iptables and selinux
 
-有时候启动没有问题，但是就是看不了，原因是防火墙和selinux开着。
+Sometimes the stream play failed, but without any error message, or server cann't connect to. Please check the iptables and selinux.
 
-可以用下面的方法关掉防火墙：
+Turn off iptables:
 
 ```bash
 # disable the firewall
@@ -20,29 +20,29 @@ sudo /etc/init.d/iptables stop
 sudo /sbin/chkconfig iptables off
 ```
 
-selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行下面的步骤：
+Disable the selinux, to run `getenforce` to ensure the result is `Disabled`:
 
-1. 编辑配置文件：`sudo vi /etc/sysconfig/selinux`
-1. 把SELINUX的值改为disabled：`SELINUX=disabled`
-1. 重启系统：`sudo init 6`
+1. Edit the config of selinux: `sudo vi /etc/sysconfig/selinux`
+1. Change the SELINUX to disabled: `SELINUX=disabled`
+1. Rebot: `sudo init 6`
 
-## 编译和启动
+## Build and Run SRS
 
-确定用什么编译选项后（参考下面的说明），编译SRS其实很简单。只需要RTMP和HLS：
+It's very easy to build SRS:
 
 ```
 ./configure && make
 ```
 
-指定配置文件，即可启动SRS：
+Also easy to start SRS:
 
 ```bash
 ./objs/srs -c conf/srs.conf
 ```
 
-推RTMP流和观看，参考[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRTMP)
+Publish RTMP, please see: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SampleRTMP)
 
-更多使用方法，参考[Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)
+More usages, please see: [Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)
 
 ## 编译选项和预设集
 
