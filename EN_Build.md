@@ -1,6 +1,6 @@
-# 编译SRS
+# Build SRS
 
-本文说明了如何编译和打包SRS，另外，可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/simple-rtmp-server))或者[国内镜像: release](http://demo.chnvideo.com:8085/srs/releases)
+You can directly use the release binaries, or build SRS step by step. See: [Github: release]([Download Released SRS](http://winlinvip.github.io/simple-rtmp-server)) or [Mirror of China: release](http://demo.chnvideo.com:8085/srs/releases)
 
 ## 操作系统
 
