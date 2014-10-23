@@ -1,6 +1,6 @@
 # Build SRS
 
-You can directly use the release binaries, or build SRS step by step. See: [Github: release]((http://winlinvip.github.io/simple-rtmp-server) or [Mirror of China: release](http://demo.chnvideo.com:8085/srs/releases)
+You can directly use the release binaries, or build SRS step by step. See: [Github: release](http://winlinvip.github.io/simple-rtmp-server) or [Mirror of China: release](http://demo.chnvideo.com:8085/srs/releases)
 
 ## 操作系统
 
