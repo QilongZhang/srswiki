@@ -99,8 +99,8 @@ SRS提供了打包脚本，可以将srs打包（不包含nginx/ffmpeg等外部�
 
   --help                   print this message
 
+  --x86-x64                configure with x86-x64and make srs. 
   --arm                    configure with arm and make srs. use arm tools to get info.
-  --no-build               donot build srs, user has builded. only make install.
 ```
 
 ## SRS依赖关系
