@@ -87,7 +87,7 @@ me没怎么去具体分析srs只是觉得作者文档写得比较流畅不乏幽
 
 最简单的方式是什么？摄像头自己支持输出HLS流不就好了？也就是摄像头有个内网ip作为服务器，摄像头给出一个hls的播放地址，IOS客户端譬如IPad可以播放这个HLS地址。
 
-SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleARM)，只需要[改下configure的交叉编译工具](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SrsLinuxArm#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7)就可以编译了。
+SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleARM)，只需要[改下configure的交叉编译工具](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7)就可以编译了。
 
 主要流程：
 * 编译arm下的srs，部署到树莓派，在摄像头中启动srs。

@@ -2,7 +2,7 @@
 
 RTMP的url其实很简单，vhost其实也没有什么新的概念，但是对于没有使用过的同学来讲，还是很容易混淆。几乎每个新人都必问的问题：RTMP那个URL推流时应该填什么，什么是vhost，什么是app？
 
-RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_DeliveryHLS)
+RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
 
 ## 应用场景
 
@@ -464,7 +464,7 @@ SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功
 </tbody>
 </table>
 
-SRS的demo.conf配置文件中，包含了demo用到的一些vhost，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleDemo)。
+SRS的demo.conf配置文件中，包含了demo用到的一些vhost，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleDemo)。
 
 <table>
 <thead>

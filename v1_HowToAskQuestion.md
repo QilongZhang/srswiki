@@ -14,12 +14,12 @@
 
 下面是一些基本的问题：
 
-* 如何编译：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
-* SRS需要什么硬件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
-* SRS需要什么软件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
-* 为何看不到流？可能是防火墙问题，参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
+* 如何编译：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+* SRS需要什么硬件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+* SRS需要什么软件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+* 为何看不到流？可能是防火墙问题，参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 * 如何搭建集群：参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
-* 如何测SRS性能：参考[Performance](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Performance)
+* 如何测SRS性能：参考[Performance](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Performance)
 * SRS的授权是MIT？参考[License](https://github.com/winlinvip/simple-rtmp-server/blob/master/LICENSE)
 * 如何看SRS的DEMO？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usagesimple)
 * 如何一步一步编译SRS的DEMO？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usagedetail)

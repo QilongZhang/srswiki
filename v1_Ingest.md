@@ -4,7 +4,7 @@
 
 采集基本上就是使用FFMPEG作为编码器，或者转封装器，将外部流主动抓取到SRS。
 
-采集的部署实例参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleIngest)
+采集的部署实例参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleIngest)
 
 ## 应用场景
 
@@ -22,9 +22,9 @@ SRS默认是支持“推流”，即等待编码器推流上来，可以是专�
 
 ## 编译
 
-Ingest需要在编译时打开：`--with-ingest`。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
+Ingest需要在编译时打开：`--with-ingest`。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
-Ingeest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
+Ingeest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
 ## 配置
 
@@ -78,7 +78,7 @@ ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest
 `engine`指定了转码引擎参数：
 * enabled: 指定是否转码，若off或者vcodec/acodec没有指定，则不转码，使用ffmpeg-copy。
 * output：输出路径。有两个变量可以使用：port为系统侦听的RTMP端口，vhost为配置了ingest的vhost。
-* 其他参考转码的配置：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_FFMPEG)
+* 其他参考转码的配置：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 
 注意：engine默认为copy，当：
 * engine的enabled为off，没有开启转码engine，则使用copy。

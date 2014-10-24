@@ -5,7 +5,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 ## 准备服务器
 
 树莓派下安装和运行SRS，有以下方式：
-* 编译源站和运行：SRS在arm/raspberrypi下的编译，参考[Build: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SrsLinuxArm#raspberrypi)
+* 编译源站和运行：SRS在arm/raspberrypi下的编译，参考[Build: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm#raspberrypi)
 * 直接下载binary文件，然后安装运行，下载RespberryPi的安装包：[Github站点](http://winlinvip.github.io/simple-rtmp-server/releases/) 或者 [国内镜像站点](http://demo.chnvideo.com:8085/srs/releases/)。安装方法见页面。
 
 查看SRS是否启动：`/etc/init.d/srs status`
@@ -46,7 +46,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 * 分辨率：768x320
 * 音频：30kbps
 
-环境搭建参考：[SRS: arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SrsLinuxArm#raspberrypi)
+环境搭建参考：[SRS: arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm#raspberrypi)
 
 ## OS设置
 

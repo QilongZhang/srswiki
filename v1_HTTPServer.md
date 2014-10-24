@@ -2,7 +2,7 @@
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
-部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleHTTP)
+部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHTTP)
 
 ## Feature
 

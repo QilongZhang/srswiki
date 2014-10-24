@@ -15,7 +15,7 @@ SRS的HTTP接口遵循最简单原则，主要包括：
 
 ## 编译和启动
 
-SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build#srs%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB)
+SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build#srs%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB)
 
 ```bash
 ./configure --with-http-api && make
