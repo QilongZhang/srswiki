@@ -103,58 +103,56 @@ The package script will build SRS, then zip the files. See help of package scrip
   --arm                    configure with arm and make srs.
 ```
 
-## SRS依赖关系
+## SRS depends
 
-SRS依赖于g++/gcc/make，st-1.9，http-parser2.1，ffmpeg，cherrypy，nginx，openssl-devel，python2。
+SRS depends on g++/gcc/make, st-1.9, http-parser2.1, ffmpeg, cherrypy, nginx, openssl-devel and python2。
 
-除了g++/gcc/make基础工具，st-1.9是必选，其他都可以通过编译选项禁用。
+The g++/gcc/make and st-1.9 is required, others are optional.
 
-## 自定义编译参数
+## Custom Compile Tool Chain
 
-SRS可以自定义编译器，譬如arm编译时使用arm-linux-g++而非g++。参考[ARM：手动编译](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm#%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91srs)
+User can use other compile tool chain, for instance, arm usig arm-linux-g++, see: [ARM：compile manually](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
 
-注意：SRS和ST都可以通过编译前设置变量编译，但是ssl需要手动修改Makefile。还好ssl不用每次都编译。
+## Build Outputs
 
-## 编译的生成项目
+The outputs of configure and make are put in objs.
 
-configure和make将会生成一些项目，都在objs目录，其他会自动软链到objs目录。
+* ./objs/srs The SRS application.
+* ./objs/research/librtmp/srs_bandwidth_check linux bandwidth test tool.
+* ./objs/research/librtmp/srs_ingest_flv ingest FLV file to RTMP stream to SRS.
+* ./objs/research/librtmp/srs_ingest_rtmp ingest RTMP to RTMP to SRS.
+* ./objs/nginx/sbin/nginx delivery HLS.
+* research/api-server/server.py the api-server for demo of SRS.
+* ./objs/ffmpeg/bin/ffmpeg the FFMEPG tool to transcode for SRS.
+* ./objs/lib/srs_librtmp.a the client librtmp of SRS, see: <a href="https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp">srs-librtmp</a>
+* ./objs/nginx/html/players the players of demo of SRS.
 
-* ./objs/srs 启动SRS服务器
-* ./objs/research/librtmp/srs_bandwidth_check linux测速工具
-* ./objs/research/librtmp/srs_ingest_flv 将FLV文件采集为RTMP流工具
-* ./objs/research/librtmp/srs_ingest_rtmp 将RTMP流采集为RTMP流工具
-* ./objs/nginx/sbin/nginx 分发HLS用到的nginx服务器
-* research/api-server/server.py 启动HTTP hooks和DEMO视频会议用到的api-server
-* ./objs/ffmpeg/bin/ffmpeg SRS转码用的FFMPEG，DEMO推流也是用它
-* ./objs/lib/srs_librtmp.a SRS提供的客户端库，参考<a href="https://github.com/winlinvip/simple-rtmp-server/wiki/SrsLibrtmp">srs-librtmp</a>
-* ./objs/nginx/html/players SRS的DEMO的静态页面，当没有开启HttpCallback时
+## Configure Options
 
-## 配置参数说明
-
-SRS的配置(configure)参数说明如下：
-* --help 配置的帮助信息
-* --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)。
-* --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
-* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
-* --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
-* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
-* --with-http-api 打开HTTP管理接口。参考：[HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
-* --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
-* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
-* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
-* --with-ingest 采集文件/流/设备数据，封装为RTMP流后，推送到SRS。参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
-* --with-stat 是否开启数据统计功能，SRS可以采集cpu/内存/网络/磁盘IO等数据，共监控系统通过http-api获取。（目前osx不支持）。
-* --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
-* --with-utest 是否编译SRS的单元测试，默认开启，也可以关闭。
-* --with-gperf 是否使用google的tcmalloc库，默认关闭。
-* --with-gmc 是否使用gperf的内存检测，编译后启动srs会检测内存错误。这个选项会导致低性能，只应该在找内存泄漏时才开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
-* --with-gmp 是否使用gperf的内存性能分析，编译后srs退出时会生成内存分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
-* --with-gcp 是否启用gperf的CPU性能分析，编译后srs退出时会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
-* --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
-* --with-librtmp 客户端推流/播放库，参考[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
-* --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
-* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
-* --static 使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
+The options of configure:
+* --help print help and exit.
+* --with-ssl support RTMP complex handshake, see: [RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_RTMPHandshake)。
+* --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DeliveryHLS)
+* --with-dvr dvr RTMP to FLV file, see: [DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_DVR)
+* --with-nginx build nginx to delivery HLS files and demo pages of SRS.
+* --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPCallback)
+* --with-http-api support http api, see: [HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPApi)
+* --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_HTTPServer)
+* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
+* --with-transcode live stream transcode, see: [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_FFMPEG)
+* --with-ingest ingest file, stream or device to RTMP to SRS, see: [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Ingest)
+* --with-stat stat the cpu, memory, network and disk io, user can access stat by http api(not supported by darwin/OSX).
+* --with-research buidl the research tools, for instance, ts info, ingest flv/rtmp, flv parser and bandwidth test.
+* --with-utest build the utest of SRS, it's ok to disable it.
+* --with-gperf use google tcmalloc, seems no effect.
+* --with-gmc use gerf memory check, which will hurt performance, only for memory check, see: [gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
+* --with-gmp use gperf memory performance analysis, which will hurt performance, only for memory performance analysis, see: [gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
+* --with-gcp use gperf cpu profile, which will hurt performance, only for cpu profile, see: [gperf](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPERF)
+* --with-gprof use gprof, which will hurt performance, see: [gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
+* --with-librtmp client librtmp, see: [srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
+* --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
+* --static use static link使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
 
 预设集：
 * --x86-x64，默认预设集，一般的x86或x64服务器使用。release使用这个配置编译。
