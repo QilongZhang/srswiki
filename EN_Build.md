@@ -151,25 +151,25 @@ The options of configure:
 * --with-gprof use gprof, which will hurt performance, see: [gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_GPROF)
 * --with-librtmp client librtmp, see: [srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLibrtmp)
 * --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
-* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build)
-* --static use static link使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_Build#jobs-speedup-build)
+* --static use static link for arm, see: [ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/EN_SrsLinuxArm)
 
-预设集：
-* --x86-x64，默认预设集，一般的x86或x64服务器使用。release使用这个配置编译。
-* --osx，苹果MAC OSX（Darwin）系统下编译，安装好xcode和brew后，可以使用这个选项。
-* --pi，树莓派预设集，arm的子集。树莓派的release用这个配置编译。
-* --cubie，在cubieboard下直接编译的选项，使用ubuntu差不多的配置集。
-* --arm，ubuntu下交叉编译，等价于--with-arm-ubuntu12。release使用这个配置。
-* --mips，ubuntu下交叉编译，为hiwifi的mips路由器编译。（目前srs在mips上有内存泄漏，2天左右会把路由器跑死）。
-* --dev，开发选项，尽可能开启功能。
-* --fast，关闭所有功能，只支持基本RTMP（不支持h264/aac），最快的编译速度。
-* --pure-rtmp，支持RTMP（支持h264+aac），需要编译ssl。
-* --rtmp-hls，支持RTMP和HLS，典型的应用方式。还可以加上内置的http服务器（--with-http-server）。
-* --disable-all, 禁用所有功能，只支持rtmp（vp6）。
-* --demo，SRS的演示编译选项。
-* --full，开启SRS所有的功能。
+The preset of configure:
+* --x86-x64, default, for x86(32bits) or x64(64bits) server.
+* --osx，for the MAC OSX(Darwin) of apple, depends on xcode and brew.
+* --pi，for raspberry-pi, an arm machine.
+* --cubie，for cubieboard, similar to ubuntu.
+* --arm，for arm, cross build on ubuntu12. Alias is --with-arm-ubuntu12.
+* --mips，for mips, cross build on ubuntu12, for hiwifi(experiment for memory leak).
+* --dev，for dev to enable the most features.
+* --fast，for fast build, disable almost all features, only enable basic RTMP without complex handshake(ssl).
+* --pure-rtmp，only enalbe RTMP, with complex handshake(ssl) to support delivery h.264+aac.
+* --rtmp-hls，support RTMP and HLS, typical features.
+* --disable-all, disable all, only support RTMP without complex handshake, delivery vp6, depneds on st only.
+* --demo，enable the demo of SRS.
+* --full，enable all features of SRS.
 
-专家选项：有可能编译失败，不是专家就不要用这个。
-* --use-sys-ssl 使用系统的ssl，不单独编译ssl（在--with-ssl时有效）。
+The expert options, maybe compile failed:
+* --use-sys-ssl use the ssl of linux system, which installed by yum or apt-get. This is ok when --with-ssl specified and donot compile the ssl of 3rdparty.
 
 Winlin 2014.10
