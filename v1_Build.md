@@ -42,7 +42,7 @@ selinux也需要disable，运行命令`getenforce`，若不是Disabled，执行�
 
 推RTMP流和观看，参考[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleRTMP)
 
-更多使用方法，参考[Usage](https://github.com/winlinvip/simple-rtmp-server#usage)
+更多使用方法，参考[Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)
 
 ## 编译选项和预设集
 
