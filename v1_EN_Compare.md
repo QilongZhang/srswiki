@@ -4,7 +4,7 @@ We compare some famous media streaming server with SRS.
 
 SRS focus on live streaming server, to provide the best feature or nothing, see [Product](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Product).
 
-SRS use the best tech for RTMP protocol, the coroutine, which can simplify the state machine of async epoll states, provides by st(state-threads), see [Architecture](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Architecture)。
+SRS use the best tech for RTMP protocol, the coroutine, which can simplify the state machine of async epoll states, provides by st(state-threads), see [Architecture](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Architecture)。
 
 For detail feature and roadmap, see [Features](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Features)
 
