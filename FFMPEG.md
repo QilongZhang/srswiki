@@ -315,9 +315,9 @@ conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的
 
 ## ARM下转码
 
-SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](https://github.com/winlinvip/simple-rtmp-server/wiki/ARMTranscode)
+SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_ARMTranscode)
 
-注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/Build)
+注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Build)
 
 ## FFMPEG转码flash流
 

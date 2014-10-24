@@ -2,11 +2,11 @@
 
 SRS（Simple RTMP Server）分发RTMP是核心功能，srs的主要定位就是分发RTMP低延时流媒体，同时支持分发HLS流。
 
-RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryHLS)
+RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_DeliveryHLS)
 
-RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP.PK.HTTP)
+RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_RTMP.PK.HTTP)
 
-部署RTMP的实例参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+部署RTMP的实例参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleRTMP)
 
 ## 应用场景
 
@@ -37,7 +37,7 @@ stream.play("livestream");
 
 ## 配置RTMP流
 
-SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)）：
+SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_RtmpUrlVhost)）：
 
 ```bash
 listen              1935;
@@ -57,9 +57,9 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/RtmpUrlVhost)
+RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_RtmpUrlVhost)
 
-部署分发RTMP流的实例，参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleRTMP)
+部署分发RTMP流的实例，参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleRTMP)
 
 如下图所示：
 ![FMLE推流到SRS](http://winlinvip.github.io/srs.release/wiki/images/FMLE.png)
@@ -72,6 +72,6 @@ srs提供flash的播放器和编码器，支持在线播放RTMP/HLS流，参考�
 
 ## RTMP流的低延时配置
 
-RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/LowLatency)
+RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_LowLatency)
 
 Winlin

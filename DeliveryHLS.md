@@ -6,11 +6,11 @@ RTMP指Adobe的RTMP(Realtime Message Protocol)，广泛应用于低延时直播�
 
 HLS指Apple的HLS(Http Live Streaming)，本身就是Live（直播）的，不过Vod（点播）也能支持。HLS是Apple平台的标准流媒体协议，和RTMP在PC上一样支持得天衣无缝。
 
-HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/DeliveryRTMP)。
+HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_DeliveryRTMP)。
 
-RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/RTMP.PK.HTTP)
+RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_RTMP.PK.HTTP)
 
-部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleHLS)
 
 ## 应用场景
 
@@ -174,15 +174,15 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 hls_window >= sum(m3u8中每个ts的时长)
 ```
 
-部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleHLS)
 
 ## HLSAudioOnly
 
-SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleTranscode2HLS)），SRS只切片音频。
+SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleTranscode2HLS)），SRS只切片音频。
 
-若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
+若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
 
-分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/SampleHLS)
+分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_SampleHLS)
 
 ## HLS和Forward
 
