@@ -1,10 +1,10 @@
-# SRS系统服务
+# SRS Linux Service
 
-SRS提供多种启动的方式，包括：
-* 在git目录直接启动，简单直接，但系统重启后需要手动启动。
-* 系统服务，init.d脚本：SRS提供`simple-rtmp-server/trunk/etc/init.d/srs`脚本，可以作为CentOS或者Ubuntu的系统服务自动启动。
+There are many ways to startup SRS:
+* Directly run srs at the trunk/objs, and need start again when system restart.
+* Linux service, the init.d scirpt at `simple-rtmp-server/trunk/etc/init.d/srs`, and user can add to linux service when linked to the /etc/init.d/srs then add as service `/sbin/chkconfig --add srs`.
 
-可以直接下载release的binary，提供了几个常见系统的安装包，安装程序会安装系统服务，直接以系统服务启动即可。参考：[Github: release]([Download Released SRS(下载发布版)](http://winlinvip.github.io/simple-rtmp-server))或者[国内镜像: release](http://demo.chnvideo.com:8085/srs/releases)
+The SRS release binary can be downloaded from release site, we can install as system service, see: [Github: release]([Download Released SRS](http://winlinvip.github.io/simple-rtmp-server)) or [Mirror for China: release](http://www.ossrs.net/srs.release)
 
 ## 直接启动
 
