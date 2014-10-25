@@ -4,7 +4,7 @@ There are many ways to startup SRS:
 * Directly run srs at the trunk/objs, and need start again when system restart.
 * Linux service, the init.d scirpt at `simple-rtmp-server/trunk/etc/init.d/srs`, and user can add to linux service when linked to the /etc/init.d/srs then add as service `/sbin/chkconfig --add srs`.
 
-The SRS release binary can be downloaded from release site, we can install as system service, see: [Github: release]([Download Released SRS](http://winlinvip.github.io/simple-rtmp-server)) or [Mirror for China: release](http://www.ossrs.net/srs.release)
+The SRS release binary can be downloaded from release site, we can install as system service, see: [Github: release](http://winlinvip.github.io/simple-rtmp-server) or [Mirror for China: release](http://www.ossrs.net/srs.release)
 
 ## 直接启动
 
