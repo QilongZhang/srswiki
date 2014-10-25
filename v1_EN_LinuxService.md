@@ -6,33 +6,40 @@ There are many ways to startup SRS:
 
 The SRS release binary can be downloaded from release site, we can install as system service, see: [Github: release](http://winlinvip.github.io/srs.release/releases) or [Mirror for China: release](http://www.ossrs.net/srs.release)
 
-## 直接启动
+## Directly startup SRS
 
-若不需要添加到系统服务，每次重启后需要手动启动SRS，可以直接在srs的trunk目录执行脚本：
+We donot need to add to linux service to directly start SRS:
 
 ```bash
 cd /home/winlin/_git/simple-rtmp-server/trunk &&
 ./etc/init.d/srs start
 ```
 
+or
+
+```bash
+cd /home/winlin/_git/simple-rtmp-server/trunk &&
+./objs/srs -c conf/srs.conf
+```
+
 ## LinuxService
 
-SRS作为系统服务启动，需要以下几步：
-* 安装srs：安装脚本会自动修改init.d脚本，将`ROOT="./"`改为安装目录。
-* 链接安装目录的`init.d/srs`到`/etc/init.d/srs`
-* 添加到系统服务，CentOS和Ubuntu方法不一样。
+Install and startup SRS as linux system service:
+* Build SRS: the install script will modify the INSTALL ROOT of init.d script.
+* Link to init.d: link the `trunk/etc/init.d/srs` to `/etc/init.d/srs`
+* Add to linux service: use /sbin/chkconfig for Centos.
 
-<strong>Step1:</strong> 安装SRS
+<strong>Step1:</strong> Build and Install SRS
 
-编译SRS后，可执行命令安装SRS：
+Intall SRS when build ok:
 
 ```bash
 make && sudo make install
 ```
 
-安装命令会将srs默认安装到`/usr/local/srs`中，可以在configure时指定其他目录，譬如```./configure --prefix=`pwd`/_release```可以安装到当前目录的_release目录（可以不用sudo安装，直接用`make install`即可安装。
+the install of make will install srs to the prefix dir, default to `/usr/local/srs`, which is specified by configure, for instance, ```./configure --prefix=`pwd`/_release``` set the install dir to _release of current dir to use `make install` without sudo.
 
-<strong>Step2:</strong> 链接脚本：
+<strong>Step2:</strong> Link script to init.d:
 
 ```bash
 sudo ln -sf \
@@ -40,45 +47,41 @@ sudo ln -sf \
     /etc/init.d/srs
 ```
 
-备注：若SRS安装到其他目录，将`/usr/local/srs`替换成其他目录。
-
-备注：也可以使用其他的名称，譬如`/etc/init.d/srs`，可以任意名称，启动时也用该名称。
-
-<strong>Step3:</strong>添加服务：
+<strong>Step3:</strong>Add as linux service:
 
 ```bash
 #centos 6
 sudo /sbin/chkconfig --add srs
 ```
 
-或者
+or
 
 ```bash
 #ubuntu12
 sudo update-rc.d srs defaults
 ```
 
-## 使用init.d脚本管理SRS
+## Use init.d script
 
-查看SRS状态：
+Get the status of SRS:
 
 ```bash
 /etc/init.d/srs status
 ```
 
-启动SRS：
+Start SRS：
 
 ```bash
 /etc/init.d/srs start
 ```
 
-停止SRS：
+Stop SRS：
 
 ```bash
 /etc/init.d/srs stop
 ```
 
-重启SRS：
+Restart SRS：
 
 ```bash
 /etc/init.d/srs restart
@@ -90,41 +93,35 @@ Reload SRS：
 /etc/init.d/srs reload
 ```
 
-## 安装SRS-API
+## Install SRS-API
 
-SRS支持安装SRS到`/usr/local/srs`目录，用户在configure时可以修改这个目录。
+SRS will install api to `/usr/local/srs`, which is specified by configure.
 
-SRS的API即api-server，SRS可以调用api-server提供的http接口，需要打开`--with-http-callback`支持。SRS使用python(cherrypy)编写的server.py，直接运行脚本。
+The api is the api-server of SRS, which is used for SRS to callback the http api. The http callback need to open the feature `--with-http-callback`, and SRS use python(cherrypy) for server.py, which user can directly run.
 
-API服务器主要提供http调用服务，提供demo运行的页面，播放器和编码器视频会议等DEMO。也就是说，启动api之后，可以访问`http://192.168.1.170:8085`即可以看到DEMO的页面，播放器/编码器/视频会议都可以使用，不过有些DEMO的功能不支持（譬如测速，演示流等，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)）。
+The api-server tp provide http service, and the pages for demo of SRS including the player, encoder and the meeting demo of SRS. When api-server start, we can access `http://192.168.1.170:8085`, the demo of SRS. See: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo).
 
-<strong>Step1:</strong> 配置时打开demo支持：
+<strong>Step1:</strong> Enable the demo feature:
 
 ```bash
 ./configure --with-hls --with-ffmpeg --with-http-callback --with-ffmpeg
 ```
 
-<strong>Step2:</strong> 安装api：
+<strong>Step2:</strong> Install api:
 
 ```bash
 make && sudo make install-api
 ```
 
-安装后，可以启动api：
+Start api-server:
 
 ```bash
 /usr/local/srs/etc/init.d/srs-api start
 ```
 
-即可以观看demo的页面。推流需要自己手动推流。若需要观看所有演示，直接用脚本启动，参考：[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)
+See: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)
 
-注意：安装srs-api适用于使用播放器的客户，使用推流编码器的客户，以及使用视频会议demo的客户。总之只会启动api-server，所以默认那些演示流是不会起来的。
-
-注意：也可以直接在srs的git目录启动`./etc/init.d/simple-rtmp-servr-api start`，不必安装。
-
-注意：也可以以系统服务方式启动api-server，参考前面srs以系统服务方式启动的例子。
-
-<strong>Step3:</strong> 软链api脚本：
+<strong>Step3:</strong> Link api script:
 
 ```bash
 sudo ln -sf \
@@ -132,41 +129,41 @@ sudo ln -sf \
     /etc/init.d/srs-api
 ```
 
-<strong>Step4:</strong> 加入服务：
+<strong>Step4:</strong> Add to linux service:
 
 ```bash
 #centos 6
 sudo /sbin/chkconfig --add srs-api
 ```
 
-或者
+or
 
 ```bash
 #ubuntu12
 sudo update-rc.d srs-api defaults
 ```
 
-<strong>Step5:</strong> 管理SRS-api服务：
+<strong>Step5:</strong> Manage the SRS-api service:
 
-查看SRS-api状态：
+Get the SRS-api status:
 
 ```bash
 /etc/init.d/srs-api status
 ```
 
-启动SRS-api：
+Start SRS-api：
 
 ```bash
 /etc/init.d/srs-api start
 ```
 
-停止SRS-api：
+Stop SRS-api：
 
 ```bash
 /etc/init.d/srs-api stop
 ```
 
-重启SRS-api：
+Restart SRS-api：
 
 ```bash
 /etc/init.d/srs-api restart
