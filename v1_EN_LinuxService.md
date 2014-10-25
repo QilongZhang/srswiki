@@ -169,4 +169,4 @@ Restart SRS-api：
 /etc/init.d/srs-api restart
 ```
 
-Winlin 2014.3
+Winlin 2014.10
