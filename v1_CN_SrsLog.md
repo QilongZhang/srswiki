@@ -70,7 +70,7 @@ SRS的日志可以定位到某个连接，可以在混杂了成千上万个链�
 * <strong>[2014-04-04 11:21:29.183]</strong> 日志的日期，毫秒数因为SRS的时间cache，分辨率定义在SRS_TIME_RESOLUTION_MS，即500毫秒更新一次时间。防止gettimeofday函数调用造成性能问题。
 * <strong>[trace]</strong> 日志的级别，参考上面对日志级别的定义。打印到控制台的日志，trace是白色，warn是黄色，error是红色。一般只有trace日志说明没有发现异常。
 * <strong>[2837]</strong> 进程pid。进程之间的session id可能有重复。
-* <strong>[104]</strong> 标识id。进程存活期间，保证id唯一，从0开始计算。这个就是找到某个连接的日志的关键。
+* <strong>[104]</strong> Session id。进程存活期间，保证id唯一，从0开始计算。这个就是找到某个连接的日志的关键。
 * <strong>[11]</strong> errno，系统错误码。这个在error时才有效，其他时候这个值没有意义。
 * <strong>rtmp get peer ip success.</strong> 日志的文本。若有错误，一般会打印出错误码，譬如：identify client failed. ret=211(Timer expired) 说明是超时。
 
