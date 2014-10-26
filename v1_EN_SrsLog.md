@@ -68,8 +68,8 @@ SRS provides session oriented log, to enalbe us to grep specified connection log
 The log format is:
 * <strong>[2014-04-04 11:21:29.183]</strong> Date of log. The ms is set by the time cache of SRS_TIME_RESOLUTION_MS to avoid performance issue.
 * <strong>[trace]</strong> Level of log. Trace is ok, warn and error maybe something is wrong.
-* <strong>[2837]</strong> The pid of process. The session id maybe duplicated for multiple process.
-* <strong>[104]</strong> The session id, unique for the same process. So the pid+session-id is used to identify a connection.
+* <strong>[2837]</strong> The pid of process(SrsPid). The session id maybe duplicated for multiple process.
+* <strong>[104]</strong> The session id(SrsId), unique for the same process. So the pid+session-id is used to identify a connection.
 * <strong>[11]</strong> The errno of system, optional for warn and error.
 * <strong>rtmp get peer ip success.</strong> The description of log.
 
@@ -77,15 +77,15 @@ The following descript how to analysis the log of SRS.
 
 ### Tracable Log
 
-某个客户端如果出现问题，譬如投诉说卡，播放断开，如何排查问题？SRS提供基于连接的日志，可以根据连接的id查询这个客户端在服务器的日志（参考下面基于连接的日志）。
+SRS can get the whole log when we got something, for example, the ip of client, or the stream for client and time to play, the page url.
 
-如果服务器是多层结构呢？譬如CDN集群，有时候就需要查询连接的回源连接，以及回源连接在上层服务器的日志。这个时候快速知道客户端或者边缘在上层服务器的ID就及其重要了。
+Event for the cluster, SRS can find the session oriented directly. We can get the session of server, and the source id for the session, and the upnode session log util the origin server and the publish id.
 
-客户端或者边缘能拿到自己在上层服务器的ID，就是可追溯日志。我举个例子：
+The client also can get the pid and session-id of the connection on server. For example:
 
-播放流：rtmp://dev:1935/live/livestream
-![客户端显示id](http://winlinvip.github.io/srs.release/wiki/images/client.log.png)
-能看到SrsIp，即服务器ip为192.168.1.107，对于DNS解析而言，这个很重要，知道是哪个边缘节点。SrsPid为9131，SrsId为117，所以去这个服务器上grep关键字"\[9131\]\[117\]"就可以。
+A client play stream: rtmp://dev:1935/live/livestream
+![All id for client](http://winlinvip.github.io/srs.release/wiki/images/client.log.png)
+We can get the server ip `192.168.1.107`, the pid `9131` and session id `117`. We can grep on this server directly by keyword "\[9131\]\[117\]":
 ```bash
 [winlin@dev6 srs]$ grep -ina "\[12665\]\[114\]" objs/edge.log
 1307:[2014-05-27 19:21:27.276][trace][12665][114] serve client, peer ip=192.168.1.113
@@ -106,7 +106,7 @@ The following descript how to analysis the log of SRS.
 1334:[2014-05-27 19:21:27.922][trace][12665][114] -> PLA time=301, msgs=12, okbps=1072,0,0, ikbps=48,0,0
 ```
 
-会发现回源连接的id为115，所以查找这个链接：
+While the source id is 115(`source_id=115`), then find this session:
 ```
 [winlin@dev6 srs]$ grep -ina "\[12665\]\[115\]" objs/edge.log
 1320:[2014-05-27 19:21:27.518][trace][12665][115] edge connected, can_publish=1, url=rtmp://dev:1935/live/livestream, server=127.0.0.1:19350
@@ -124,7 +124,7 @@ The following descript how to analysis the log of SRS.
 1335:[2014-05-27 19:21:37.653][trace][12665][115] <- EIG time=10163, okbps=0,0,0, ikbps=234,254,231
 ```
 
-发现回源链接在服务器上的标识为：`connected, version=0.9.119, ip=127.0.0.1, pid=12633, id=141`
+We can finger out the upnode server session info `connected, version=0.9.119, ip=127.0.0.1, pid=12633, id=141`, then to grep on the upnode server:
 ```
 [winlin@dev6 srs]$ grep -ina "\[12633\]\[141\]" objs/srs.log
 783:[2014-05-27 19:21:27.518][trace][12633][141] serve client, peer ip=127.0.0.1
@@ -145,7 +145,7 @@ The following descript how to analysis the log of SRS.
 867:[2014-05-27 19:22:57.225][trace][12633][141] update source_id=149
 ```
 
-同样发现这个源头是149，即编码器推流上来的id。
+And the source id 149(`source_id=149`), that is the session id of encoder:
 ```
 [winlin@dev6 srs]$ grep -ina "\[12633\]\[149\]" objs/srs.log
 857:[2014-05-27 19:22:56.919][trace][12633][149] serve client, peer ip=127.0.0.1
@@ -161,22 +161,20 @@ The following descript how to analysis the log of SRS.
 870:[2014-05-27 19:23:04.970][trace][12633][149] <- CPB time=8117, okbps=4,0,0, ikbps=320,0,0
 ```
 
-O了，快速直接！
+Encoder => Origin => Edge => Player, the whole link log we got directly!
 
-### 可倒追溯日志
+### Reverse Tracable Log
 
-可追溯日志，上一节所描述的，可以从播放器追溯到边缘服务器，从边缘追溯到上层，上层到上上层，一直到源站。
+The tracable is finger log from the player to the origin. The reverse tracable log is from the origin to the edge and player.
 
-可倒追溯日志，指的是反过来从源站知道下层的回源ID，下层知道边缘的回源ID。边缘上自然有每个连接的日志。
-
-譬如开启一个源站一个边缘，查询日志：
+For example, there is a origin and a edge, to grep the log on origin by keyword `edge-srs`:
 
 ```
 [winlin@dev6 srs]$ grep -ina "edge-srs" objs/srs.origin.log 
 30:[2014-08-06 09:41:31.649][trace][21433][107] edge-srs ip=192.168.1.159, version=0.9.189, pid=21435, id=108
 ```
 
-可以知道这个播放连接107是一个SRS回源链接，它在服务器192.168.1.159上面，进程是21435，回源链接id是108。查询这个日志：
+We get all edge srs which connectted to this origin, this edge ip is 192.168.1.159, pid is 21435, session id is 108. Then grep the log on the edge:
 
 ```
 [winlin@dev6 srs]$ grep --color -ina "\[108\]" objs/srs.log 
@@ -196,29 +194,29 @@ O了，快速直接！
 53:[2014-08-06 10:09:47.805][warn][22314][108][4] origin disconnected, retry. ret=1007
 ```
 
-以此类推，查回源链接的信息时，可以看到所有连接到该回源链接的客户端id（grep时先过滤进程号，然后过滤id）：
+On this edge, we finger out there is 2 connections which connected on the source, by keyword `source_id=108`:
 
 ```
 39:[2014-08-06 10:09:34.779][trace][22314][107] update source_id=108[108]
 46:[2014-08-06 10:09:36.853][trace][22314][110] source url=__defaultVhost__/live/livestream, ip=192.168.1.179, cache=1, is_edge=1, source_id=108[108]
 ```
 
-可以看到有两个连接，一个是107，一个是110。连接107是播放后才回源，110是已经在回源了然后播放的。
+There are 2 connections connected on this source, 107 and 110.
 
-### 可任意追溯
+### Any Tracable Log
 
-以为支持可追溯以及可倒追溯日志，所以我们在任意节点开始都可以找到整个分发链路。
+For SRS support tracalbe and reverse tracable log, so we can got the whold stream delivery log at any point.
 
-开启一个边缘一个源站，源站ingest推流，两个客户端连接到边缘播放，边缘回源站取流。
+For example, a cluster has a origin and an edge, origin ingest stream.
 
-假设我知道流名称，或者不知道流名称，反正任意信息，譬如我知道播放的链接会打一个"type=Play"的标记出来，就从这一点开始。假设从源站开始：
+When I know the stream name, or any information, for example, we can grep the keyword `type=Play` for all client to play stream on origin server:
 
 ```
 [winlin@dev6 srs]$ grep -ina "type=Play" objs/srs.origin.log 
 31:[2014-08-06 10:09:34.671][trace][22288][107] client identified, type=Play, stream_name=livestream, duration=-1.00
 ```
 
-发现有个107的链接播放了源站信息，查看它的日志：
+We got session id 107 which play the stream on origin:
 
 ```
 [winlin@dev6 srs]$ grep -ina "\[107\]" objs/srs.origin.log 
@@ -237,7 +235,7 @@ O了，快速直接！
 41:[2014-08-06 10:09:47.805][warn][22288][107][104] client disconnect peer. ret=1004
 ```
 
-可以看到源id是105，查这个源：
+The soruce id is 105, specified by `source_id=105`:
 
 ```
 [winlin@dev6 srs]$ grep --color -ina "\[105\]" objs/srs.origin.log 
@@ -255,15 +253,15 @@ O了，快速直接！
 38:[2014-08-06 10:09:40.732][trace][22288][105] <- CPB time=10100, okbps=3,0,0, ikbps=332,0,0
 ```
 
-可见这个就是ingest的连接，即编码器推流连接。已经查到了源头。
+This source is the ingest stream source, we got the root source.
 
-同时可以看到107这个其实是srs的回源链接：
+And we got 107 which is srs edge connection, by keyword `edge-srs`:
 
 ```
 30:[2014-08-06 10:09:34.631][trace][22288][107] edge-srs ip=192.168.1.159, version=0.9.190, pid=22314, id=108
 ```
 
-可以去边缘服务器上查它的信息，id是108：
+Find the log on edge, the session id is 108:
 
 ```
 [winlin@dev6 srs]$ grep --color -ina "\[108\]" objs/srs.log 
@@ -283,7 +281,7 @@ O了，快速直接！
 53:[2014-08-06 10:09:47.805][warn][22314][108][4] origin disconnected, retry. ret=1007
 ```
 
-这个边缘服务器上这个回源链接有两个客户端连接上，107和110：
+We got the edge source 108, and there are 2 clients connected on this source 107 and 110, specified by keyword `source_id=108`:
 
 ```
 [winlin@dev6 srs]$ grep --color -ina "\[107\]" objs/srs.log
@@ -304,7 +302,7 @@ O了，快速直接！
 56:[2014-08-06 10:09:47.805][warn][22314][107][9] client disconnect peer. ret=1004
 ```
 
-107是触发回源的连接。查看110这个链接：
+The 107 is a client which trigger the edge to fetch stream from origin. Find 110:
 
 ```
 [winlin@dev6 srs]$ grep --color -ina "\[110\]" objs/srs.log
@@ -322,11 +320,11 @@ O了，快速直接！
 52:[2014-08-06 10:09:46.247][warn][22314][110][104] client disconnect peer. ret=1004
 ```
 
-可见110也是个flash播放连接。
+The 110 is a flash player client.
 
-### 系统信息
+### System info.
 
-日志中有版本和配置信息，以及使用的pid文件，侦听的端口，启动前几条日志就是：
+The system info and port listen at:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/srs -c console.conf 
@@ -353,33 +351,29 @@ O了，快速直接！
 [2014-04-04 11:39:26.799][trace][0][11] user terminate program
 ```
 
-可以看到这个边缘
-
-主要信息包括：
-* <strong>日志文件</strong>：[2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
-* <strong>系统版本</strong>：[2014-04-04 11:39:24.177][trace][0][0] srs(simple-rtmp-server) 0.9.46
-* <strong>编译系统信息</strong>：[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 
+It means:
+* <strong>The log file path</strong>：[2014-04-04 11:39:24.176][trace][0][0] log file is ./objs/srs.log
+* <strong>SRS version</strong>：[2014-04-04 11:39:24.177][trace][0][0] srs(simple-rtmp-server) 0.9.46
+* <strong>Compile info</strong>：[2014-04-04 11:39:24.177][trace][0][0] uname: Linux dev6 2.6.32-71.el6.x86_64 
 #1 SMP Fri May 20 03:51:51 BST 2011 x86_64 x86_64 x86_64 GNU/Linux
-* <strong>编译日期</strong>：[2014-04-04 11:39:24.177][trace][0][0] build: 2014-04-03 18:38:23, little-endian
-* <strong>编译参数</strong>：[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx 
+* <strong>Compile date</strong>：[2014-04-04 11:39:24.177][trace][0][0] build: 2014-04-03 18:38:23, little-endian
+* <strong>Build options</strong>：[2014-04-04 11:39:24.177][trace][0][0] configure:  --dev --with-hls --with-nginx 
 --with-ssl --with-ffmpeg --with-http-callback --with-http-server --with-http-api --with-librtmp 
 --with-bwtc --with-research --with-utest --without-gperf --without-gmc --without-gmp 
 --without-gcp --without-gprof --without-arm-ubuntu12 --jobs=1 --prefix=/usr/local/srs
-* <strong>PID文件</strong>：[2014-04-04 11:39:24.177][trace][0][0] write pid=4021 to ./objs/srs.pid success!
-* <strong>侦听端口1935（RTMP）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1935, type=0, fd=6
-* <strong>侦听1985（HTTP接口）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1985, type=1, fd=7
-* <strong>侦听8080（HTTP服务）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=8080, type=2, fd=8
-* <strong>侦听循环开始，准备接受连接</strong>：[2014-04-04 11:39:24.177][trace][101][16] listen cycle start, port=1935, type=0, fd=6
+* <strong>PID file</strong>：[2014-04-04 11:39:24.177][trace][0][0] write pid=4021 to ./objs/srs.pid success!
+* <strong>Listen at port 1935（RTMP）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1935, type=0, fd=6
+* <strong>Listen at port 1985（HTTP接口）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=1985, type=1, fd=7
+* <strong>Listen at port 8080（HTTP服务）</strong>：[2014-04-04 11:39:24.177][trace][100][16] server started, listen at port=8080, type=2, fd=8
+* <strong>Ready for connections</strong>：[2014-04-04 11:39:24.177][trace][101][16] listen cycle start, port=1935, type=0, fd=6
 
-### 基于连接的日志
+### Session oriented log
 
-提供基于连接的日志，对于排错至关重要。当然对于系统分析需要支持良好的api。
+SRS provides session oriented log.
 
-举例来说，服务器运行了1年，支持了1千万次访问。要知道这1千万个用户多少个用户点了暂停按钮，多少概率会跳过片头，多少用户观看了10分钟以上，都访问了些什么节目，这个属于大数据分析，需要集群提供api查询，集群能提供这个数据的前提是服务器能提供api查询。
+For example, SRS running for 365 days, served 10000000 clients, how to find a specified client log?
 
-用户投诉卡，或者观看不了，推流不成功，或者通过数据分析发现某个流的用户观看延迟很大。这种具体的问题，就需要分析某个连接的日志。
-
-假设需要知道推流的编码器的日志，流是`rtmp://192.168.1.107:1935/live/livestream`，那么先需要观察日志，一般推流的日志如下：
+We need something to grep, for instance, we know the stream url: `rtmp://192.168.1.107:1935/live/livestream`, then we can find the keyword to grep by research the publish log:
 
 ```bash
 [2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, 
@@ -396,11 +390,12 @@ command message. type=0x5
 type=publish(FMLEPublish), stream_name=livestream
 ```
 
-查找标识id：
-* 可以grep关键字`identify client success`，然后grep关键字`type=publish`，然后grep关键字`livestream`。
-* 如果熟悉的话，也可以直接grep关键字`identify client success. type=publish`，然后grep关键字`livestream`。
-* 也可以分步实现，先grep关键字`identify client success. type=publish`，把所有推流的连接找出来。然后观察后再加条件。
-结果如下：
+The keyword to grep:
+* Use keyword `identify client success`, then `type=publish`, then `livestream`.
+* Or, use keyword `identify client success. type=publish`, then `livestream`.
+* We can grep all `identify client success. type=publish`, and research the result.
+
+For example:
 
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log|grep -ina "identify client success. type=publish"
@@ -410,7 +405,7 @@ type=publish(FMLEPublish), stream_name=livestream
 86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish, stream_name=livestream
 ```
 
-可见有几次推流，还有其他的流。可是根据时间过滤，或者根据流名称：
+There are some publish stream, and we can grep specified streamname.
 
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log|grep -ina "identify client success. type=publish"|grep -a "livestream"
@@ -419,7 +414,7 @@ type=publish(FMLEPublish), stream_name=livestream
 86:[2014-04-04 11:56:35.966][trace][107][11] identify client success. type=publish, stream_name=livestream
 ```
 
-找到了三个推流连接，还可以继续筛选。假设我们看第一个，那么标识是`104`，可以grep关键字`\[104\]\[`，譬如：
+We can filter the result by time, for example, we use session id 104 to grep by keyword `\[104\]\[`:
 ```bash
 [winlin@dev6 srs]$ cat objs/srs.log |grep -ina "\[104\]\["
 14:[2014-04-04 11:56:06.074][trace][104][11] rtmp get peer ip success. ip=192.168.1.179, 
@@ -454,13 +449,13 @@ type=publish(FMLEPublish), stream_name=livestream
 [winlin@dev6 srs]$ 
 ```
 
-这个连接的日志就都出来了，重点关注warn和error日志。可以看到这个是客户端关闭了连接：`36:[2014-04-04 11:56:12.620][error][104][104] identify client failed. ret=207(Connection reset by peer)`。
+Then we got the log for this session, and client closed connection by log: `36:[2014-04-04 11:56:12.620][error][104][104] identify client failed. ret=207(Connection reset by peer)`.
 
-## 守护进程
+## Daemon
 
-为何默认启动srs时只有一条日志呢？原因是守护进程方式启动时，日志会打印到文件。
+When default SRS only print less log? Because SRS default use `conf/srs.conf` in daemon mode and print to log file.
 
-一个相关的配置是守护进程方式启动，这样就不要nohup启动了（实际上是程序实现了nohup）：
+When enable daemon, then no need to start by nohup:
 
 ```bash
 # whether start as deamon
@@ -468,7 +463,7 @@ type=publish(FMLEPublish), stream_name=livestream
 daemon              on;
 ```
 
-若希望不以daemon启动，且日志打印到console，可以使用配置`conf/console.conf`：
+Use `conf/console.conf` to not start in daemon and log to conosle.
 
 ```bash
 # no-daemon and write log to console config for srs.
@@ -481,17 +476,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-启动方式：
+Startup command:
 
 ```bash
 ./objs/srs -c conf/console.conf 
 ```
 
-系统默认方式是daemon+log2file，具体参考`full.conf`的说明。
-
-注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
-
-注意：一般以daemon后台启动，并将日志写到文件（默认），srs会提示配置解析成功，日志写到文件。
+To startup with default log `conf/srs.conf`:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/srs -c conf/srs.conf 
