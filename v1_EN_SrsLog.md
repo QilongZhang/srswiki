@@ -1,16 +1,16 @@
-# SRS系统日志
+# SRS system log
 
-SRS支持打印到console和file，支持设置level，支持连接级别的日志，支持可追溯日志。
+SRS can log to console or file, with level, session oriented log and tracable log.
 
 ## LogTank
 
-LogTank即log的容器，日志打印到什么地方。
+The tank is the container for log, to where write log:
 
-SRS提供两种打印日志的方式，通过配置`srs_log_tank`：
-* console：打印日志到控制台。当配置文件没有加载时，也打印到控制台。
-* file: 默认，打印日志到文件。必须指定配置`srs_log_file`，日志文件。日志文件默认为：`./objs/srs.log`
+There are two tank of SRS log, config the `srs_log_tank` to:
+* console: Write log to console. Before config parsed, write log to console too.
+* file: Default. Write log to file, and the `srs_log_file` specified the path of log file, which default to  `./objs/srs.log`
 
-配置文件中的说明：
+The log specified config:
 
 ```bash
 # the log tank, console or file.
@@ -489,7 +489,7 @@ vhost __defaultVhost__ {
 
 系统默认方式是daemon+log2file，具体参考`full.conf`的说明。
 
-注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
+注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
 
 注意：一般以daemon后台启动，并将日志写到文件（默认），srs会提示配置解析成功，日志写到文件。
 
@@ -498,7 +498,7 @@ vhost __defaultVhost__ {
 [2014-04-14 12:12:57.775][trace][0][0] config parse complete
 [2014-04-14 12:12:57.775][trace][0][0] write log to file ./objs/srs.log
 [2014-04-14 12:12:57.775][trace][0][0] you can: tailf ./objs/srs.log
-[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLog
+[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog
 ```
 
 Winlin 2014.10
