@@ -482,7 +482,7 @@ Startup command:
 ./objs/srs -c conf/console.conf 
 ```
 
-To startup with default log `conf/srs.conf`:
+To startup with default config `conf/srs.conf`:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/srs -c conf/srs.conf 
