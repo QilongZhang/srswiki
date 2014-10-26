@@ -18,6 +18,13 @@ SRS提供两种打印日志的方式，通过配置`srs_log_tank`：
 # if file, write log to file. requires srs_log_file if log to file.
 # default: file.
 srs_log_tank        file;
+# the log level, for all log tanks.
+# can be: verbose, info, trace, warn, error
+# default: trace
+srs_log_level       trace;
+# when srs_log_tank is file, specifies the log file.
+# default: ./objs/srs.log
+srs_log_file        ./objs/srs.log;
 ```
 
 ## LogLevel
