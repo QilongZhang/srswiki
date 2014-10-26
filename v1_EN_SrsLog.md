@@ -18,27 +18,18 @@ The log specified config:
 # if file, write log to file. requires srs_log_file if log to file.
 # default: file.
 srs_log_tank        file;
-# the log level, for all log tanks.
-# can be: verbose, info, trace, warn, error
-# default: trace
-srs_log_level       trace;
-# when srs_log_tank is file, specifies the log file.
-# default: ./objs/srs.log
-srs_log_file        ./objs/srs.log;
 ```
 
 ## LogLevel
 
-LogLevel就是log的级别，什么级别的日志才会打印出来。
+The level is specified by `srs_log_level` and control which level of log to print:
+* verbose: Lots of log, which hurts performance. SRS default to disable it when compile.
+* info：Detail log, which huts performance. SRS default to disable it when compile.
+* trace: Important log, less and SRS enable it as default level.
+* warn: Warning log, without debug log.
+* error: Error level.
 
-SRS支持设置日志级别，通过设置`srs_log_level`：
-* verbose: 非常详细的日志，性能会很低，日志会非常多。SRS默认是编译时禁用这些日志，提高性能。
-* info：较为详细的日志，性能也受影响。SRS默认编译时禁用这些日志。
-* trace: 重要的日志，比较少，SRS默认使用这个级别。
-* warn: 警告日志，SRS在控制台以黄色显示。若SRS运行较稳定，可以只打开这个日志。建议使用trace级别。
-* error: 错误日志，SRS在控制台以红色显示。
-
-配置文件中的说明：
+The level in config file:
 
 ```bash
 # the log level, for all log tanks.
@@ -47,16 +38,17 @@ SRS支持设置日志级别，通过设置`srs_log_level`：
 srs_log_level       trace;
 ```
 
-注意事项：
-* 设置了低级别的日志，自动会打印高级别的。譬如设置为trace，那么trace/warn/error日志都会打印出来。
-* 默认verbose和info是编译时禁用的，若需要打开这两个日志，需要修改`srs_kernel_log.hpp`，将对应的禁用编译宏打开。
-* 推荐使用trace级别，重要的日志不多，对于排错很方便。如果有错误，建议用gdb调试，不要依赖日志。只有在不得已时才用日志排错。
+Notes:
+* Enable all high level, for example, enable trace/warn/error when set level to trace.
+* The verbose and info level is disabled when compile. Modify the `srs_kernel_log.hpp` when need to enable this.
+* Recomment to use trace level.
 
-## 工具的日志
+## Log of tools
 
-Transcode/Ingest等都是用到了外部工具，譬如FFMPEG，所以我们统称ffmpeg日志。
+The feature Transcode/Ingest use external tools, for instance, FFMPEG. SRS use isolate log file for the external tools.
 
-SRS可以配置ffmpeg的日志路径，若配置为`/dev/null`则禁用ffmpeg日志，在某些嵌入式系统磁盘较小时比较有用，需要减少日志时有用：
+Set the tools log to `/dev/null` to disable the log:
+
 ```bash
 # the logs dir.
 # if enabled ffmpeg, each stracoding stream will create a log file.
@@ -65,24 +57,25 @@ SRS可以配置ffmpeg的日志路径，若配置为`/dev/null`则禁用ffmpeg日
 ff_log_dir          ./objs;
 ```
 
-## 日志格式
+## Log Format
 
-SRS的日志可以定位到某个连接，可以在混杂了成千上万个链接的日志中找到某一个连接的日志，譬如要看某个客户端的日志。这个功能和SRS的日志格式设计相关，譬如：
+SRS provides session oriented log, to enalbe us to grep specified connection log:
 
 ```bash
-[2014-04-04 11:21:29.183][trace][104][11] rtmp get peer ip success. ip=192.168.1.179
+[2014-04-04 11:21:29.183][trace][2837][104][11] rtmp get peer ip success. ip=192.168.1.179
 ```
 
-日志格式如下：
-* <strong>[2014-04-04 11:21:29.183]</strong> 日志的日期，毫秒数因为SRS的时间cache，分辨率定义在SRS_TIME_RESOLUTION_MS，即500毫秒更新一次时间。防止gettimeofday函数调用造成性能问题。
-* <strong>[trace]</strong> 日志的级别，参考上面对日志级别的定义。打印到控制台的日志，trace是白色，warn是黄色，error是红色。一般只有trace日志说明没有发现异常。
-* <strong>[104]</strong> 标识id。进程存活期间，保证id唯一，从0开始计算。这个就是找到某个连接的日志的关键。
-* <strong>[11]</strong> errno，系统错误码。这个在error时才有效，其他时候这个值没有意义。
-* <strong>rtmp get peer ip success.</strong> 日志的文本。若有错误，一般会打印出错误码，譬如：identify client failed. ret=211(Timer expired) 说明是超时。
+The log format is:
+* <strong>[2014-04-04 11:21:29.183]</strong> Date of log. The ms is set by the time cache of SRS_TIME_RESOLUTION_MS to avoid performance issue.
+* <strong>[trace]</strong> Level of log. Trace is ok, warn and error maybe something is wrong.
+* <strong>[2837]</strong> The pid of process. The session id maybe duplicated for multiple process.
+* <strong>[104]</strong> The session id, unique for the same process. So the pid+session-id is used to identify a connection.
+* <strong>[11]</strong> The errno of system, optional for warn and error.
+* <strong>rtmp get peer ip success.</strong> The description of log.
 
-下面是一些常用的日志分析方法。
+The following descript how to analysis the log of SRS.
 
-### 可追溯日志
+### Tracable Log
 
 某个客户端如果出现问题，譬如投诉说卡，播放断开，如何排查问题？SRS提供基于连接的日志，可以根据连接的id查询这个客户端在服务器的日志（参考下面基于连接的日志）。
 
