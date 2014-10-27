@@ -10,11 +10,11 @@ The use scenario of vhost:
 * Multiple customers cloud: For example, CDN(content delivery network) serves multiple customers. How does CDN to seperate customer and stat the data? Maybe stream path is duplicated, for example, live/livestream is the most frequently used app and stream. The vhost, similar to the virtual server, provides abstract for multiple customers.
 * Different config: For example, FMLE publish h264+mp3, which should be transcoded to h264+aac. We can use vhost to use different config, h264+mp3 disabled hls while the h264+aac vhost enalbe hls.
 
-总之，vhost作为应用配置的单元，能隔离客户，应用不同的配置。
+In a word, vhost is the element of config, to seperate customer and apply different config.
 
-## 标准RTMP URL
+## Standard RTMP URL
 
-标准RTMP URL指的是最大兼容的RTMP URL，基本上所有的服务器和播放器都能识别的URL，和HTTP URL其实很相似，例如：
+Standard RTMP URL is the most compatible URL, for all servers and players can identify. The RTMP URL is similar to the HTTP URL:
 
 <table>
 <thead>
@@ -55,13 +55,13 @@ The use scenario of vhost:
 </tfoot>
 </table>
 
-其中：
-* Schema：协议头，HTTP为HTTP或HTTPS，RTMP为RTMP/RTMPS/RTMPE/RTMPT等众多协议，还有新出的RTMFP。
-* Host：主机，表示要连接的主机，可以为主机DNS名称或者IP地址。商用时，一般不会用IP地址，而是DNS名称，这样可以用CDN分发内容（CDN一般使用DNS调度，即不同网络和地理位置的用户，通过DNS解析到的IP不一样，实现用户的就近访问）。
-* Port：端口，HTTP默认为80，RTMP默认为1935。当端口没有指定时，使用默认端口。
-* Path：路径，HTTP访问的文件路径。
-* App：RTMP的Application（应用）名称，可以类比为文件夹。以文件夹来分类不同的流，没有特殊约定，可以任意划分。
-* Stream：RTMP的Stream（流）名称，可以类比为文件。
+It is:
+* Schema：The protocol prefix, HTTP/HTTPS for HTTP protocol, and RTMP/RTMPS/RTMPE/RTMPT for RTMP protocol, while the RTMFP is adobe flash p2p protocol.
+* Host：The server ip or dns name to connect to. It is dns name for CDN, and the dns name is used as the vhost for the specified customer.
+* Port：The tcp port, default 80 for HTTP and 1935 for RTMP.
+* Path：The http file path for HTTP.
+* App：The application for RTMP, similar to the directory of resource(stream).
+* Stream：The stream for RTMP, similar to the resource(file) in specified app.
 
 ## NoVhost
 
