@@ -249,7 +249,7 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 <td>普通用户</td>
 <td>rtmp://demo.srs.com/live/livestream</td>
 <th>无</th>
-<td>由DNS解析到指定边缘</td>
+<td>由DNS<br/>解析到指定边缘</td>
 </tr>
 <tr>
 <td>运维</td>
