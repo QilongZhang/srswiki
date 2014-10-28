@@ -228,6 +228,8 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 边缘节点SRS配置：
     listen              1935;
     vhost demo.srs.com {
+        mode remote;
+        origin: xxxxxxx;
     }
 ```
 
