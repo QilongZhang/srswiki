@@ -167,10 +167,8 @@ Vhost主要的作用是：
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    enabled         on;
 }
 vhost show.wasu.cn {
-    enabled         on;
 }
 ```
 
@@ -230,7 +228,6 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 边缘节点SRS配置：
     listen              1935;
     vhost demo.srs.com {
-        enabled         on;
     }
 ```
 
