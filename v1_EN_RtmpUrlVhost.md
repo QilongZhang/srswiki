@@ -258,13 +258,13 @@ The ways to access the url on edge servers:
 </tr>
 <tr>
 <td>Admin</td>
-<td>rtmp://192.168.1.100/live?vhost=demo.srs.com/livestream</td>
+<td>rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream</td>
 <th>NO</th>
 <td>Stream on 192.168.1.100</td>
 </tr>
 <tr>
 <td>Admin</td>
-<td>rtmp://192.168.1.100/live...vhost...demo.srs.com/livestream</td>
+<td>rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream</td>
 <th>NO</th>
 <td>Stream on 192.168.1.100</td>
 </tr>
