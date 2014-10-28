@@ -85,9 +85,9 @@ When generate the pages, add new stream, the config of SRS no need to change. Fo
 
 The reader category can use app `reader`, and the `red_mansion` chat room can use the url `rtmp://yourdomain.com/reader/red_mansion`.
 
-## Vhost的应用
+## Vhost Use scenario
 
-RTMP的Vhost和HTTP的Vhost概念是一样的：虚拟主机。详见下表（假设域名demo.srs.com被解析到IP为192.168.1.10的服务器）：
+The vhost of RTMP is same to HTTP virtual server. For example, the demo.srs.com is resolve to 192.168.1.10 by dns or hosts:
 
 <table>
 <thead>
@@ -122,14 +122,14 @@ RTMP的Vhost和HTTP的Vhost概念是一样的：虚拟主机。详见下表（�
 </tfoot>
 </table>
 
-Vhost主要的作用是：
-* 支持多用户：当一台服务器需要服务多个客户，譬如CDN有cctv（央视）和wasu（华数传媒）两个客户时，如何隔离他们两个的资源？相当于不同的用户共用一台计算机，他们可以在自己的文件系统建立同样的文件目录结构，但是彼此不会冲突。
-* 域名调度：CDN分发内容时，需要让用户访问离自己最近的边缘节点，边缘节点再从源站或上层节点获取数据，达到加速访问的效果。一般的做法就是Host是DNS域名，这样可以根据用户的信息解析到不同的节点。
-* 支持多配置：有时候需要使用不同的配置，考虑一个支持多终端（PC/Apple/Android）的应用，PC上RTMP分发，Apple和Android是HLS分发，如何让PC延迟最低，同时HLS也能支持，而且终端播放时尽量地址一致（降低终端开发难度）？可以使用两个Vhost，PC和HLS；PC配置为最低延迟的RTMP，并且将流转发给HLS的Vhost，可以对音频转码（可能不是H264/AAC）后切片为HLS。PC和HLS这两个Vhost的配置肯定是不一样的，播放时，流名称是一样，只需要使用不同的Host就可以。
+The use scenario of vhost:
+* Multiple Customers: When need to serve multiple customers use the same network, for example, cctv and wasu delivery stream on the same CDN, how to seperate them, when they use the same app and stream?
+* DNS scheduler: When CDN delivery content, the fast edge for the specified user is resolved for the dns name. We can use vhost as the dns name to scheduler user to different edge.
+* Multiple Config sections: Sometimes we need different config, for example, to delivery RTMP for PC and transcode RTMP to HLS for android and IOS, we can use one vhost to delivery RTMP and another for HLS.
 
-### Vhost支持多用户
+### Vhost For Multiple Customers
 
-假设cctv和wasu都运行在一台边缘节点(192.168.1.10)上，用户访问这两个媒体的流时，Vhost的作用见下表：
+For example, we got two customers cctv and wasu, use the same edge server 192.168.1.10, when user access the stream of these two customers:
 
 <table>
 <thead>
@@ -162,7 +162,7 @@ Vhost主要的作用是：
 </tbody>
 </table>
 
-在边缘节点（192.168.1.10）上的SRS，需要配置Vhost，例如：
+The config on the edge 192.168.1.10, need to config the vhost:
 
 ```bash
 listen              1935;
