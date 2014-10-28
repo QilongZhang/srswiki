@@ -174,11 +174,11 @@ vhost show.wasu.cn {
 }
 ```
 
-### Vhost域名调度
+### Vhost For DNS scheduler
 
-详细参考DNS和CDN的实现。
+Please refer to the tech for DNS and CDN.
 
-### Vhost支持多配置
+### Vhost For Multiple Config
 
 以上面举的例子，若cctv需要延迟最低（意味着启动时只有声音，画面是黑屏），而wasu需要快速启动（打开就能看到视频，服务器cache了最后一个gop，延迟会较大）。
 
