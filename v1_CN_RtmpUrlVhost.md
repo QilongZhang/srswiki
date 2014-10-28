@@ -187,11 +187,9 @@ vhost show.wasu.cn {
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    enabled         on;
     gop_cache       off;
 }
 vhost show.wasu.cn {
-    enabled         on;
     gop_cache       on;
 }
 ```
