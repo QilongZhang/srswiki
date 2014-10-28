@@ -259,13 +259,13 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 </tr>
 <tr>
 <td>运维</td>
-<td>rtmp://192.168.1.100/live?vhost=demo.srs.com/livestream</td>
+<td>rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream</td>
 <th>无</th>
 <td>查看192.168.1.100上的流</td>
 </tr>
 <tr>
 <td>运维</td>
-<td>rtmp://192.168.1.100/live...vhost...demo.srs.com/livestream</td>
+<td>rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream</td>
 <th>无</th>
 <td>查看192.168.1.100上的流</td>
 </tr>
