@@ -167,10 +167,8 @@ The config on the edge 192.168.1.10, need to config the vhost:
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    enabled         on;
 }
 vhost show.wasu.cn {
-    enabled         on;
 }
 ```
 
@@ -180,23 +178,21 @@ Please refer to the tech for DNS and CDN.
 
 ### Vhost For Multiple Config
 
-以上面举的例子，若cctv需要延迟最低（意味着启动时只有声音，画面是黑屏），而wasu需要快速启动（打开就能看到视频，服务器cache了最后一个gop，延迟会较大）。
+For example, two customers cctv and wasu, and cctv needs mininum latency, while wasu needs fast startup. 
 
-只需要对这两个Vhost进行不同的配置，例如：
+Then we config the cctv without gop cache, and wasu config with gop cache:
 
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    enabled         on;
     gop_cache       off;
 }
 vhost show.wasu.cn {
-    enabled         on;
     gop_cache       on;
 }
 ```
 
-总之，这两个Vhost的配置完全没有关系，不会相互影响。
+These two vhosts is completely isolated.
 
 ## \_\_defaultVhost\_\_
 
@@ -207,7 +203,6 @@ FMS的\_\_defaultVhost\_\_是默认的vhost，当用户请求的vhost没有匹�
 ```bash
 listen              1935;
 vhost demo.srs.com {
-    enabled         on;
 }
 ```
 
