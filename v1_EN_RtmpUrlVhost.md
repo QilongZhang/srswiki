@@ -196,9 +196,9 @@ These two vhosts is completely isolated.
 
 ## \_\_defaultVhost\_\_
 
-FMS的\_\_defaultVhost\_\_是默认的vhost，当用户请求的vhost没有匹配成功时，若配置了defaultVhost，则使用它来提供服务。若匹配失败，也没有defaultVhost，则返回错误。
+The default vhost is \_\_defaultVhost\_\ introduced by FMS. When mismatch and vhost not found, use the default vhost if configed.
 
-譬如，服务器192.168.1.10上的SRS配置如下：
+For example, the config of SRS on 192.168.1.10:
 
 ```bash
 listen              1935;
@@ -206,71 +206,72 @@ vhost demo.srs.com {
 }
 ```
 
-那么，当用户访问以下vhost时：
-* rtmp://demo.srs.com/live/livestream：成功，匹配vhost为demo.srs.com
-* rtmp://192.168.1.10/live/livestream：失败，没有找到vhost，也没有defaultVhost。
+Then, when user access the vhost:
+* rtmp://demo.srs.com/live/livestream：OK, matched vhost is demo.srs.com.
+* rtmp://192.168.1.10/live/livestream：Failed, no matched vhost, and no default vhost.
 
-defaultVhost和其他vhost的规则一样，只是用来匹配那些没有匹配成功的vhost的请求的。
+The rule of default vhost is same to other vhost, the default is used for the vhost not matched and not find.
 
-## 访问指定的Vhost
+## Access Specified Vhost
 
-如何访问某台服务器上的Vhost？有两个方法：
-* 配置hosts：因为Vhost实际上就是DNS解析，所以可以配置客户端的hosts，将域名（Vhost）解析到指定的服务器，就可以访问这台服务器上的指定的vhost。
-* 使用app的参数：需要服务器支持。在app后面带参数指定要访问的Vhost。SRS支持?vhost=VHOST和...vhost...VHOST这两种方式，后面的方式是避免一些播放器不识别？和=等特殊字符。
+There are two ways to access the vhost on server:
+* DNS name: When access the dns name equals to the vhost, by dns resolve or hosts file, we can access the vhost on server.
+* App parameters: When connect to tcUrl on server, that is, connect to the app, the parameter can specifies the vhost. This needs the server supports this way, for example, SRS can use parameter ?vhost=VHOST and ...vhost...VHOST to access specified vhost.
 
-普通用户不用这么麻烦，直接访问RTMP地址就好了，有时候运维需要看某台机器上的Vhost的流是否有问题，就需要这种特殊的访问方式。考虑下面的例子：
+For example:
 
 ```bash
 RTMP URL: rtmp://demo.srs.com/live/livestream
-边缘节点数目：50台
-边缘节点IP：192.168.1.100 至 192.168.1.150
-边缘节点SRS配置：
+Edge servers: 50 servers
+Edge server ip: 192.168.1.100 to 192.168.1.150
+Edge SRS config:
     listen              1935;
     vhost demo.srs.com {
-        enabled         on;
+        mode remote;
+        origin: xxxxxxx;
     }
 ```
 
-各种访问方式见下表：
+The ways to access the url on edge servers:
 
 <table>
 <thead>
 <tr>
-<th>用户</th>
+<th>User</th>
 <th>RTMP URL</th>
-<th>hosts设置</th>
-<th>目标</th>
+<th>Hosts file</th>
+<th>Target</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>普通用户</td>
+<td>User</td>
 <td>rtmp://demo.srs.com/live/livestream</td>
-<th>无</th>
-<td>正常观看直播流</td>
+<th>NO</th>
+<td>Scheduled by DNS</td>
 </tr>
 <tr>
-<td>运维</td>
+<td>Admin</td>
 <td>rtmp://demo.srs.com/live/livestream</td>
 <th>192.168.1.100 demo.srs.com</th>
-<td>查看192.168.1.100上的流</td>
+<td>Stream on 192.168.1.100</td>
 </tr>
 <tr>
-<td>运维</td>
+<td>Admin</td>
 <td>rtmp://192.168.1.100/live?vhost=demo.srs.com/livestream</td>
-<th>无</th>
-<td>查看192.168.1.100上的流</td>
+<th>NO</th>
+<td>Stream on 192.168.1.100</td>
 </tr>
 <tr>
-<td>运维</td>
+<td>Admin</td>
 <td>rtmp://192.168.1.100/live...vhost...demo.srs.com/livestream</td>
-<th>无</th>
-<td>查看192.168.1.100上的流</td>
+<th>NO</th>
+<td>Stream on 192.168.1.100</td>
 </tr>
 </tbody>
 </table>
 
-访问其他服务器的流也类似。
+It is sample way to access other servers.
 
 ## FMLE的奇怪URL方式
 
