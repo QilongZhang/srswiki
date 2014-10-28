@@ -65,11 +65,11 @@ It is:
 
 ## NoVhost
 
-其实，vhost大多数用户都用不到，而且不推荐用，有点复杂。一般的用户用app就可以了。因为vhost/app/stream，只是一个分类方法而已；vhost需要在配置文件中说明，app/stream都不需要配置。
+However, most user donot need the vhost, and it's a little complex, so donot use it when you donot need it. Most user actually only need app and stream.
 
-什么时候用vhost？如果你是提供服务，譬如你有100个客户，都要用一套平台，走同样的流媒体服务器分发。那可以每个客户一个vhost，这样他们的app和stream可以相同都可以。
+When to use vhost? When you serve 100+ customers and use the same delivery network, they use theire own vhost and can use the sample app and stream.
 
-一般的用法，举个例子，有个视频网站，自己搭建服务器，所以只有他自己一个客户，就不要用vhost了。假设视频网站提供聊天服务，聊天有不同的话题类型，譬如：军事栏目，读书栏目，历史栏目三个分类，每个分类下面有很多聊天室。只要这么配置就好：
+The common use scenario, for example, if you use SRS to build a video website. So you are the only customer, donot need vhost. Suppose you provides video chat, there are some categories which includes some chat rooms. For example, categories are military, reader, history. The military category has rooms rock, radar; the reader category has red_masion. The config of SRS is very simple:
 
 ```bash
 listen              1935;
@@ -77,13 +77,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-生成网页时，譬如军事栏目的网页，都用app名称为`military`，某个聊天室叫做`火箭`，这个页面的流可以用：`rtmp://yourdomain.com/military/rock`，编码器也推这个流，所有观看这个`军事栏目/火箭`聊天室的页面的人，都播放这个流。
+When generate web pages, for instance, military category, all app is `military`. The url of chat room is `rtmp://yourdomain.com/military/rock`, while the encoder publish this stream, and all player play this stream.
 
-军事栏目另外的网页，都用同样的app名称`military`，但是流不一样，譬如某个聊天室叫做`雷达`，这个页面的流可以用：`rtmp://yourdomain.com/military/radar`，推流和观看一样。
+The other pages of the military category use the same app name `military`, but use the different stream name, fr example, radar chat room use the stream url `rtmp://yourdomain.com/military/radar`.
 
-如此类推，军事栏目页面生成时，不用更改srs的任何配置。也就是说，新增聊天室，不用改服务器配置；新增分类，譬如加个`公开课`的聊天室，也不用改服务器配置。足够简单！
+When generate the pages, add new stream, the config of SRS no need to change. For example, when add a new chat room cannon, no need to change config of SRS. It is simple enough!
 
-另外，读书栏目可以用app名称为`reader`，栏目下的某个聊天室叫`红楼梦`，这个页面的流可以用：`rtmp://yourdomain.com/reader/red_mansion`，所有在这个聊天室的人都是播放这个流。
+The reader category can use app `reader`, and the `red_mansion` chat room can use the url `rtmp://yourdomain.com/reader/red_mansion`.
 
 ## Vhost的应用
 
