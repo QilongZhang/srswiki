@@ -326,11 +326,11 @@ stream = new NetStream(conn);
 stream.play("livestream");
 ```
 
-In the 从RTMP协议的角度来看：
-* NetConnection.connect(vhost+app)：这一步会完成握手，connect到vhost，切换到app。类似于登录到vhost后，cd到app这个目录。也就是vhost的验证，都可以在这一步做，也就是指定vhost也是在一步了，所以app后面跟的参数都是和vhost/app相关的。
-* NetStream.play(stream)：这一步是播放指定的直播流。所以和stream相关的事件，都可以传递参数，譬如Adobe的event。SRS是没有这些事件的，流启动时，若配置了HLS会自动开始切片。
+From the perspective of RTMP protcol:
+* NetConnection.connect(vhost+app): Complete the handshake protocol, send the connect packet to connect at the vhost and app. The parameters, for instance, the token or vhost, must specifies in the tcUrl(vhost/app).
+* NetStream.play(stream): Send a play packet and start play the stream.
 
-## SRS的URL规则
+## RTMP URL of SRS
 
 SRS只做简化的事情，绝对不把简单的事情搞复杂。
 
