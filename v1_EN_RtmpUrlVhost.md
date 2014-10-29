@@ -332,24 +332,24 @@ From the perspective of RTMP protcol:
 
 ## RTMP URL of SRS
 
-SRS只做简化的事情，绝对不把简单的事情搞复杂。
+SRS always simplify the problem, never make it more complex.
 
-SRS的RTMP URL使用标准的RTMP URL，一般不需要对app和stream加参数，或者更改他们的意义。除了两个地方：
-* vhost支持参数访问：为了方便运维访问某台服务器的vhost，不需要设置hosts。不影响普通用户。
-* 支持token验证：为了支持token验证，在app后面带参数，这个是token验证必须的方式。
+The RTMP URL of SRS use standard RTMP URL. Generally do not need to modify the url or add parameters in it, except:
+* Change vhost: Manually change vhost in RTMP URL for debuging.
+* Token authentication: To support token authentication.
 
-另外，SRS建议用户使用一级app和一级stream，不使用多级app和多级stream。譬如：
+Furthermore, recomment user to use one level app and stream, never use multiple level app and stream. For example:
 
 ```bash
-// 不推荐使用的多级app或stream
+// Not recomment multiple level app and stream, which confuse people.
 rtmp://demo.srs.com/show/live/livestream
 rtmp://demo.srs.com/show/live/livestream/2013
 ```
 
-srs播放器(srs_player)和srs编码器(srs_publisher)不支持多级app和stream，他们认为最后一个斜杠（/）后面的就是stream，前面的是app。即：
+The srs_player and srs_publisher donot support multiple level app and stream. Both srs_player and srs_publisher make the word behind the last / to stream, the left is tcUrl(vhost/app). For example:
 
 ```bash
-// srs_player和srs_publisher的解析方式：
+// For both srs_player and srs_publisher:
 // play or publish the following rtmp URL:
 rtmp://demo.srs.com/show/live/livestream/2013
 schema: rtmp
@@ -358,41 +358,41 @@ app: show/live/livestream
 stream: 2013
 ```
 
-做此简化的好处是，srs播放器和编码器，只需要指定一个url，而且两者的url是一样的。
+It simplify the url, the palyer and publisher only need user to input a url, not tcUrl and stream.
 
-SRS常见的三种RTMP URL，详细见下表：
+The RTMP URL of SRS:
 <table>
 <thead>
 <tr>
 <th>URL</th>
-<th>说明</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>rtmp://demo.srs.com/live/livestream</td>
-<td>普通用户的标准访问方式，观看直播流</td>
+<td>Standard RTMP URL</td>
 </tr>
 <tr>
 <td>rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream</td>
-<td>运维对特定服务器排错</td>
+<td>URL specifies vhost</td>
 </tr>
 <tr>
 <td>rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream</td>
-<td>token验证用户，或者带宽测试的key验证</td>
+<td>URL specifies token authentication</td>
 </tr>
 </tbody>
 </table>
 
-## SRS的Vhost
+## Vhost of SRS config
 
-SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功能，每个功能都单独列出一个vhost。所有功能都放在demo.srs.com这个vhost中。
+The full.conf of conf of SRS contains many vhost, which used to show each feature. All features is put into the vhost demo.srs.com:
 
 <table>
 <thead>
 <th>Category</th>
 <th>Vhost</th>
-<th>说明</th>
+<th>Description</th>
 </thead>
 <tbody>
 <tr>
