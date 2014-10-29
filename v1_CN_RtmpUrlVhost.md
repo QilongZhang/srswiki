@@ -432,9 +432,6 @@ SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功
 <td>Transcode</td><td>mirror.transcode.vhost.com</td><td>转码实例：使用ffmpeg的实例filter，将视频做镜像翻转处理。其他Vhost添加这个配置，就可以对流进行转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
 </tr>
 <tr>
-<td>Transcode</td><td>drawtext.transcode.vhost.com</td><td>转码实例：在视频上加文字filter。其他Vhost添加此配置，就可以做文字水印。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
-</tr>
-<tr>
 <td>Transcode</td><td>crop.transcode.vhost.com</td><td>转码实例：剪裁视频filter。其他vhost添加此filter，即可对视频进行剪裁。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
 </tr>
 <tr>
