@@ -273,16 +273,16 @@ The ways to access the url on edge servers:
 
 It is sample way to access other servers.
 
-## FMLE的奇怪URL方式
+## The Publish URL of FMLE
 
-FMLE推流时，URL那个地方，有三个可以输入的框，参考[Adobe FMLE](http://help.adobe.com/en_US/FlashMediaLiveEncoder/3.0/Using/WS5b3ccc516d4fbf351e63e3d11c104ba878-7ff7.html)：
-* FMS URL: 需要输入rtmp://host:port/app，例如：rtmp://demo.srs.com/live
-* Backup URL: 备份的服务器，格式同FMS URL。若指定了备份服务器，FMLE会同时推送给这两个服务器。
-* Stream: 流名称，例如：livestream
+The publish URL of FMLE, see: [Adobe FMLE](http://help.adobe.com/en_US/FlashMediaLiveEncoder/3.0/Using/WS5b3ccc516d4fbf351e63e3d11c104ba878-7ff7.html)：
+* FMS URL: The tcUrl, the vhost and app. For example: rtmp://demo.srs.com/live
+* Backup URL: The backup server.
+* Stream: The stream name. For example: livestream
 
-实际上是将RTMP URL分成了两部分，stream前面那部分和stream。为何要这么搞？我猜想有以下原因：
-* 支持多级app和Stream：我们目前举的例子都是一级app和一级stream，实际上RTMP支持多级app和stream，就像子文件夹，实际上很少用得到。所以SRS的URL都是一个地址，默认最后一个/后面就是stream，前面是app。
-* 支持流名称带参数：Adobe的鬼HLS/HDS非常之麻烦，那个地址是个恶心的完全不一致。参考[FMS livepkgr](http://help.adobe.com/en_US/flashmediaserver/devguide/WSd391de4d9c7bd609-52e437a812a3725dfa0-8000.html#WSd391de4d9c7bd609-52e437a812a3725dfa0-7ff5)，例如发布一个rtmp，并切片成HLS：
+Why FMLE seperate the RTMP URL to two parts: tcUrl(vhost/app) and stream?
+* Support multiple app and stream: The app can be multiple app, for example, live/live1. The stream can be multiple level stream, for example, livestream/livestream1. The RTMP url is: rtmp://vhost/live/live1/livestream/livestream1.
+* Support parameters for app: The HLS/HDS url of FMS is ugly, see: [FMS livepkgr](http://help.adobe.com/en_US/flashmediaserver/devguide/WSd391de4d9c7bd609-52e437a812a3725dfa0-8000.html#WSd391de4d9c7bd609-52e437a812a3725dfa0-7ff5), for example, publish a rtmp stream and slice to HLS:
 ```bash
 FMLE:
 FMS URL: rtmp://demo.srs.com/livepkgr
@@ -293,7 +293,8 @@ RTMP:  rtmp://demo.srs.com/livepkgr/livestream
 HLS: http://demo.srs.com/hls-live/livepkgr/_definst_/liveevent/livestream.m3u8
 HDS: http://demo.srs.com/hds-live/livepkgr/_definst_/liveevent/livestream.f4m
 ```
-没有比这个更恶心的东西了。比较SRS的简洁方案：
+
+Compare to the simple solution of SRS:
 ```bash
 FMLE: 
 FMS URL: rtmp://demo.srs.com/livepkgr
@@ -305,16 +306,16 @@ HLS: http://demo.srs.com/livepkgr/livestream.m3u8
 HDS: not support yet.
 ```
 
-既然谈到了RTMP URL中的参数，下一章就说说这个。
+The next section descripts the parameters of RTMP url.
 
-## RTMP URL参数
+## Parameters in RTMP URL
 
-RTMP URL一般是不带参数，类似于http的query，有时候为了特殊的要求，会在RTMP URL中带参数，譬如：
-* Vhost：前面讲过，在app后面加参数，可以访问指定服务器的指定Vhost。这个SRS的特殊约定，方便排错。
-* FMLE的Stream后面的参数，指定event之类的。SRS不需要这么麻烦，HLS是内置支持，无需这种复杂的配置。Callback也是http的，FMS为了支持服务器端脚本，需要很复杂的配置和复杂的参数，实在是很麻烦的设计。
-* token认证：SRS还未实现。在连接服务器时，在app后面指定token（方式和vhost一样），例如rtmp://server/live?vhost=xxx&token=xxx/livestream，服务器可以取出token，进行验证，若验证失败则断开连接，这种是比Refer更高级的防盗链。
+There is no parameters for RTMP URL, similar to query string of HTTP, we can pass parameters in RTMP URL for SRS:
+* Vhost：Specifies the vhost in the RTMP URL for SRS.
+* Event: The events for HLS of FMS, while SRS do not use this solution, all HLS parameters is in config.
+* Token authentication: Not implements for SRS, while user can specifies the token in the RTMP URL, for example, rtmp://server/live?vhost=xxx&token=xxx/livestream, SRS can fetch the token and verify it on remote authentication server. The token authentication is better and complex than refer authentication.
 
-app和stream后面带参数，这两者有何区别，为何SRS把参数放在app后面？客户端播放流的as3代码大约是：
+Why pass the parameters in tcUrl? The client as code to play RTMP stream is:
 
 ```as
 // how to play url: rtmp://demo.srs.com/live/livestream
@@ -325,7 +326,7 @@ stream = new NetStream(conn);
 stream.play("livestream");
 ```
 
-从RTMP协议的角度来看：
+In the 从RTMP协议的角度来看：
 * NetConnection.connect(vhost+app)：这一步会完成握手，connect到vhost，切换到app。类似于登录到vhost后，cd到app这个目录。也就是vhost的验证，都可以在这一步做，也就是指定vhost也是在一步了，所以app后面跟的参数都是和vhost/app相关的。
 * NetStream.play(stream)：这一步是播放指定的直播流。所以和stream相关的事件，都可以传递参数，譬如Adobe的event。SRS是没有这些事件的，流启动时，若配置了HLS会自动开始切片。
 
