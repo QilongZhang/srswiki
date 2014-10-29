@@ -396,94 +396,91 @@ The full.conf of conf of SRS contains many vhost, which used to show each featur
 </thead>
 <tbody>
 <tr>
-<td>RTMP</td><td>__defaultVhost__</td><td>默认Vhost的配置，只支持RTMP功能</td>
+<td>RTMP</td><td>__defaultVhost__</td><td>Default Vhost, only RTMP.</td>
 </tr>
 <tr>
-<td>RTMP</td><td>chunksize.vhost.com</td><td>如何设置chunk size的实例。其他Vhost将此配置打开，即可设置chunk size。</td>
+<td>RTMP</td><td>chunksize.vhost.com</td><td>Sample to set the chunk_size.</td>
 </tr>
 <tr>
-<td>Forward</td><td>same.vhost.forward.vhost.com</td><td>Forward实例：将流转发到同一个vhost。</td>
+<td>Forward</td><td>same.vhost.forward.vhost.com</td><td>Sample for Foward stream to the same vhost.</td>
 </tr>
 <tr>
-<td>Forward</td><td>change.vhost.forward.vhost.com</td><td>Forward实例：转发时，转发到服务器的不同vhost。</td>
+<td>Forward</td><td>change.vhost.forward.vhost.com</td><td>Sample for Foward stream to the different vhost.</td>
 </tr>
 <tr>
-<td>HLS</td><td>with-hls.vhost.com</td><td>HLS实例：如何开启HLS，以及HLS的相关配置。</td>
+<td>HLS</td><td>with-hls.vhost.com</td><td>Sample for HLS.</td>
 </tr>
 <tr>
-<td>HLS</td><td>no-hls.vhost.com</td><td>HLS实例：如何禁用HLS。</td>
+<td>HLS</td><td>no-hls.vhost.com</td><td>Sample to disable the HLS.</td>
 </tr>
 <tr>
-<td>RTMP</td><td>min.delay.com</td><td>RTMP最低延迟：如何配置最低延迟的RTMP流。</td>
+<td>RTMP</td><td>min.delay.com</td><td>Sample to config the minimum latency for RTMP.</td>
 </tr>
 <tr>
-<td>RTMP</td><td>refer.anti_suck.com</td><td>Refer实例：如何配置Refer防盗链。</td>
+<td>RTMP</td><td>refer.anti_suck.com</td><td>Sample for Refer anti-suck DRM.</td>
 </tr>
 <tr>
-<td>RTMP</td><td>bandcheck.srs.com</td><td>带宽测试用的vhost，srs测速默认连接到这个vhost。这个vhost配置了带宽测速的key，可测速间隔和最大测速带宽限制。其他Vhost也可以支持测速，只要把这个配置项打开，然后在测速播放器的参数中指明另外的vhost</td>
+<td>RTMP</td><td>bandcheck.srs.com</td><td>Sample for bandwidth check config.</td>
 </tr>
 <tr>
-<td>RTMP</td><td>removed.vhost.com</td><td>禁用vhost实例：如何禁用vhost。</td>
+<td>RTMP</td><td>removed.vhost.com</td><td>Sample to disable vhost.</td>
 </tr>
 <tr>
-<td>Callback</td><td>hooks.callback.vhost.com</td><td>设置http callback的实例，当这些事件发生时，SRS会调用指定的http api。其他Vhost将这些配置打开，就可以支持http callback。</td>
+<td>Callback</td><td>hooks.callback.vhost.com</td><td>Sample for http callback.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>mirror.transcode.vhost.com</td><td>转码实例：使用ffmpeg的实例filter，将视频做镜像翻转处理。其他Vhost添加这个配置，就可以对流进行转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
+<td>Transcode</td><td>mirror.transcode.vhost.com</td><td>Sample for transcode, to use the sample filter of FFMPEG.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>drawtext.transcode.vhost.com</td><td>转码实例：在视频上加文字filter。其他Vhost添加此配置，就可以做文字水印。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
+<td>Transcode</td><td>crop.transcode.vhost.com</td><td>Sample for transcode, to use the crop filter of FFMPEG.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>crop.transcode.vhost.com</td><td>转码实例：剪裁视频filter。其他vhost添加此filter，即可对视频进行剪裁。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
+<td>Transcode</td><td>logo.transcode.vhost.com</td><td>Sample for transcode, to use the logo filter of FFMPEG.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>logo.transcode.vhost.com</td><td>转码实例：添加图片/视频水印。其他vhost添加这些配置，可以加图片/视频水印。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
+<td>Transcode</td><td>audio.transcode.vhost.com</td><td>Sample for transcode, to transcode audio only.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>audio.transcode.vhost.com</td><td>转码实例：只对音频转码。其他vhost添加此配置，可只对音频转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
+<td>Transcode</td><td>copy.transcode.vhost.com</td><td>Sample for transcode, demux and mux.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>copy.transcode.vhost.com</td><td>转码实例：只转封装。类似于forward功能。</td>
+<td>Transcode</td><td>all.transcode.vhost.com</td><td>Sample for transcode, all transcode features.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>all.transcode.vhost.com</td><td>转码实例：对上面的实例的汇总。</td>
+<td>Transcode</td><td>ffempty.transcode.vhost.com</td><td>Sample for empty transcode, display the parameters.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>ffempty.transcode.vhost.com</td><td>调用ffempty程序转码，这个只是一个stub，打印出参数而已。用作调试用，看参数是否传递正确。</td>
+<td>Transcode</td><td>app.transcode.vhost.com</td><td>Sample for transcode, transcode specified app streams.</td>
 </tr>
 <tr>
-<td>Transcode</td><td>app.transcode.vhost.com</td><td>转码实例：只对匹配的app的流进行转码。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>stream.transcode.vhost.com</td><td>转码实例：只对匹配的流进行转码。</td>
+<td>Transcode</td><td>stream.transcode.vhost.com</td><td>Sample for transcode, transcode specified streams.</td>
 </tr>
 </tbody>
 </table>
 
-SRS的demo.conf配置文件中，包含了demo用到的一些vhost，参考[Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)。
+The demo.conf of conf of SRS, used for demo of SRS, see: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)。
 
 <table>
 <thead>
 <th>Category</th>
 <th>Vhost</th>
-<th>说明</th>
+<th>Description</th>
 </thead>
 <tbody>
 <tr>
-<td>DEMO</td><td>players</td><td>srs_player播放的演示流，按照Readme的Step会推流到这个vhost，demo页面打开后播放的流就是这个vhost中的流</td>
+<td>DEMO</td><td>players</td><td>The vhost for default stream of srs_player, ingest this stream.</td>
 </tr>
 <tr>
-<td>DEMO</td><td>players_pub</td><td>srs编码器推流到players这个vhost，然后转码后将流推送到这个vhost，并切片为hls，srs编码器播放的带字幕的流就是这个vhost的流</td>
+<td>DEMO</td><td>players_pub</td><td>The vhost for the srs_publisher to publish stream to.</td>
 </tr>
 <tr>
-<td>DEMO</td><td>players_pub_rtmp</td><td>srs编码器演示页面中的低延时播放器，播放的就是这个vhost的流，这个vhost关闭了gop cache，关闭了hls，让延时最低（在1秒内）</td>
+<td>DEMO</td><td>players_pub_rtmp</td><td>The low latency vhost for demo.</td>
 </tr>
 <tr>
-<td>DEMO</td><td>demo.srs.com</td><td>srs的演示vhost，Readme的step最后的12路流演示，以及播放器的12路流延时，都是访问的这个vhost。包含了SRS所有的功能。</td>
+<td>DEMO</td><td>demo.srs.com</td><td>The full features for demo.</td>
 </tr>
 <tr>
-<td>Others</td><td>dev</td><td>开发用的，可忽略</td>
+<td>Others</td><td>dev</td><td>The vhost for dev, ignore.</td>
 </tr>
 </tbody>
 </table>
