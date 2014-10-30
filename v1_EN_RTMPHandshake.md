@@ -8,35 +8,35 @@ This is the simple handshake, the standard handshake, and the FMLE use this hand
 
 While the server connected by flash player only support simple handshake, the flash player can only play the vp6 codec, and do not support h.264+aac. Adobe changed the simple handshake to encrypted complex handshake, see: [Changed Handshake of RTMP](http://blog.csdn.net/win_lin/article/details/13006803)
 
-下表为总结：
+The handshake summary:
 
 <table>
 <tr>
-<th>握手方式</th>
-<th>依赖库</th>
-<th>Flash播放<br/>支持的编码</th>
-<th>常见客户端</th>
-<th>SRS支持方式</th>
-<th>用途</th>
+<th>Handshake</th>
+<th>Depends</th>
+<th>Flash player<br/>codec</th>
+<th>Client</th>
+<th>SRS</th>
+<th>Use Scenario</th>
 </tr>
 <tr>
-<td>Simple<br/>标准握手<br/>简单握手</td>
-<td>不依赖</td>
+<td>Simple<br/>Standard</td>
+<td>No</td>
 <td>vp6+mp3/speex</td>
-<td>所有客户端</td>
-<td>支持</td>
-<td>编码器，譬如FMLE，FFMPEG<br/>srs-librtmp（两种都支持，推荐用Simple）</td>
+<td>All</td>
+<td>Supprted</td>
+<td>Encoder, for examle, FMLE, FFMPEG</td>
 </tr>
 <tr>
-<td>Complex<br/>复杂握手</td>
+<td>Complex</td>
 <td>openssl</td>
 <td>vp6+mp3/speex<br/>h264+aac</td>
-<td>Flash播放器</td>
-<td>支持</td>
-<td>主要是Flash播放器播放H264+aac流时需要，<br/>其他都不需要</td>
+<td>Flash Player</td>
+<td>Supported</td>
+<td>Flash player requires complex handshake to play h.264+aac codec.</td>
 </tr>
 </table>
 
-备注：SRS编译时若打开了SSL选项（--with-ssl），SRS会先使用复杂握手和客户端握手，若复杂握手失败，则尝试简单握手。
+Notes: When compile SRS with SSL, SRS will try complex, then simple.
 
 Winlin 2014.10
