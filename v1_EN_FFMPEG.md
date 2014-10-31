@@ -12,9 +12,10 @@ The important use scenaio of FFMPEG:
 ## 主要流程
 
 SRS转码的主要流程包括：
+
 1. 编码器推送RTMP流到SRS的vhost。
-2. SRS的vhost若配置了转码，则进行转码。
-3. 转码后，按照配置，推送到SRS本身或者其他RTMP服务器。
+1. SRS的vhost若配置了转码，则进行转码。
+1. 转码后，按照配置，推送到SRS本身或者其他RTMP服务器。
 
 ## 配置方法
 
