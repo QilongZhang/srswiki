@@ -4,11 +4,10 @@ SRS can transcode the RTMP stream and output to any RTMP server, typically itsel
 
 ## Use Scenario
 
-FFMPEG的重要应用场景包括：
-* 推送一路高码率，转多路输出。譬如：游戏直播中，推送一路1080p流到SRS，SRS可以转码输出1080p/720p/576p多路，低码率可以给移动设备观看。这样节省了推流带宽（一般源站为BGP带宽，很贵），也减轻了客户端压力（譬如客户端边玩游戏边直播）。
-* 支持多屏输出。譬如：网页推流（主播）编码为vp6/mp3或speex，推流到SRS后无法支持HLS（要求h264+aac），可以转码成h264+aac后切片成HLS或者推送到其他服务器再分发。
-* 加水印。适用于需要对流进行加水印的情况，譬如打上自己的logo。SRS支持文字水印和图片水印，也可以支持视频作为水印，或者将两路流叠加（参考ffmpeg的用法）。
-* 其他滤镜：SRS支持所有ffmpeg的滤镜。
+The important use scenaio of FFMPEG:
+* One in N out: Publish a high resolution video with big bitrate, for intance, h.264 5Mbps 1080p. Then use FFMPEG to transcode to multiple bitrates, for example, 1080p/720p/576p, the 576p is for mobile devices.
+* Support multiple screen: The stream published by flash is in h264/vp6/mp3/speex codec. Use FFMPEG to transcode to HLS(h264+aac) for IOS/Android.
+* Stream filters: For example, add logo to stream. SRS support all filters of FFMPEG.
 
 ## 主要流程
 
