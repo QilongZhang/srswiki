@@ -9,22 +9,22 @@ The important use scenaio of FFMPEG:
 * Support multiple screen: The stream published by flash is in h264/vp6/mp3/speex codec. Use FFMPEG to transcode to HLS(h264+aac) for IOS/Android.
 * Stream filters: For example, add logo to stream. SRS support all filters of FFMPEG.
 
-## 主要流程
+## Workflow
 
-SRS转码的主要流程包括：
+The workflow of SRS transcoding:
 
-1. 编码器推送RTMP流到SRS的vhost。
-1. SRS的vhost若配置了转码，则进行转码。
-1. 转码后，按照配置，推送到SRS本身或者其他RTMP服务器。
+1. Encoder publish RTMP to SRS.
+1. SRS fork process for FFMPEG when transcode configed.
+1. The forked FFMPEG transcode stream and publish to SRS or other servers.
 
-## 配置方法
+## Transcode Config
 
-SRS可以对vhost的所有的流转码，或者对某些app的流转码，或者对某些流转码。
+The SRS transcoding feature can apply on vhost, app or specified stream.
 
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
-    # 对所有流转码
+    # apply on vhost, for all streams.
     transcode {
         enabled     on;
         ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
