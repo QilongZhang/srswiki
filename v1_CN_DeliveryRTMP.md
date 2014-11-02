@@ -37,10 +37,11 @@ stream.play("livestream");
 
 ## 配置RTMP流
 
-SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RtmpUrlVhost)）：
+SRS只需要配置vhost和侦听端口，以及支持的最大连接数，就可以支持RTMP：
 
 ```bash
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
 }
 ```
