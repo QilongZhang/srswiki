@@ -74,4 +74,4 @@ srs提供flash的播放器和编码器，支持在线播放RTMP/HLS流，参考�
 
 RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
 
-Winlin
+Winlin 2013.10
