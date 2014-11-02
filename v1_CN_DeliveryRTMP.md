@@ -69,8 +69,6 @@ RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/wi
 
 可以使用支持RTMP流的播放器播放，譬如vlc/flash player，播放地址：`rtmp://192.168.1.170/live/livestream`
 
-srs提供flash的播放器和编码器，支持在线播放RTMP/HLS流，参考：[srs](http://winlinvip.github.io/simple-rtmp-server)
-
 ## RTMP流的低延时配置
 
 RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
