@@ -123,58 +123,60 @@ vhost __defaultVhost__ {
 
 ## Transcode Rulers
 
-SRS的转码参数全是FFMPEG的参数，有些参数SRS做了自定义，见下表。
+All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 
 <table>
 <tr>
-<th>SRS参数</th><th>FFMPEG参数</th><th>实例</th><th>说明</th>
+<th>SRS</th><th>FFMPEG</th><th>Exammple</th><th>Description</th>
 </tr>
 <tr>
-<td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>指定视频编码器</td>
+<td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>The codec to use.</td>
 </tr>
 <tr>
-<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>输出的视频码率</td>
+<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>The bitrate in kbps(for SRS) or bps(for FFMPEG) to output transcode stream.</td>
 </tr>
 <tr>
-<td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>输出的视频帧率</td>
+<td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>The output framerate.</td>
 </tr>
 <tr>
-<td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>输出的视频宽度x高度，以及宽高比</td>
+<td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>The output video size, the width x height and the aspect set to width:height.</td>
 </tr>
 <tr>
-<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>编码线程数</td>
+<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>The encode thread for x264.</td>
 </tr>
 <tr>
-<td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>编码x264的profile</td>
+<td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>The profile for x264.</td>
 </tr>
 <tr>
-<td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>编码x264的preset</td>
+<td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>The preset for x264.</td>
 </tr>
 <tr>
-<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libaacplus ...</td><td>音频编码器</td>
+<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libaacplus ...</td><td>The codec for audio.</td>
 </tr>
 <tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>音频输出码率。libaacplus：16-72k</td>
+<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k</td>
 </tr>
 <tr>
-<td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>音频采样率</td>
+<td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>The audio sample rate.</td>
 </tr>
 <tr>
-<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>音频声道</td>
+<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>THe audio channel.</td>
 </tr>
 </table>
 
-另外，还有三个是可以加其他ffmpeg参数：
-* vfilter：添加在vcodec之前的滤镜参数。
-* vparams：添加在vcodec之后，acodec之前的视频编码参数。
-* aparams：添加在acodec之后，-y之前的音频编码参数。
+There are more parameter of SRS:
+* vfilter：Parameters added before the vcodec, for the FFMPEG filters.
+* vparams：Parameters added after the vcodec, for the video transcode parameters.
+* aparams：Parameters added after the acodec and before the -y, for the audio transcode parameters.
 
-这些参数应用的顺序是：
+These parameters will generate by the sequence:
+
 ```bash
 ffmpeg -f flv -i <input_rtmp> {vfilter} -vcodec ... {vparams} -acodec ... {aparams} -f flv -y {output}
 ```
 
-具体参数可以查看SRS的日志，譬如：
+The actual parameters to fork FFMPEG can find the log by keyword `start transcoder`:
+
 ```bash
 [2014-02-28 21:38:09.603][4][trace][start] start transcoder, 
 log: ./objs/logs/encoder-__defaultVhost__-live-livestream.log, 
@@ -186,9 +188,9 @@ rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream
 -y rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream_ff 
 ```
 
-## FFMPEG日志过大
+## FFMPEG Log Path
 
-FFMPEG启动后，SRS会将stdout和stderr都定向到日志文件，譬如`./objs/logs/encoder-__defaultVhost__-live-livestream.log`，有时候日志会比较大。可以配置ffmpeg输出较少日志：
+When FFMPEG process forked, SRS will redirect the stdout and stderr to the log file, for instance, `./objs/logs/encoder-__defaultVhost__-live-livestream.log`, sometimes the log file is very large. User can add parameter to vfilter to tell FFMPEG to generate less log:
 
 ```bash
 listen              1935;
@@ -224,11 +226,11 @@ vhost __defaultVhost__ {
 }
 ```
 
-对ffmpeg添加`-v quiet`参数即可。
+That is, add parameter `-v quiet` to FFMPEG.
 
-## 拷贝
+## Copy Without Transcode
 
-可以配置vcodec/acodec copy，实现不转码。譬如，视频为h264编码，但是音频是mp3/speex，需要转码音频为aac，然后切片为HLS输出。
+Set the vcodec/acodec to copy, FFMPEG will demux and mux without transcode, like the forward of SRS. User can copy video and transcode audio, for example, when the flash publish stream with h264+speex.
 
 ```bash
 listen              1935;
@@ -251,7 +253,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-或者拷贝视频和音频：
+Or, copy video and audio:
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
@@ -268,11 +270,9 @@ vhost __defaultVhost__ {
 }
 ```
 
-## 禁用
+## Drop Video or Audio
 
-可以禁用视频或者音频，只输出音频或视频。譬如，电台可以丢弃视频，对音频转码为aac后输出HLS。
-
-可以配置vcodec为vn，acodec为an实现禁用。例如：
+FFMPEG can drop video or audio stream by config the vcodec to vn and acodec to an. For example:
 
 ```bash
 listen              1935;
@@ -295,7 +295,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-该配置只输出纯音频，编码为aac。
+The config above will output pure audio in aac codec.
 
 ## 其他转码配置
 
