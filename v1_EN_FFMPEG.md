@@ -297,41 +297,39 @@ vhost __defaultVhost__ {
 
 The config above will output pure audio in aac codec.
 
-## 其他转码配置
+## Other Transcode Config
 
-conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
-* mirror.transcode.srs.com 将视频流上半截，翻转到下半截，看起来像个镜子。
-* drawtext.transcode.srs.com 加文字水印。
-* crop.transcode.srs.com 剪裁视频。
-* logo.transcode.srs.com 添加图片logo。
-* audio.transcode.srs.com 只对音频转码。
-* copy.transcode.srs.com 不转码只转封装，类似于SRS的Forward。
-* all.transcode.srs.com 转码参数的详细说明。
-* ffempty.transcode.srs.com 一个ffmpeg的mock，不转码只打印参数。
-* app.transcode.srs.com 对指定的app的流转码。
-* stream.transcode.srs.com 对指定的流转码。
-* vn.transcode.srs.com 只输出音频，禁止视频输出。
+There are lots of vhost in conf/full.conf for transcode, or refer to the FFMPEG:
+* mirror.transcode.srs.com
+* drawtext.transcode.srs.com 
+* crop.transcode.srs.com
+* logo.transcode.srs.com 
+* audio.transcode.srs.com
+* copy.transcode.srs.com
+* all.transcode.srs.com
+* ffempty.transcode.srs.com 
+* app.transcode.srs.com 
+* stream.transcode.srs.com 
+* vn.transcode.srs.com
 
-## ARM下转码
+## Transcode on ARM cpu
 
-SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_ARMTranscode)
+SRS can fork the FFMEPG on ARM, see: [Raspberry pi Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_ARMTranscode)
 
-注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
-## FFMPEG转码flash流
+## FFMPEG Transcode the Stream by Flash encoder
 
-flash可以当作编码器推流，参考演示中的编码器或者视频会议。flash只支持speex/nellymoser/pcma/pcmu，但flash会有一个特性，没有声音时就没有音频包。FFMPEG会依赖于这些音频包，如果没有会认为没有音频。
+The flash web page can encode and publish RTMP stream to server, and the audio codec must be speex, nellymoser or pcma/pcmu.
 
-所以FFMPEG用来转码flash推上来的RTMP流时，可能会有一个问题：ffmpeg认为没有音频。
-
-另外，FFMPEG取flash的流的时间会很长，也可能是在等待这些音频包。
+The flash will disable audio when no audio when publish, so FFMPEG may cannot discovery the audio in stream and disable the audio.
 
 ## FFMPEG
 
-FFMPEG相关链接：
+FFMPEG links:
 * [ffmpeg.org](http://ffmpeg.org)
-* [ffmpeg命令行](http://ffmpeg.org/ffmpeg.html)
-* [ffmpeg滤镜](http://ffmpeg.org/ffmpeg-filters.html)
-* [ffmpeg编解码参数](http://ffmpeg.org/ffmpeg-codecs.html)
+* [ffmpeg CLI](http://ffmpeg.org/ffmpeg.html)
+* [ffmpeg filters](http://ffmpeg.org/ffmpeg-filters.html)
+* [ffmpeg codecs](http://ffmpeg.org/ffmpeg-codecs.html)
 
 Winlin 2014.10
