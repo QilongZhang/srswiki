@@ -87,42 +87,41 @@ vhost __defaultVhost__ {
 }
 ```
 
-该配置对频道的所有流转码。譬如：
-* 推送流：rtmp://dev:1935/live/livestream
-* 观看原始流：rtmp://dev:1935/live/livestream
-* 观看转码流：rtmp://dev:1935/live/livestream_ff
+The config apply to all streams of this vhost, for example:
+* Publish stream to: rtmp://dev:1935/live/livestream
+* Play the origin stream: rtmp://dev:1935/live/livestream
+* Play the transcoded stream: rtmp://dev:1935/live/livestream_ff
 
-输出配置使用了变量替换，主要的参数是：
-* [vhost] 输入流的vhost。譬如：dev
-* [port] 输入流的端口。譬如：1935
-* [app] 输入流的app。譬如：live
-* [stream] 输入流名称。譬如：livestream
-* [engine] 转码engine名称，engine后面就是名称。譬如：ff
-注意：转码会使用自动检测，保证推送到自己的流不会被再次转码。但转码推送到SRS自己的流可以被切片成HLS。譬如，若开启了HLS，上面的live/livestream，和转码出来的流live/livestream_ff都能观看HLS。
+The output url contains some variables:
+* [vhost] The input stream vhost, for instance, dev.ossrs.net
+* [port] The input stream port, for instance, 1935
+* [app] The input stream app, for instance, live
+* [stream] The intput stream name, for instance, livestream
+* [engine] The transcode engine name, which follow the keyword engine, for instance, ff
 
-对app或流转码时，只要在transcode后面加app和stream就可以。譬如：
+Add the app or app/stream when need to apply transcode to app or stream:
 
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
-    # 对app为live的所有流转码
-    transcode live{
+    # Transcode all streams of app "live"
+    transcode live {
     }
 }
 ```
 
-以及对指定的流转码：
+Or for stream:
 
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
-    # 对app为live并且流名称为livestream的流转码
+    # Transcode stream name "livestream" and app is "live"
     transcode live/livestream{
     }
 }
 ```
 
-## 转码规则
+## Transcode Rulers
 
 SRS的转码参数全是FFMPEG的参数，有些参数SRS做了自定义，见下表。
 
