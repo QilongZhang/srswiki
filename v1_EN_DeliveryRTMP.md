@@ -48,31 +48,29 @@ vhost __defaultVhost__ {
 
 Start server: `./objs/srs -c conf/rtmp.conf`
 
-## 推送RTMP流
+## Publish RTMP
 
-可以使用支持RTMP输出的编码器，譬如FMLE。在FMS URL中输入vhost/app，在Stream中输入流名称。譬如：
+Use encoder, for instance, FMLE to publish RTMP stream. FMLE use `FMS URL` to input the vhost/app, and the `Stream` to input the stream name:
 
 ```bash
-# 譬如RTMP流：rtmp://192.168.1.170/live/livestream
+# For RTMP url: rtmp://192.168.1.170/live/livestream
 FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RtmpUrlVhost)
+The RTMP url, see: [RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RtmpUrlVhost)
 
-部署分发RTMP流的实例，参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
+The deploy sample, see: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
 
-如下图所示：
-![FMLE推流到SRS](http://winlinvip.github.io/srs.release/wiki/images/FMLE.png)
+The FMLE publish example:
+![FMLE publish RTMP to SRS](http://winlinvip.github.io/srs.release/wiki/images/FMLE.png)
 
-## 观看RTMP流
+## Play RTMP Stream
 
-可以使用支持RTMP流的播放器播放，譬如vlc/flash player，播放地址：`rtmp://192.168.1.170/live/livestream`
+User can use flash player or vlc to play RTMP stream, for example, the RTMP url: `rtmp://192.168.1.170/live/livestream`
 
-srs提供flash的播放器和编码器，支持在线播放RTMP/HLS流，参考：[srs](http://winlinvip.github.io/simple-rtmp-server)
+## Config Low Latency for RTMP
 
-## RTMP流的低延时配置
-
-RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+The latency of RTMP is in 1-3s, the config see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
 Winlin 2014.11
