@@ -1,14 +1,14 @@
-# 分发RTMP流
+# Delivery RTMP
 
-SRS（Simple RTMP Server）分发RTMP是核心功能，srs的主要定位就是分发RTMP低延时流媒体，同时支持分发HLS流。
+The kernel feature of SRS is RTMP.
 
-RTMP和HLS的优势参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+The RTMP and HLS, see: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
-RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP)
+Compoare the RTMP and HLS, see: [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP)
 
-部署RTMP的实例参考：[Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
+How to deploy SRS to support RTMP: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
 
-## 应用场景
+## Use Scenario
 
 RTMP是PC-flash支持最完善的流分发方式，主要的应用场景包括：
 * 无插件流媒体应用：十年前各种浏览器插件大行其道，最后adobe的flash一统天下，现在如何观看视频还需要用户装插件，已经是非常罕见的事情。打开浏览器就能用，不用装插件，这是RTMP的最基本的应用方式。
