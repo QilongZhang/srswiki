@@ -23,7 +23,7 @@ SRS vod streaming is in plan and use HTTP protocol.
 
 ## FlashRTMP
 
-RTMP最初就是adobe在flash上的协议，flash播放RTMP只需要几行as代码：
+RTMP is the acient and the first video streaming protocol supported by flash, which is MacroMedia flash player, then rename to Adobe Flash player. Few lines code to play the RTMP stream:
 
 ```bash
 var conn = new NetConnection();
@@ -35,17 +35,18 @@ conn.connect("rtmp://192.168.1.170/live");
 stream.play("livestream");
 ```
 
-## 配置RTMP流
+## Config RTMP stream
 
-SRS只需要配置vhost和侦听端口就可以支持RTMP（vhost内容参考[vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RtmpUrlVhost)）：
+Config SRS to support RTMP:
 
 ```bash
 listen              1935;
+max_connections     1000;
 vhost __defaultVhost__ {
 }
 ```
 
-启动服务器：`./objs/srs -c conf/rtmp.conf`
+Start server: `./objs/srs -c conf/rtmp.conf`
 
 ## 推送RTMP流
 
