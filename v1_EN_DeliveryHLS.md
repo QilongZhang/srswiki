@@ -1,6 +1,6 @@
-# 分发方式：HLS
+# Delivery HLS
 
-SRS支持HLS/RTMP两种成熟而且广泛应用的流媒体分发方式。
+SRS support RTMP and HLS, the most popular delivery protocol for internet.
 
 RTMP指Adobe的RTMP(Realtime Message Protocol)，广泛应用于低延时直播，也是编码器和服务器对接的实际标准协议，在PC（Flash）上有最佳观看体验和最佳稳定性。
 
