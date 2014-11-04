@@ -8,9 +8,9 @@ HLS is Apple HLS(Http Live Streaming), for both live and vod streaming over HTTP
 
 Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)。
 
-Compare RTMP and HLS, see: [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP)
+For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP).
 
-How to deploy SRS to support HLS, see: [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS).
 
 ## Use Scenario
 
@@ -22,18 +22,18 @@ The main use scenario of HLS:
 
 In a word, HLS is the best delivery protocol when user donot care about the latency, for both PC and mobile(Android and IOS).
 
-## 分发方式比较
+## Delivering Streams
 
-详见下表：
+This section provides data about how to delivery stream using different protocol on specified OS.
 
 <table>
 <thead>
 <tr>
-<th>分发</th>
-<th>平台</th>
-<th>协议</th>
-<th>公司</th>
-<th>说明</th>
+<th>Delivery</th>
+<th>Platform</th>
+<th>Protocol</th>
+<th>Inventor</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -42,7 +42,7 @@ In a word, HLS is the best delivery protocol when user donot care about the late
 <td>Windows Flash</td>
 <td>RTMP</td>
 <td>Adobe</td>
-<td>主流的低延时分发方式，<br/>Adobe对RTMP是Flash原生支持方式，<br/>FMS（Adobe Media Server前身），<br/>就是Flash Media Server的简写，可见Flash播放RTMP是多么“原生”，<br/>就像浏览器打开http网页一样“原生”，<br/>经测试，Flash播放RTMP流可以10天以上不间断播放。</td>
+<td>The RTMP is used to delivery low latency stream over internet, especially for the web explorer application for flash on PC. The RTMP allows you to publish stream to server very stable and for a long time.</td>
 </tr>
 <tr>
 <td>HLS</td>
