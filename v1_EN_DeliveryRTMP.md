@@ -4,9 +4,9 @@ The kernel feature of SRS is RTMP.
 
 The RTMP and HLS, see: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
-Compoare the RTMP and HLS, see: [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP)
+For information about compoare the RTMP and HLS, read [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP).
 
-How to deploy SRS to support RTMP: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
+For information about how to deploy SRS to support RTMP, read [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP).
 
 ## Use Scenario
 
