@@ -46,9 +46,9 @@ HLS主要的应用场景包括：
 </tr>
 <tr>
 <td>HLS</td>
-<td>Apple/Android</td>
+<td>Apple/<br/>Android</td>
 <td>HTTP</td>
-<td>Apple/Google</td>
+<td>Apple/<br/>Google</td>
 <td>延时一个切片以上（一般10秒以上），<br/>Apple平台上HLS的效果比PC的RTMP还要好，<br/>而且Apple所有设备都支持，<br/>Android最初不支持HLS，后来也支持了，<br/>但测试发现支持得还不如Apple，<br/>不过观看是没有问题，稳定性稍差，<br/>所以有些公司专门做Android上的流媒体播放器。</td>
 </tr>
 <tr>
