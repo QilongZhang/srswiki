@@ -49,21 +49,21 @@ The table bellow describes the different protocols for PC and mobile platform.
 <td>Apple/<br/>Android</td>
 <td>HTTP</td>
 <td>Apple/<br/>Google</td>
-<td>延时一个切片以上（一般10秒以上），<br/>Apple平台上HLS的效果比PC的RTMP还要好，<br/>而且Apple所有设备都支持，<br/>Android最初不支持HLS，后来也支持了，<br/>但测试发现支持得还不如Apple，<br/>不过观看是没有问题，稳定性稍差，<br/>所以有些公司专门做Android上的流媒体播放器。</td>
+<td>HLS lantency >= 10s. Android3+ supports HLS. All Apple platforms support HLS.</td>
 </tr>
 <tr>
 <td>HDS</td>
 <td>-</td>
 <td>HTTP</td>
 <td>Adobe</td>
-<td>Adobe自己的HLS，<br/>协议方面做得是复杂而且没有什么好处，<br/>国内没有什么应用，传说国外有，<br/>像这种东西SRS是绝对不会支持的。</td>
+<td>HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benifits, so SRS never support it.</td>
 </tr>
 <tr>
 <td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
 <td>-</td>
 <td>HTTP</td>
 <td>-</td>
-<td>Dynamic Adaptive Streaming over HTTP (DASH)，<br/>一些公司提出的HLS，<br/>国内还没有应用，国外据说有用了，<br/>nginx-rtmp好像已经支持了，<br/>明显这个还不成熟，SRS是不会支持的。</td>
+<td>Dash(Dynamic Adaptive Streaming over HTTP), developed by some company similar to HLS. It's a new protocol, and SRS maybe support it when it already used by many users.</td>
 </tr>
 </tbody>
 </table>
