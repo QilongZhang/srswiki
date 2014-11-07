@@ -449,4 +449,6 @@ schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
 
 备注：另外，ST还有个bug，多进程启动时，st只能在fork之后启动。否则会有问题。
 
+see: https://github.com/winlinvip/simple-rtmp-server/issues/190
+
 Winlin 2014.2
