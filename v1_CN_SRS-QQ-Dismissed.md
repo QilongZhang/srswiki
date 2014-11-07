@@ -7,7 +7,7 @@ SRS的QQ群已解散，<br/>
 什么交流经验，经验交流出来也不是听听就能掌握的，不过是扯淡，<br/>
 经验都在代码中，有事提交bug.
 
-杰哥已经建立了新的群，有需要可以加进去：http://jq.qq.com/?_wv=1027&k=WAZh2X 
+杰哥已经建立了新的群，有需要可以加进去，群号：365936885
 
 当天的QQ消息：[QQ消息](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SRS-QQ-Dismissed-Messages)
 
