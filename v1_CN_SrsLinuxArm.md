@@ -369,15 +369,15 @@ x86_64的setjmp的env参数的布局：[参考资料](https://gfiber.googlesourc
 
 ```bash
 # The jmp_buf is assumed to contain the following, in order:
-#       %rbx
-#       %rsp (post-return)
-#       %rbp
-#       %r12
-#       %r13
-#       %r14
-#       %r15
-#       <return address>
-// 从下往上数，sp是倒数第二个。所以st写的6是对的。
+#       %rbx                 7
+#       %rsp (post-return)   6
+#       %rbp                 5
+#       %r12                 4
+#       %r13                 3
+#       %r14                 2
+#       %r15                 1
+#       <return address>     0
+// 从下往上数，sp是第6。所以st写的6是对的。
 ```
 
 arm直接看头文件的说明：
