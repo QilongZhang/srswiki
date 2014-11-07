@@ -106,7 +106,7 @@ livestream-67.ts
 
 The important data item can be configed in SRS config file:
 
-× EXT-X-TARGETDURATION: It's calc by SRS automatically. The EXT-X-TARGETDURATION tag specifies the maximum media segment duration.  The EXTINF duration of each media segment in the Playlist file, when rounded to the nearest integer, MUST be less than or equal to the target duration.  This tag MUST appear once in a Media Playlist file.  It applies to the entire Playlist file.
+* EXT-X-TARGETDURATION: It's calc by SRS automatically. The EXT-X-TARGETDURATION tag specifies the maximum media segment duration.  The EXTINF duration of each media segment in the Playlist file, when rounded to the nearest integer, MUST be less than or equal to the target duration.  This tag MUST appear once in a Media Playlist file.  It applies to the entire Playlist file.
 * EXTINF: It's calc by SRS automatically, and the max value is configed in SRS `hls_fragment`. The EXTINF tag specifies the duration of a media segment.  It applies only to the media segment that follows it, and MUST be followed by a media segment URI.  Each media segment MUST be preceded by an EXTINF tag.
 * ts文件的数目：SRS可配置hls_window，指定m3u8中保存多少个切片，SRS会自动清理旧的切片。
 * livestream-67.ts：SRS会自动维护ts切片的文件名，在编码器重推之后，这个编号会继续增长，保证流的连续性。直到SRS重启，这个编号才重置为0。
