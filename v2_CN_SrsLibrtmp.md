@@ -47,7 +47,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 
 SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独导出为project，单独编译生成.h和.a，方便在linux和windows平台编译。
 
-使用方法：
+使用方法，导出为project，可以make成.h和.a：
 
 ```
 dir=/home/winlin/srs-librtmp &&
@@ -57,6 +57,14 @@ cd $dir && make
 ```
 
 SRS将srs-librtmp导出为独立可以make的项目，生成.a静态库和.h头文件，以及生成了srs-librtmp的所有实例。
+
+还可以直接导出为一个文件，提供了简单的使用实例，[其他实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)参考research的其他例子：
+
+```
+dir=/home/winlin/srs-librtmp &&
+rm -rf $dir &&
+./configure --export-librtmp-single=$dir
+```
 
 ## 编译srs-librtmp
 
