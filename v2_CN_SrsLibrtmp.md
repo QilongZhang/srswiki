@@ -79,7 +79,7 @@ strip example && ./example
 ./configure --with-librtmp --without-ssl
 ```
 
-编译会生成srs-librtmp和对应的sample，主要文件见下表。
+编译会生成srs-librtmp和对应的sample，主要文参考[实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)。
 
 <table>
 <tr>
