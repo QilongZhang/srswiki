@@ -28,6 +28,18 @@ librtmp的定位就是客户端程序，偏偏要超越它的定位去使用，�
 
 嵌入式设备上做rtmp server，当然可以用srs/crtmpd/nginx-rtmp，轮也轮不到librtmp。
 
+## SRS为何提供librtmp
+
+srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
+* librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
+* librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
+* 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
+* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
+* 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
+* 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
+
+一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
+
 ## 编译srs-librtmp
 
 编译SRS时，会自动编译srs-librtmp，譬如：
@@ -91,6 +103,8 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 * ffmpeg也是用的这种格式
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
+
+备注：SRS2.0支持直接发送h264裸码流，参考[publish h.264 raw data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
 
 ## srs-librtmp Examples
 
@@ -160,16 +174,4 @@ got packet: type=Video, time=360, size=4096
 got packet: type=Video, time=400, size=4096
 ```
 
-## SRS为何提供librtmp
-
-srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
-* librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
-* librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
-* 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
-* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
-* 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
-* 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
-
-一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
-
-Winlin 2014.2
+Winlin 2014.11
