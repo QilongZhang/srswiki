@@ -168,12 +168,14 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给SRS。
 
 总结起来就是说，H264的裸码流（帧）转换RTMP时：
+
 1. dts和pts是不在h264流中的，外部给出。
-2. SPS和PPS在RTMP一个包里面发出去。
-3. RTMP包=5字节RTMP包头+H264头+H264数据，具体参考：SrsAvcAacCodec::video_avc_demux
-4. 直接提供接口，发送h264数据，其中包含annexb的头：N[00] 00 00 01, where N>=0.
+1. SPS和PPS在RTMP一个包里面发出去。
+1. RTMP包=5字节RTMP包头+H264头+H264数据，具体参考：SrsAvcAacCodec::video_avc_demux
+1. 直接提供接口，发送h264数据，其中包含annexb的头：N[00] 00 00 01, where N>=0.
 
 接口更改为：
+
 ```
 /**
 * write h.264 raw frame over RTMP to rtmp server.
@@ -199,7 +201,9 @@ extern int srs_write_h264_raw_frames(srs_rtmp_t rtmp,
 ```
 
 对于例子中的h264流文件：http://winlinvip.github.io/srs.release/3rdparty/720p.h264.raw
+
 里面的数据是：
+
 ```
 // SPS
 000000016742802995A014016E40
@@ -210,7 +214,9 @@ extern int srs_write_h264_raw_frames(srs_rtmp_t rtmp,
 // PFrame
 0000000141E02041F8CDDC562BBDEFAD2F.....
 ```
+
 调用时，可以SPS和PPS一起发，帧一次发一个：
+
 ```
 // SPS+PPS
 srs_write_h264_raw_frame('000000016742802995A014016E400000000168CE3880', size, dts, pts)
@@ -219,7 +225,9 @@ srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts,
 // PFrame
 srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts)
 ```
+
 调用时，可以一次发一次frame也行：
+
 ```
 // SPS
 srs_write_h264_raw_frame('000000016742802995A014016E4', size, dts, pts)
@@ -232,6 +240,7 @@ srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, 
 ```
 
 参考：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
+
 使用：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
 
 ## srs-librtmp Examples
