@@ -239,8 +239,10 @@ SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独�
 使用方法：
 
 ```
-./configure --export-librtmp=/home/winlin/srs-librtmp &&
-cd ~/srs-librtmp && make
+dir=/home/winlin/srs-librtmp &&
+rm -rf $dir &&
+./configure --export-librtmp=$dir &&
+cd $dir && make
 ```
 
 Winlin 2014.11
