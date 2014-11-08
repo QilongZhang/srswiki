@@ -42,7 +42,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
-## ExportSrsLibrtmp
+## Export Srs Librtmp
 
 SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独导出为project，单独编译生成.h和.a，方便在linux和windows平台编译。
 
@@ -116,7 +116,7 @@ SRS编译成功后，用户就可以使用这些库开发
 
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。
 
-先使用SRS导出srs-librtmp，然后在vs中编译，参考：[exportsrslibrtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#exportsrslibrtmp)
+先使用SRS导出srs-librtmp，然后在vs中编译，参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
 
