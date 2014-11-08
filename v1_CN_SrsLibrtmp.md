@@ -36,7 +36,7 @@ librtmp的定位就是客户端程序，偏偏要超越它的定位去使用，�
 ./configure --with-librtmp --without-ssl
 ```
 
-编译会生成srs-librtmp和对应的sample，主要文件见下表。
+编译会生成srs-librtmp和对应的[实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLibrtmp#srs-librtmp-examples)。
 
 <strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
 
