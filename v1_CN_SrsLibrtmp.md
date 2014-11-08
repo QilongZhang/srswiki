@@ -52,7 +52,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 
 <strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
 
-<strong>备注：就算打开了--with-ssl，srslibrtmp也值提供simple_handshake函数，不提供complex_handshake函数。所以推荐关闭ssl，不依赖于ssl，没有实际的用处。</strong>
+<strong>备注：就算打开了--with-ssl，srslibrtmp也只提供simple_handshake函数，不提供complex_handshake函数。所以推荐关闭ssl，不依赖于ssl，没有实际的用处。</strong>
 
 SRS编译成功后，用户就可以使用这些库开发
 
