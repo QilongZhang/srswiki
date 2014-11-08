@@ -173,6 +173,6 @@ SRS的配置(configure)参数说明如下：
 
 专家选项：有可能编译失败，不是专家就不要用这个。
 * --use-sys-ssl 使用系统的ssl，不单独编译ssl（在--with-ssl时有效）。
-* --export-librtmp=&lt;path&gt; 导出srs-librtmp到单独的目录。
+* --export-librtmp-project=&lt;path&gt; 导出srs-librtmp工程到单独的目录。
 
 Winlin 2014.11
