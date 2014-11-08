@@ -174,7 +174,7 @@ SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给S
 1. RTMP包=5字节RTMP包头+H264头+H264数据，具体参考：SrsAvcAacCodec::video_avc_demux
 1. 直接提供接口，发送h264数据，其中包含annexb的头：N[00] 00 00 01, where N>=0.
 
-接口更改为：
+加了一个直接发送h264裸码流的接口：
 
 ```
 /**
