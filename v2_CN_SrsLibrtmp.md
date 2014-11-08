@@ -53,7 +53,8 @@ SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独�
 dir=/home/winlin/srs-librtmp &&
 rm -rf $dir &&
 ./configure --export-librtmp-project=$dir &&
-cd $dir && make
+cd $dir && make &&
+./objs/research/librtmp/srs_play rtmp://ossrs.net/live/livestream
 ```
 
 SRS将srs-librtmp导出为独立可以make的项目，生成.a静态库和.h头文件，以及生成了srs-librtmp的所有实例。
@@ -63,7 +64,9 @@ SRS将srs-librtmp导出为独立可以make的项目，生成.a静态库和.h头�
 ```
 dir=/home/winlin/srs-librtmp &&
 rm -rf $dir &&
-./configure --export-librtmp-single=$dir
+./configure --export-librtmp-single=$dir &&
+cd $dir && gcc example.c srs_librtmp.cpp -g -O0 -lstdc++ -o example && 
+strip example && ./example
 ```
 
 备注：导出目录支持相对目录和绝对目录。
