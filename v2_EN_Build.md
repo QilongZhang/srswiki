@@ -151,7 +151,7 @@ The options of configure:
 * --with-gprof use gprof, which will hurt performance, see: [gprof](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_GPROF)
 * --with-librtmp client librtmp, see: [srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLibrtmp)
 * --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
-* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build#jobs-speedup-build)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build#jobs-speedup-build)
 * --static use static link for arm, see: [ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
 The preset of configure:
