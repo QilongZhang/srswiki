@@ -39,7 +39,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
 * 支持直接发布h.264裸码流，参考：[publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
-* SRS可以直接导出一个srs-librtmp的project，编译成.h和.a使用。参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
+* SRS可以直接导出一个srs-librtmp的project，编译成.h和.a使用。或者导出为.h和.cpp，一个大文件。参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
@@ -121,11 +121,11 @@ SRS编译成功后，用户就可以使用这些库开发
 
 ## Windows下编译srs-librtmp
 
-参考项目：[https://github.com/winlinvip/srs.librtmp.win](https://github.com/winlinvip/srs.librtmp.win)，由[chad.wang](https://github.com/chadwangcn)`<chad.wang.cn@gmail.com>`提供。
-
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。
 
 先使用SRS导出srs-librtmp，然后在vs中编译，参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
+
+使用了一些linu的头文件，需要做一些portal。
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
 
