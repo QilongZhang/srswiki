@@ -232,4 +232,15 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
+## ExportSrsLibrtmp
+
+SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独导出为project，单独编译生成.h和.a，方便在linux和windows平台编译。
+
+使用方法：
+
+```
+./configure --export-librtmp=/home/winlin/srs-librtmp &&
+cd ~/srs-librtmp && make
+```
+
 Winlin 2014.11
