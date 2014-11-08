@@ -2,6 +2,22 @@
 
 如何选择SRS的稳定版本？如何更新代码？
 
+## Checkout Branch
+
+有些功能只有SRS2.0有，SRS1.0没有，请注意看wiki是v1还是v2的。
+
+如果是1.0的功能，更新代码后要改变到1.0分支：
+
+```
+git pull && git checkout 1.0release
+```
+
+如果是2.0的功能，更新代码后要改变到2.0分支（没有2.0release就是master）：
+
+```
+git pull && git checkout master
+```
+
 ## SRS稳定版本
 
 目前还没有稳定版本，还在测试中。
