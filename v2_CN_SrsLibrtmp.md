@@ -116,7 +116,7 @@ SRS编译成功后，用户就可以使用这些库开发
 
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。
 
-先使用SRS导出srs-librtmp，然后在vs中编译，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#exportsrslibrtmp
+先使用SRS导出srs-librtmp，然后在vs中编译，参考：[exportsrslibrtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#exportsrslibrtmp)
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
 
