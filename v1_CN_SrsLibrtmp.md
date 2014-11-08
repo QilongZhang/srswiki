@@ -61,42 +61,6 @@ src/libs/*
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
 备注：SRS2.0提供将srs-librtmp导出为一个project或者文件，参考[导出srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)。SRS1.0不支持导出，可以自己合并2.0的修改到1.0。
 
-## srs-librtmp实例
-
-SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
-* research/librtmp/srs_play.c：播放RTMP流实例。
-* research/librtmp/srs_publish.c：推送RTMP流实例。
-* research/librtmp/srs_ingest_flv.c：读取本地文件并推送RTMP流实例。
-* research/librtmp/srs_ingest_rtmp.c：读取RTMP流并推送RTMP流实例。
-
-依赖ssl的编译方法（支持复杂握手和简单握手）：
-
-```bash
-# 编译srs-librtmp时自动编译这些实例
-# 实例的单独编译方法为：
-cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
-make ssl
-```
-
-不需要ssl（不支持复杂握手，只支持简单握手）编译方法(<strong>推荐</strong>)：
-
-```bash
-# 编译srs-librtmp时自动编译这些实例
-# 实例的单独编译方法为：
-cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
-make nossl
-```
-
-实例编译的二进制文件：
-* research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_publish_ssl：推送RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_ingest_flv_nossl：采集flv文件并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_ingest_flv_ssl：采集flv文件并推送RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_ingest_rtmp_nossl：采集RTMP流并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_ingest_rtmp_ssl：采集RTMP流并推送RTMP流，有ssl，支持简单握手和复杂握手。
-
 ## 数据格式
 
 srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到服务器，或者从服务器读取音视频数据。
@@ -127,6 +91,21 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 * ffmpeg也是用的这种格式
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
+
+## srs-librtmp Examples
+
+SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
+* research/librtmp/srs_play.c：播放RTMP流实例。
+* research/librtmp/srs_publish.c：推送RTMP流实例。
+* research/librtmp/srs_ingest_flv.c：读取本地文件并推送RTMP流实例。
+* research/librtmp/srs_ingest_rtmp.c：读取RTMP流并推送RTMP流实例。
+* research/librtmp/srs_bandwidth_check.c：带宽测试工具。
+* research/librtmp/srs_flv_injecter.c：点播FLV关键帧注入文件。
+* research/librtmp/srs_flv_parser.c：FLV文件查看工具。
+* research/librtmp/srs_ingest_rtmp.c：采集RTMP流，推送RTMP流给SRS。
+* research/librtmp/srs_ingest_flv.c：采集FLV文件，推送RTMP流给SRS。
+* research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
+* research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
 
 ## 运行实例
 
