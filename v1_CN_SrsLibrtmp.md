@@ -105,7 +105,6 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_ingest_rtmp.c：采集RTMP流，推送RTMP流给SRS。
 * research/librtmp/srs_ingest_flv.c：采集FLV文件，推送RTMP流给SRS。
 * research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
-* research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
 
 ## 运行实例
 
