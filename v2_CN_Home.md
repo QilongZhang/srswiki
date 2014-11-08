@@ -120,9 +120,9 @@ SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_ServerSideScript)
 
-## [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLibrtmp)
+## [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp)
 
-如何使用SRS提供的客户端rtmp库？为何要提供？结构是什么？主要流程是什么？实例如何使用？参考：[SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLibrtmp)
+如何使用SRS提供的客户端rtmp库？为何要提供？结构是什么？主要流程是什么？实例如何使用？参考：[SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp)
 
 ## [SRS应用于linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm)
 
