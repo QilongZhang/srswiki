@@ -99,41 +99,20 @@ src/libs/*
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
 
-## srs-librtmp实例
+## srs-librtmp Examples
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_play.c：播放RTMP流实例。
 * research/librtmp/srs_publish.c：推送RTMP流实例。
 * research/librtmp/srs_ingest_flv.c：读取本地文件并推送RTMP流实例。
 * research/librtmp/srs_ingest_rtmp.c：读取RTMP流并推送RTMP流实例。
-
-依赖ssl的编译方法（支持复杂握手和简单握手）：
-
-```bash
-# 编译srs-librtmp时自动编译这些实例
-# 实例的单独编译方法为：
-cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
-make ssl
-```
-
-不需要ssl（不支持复杂握手，只支持简单握手）编译方法(<strong>推荐</strong>)：
-
-```bash
-# 编译srs-librtmp时自动编译这些实例
-# 实例的单独编译方法为：
-cd /home/winlin/git/simple-rtmp-server/trunk/research/librtmp
-make nossl
-```
-
-实例编译的二进制文件：
-* research/librtmp/srs_play_nossl：播放RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_play_ssl：播放RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_publish_nossl：推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_publish_ssl：推送RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_ingest_flv_nossl：采集flv文件并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_ingest_flv_ssl：采集flv文件并推送RTMP流，有ssl，支持简单握手和复杂握手。
-* research/librtmp/srs_ingest_rtmp_nossl：采集RTMP流并推送RTMP流，没有ssl，只支持简单握手。<strong>推荐</strong>
-* research/librtmp/srs_ingest_rtmp_ssl：采集RTMP流并推送RTMP流，有ssl，支持简单握手和复杂握手。
+* research/librtmp/srs_bandwidth_check.c：带宽测试工具。
+* research/librtmp/srs_flv_injecter.c：点播FLV关键帧注入文件。
+* research/librtmp/srs_flv_parser.c：FLV文件查看工具。
+* research/librtmp/srs_ingest_rtmp.c：采集RTMP流，推送RTMP流给SRS。
+* research/librtmp/srs_ingest_flv.c：采集FLV文件，推送RTMP流给SRS。
+* research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
+* research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
 
 ## 数据格式
 
@@ -142,6 +121,7 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 数据接口包括：
 * 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
+* 发送h.264裸码流：参考
 
 接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件[video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
