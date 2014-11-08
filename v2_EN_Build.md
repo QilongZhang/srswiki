@@ -171,6 +171,6 @@ The preset of configure:
 
 The expert options, maybe compile failed:
 * --use-sys-ssl use the ssl of linux system, which installed by yum or apt-get. This is ok when --with-ssl specified and donot compile the ssl of 3rdparty.
-* --export-librtmp=&lt;path&gt; export srs-librtmp to specified path.
+* --export-librtmp-project=&lt;path&gt; export srs-librtmp to specified project in path.
 
 Winlin 2014.11
