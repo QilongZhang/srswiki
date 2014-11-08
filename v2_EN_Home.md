@@ -24,9 +24,9 @@ Is there any public server for SRS demo? I provides server with public ip and na
 
 Who are using SRS? What you can use SRS for your project and customers? Please see: [Applications](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Sample)
 
-## [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+## [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
 
-How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please see: [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please see: [Build SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
 
 ## [SRS Init.d Script](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LinuxService)
 
