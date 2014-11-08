@@ -9,6 +9,7 @@ librtmp的主要应用场景包括：
 * 推流？不知道是否提供推流接口，可能有。
 * 基于同步阻塞socket，客户端用可以了。
 * arm？可能能编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
+* 不支持直接发布h.264裸码流，而srs-librtmp支持，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data
 
 备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake)
 
@@ -37,6 +38,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
+* 支持直接发布h.264裸码流，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
@@ -125,7 +127,7 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 数据接口包括：
 * 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
-* 发送h.264裸码流：参考
+* 发送h.264裸码流：参考https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data
 
 接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件[video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
