@@ -83,8 +83,6 @@ SRS编译成功后，用户就可以使用这些库开发
 
 ## Windows下编译srs-librtmp
 
-参考项目：[https://github.com/winlinvip/srs.librtmp.win](https://github.com/winlinvip/srs.librtmp.win)，由[chad.wang](https://github.com/chadwangcn)`<chad.wang.cn@gmail.com>`提供。
-
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。不过srs没有提供直接编译的方法，可行的方法是：
 * 先在linux下编译通过：`./configure --disable-all --with-librtmp && make`
 * 头文件就是`src/libs/srs_librtmp.hpp`，将以下文件拷贝到windows下编译：
@@ -98,6 +96,7 @@ src/libs/*
 ```
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
+备注：SRS2.0提供将srs-librtmp导出为一个project或者文件，参考[导出srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)。SRS1.0不支持导出，可以自己合并2.0的修改到1.0。
 
 ## srs-librtmp实例
 
