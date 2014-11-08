@@ -66,6 +66,8 @@ rm -rf $dir &&
 ./configure --export-librtmp-single=$dir
 ```
 
+备注：导出目录支持相对目录和绝对目录。
+
 ## 编译srs-librtmp
 
 编译SRS时，会自动编译srs-librtmp，譬如：
