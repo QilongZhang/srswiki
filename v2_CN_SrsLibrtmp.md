@@ -218,7 +218,8 @@ srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts,
 srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
 ```
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/66
+参考：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
+使用：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
 
 ## srs-librtmp Examples
 
