@@ -150,6 +150,76 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
 
+## Publish H.264 Raw Data
+
+SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给SRS。
+
+总结起来就是说，H264的裸码流（帧）转换RTMP时：
+1. dts和pts是不在h264流中的，外部给出。
+2. SPS和PPS在RTMP一个包里面发出去。
+3. RTMP包=5字节RTMP包头+H264头+H264数据，具体参考：SrsAvcAacCodec::video_avc_demux
+4. 直接提供接口，发送h264数据，其中包含annexb的头：N[00] 00 00 01, where N>=0.
+
+接口更改为：
+```
+/**
+* write h.264 raw frame over RTMP to rtmp server.
+* @param frames the input h264 raw data, encoded h.264 I/P/B frames data.
+*       frames can be one or more than one frame,
+*       each frame prefixed h.264 annexb header, by N[00] 00 00 01, where N>=0, 
+*       for instance, frame = header(00 00 00 01) + payload(67 42 80 29 95 A0 14 01 6E 40)
+*       about annexb, @see H.264-AVC-ISO_IEC_14496-10.pdf, page 211.
+* @paam frames_size the size of h264 raw data. 
+*       assert frames_size > 0, at least has 1 bytes header.
+* @param dts the dts of h.264 raw data.
+* @param pts the pts of h.264 raw data.
+* 
+* @remark, user should free the frames.
+* @remark, the tbn of dts/pts is 1/1000 for RTMP, that is, in ms.
+* @remark, cts = pts - dts
+* 
+* @return 0, success; otherswise, failed.
+*/
+extern int srs_write_h264_raw_frames(srs_rtmp_t rtmp, 
+    char* frames, int frames_size, u_int32_t dts, u_int32_t pts
+);
+```
+
+对于例子中的h264流文件：http://winlinvip.github.io/srs.release/3rdparty/720p.h264.raw
+里面的数据是：
+```
+// SPS
+000000016742802995A014016E40
+// PPS
+0000000168CE3880
+// IFrame
+0000000165B8041014C038008B0D0D3A071.....
+// PFrame
+0000000141E02041F8CDDC562BBDEFAD2F.....
+```
+调用时，可以SPS和PPS一起发，帧一次发一个：
+```
+// SPS+PPS
+srs_write_h264_raw_frame('000000016742802995A014016E400000000168CE3880', size, dts, pts)
+// IFrame
+srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
+// PFrame
+srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts)
+```
+调用时，可以一次发一次frame也行：
+```
+// SPS
+srs_write_h264_raw_frame('000000016742802995A014016E4', size, dts, pts)
+// PPS
+srs_write_h264_raw_frame('00000000168CE3880', size, dts, pts)
+// IFrame
+srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
+// PFrame
+srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
+```
+
+参考：https://github.com/winlinvip/simple-rtmp-server/issues/66
+
 ## srs-librtmp Examples
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
