@@ -81,46 +81,9 @@ strip example && ./example
 
 编译会生成srs-librtmp和对应的[实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)。
 
-<table>
-<tr>
-<th>SRS编译选项</th><th>编译说明</th><th>srs-librtmp文件</th><th>说明</th>
-</tr>
-<tr>
-<td>./configure \<br/>
---with-librtmp --without-ssl</td>
-<td>不依赖openssl，<br/>不支持复杂握手，<br/>只支持简单握手</td>
-<td>
-objs/include/srs_librtmp.h<br/>
-objs/lib/libsrs_rtmp.a
-</td>
-<td>
-一般客户端使用简单握手即可：<br/>
-1. 推流：譬如FMLE，也是使用简单握手推流。<br/>
-2. 播放：一般服务器也支持简单握手后播放，<br/>譬如SRS支持。
-</td>
-</tr>
-<tr>
-<td>./configure \<br/>
---with-librtmp --with-ssl</td>
-<td>依赖openssl，<br/>支持复杂握手，<br/>支持简单握手</td>
-<td>
-objs/include/srs_librtmp.h<br/>
-objs/lib/libsrs_rtmp.a<br/>
-objs/openssl/lib/libssl.a<br/>
-objs/openssl/lib/libcrypto.a
-</td>
-<td>
-复杂握手主要应用于：<br/>
-1. 完全模拟flash客户端，<br/>
-flash播放vp6+mp3/speex时只需要简单握手，<br/>
-播放h264+aac时需要复杂握手<br/>（简单握手会从服务器取数据，<br/>但是没有图像和声音）。
-</td>
-</tr>
-</table>
-
 <strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
 
-<strong>备注：就算打开了--with-ssl，srslibrtmp也值提供simple_handshake函数，不提供complex_handshake函数。所以推荐关闭ssl，不依赖于ssl，没有实际的用处。</strong>
+<strong>备注：就算打开了--with-ssl，srslibrtmp也只提供simple_handshake函数，不提供complex_handshake函数。所以推荐关闭ssl，不依赖于ssl，没有实际的用处。</strong>
 
 SRS编译成功后，用户就可以使用这些库开发
 
