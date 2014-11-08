@@ -9,7 +9,7 @@ librtmp的主要应用场景包括：
 * 推流？不知道是否提供推流接口，可能有。
 * 基于同步阻塞socket，客户端用可以了。
 * arm？可能能编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
-* 不支持直接发布h.264裸码流，而srs-librtmp支持，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data
+* 不支持直接发布h.264裸码流，而srs-librtmp支持，参考：[#publish-h264-raw-data]
 
 备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake)
 
