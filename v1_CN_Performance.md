@@ -684,4 +684,8 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 不过我是在虚拟机测试，物理机的实际情况还有待数据观察。
 
+## 性能例行报告:6k
+
+SRS2.0（注意是SRS2.0，而不是SRS1.0）支持6k客户端，522kbps的流可以跑到近4Gbps带宽，单进程。
+
 Winlin 2014.2
