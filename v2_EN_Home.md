@@ -120,9 +120,9 @@ How to transcode live stream on raspberrypi? How to delivery HLS on raspberrypi?
 
 Why SRS does not support ServerSide Script? How to use http callback instead? Please see: [ServerSide Script](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_ServerSideScript)
 
-## [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLibrtmp)
+## [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp)
 
-Why SRS provides client rtmp library? How to use srs-librtmp? How to modify the amf0 metadata use srs-librtmp? How to get server debug info from srs-librtmp? Please see: [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLibrtmp)
+Why SRS provides client rtmp library? How to use srs-librtmp? How to modify the amf0 metadata use srs-librtmp? How to get server debug info from srs-librtmp? Please see: [SRS-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp)
 
 ## [SRS for linux-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
