@@ -123,9 +123,10 @@ The workflow of HLS:
 
 Note: SRS only need to config the HLS on vhost, and SRS will create the dir by app name.
 
-## 配置方法
+## HLS Config
 
-conf/full.conf中的with-hls.vhost.com是HLS配置的实例，可以拷贝到默认的Vhost，例如：
+the vhost `with-hls.vhost.com` in conf/full.conf of SRS is a example to config HLS, which user can copy the hls section to vhost:
+
 ```bash
 vhost __defaultVhost__ {
     hls {
