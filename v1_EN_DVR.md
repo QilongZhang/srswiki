@@ -6,7 +6,7 @@ SRS支持将RTMP流录制成flv文件。
 
 DVR的编译选项为`--with-dvr`，关闭DVR的选项为`--without-dvr`。
 
-参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
 ## 配置选项
 
