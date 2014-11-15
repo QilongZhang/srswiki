@@ -4,41 +4,33 @@ librtmp is a client side library, seems from rtmpdump.
 
 ## Use Scenarios
 
-librtmp的主要应用场景包括：
-* 播放RTMP流：譬如rtmpdump，将服务器的流读取后保存为flv文件。
-* 推流？不知道是否提供推流接口，可能有。
-* 基于同步阻塞socket，客户端用可以了。
-* arm？可能能编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
+The use scenarios of librtmp:
+* Play or suck RTMP stream: For example rtmpdump, dvr RTMP stream to flv file.
+* Publish RTMP stream: Publish RTMP stream to server.
+* Use sync block socket: It's ok for client.
+* ARM: Can used for linux arm, for some embed device, to publish stream to server.
 
-备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)
+Note: About the openssl, complex and simple handshake, read [RTMP protocol](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)
 
-备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
+Note: To cross build srs-librtmp for ARM cpu, read [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
-## librtmp做Server
+## librtmp For Server
 
-群里有很多人问，librtmp如何做server，实在不胜其骚扰，所以单列一章。
+librtmp or srs-librtmp only for client side application, impossible for server side.
 
-server的特点是会有多个客户端连接，至少有两个：一个推流连接，一个播放连接。所以server有两种策略：
-* 每个连接一个线程或进程：像apache。这样可以用同步socket来收发数据（同步简单）。坏处就是没法支持很高并发，1000个已经到顶了，得开1000个线程/进程啊。
-* 使用单进程，但是用异步socket：像nginx这样。好处就是能支持很高并发。坏处就是异步socket麻烦。
+## Why SRS provides srs-librtmp
 
-rtmpdump提供的librtmp，当然是基于同步socket的。所以使用librtmp做server，只能采取第一种方法，即用多线程处理多个连接。多线程多麻烦啊！要锁，同步，而且还支持不了多少个。
+SRS provides different librtmp:
+* The code of librtmp is hard to maintain.
+* The interface of librtmp is hard to use.
+* No example, while srs-librtmp provides lots of examples at trunk/research/librtmp.
+* Min depends, SRS extract core/kernel/rtmp modules for srs-librtmp.
+* Min library requires, srs-librtmp only depends on stdc++.
+* NO ST, srs-librtmp does not depends on st.
+* Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_BandwidthTestTool)
+* Provides tracable log, to get the information on server of client, read [Tracable log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog)
 
-librtmp的定位就是客户端程序，偏偏要超越它的定位去使用，这种大约只有中国人才能这样“无所畏惧”。
-
-嵌入式设备上做rtmp server，当然可以用srs/crtmpd/nginx-rtmp，轮也轮不到librtmp。
-
-## SRS为何提供librtmp
-
-srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
-* librtmp的代码确实很烂，毋庸置疑，典型的代码堆积。
-* librtmp接口定义不良好，这个对比srs就可以看出，使用起来得看实现代码。
-* 没有实例：接口的使用最好提供实例，srs提供了publish/play/rtmpdump实例。
-* 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
-* 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
-* 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
-
-一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
+In a word, SRS provides more efficient and simple client library srs-librtmp.
 
 ## 编译srs-librtmp
 
