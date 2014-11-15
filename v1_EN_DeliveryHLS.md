@@ -187,23 +187,19 @@ How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvi
 
 SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)
 
-若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
+For information about drop video, read [Transcode: Disable Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG#drop-video-or-audio)
 
-分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
 
-## HLS和Forward
+## HLS and Forward
 
-Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
+All stream publish by forward will output HLS when HLS enalbed.
 
-因此，可以对原始流进行Transcode之后，保证流符合h.264/aac的规范，然后forward到多个配置了HLS的VHOST进行切片。支持多个源站的热备。
+## HLS and Transcode
 
-## HLS和Transcode
+User can use transcode to ensure the video codec is h.264 and audio codec is aac, because h.264+aac is required by HLS.
 
-HLS要求RTMP流的编码为h.264+aac，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
-
-Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
-
-配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
+The below transcode config set the [gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7) to keep ts duration small:
 ```bash
 vhost hls.transcode.vhost.com {
     transcode {
@@ -235,13 +231,13 @@ vhost hls.transcode.vhost.com {
     }
 }
 ```
-该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
+The gop is 100/20=5s, where fps specified by vfps is 20, and gop frames specified by g is 100.
 
-## HLS自适应码流
+## HLS Multiple Bitrate
 
-SRS目前不支持HLS自适应码流，需要调研这个功能。
+SRS does not support HLS multiple bitrate.
 
-## HLS实例
+## HLS M3u8 Examples
 
 ### live.m3u8
 
@@ -322,11 +318,11 @@ news-431.ts
 #EXT-X-ENDLIST
 ```
 
-## SRS如何支持HLS
+## SRS How to Support HLS
 
-SRS的HLS主要参考了nginx-rtmp的HLS实现方式，SRS没有做什么事情，都是nginx-rtmp实现的。而分发m3u8和ts文件，也是使用nginx分发的。
+The ts write code of SRS is refer to nginx-rtmp, and add some comments according to ts specification.
 
-SRS只是读了遍ts的标准文档，把相关部分加了注释而已。譬如下面这段：
+For example:
 ```c++
 // @see: ngx_rtmp_mpegts.c
 // TODO: support full mpegts feature in future.
