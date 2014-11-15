@@ -37,6 +37,8 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
+* SRS提供了测速函数，直接调用srs-librtmp就可以完成到服务器的测速。参考：[Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_BandwidthTestTool)
+* SRS提供了日志接口，可以获取服务器端的信息，譬如版本，对应的session id。参考：[Tracable log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLog)
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
