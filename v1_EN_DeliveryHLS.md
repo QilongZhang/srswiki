@@ -156,36 +156,36 @@ vhost __defaultVhost__ {
 }
 ```
 
-其中hls配置就是HLS的配置，主要配置项如下：
-* enabled：是否开启HLS，on/off，默认off。
-* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
+The section `hls` is for HLS config:
+* enabled: Whether enable HLS, on to enable, off to disable. Default: off.
+* hls_path: The path to save m3u8 and ts file, where SRS will use app as dir and stream as ts file prefix. For example:
 ```bash
-对于RTMP流：rtmp://localhost/live/livestream
-HLS配置路径：hls_path        /data/nginx/html;
-那么会生成以下文件：
+For RTMP stream: rtmp://localhost/live/livestream
+HLS path: hls_path        /data/nginx/html;
+SRS will generate below files:
 /data/nginx/html/live/livestream.m3u8
 /data/nginx/html/live/livestream-0.ts
 /data/nginx/html/live/livestream-1.ts
 /data/nginx/html/live/livestream-2.ts
-最后的HLS地址为：http://localhost/live/livestream.m3u8
+And the HLS url to play: http://localhost/live/livestream.m3u8
 ```
-* hls_fragment：秒，指定ts切片的最小长度。实际上ts文件的长度由以下公式决定：
+* hls_fragment: The HLS duration in seconds. The actual duration of ts file is by:
 ```bash
-ts文件时长 = max(hls_fragment, gop_size)
-hls_fragment：配置文件中的长度。譬如：5秒。
-gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，gop为200帧，则gop_size=gop/fps=10秒。
-那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
+TS duration(s) = max(hls_fragment, gop_size)
+hls_fragment: The config seconds for ts file, for example, 5s.
+gop_size: The stream gop size, for example, the fps is 20, gop is 200frames, then gop_size=gop/fps=10s.
+So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is larger than hls_fragment.
 ```
-* hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
+* hls_window: The total HLS windows size in seconds, the sum of all ts duration in m3u8. SRS will drop the old ts file in m3u8 and delete the file on fs. SRS will keep:
 ```bash
-hls_window >= sum(m3u8中每个ts的时长)
+hls_window >= sum(each ts duration in m3u8)
 ```
 
-部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
 
 ## HLSAudioOnly
 
-SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)），SRS只切片音频。
+SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)
 
 若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
 
