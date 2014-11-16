@@ -23,7 +23,7 @@ DVR的配置文件说明：
     dvr {
         # whether enabled dvr features
         # default: off
-        enabled      on;
+        enabled         on;
         # the dvr output path.
         # the app dir is auto created under the dvr_path.
         # for example, for rtmp stream:
@@ -35,7 +35,7 @@ DVR的配置文件说明：
         # @remark, the time use system timestamp in ms, user can use http callback to rename it.
         # in a word, the dvr_path is for vhost.
         # default: ./objs/nginx/html
-        dvr_path    ./objs/nginx/html;
+        dvr_path        ./objs/nginx/html;
         # the dvr plan. canbe:
         #   session reap flv when session end(unpublish).
         #   segment reap flv when flv duration exceed the specified dvr_duration.
@@ -50,12 +50,26 @@ DVR的配置文件说明：
         # if on, reap segment when duration exceed and got keyframe.
         # default: on
         dvr_wait_keyframe       on;
+        # about the stream monotonically increasing:
+        #   1. video timestamp is monotonically increasing, 
+        #   2. audio timestamp is monotonically increasing,
+        #   3. video and audio timestamp is interleaved monotonically increasing.
+        # it's specified by RTMP specification, @see 3. Byte Order, Alignment, and Time Format
+        # however, some encoder cannot provides this feature, please set this to off to ignore time jitter.
+        # the time jitter algorithm:
+        #   1. full, to ensure stream start at zero, and ensure stream monotonically increasing.
+        #   2. zero, only ensure sttream start at zero, ignore timestamp jitter.
+        #   3. off, disable the time jitter algorithm, like atc.
+        # default: full
+        time_jitter             full;
     }
 ```
 
 DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主要的录制计划包括：
+
 * session：按照session来关闭flv文件，即编码器停止推流时关闭flv，整个session录制为一个flv。
 * segment：按照时间分段录制，flv文件时长配置为dvr_duration和dvr_wait_keyframe。注意：若不按关键帧切flv（即dvr_wait_keyframe配置为off），所以会导致后面的flv启动时会花屏。
+* time_jitter: 时间戳抖动算法。full使用完全的时间戳矫正；zero只是保证从0开始；off不矫正时间戳。
 
 参考`conf/dvr.segment.conf`和`conf/dvr.session.conf`配置实例。
 

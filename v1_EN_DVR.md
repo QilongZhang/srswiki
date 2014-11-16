@@ -1,20 +1,20 @@
-# DVR录制
+# DVR
 
-SRS支持将RTMP流录制成flv文件。
+SRS supports DVR RTMP stream to flv file.
 
-## 编译选项
+## Configure Options
 
-DVR的编译选项为`--with-dvr`，关闭DVR的选项为`--without-dvr`。
+Use `--with-dvr` to enable dvr, while `--without-dvr` to disable it.
 
-参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+For information about the dvr option, read 
+[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
-## 配置选项
+## Config DVR
 
-DVR的难点在于写入flv和文件命名，SRS的做法是随机生成文件名，用户可以使用http-callback方式，使用外部程序记录这个文件名，或者改成自己要的文件命名方式。
+The difficult of DVR is about the flv name, while SRS use app/stream+random name.
+User can use http-callback to rename, for example, when DVR reap flv file.
 
-当然也可以修改SRS代码，这种做法不推荐，c操作文件名比较麻烦。还是用外部辅助系统做会很方便。
-
-DVR的配置文件说明：
+Config for DVR:
 
 ```bash
     # dvr RTMP stream to file,
@@ -23,7 +23,7 @@ DVR的配置文件说明：
     dvr {
         # whether enabled dvr features
         # default: off
-        enabled      on;
+        enabled         on;
         # the dvr output path.
         # the app dir is auto created under the dvr_path.
         # for example, for rtmp stream:
@@ -35,7 +35,7 @@ DVR的配置文件说明：
         # @remark, the time use system timestamp in ms, user can use http callback to rename it.
         # in a word, the dvr_path is for vhost.
         # default: ./objs/nginx/html
-        dvr_path    ./objs/nginx/html;
+        dvr_path        ./objs/nginx/html;
         # the dvr plan. canbe:
         #   session reap flv when session end(unpublish).
         #   segment reap flv when flv duration exceed the specified dvr_duration.
@@ -50,13 +50,27 @@ DVR的配置文件说明：
         # if on, reap segment when duration exceed and got keyframe.
         # default: on
         dvr_wait_keyframe       on;
+        # about the stream monotonically increasing:
+        #   1. video timestamp is monotonically increasing, 
+        #   2. audio timestamp is monotonically increasing,
+        #   3. video and audio timestamp is interleaved monotonically increasing.
+        # it's specified by RTMP specification, @see 3. Byte Order, Alignment, and Time Format
+        # however, some encoder cannot provides this feature, please set this to off to ignore time jitter.
+        # the time jitter algorithm:
+        #   1. full, to ensure stream start at zero, and ensure stream monotonically increasing.
+        #   2. zero, only ensure sttream start at zero, ignore timestamp jitter.
+        #   3. off, disable the time jitter algorithm, like atc.
+        # default: full
+        time_jitter             full;
     }
 ```
 
-DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主要的录制计划包括：
-* session：按照session来关闭flv文件，即编码器停止推流时关闭flv，整个session录制为一个flv。
-* segment：按照时间分段录制，flv文件时长配置为dvr_duration和dvr_wait_keyframe。注意：若不按关键帧切flv（即dvr_wait_keyframe配置为off），所以会导致后面的flv启动时会花屏。
+The plan of DVR used to reap flv file:
 
-参考`conf/dvr.segment.conf`和`conf/dvr.session.conf`配置实例。
+* session: When start publish, open flv file, close file when unpublish.
+* segment: Reap flv file by the dvr_duration and dvr_wait_keyframe.
+* time_jitter: The time jitter algorithm to use.
 
-Winlin 2014.4
+The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
+
+Winlin 2014.11
