@@ -112,7 +112,7 @@ SRS的回调事件包括：
 * 数据：SRS将数据POST到HTTP接口。
 * 返回值：SRS要求HTTP服务器返回HTTP200并且response内容为整数错误码（0表示成功），其他错误码会断开客户端连接。
 
-## 配置SRS
+## Config SRS
 
 以on_connect为例，当用户连接到vhost/app时，验证客户端的ip，配置文件如下：
 
