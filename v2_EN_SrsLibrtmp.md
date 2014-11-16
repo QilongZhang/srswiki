@@ -125,6 +125,8 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 
 SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给SRS。
 
+参考博客：http://blog.csdn.net/win_lin/article/details/41170653
+
 总结起来就是说，H264的裸码流（帧）转换RTMP时：
 
 1. dts和pts是不在h264流中的，外部给出。
