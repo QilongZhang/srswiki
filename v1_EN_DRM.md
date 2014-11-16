@@ -3,6 +3,7 @@
 DRM use to protect the content, can use many strategys:
 * Refer Autisuck: Check the refer(PageUrl) of RTMP connect params, which is set by flash player.
 * Token Authentication: Check the token of RTMP connect params, SRS can use http-callback to verify the token.
+* FMS token tranverse: Edge server will verify each connection on origin server.
 * Access Server: Adobe Access Server.
 * Publish Authentication: The authentication protocol for publish.
 
@@ -41,18 +42,22 @@ vhost refer.anti_suck.com {
 
 ## Token Authentication
 
-token类似于refer，不过是放在RTMP url中，或者在connect的请求参数中：
-* token在RTMP url，譬如：`rtmp://vhost/app?token=xxxx/stream`，这样服务器在on_connect回调接口中，就会把url带过去验证。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
-* token在connect的参数中：as函数NetConnection.connect(url, token)，服务器也可以拿到这个token。注意：SRS目前不支持。
+The token authentication similar to refer, but the token is put in the url, not in the args of connect:
+* Put token in RTMP url, for example, `rtmp://vhost/app?token=xxxx/stream`, SRS will pass the token 
+in the http-callback. read [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
+* Put token in the connect args, for example, as code NetConnection.connect(url, token), need to modify SRS code.
 
-token比refer更强悍，可以指定超时时间，可以变更token之类。可惜就是需要服务器端做定制，做验证。SRS提供http回调来做验证，已经有人用这种方式做了，比较简单靠谱。
+Token is robust then refer, can specifies more params, for instance, the expire time.
 
-举个常用的token认证的例子：
+For example:
 
-1. 用户在web页面登录，服务器可以生成一个token，譬如token=md5(time+id+私钥+有效期)=88195f8943e5c944066725df2b1706f8
-1. 服务器返回给用户一个地址，带token，譬如：rtmp://192.168.1.10/live?time=1402307089&expire=3600&token=88195f8943e5c944066725df2b1706f8/livestream
-1. 配置srs的http回调，`on_connect http://127.0.0.1:8085/api/v1/clients;`，参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback#%E9%85%8D%E7%BD%AEsrs)
-1. 用户推流时，srs会回调那个地址，解析请求的内容，里面的tcUrl就有那些认证信息。按同样的算法验证，如果md5变了就返回错误，srs就会拒绝连接。如果返回0就会接受连接。
+1. When user access the web page, web application server can generate a token in the RTMP url, for example,
+token = md5(time + id + salt + expire) = 88195f8943e5c944066725df2b1706f8
+1. The RTMP url to play is, for instance, rtmp://192.168.1.10/live?time=1402307089&expire=3600&token=88195f8943e5c944066725df2b1706f8/livestream
+1. Config the http callback of SRS `on_connect http://127.0.0.1:8085/api/v1/clients;`, 
+read [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback#config-srs)
+1. When user play stream, SRS will callback the url with token to verify,
+if invalid, the http callback can return none zero which indicates error.
 
 ## TokenTraverse
 

@@ -3,6 +3,7 @@
 DRM重要的功能就是防盗链，只有允许的用户，才能访问服务器的流。有多种DRM的方式：
 * refer防盗链：检查用户从哪个网站过来的。譬如不是从公司的页面过来的人都不让看。
 * token防盗链：用户在播放时，必须先申请token，SRS会回调http检查这个token合法性。
+* FMS token tranverse：边缘RTMP服务器收到每个连接，都去上行节点验证，即token穿越认证。
 * Access服务器：专门的access服务器负责DRM。譬如adobe的access服务器。
 * 推流认证：adobe的RTMP推流时，支持几种认证方式，这个也可以归于防盗链概念。
 
@@ -50,8 +51,8 @@ SRS提供http回调来做验证，已经有人用这种方式做了，比较简�
 1. 用户在web页面登录，服务器可以生成一个token，譬如token=md5(time+id+私钥+有效期)=88195f8943e5c944066725df2b1706f8
 1. 服务器返回给用户一个地址，带token，譬如：rtmp://192.168.1.10/live?time=1402307089&expire=3600&token=88195f8943e5c944066725df2b1706f8/livestream
 1. 配置srs的http回调，`on_connect http://127.0.0.1:8085/api/v1/clients;`，
-参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPCallback#%E9%85%8D%E7%BD%AEsrs)
-1. 用户推流时，srs会回调那个地址，解析请求的内容，里面的tcUrl就有那些认证信息。
+参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback#config-srs)
+1. 用户播放时，srs会回调那个地址，解析请求的内容，里面的tcUrl就有那些认证信息。
 按同样的算法验证，如果md5变了就返回错误，srs就会拒绝连接。如果返回0就会接受连接。
 
 ## TokenTraverse
