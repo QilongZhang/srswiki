@@ -1,16 +1,22 @@
 # DRM
 
-DRM重要的功能就是防盗链，只有允许的用户，才能访问服务器的流。有多种DRM的方式：
-* refer防盗链：检查用户从哪个网站过来的。譬如不是从公司的页面过来的人都不让看。
-* token防盗链：用户在播放时，必须先申请token，SRS会回调http检查这个token合法性。
-* Access服务器：专门的access服务器负责DRM。譬如adobe的access服务器。
-* 推流认证：adobe的RTMP推流时，支持几种认证方式，这个也可以归于防盗链概念。
+DRM use to protect the content, can use many strategys:
+* Refer Autisuck: Check the refer(PageUrl) of RTMP connect params, which is set by flash player.
+* Token Authentication: Check the token of RTMP connect params, SRS can use http-callback to verify the token.
+* Access Server: Adobe Access Server.
+* Publish Authentication: The authentication protocol for publish.
 
-## Refer防盗链
+## Refer Autisuck
 
-SRS支持refer防盗链，adobe的flash在播放RTMP流时，会把页面的http url放在请求中，as客户端代码不可以更改。当然如果用自己的客户端，不用flash播放流，就可以随意伪造了；尽管如此，refer防盗链还是能防住相当一部分盗链。
+SRS support config the refer to antisuck.
 
-配置Refer防盗链，在vhost中开启refer即可，可以指定publish和play的refer：
+When play RTMP url, adobe flash player will send the page url in the connect params PageUrl, 
+which is cannot changed by as code, server can check the web page url to ensure the user is ok.
+
+While user use client application, the PageUrl can be any value, for example, 
+use srs-librtmp to play RTMP url, the Refer antisuck is not work.
+
+To config the refer antisuck in srs:
 
 ```bash
 # the vhost for antisuck.
@@ -33,7 +39,7 @@ vhost refer.anti_suck.com {
 }
 ```
 
-## Token防盗链
+## Token Authentication
 
 token类似于refer，不过是放在RTMP url中，或者在connect的请求参数中：
 * token在RTMP url，譬如：`rtmp://vhost/app?token=xxxx/stream`，这样服务器在on_connect回调接口中，就会把url带过去验证。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
