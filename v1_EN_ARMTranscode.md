@@ -1,4 +1,4 @@
-# ARM转码
+# ARM Transcoding
 
 ARM下，譬如raspberry pi，转码音频还是可行的。ffmpeg转码音频的CPU占用50%。
 
