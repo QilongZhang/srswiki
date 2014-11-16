@@ -1,7 +1,7 @@
-# Perf性能分析
+# Perf analysi
 
-使用perf内核性能分析工具，可以分析出很多问题。具体参考perf命令的用法。
+SRS can use perf to analysis, see the `man perf`.
 
-还有oprofile.
+The other tools: oprofile.
 
-Winlin 2014.6
+Winlin 2014.11
