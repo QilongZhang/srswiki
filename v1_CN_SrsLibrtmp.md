@@ -118,8 +118,6 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_bandwidth_check.c：带宽测试工具。
 * research/librtmp/srs_flv_injecter.c：点播FLV关键帧注入文件。
 * research/librtmp/srs_flv_parser.c：FLV文件查看工具。
-* research/librtmp/srs_ingest_rtmp.c：采集RTMP流，推送RTMP流给SRS。
-* research/librtmp/srs_ingest_flv.c：采集FLV文件，推送RTMP流给SRS。
 * research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
 
 ## 运行实例
@@ -127,27 +125,13 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 启动SRS：
 
 ```bash
-[winlin@dev6 srs]$ make && ./objs/srs -c srs.conf 
-[2014-03-02 18:28:03.857][trace][1][16] server started, listen at port=1935, fd=4
-[2014-03-02 18:28:03.857][trace][2][16] thread cycle start
+make && ./objs/srs -c srs.conf 
 ```
 
 推流实例：
 
 ```bash
-[winlin@dev6 srs]$ make && ./research/librtmp/srs_publish_ssl 
-publish rtmp stream to server like FMLE/FFMPEG/Encoder
-srs(simple-rtmp-server) client librtmp library.
-version: 0.9.9
-simple handshake success
-connect vhost/app success
-publish stream success
-sent packet: type=Video, time=40, size=4096
-sent packet: type=Video, time=80, size=4096
-sent packet: type=Video, time=120, size=4096
-sent packet: type=Video, time=160, size=4096
-sent packet: type=Video, time=200, size=4096
-sent packet: type=Video, time=240, size=4096
+make && ./objs/research/librtmp/objs/srs_publish rtmp://127.0.0.1:1935/live/livestream
 ```
 
 备注：推流实例发送的视频数据不是真正的视频数据，实际使用时，譬如从摄像头取出h.264裸码流，需要封装成接口要求的数据，然后调用接口发送出去。
@@ -155,25 +139,7 @@ sent packet: type=Video, time=240, size=4096
 播放实例：
 
 ```bash
-[winlin@dev6 trunk]$ make && ./research/librtmp/srs_play_ssl 
-suck rtmp stream like rtmpdump
-srs(simple-rtmp-server) client librtmp library.
-version: 0.9.9
-simple handshake success
-connect vhost/app success
-play stream success
-got packet: type=Data, time=0, size=24
-got packet: type=Data, time=0, size=44
-got packet: type=Video, time=40, size=4096
-got packet: type=Video, time=80, size=4096
-got packet: type=Video, time=120, size=4096
-got packet: type=Video, time=160, size=4096
-got packet: type=Video, time=200, size=4096
-got packet: type=Video, time=240, size=4096
-got packet: type=Video, time=280, size=4096
-got packet: type=Video, time=320, size=4096
-got packet: type=Video, time=360, size=4096
-got packet: type=Video, time=400, size=4096
+make && ./objs/research/librtmp/objs/srs_play rtmp://ossrs.net/live/livestreamsuck rtmp stream like rtmpdump
 ```
 
 Winlin 2014.11

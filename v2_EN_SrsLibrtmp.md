@@ -37,9 +37,9 @@ In a word, SRS provides more efficient and simple client library srs-librtmp.
 
 ## Export Srs Librtmp
 
-SRS在2.0提供了导出srs-librtmp的编译选项，可以将srs-librtmp单独导出为project，单独编译生成.h和.a，方便在linux和windows平台编译。
+SRS2.0 provides options for configure to export srs-librtmp to single project to make .h and .a, or to single .h and .cpp file.
 
-使用方法，导出为project，可以make成.h和.a：
+Usage for export project:
 
 ```
 dir=/home/winlin/srs-librtmp &&
@@ -49,9 +49,9 @@ cd $dir && make &&
 ./objs/research/librtmp/srs_play rtmp://ossrs.net/live/livestream
 ```
 
-SRS将srs-librtmp导出为独立可以make的项目，生成.a静态库和.h头文件，以及生成了srs-librtmp的所有实例。
+SRS export srs-librtmp project can be make to .h and .a, and compile all release/librtmp examples.
 
-还可以直接导出为一个文件，提供了简单的使用实例，[其他实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples)参考research的其他例子：
+SRS can also export srs-librtmp to a single .h and .cpp file, and generate a simple example:
 
 ```
 dir=/home/winlin/srs-librtmp &&
@@ -61,80 +61,80 @@ cd $dir && gcc example.c srs_librtmp.cpp -g -O0 -lstdc++ -o example &&
 strip example && ./example
 ```
 
-备注：导出目录支持相对目录和绝对目录。
+Note: The export librtmp support both relative and absolute dir path.
 
-## 编译srs-librtmp
+## Build srs-librtmp
 
-编译SRS时，会自动编译srs-librtmp，譬如：
+When make SRS, the srs-librtmp will auto generated when configure with librtmp:
 
 ```bash
-./configure --with-librtmp --without-ssl
+./configure --with-librtmp --without-ssl && make
 ```
 
-编译会生成srs-librtmp和对应的[实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples)。
+All examples are built, read [Examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
-<strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
+<strong>Note: Recomment to disable ssl, for librtmp does not depends on ssl.</strong>
 
-<strong>备注：就算打开了--with-ssl，srslibrtmp也只提供simple_handshake函数，不提供complex_handshake函数。所以推荐关闭ssl，不依赖于ssl，没有实际的用处。</strong>
+<strong>Note: srs-librtmp provides only simple handshake, without complex handshake, eventhough configure with ssl.</strong>
 
-SRS编译成功后，用户就可以使用这些库开发
+When build ok, user can use .h and .a library to build client application.
 
-## Windows下编译srs-librtmp
+## Build srs-librtmp on Windows
 
-srs-librtmp可以只依赖于c++和socket，可以在windows下编译。
+srs-librtmp only depends on libc++, so can be build on windows.
 
-先使用SRS导出srs-librtmp，然后在vs中编译，参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp)
+SRS 2.0 can export srs-librtmp to single project, or a .h and a .cpp file, read [export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp).
 
-使用了一些linu的头文件，需要做一些portal。
+Need to port some linux header files.
 
-注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
+Note: Donot need ssl and st.
 
-## 数据格式
+## RTMP packet specification
 
-srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到服务器，或者从服务器读取音视频数据。
+This section descrips the RTMP packet specification, for the srs-librtmp api to read or write data.
 
-数据接口包括：
-* 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
-* 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
-* 发送h.264裸码流：参考[publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
+The api about data:
+* Read RTMP packet from server: int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
+* Write RTMP packet to server: int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
+* Write h.264 raw data to server, read [publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
 
-接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件[video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
-* 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
-* 视频数据格式参考：`E.4.3.1 VIDEODATA`，p78，譬如，h.264编码的视频数据。
-* 脚本数据格式参考：`E.4.4.1 SCRIPTDATA`，p80，譬如，onMetadata，流的信息（宽高，码率，分辨率等）
+The RTMP packet(char* data) for api, is format in flv Video/Audio, read the trunk/doc [video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
+* Audio data, read `E.4.2.1 AUDIODATA`，p76, for example, the aac codec audio data.
+* Video data, read  `E.4.3.1 VIDEODATA`，p78, for example, the h.264 video data.
+* Script data, read `E.4.4.1 SCRIPTDATA`，p80, for example, onMetadata call.
 
-数据类型(int type)定义如下（`E.4.1 FLV Tag`，page 75）：
-* 音频：8 = audio，宏定义：SRS_RTMP_TYPE_AUDIO
-* 视频：9 = video，宏定义：SRS_RTMP_TYPE_VIDEO
-* 脚本数据：18 = script data，宏定义：SRS_RTMP_TYPE_SCRIPT
+The RTMP packet type(int type) defines (in `E.4.1 FLV Tag`，page 75)：
+* Audio: 8, the macro SRS_RTMP_TYPE_AUDIO
+* Video: 9, the macro SRS_RTMP_TYPE_VIDEO
+* Script: 18, the macro SRS_RTMP_TYPE_SCRIPT
 
-其他的数据，譬如时间戳，都是通过参数接受和发送。
+Other parameters, for instance, the timestamp, pass by args.
 
-另外，文档其他重要信息：
-* flv文件头格式：`E.2 The FLV header`，p74。
-* flv文件主体格式：`E.3 The FLV File Body`，p74。
-* tag头格式：`E.4.1 FLV Tag`，p75。
+About the flv specification:
+* flv header format: `E.2 The FLV header`，p74。
+* flv body format: `E.3 The FLV File Body`，p74。
+* tag tag header: `E.4.1 FLV Tag`，p75。
 
-使用flv格式的原因：
-* flv的格式足够简单。
-* ffmpeg也是用的这种格式
-* 收到流后加上flv tag header，就可以直接保存为flv文件
-* 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
+Why use flv format as srs-librtmp api data format:
+* Flv is simple enough.
+* FFMPEG also use flv for rtmp.
+* Only need to add flv tag header, then we can write to flv file.
+* When publish flv file to server, only need to parse the tag header, the tag body is the data.
 
 ## Publish H.264 Raw Data
 
-SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给SRS。
+srs-librtmp provides api to publish h.264 raw stream to RTMP server.
 
-参考博客：http://blog.csdn.net/win_lin/article/details/41170653
+Please read http://blog.csdn.net/win_lin/article/details/41170653
 
-总结起来就是说，H264的裸码流（帧）转换RTMP时：
+When convert h.264 raw stream to RTMP packet:
 
-1. dts和pts是不在h264流中的，外部给出。
-1. SPS和PPS在RTMP一个包里面发出去。
-1. RTMP包=5字节RTMP包头+H264头+H264数据，具体参考：SrsAvcAacCodec::video_avc_demux
-1. 直接提供接口，发送h264数据，其中包含annexb的头：N[00] 00 00 01, where N>=0.
+1. The h.264 raw stream does not specifies the dts and pts, which is calculated by encoder.
+1. The RTMP sequence header, always sent in the first video packet.
+1. The RTMP-packet = 5bytes(RTMP-header) + h.264-header + h.264-NALU-data. Refer to SrsAvcAacCodec::video_avc_demux
+1. The srs-librtmp provides api to directly send h.264 raw stream, while the raw stream should starts with annexb header N[00] 00 00 01, where N>=0.
 
-加了一个直接发送h264裸码流的接口：
+The api of srs-librtmp to send h.264 raw stream:
 
 ```
 /**
@@ -155,14 +155,14 @@ SRS-librtmp支持发布h.264裸码流，直接调用api即可将数据发送给S
 * 
 * @return 0, success; otherswise, failed.
 */
-extern int srs_write_h264_raw_frames(srs_rtmp_t rtmp, 
+extern int srs_h264_write_raw_frames(srs_rtmp_t rtmp, 
     char* frames, int frames_size, u_int32_t dts, u_int32_t pts
 );
 ```
 
-对于例子中的h264流文件：http://winlinvip.github.io/srs.release/3rdparty/720p.h264.raw
+For the sample h.264 file: http://winlinvip.github.io/srs.release/3rdparty/720p.h264.raw
 
-里面的数据是：
+The data is:
 
 ```
 // SPS
@@ -175,101 +175,67 @@ extern int srs_write_h264_raw_frames(srs_rtmp_t rtmp,
 0000000141E02041F8CDDC562BBDEFAD2F.....
 ```
 
-调用时，可以SPS和PPS一起发，帧一次发一个：
+The sps and pps can be sent togother, or not:
 
 ```
 // SPS+PPS
-srs_write_h264_raw_frame('000000016742802995A014016E400000000168CE3880', size, dts, pts)
+srs_h264_write_raw_frame('000000016742802995A014016E400000000168CE3880', size, dts, pts)
 // IFrame
-srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
+srs_h264_write_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
 // PFrame
-srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts)
+srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts)
 ```
 
-调用时，可以一次发一次frame也行：
+The NALU can be sent together, or not:
 
 ```
 // SPS
-srs_write_h264_raw_frame('000000016742802995A014016E4', size, dts, pts)
+srs_h264_write_raw_frame('000000016742802995A014016E4', size, dts, pts)
 // PPS
-srs_write_h264_raw_frame('00000000168CE3880', size, dts, pts)
+srs_h264_write_raw_frame('00000000168CE3880', size, dts, pts)
 // IFrame
-srs_write_h264_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
+srs_h264_write_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts, pts)
 // PFrame
-srs_write_h264_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
+srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
 ```
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
+About the api, read https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
 
-使用：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
+About to use the api, read https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
 
 ## srs-librtmp Examples
 
-SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
-* research/librtmp/srs_play.c：播放RTMP流实例。
-* research/librtmp/srs_publish.c：推送RTMP流实例。
-* research/librtmp/srs_ingest_flv.c：读取本地文件并推送RTMP流实例。
-* research/librtmp/srs_ingest_rtmp.c：读取RTMP流并推送RTMP流实例。
-* research/librtmp/srs_bandwidth_check.c：带宽测试工具。
-* research/librtmp/srs_flv_injecter.c：点播FLV关键帧注入文件。
-* research/librtmp/srs_flv_parser.c：FLV文件查看工具。
-* research/librtmp/srs_ingest_rtmp.c：采集RTMP流，推送RTMP流给SRS。
-* research/librtmp/srs_ingest_flv.c：采集FLV文件，推送RTMP流给SRS。
-* research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
-* research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
+The examples for srs-librtmp, automatically build when build SRS:
+* research/librtmp/srs_play.c: Use srs-librtmp to play RTMP stream.
+* research/librtmp/srs_publish.c: Use srs-librtmp to publish RTMP stream.
+* research/librtmp/srs_ingest_flv.c: Use srs-librtmp to read local flv to publish as RTMP stream.
+* research/librtmp/srs_ingest_rtmp.c: Use srs-librtmp to read RTMP then publish as RTMP stream.
+* research/librtmp/srs_bandwidth_check.c: Use srs-librtmp to check bandwidth to server.
+* research/librtmp/srs_flv_injecter.c: Use srs-librtmp to inject flv keyframes offset for flv vod stream.
+* research/librtmp/srs_flv_parser.c: Use srs-librtmp to show the flv file.
+* research/librtmp/srs_detect_rtmp.c: Use srs-librtmp to detect the RTMP stream status.
+* research/librtmp/srs_h264_raw_publish.c: Use srs-librtmp to publish h.264 raw stream to RTMP server.
 
-## 运行实例
+## Run Examples
 
-启动SRS：
+Start SRS:
 
 ```bash
-[winlin@dev6 srs]$ make && ./objs/srs -c srs.conf 
-[2014-03-02 18:28:03.857][trace][1][16] server started, listen at port=1935, fd=4
-[2014-03-02 18:28:03.857][trace][2][16] thread cycle start
+make && ./objs/srs -c srs.conf 
 ```
 
-推流实例：
+The publish example:
 
 ```bash
-[winlin@dev6 srs]$ make && ./research/librtmp/srs_publish_ssl 
-publish rtmp stream to server like FMLE/FFMPEG/Encoder
-srs(simple-rtmp-server) client librtmp library.
-version: 0.9.9
-simple handshake success
-connect vhost/app success
-publish stream success
-sent packet: type=Video, time=40, size=4096
-sent packet: type=Video, time=80, size=4096
-sent packet: type=Video, time=120, size=4096
-sent packet: type=Video, time=160, size=4096
-sent packet: type=Video, time=200, size=4096
-sent packet: type=Video, time=240, size=4096
+make && ./objs/research/librtmp/objs/srs_publish rtmp://127.0.0.1:1935/live/livestream
 ```
 
-备注：推流实例发送的视频数据不是真正的视频数据，实际使用时，譬如从摄像头取出h.264裸码流，需要封装成接口要求的数据，然后调用接口发送出去。或者[直接发送h264裸码流](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)。
+Note: the publish stream send random data, cannot play by player.
 
-播放实例：
+The play example:
 
 ```bash
-[winlin@dev6 trunk]$ make && ./research/librtmp/srs_play_ssl 
-suck rtmp stream like rtmpdump
-srs(simple-rtmp-server) client librtmp library.
-version: 0.9.9
-simple handshake success
-connect vhost/app success
-play stream success
-got packet: type=Data, time=0, size=24
-got packet: type=Data, time=0, size=44
-got packet: type=Video, time=40, size=4096
-got packet: type=Video, time=80, size=4096
-got packet: type=Video, time=120, size=4096
-got packet: type=Video, time=160, size=4096
-got packet: type=Video, time=200, size=4096
-got packet: type=Video, time=240, size=4096
-got packet: type=Video, time=280, size=4096
-got packet: type=Video, time=320, size=4096
-got packet: type=Video, time=360, size=4096
-got packet: type=Video, time=400, size=4096
+make && ./objs/research/librtmp/objs/srs_play rtmp://ossrs.net/live/livestreamsuck rtmp stream like rtmpdump
 ```
 
 Winlin 2014.11
