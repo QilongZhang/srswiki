@@ -1,10 +1,12 @@
-# 带宽测试
+# Bandwidth Test
 
-视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。
+When publish stream very slow to server, or play always buffer, maybe the bandwidth to server is low.
 
-## SRS配置
+SRS provides api and tools to test the bandwidth to SRS.
 
-SRS配置文件中需要打开`--with-librtmp`配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
+## SRS Server Config
+
+The config of SRS use a specified vhost for bandwidth test, for example, `conf/bandwidth.conf`:
 
 ```bash
 listen              1935;
@@ -23,44 +25,44 @@ vhost bandcheck.srs.com {
 }
 ```
 
-其中：
-* key：服务器的key，若客户端给出的key和配置的不一致，断开连接。
-* interval：测速的间隔，单位为秒，可为小数。若连续发起测速，时间间隔小于interval，服务器拒绝连接。
-* limit_kbps：测速的最大带宽，即可以测出来的最大带宽，防止服务器收到攻击。
+Where:
+* key: The bandwidth test key, to prevent DOS attack.
+* interval: The interval in seconds, can be float, SRS will disconnect when interval too short.
+* limit_kbps: The limit max bandwidth can be test by client.
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong>Suppose the server ip is 192.168.1.170</strong>
 
-## Flash测速工具
+## Flash Bandwidth Test
 
-启动后用带宽测试客户端就可以查看：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170](http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170)
+When SRS started, open the url in web browser: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170](http://winlinvip.github.io/srs.release/trunk/research/players/srs_bwt.html?server=192.168.1.170)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Replace the ip 192.168.1.170 to your server.
 
-检测完毕后会提示带宽，譬如：
+When test finished, the result is:
 
 ```bash
-检测结束: 192.168.1.170 上行: 1965 kbps 下行: 3631 kbps 测试时间: 6.0 秒
+检测结束: 192.168.1.170 上行(upload): 1965 kbps 下行(download): 3631 kbps 测试时间: 6.0 秒
 server:SRS 0.9.156 (github.com/winlinvip/simple-rtmp-server), 
 authors:winlin,wenjie.zhao, srs_id:123, srs_pid:32057, ip:192.168.1.170
 ```
 
-## 测速库
+## Bandwidth Test Api
 
-我提供了AS和JS的库，可以直接调用来和服务器测速。
+SRS provides as and js library, to test the bandwidth of server.
 
-AS的库，直接拷贝文件`SrsBandwidth.as`到工程，调用即可（参考注释说明）：
-* AS库对象：[SrsBandwidth.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
-* AS调用对象（主对象）：[srs_bwt.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as)，如何调用`SrsBandwidth.as`的实例。
+The as library, user can directly use `SrsBandwidth.as`:
+* The as library object [SrsBandwidth.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
+* The as active object [srs_bwt.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as), the example to how to use `SrsBandwidth.as`.
 
-JS的库，需要拷贝`srs_bwt.swf`和`srs.bandwidth.js`，调用方法参考js说明：
-* JS库对象：[srs.bandwidth.js](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
-* JS调用对象（页面）：[srs_bwt.html](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt.html)，如何调用`srs.bandwidth.js`的实例。
+The js library, copy the `srs_bwt.swf` and `srs.bandwidth.js`:
+* The js library object [srs.bandwidth.js](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
+* The js active object, the html page [srs_bwt.html](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt.html), the example to how to use `srs.bandwidth.js`.
 
-备注：JS需要调用swf导出的js函数，由Flash发送RTMP包测速，因此js库依赖于as。可以导入Flex工程自己编译，或者使用已经编译好的[srs_bwt.swf](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
+Note: The js library depends on the swf exported js functions. The RTMP packets is sent by the [srs_bwt.swf](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
 
-## Linux工具测速
+## Linux Bandwidth Tool
 
-另外，SRS还提供了带宽检测命令行工具：
+SRS also provides linux tool to teset the bandwidth:
 
 ```bash
 
@@ -75,7 +77,7 @@ For example:
 @remark, output text to stdout, while json to stderr.
 ```
 
-直接执行将打印文本和json信息：
+Print text and json:
 ```
 [winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com
 RTMP bandwidth check/test with server.
@@ -107,7 +109,7 @@ terminate with ret=0
 "publish_kbps":3578}
 ```
 
-可以只打印json信息：
+Only show the stderr(json) info:
 ```
 [winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null 
 {"code":0,
@@ -123,4 +125,4 @@ terminate with ret=0
 "publish_kbps":3662}
 ```
 
-Winlin
+Winlin 2014.11

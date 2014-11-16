@@ -4,7 +4,7 @@
 
 ## SRS配置
 
-SRS配置文件中需要打开`--with-librtmp`配置，一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
+SRS配置一般是单独加一个vhost支持测速。SRS的配置`conf/bandwidth.conf`。譬如：
 
 ```bash
 listen              1935;
@@ -107,7 +107,7 @@ terminate with ret=0
 "publish_kbps":3578}
 ```
 
-可以只打印json信息：
+可以只打印json信息，将stdout定向到/dev/null：
 ```
 [winlin@dev6 librtmp]$ ./srs_bandwidth_check rtmp://127.0.0.1:1935/app?key=35c9b402c12a7246868752e2878f7e0e,vhost=bandcheck.srs.com>/dev/null 
 {"code":0,
@@ -123,4 +123,4 @@ terminate with ret=0
 "publish_kbps":3662}
 ```
 
-Winlin
+Winlin 2014.11
