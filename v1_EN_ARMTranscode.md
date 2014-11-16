@@ -1,14 +1,14 @@
 # ARM Transcoding
 
-ARM下，譬如raspberry pi，转码音频还是可行的。ffmpeg转码音频的CPU占用50%。
+It's ok to transcode the audio only on ARM. FFMPEG consumes about 50% to transcode audio.
 
-## 编译
+## Build
 
-使用系统的ffmpeg转码时，需要禁止srs编译ffmpeg，同时打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+To configure SRS by `--with-transcode --without-ffmpeg`, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
-## 配置文件
+## Config file
 
-使用下面的配置：
+Use the following config:
 
 ```bash
 listen              1935;
@@ -46,9 +46,9 @@ vhost hls {
 }
 ```
 
-## 运行
+## Run
 
-启动后CPU占用：
+When start SRS with audio trascoding on ARM:
 
 ```bash
 top - 07:07:07 up 38 min,  2 users,  load average: 0.96, 0.58, 0.44
@@ -58,12 +58,11 @@ KiB Mem:    383156 total,   168808 used,   214348 free,    11704 buffers
 KiB Swap:   102396 total,        0 used,   102396 free,   117676 cached
 
   PID USER      PR  NI  VIRT  RES  SHR S  %CPU %MEM    TIME+  COMMAND
- 3592 winlin    20   0 41620  13m 3880 R  52.1  3.5   1:32.72 ./objs/ffmpeg/bin/ffmpeg 
--f flv -i rtmp://127.0.0.1:1935/l 
+ 3592 winlin    20   0 41620  13m 3880 R  52.1  3.5   1:32.72 ./objs/ffmpeg/bin/ffmpeg
  3591 winlin    20   0  3400 1464 1056 R  17.4  0.4   0:29.06 ./objs/srs -c console.conf
 ```
 
-启动的转码进程：
+The FFMPEG started by SRS:
 
 ```bash
 winlin@raspberrypi:~/srs$ ps aux|grep ffmpeg
@@ -73,7 +72,7 @@ winlin    3592 51.2  3.4  41620 13408 pts/0    R+   07:04   1:43 ./objs/ffmpeg/b
 -y rtmp://127.0.0.1:1935/live?vhost=hls/livestream
 ```
 
-生成的文件：
+Generated files:
 
 ```bash
 winlin@raspberrypi:~/srs$ ll objs/nginx/html/live/
@@ -90,4 +89,4 @@ total 6.1M
 -rw-r--r-- 1 winlin winlin  339 Apr  5 07:08 livestream.m3u8
 ```
 
-Winlin 2014
+Winlin 2014.11
