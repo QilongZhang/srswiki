@@ -1,6 +1,6 @@
 # RTMP deploy example
 
-RTMP部署的步骤。
+RTMP is the kernel feature of SRS.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 3, config srs.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
 Save bellow as config, or use `conf/rtmp.conf`:
 
@@ -35,13 +35,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 4, start srs.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>第四步，启动推流编码器。</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 5, start encoder.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
 Use FFMPEG to publish stream:
 
@@ -61,7 +61,7 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-<strong>第五步，观看RTMP流。</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 6, play RTMP.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -71,4 +71,4 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-Winlin 2014.3
+Winlin 2014.11
