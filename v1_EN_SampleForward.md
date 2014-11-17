@@ -9,20 +9,20 @@ Forward就是SRS将流拷贝输出给其他的RTMP服务器，以SRS转发给SRS
 * 备SRS：Slave, 主SRS转发流到备SRS，就像编码器推送流到备用SRS一样。
 我们的部署实例中，主SRS侦听1935端口，备SRS侦听19350端口。
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 
 ```bash
 git clone https://github.com/winlinvip/simple-rtmp-server
 cd simple-rtmp-server/trunk
 ```
 
-或者使用git更新已有代码：
+Or update the exists code:
 
 ```bash
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl && make

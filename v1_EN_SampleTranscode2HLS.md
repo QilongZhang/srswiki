@@ -13,20 +13,20 @@ HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](https://githu
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 
 ```bash
 git clone https://github.com/winlinvip/simple-rtmp-server
 cd simple-rtmp-server/trunk
 ```
 
-或者使用git更新已有代码：
+Or update the exists code:
 
 ```bash
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make

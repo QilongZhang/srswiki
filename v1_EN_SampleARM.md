@@ -1,54 +1,57 @@
 # SRS ARM deploy example
 
-SRS可以在SRS上作为服务器运行，播放器可以从arm设备上取流播放；arm也可以作为客户端推流到外部srs服务器，使用srs-librtmp库。
+SRS can deploy on ARM linux. SRS provides srs-librtmp as client library for ARM.
 
-编译和搭建ARM环境，详细信息可以参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)，本文举例说明部署的实例步骤。
+Compile and build ARM, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm),
+this artical describes how to deploy.
 
-<strong>假设编译为Ubuntu12的IP是：192.168.1.170</strong><br/>
-<strong>假设ARM虚拟设备：1935映射到Ubuntu12的19350端口，22映射到2200端口。即访问Ubuntu的19350就是访问ARM虚拟机的1935（流媒体）；访问Ubuntu的2200就是访问ARM虚拟机的22（SSH登录）。</strong> 详细信息可以参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Suppose the IP of ubuntu12: 192.168.1.170</strong><br/>
+<strong>Suppose the ARM device running in VirtualBox 1935 mapped to Ubuntu12 19350, 22 mapped to 2200.
+That is, we can access Ubuntu12 19350 to access the ARM 1935, while the Ubuntu 2200 for ARM 22.</strong>
+For more information, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
-## Ubuntu12交叉编译SRS
+## Ubuntu12 cross build SRS
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 
 ```bash
 git clone https://github.com/winlinvip/simple-rtmp-server
 cd simple-rtmp-server/trunk
 ```
 
-或者使用git更新已有代码：
+Or update the exists code:
 
 ```bash
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
-# 密码为：root
+# Password is：root
 scp -P 2200 objs/srs  root@localhost:~
 scp -P 2200 conf/rtmp.conf root@localhost:~
 ```
 
-## ARM上启动SRS
+## Start SRS on ARM
 
-登录到Ubuntu的2200端口，就是登录到了ARM虚拟设备。
+Login to Ubuntu 2200, we are on ARM:
 
-<strong>第四步，启动SRS。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>第五步，启动推流编码器。</strong>详细参考：[SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
 
-使用FFMPEG命令推流：
+Use FFMPEG to publish stream:
 
 ```bash
     for((;;)); do \
@@ -59,26 +62,25 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
     done
 ```
 
-或使用FMLE推流：
+Or use FMLE to publish stream:
 
 ```bash
 FMS URL: rtmp://192.168.1.170:19350/live
 Stream: livestream
 ```
 
-## 用户机器
+## User Machine
 
-在用户的Windows机器上观看流。
+Play RTMP stream on user machine.
 
-<strong>第六步，观看RTMP流。</strong>
+<strong>Step 6, play RTMP stream.</strong>
 
-RTMP流地址为：`rtmp://192.168.1.170:19350/live/livestream`
+RTMP url is: `rtmp://192.168.1.170:19350/live/livestream`
 
-可以使用VLC观看。
+User can use vlc to play the RTMP stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
-
-Winlin 2014.3
+Winlin 2014.11
