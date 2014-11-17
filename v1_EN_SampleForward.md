@@ -2,7 +2,7 @@
 
 SRS可以将送到SRS的流转发给其他RTMP服务器，实现简单集群/热备功能，也可以实现一路流热备（譬如编码器由于带宽限制，只能送一路流到RTMP服务器，要求RTMP服务器能将这路流也转发给其他RTMP备用服务器，实现主备容错集群）。
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong>Suppose the server ip is 192.168.1.170</strong>
 
 Forward就是SRS将流拷贝输出给其他的RTMP服务器，以SRS转发给SRS为例：
 * 主SRS：Master, 编码器推流到主SRS，主SRS将流处理的同时，将流转发到备SRS

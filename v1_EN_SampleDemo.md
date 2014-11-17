@@ -1,12 +1,13 @@
 # SRS demo deploy example
 
-SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等。
+The DEMO of SRS, to study RTMP and HLS, show the player/publisher/meeting/transcoding features.
 
-<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)的每个单独的使用，然后再动demo。</strong>
+<strong>Note: Strongly recomment that fresher never modify demo, just study. 
+Please study all [Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage).</strong>
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>第一步，设置客户端hosts，注意是客户端（需要将demo.srs.com这个域名/vhost解析到服务器）</strong>
+<strong>Step 1, set the hosts of client.</strong>
 
 ```bash
 # edit the folowing file:

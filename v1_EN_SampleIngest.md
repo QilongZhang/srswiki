@@ -2,7 +2,7 @@
 
 SRS启动后，自动启动Ingest开始采集file/stream/device，并将流推送到SRS。详细规则参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)，本文列出了具体的部署的实例。
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong>Suppose the server ip is 192.168.1.170</strong>
 
 <strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 

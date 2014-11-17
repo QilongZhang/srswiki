@@ -2,7 +2,7 @@
 
 SRS支持HLS的详细步骤。
 
-<strong>假设服务器的IP是：192.168.1.170</strong>
+<strong>Suppose the server ip is 192.168.1.170</strong>
 
 <strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 
