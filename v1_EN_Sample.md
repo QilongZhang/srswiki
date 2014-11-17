@@ -1,4 +1,4 @@
-The real users who are using SRS.
+The real users or companies who are using SRS.
 
 ## 北京云博视
 
