@@ -1,27 +1,28 @@
-# HTTP接口
+# HTTP API
 
-SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可以直接控制和获取服务器的各种信息）。
+SRS provides HTTP api, to external application to manage SRS, and support crossdomain for js.
 
-下面是chnvideo一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本（可以做更高级的功能，扫描即可发现bug，扫描即可管理，扫描即可重启，等等）：
+The following is a SRS server api of ossrs.net:
 
-![chnvideo-SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png)
+![SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png?v1)
 
-## 设计原则
+## Design Priciple
 
-SRS的HTTP接口遵循最简单原则，主要包括：
-* 只提供json数据格式接口，要求请求和响应的数据全都是json。
-* 不提供html数据，譬如运行SRS后，浏览器打开HTTP接口或HTTP服务地址，看到的是json，不是html。
-* 服务器不支持写配置文件，HTTP接口提供的修改功能都是内存中的，reload之后会被配置文件覆盖。
+The HTTP API of SRS follows the simple priciple:
 
-## 编译和启动
+* Only provides API in json format, both request and json are json.
+* No html, access the api return json format.
 
-SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build#srs%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB)
+## Build
+
+To enable http api, configure SRS with `--with-http-api`, 
+read [configure](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
 ```bash
 ./configure --with-http-api && make
 ```
 
-配置文件需要开启http-api：
+The config also need to enable it:
 
 ```bash
 # http-api.conf
@@ -34,46 +35,24 @@ vhost __defaultVhost__ {
 }
 ```
 
-启动服务器：`./objs/srs -c http-api.conf`
+Start SRS: `./objs/srs -c http-api.conf`
 
-访问api：浏览器打开地址[http://192.168.1.170:1985/api/v1](http://192.168.1.170:1985/api/v1)
+Access api, open the url in web browser: [http://192.168.1.170:1985/api/v1](http://192.168.1.170:1985/api/v1)
 
-## 性能
+## Performance
 
-机器：虚拟机CentOS6-64位，4CPU，T430笔记本，VirtualBox
+The HTTP api supports 370 request per seconds.
 
-10%CPU，10000次请求，27秒，平均370次请求/秒，30毫秒一个请求
+## Access Api
 
-```bash
-top - 09:59:49 up 3 days, 50 min,  4 users,  load average: 0.00, 0.00, 0.00
-Tasks: 140 total,   1 running, 139 sleeping,   0 stopped,   0 zombie
-Cpu(s): 11.6%us, 20.0%sy,  0.0%ni, 66.7%id,  0.0%wa,  0.0%hi,  1.8%si,  0.0%st
-Mem:   2055440k total,   990148k used,  1065292k free,   228544k buffers
-Swap:  2064376k total,        0k used,  2064376k free,   486620k cached
-  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
-29696 winlin    20   0 15872 1592 1360 S  9.3  0.1   0:14.21 ./objs/srs -c console.conf
-```
+Use web brower, or curl, or other http library.
 
-```bash
-[winlin@dev6 srs]$ time for((i=0;i<10000;i++)); do curl http://127.0.0.1:1985/api >/dev/null 2>&1; done
+SRS provides api urls list, no need to remember:
+* code, an int error code. 0 is success.
+* urls, the url lists, can be access.
+* data, the last level api serve data.
 
-real	0m27.375s
-user	0m8.223s
-sys	0m16.289s
-```
-
-## 访问api
-
-直接在浏览器中就可以访问，或者用curl发起http请求。
-
-SRS提供了api的面包屑，可以从根目录开始导航，不需要任何记忆。一般的字段包括：
-* code表示错误码，按照linux惯例，0表示成功。
-* urls表示是面包屑导航，该api下面的子api（链接）。
-* data表示最后一级提供服务的api，返回的数据。
-
-另外，提供服务的api按照HTTP RESTful规则是复数，譬如versions/authors，表示资源。HTTP的各种方法表示操作，譬如GET查询，PUT更新，DELETE删除。参考：[Redmine HTTP Rest api](http://www.redmine.org/projects/redmine/wiki/Rest_api)
-
-根目录：
+Root directory:
 
 ```bash
 # curl http://192.168.1.102:1985/
@@ -87,7 +66,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
-返回的urls表示子链接可以访问。接着访问：
+The urls is the apis to access:
 
 ```bash
 # curl http://192.168.1.102:1985/api/
@@ -101,7 +80,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
-继续：
+Go on:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/
@@ -116,7 +95,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
-继续：
+Go on:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/versions
@@ -133,7 +112,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
-或者：
+Or:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/authors
@@ -149,13 +128,13 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 }
 ```
 
-SRS的API属于“自解释型，HTTP RESTful API”
+The Api of SRS is self-describes api.
 
-## 错误码
+## Error Code
 
-当HTTP错误时，譬如404，默认的HTTP服务器会返回错误页面，SRS返回的永远是程序能解析的json。
+When error for http server, maybe return an error page, SRS always return the json result.
 
-譬如，浏览器打开地址`http://192.168.1.102:1985/apis`，api多写了个s，是404，服务器返回：
+For example, the 404 `not found` api `http://192.168.1.102:1985/apis`:
 
 ```bash
 {
@@ -170,7 +149,7 @@ SRS的API属于“自解释型，HTTP RESTful API”
 }
 ```
 
-查看HTTP的响应头为：
+While the http header is 404:
 
 ```bash
 HTTP/1.1 404 Not Found
@@ -180,6 +159,6 @@ Allow: DELETE, GET, HEAD, OPTIONS, POST, PUT
 Content-Length: 81
 ```
 
-SRS提供HTTP服务的基本原则是支持少量的HTTP协议，并且只提供给程序读的信息。尽量保证提供的信息都是可读的json，除非连不上服务器，或者服务器崩溃，否则数据都是json。
+Not all HTTP protocol is supported by SRS.
 
-Winlin 2014.4
+Winlin 2014.11

@@ -2,20 +2,20 @@
 
 SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可以直接控制和获取服务器的各种信息）。
 
-下面是chnvideo一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本（可以做更高级的功能，扫描即可发现bug，扫描即可管理，扫描即可重启，等等）：
+下面是ossrs.net一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本
+（可以做更高级的功能，扫描即可发现bug，扫描即可管理，扫描即可重启，等等）：
 
-![chnvideo-SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png)
+![SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png?v1)
 
 ## 设计原则
 
 SRS的HTTP接口遵循最简单原则，主要包括：
 * 只提供json数据格式接口，要求请求和响应的数据全都是json。
 * 不提供html数据，譬如运行SRS后，浏览器打开HTTP接口或HTTP服务地址，看到的是json，不是html。
-* 服务器不支持写配置文件，HTTP接口提供的修改功能都是内存中的，reload之后会被配置文件覆盖。
 
 ## 编译和启动
 
-SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build#srs%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB)
+SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
 ```bash
 ./configure --with-http-api && make
