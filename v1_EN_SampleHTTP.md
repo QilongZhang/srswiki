@@ -62,7 +62,7 @@ vhost __defaultVhost__ {
 
 <strong>第五步，启动推流编码器。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
-使用FFMPEG命令推流：
+Use FFMPEG to publish stream:
 
 ```bash
     for((;;)); do \
@@ -73,7 +73,8 @@ vhost __defaultVhost__ {
     done
 ```
 
-或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)）：
+Or use FMLE(which support h.264+aac) to publish, read 
+[Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live

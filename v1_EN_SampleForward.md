@@ -80,7 +80,7 @@ tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LIST
 
 <strong>第七步，启动推流编码器。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
-使用FFMPEG命令推流：
+Use FFMPEG to publish stream:
 
 ```bash
     for((;;)); do \
@@ -91,7 +91,7 @@ tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LIST
     done
 ```
 
-或使用FMLE推流：
+Or use FMLE to publish:
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live

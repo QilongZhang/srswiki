@@ -68,9 +68,9 @@ vhost __defaultVhost__ {
 ./objs/srs -c conf/ffmpeg.conf
 ```
 
-<strong>第四步，启动推流编码器。</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
+<strong>Step 5, start encoder.</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
 
-使用FFMPEG命令推流：
+Use FFMPEG to publish stream:
 
 ```bash
     for((;;)); do \
@@ -81,19 +81,19 @@ vhost __defaultVhost__ {
     done
 ```
 
-或使用FMLE推流：
+Or use FMLE to publish:
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-涉及的流包括：
-* 编码器推送流：rtmp://192.168.1.170:1935/live/livestream
-* 观看原始流：rtmp://192.168.1.170:1935/live/livestream
-* 观看转码流：rtmp://192.168.1.170:1935/live/livestream_ff
+The stream in SRS:
+* Stream publish by encoder: rtmp://192.168.1.170:1935/live/livestream
+* Play the original stream: rtmp://192.168.1.170:1935/live/livestream
+* Play the transcoded stream: rtmp://192.168.1.170:1935/live/livestream_ff
 
-<strong>第五步，观看RTMP流。</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
+<strong>Step 6, play the stream.</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -103,7 +103,7 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>第六步，观看FFMPEG转码的RTMP流。</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
+<strong>Step 7, play the transcoded stream.</strong> For detail, read [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream_ff`
 
@@ -113,4 +113,4 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-Winlin 2014.3
+Winlin 2014.11
