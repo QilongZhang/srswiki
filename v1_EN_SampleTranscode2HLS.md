@@ -1,15 +1,8 @@
 # Transcode for HLS deploy example
 
-HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)部署，若不符合这个要求则需要转码。
+HLS required h.264+aac, user can transcode for other codecs.
 
-如何知道流是否是h264+aac编码：
-* [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)中的`Q&A`说明的问题。
-* 看编码器的参数，FMLE可以选视频编码为vp6或者h264，音频一般为mp3/NellyMoser。，所以FMLE肯定推流是不符合要求的。
-* 看SRS的日志，若显示`hls only support video h.264/avc codec. ret=601`，就明显说明是编码问题。
-
-备注：在虚拟机上测试，一路流转码为aac，需要3%CPU，在物理机上可能稍好点。转码的开销比分发要大，实际应用需要考虑这个因素。
-
-分发纯音频流参考：[HLS audio only](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS#hlsaudioonly)
+Pure audio HLS, read [HLS audio only](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS#hlsaudioonly)
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -32,17 +25,15 @@ git pull
 ./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make
 ```
 
-<strong>第三步，启动分发hls（m3u8/ts）的nginx。 For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
 ```
 
-备注：为了突出HLS的配置，我们在HLS的实例中没有使用SRS内置的HTTP Server，可以配置几行就可以不用nginx。参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHTTP)
+Note: Ensure nginx is ok, to access [http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html).
 
-备注：请确定nginx已经启动，可以访问[http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html)，若能看到`nginx is ok`则没有问题。
-
-<strong>第四步，编写SRS配置文件。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 4, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 Save bellow as config, or use `conf/transcode2hls.audio.only.conf`:
 
@@ -75,15 +66,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：这个配置使用只转码音频，因为视频是h.264符合要求，若需要全转码，参考[HLS+Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
-
-<strong>第五步，启动SRS。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 5, strat SRS.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 ```bash
 ./objs/srs -c conf/transcode2hls.audio.only.conf
 ```
 
-<strong>第六步，启动推流编码器。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 6, start encoder.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -103,16 +92,14 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-生成的流地址为：
-* RTMP流地址为（FMLE推流无HLS地址）：`rtmp://192.168.1.170/live/livestream`
-* 转码后的RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
-* 转码后的HLS流地址为： `http://192.168.1.170/live/livestream_ff.m3u8`
+The stream in SRS:
+* RTMP URL: `rtmp://192.168.1.170/live/livestream`
+* Transcode RTMP: `rtmp://192.168.1.170/live/livestream_ff`
+* Transcode HLS: `http://192.168.1.170/live/livestream_ff.m3u8`
 
-备注：因为FMLE推上来的音频有问题，不是aac，所以srs会报错（当然啦，不然就不用转码了）。这个错误可以忽略，srs是说，rtmp流没有问题，但是无法切片为hls，因为音频编码不对。没有关系，ffmpeg会转码后重新推一路流给srs。
+Note: we can use another vhost to output HLS, other codecs transcode then output to this vhost.
 
-备注：如何只对符合要求的流切hls？可以用vhost。默认的vhost不切hls，将转码后的流推送到另外一个vhost，这个vhost切hls。
-
-<strong>第七步，观看RTMP流。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 7, play RTMP.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream_ff`
 
@@ -122,14 +109,14 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>第八步，观看HLS流。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 8, play HLS.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
-HLS流地址为： `http://192.168.1.170/live/livestream_ff.m3u8`
+HLS url: `http://192.168.1.170/live/livestream_ff.m3u8`
 
-可以使用VLC观看。
+User can use vlc to play the HLS stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff)
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-Winlin 2014.3
+Winlin 2014.11
