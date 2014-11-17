@@ -9,23 +9,28 @@ SRS can dvr RTMP live stream to flv file, and provides some tools for vod stream
 but user should use other HTTP server to delivery flv file as vod stream.
 * In a word, SRS does not support vod, only support live.
 
-点播FLV流的主要流程是：
-* 服务器录制直播为FLV文件，或者上传FLV点播文件资源，到SRS的HTTP根目录：`objs/nginx/html`
-* [可选] 使用`research/librtmp/srs_flv_injecter`将FLV的时间和对于的offset（文件偏移量）写入FLV的metadat。
-* 播放器请求FLV文件，譬如：`http://192.168.1.170:8080/sample.flv`
-* 用户点击进度条进行SEEK，譬如SEEK到300秒。
-* 播放器可以估算一个offset，或者根据inject的时间和offset对应关系找出准确的关键帧的offset。譬如：`6638860`
-* 根据offset发起新请求：`http://192.168.1.170:8080/sample.flv?start=6638860`
+The workflow of flv vod stream:
 
-备注：SRS还不支持限速，会以最快的速度将文件发给客户端。
-备注：SRS还提供了查看FLV文件内容的工具`research/librtmp/srs_flv_parser`，可以看到metadata和每个tag信息。
+* SRS dvr live stream to flv file, or upload flv vod file, to the HTTP root dir: `objs/nginx/html`
+* HTTP server must support flv?start=offset, for example, flv module of nginx, or use experiment SRS HTTP server.
+* Use `research/librtmp/srs_flv_injecter` inject the keyframe offset to metadata of flv.
+* Flash player play http flv url, for instance, `http://192.168.1.170:8080/sample.flv`
+* When user seek, for instance, seek to 300s.
+* Player use the keyframe offset in metadata to calc the offset of 300s, for instance, 300s offset=`6638860`
+* Start new request, url is `http://192.168.1.170:8080/sample.flv?start=6638860`
+
+Note: SRS HTTP server is experiment, do not limit the bandwidth.
+Note: SRS provides flv view tool `research/librtmp/srs_flv_parser`, to list the seconds:offsets in metadata.
 
 ## SRS Embeded HTTP server
 
-SRS支持http-api，因此也能解析HTTP协议（目前是部分支持），所以也实现了一个简单的HTTP服务器。
+SRS supports http-api, so SRS can also parse HTTP protocol(partial HTTP right now), 
+so SRS also implements a experiment HTTP server.
 
-SRS的HTTP服务器是实验性的，不稳定且协议支持不完善，用户不应该使用它。
+SRS HTTP server is experiment, not stable and partial HTTP protocol support, 
+user should never use it for online service.
 
-对于一些嵌入式设备，并发也不高时，可以考虑使用SRS的HTTP服务器分发HLS，这样比较简单。
+For some emebeded device, for instance, arm linux, user can use SRS HTTP server,
+for arm is not easy to build some server.
 
-Winlin 2014.5
+Winlin 2014.11

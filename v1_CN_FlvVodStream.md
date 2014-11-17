@@ -9,11 +9,13 @@ SRS能将直播流录制为flv文件，并且提供了一些工具来支持flv�
 * 总之，srs不支持点播，只支持直播。这是官方回答。
 
 点播FLV流的主要流程是：
+
 * 服务器录制直播为FLV文件，或者上传FLV点播文件资源，到SRS的HTTP根目录：`objs/nginx/html`
-* [可选] 使用`research/librtmp/srs_flv_injecter`将FLV的时间和对于的offset（文件偏移量）写入FLV的metadat。
+* HTTP服务器必须要支持flv的start=offset，譬如nginx的flv模块，或者SRS的实验性HTTP服务器。
+* 使用`research/librtmp/srs_flv_injecter`将FLV的时间和对于的offset（文件偏移量）写入FLV的metadata。
 * 播放器请求FLV文件，譬如：`http://192.168.1.170:8080/sample.flv`
 * 用户点击进度条进行SEEK，譬如SEEK到300秒。
-* 播放器可以估算一个offset，或者根据inject的时间和offset对应关系找出准确的关键帧的offset。譬如：`6638860`
+* 播放器根据inject的时间和offset对应关系找出准确的关键帧的offset。譬如：300秒偏移是`6638860`
 * 根据offset发起新请求：`http://192.168.1.170:8080/sample.flv?start=6638860`
 
 备注：SRS还不支持限速，会以最快的速度将文件发给客户端。
