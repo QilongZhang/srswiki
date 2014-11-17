@@ -35,24 +35,25 @@ git pull
 bash scripts/build.sh
 ```
 
-<strong>第三步，启动SRS的DEMO，启动ffmpeg/api-server/srs等。</strong>
+<strong>Step 3, start SRS DEMO, which will run ffmpeg/api-server/srs</strong>
 
 ```bash
 bash scripts/run.sh
 ```
 
-访问SRS的DEMO：[http://demo.srs.com:8085](http://demo.srs.com:8085)
+Access SRS DEMO url: [http://demo.srs.com:8085](http://demo.srs.com:8085)
 
-<strong>第四步，停止SRS的DEMO，停止ffmpeg/api-server/srs等。</strong>
+<strong>Step 4, stop SRS DEMO, which will stop ffmpeg/api-server/srs</strong>
 
 ```bash
 bash scripts/stop.sh
 ```
 
-备注：DEMO的所有链接都是可以点的，所有功能都是可用的。
+Note: All links of demo is ok, all features is on.
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
-备注：DEMO不依赖nginx，使用cherrypy做演示网站以及分发HLS，依赖FFMPEG需要演示转码。
+Note: Demo does not depends on nginx, we use cherrypy to delivery the web pages and HLS. 
+Demo use FFMPEG to transcode.
 
-Winlin 2014.3
+Winlin 2014.11
