@@ -67,11 +67,10 @@ HLS的主要劣势是：
 * 编码器输出RTMP协议。
 * 流媒体系统接入使用RTMP协议。
 * 流媒体系统内部直播分发使用RTMP。
-* 流媒体系统内部点播分发使用HLS。
 * PC+直播+实时性要求高：使用flash播放RTMP。
 * PC+直播+没有实时性要求：使用RTMP或者HLS均可。
 * PC+点播：使用HTTP或者HLS。
-* IOS：都使用HLS（实时性要求高得自己解析RTMP，或者使用外部库，譬如[https://www.vitamio.org](https://www.vitamio.org)）
+* Apple IOS/OSX：都使用HLS（实时性要求高得自己解析RTMP，或者使用外部库，譬如[https://www.vitamio.org](https://www.vitamio.org)）
 * Andorid：和IOS一样，不过可以确定的是可以自己开发支持RTMP。
 
 Winlin 2014.4
