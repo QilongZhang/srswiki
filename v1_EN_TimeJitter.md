@@ -1,34 +1,34 @@
-# TimeJitter时间戳矫正
+# TimeJitter
 
-描述了SRS的时间戳矫正机制。
+This article describes the timestamp correct of SRS.
 
-## 时间戳单增
+## RTMP Monotonically Increase Timestamp
 
-RTMP要求流的时间戳是单增的，视频流的时间戳单增，音频流的时间戳单增。所谓单增就是指单调递增，所谓单调递增就是包的时间戳越来越大。所谓越来越大就是......数字越来越大。
+RTMP requires the timestamp is mono-inc(monotonically increase). The mono-inc is the 
+timestamp of packet is always larger.
 
-单增有两种情况：
-* 分别单增：指的是视频是单增的，音频是单增的，但是流（混合了音频和视频）是不单增的。
-* 流单增：指的不仅仅是分别单增，而且流里面的包永远是单增的。
+RTMP requires the stream is mono-inc. The audio is mono-inc, 
+video is mono-inc, and stream mixed audio with video is mono-inc. 
 
-RTMP协议没有说道要求什么级别的单增，但一般指流单增。
+What happens when not mono-inc? Some server will disconnect connection, flash maybe
+failed to play stream.
 
-如果非单增会怎样？有些服务器会断开连接，librtmp会报错，flash客户端会播放不了之类。但是，实际上并没有那么恐怖（还是保持单增好点，毕竟RTMP协议里说到这个了），所以有些编码器出来的流不是单增也能播放，特别是用vlc播放之类。
+## Timestamp Jitter
 
-## 时间戳矫正
+SRS will ensure the stream timestamp is mono-inc. When delta of packets too large, set to 40ms(fps 25).
 
-如果流不是单增的怎么办？SRS采用非常简单的算法保证它是单增的。如果不是单增就把时间戳增量设为40（即fps为25）。这个机制就是SRS的时间戳矫正机制。
+Some components use the timestamp jitter:
+* RTMP delivery: The timestamp jitter algorithm can set by vhost `time_jitter`.
+* DVR: The timestamp jitter algorithm can set by dvr `time_jitter`.
+* HLS: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
+* Forward: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
 
-有几处地方用到了时间戳矫正：
-* RTMP流分发：可以设置vhost的time_jitter来选择矫正机制。分发给客户端的RTMP流的时间戳矫正机制。
-* DVR录制：可以设置vhost的dvr的time_jitter来配置矫正机制。录制为flv文件的时间戳处理机制。
-* HLS：打开时间戳矫正机制。
-* Forward：打开时间戳矫正机制。
+You can disable the timestamp jitter algorithm when your encoder can not ensure the 
+video+autio mono-inc, some encoder can ensure video mono-inc and audio mono-inc.
 
-如果你的编码器只能做到分别单增（对音频和视频分别编码的情况很常见），那么可以关闭时间戳矫正。
+## Config
 
-## 配置
-
-在vhost中配置时间戳矫正：
+Config the timestamp jitter in vhost for RTMP delivery:
 
 ```bash
 vhost jitter.srs.com {
@@ -47,7 +47,7 @@ vhost jitter.srs.com {
 }
 ```
 
-在DVR中配置时间戳矫正：
+Config timestamp jitter for dvr:
 
 ```
 vhost dvr.srs.com {
@@ -75,6 +75,7 @@ vhost dvr.srs.com {
 
 ## ATC
 
-[RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP-ATC)开启时，RTMP流分发的时间戳矫正机制变为关闭，不对时间戳做任何处理。
+When [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP-ATC) is on,
+RTMP always disable the time_jitter.
 
-Winlin 2014.6
+Winlin 2014.11
