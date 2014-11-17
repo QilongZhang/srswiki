@@ -86,7 +86,7 @@ Stream: livestream
 * RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 * HLS流地址为： `http://192.168.1.170:8080/live/livestream.m3u8`
 
-<strong>第流步，观看RTMP流。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
+<strong>第六步，观看RTMP流。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
