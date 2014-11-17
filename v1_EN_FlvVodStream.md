@@ -1,13 +1,13 @@
-# 点播FLV流
+# FLV vod streaming
 
-注意：
-* 点播建议用http分发，http服务器一大堆。而srs只是因为有http-api，所以顺带支持了flv流。不建议用srs做点播服务器。
-* 另外，有些嵌入式设备中分发srs切出来的hls，本身并发也不高，为了方便也可以用；但这个属于直播范畴了。
-* 总之，srs不支持点播，只支持直播。这是官方回答。
+## HTTP VOD
 
-SRS支持分发HTTP文件，支持分发FLV文件，也支持FLV的SEEK(?start=xxx)。
+I recomment:
 
-SRS也支持将直播流录制为FLV文件，因此可以支持直播转点播（即时移）。
+* Vod stream should always use HTTP protocol, never use RTMP.
+SRS can dvr RTMP live stream to flv file, and provides some tools for vod stream,
+but user should use other HTTP server to delivery flv file as vod stream.
+* In a word, SRS does not support vod, only support live.
 
 点播FLV流的主要流程是：
 * 服务器录制直播为FLV文件，或者上传FLV点播文件资源，到SRS的HTTP根目录：`objs/nginx/html`
@@ -19,5 +19,13 @@ SRS也支持将直播流录制为FLV文件，因此可以支持直播转点播�
 
 备注：SRS还不支持限速，会以最快的速度将文件发给客户端。
 备注：SRS还提供了查看FLV文件内容的工具`research/librtmp/srs_flv_parser`，可以看到metadata和每个tag信息。
+
+## SRS Embeded HTTP server
+
+SRS支持http-api，因此也能解析HTTP协议（目前是部分支持），所以也实现了一个简单的HTTP服务器。
+
+SRS的HTTP服务器是实验性的，不稳定且协议支持不完善，用户不应该使用它。
+
+对于一些嵌入式设备，并发也不高时，可以考虑使用SRS的HTTP服务器分发HLS，这样比较简单。
 
 Winlin 2014.5
