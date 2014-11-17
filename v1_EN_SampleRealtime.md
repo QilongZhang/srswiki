@@ -1,8 +1,7 @@
 # RTMP low latency deploy example
 
-配置SRS为Realtime模式，使用RTMP可以将延迟降低到0.8-3秒，可以应用到对实时性要求不苛刻的地方，譬如视频会议（其实视频会议，以及人类在开会的时候，正常时候是会有人讲，有人在听在想，然后换别人讲，其实1秒左右延迟没有问题的，除非要吵架，就需要0.3秒左右的延迟）。
-
-配置最低延迟的服务器详细信息可以参考：[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)，本文举例说明部署的实例步骤。
+The SRS realtime(low latency) mode can decrease the latency to 0.8-3s.
+For detail about latency, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency).
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -25,7 +24,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+<strong>Step 3, config srs.</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
 Save bellow as config, or use `conf/realtime.conf`:
 
@@ -39,13 +38,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+<strong>Step 4, start srs.</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
 ```bash
 ./objs/srs -c conf/realtime.conf
 ```
 
-<strong>第四步，启动推流编码器。</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+<strong>Step 5, start encoder.</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
 Use FFMPEG to publish stream:
 
@@ -65,10 +64,10 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-备注：测量延迟，可以使用FMLE推流时，将智能手机的秒表功能打开，用FMLE摄像头对着秒表，然后对比FMLE的摄像头的图像，和服务器分发的头像的延迟，就知道精确的延迟多大。参考：[延迟的测量](http://blog.csdn.net/win_lin/article/details/12615591)，如下图所示：
+Note: To measure the latency, can use the clock of mobile phone.
 ![latency](http://img.blog.csdn.net/20131011134922187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubGludmlw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-<strong>第五步，观看RTMP流。</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+<strong>Step 5, play RTMP.</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -78,4 +77,4 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-Winlin 2014.3
+Winlin 2014.11

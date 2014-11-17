@@ -39,13 +39,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
+<strong>第四步，启动SRS。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
 
 ```bash
 ./objs/srs -c conf/realtime.conf
 ```
 
-<strong>第四步，启动推流编码器。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
+<strong>第五步，启动推流编码器。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
 
 使用FFMPEG命令推流：
 
@@ -68,7 +68,7 @@ Stream: livestream
 备注：测量延迟，可以使用FMLE推流时，将智能手机的秒表功能打开，用FMLE摄像头对着秒表，然后对比FMLE的摄像头的图像，和服务器分发的头像的延迟，就知道精确的延迟多大。参考：[延迟的测量](http://blog.csdn.net/win_lin/article/details/12615591)，如下图所示：
 ![latency](http://img.blog.csdn.net/20131011134922187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubGludmlw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-<strong>第五步，观看RTMP流。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
+<strong>第六步，观看RTMP流。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
