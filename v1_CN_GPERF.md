@@ -45,8 +45,6 @@ Leak of 56 bytes in 1 objects allocated from:
 	@ 3855a1ec5d __libc_start_main
 ```
 
-备注：st创建stack的内存泄漏，应该不是问题，属于误报。
-
 另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker
 
 ## GMP内存性能
@@ -57,8 +55,8 @@ SRS开启gmp的方法是：
 * 配置时加上gmc：`./configure --with-gperf --with-gmp`
 * 编译srs：`make`
 * 正常启动srs就开始内存性能分析：`rm -f gperf.srs.gmp*; ./objs/srs -c conf/srs.conf`
-* 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
-* 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gmp*`
+* 停止srs，生成gmp分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
+* 分析gmp文件：`./objs/pprof --text objs/srs gperf.srs.gmp*`
 
 备注：make编译SRS成功后，会打印出这些操作命令。
 
@@ -94,7 +92,7 @@ SRS开启gcp的方法是：
 * 编译srs：`make`
 * 正常启动srs就开始内存性能分析：`rm -f gperf.srs.gcp*; ./objs/srs -c conf/srs.conf`
 * 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
-* 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gcp*`
+* 分析gcp文件：`./objs/pprof --text objs/srs gperf.srs.gcp*`
 
 备注：make编译SRS成功后，会打印出这些操作命令。
 

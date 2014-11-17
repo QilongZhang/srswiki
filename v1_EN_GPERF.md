@@ -1,36 +1,34 @@
-# GPERF内存和性能分析
+# Gperf memory and cpu analysis
 
-valgrind一个很好用的内存和CPU分析工具，srs由于使用了st(state-threads)，st是基于c函数setjmp和longjmp，valgrind不支持这两个函数，所以srs没法用valgrind分析内存错误和泄漏。
+The valgrind is a very good memory and cpu profile tool, but the st(state-threads)
+used by SRS does not support valgrind.
 
-[gperf](https://code.google.com/p/gperftools)是google用作内存和CPU分析的工具，基于tcmalloc（也是google内存分配库，替换glibc的malloc和free）。好消息是gperf可以用作srs的内存和性能分析。
+The [gperf](https://code.google.com/p/gperftools) is a project of google,
+to analysis memory and cpu, base on tcmalloc. SRS can use gperf.
 
-gperf主要有三个应用：
-* gmc: gperf memory check, 内存检查（泄漏，错误等），参考：http://google-perftools.googlecode.com/svn/trunk/doc/heap_checker.html
-* gmp: gperf memory profile, 内存性能分析（哪个函数内存分配多），参考：http://google-perftools.googlecode.com/svn/trunk/doc/heapprofile.html
-* gcp: gperf cpu profile, CPU性能分析（函数消耗CPU多），参考：http://google-perftools.googlecode.com/svn/trunk/doc/heapprofile.html
+The use scenarios:
+* gmc: gperf memory check, read http://google-perftools.googlecode.com/svn/trunk/doc/heap_checker.html
+* gmp: gperf memory profile, read http://google-perftools.googlecode.com/svn/trunk/doc/heapprofile.html
+* gcp: gperf cpu profile, read http://google-perftools.googlecode.com/svn/trunk/doc/heapprofile.html
 
-## gmc内存检查
+## gmc memory check
 
-使用gmc时，需要将tcmalloc编译进去（或者动态链接），具体参考官方文档。除此之外，必须设置环境变量，gmc才被开启。
+To use gmc for SRS:
+* When configure gmc: `./configure --with-gperf --with-gmc`
+* Compile srs: `make`
+* Set env when start SRS: `env PPROF_PATH=./objs/pprof HEAPCHECK=normal ./objs/srs -c conf/srs.conf`
+* Stop SRS, get the gmc report: press `CTRL+C` or send SIGINT to SRS.
 
-SRS开启gmc的方法是：
-* 配置时加上gmc：`./configure --with-gperf --with-gmc`
-* 编译srs：`make`
-* 启动时指定环境变量：`env PPROF_PATH=./objs/pprof HEAPCHECK=normal ./objs/srs -c conf/srs.conf`
-* 停止srs，打印gmc结果：`CTRL+C` 或者发送SIGINT信号给SRS
+Note: When make SRS success, it will show these commands.
 
-备注：make编译SRS成功后，会打印出这些操作命令。
-
-注意：必须导出pprof环境变量`PPROF_PATH`，否则函数的地址和符合对应不上
-
-若能打印下面的信息，说明gmc成功启动：
+It work when SRS print the following message:
 
 ```bash
 [winlin@dev6 srs]$ env PPROF_PATH=./objs/pprof HEAPCHECK=normal ./objs/srs -c conf/srs.conf
 WARNING: Perftools heap leak checker is active -- Performance may suffer
 ```
 
-gmc的结果：
+The gmc report:
 
 ```bash
 Leak check _main_ detected leaks of 184 bytes in 4 objects
@@ -45,31 +43,27 @@ Leak of 56 bytes in 1 objects allocated from:
 	@ 3855a1ec5d __libc_start_main
 ```
 
-备注：st创建stack的内存泄漏，应该不是问题，属于误报。
+Other examples, see `research/gperftools/heap-checker`
 
-另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker
+## GMP memory profile
 
-## GMP内存性能
+To use gmp for SRS:
+* Configure SRS: `./configure --with-gperf --with-gmp`
+* Build SRS: `make`
+* Start SRS for memory profile: `rm -f gperf.srs.gmp*; ./objs/srs -c conf/srs.conf`
+* Stop SRS to generate gmp file, press `CTRL+C` or send SIGINT to SRS.
+* Analysis gmp file: `./objs/pprof --text objs/srs gperf.srs.gmp*`
 
-使用gmc时，需要将tcmalloc编译进去（或者动态链接），具体参考官方文档。
+Note: When make SRS success, it will show these commands.
 
-SRS开启gmp的方法是：
-* 配置时加上gmc：`./configure --with-gperf --with-gmp`
-* 编译srs：`make`
-* 正常启动srs就开始内存性能分析：`rm -f gperf.srs.gmp*; ./objs/srs -c conf/srs.conf`
-* 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
-* 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gmp*`
-
-备注：make编译SRS成功后，会打印出这些操作命令。
-
-若能打印下面的信息，则表示成功启动gmp：
+It works when SRS show the messages:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/srs -c conf/srs.conf
 Starting tracking the heap
 ```
 
-内存性能分析的结果如下：
+The gmc result:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/pprof --text objs/srs gperf.srs.gmp*
@@ -83,22 +77,20 @@ Total: 0.1 MB
      0.0   0.4%  99.5%      0.0  27.9% st_init
 ```
 
-另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-profiler
+Other examples, read `research/gperftools/heap-profiler`
 
-## GCP-CPU性能分析
+## GCP cpu profile
 
-使用gcp时，需要将tcmalloc编译进去（或者动态链接），具体参考官方文档。
+To use gmp for SRS:
+* Configure with gcp: `./configure --with-gperf --with-gcp`
+* Build SRS: `make`
+* Start SRS with gcp: `rm -f gperf.srs.gcp*; ./objs/srs -c conf/srs.conf`
+* Stop SRS to generate the gcp file, press `CTRL+C` or send SIGINT to SRS.
+* Analysis gcp file: `./objs/pprof --text objs/srs gperf.srs.gcp*`
 
-SRS开启gcp的方法是：
-* 配置时加上gmc：`./configure --with-gperf --with-gcp`
-* 编译srs：`make`
-* 正常启动srs就开始内存性能分析：`rm -f gperf.srs.gcp*; ./objs/srs -c conf/srs.conf`
-* 停止srs，生成gmc分析文件：`CTRL+C` 或者发送SIGINT信号给SRS
-* 分析gmc文件：`./objs/pprof --text objs/srs gperf.srs.gcp*`
+Note: When make SRS success, it will show these commands.
 
-备注：make编译SRS成功后，会打印出这些操作命令。
-
-性能分析的结果如下：
+The gcp result:
 
 ```bash
 [winlin@dev6 srs]$ ./objs/pprof --text objs/srs gperf.srs.gcp*
@@ -118,15 +110,15 @@ Total: 20 samples
        0   0.0% 100.0%        1   5.0% SrsClient::process_publish_message
 ```
 
-另外，SRS有例子说明如何使用gmc，参考：research/gperftools/cpu-profiler
+Other examples, read `research/gperftools/cpu-profiler`
 
-## 同时使用
+## Conflicts
 
-可以同时开启：
-* gmc和gmp：不支持同时开启。它们使用同一个框架，无法一起运行；参考文档的说明。
-* gmc和gcp：支持同时开启。检测内存泄漏和测试CPU性能瓶颈。
-* gmp和gcp：支持同时开启。检测内存瓶颈和CPU性能瓶颈。
+The conflicts:
+* gmc+gmp: Conflicts.
+* gmc+gcp: OK.
+* gmp+gcp: OK.
 
-备注：SRS的configure脚本会检查是否可以同时开启。
+Note: The configure of SRS will check the conflicts.
 
-Winlin 2014.3
+Winlin 2014.11
