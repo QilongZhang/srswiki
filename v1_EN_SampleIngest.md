@@ -1,6 +1,7 @@
 # Ingest deploy example
 
-SRS启动后，自动启动Ingest开始采集file/stream/device，并将流推送到SRS。详细规则参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)，本文列出了具体的部署的实例。
+SRS can start process to ingest file/stream/device, transcode or not,
+then publish to SRS. For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest).
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -23,7 +24,7 @@ git pull
 ./configure --disable-all --with-ssl --with-ffmpeg --with-ingest && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>Step 3, config srs.</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 Save bellow as config, or use `conf/ingest.conf`:
 
@@ -47,16 +48,16 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>Step 4, start srs.</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 ```bash
 ./objs/srs -c conf/ingest.conf
 ```
 
-涉及的流包括：
-* 采集的流：rtmp://192.168.1.170:1935/live/livestream
+The streams on SRS:
+* Stream ingest: rtmp://192.168.1.170:1935/live/livestream
 
-<strong>第五步，观看RTMP流。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>Step 5, play RTMP.</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -66,4 +67,4 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-Winlin 2014.4
+Winlin 2014.11

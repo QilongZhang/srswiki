@@ -47,7 +47,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong>详细参考[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)
+<strong>第四步，启动SRS。</strong>详细参考[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)
 
 ```bash
 ./objs/srs -c conf/ingest.conf
