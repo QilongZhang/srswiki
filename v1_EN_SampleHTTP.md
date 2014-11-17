@@ -1,8 +1,8 @@
 # SRS HTTP server deploy example
 
-SRS内嵌了http服务器，支持分发hls流和文件。
+SRS embeded HTTP server, to delivery HLS and files.
 
-以分发HLS为例，使用SRS分发RTMP和HLS流，不依赖于外部服务器。
+Note: Never use SRS HTTP server for online service.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -25,7 +25,7 @@ git pull
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
+<strong>Step 3, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
 
 Save bellow as config, or use `conf/http.hls.conf`:
 
@@ -48,7 +48,8 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS#hls%E6%B5%81%E7%A8%8B)
+Note: The hls_path must exists, srs never create it. For detail, 
+read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 <strong>第四步，启动SRS。</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
 

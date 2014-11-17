@@ -2,6 +2,8 @@
 
 SRS内嵌了http服务器，支持分发hls流和文件。
 
+注意：SRS内嵌的HTTP服务器是实验性的，不推荐使用。
+
 以分发HLS为例，使用SRS分发RTMP和HLS流，不依赖于外部服务器。
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
@@ -48,7 +50,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS#hls%E6%B5%81%E7%A8%8B)
+备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
 
 <strong>第四步，启动SRS。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
 

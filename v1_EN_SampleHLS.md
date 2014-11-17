@@ -50,7 +50,7 @@ vhost __defaultVhost__ {
 ```
 
 Note: The hls_path must exists, srs never create it. For detail, 
-read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS#hls%E6%B5%81%E7%A8%8B)
+read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 <strong>Step 5, start srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
