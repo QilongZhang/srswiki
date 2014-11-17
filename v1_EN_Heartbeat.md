@@ -1,17 +1,18 @@
-# 心跳
+# Heartbeat
 
-嵌入式设备上，只能运行SRS时，其他的业务系统可能需要知道这个设备的ip等信息，SRS可以以http方式主动汇报给api服务器。
+On the ARM device, SRS can report the status to control center.
 
-## 编译
+## Build
 
-要求编译时支持http-parser，即开启了下面任何一个选项即支持：
-* --with-http-api HTTP接口。
-* --with-http-server HTTP服务器。
-* --with-http-callback HTTP回调。
+To enable heartbeat, build with http-parser, with any of below:
+* --with-http-api Provides HTTP api for client to manage SRS.
+* --with-http-server Embeded HTTP server.
+* --with-http-callback HTTP callback.
 
-## 配置
+## Config
 
-在全局配置以下信息即可以开启心跳：
+Config the heartbeat in global section:
+
 ```bash
 # heartbeat to api server
 # @remark, the ip report to server, is retrieve from system stat,
@@ -60,10 +61,8 @@ stats {
 }
 ```
 
-注意：enabled默认是off的，必须打开才行。
+Note: Default is off.
 
-注意：需要配置stats中的设备索引，获取正确的ip。
+Note: User must config the index of eths in stats to get the right ip.
 
-默认SRS会将设备内网IP(在stats中配置设备的索引)，设备名POST到url指定的地址。
-
-Winlin 2014.5
+Winlin 2014.11
