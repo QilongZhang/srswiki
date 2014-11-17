@@ -70,12 +70,12 @@ Stream: livestream
 
 <strong>第五步，观看RTMP流。</strong>详细参考[LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
-RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
+RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
-注意：不要使用VLC观看，<strong>VLC的延迟会很大</strong>，虽然VLC能看到流。
+User can use vlc to play the RTMP stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
 Winlin 2014.3

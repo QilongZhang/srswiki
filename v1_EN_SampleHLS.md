@@ -85,13 +85,13 @@ Stream: livestream
 
 <strong>第七步，观看RTMP流。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
-RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
+RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
-可以使用VLC观看。
+User can use vlc to play the RTMP stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
 <strong>第八步，观看HLS流。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
@@ -101,7 +101,7 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
 注意：VLC无法观看纯音频流，jwplayer可以观看。
 

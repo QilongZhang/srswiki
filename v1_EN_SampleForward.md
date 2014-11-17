@@ -106,22 +106,22 @@ Stream: livestream
 
 <strong>第八步，观看主SRS的RTMP流。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
-RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
+RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
-可以使用VLC观看。
+User can use vlc to play the RTMP stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
 <strong>第九步，观看备SRS的RTMP流。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
-RTMP流地址为：`rtmp://192.168.1.170:19350/live/livestream`
+RTMP url is: `rtmp://192.168.1.170:19350/live/livestream`
 
-可以使用VLC观看。
+User can use vlc to play the RTMP stream.
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
+Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
 
-备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
+Note: Please replace all ip 192.168.1.170 to your server ip.
 
 Winlin 2014.3
