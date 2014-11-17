@@ -1,33 +1,33 @@
-# Forward搭建小型集群
+# Forward For Small Cluster
 
-srs定位为源站服务器，其中一项重要的功能是forward，即将服务器的流转发到其他服务器。
+SRS is design for live server, the forward is a important feature, used to 
+forward stream on server to other live servers.
 
-备注：SRS的边缘RTMP参考[Edge](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Edge)，支持访问时回源，为大规模并发提供最佳解决方案。
+Note: The information about edge, read [Edge](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Edge),
+the best solution for large cluster and huge concurrency.
 
-注意：edge可以从源站拉流，也可以将流转发给源站。也就是说，播放edge上的流时，edge会回源拉流；推流到edge上时，edge会直接将流转发给源站。
+Note: The edge is for both play and publish.
 
-注意：若只需要中转流给源站，不必用forward，直接使用edge模式即可。可以直接支持推流和拉流的中转，简单快捷。Forward应用于目标服务器是多个，譬如将一路流主动送给多路服务器；edge虽然配置了多台服务器，但是只用了一台，有故障时才切换。
+Note: Use edge first, except need to copy a stream to multiple servers in a time.
 
-注意：优先使用edge，除非知道必须用forward，才使用forward。
+The forward is used for fault backup, the origin can forward a stream to multiple origin servers, 
+the edge can use multiple origin server for backup.
 
-forward本身是用做热备，即用户推一路流上来，可以被SRS转发（或者转码后转发）到多个slave源站，CDN边缘可以回多个slave源，实现故障热备的功能，构建强容错系统。
+For the usage of forward, read [Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleForward)
 
-转发的部署实例参考：[Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleForward)
+## Keywords
 
-## 词汇
+The forward defined some roles:
 
-为了和edge方式区分，forward定义一次词汇如下：
+* master: The master server which forward stream to slave server.
+* slave: The slave server which accept stream from master.
 
-* master：主服务器，编码器推流到这个服务器，或者用ingest流到服务器。总之，master就是主服务器，负责转发流给其他服务器。
-* slave：从服务器，主服务器转发流到这个服务器。
+Although the origin/edge can be master/slave, but it is too complex, it is strongly recomments that
+the forward(master/slave) only for origin, never use edge to forward stream.
 
-如果结合edge集群方式，一般而言master和slave都是origin（源站服务器），edge边缘服务器可以从master或者slave回源取流。
+## For Small Cluster
 
-实际上master和slave也可以是edge，但是不推荐，这种组合方式太多了，测试没有办法覆盖到。因此，强烈建议简化服务器的结构，只有origin（源站服务器）才配置转发，edge（边缘服务器）只做边缘。
-
-## 架构
-
-forward也可以用作搭建小型集群。架构图如下：
+Forward can also used to build a small cluster:
 
 ```bash
                                    +-------------+    +---------------+
@@ -47,11 +47,11 @@ forward也可以用作搭建小型集群。架构图如下：
                                      192.168.1.7                          
 ```
 
-下面是搭建小型集群的实例。
+The below sections is the example for this small cluster.
 
-## Encoder编码器
+### Encoder
 
-编码器使用FFMPEG推流。编码参数如下：
+Use FFMPEG as encoder to publish stream to master:
 
 ```bash
 for((;;)); do\
@@ -62,9 +62,9 @@ for((;;)); do\
 done
 ```
 
-## SRS-Master服务器
+### SRS-Master Server
 
-SRS（192.168.1.5）的配置如下：
+The SRS master server(192.168.1.5) config:
 
 ```bash
 listen              1935;
@@ -76,17 +76,18 @@ vhost __defaultVhost__ {
 }
 ```
 
-源站的流地址播放地址是：`rtmp://192.168.1.5/live/livestream`
+The RTMP play url on master is: `rtmp://192.168.1.5/live/livestream`
 
-将流forward到两个边缘节点上。
+The master will forward stream to four slaves on two servers.
 
-## Slave节点
+### SRS-Slave Server
 
-Slave节点启动多个SRS的进程，每个进程一个配置文件，侦听不同的端口。
+The slave server can use different port to run on multiple cpu server.
+The slave on the same server must use different port and pid file.
 
-以192.168.1.6的配置为例，需要侦听1935和1936端口。
+For example, the slave server 192.168.1.6, start two SRS servers, listen at 1935 and 1936.
 
-配置文件`srs.1935.conf`配置如下：
+The config file for port 1935 `srs.1935.conf`:
 
 ```bash
 listen              1935;
@@ -97,7 +98,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-配置文件`srs.1936.conf`配置如下：
+The config file for port 1936 `srs.1936.conf`:
 
 ```bash
 listen              1936;
@@ -108,29 +109,29 @@ vhost __defaultVhost__ {
 }
 ```
 
-启动两个SRS进程：
+Start these two SRS processes:
 
 ```bash
 nohup ./objs/srs -c srs.1935.conf >/dev/null 2>&1 &
 nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 ```
 
-播放器可以随机播放着两个流：
+The player random access these streams:
 * `rtmp://192.168.1.6:1935/live/livestream`
 * `rtmp://192.168.1.6:1936/live/livestream`
 
-另外一个Slave节点192.168.1.7的配置和192.168.1.6一样。
+The other slave server 192.168.1.7 is similar to 192.168.1.6
 
-## 服务的流
+### Stream in Service
 
-此架构服务中的流为：
+The stream in service:
 
 <table>
 <tr>
-  <td>流地址</td>
-  <td>服务器</td>
-  <td>端口</td>
-  <td>连接数</td>
+  <td>Url</td>
+  <td>Server</td>
+  <td>Port</td>
+  <td>Clients</td>
 </tr>
 <tr>
   <td>rtmp://192.168.1.6:1935/live/livestream</td>
@@ -158,37 +159,19 @@ nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 </tr>
 </table>
 
-这个架构每个节点可以支撑6000个并发，两个节点可以支撑1.2万并发。
-还可以加端口，可以支持更多并发。
+This architecture can support 12k clients. 
+User can add more slave or start new ports.
 
-## 和CDN大规模集群的区别
+## Forward VS Edge
 
-这个架构和CDN架构的最大区别在于，CDN属于大规模集群，边缘节点会有成千上万台，源站2台（做热备），还需要有中间层。CDN的客户很多，流也会有很多。所以假若源站将每个流都转发给边缘，会造成巨大的浪费（有很多流只有少数节点需要）。
+The forward is not used in cdn, because CDN has thousands of servers, thousands of streams. 
+The forward will always forward all stream to slave servers.
 
-可见，forward只适用于所有边缘节点都需要所有的流。CDN是某些边缘节点需要某些流。
+CDN or large cluster must use edge, never use forward.
 
-forward的瓶颈在于流的数目，假设每个SRS只侦听一个端口：
+## Other Use Scenarios
 
-```bash
-系统中流的数目 = 编码器的流数目 × 节点数目 × 端口数目
-```
+Forward used for transcoder, we can transcode a h.264+speex stream to a vhost, while this vhost forward
+stream to slave. Then all stream on slave is h.264+aac, to delivery HLS.
 
-考虑5个节点，每个节点起4个端口，即有20个SRS边缘。编码器出5路流，则有`20 * 5 = 100路流`。
-
-同样的架构，对于CDN的边缘节点来讲，系统的流数为`用户访问边缘节点的流`，假设没有用户访问，系统中就没有流量。某个区域的用户访问某个节点上的流，系统中只有一路流，而不是forward广播式的多路流。
-
-另外，forward需要播放器随机访问多个端口，实现负载均衡，或者播放器访问api服务器，api服务器实现负载均衡，对于CDN来讲也不合适（需要客户改播放器）。
-
-总之，forward适用于小型规模的集群，不适用于CDN大规模集群应用。
-
-## 高级应用
-
-forward还可以结合hls和transcoder功能使用，即在源站将流转码，然后forward到边缘节点，边缘节点支持rtmp同时切HLS。
-
-因为用户推上来的流，或者编码器（譬如FMLE）可能不是h264+aac，需要先转码为h264+aac（可以只转码音频）后才能切片为hls。
-
-需要结合vhost，先将流transcode送到另外一个vhost，这个vhost将流转发到边缘。这样可以只转发转码的流。
-
-参考vhost，hls和transcoder相关wiki。
-
-Winlin 2014.2
+Winlin 2014.11

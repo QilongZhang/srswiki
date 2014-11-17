@@ -1,6 +1,6 @@
 # Forward搭建小型集群
 
-srs定位为源站服务器，其中一项重要的功能是forward，即将服务器的流转发到其他服务器。
+srs定位为直播服务器，其中一项重要的功能是forward，即将服务器的流转发到其他服务器。
 
 备注：SRS的边缘RTMP参考[Edge](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Edge)，支持访问时回源，为大规模并发提供最佳解决方案。
 
@@ -25,7 +25,7 @@ forward本身是用做热备，即用户推一路流上来，可以被SRS转发�
 
 实际上master和slave也可以是edge，但是不推荐，这种组合方式太多了，测试没有办法覆盖到。因此，强烈建议简化服务器的结构，只有origin（源站服务器）才配置转发，edge（边缘服务器）只做边缘。
 
-## 架构
+## For Small Cluster
 
 forward也可以用作搭建小型集群。架构图如下：
 
@@ -49,7 +49,7 @@ forward也可以用作搭建小型集群。架构图如下：
 
 下面是搭建小型集群的实例。
 
-## Encoder编码器
+### Encoder编码器
 
 编码器使用FFMPEG推流。编码参数如下：
 
@@ -62,7 +62,7 @@ for((;;)); do\
 done
 ```
 
-## SRS-Master服务器
+### SRS-Master服务器
 
 SRS（192.168.1.5）的配置如下：
 
@@ -80,7 +80,7 @@ vhost __defaultVhost__ {
 
 将流forward到两个边缘节点上。
 
-## Slave节点
+### SRS-Slave节点
 
 Slave节点启动多个SRS的进程，每个进程一个配置文件，侦听不同的端口。
 
@@ -121,7 +121,7 @@ nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 
 另外一个Slave节点192.168.1.7的配置和192.168.1.6一样。
 
-## 服务的流
+### 服务的流
 
 此架构服务中的流为：
 
@@ -161,9 +161,9 @@ nohup ./objs/srs -c srs.1936.conf >/dev/null 2>&1 &
 这个架构每个节点可以支撑6000个并发，两个节点可以支撑1.2万并发。
 还可以加端口，可以支持更多并发。
 
-## 和CDN大规模集群的区别
+## Forward VS Edge
 
-这个架构和CDN架构的最大区别在于，CDN属于大规模集群，边缘节点会有成千上万台，源站2台（做热备），还需要有中间层。CDN的客户很多，流也会有很多。所以假若源站将每个流都转发给边缘，会造成巨大的浪费（有很多流只有少数节点需要）。
+Forward架构和CDN架构的最大区别在于，CDN属于大规模集群，边缘节点会有成千上万台，源站2台（做热备），还需要有中间层。CDN的客户很多，流也会有很多。所以假若源站将每个流都转发给边缘，会造成巨大的浪费（有很多流只有少数节点需要）。
 
 可见，forward只适用于所有边缘节点都需要所有的流。CDN是某些边缘节点需要某些流。
 
@@ -183,11 +183,11 @@ forward的瓶颈在于流的数目，假设每个SRS只侦听一个端口：
 
 ## 高级应用
 
-forward还可以结合hls和transcoder功能使用，即在源站将流转码，然后forward到边缘节点，边缘节点支持rtmp同时切HLS。
+forward还可以结合hls和transcoder功能使用，即在源站将流转码，然后forward到Slave节点，Slave节点支持rtmp同时切HLS。
 
 因为用户推上来的流，或者编码器（譬如FMLE）可能不是h264+aac，需要先转码为h264+aac（可以只转码音频）后才能切片为hls。
 
-需要结合vhost，先将流transcode送到另外一个vhost，这个vhost将流转发到边缘。这样可以只转发转码的流。
+需要结合vhost，先将流transcode送到另外一个vhost，这个vhost将流转发到Slave。这样可以只转发转码的流。
 
 参考vhost，hls和transcoder相关wiki。
 
