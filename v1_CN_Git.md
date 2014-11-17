@@ -12,17 +12,19 @@
 git pull && git checkout 1.0release
 ```
 
-如果是2.0的功能，更新代码后要改变到2.0分支（没有2.0release就是master）：
+如果是2.0的功能，更新代码后要改变到2.0分支（没有单独的2.0release分支就是master）：
 
 ```
 git pull && git checkout master
 ```
 
+注意：master是作为开发分支。
+
 ## SRS稳定版本
 
-目前还没有稳定版本，还在测试中。
+稳定的SRS版本会新建branch，譬如1.0release。
 
-## 如何获取SRS最新代码
+## 如何获取SRS代码
 
 你可以从github获取SRS的代码，需要先安装git（如何安装git可以百度下）。
 
@@ -31,6 +33,8 @@ git pull && git checkout master
 ```bash
 git clone https://github.com/winlinvip/simple-rtmp-server
 ```
+
+其他镜像git地址: https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#mirrors
 
 ## 如何更新SRS最新代码
 
@@ -109,35 +113,15 @@ git pull
 
 注意，这个会导致所有的修改都丢弃，只适用于不需要保留修改代码的情况。如果你需要提交代码，请参考git详细的用法。
 
-## CSDN-Mirror
-
-SRS在CSDN上有镜像，参考网址：https://code.csdn.net/winlinvip/srs-csdn
-
-SRS会不定期将代码更新到CSDN，基本上是同步的。csdn的git仓库是：
-
-```bash
-git clone https://code.csdn.net/winlinvip/srs-csdn.git
-```
-
-可以在CSDN上建立自己的仓库，然后和github上的srs同步，可以运行脚本：
-
-```bash
-bash scripts/csdn.mirror.sh 
-```
-
-可以参考脚本中的提示，创建自己的分支，每次可执行该脚本和github的srs同步。
-
 ## BranchAndTag
 
-一个仓库(project/repository)可以有多个branch，每个branch上都可以有tag（里程碑，一般release分支有）。
+一个仓库(project/repository)可以有多个branch，每个commit都可以作为tag（里程碑，一般release分支有）。
 
 SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，所以没有feature分支；也没有hotfix分支，直接在对应的release分支hotfix后打tag；SRS也没有develop分支，把master作为develop分支。
 
 SRS只有master（develop）和release分支，假设现在是SRS4.0时代，那么master就是正在开发的SRS4.0，有三个release分支分别是1.0release、2.0release和3.0release。
 
-SRS的默认分支是最新的release，github上可以设置默认分支（由于master和develop是一个分支）。
-
-也就是说SRS的master是开发版，其他的release分支是发行版；默认的是最新的发行版。这个是最简单的git分支使用了。
+也就是说SRS的master是开发版，其他的release分支是发行版。这个是最简单的git分支使用了。
 
 ![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
 
