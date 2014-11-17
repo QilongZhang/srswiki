@@ -61,13 +61,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
+<strong>第四步，启动SRS。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 
 ```bash
 ./objs/srs -c conf/ffmpeg.conf
 ```
 
-<strong>第四步，启动推流编码器。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
+<strong>第五步，启动推流编码器。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 
 使用FFMPEG命令推流：
 
@@ -92,7 +92,7 @@ Stream: livestream
 * 观看原始流：rtmp://192.168.1.170:1935/live/livestream
 * 观看转码流：rtmp://192.168.1.170:1935/live/livestream_ff
 
-<strong>第五步，观看RTMP流。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
+<strong>第六步，观看RTMP流。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
@@ -102,7 +102,7 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第六步，观看FFMPEG转码的RTMP流。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
+<strong>第七步，观看FFMPEG转码的RTMP流。</strong>详细参考[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
 

@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-ssl --with-ffmpeg --with-ingest && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong>详细参考[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>第三步，编写SRS配置文件。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 将以下内容保存为文件，譬如`conf/ingest.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -47,7 +47,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第三步，启动SRS。</strong>详细参考[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>第三步，启动SRS。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 ```bash
 ./objs/srs -c conf/ingest.conf
@@ -56,7 +56,7 @@ vhost __defaultVhost__ {
 涉及的流包括：
 * 采集的流：rtmp://192.168.1.170:1935/live/livestream
 
-<strong>第五步，观看RTMP流。</strong>详细参考[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
+<strong>第五步，观看RTMP流。</strong> For detail, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 

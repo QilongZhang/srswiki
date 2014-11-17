@@ -28,7 +28,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>第三步，编写主SRS配置文件。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第三步，编写主SRS配置文件。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 将以下内容保存为文件，譬如`conf/forward.master.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -44,13 +44,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第四步，启动主SRS，主SRS将流转发到备SRS。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第四步，启动主SRS，主SRS将流转发到备SRS。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 ```bash
 ./objs/srs -c conf/forward.master.conf
 ```
 
-<strong>第五步，编写备SRS配置文件。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第五步，编写备SRS配置文件。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 将以下内容保存为文件，譬如`conf/forward.slave.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -64,7 +64,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第六步，启动备SRS，主SRS将流转发到备SRS。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第六步，启动备SRS，主SRS将流转发到备SRS。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 ```bash
 ./objs/srs -c conf/forward.slave.conf
@@ -78,7 +78,7 @@ tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LIST
 tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      7834/srs
 ```
 
-<strong>第七步，启动推流编码器。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第七步，启动推流编码器。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 使用FFMPEG命令推流：
 
@@ -104,7 +104,7 @@ Stream: livestream
 * 观看主SRS的流：rtmp://192.168.1.170/live/livestream
 * 观看备SRS的流：rtmp://192.168.1.170:19350/live/livestream
 
-<strong>第八步，观看主SRS的RTMP流。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第八步，观看主SRS的RTMP流。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -114,7 +114,7 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>第九步，观看备SRS的RTMP流。</strong>详细参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
+<strong>第九步，观看备SRS的RTMP流。</strong> For detail, read [Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
 
 RTMP url is: `rtmp://192.168.1.170:19350/live/livestream`
 
