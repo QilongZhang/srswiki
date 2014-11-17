@@ -1,4 +1,4 @@
-# HLS部署实例
+# HLS deploy example
 
 SRS支持HLS的详细步骤。
 

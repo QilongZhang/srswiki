@@ -1,4 +1,4 @@
-# FFMPEG转码部署实例
+# Transcode deploy example
 
 FFMPEG对RTMP直播流转码，SRS在收到编码器推送的直播流后，可以对直播流进行转码，输出RTMP流到服务器（也可以到SRS自己）。详细规则参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)，本文列出了具体的部署的实例。
 

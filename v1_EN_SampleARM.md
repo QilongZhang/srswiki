@@ -1,4 +1,4 @@
-# ARM上部署SRS实例
+# SRS ARM deploy example
 
 SRS可以在SRS上作为服务器运行，播放器可以从arm设备上取流播放；arm也可以作为客户端推流到外部srs服务器，使用srs-librtmp库。
 

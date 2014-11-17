@@ -1,4 +1,4 @@
-# Ingest采集实例
+# Ingest deploy example
 
 SRS启动后，自动启动Ingest开始采集file/stream/device，并将流推送到SRS。详细规则参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)，本文列出了具体的部署的实例。
 

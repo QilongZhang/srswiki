@@ -1,4 +1,4 @@
-# RTMP部署实例
+# RTMP deploy example
 
 RTMP部署的步骤。
 

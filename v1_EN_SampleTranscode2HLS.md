@@ -1,4 +1,4 @@
-# 转码后分发HLS部署实例
+# Transcode for HLS deploy example
 
 HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)部署，若不符合这个要求则需要转码。
 

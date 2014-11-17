@@ -1,4 +1,4 @@
-# RTMP流转发（Forward）部署实例
+# Forward deploy example
 
 SRS可以将送到SRS的流转发给其他RTMP服务器，实现简单集群/热备功能，也可以实现一路流热备（譬如编码器由于带宽限制，只能送一路流到RTMP服务器，要求RTMP服务器能将这路流也转发给其他RTMP备用服务器，实现主备容错集群）。
 

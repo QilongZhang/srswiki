@@ -1,4 +1,4 @@
-# SRS-HTTP服务部署实例
+# SRS HTTP server deploy example
 
 SRS内嵌了http服务器，支持分发hls流和文件。
 
