@@ -27,7 +27,7 @@ git pull
 
 <strong>第三步，编写SRS配置文件。</strong> For detail, read [LowLatency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
 
-将以下内容保存为文件，譬如`conf/realtime.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
+Save bellow as config, or use `conf/realtime.conf`:
 
 ```bash
 # conf/realtime.conf

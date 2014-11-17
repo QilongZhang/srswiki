@@ -25,7 +25,7 @@ git pull
 
 <strong>第三步，编写SRS配置文件。</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
-将以下内容保存为文件，譬如`conf/rtmp.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
+Save bellow as config, or use `conf/rtmp.conf`:
 
 ```bash
 # conf/rtmp.conf
