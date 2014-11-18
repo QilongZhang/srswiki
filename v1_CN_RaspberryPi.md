@@ -6,7 +6,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 树莓派下安装和运行SRS，有以下方式：
 * 编译源站和运行：SRS在arm/raspberrypi下的编译，参考[Build: RaspberryPi](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm#raspberrypi)
-* 直接下载binary文件，然后安装运行，下载RespberryPi的安装包：[Github站点](http://winlinvip.github.io/simple-rtmp-server/releases/) 或者 [国内镜像站点](http://demo.chnvideo.com:8085/srs/releases/)。安装方法见页面。
+* 直接下载binary文件，然后安装运行，下载RespberryPi的安装包：[Github站点](http://winlinvip.github.io/simple-rtmp-server/releases/) 或者 [国内镜像站点](http://ossrs.net/srs/releases/)。安装方法见页面。
 
 查看SRS是否启动：`/etc/init.d/srs status`
 
@@ -175,255 +175,7 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 
 其中，“不适用”是指还未开始测试带宽，所以未记录数据。
 
-## SRS-Select
-
-本章测试SRS使用Select机制的性能。
-
-开始启动st-load模拟客户端并发测试SRS的性能。
-
-树莓派一般10个以内的连接比较常用，所以我们先测试10个链接的情况。加上推流链接实际上11个。
-
-* 启动10客户端：
-
-```bash
-./objs/st_rtmp_load -c 10 -r rtmp://192.168.1.105:1935/live/livestream >/dev/null &
-```
-
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>20.0%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.65Mbps</td>
-  <td>1.3%</td>
-  <td>1.5秒</td>
-</tr>
-</table>
-
-* 再启动一个模拟10个连接的st-load，共20个连接。
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>40%</td>
-  <td>1.78MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.26Mbps</td>
-  <td>2%</td>
-  <td>1.9秒</td>
-</tr>
-</table>
-
-* 再启动一个模拟10个连接的st-load，共30个连接。
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>60%</td>
-  <td>1.99MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8.4Mbps</td>
-  <td>4.3%</td>
-  <td>3.2秒</td>
-</tr>
-</table>
-
-* 再启动一个模拟10个连接的st-load，共40个连接。
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>63.5%</td>
-  <td>2.13MB</td>
-  <td>41</td>
-  <td>9.43Mbps</td>
-  <td>11.3Mbps</td>
-  <td>5%</td>
-  <td>2.6秒</td>
-</tr>
-</table>
-
-* 再启动一个模拟10个连接的st-load，共50个连接。
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>80%</td>
-  <td>2.8MB</td>
-  <td>51</td>
-  <td>11.7Mbps</td>
-  <td>13.7Mbps</td>
-  <td>6%</td>
-  <td>4.6秒</td>
-</tr>
-</table>
-
-* 再启动一个模拟10个连接的st-load，共60个连接。
-* 客户端开始播放30秒以上，并记录数据：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>97%</td>
-  <td>3.68MB</td>
-  <td>61</td>
-  <td>14Mbps</td>
-  <td>16Mbps</td>
-  <td>7.7%</td>
-  <td>5.8秒</td>
-</tr>
-</table>
-
-## SRS-Select性能总结
-
-SRS使用select模型时，RaspberryPi B型，230Kbps视频性能测试如下表：
-
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>20.0%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.65Mbps</td>
-  <td>1.3%</td>
-  <td>1.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>40%</td>
-  <td>1.78MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.26Mbps</td>
-  <td>2%</td>
-  <td>1.9秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>60%</td>
-  <td>1.99MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8.4Mbps</td>
-  <td>4.3%</td>
-  <td>3.2秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>63.5%</td>
-  <td>2.13MB</td>
-  <td>41</td>
-  <td>9.43Mbps</td>
-  <td>11.3Mbps</td>
-  <td>5%</td>
-  <td>2.6秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>80%</td>
-  <td>2.8MB</td>
-  <td>51</td>
-  <td>11.7Mbps</td>
-  <td>13.7Mbps</td>
-  <td>6%</td>
-  <td>4.6秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>97%</td>
-  <td>3.68MB</td>
-  <td>61</td>
-  <td>14Mbps</td>
-  <td>16Mbps</td>
-  <td>7.7%</td>
-  <td>5.8秒</td>
-</tr>
-</table>
-
-可见，RaspberryPi B型，SD卡class2，能支持的并发，SRS使用select时，码率为230kbps时，大约为50个，网络带宽占用13Mbps。
-
-## SRS-Epoll
+## Benchmark SRS 0.9.38
 
 本章测试SRS使用Epoll机制的性能。
 
@@ -514,8 +266,6 @@ SRS使用select模型时，RaspberryPi B型，230Kbps视频性能测试如下表
 </tr>
 </table>
 
-## SRS-Epoll性能总结
-
 SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 <table>
@@ -563,7 +313,7 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
 可见，RaspberryPi B型，SD卡class4，能支持的并发，SRS使用EPOLL时，码率为230kbps时，大约为xxxx个，网络带宽占用xxxxMbps。
 
-## RTMP测试
+## Benchmark SRS 0.9.72
 
 一次性能测试记录：
 * 硬件：raspberry-pi，B型，700MHZCPU，500MB内存，百兆有线网络
@@ -644,92 +394,6 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
   <td>3.5秒</td>
 </tr>
 </table>
-
-## HLS测试
-
-一次性能测试记录：
-* 硬件：raspberry-pi，B型，700MHZCPU，500MB内存，百兆有线网络
-* 编码器：SRS自己采集，视频码率516kbps，音频码率63kbps，数据码率580kbps。时长220秒。avatar宣传片。
-* 服务器：SRS 0.9.72。服务器至少有一个连接：采集程序推流到SRS。
-* 客户端：flash播放器，RTMP协议，st-load（HLS负载测试工具）。
-
-备注：延迟指RTMP客户端延迟，HLS延迟太大不计入指标。
-
-数据如下：
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>5%</td>
-  <td>2MB</td>
-  <td>2</td>
-  <td>1Mbps</td>
-  <td>1.2Mbps</td>
-  <td>0%</td>
-  <td>1.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>12%</td>
-  <td>2.6MB</td>
-  <td>12</td>
-  <td>6.9Mbps</td>
-  <td>6.7Mbps</td>
-  <td>0.7%</td>
-  <td>1秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>21%</td>
-  <td>2.3MB</td>
-  <td>22</td>
-  <td>12.7Mbps</td>
-  <td>13.1Mbps</td>
-  <td>3.7%</td>
-  <td>1.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>33%</td>
-  <td>2.7MB</td>
-  <td>32</td>
-  <td>18.5Mbps</td>
-  <td>21Mbps</td>
-  <td>2.3%</td>
-  <td>1.2秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>57%</td>
-  <td>2MB</td>
-  <td>42</td>
-  <td>24.3Mbps</td>
-  <td>24Mbps</td>
-  <td>2.7%</td>
-  <td>2秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>70%</td>
-  <td>2.8MB</td>
-  <td>52</td>
-  <td>30.2Mbps</td>
-  <td>32Mbps</td>
-  <td>3.8%</td>
-  <td>3秒</td>
-</tr>
-</table>
-
-备注：SRS的HTTP还有待优化，目前未优化前就这个指标。
 
 ## cubieboard性能
 
