@@ -1,34 +1,36 @@
-# 采集
+# Ingest
 
-采集(Ingest)指的是将文件（flv，mp4，mkv，avi，rmvb等等），流（RTMP，RTMPT，RTMPS，RTSP，HTTP，HLS等等），设备等的数据，转封装为RTMP流（若编码不是h264/aac则需要转码），推送到SRS。
+Ingest is used to ingest file(flv, mp4, mkv, avi, rmvb...), 
+stream(RTMP, RTMPT, RTMPS, RTSP, HTTP, HLS...) and device,
+encode or passthrough then publish as RTMP to SRS.
 
-采集基本上就是使用FFMPEG作为编码器，或者转封装器，将外部流主动抓取到SRS。
+Ingest actually use FFMEPG, or your tool, to encode or remux
+to suck known data to RTMP to SRS.
 
-采集的部署实例参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleIngest)
+How to deploy ingest, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleIngest)
 
-## 应用场景
+## Use Scenario
 
-采集的主要应用场景包括：
-* 虚拟直播：将文件编码为直播流。可以指定多个文件后，SRS会循环播放。
-* RTSP摄像头对接：以前安防摄像头都支持访问RTSP地址，RTSP无法在互联网播放。可以将RTSP采集后，以RTMP推送到SRS，后面的东西就不用讲了。
-* 直接采集设备：SRS采集功能可以作为编码器采集设备上的未压缩图像数据，譬如video4linux和alsa设备，编码为h264/aac后输出RTMP到SRS。
-* 将HTTP流采集为RTMP：有些老的设备，能输出HTTP的ts或FLV流，可以采集后转封装为RTMP，支持HLS输出。
+The main use scenarios:
+* Virtual Live Stream: Convert vod file to live stream.
+* Input RTSP IP Camera: Many IP Camera supports to pull in RTSP, user can ingest the RTSP to RTMP to SRS.
+* Directly ingest device, use the FFMEPG as encoder actually.
+* Ingest HTTp stream to RTMP for some old stream server.
 
-总之，采集的应用场景主要是“SRS拉流”；能拉任意的流，只要ffmpeg支持；不是h264/aac都没有关系，ffmpeg能转码。
+In a word, the Ingest is used to ingest any stream supported by FFMPEG to SRS.
 
-SRS默认是支持“推流”，即等待编码器推流上来，可以是专门的编码设备，FMLE，ffmpeg，xsplit，flash等等。
+SRS server is support encoder to publish stream, while ingest can enable SRS to act like a client to pull 
+stream from other place.
 
-如此，SRS的接入方式可以是“推流到SRS”和“SRS主动拉流”，基本上作为源站的功能就完善了。
+## Build
 
-## 编译
+Config SRS with option `--with-ingest`, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
-Ingest需要在编译时打开：`--with-ingest`。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+The ingest tool of SRS can use FFMPEG, or use your own tool.
 
-Ingeest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+## Config
 
-## 配置
-
-Ingest的配置如下：
+The config to use ingest:
 
 ```bash
     # ingest file/stream/device then push to SRS over RTMP.
@@ -68,28 +70,27 @@ Ingest的配置如下：
     }
 ```
 
-ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest。在reload/http-api管理时才知道操作的是哪个。譬如，reload时用来检测哪些ingest更新了，需要通知那些已经存在的ingest，停止已经不存在的ingest。
+The word after ingest keyword is the id of ingest, the id must be unique.
 
-其中，`type`指定了输入的几种类型：
-* file: 输入为文件，url指定了文件的路径。srs会给ffmpeg传递-re参数。
-* stream: 输入为流，url指定了流地址。
-* device: 暂时不支持。
+The `type` specifies the ingest type:
+* file: To ingest file to RTMP, SRS will add `-re` for FFMPEG.
+* stream: To ingest stream to RTMP.
+* device: Not support yet.
 
-`engine`指定了转码引擎参数：
-* enabled: 指定是否转码，若off或者vcodec/acodec没有指定，则不转码，使用ffmpeg-copy。
-* output：输出路径。有两个变量可以使用：port为系统侦听的RTMP端口，vhost为配置了ingest的vhost。
-* 其他参考转码的配置：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
+The `engine` specifies the transcode engine and output:
+* enabled: Whether transcode, remux when off.
+* output：The output RTMP url. The vhost and port is variable.
+* others is same to [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
 
-注意：engine默认为copy，当：
-* engine的enabled为off，没有开启转码engine，则使用copy。
-* engine的vcodec/acodec没有指定，则使用copy。
+Note: Engine is copy, when:
+* The enabled is off.
+* The vcodec and acodec is not specified.
 
-## 采集多个文件。
+## Ingest File list
 
-实现方法：
-* 可以把输入文件变成文件列表。自己写工具实现采集列表。
-* 修改配置文件后，使用reload加载。
+SRS does not ingest a file list, a wordaround:
+* Use script as the ingest tool, which use ffmpeg to copy file to RTMP stream one by one.
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/55
+Read https://github.com/winlinvip/simple-rtmp-server/issues/55
 
-Winlin 2014.4
+Winlin 2014.11

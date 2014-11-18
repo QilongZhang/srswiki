@@ -24,7 +24,7 @@ SRS默认是支持“推流”，即等待编码器推流上来，可以是专�
 
 Ingest需要在编译时打开：`--with-ingest`。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
-Ingeest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+Ingest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的编转码工具。禁用默认的ffmpeg在编译时指定`--without-ffmpeg`即可。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
 ## 配置
 
@@ -88,7 +88,6 @@ ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest
 
 实现方法：
 * 可以把输入文件变成文件列表。自己写工具实现采集列表。
-* 修改配置文件后，使用reload加载。
 
 参考：https://github.com/winlinvip/simple-rtmp-server/issues/55
 
