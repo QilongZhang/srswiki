@@ -1,32 +1,25 @@
-# 内置HTTP服务器
+# SRS Embeded HTTP Server
 
-SRS内嵌了一个web服务器，支持api和简单的文件分发。
+SRS Embeded a HTTP web server, supports api and simple HTTP file for HLS.
 
-部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHTTP)
+To deploy SRS HTTP server, read [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHTTP)
 
-## Feature
+The SRS Embeded HTTP server is expirement feature. Never use it to delivery file, 
+only used for API service. Recomment to use nginx web server to delivery HTTP file.
 
-目前SRS的内置HTTP服务器的状态是开发状态，有一些bug没有fix，建议使用nginx作为web分发的服务器。
+## Use Scenario
 
-## 应用场景
+The SRS Embeded HTTP server is design to provides basic HTTP service, 
+like the camera of mobile phone.
 
-它的定位很简单：智能手机上的摄像头。
+SRS should provides HTTP api, which is actually a embeded HTTP server.
 
-Nginx/Apache/lighthttpd等众多HTTP server大佬就是专业的单反，老长老长镜头了。难道有了单反智能手机上就不能有摄像头？不会吧！而且必须有。所以不是要和nginx拼个你死我活，定位不一样，就像fms内嵌apache一样（不过fms嵌得很烂），真的有必要而且方便。
+Actually, RTMP is more complex than HTTP, so HTTP server on st is absolutely ok.
+The HTTP Server in SRS1.0 is expirement, I will enhance it future.
 
-为何srs不内嵌一个nginx呢？智能手机上能内嵌一个单反长镜头么？我去，那是怪物吧。nginx14万行代码，巨大无比，srs才2万行，如何能内嵌呢？最核心的原因是：srs需要提供http的api，方便外部管理和调用；这点往往都毫无异议，但是提到srs要内嵌web服务器，就都炸开锅啦。OK，其实就是http的api稍微扩展点，支持读文件后发送给客户端。
+## Config
 
-srs会一如既往的保持最简单，http的代码不会有多少行，功能不会有几个，就支持简单的文件分发就足够了。可以：
-* 只需要部署一个服务器就可以分发RTMP和HLS。
-* SRS对于HLS/HDS/DASH的支持会更完善。
-* SRS可以支持点播，动态转封装等。
-* SRS依然可以用nginx作为反向代理，或者禁用这个选项，使用nginx分发。
-
-实际上，RTMP协议本身比HTTP复杂很多，所以st来做http分发，没有任何不可以的地方，更何况只是做部分。所以，淡定～
-
-## 配置
-
-需要配置全局的HTTP端口和根目录的路径。
+Config the HTTP port and root.
 
 ```bash
 # embeded http server in srs.
@@ -53,7 +46,7 @@ http_stream {
 }
 ```
 
-同时，vhost上可以指定虚拟目录（默认根目录）。
+And, each vhost can specifies the dir.
 
 ```bash
 vhost __defaultVhost__ {
@@ -74,14 +67,12 @@ vhost __defaultVhost__ {
 }
 ```
 
-注意：vhost的http配置是可选的，就算不配置，http根目录依然可以访问。
-
 ## MIME
 
-支持少量的MIME，见下表。
+Only some MIME is supported:
 
 <table>
-<tr><th>文件扩展名</th><th>Content-Type</th></tr>
+<tr><th>File ext name</th><th>Content-Type</th></tr>
 <tr><td>.ts</td><td>Content-Type: video/MP2T;charset=utf-8</td>
 <tr><td>.m3u8</td><td>Content-Type: application/x-mpegURL;charset=utf-8</td>
 <tr><td>.json</td><td>Content-Type: application/json;charset=utf-8</td>
@@ -89,12 +80,12 @@ vhost __defaultVhost__ {
 <tr><td>.swf</td><td>Content-Type: application/x-shockwave-flash;charset=utf-8</td>
 <tr><td>.js</td><td>Content-Type: text/javascript;charset=utf-8</td>
 <tr><td>.xml</td><td>Content-Type: text/xml;charset=utf-8</td>
-<tr><td>其他</td><td>Content-Type: text/html;charset=utf-8</td>
+<tr><td>Others</td><td>Content-Type: text/html;charset=utf-8</td>
 </table>
 
 ## Method
 
-支持的Method包括：
-* GET: 下载文件。
+Supported HTTP method:
+* GET: Query API, or download file.
 
-Winlin 2014.4
+Winlin 2014.11

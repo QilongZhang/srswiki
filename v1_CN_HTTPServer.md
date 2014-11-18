@@ -4,17 +4,20 @@ SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
 部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHTTP)
 
-## Feature
-
-目前SRS的内置HTTP服务器的状态是开发状态，有一些bug没有fix，建议使用nginx作为web分发的服务器。
+SRS的内置HTTP服务器属于实验功能；建议不要当作web服务器，主要是提供API服务；建议使用nginx等成熟web服务器分发文件。
 
 ## 应用场景
 
 它的定位很简单：智能手机上的摄像头。
 
-Nginx/Apache/lighthttpd等众多HTTP server大佬就是专业的单反，老长老长镜头了。难道有了单反智能手机上就不能有摄像头？不会吧！而且必须有。所以不是要和nginx拼个你死我活，定位不一样，就像fms内嵌apache一样（不过fms嵌得很烂），真的有必要而且方便。
+Nginx/Apache/lighthttpd等众多HTTP server大佬就是专业的单反，老长老长镜头了。
+难道有了单反智能手机上就不能有摄像头？不会吧！而且必须有。所以不是要和nginx拼个你死我活，
+定位不一样，就像fms内嵌apache一样（不过fms嵌得很烂），真的有必要而且方便。
 
-为何srs不内嵌一个nginx呢？智能手机上能内嵌一个单反长镜头么？我去，那是怪物吧。nginx14万行代码，巨大无比，srs才2万行，如何能内嵌呢？最核心的原因是：srs需要提供http的api，方便外部管理和调用；这点往往都毫无异议，但是提到srs要内嵌web服务器，就都炸开锅啦。OK，其实就是http的api稍微扩展点，支持读文件后发送给客户端。
+为何srs不内嵌一个nginx呢？智能手机上能内嵌一个单反长镜头么？我去，那是怪物吧。
+nginx14万行代码，巨大无比，srs才2万行，如何能内嵌呢？最核心的原因是：srs需要提供http的api，
+方便外部管理和调用；这点往往都毫无异议，但是提到srs要内嵌web服务器，就都炸开锅啦。
+OK，其实就是http的api稍微扩展点，支持读文件后发送给客户端。
 
 srs会一如既往的保持最简单，http的代码不会有多少行，功能不会有几个，就支持简单的文件分发就足够了。可以：
 * 只需要部署一个服务器就可以分发RTMP和HLS。
