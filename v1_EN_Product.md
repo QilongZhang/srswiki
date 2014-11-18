@@ -34,10 +34,10 @@ The bug hotfixed for 1.0release：[hotfixes](https://github.com/winlinvip/simple
 SRS release 2.0, about 6 months and the main aims:
 
 * Support English wiki(EN+CN).
-* Enhance performance, supports 6k clients. 
-* Research and simplify st, remove platform code to only support linux/arm.
-* Simplify RTMP packet send mechenism, base on better knowlegement of st.
-* Other small changes, for example, dvr to stream plan, add h264 to rtmp interface for srs-librtmp.
+* Enhance performance, supports 6k clients. Read [#194](https://github.com/winlinvip/simple-rtmp-server/issues/194)
+* The srs-librtmp supports publish h.264 raw stream. Read [#66](https://github.com/winlinvip/simple-rtmp-server/issues/66)
+* Research and simplify st, remove platform code to only support linux/arm. Read [#182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
+* Other small changes.
 
 ## Backlog
 
