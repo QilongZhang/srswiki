@@ -1,42 +1,40 @@
-# 性能测试指南
+# Performance Banchmark
 
-对比SRS和高性能nginx-rtmp的Performance，SRS为单进程，nginx-rtmp支持多进程，为了对比nginx-rtmp也只开启一个进程。
+The performance benchmark for SRS, compare with nginx-rtmp single process.
 
-提供详细的性能测试的过程，可以为其他性能测试做参考，譬如测试nginx-rtmp的多进程，和srs的forward对比之类。
+Provides detail benchmark steps.
 
-## 硬件环境
+## Hardware
 
-本次对比所用到的硬件环境，使用虚拟机，客户端和服务器都运行于一台机器，避开网络瓶颈。
+The client and server use lo net interface to test:
 
-* 硬件: 虚拟机
-* 系统: CentOS 6.0 x86_64 Linux 2.6.32-71.el6.x86_64
+* Hardware: VirtualBox on ThinkPad T430
+* OS: CentOS 6.0 x86_64 Linux 2.6.32-71.el6.x86_64
 * CPU: 3 Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz
-* 内存: 2007MB
+* Memory: 2007MB
 
-## OS设置
+## OS
 
-超过1024的连接数测试需要打开linux的限制。且必须以root登录和执行。
+Login as root, set the fd limits:
 
-* 设置连接数：`ulimit -HSn 10240`
-* 查看连接数：
+* Set limit: `ulimit -HSn 10240`
+* View the limit:
 
 ```bash
 [root@dev6 ~]# ulimit -n
 10240
 ```
 
-* 重启srs：`sudo /etc/init.d/srs restart`
-
-* 注意：启动服务器前必须确保连接数限制打开。
+* Restart SRS：`sudo /etc/init.d/srs restart`
 
 ## NGINX-RTMP
 
-NGINX-RTMP使用的版本信息，以及编译参数。
+NGINX-RTMP version and build command.
 
 * NGINX: nginx-1.5.7.tar.gz
 * NGINX-RTMP: nginx-rtmp-module-1.0.4.tar.gz
-* 下载页面，包含编译脚本：[下载nginx-rtmp](http://download.csdn.net/download/winlinvip/6795467)
-* 编译参数：
+* Read [nginx-rtmp](http://download.csdn.net/download/winlinvip/6795467)
+* Build:
 
 ```bash
 ./configure --prefix=`pwd`/../_release \
@@ -44,7 +42,7 @@ NGINX-RTMP使用的版本信息，以及编译参数。
 --with-http_ssl_module && make && make install
 ```
 
-* 配置nginx：`_release/conf/nginx.conf`
+* Config nginx：`_release/conf/nginx.conf`
 
 ```bash
 user  root;
@@ -62,15 +60,15 @@ rtmp{
 }
 ```
 
-* 确保连接数没有限制：
+* The limit of fd:
 
 ```bash
 [root@dev6 nginx-rtmp]# ulimit -n
 10240
 ```
 
-* 启动命令：``./_release/sbin/nginx``
-* 确保nginx启动成功：
+* Start: ``./_release/sbin/nginx``
+* Check nginx started:
 
 ```bash
 [root@dev6 nginx-rtmp]# netstat -anp|grep 19350
@@ -79,13 +77,11 @@ tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LIST
 
 ## SRS
 
-SRS接受RTMP流，并转发给nginx-rtmp做为对比。
-
-SRS的版本和编译参数。
+SRS version and build.
 
 * SRS: [SRS 0.9](https://github.com/winlinvip/simple-rtmp-server/releases/tag/0.9)
-* 编译参数：``./configure && make``
-* 配置SRS：`conf/srs.conf`
+* Build: ``./configure && make``
+* Config SRS：`conf/srs.conf`
 
 ```bash
 listen              1935;
@@ -96,28 +92,26 @@ vhost __defaultVhost__ {
 }
 ```
 
-* 确保连接数没有限制：
+* Check limit fds:
 
 ```bash
 [root@dev6 trunk]# ulimit -n
 10240
 ```
 
-* 启动命令：``nohup ./objs/srs -c conf/srs.conf >/dev/null 2>&1 &``
-* 确保srs启动成功：
+* Start SRS: ``nohup ./objs/srs -c conf/srs.conf >/dev/null 2>&1 &``
+* Check SRS started:
 
 ```bash
 [root@dev6 trunk]# netstat -anp|grep "1935 "
 tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LISTEN      6583/srs
 ```
 
-## 推流和观看
+## Publish and Play
 
-使用ffmpeg推送SRS的实例流到SRS，SRS转发给nginx-rtmp，可以通过vlc/srs-players观看。
+Use centos to publish RTMP:
 
-推送RTMP流到服务器和观看。
-
-* 启动FFMPEG循环推流：
+* Start FFMPEG:
 
 ```bash
 for((;;)); do \
@@ -129,33 +123,25 @@ for((;;)); do \
 done
 ```
 
-* 查看服务器的地址：`192.168.2.101`
+* SRS RTMP stream URL: `rtmp://192.168.2.101:1935/live/livestream`
+* Online play SRS RTMP: [Online Player](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+* Nginx-RTMP stream URL: `rtmp://192.168.2.101:19350/live/livestream`
+* Online play nginx-rtmp RTMP: [Online Player](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
 
-```bash
-[root@dev6 nginx-rtmp]# ifconfig eth0
-eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94  
-          inet addr:192.168.2.101  Bcast:192.168.2.255  Mask:255.255.255.0
-```
+## Client
 
-* SRS的流地址：`rtmp://192.168.2.101:1935/live/livestream`
-* 通过srs-players播放SRS流：[播放SRS的流](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
-* nginx-rtmp的流地址：`rtmp://192.168.2.101:19350/live/livestream`
-* 通过srs-players播放nginx-rtmp流：[播放nginx-rtmp的流](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
+The RTMP load test tool, read [st-load](https://github.com/winlinvip/st-load)
 
-## 客户端
+The st_rtmp_load used to test RTMP load, support 800-3k concurrency for each process.
 
-使用linux工具模拟RTMP客户端访问，参考：[st-load](https://github.com/winlinvip/st-load)
+* Build: `./configure && make`
+* Start: `./objs/st_rtmp_load -c 800 -r <rtmp_url>`
 
-st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000个客户端。为了避免过高负载，一个进程模拟800个客户端。
+## Record Data
 
-* 编译：`./configure && make`
-* 启动参数：`./objs/st_rtmp_load -c 800 -r <rtmp_url>`
+Record data before test:
 
-## 开始负载测试前
-
-测试前，记录SRS和nginx-rtmp的各项资源使用指标，用作对比。
-
-* top命令：
+* Use top command：
 
 ```bash
 srs_pid=`ps aux|grep srs|grep conf|awk '{print $2}'`; \
@@ -164,7 +150,7 @@ load_pids=`ps aux|grep objs|grep st_rtmp_load|awk '{ORS=",";print $2}'`; \
 top -p $load_pids$srs_pid,$nginx_pid
 ```
 
-* 查看连接数命令：
+* The connections:
 
 ```bash
 srs_connections=`netstat -anp|grep srs|grep ESTABLISHED|wc -l`; \
@@ -173,7 +159,7 @@ echo "srs_connections: $srs_connections"; \
 echo "nginx_connections: $nginx_connections";
 ```
 
-* 查看服务器消耗带宽，其中，单位是bytes，需要乘以8换算成网络用的bits，设置dstat为30秒钟统计一次，数据更准：
+* The bandwidth in NBps:
 
 ```bash
 [root@dev6 nginx-rtmp]# dstat -N lo 30
@@ -184,82 +170,63 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
   0   0  97   0   0   2|   0     0 |1500B   46k|   0     0 |2979   461 
 ```
 
-* 数据见下表：
+* The table
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
   <td>1.0%</td>
   <td>3MB</td>
   <td>3</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>0.8秒</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
   <td>0.7%</td>
   <td>8MB</td>
   <td>2</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>0.8秒</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-期望带宽：譬如测试码率为200kbps时，若模拟1000个并发，应该是1000*200kbps=200Mbps带宽。
+## Benchmark SRS
 
-实际带宽：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
+Let's start performance benchmark.
 
-客户端延迟：粗略计算即为客户端的缓冲区长度，假设服务器端的缓冲区可以忽略不计。一般RTMP直播播放器的缓冲区设置为0.8秒，由于网络原因，或者服务器性能问题，数据未能及时发送到客户端，就会造成客户端卡（缓冲区空），网络好时将队列中的数据全部给客户端（缓冲区变大）。
-
-st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客户端没有问题，若模拟1000个，则CPU简单除以2。
-
-其中，“不适用”是指还未开始测试带宽，所以未记录数据。
-
-其中，srs的三个连接是：
-* FFMPEG推流连接。
-* Forward给nginx RTMP流的一个连接。
-* 观看连接：[播放地址](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=1935&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
-
-其中，nginx-rtmp的两个连接是：
-* SRS forward RTMP的一个连接。
-* 观看连接：[播放地址](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.2.101&port=19350&app=live&stream=livestream&vhost=192.168.2.101&autostart=true)
-
-## 测试SRS服务器
-
-开始启动st-load模拟客户端并发测试SRS的性能。
-
-* 启动500客户端：
+* Start 500 clients
 
 ```bash
 ./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:1935/live/livestream >/dev/null &
 ```
 
-* 客户端开始播放30秒以上，并记录数据：
+* The data:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -269,23 +236,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>100Mbps</td>
   <td>112Mbps</td>
   <td>12.6%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共1000个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 1000 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -295,23 +261,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>200Mbps</td>
   <td>239Mbps</td>
   <td>16.6%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共1500个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 1500 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -321,23 +286,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>300Mbps</td>
   <td>360Mbps</td>
   <td>17%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共2000个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 2000 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -347,23 +311,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>400Mbps</td>
   <td>480Mbps</td>
   <td>22%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共2500个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 2500 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -373,33 +336,31 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>500Mbps</td>
   <td>613Mbps</td>
   <td>24%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-由于虚拟机能力的限制，只能测试到2500并发。
+## Benchmark NginxRTMP
 
-## 测试nginx-rtmp服务器
+Let's start performance benchmark.
 
-开始启动st-load模拟客户端并发测试SRS的性能。
-
-* 启动500客户端：
+* Start 500 clients:
 
 ```bash
 ./objs/st_rtmp_load -c 500 -r rtmp://127.0.0.1:19350/live/livestream >/dev/null &
 ```
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 500 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -409,25 +370,23 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>100Mbps</td>
   <td>120Mbps</td>
   <td>16.3%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共1000个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 1000 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
-<tr>
   <td>nginx-rtmp</td>
   <td>27.3%</td>
   <td>19MB</td>
@@ -435,23 +394,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>200Mbps</td>
   <td>240Mbps</td>
   <td>30%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共1500个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 1500 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -461,23 +419,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>300Mbps</td>
   <td>400Mbps</td>
   <td>31%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共2000个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 2000 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -487,23 +444,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>400Mbps</td>
   <td>520Mbps</td>
   <td>33%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-* 再启动一个模拟500个连接的st-load，共2500个连接。
-* 客户端开始播放30秒以上，并记录数据：
+* The data for 2500 clients:
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -513,26 +469,22 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
   <td>500Mbps</td>
   <td>580Mbps</td>
   <td>35%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-由于虚拟机能力的限制，只能测试到2500并发。
-
-## 性能对比
-
-CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
+## Performance Compare
 
 <table>
 <tr>
   <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
+  <td>CPU</td>
+  <td>Memory</td>
+  <td>Clients</td>
+  <td>ExpectNbps</td>
+  <td>ActualNbps</td>
   <td>st-load</td>
-  <td>客户端延迟</td>
+  <td>Latency</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -542,7 +494,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>100Mbps</td>
   <td>120Mbps</td>
   <td>16.3%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -552,7 +504,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>100Mbps</td>
   <td>112Mbps</td>
   <td>12.6%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -562,7 +514,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>200Mbps</td>
   <td>240Mbps</td>
   <td>30%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -572,7 +524,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>200Mbps</td>
   <td>239Mbps</td>
   <td>16.6%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -582,7 +534,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>300Mbps</td>
   <td>400Mbps</td>
   <td>31%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -592,7 +544,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>300Mbps</td>
   <td>360Mbps</td>
   <td>17%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -602,7 +554,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>400Mbps</td>
   <td>520Mbps</td>
   <td>33%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -612,7 +564,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>400Mbps</td>
   <td>480Mbps</td>
   <td>22%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>nginx-rtmp</td>
@@ -622,7 +574,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>500Mbps</td>
   <td>580Mbps</td>
   <td>35%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 <tr>
   <td>SRS</td>
@@ -632,13 +584,13 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
   <td>500Mbps</td>
   <td>613Mbps</td>
   <td>24%</td>
-  <td>0.8秒</td>
+  <td>0.8s</td>
 </tr>
 </table>
 
-## 性能例行报告:4k
+## Performance Banchmark 4k
 
-今天做了性能优化，默认演示流（即采集doc/source.200kbps.768x320.flv文件为流）达到4k以上并发没有问题。
+The performance is refined to support about 4k clients.
 
 ```
 [winlin@dev6 srs]$ ./objs/srs -v
@@ -680,12 +632,11 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
  34  18  32   0   0  16|   0    30k| 104M  104M|   0     0 |4456  5718 
 ```
 
-![SRS监控4k并发](http://winlinvip.github.io/srs.release/wiki/images/srs.4k.png)
+![SRS 4k](http://winlinvip.github.io/srs.release/wiki/images/srs.4k.png)
 
-不过我是在虚拟机测试，物理机的实际情况还有待数据观察。
+## Performance Banchmark 6k
 
-## 性能例行报告:6k
+SRS2.0, not SRS1.0, performance is refined to support 6k clients.
+That is 4Gbps for 522kbps bitrate, for a single SRS process.
 
-SRS2.0（注意是SRS2.0，而不是SRS1.0）支持6k客户端，522kbps的流可以跑到近4Gbps带宽，单进程。
-
-Winlin 2014.2
+Winlin 2014.11
