@@ -152,13 +152,14 @@ sudo apt-get update
 * 安装lsb_release，package打包需要：`sudo aptitude install -y lsb_release`
 * 安装zip，打包需要：`sudo aptitude install -y zip`
 * 编译srs：`./configure --pi && make`
-* 打包srs：`./scripts/package-raspberrypi.sh`
+* 打包srs：`./scripts/package.sh --pi`
 
-就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。因为在pi下面编译比较慢，所以打包时用no-build，这样在改动代码后可以很快编译（package的编译会重新configure，参数也不对，会加入ffmpeg支持之类）。
+就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。
 
 ## Armel和Armhf
 
-有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
+有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。
+参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
 
 写一个简单的测试程序，测试编译环境：
 
@@ -301,7 +302,8 @@ not stripped
 
 ## ARM和License
 
-ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
+ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，
+对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
 
 License也是很多ARM厂商考虑SRS的原因。
 
@@ -352,6 +354,11 @@ st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开�
 * i386的sp偏移量是4：env[0].__jmp_buf[4]=(long)sp
 * x86_64的sp偏移量是6：env[0].__jmp_buf[6]=(long)sp
 * armhf(v7cpu)的sp偏移量是8，但是st写的是20，所以就崩溃了。
+
+实际上是因为i386和x86_64的setjmp是汇编写的，st自己实现的，所以这个偏移量是有效的。
+但是对于arm，st是使用的默认的setjmp，即libc的函数，而libc的这个jmpbuf是有变更的，
+在2.4以上甚至都不是公开的了（这是为何st要自己实现的原因），具体参考：
+[bug #182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
 
 ```bash
 // md.h
