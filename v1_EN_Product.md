@@ -23,6 +23,7 @@ SRS release 1.0, about 1 year and the main aims:
 * Features for CDN, for example, the vhost, http api, reload, tracable log and wiki. Vhost is very important for CDN to serve multiple customers specified by vhost on the same live streaming platform. Reload is neccessary to adjust at any time. Tracable to finger out what happent when get problem.
 * Full utest and benchmark mechenism: utest for core, kernel, protocol and some components of app. performance bechmark by gperf and gprof.
 * For ARM and MIPS, SRS can running on raspberry-pi and cubieboard.
+* High performance, supports 2.7k clients.
 
 SRS 1.0 beta is ok at 2014.10. We plan to release SRS 1.0 at 2014.12.
 
@@ -32,6 +33,8 @@ The bug hotfixed for 1.0release：[hotfixes](https://github.com/winlinvip/simple
 
 SRS release 2.0, about 6 months and the main aims:
 
+* Support English wiki(EN+CN).
+* Enhance performance, supports 6k clients. 
 * Research and simplify st, remove platform code to only support linux/arm.
 * Simplify RTMP packet send mechenism, base on better knowlegement of st.
 * Other small changes, for example, dvr to stream plan, add h264 to rtmp interface for srs-librtmp.
