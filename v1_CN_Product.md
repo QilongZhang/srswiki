@@ -38,7 +38,7 @@ SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 * 提升性能，支持6k并发。参考：[#194](https://github.com/winlinvip/simple-rtmp-server/issues/194)
 * srs-librtmp支持发送h.264裸码流。参考：[#66](https://github.com/winlinvip/simple-rtmp-server/issues/66)
 * 学习和简化st，只保留linux/arm部分代码。参考：[#182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
-* srs-librtmp支持windows平台。参考：[bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213), [project](https://github.com/winlinvip/srs.librtmp)
+* srs-librtmp支持windows平台。参考：[bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213), 以及[srs-librtmp](https://github.com/winlinvip/srs.librtmp)
 * 其他小功能的完善。
 
 ## Backlog
