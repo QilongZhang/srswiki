@@ -213,6 +213,69 @@ srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, 
 
 使用：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
 
+## Publish Audio Raw Stream
+
+srs-librtmp提供了api可以将音频裸码流发布到SRS。
+
+API定义如下：
+
+```
+/**
+* write an audio raw frame to srs.
+* not similar to h.264 video, the audio never aggregated, always
+* encoded one frame by one, so this api is used to write a frame.
+*
+* @param sound_format Format of SoundData. The following values are defined:
+*               0 = Linear PCM, platform endian
+*               1 = ADPCM
+*               2 = MP3
+*               3 = Linear PCM, little endian
+*               4 = Nellymoser 16 kHz mono
+*               5 = Nellymoser 8 kHz mono
+*               6 = Nellymoser
+*               7 = G.711 A-law logarithmic PCM
+*               8 = G.711 mu-law logarithmic PCM
+*               9 = reserved
+*               10 = AAC
+*               11 = Speex
+*               14 = MP3 8 kHz
+*               15 = Device-specific sound
+*               Formats 7, 8, 14, and 15 are reserved.
+*               AAC is supported in Flash Player 9,0,115,0 and higher.
+*               Speex is supported in Flash Player 10 and higher.
+* @param sound_rate Sampling rate. The following values are defined:
+*               0 = 5.5 kHz
+*               1 = 11 kHz
+*               2 = 22 kHz
+*               3 = 44 kHz
+* @param sound_size Size of each audio sample. This parameter only pertains to
+*               uncompressed formats. Compressed formats always decode
+*               to 16 bits internally.
+*               0 = 8-bit samples
+*               1 = 16-bit samples
+* @param sound_type Mono or stereo sound
+*               0 = Mono sound
+*               1 = Stereo sound
+* @param aac_packet_type The following values are defined:
+*               0 = AAC sequence header
+*               1 = AAC raw
+* @param timestamp The timestamp of audio.
+*
+* @remark Ignore aac_packet_type if not aac(sound_format!=10).
+*
+* @see https://github.com/winlinvip/simple-rtmp-server/issues/212
+* @see E.4.2.1 AUDIODATA of video_file_format_spec_v10_1.pdf
+* 
+* @return 0, success; otherswise, failed.
+*/
+extern int srs_audio_write_raw_frame(srs_rtmp_t rtmp, 
+    char sound_format, char sound_rate, char sound_size, char sound_type,
+    char aac_packet_type, char* frame, int frame_size, u_int32_t timestamp
+);
+```
+
+调用实例参考[#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c，参考[examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+
 ## srs-librtmp Examples
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
@@ -225,6 +288,7 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_flv_parser.c：FLV文件查看工具。
 * research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
 * research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
+* research/librtmp/srs_audio_raw_publish.c: Audio裸码流发布到SRS实例。
 
 ## 运行实例
 
