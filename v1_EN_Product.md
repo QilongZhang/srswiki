@@ -40,6 +40,12 @@ SRS release 2.0, about 6 months and the main aims:
 * srs-librtmp compile on windows, read [bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213) and [srs-librtmp](https://github.com/winlinvip/srs.librtmp)
 * Other small changes.
 
+## Release3.0
+
+SRS release 3.0, in researching now, no milestone. The main aims:
+
+* SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
+
 ## Backlog
 
 SRS 3.0+ features backlog:
