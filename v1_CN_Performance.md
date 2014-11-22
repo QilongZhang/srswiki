@@ -686,7 +686,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 ## 性能例行报告:6k
 
-SRS2.0.15（注意是SRS2.0，而不是SRS1.0）支持6k客户端，522kbps的流可以跑到近4Gbps带宽，单进程。
+SRS2.0.15（注意是SRS2.0，而不是SRS1.0）支持6k客户端，522kbps的流可以跑到近4Gbps带宽，单进程。参考：https://github.com/winlinvip/simple-rtmp-server/issues/194
 
 ## 性能例行报告:7.5k
 
