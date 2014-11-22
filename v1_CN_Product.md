@@ -41,6 +41,12 @@ SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 * srs-librtmp支持windows平台。参考：[bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213), 以及[srs-librtmp](https://github.com/winlinvip/srs.librtmp)
 * 其他小功能的完善。
 
+## Release3.0
+
+SRS release 3.0，预研阶段，没有时间表。主要的目标是：
+
+* SRS.GO，转向GO语言。参考：[SRS.GO项目](https://github.com/winlinvip/srs.go)，以及[GO性能评测](http://blog.csdn.net/win_lin/article/details/41379799)
+
 ## Backlog
 
 SRS 3.0+ 的功能列表，可能的方向：
