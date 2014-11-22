@@ -637,7 +637,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 ## Performance Banchmark 6k
 
 SRS2.0.15, not SRS1.0, performance is refined to support 6k clients.
-That is 4Gbps for 522kbps bitrate, for a single SRS process.
+That is 4Gbps for 522kbps bitrate, for a single SRS process. Read https://github.com/winlinvip/simple-rtmp-server/issues/194
 
 ## Performance Banchmark 7.5k
 
