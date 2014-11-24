@@ -303,6 +303,10 @@ extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 
 调用实例参考[#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c和srs_aac_raw_publish.c，参考[examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
+参考：https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63755405
+
+使用实例：https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-64164018
+
 ## srs-librtmp Examples
 
 SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
