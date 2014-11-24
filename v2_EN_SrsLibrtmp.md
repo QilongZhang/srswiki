@@ -293,6 +293,10 @@ extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 
 The example for bug [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
+About the api, read https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63755405
+
+About to use the example, read https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-64164018
+
 ## srs-librtmp Examples
 
 The examples for srs-librtmp, automatically build when build SRS:
