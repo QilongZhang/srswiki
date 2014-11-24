@@ -205,7 +205,7 @@ About to use the api, read https://github.com/winlinvip/simple-rtmp-server/issue
 
 ## Publish Audio Raw Stream
 
-srs-librtmp provides api to publish raw audio frame to SRS.
+srs-librtmp provides api to publish raw audio frame to SRS, and supports aac adts format stream.
 
 The api:
 
@@ -291,7 +291,7 @@ extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
 extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
-The example for bug [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c, read [examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+The example for bug [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
 ## srs-librtmp Examples
 
@@ -306,6 +306,7 @@ The examples for srs-librtmp, automatically build when build SRS:
 * research/librtmp/srs_detect_rtmp.c: Use srs-librtmp to detect the RTMP stream status.
 * research/librtmp/srs_h264_raw_publish.c: Use srs-librtmp to publish h.264 raw stream to RTMP server.
 * research/librtmp/srs_audio_raw_publish.c: Use srs-librtmp to publish audio raw stream to RTMP server.
+* research/librtmp/srs_aac_raw_publish.c: Use srs-librtmp to publish audio aac adts raw stream to RTMP server.
 
 ## Run Examples
 
