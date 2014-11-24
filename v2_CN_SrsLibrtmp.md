@@ -215,7 +215,7 @@ srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, 
 
 ## Publish Audio Raw Stream
 
-srs-librtmp提供了api可以将音频裸码流发布到SRS。
+srs-librtmp提供了api可以将音频裸码流发布到SRS，支持AAC ADTS格式。
 
 API定义如下：
 
@@ -301,7 +301,7 @@ extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
 extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
-调用实例参考[#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c，参考[examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+调用实例参考[#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c和srs_aac_raw_publish.c，参考[examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
 ## srs-librtmp Examples
 
@@ -316,6 +316,7 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_detect_rtmp.c：RTMP流检测工具。
 * research/librtmp/srs_h264_raw_publish.c：H.264裸码流发布到SRS实例。
 * research/librtmp/srs_audio_raw_publish.c: Audio裸码流发布到SRS实例。
+* research/librtmp/srs_aac_raw_publish.c: Audio AAC ADTS裸码流发布到SRS实例。
 
 ## 运行实例
 
