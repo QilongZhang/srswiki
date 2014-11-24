@@ -246,12 +246,15 @@ The api:
 * @param sound_type Mono or stereo sound
 *               0 = Mono sound
 *               1 = Stereo sound
-* @param aac_packet_type The following values are defined:
-*               0 = AAC sequence header
-*               1 = AAC raw
 * @param timestamp The timestamp of audio.
 *
-* @remark Ignore aac_packet_type if not aac(sound_format!=10).
+* @example /trunk/research/librtmp/srs_aac_raw_publish.c
+* @example /trunk/research/librtmp/srs_audio_raw_publish.c
+*
+* @remark for aac, the frame must be in ADTS format. 
+*       @see aac-mp4a-format-ISO_IEC_14496-3+2001.pdf, page 75, 1.A.2.2 ADTS
+* @remark for aac, only support profile 1-4, AAC main/LC/SSR/LTP,
+*       @see aac-mp4a-format-ISO_IEC_14496-3+2001.pdf, page 23, 1.5.1.1 Audio object type
 *
 * @see https://github.com/winlinvip/simple-rtmp-server/issues/212
 * @see E.4.2.1 AUDIODATA of video_file_format_spec_v10_1.pdf
@@ -260,8 +263,32 @@ The api:
 */
 extern int srs_audio_write_raw_frame(srs_rtmp_t rtmp, 
     char sound_format, char sound_rate, char sound_size, char sound_type,
-    char aac_packet_type, char* frame, int frame_size, u_int32_t timestamp
+    char* frame, int frame_size, u_int32_t timestamp
 );
+
+/**
+* whether aac raw data is in adts format,
+* which bytes sequence matches '1111 1111 1111'B, that is 0xFFF.
+* @param aac_raw_data the input aac raw data, a encoded aac frame data.
+* @param ac_raw_size the size of aac raw data.
+*
+* @reamrk used to check whether current frame is in adts format.
+*       @see aac-mp4a-format-ISO_IEC_14496-3+2001.pdf, page 75, 1.A.2.2 ADTS
+* @example /trunk/research/librtmp/srs_aac_raw_publish.c
+*
+* @return 0 false; otherwise, true.
+*/
+extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
+
+/**
+* parse the adts header to get the frame size,
+* which bytes sequence matches '1111 1111 1111'B, that is 0xFFF.
+* @param aac_raw_data the input aac raw data, a encoded aac frame data.
+* @param ac_raw_size the size of aac raw data.
+*
+* @return failed when <=0 failed; otherwise, ok.
+*/
+extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
 The example for bug [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c, read [examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
