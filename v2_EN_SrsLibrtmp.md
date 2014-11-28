@@ -311,6 +311,7 @@ The examples for srs-librtmp, automatically build when build SRS:
 * research/librtmp/srs_h264_raw_publish.c: Use srs-librtmp to publish h.264 raw stream to RTMP server.
 * research/librtmp/srs_audio_raw_publish.c: Use srs-librtmp to publish audio raw stream to RTMP server.
 * research/librtmp/srs_aac_raw_publish.c: Use srs-librtmp to publish audio aac adts raw stream to RTMP server.
+* research/librtmp/srs_rtmp_dump.c: Use srs-librtmp to dump rtmp stream to flv file.
 
 ## Run Examples
 
