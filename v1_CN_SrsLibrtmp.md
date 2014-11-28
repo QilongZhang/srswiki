@@ -6,7 +6,7 @@ librtmp是一个客户端库，好像是rtmpdump提供的一个客户端RTMP库�
 
 librtmp的主要应用场景包括：
 * 播放RTMP流：譬如rtmpdump，将服务器的流读取后保存为flv文件。
-* 推流？不知道是否提供推流接口，可能有。
+* 推流：提供推流到RTMP服务器。
 * 基于同步阻塞socket，客户端用可以了。
 * arm？可能能编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
 
