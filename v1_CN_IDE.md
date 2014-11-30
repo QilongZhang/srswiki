@@ -4,6 +4,10 @@ windows/linux下开发srs的IDE：[http://blog.csdn.net/win_lin/article/details/
 
 我也比较过其他的IDE，可以参考：[开源日志：关于IDE/源代码编辑](http://blog.csdn.net/win_lin/article/details/8142981)
 
+## QtCreator
+
+SRS添加了QT的配置文件，使用QT打开`simple-rtmp-server/trunk/src/qt/srs/srs-qt.pro`即可。
+
 ## JetBrains
 
 JetBrains终于放出来c++的IDE了。目前是60天的预览版，下载：[http://www.jetbrains.com/clion/](http://www.jetbrains.com/clion/)
@@ -58,6 +62,8 @@ http://sourceforge.net/project/downloading.php?group_id=93970&filename=upp-win32
 ![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/002.setup.assembly.png)
 
 ![导入srs](http://winlinvip.github.io/srs.release/wiki/images/upp/003.open.assembly.png)
+
+注意：upp的工程文件改成了`simple-rtmp-server/trunk/src/upp/srs.upp`
 
 <strong>OK</strong>
 
