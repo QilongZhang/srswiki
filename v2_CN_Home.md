@@ -80,9 +80,9 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Reload)
 
-## [低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
+## [低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_LowLatency)
 
-如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LowLatency)
+如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_LowLatency)
 
 ## [HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPCallback)
 
