@@ -33,6 +33,58 @@ When netowork is ok:
 * The gop cache always make the latency larger, but SRS can disable the gop cache.
 * The bufferTime of flash client should set to small, see NetStream.bufferTime.
 
+## Merged-Read
+
+The perfromance of RTMP read is very low, because we must read 1byte chunk type, then chunk header, finally payload. So SRS 1.0 only supports 1000 publisher, and 2700 player. SRS 2.0 supports 4500 publisher, and 10000 player.
+
+To improve the read performance, SRS2.0 introduced the merged-read, which read Nms packets from socket then parsed in buffer. The config:
+
+```
+# the MR(merged-read) setting for publisher.
+vhost mrw.srs.com {
+    # about MR, read https://github.com/winlinvip/simple-rtmp-server/issues/241
+    mr {
+        # whether enable the MR(merged-read)
+        # default: off
+        enabled     on;
+        # the latency in ms for MR(merged-read),
+        # the performance+ when latency+, and memory+,
+        #       memory(buffer) = latency * kbps / 8
+        # for example, latency=500ms, kbps=3000kbps, each publish connection will consume
+        #       memory = 500 * 3000 / 8 = 187500B = 183KB
+        # when there are 2500 publisher, the total memory of SRS atleast:
+        #       183KB * 2500 = 446MB
+        # the value recomment is [300, 2000]
+        # default: 350
+        latency     350;
+    }
+}
+```
+
+That is, when merged-read enabled, the read buffer of SRS is `latency` ms, the latency also increase to this value.
+
+For low latency, user should disable merged-read, SRS will recv and parse the packet immediately.
+
+## Merged-Write
+
+SRS always use merged-write to send packets. This algorithm can improve about 500% performance, for example, SRS 1.0 writev a packet which supports 2700 clients, while SRS 2.0 writev multiple packets and supports 10000 clients.
+
+User can config the merged write pacets in ms, recomment to use default value:
+
+```
+# the MW(merged-write) settings for player.
+vhost mrw.srs.com {
+    # set the MW(merged-write) latency in ms. 
+    # SRS always set mw on, so we just set the latency value.
+    # the latency of stream >= mw_latency + mr_latency
+    # the value recomment is [300, 1800]
+    # default: 350
+    mw_latency      350;
+}
+```
+
+User can config this to 100ms for very low latency.
+
 ## GOP-Cache
 
 The gop is the gop between two I frame.
