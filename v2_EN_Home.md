@@ -80,9 +80,9 @@ Does SRS support DRM? How to config refer DRM? How to implement token DRM? Does 
 
 How to reload SRS? How to add new vhost and donot restart server? How to change config and donot start server? Please see: [Reload](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Reload)
 
-## [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+## [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_LowLatency)
 
-How to use SRS in pseudo realtime? What is the latency? What is the mininum latency of SRS in commercial scenario, for example, CDN network? Please see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+How to use SRS in pseudo realtime? What is the latency? What is the mininum latency of SRS in commercial scenario, for example, CDN network? Please see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_LowLatency)
 
 ## [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
 
