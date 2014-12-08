@@ -41,6 +41,58 @@ HLS解决延时，就像是爬到枫树上去捉鱼，奇怪的是还有人喊�
 * 服务器性能太低，也会导致延迟变大，服务器来不及发送数据。
 * 客户端的缓冲区长度也影响延迟。譬如flash客户端的NetStream.bufferTime设置为10秒，那么延迟至少10秒以上。
 
+## Merged-Read
+
+RTMP的Read效率非常低，需要先读一个字节，判断是哪个chunk，然后读取header，接着读取payload。因此上行支持的流的路数大约只有下行的1/3，譬如SRS1.0支持下行2700上行只有1000，SRS2.0支持下行10000上行只有4500。
+
+为了提高性能，SRS对于上行的read使用merged-read，即SRS在读写时一次读取N毫秒的数据，这个可以配置：
+
+```
+# the MR(merged-read) setting for publisher.
+vhost mrw.srs.com {
+    # about MR, read https://github.com/winlinvip/simple-rtmp-server/issues/241
+    mr {
+        # whether enable the MR(merged-read)
+        # default: off
+        enabled     on;
+        # the latency in ms for MR(merged-read),
+        # the performance+ when latency+, and memory+,
+        #       memory(buffer) = latency * kbps / 8
+        # for example, latency=500ms, kbps=3000kbps, each publish connection will consume
+        #       memory = 500 * 3000 / 8 = 187500B = 183KB
+        # when there are 2500 publisher, the total memory of SRS atleast:
+        #       183KB * 2500 = 446MB
+        # the value recomment is [300, 2000]
+        # default: 350
+        latency     350;
+    }
+}
+```
+
+也就是说，当开启merged-read之后，服务器的接收缓冲区至少会有latency毫秒的数据，延迟也就会有这么多毫秒。
+
+若需要低延迟配置，关闭merged-read，服务器每次收到1个包就会解析。
+
+## Merged-Write
+
+SRS永远使用Merged-Write，即一次发送N毫秒的包给客户端。这个算法可以将RTMP下行的效率提升5倍左右，SRS1.0每次writev一个packet支持2700客户端，SRS2.0一次writev多个packet支持10000客户端。
+
+用户可以配置merged-write一次写入的包的数目，建议不做修改：
+
+```
+# the MW(merged-write) settings for player.
+vhost mrw.srs.com {
+    # set the MW(merged-write) latency in ms. 
+    # SRS always set mw on, so we just set the latency value.
+    # the latency of stream >= mw_latency + mr_latency
+    # the value recomment is [300, 1800]
+    # default: 350
+    mw_latency      350;
+}
+```
+
+若需要极低延迟（损失较多性能），可以设置为100毫秒，SRS大约一次发送几个包。
+
 ## GOP-Cache
 
 什么是GOP？就是视频流中两个I帧的时间距离，如果问什么是I帧就去百度。
