@@ -196,9 +196,9 @@ Usage: How to ingest file to live stream? How to ingest exists stream to SRS? Ho
 
 Usage: How to use SRS to build tiny cluster? How to build origin backup cluster when only one stream? How to forward stream to other servers from SRS? How to forward stream to backup server from SRS? Please see: [Usage: Forward](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleForward)
 
-## [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRealtime)
+## [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime)
 
-Usage: How to descrease the lantecy to <1s? How to config SRS in mininum latency mode? Please see: [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRealtime)
+Usage: How to descrease the lantecy to <1s? How to config SRS in mininum latency mode? Please see: [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime)
 
 ## [Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleARM)
 
