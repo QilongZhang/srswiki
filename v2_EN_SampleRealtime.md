@@ -36,7 +36,7 @@ vhost __defaultVhost__ {
     gop_cache       off;
     queue_length    10;
     mr {
-        enabled     on;
+        enabled     off;
     }
     mw_latency      100;
 }
