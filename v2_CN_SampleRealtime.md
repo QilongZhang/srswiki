@@ -36,6 +36,7 @@ max_connections     1000;
 vhost __defaultVhost__ {
     gop_cache       off;
     queue_length    10;
+    min_latency     on;
     mr {
         enabled     off;
     }
