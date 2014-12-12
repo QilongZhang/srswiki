@@ -40,6 +40,7 @@ SRS release 2.0, about 6 months and the main aims:
 * The srs-librtmp compile on windows, read [bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213) and [srs-librtmp](https://github.com/winlinvip/srs.librtmp)
 * Simplify the handshake, use template method to remove union. Read [#235](https://github.com/winlinvip/simple-rtmp-server/issues/235) 
 * The srs-librtmp supports hijack io for [st-load](https://github.com/winlinvip/st-load).
+* Support min-latency(realtime) mode, 0.1s+ latency. Read [#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)
 * Other small changes.
 
 ## Release3.0
