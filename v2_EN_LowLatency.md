@@ -37,7 +37,7 @@ When netowork is ok:
 
 When min-latency is enabled, SRS will diable the mr(merged-read) and use timeout cond wait, to send about 1-2 video packets when got it.
 
-The config:
+We can got 0.1s latency for vp6 video only stream, read [#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208). The config:
 
 ```
 vhost mrw.srs.com {
@@ -50,6 +50,8 @@ vhost mrw.srs.com {
     min_latency     off;
 }
 ```
+
+For example to deploy realtime stream, read [wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleRealtime)).
 
 ## Merged-Read
 
