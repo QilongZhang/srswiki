@@ -41,6 +41,7 @@ SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 * srs-librtmp支持windows平台。参考：[bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213), 以及[srs-librtmp](https://github.com/winlinvip/srs.librtmp)
 * 简化握手，使用模板方法代替union。参考：[#235](https://github.com/winlinvip/simple-rtmp-server/issues/235)
 * srs-librtmp支持劫持IO，应用于[st-load](https://github.com/winlinvip/st-load).
+* 支持实时模式，最低支持0.1秒延迟。参考：[#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)
 * 其他小功能的完善。
 
 ## Release3.0
