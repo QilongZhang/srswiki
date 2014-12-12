@@ -33,6 +33,24 @@ When netowork is ok:
 * The gop cache always make the latency larger, but SRS can disable the gop cache.
 * The bufferTime of flash client should set to small, see NetStream.bufferTime.
 
+## Min-Latency
+
+When min-latency is enabled, SRS will diable the mr(merged-read) and use timeout cond wait, to send about 1-2 video packets when got it.
+
+The config:
+
+```
+vhost mrw.srs.com {
+    # whether enable min delay mode for vhost.
+    # for min latence mode:
+    # 1. disable the mr for vhost.
+    # 2. use timeout for cond wait for consumer queue.
+    # @see https://github.com/winlinvip/simple-rtmp-server/issues/257
+    # default: on
+    min_latency     off;
+}
+```
+
 ## Merged-Read
 
 The perfromance of RTMP read is very low, because we must read 1byte chunk type, then chunk header, finally payload. So SRS 1.0 only supports 1000 publisher, and 2700 player. SRS 2.0 supports 4500 publisher, and 10000 player.
