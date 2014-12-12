@@ -41,6 +41,26 @@ HLS解决延时，就像是爬到枫树上去捉鱼，奇怪的是还有人喊�
 * 服务器性能太低，也会导致延迟变大，服务器来不及发送数据。
 * 客户端的缓冲区长度也影响延迟。譬如flash客户端的NetStream.bufferTime设置为10秒，那么延迟至少10秒以上。
 
+## Min-Latency
+
+当开启最低延迟配置后，SRS会禁用mr(merged-read)，并且在consumer队列中使用超时等待，大约每收到1-2个视频包就发送给客户端，达到最低延迟目标。
+
+测试vp6纯视频流能达到0.1秒延迟，参考[#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)。配置文件：
+
+```
+vhost mrw.srs.com {
+    # whether enable min delay mode for vhost.
+    # for min latence mode:
+    # 1. disable the mr for vhost.
+    # 2. use timeout for cond wait for consumer queue.
+    # @see https://github.com/winlinvip/simple-rtmp-server/issues/257
+    # default: on
+    min_latency     off;
+}
+```
+
+部署低延时的实例，参考：[wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleRealtime)).
+
 ## Merged-Read
 
 RTMP的Read效率非常低，需要先读一个字节，判断是哪个chunk，然后读取header，接着读取payload。因此上行支持的流的路数大约只有下行的1/3，譬如SRS1.0支持下行2700上行只有1000，SRS2.0支持下行10000上行只有4500。
