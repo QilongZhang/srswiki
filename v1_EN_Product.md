@@ -16,7 +16,7 @@ Notes: the conceptual integrity refer to Brooks.
 
 ## Release1.0
 
-SRS release 1.0, about 1 year and the main aims:
+SRS release 1.0, about 1 year and the main goals:
 
 * Live stream for internet application: the RTMP and HLS stream delivering, support any origin, encoder and player.
 * Dozens of features, for example, Foward, Transcode, Ingest, DVR, to build your application very fast and stable. Comparing to FMS, user need a server-side dvr script and click the DVR button on FMLE, SRS only need 3lines conf to enable the dvr feature.
@@ -31,7 +31,7 @@ The hotfixes of SRS 1.0, read [hotfixes](https://github.com/winlinvip/simple-rtm
 
 ## Release2.0
 
-SRS release 2.0, about 6 months and the main aims:
+SRS release 2.0, about 6 months and the main goals:
 
 * Support English wiki(EN+CN).
 * Enhance performance, supports 10k+ play and 4.5k+ publish. Read [#194](https://github.com/winlinvip/simple-rtmp-server/issues/194), [#237](https://github.com/winlinvip/simple-rtmp-server/issues/237) and [#251](https://github.com/winlinvip/simple-rtmp-server/issues/251)
@@ -45,7 +45,7 @@ SRS release 2.0, about 6 months and the main aims:
 
 ## Release3.0
 
-SRS release 3.0, in researching now, no milestone. The main aims:
+SRS release 3.0, in researching now, no milestone. The main goals:
 
 * SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 
