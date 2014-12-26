@@ -12,17 +12,21 @@
 git pull && git checkout 1.0release
 ```
 
-如果是2.0的功能，更新代码后要改变到2.0分支（没有单独的2.0release分支就是master）：
+如果是2.0的功能，更新代码后要改变到2.0分支（没有单独的2.0release分支就是develop）：
 
 ```
-git pull && git checkout master
+git pull && git checkout develop
 ```
 
-注意：master是作为开发分支。
+注意：master是作为稳定版本分支。
 
 ## SRS稳定版本
 
 稳定的SRS版本会新建branch，譬如1.0release。
+
+Master分支是目前主要的稳定版本，更新频率也比release低。
+
+Hotfix会在release上提交。多个hotfix或者新的release版本会更新到master。
 
 ## 如何获取SRS代码
 
