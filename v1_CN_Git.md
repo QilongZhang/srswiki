@@ -117,11 +117,11 @@ git pull
 
 一个仓库(project/repository)可以有多个branch，每个commit都可以作为tag（里程碑，一般release分支有）。
 
-SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，所以没有feature分支；也没有hotfix分支，直接在对应的release分支hotfix后打tag；SRS也没有develop分支，把master作为develop分支。
+SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，所以没有feature分支；也没有hotfix分支，直接在对应的release分支hotfix后打tag。
 
-SRS只有master（develop）和release分支，假设现在是SRS4.0时代，那么master就是正在开发的SRS4.0，有三个release分支分别是1.0release、2.0release和3.0release。
+SRS只有master，develop和release分支；master是主要的稳定版本分支，release是各个稳定版本的分支，develop是开发版分支。
 
-也就是说SRS的master是开发版，其他的release分支是发行版。这个是最简单的git分支使用了。
+譬如，develop开发分支在准备Release1.0时，打出Release1.0分支，冻结功能，测试并发布。Release发布后，merge到master作为主要版本发布。
 
 ![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
 
