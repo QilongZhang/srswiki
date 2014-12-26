@@ -118,10 +118,8 @@ Note: The git reset will lost all changes.
 A project/repository can use multiple branches, and each commit can used as tag.
 
 SRS use simple branch strategy, no feature branch, no hotfix branch.
-The master is used as develop branch, each release will create branch, 
-for example, 1.0release.
 
-That is, master is develop branch, other branches is releaase.
+Master is the main stable branch. Release is each release with bug fixed. Develop is the development branch.
 
 ![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
 
