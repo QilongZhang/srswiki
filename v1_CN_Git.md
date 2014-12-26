@@ -121,6 +121,8 @@ SRS使用的branch策略稍微不一样，SRS不会同时开发多个版本，�
 
 SRS只有master，develop和release分支；master是主要的稳定版本分支，release是各个稳定版本的分支，develop是开发版分支。
 
+![srs branch](http://winlinvip.github.io/srs.release/wiki/images/srs.branches.png)
+
 譬如，develop开发分支在准备Release1.0时，打出Release1.0分支，冻结功能，测试并发布。Release发布后，merge到master作为主要版本发布。
 
 ![Git Branch Model](http://winlinvip.github.io/srs.release/wiki/images/git.branch.png)
