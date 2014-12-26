@@ -13,17 +13,19 @@ To checkout SRS1.0 branch:
 git pull && git checkout 1.0release
 ```
 
-To checkout SRS2.0 branch(if no 2.0release branch, it's master):
+To checkout SRS2.0 branch(if no 2.0release branch, it's develop):
 
 ```
-git pull && git checkout master
+git pull && git checkout develop
 ```
 
-Note: The master branch is used as dev branch.
+Note: The master branch is main release.
 
 ## SRS Stable Version
 
 The stable SRS will create a new branch, for example, branch 1.0release.
+
+Master branch used to release current big release with lots of hotfix or new release.
 
 ## How to get code?
 
