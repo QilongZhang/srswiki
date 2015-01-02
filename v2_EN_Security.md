@@ -2,4 +2,39 @@
 
 SRS provides simple security strategy to allow or deny specifies clients.
 
+## Config
+
+The config for security of vhost:
+
+```
+# the security to allow or deny clients.
+vhost security.srs.com {
+    # security for host to allow or deny clients.
+    # @see https://github.com/winlinvip/simple-rtmp-server/issues/211   
+    security {
+        # whether enable the security for vhost.
+        # default: off
+        enabled         on;
+        # the security list, each item format as:
+        #       allow|deny    publish|play    all|<ip>
+        # for example:
+        #       allow           publish     all;
+        #       deny            publish     all;
+        #       allow           publish     127.0.0.1;
+        #       deny            publish     127.0.0.1;
+        #       allow           play        all;
+        #       deny            play        all;
+        #       allow           play        127.0.0.1;
+        #       deny            play        127.0.0.1;
+        # SRS apply the following simple strategies one by one:
+        #       1. allow all if security disabled.
+        #       2. default to deny all when security enabled.
+        #       3. allow if matches allow strategy.
+        #       4. deny if matches deny strategy.
+        allow           play        all;
+        allow           publish     all;
+    }
+}
+```
+
 Winlin 2015.1
