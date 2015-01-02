@@ -48,4 +48,8 @@ SRS应用安全策略的方式是:
 
 关于这个功能的Bug，参考：[#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
 
+## Reload
+
+当Reload改变security配置后，只影响新连接的客户端，已经连接的客户端不受影响。
+
 Winlin 2015.1
