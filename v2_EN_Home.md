@@ -104,6 +104,10 @@ How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, r
 
 How to use SRS for few stream and servers cluster? How to build origin fault backup when only one stream? Please see: [Forward: Tiny Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Forward)
 
+## [Security: Allow or Deny clients](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Security)
+
+How to apply security strategy? How to deny all publish and allow all play? How to deny clients by specified ip? Please see: [Security: Allow or Deny clients](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Security)
+
 ## [Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Performance)
 
 How many concurrency connections can SRS to serve? What about the performance of SRS? We compare the high performance server nginx-rtmp and SRS, and provides some benchmarks for server performance check. Please see: [Performance Benchmark](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Performance)
