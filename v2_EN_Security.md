@@ -37,4 +37,8 @@ vhost security.srs.com {
 }
 ```
 
+## Bug
+
+The bug about this feature, read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
+
 Winlin 2015.1
