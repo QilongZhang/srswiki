@@ -44,6 +44,8 @@ SRS应用安全策略的方式是:
 * 允许客户端，若找到了匹配的允许策略。
 * 禁用客户端，若找到了匹配的禁用策略。
 
+参考配置文件`conf/security.deny.publish.conf`.
+
 ## Bug
 
 关于这个功能的Bug，参考：[#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
