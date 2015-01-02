@@ -41,4 +41,8 @@ vhost security.srs.com {
 
 The bug about this feature, read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
 
+## Reload
+
+When reload the security config, it only effects the new clients.
+
 Winlin 2015.1
