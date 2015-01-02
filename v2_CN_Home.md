@@ -104,6 +104,10 @@ SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么
 
 使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Forward)
 
+## [Security禁用或允许连接](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Security)
+
+如何使用SRS的安全策略？如何禁止客户端推流到SRS，但是允许播放？如何允许某些IP的客户端？参考：[Security禁用或允许连接](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Security)
+
 ## [性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Performance)
 
 对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Performance)
