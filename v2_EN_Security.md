@@ -37,6 +37,8 @@ vhost security.srs.com {
 }
 ```
 
+Please see `conf/security.deny.publish.conf` for detail.
+
 ## Bug
 
 The bug about this feature, read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
