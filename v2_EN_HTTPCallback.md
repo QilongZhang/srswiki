@@ -146,6 +146,24 @@ SRS can call the http callback, for events:
 </td>
 <td>When client stop play.</td>
 </tr>
+<tr>
+<td>on_dvr</td>
+<td>
+<pre>
+{
+    "action": "on_dvr",
+    "client_id": 1985,
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
+    "app": "live",
+    "stream": "livestream",
+    "cwd": "/opt",
+    "file": "./l.xxx.flv"
+}
+</pre>
+</td>
+<td>When reap a dvr file.</td>
+</tr>
 </table>
 
 Note:
