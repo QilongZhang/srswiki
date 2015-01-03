@@ -73,4 +73,8 @@ The plan of DVR used to reap flv file:
 
 The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
 
+## Reload
+
+The changing of dvr and reload will restart the dvr, that is, to close current dvr file then apply new config.
+
 Winlin 2014.11
