@@ -81,7 +81,7 @@ DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主�
 * 按年月日以及流信息生成子目录。便于做软链，或者避免一个目录的文件太多（貌似超过几万linux会支持不了）。
 * 按日期和时间以及流信息生成文件名。便于搜索。
 * 提供日期和时间，以及流信息的变量，以中括号代表变量。
-* 保留目前的方式，按照时间戳生成文件名，保存在一个文件夹。
+* 保留目前的方式，按照时间戳生成文件名，保存在一个文件夹。若没有指定文件名（只指定了目录），则默认使用`[stream].[timestamp].flv`作为文件名，和目前保持一致。
 
 关于日期和时间的变量，参考了GO的时间格式化字符串，譬如2006代表YYYY这种，比较方便：
 
@@ -98,11 +98,32 @@ DVR支持的变量包括：
 1. 分：[04]，将这个字符串替换成分。
 1. 秒：[05)，将这个字符串替换成秒。
 1. 毫秒：[999]，将这个字符串替换成毫秒。
+1. 时间戳：[timestamp]，将这个字符串替换成UNIX时间戳，单位是毫秒。
 1. 流相关变量，参考转码：[vhost], [app], [stream]
 
-下面的例子说明了替换方式：
+下面的例子说明了替换方式, url是`rtmp://ossrs.net/live/livestream`，time是`2015-01-03 10:57:30.776`：
 
 <table>
+<tr>
+    <th>Path</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>dvr_path ./objs/nginx/html;</td>
+    <td>dvr_path ./objs/nginx/html;</td>
+</tr>
+<tr>
+    <td>dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;</td>
+    <td>dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;</td>
+</tr>
+<tr>
+    <td>dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;</td>
+    <td>dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;</td>
+</tr>
+<tr>
+    <td>dvr_path /data/[app]/[stream].[timestamp].flv;</td>
+    <td>dvr_path /data/live/livestream.1420254068776.flv;</td>
+</tr>
 </table>
 
 ## Bug
