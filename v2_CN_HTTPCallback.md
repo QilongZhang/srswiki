@@ -10,12 +10,9 @@ HttpCallback的编译选项为`--with-http-callback`，关闭HttpCallback的选�
 
 ## Config SRS
 
-以on_connect为例，当用户连接到vhost/app时，验证客户端的ip，配置文件如下：
+http hooks的配置如下：
 
 ```bash
-# the listen ports, split by space.
-listen              1935;
-vhost __defaultVhost__ {
     http_hooks {
         # whether the http hooks enalbe.
         # default off.
@@ -34,9 +31,91 @@ vhost __defaultVhost__ {
         #       0
         # support multiple api hooks, format:
         #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
-        on_connect      http://127.0.0.1:8085/api/v1/clients;
+        on_connect      http://127.0.0.1:8085/api/v1/clients http://localhost:8085/api/v1/clients;
+        # when client close/disconnect to vhost/app/stream, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_close",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_close http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_close        http://127.0.0.1:8085/api/v1/clients http://localhost:8085/api/v1/clients;
+        # when client(encoder) publish to vhost/app/stream, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_publish",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "stream": "livestream"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_publish http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_publish      http://127.0.0.1:8085/api/v1/streams http://localhost:8085/api/v1/streams;
+        # when client(encoder) stop publish to vhost/app/stream, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_unpublish",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "stream": "livestream"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_unpublish http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_unpublish    http://127.0.0.1:8085/api/v1/streams http://localhost:8085/api/v1/streams;
+        # when client start to play vhost/app/stream, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_play",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "stream": "livestream"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_play http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_play         http://127.0.0.1:8085/api/v1/sessions http://localhost:8085/api/v1/sessions;
+        # when client stop to play vhost/app/stream, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_stop",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "stream": "livestream"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_stop http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_stop         http://127.0.0.1:8085/api/v1/sessions http://localhost:8085/api/v1/sessions;
+        # when srs reap a dvr file, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_dvr",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "stream": "livestream",
+        #           "cwd": "/usr/local/srs",
+        #           "file": "./objs/nginx/html/live/livestream.1420254068776.flv"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        on_dvr          http://127.0.0.1:8085/api/v1/dvrs http://localhost:8085/api/v1/dvrs;
     }
-}
 ```
 
 备注：可以参考conf/full.conf配置文件中的hooks.callback.vhost.com实例。
@@ -144,6 +223,24 @@ SRS的回调事件包括：
 </pre>
 </td>
 <td>当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。</td>
+</tr>
+<tr>
+<td>on_dvr</td>
+<td>
+<pre>
+{
+    "action": "on_dvr",
+    "client_id": 1985,
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
+    "app": "live",
+    "stream": "livestream",
+    "cwd": "/opt",
+    "file": "./l.xxx.flv"
+}
+</pre>
+</td>
+<td>当DVR录制关闭一个flv文件时</td>
 </tr>
 </table>
 
