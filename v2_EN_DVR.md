@@ -157,4 +157,8 @@ The bugs of dvr:
 
 * The dir and filename rules: [#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
 
+## Reload
+
+The changing of dvr and reload will restart the dvr, that is, to close current dvr file then apply new config.
+
 Winlin 2015.1
