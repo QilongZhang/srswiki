@@ -118,6 +118,11 @@ DVR支持的变量包括：
     * =>
     * dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;
 
+1. 按vhost/app和年月分目录，流名称、日和时间作为文件名：
+    * dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
+
 1. 按app分目录，流和时间戳作为文件名（SRS1.0方式）：
     * dvr_path /data/[app]/[stream].[timestamp].flv;
     * =>
