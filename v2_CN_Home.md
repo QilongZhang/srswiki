@@ -70,7 +70,7 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 ## [DVR录制] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR)
 
-如何将直播RTMP流录制为flv文件？参考：[DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR)
+如何将直播RTMP流录制为flv文件？如何自定义dvr的文件名和路径？参考：[DVR] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR)
 
 ## [DRM防盗链] (https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DRM)
 
