@@ -2,11 +2,44 @@
 
 SRS不支持服务器脚本（参考：[服务器端脚本](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_ServerSideScript)），服务器端定制有一个重要的替代功能，就是HTTP回调。譬如当客户端连接到SRS时，回调指定的http地址，这样可以实现验证功能。
 
-## 编译时支持HTTP回调
+## Compile
 
 HTTP回调功能提供了编译选项，可以开启或者关闭这个功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
 
-## HTTP回调事件
+## Config SRS
+
+以on_connect为例，当用户连接到vhost/app时，验证客户端的ip，配置文件如下：
+
+```bash
+# the listen ports, split by space.
+listen              1935;
+vhost __defaultVhost__ {
+    http_hooks {
+        # whether the http hooks enalbe.
+        # default off.
+        enabled         on;
+        # when client connect to vhost/app, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_connect",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
+        #           "pageUrl": "http://www.test.com/live.html"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_connect      http://127.0.0.1:8085/api/v1/clients;
+    }
+}
+```
+
+备注：可以参考conf/full.conf配置文件中的hooks.callback.vhost.com实例。
+
+## HTTP callback events
 
 SRS的回调事件包括：
 
@@ -117,39 +150,6 @@ SRS的回调事件包括：
 * HTTP地址：可以支持多个，以空格分隔，SRS会依次回调这些接口。
 * 数据：SRS将数据POST到HTTP接口。
 * 返回值：SRS要求HTTP服务器返回HTTP200并且response内容为整数错误码（0表示成功），其他错误码会断开客户端连接。
-
-## Config SRS
-
-以on_connect为例，当用户连接到vhost/app时，验证客户端的ip，配置文件如下：
-
-```bash
-# the listen ports, split by space.
-listen              1935;
-vhost __defaultVhost__ {
-    http_hooks {
-        # whether the http hooks enalbe.
-        # default off.
-        enabled         on;
-        # when client connect to vhost/app, call the hook,
-        # the request in the POST data string is a object encode by json:
-        #       {
-        #           "action": "on_connect",
-        #           "client_id": 1985,
-        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
-        #           "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
-        #           "pageUrl": "http://www.test.com/live.html"
-        #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
-        #       0
-        # support multiple api hooks, format:
-        #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
-        on_connect      http://127.0.0.1:8085/api/v1/clients;
-    }
-}
-```
-
-备注：可以参考conf/full.conf配置文件中的hooks.callback.vhost.com实例。
 
 ## 默认的HTTP服务器
 
