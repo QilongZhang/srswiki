@@ -151,6 +151,10 @@ For example, for url `rtmp://ossrs.net/live/livestream` and time `2015-01-03 10:
     * =>
     * dvr_path /data/live/livestream.1420254068776.flv;
 
+## Http Callback
+
+For more information, read about [HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
+
 ## Bug
 
 The bugs of dvr:
