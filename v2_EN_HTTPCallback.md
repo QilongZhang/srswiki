@@ -5,7 +5,7 @@ http-callback, read [ServerSide script](https://github.com/winlinvip/simple-rtmp
 
 ## Compile
 
-Use `--with-http-callback` to enable dvr, while `--without-http-callback` to disable it.
+Use `--with-http-callback` to enable HttpCallback, while `--without-http-callback` to disable it.
 
 Build SRS with or without http callback, read
 [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
