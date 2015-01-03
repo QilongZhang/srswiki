@@ -26,8 +26,8 @@ SRS can call the http callback, for events:
     "ip": "192.168.1.10", 
     "vhost": "video.test.com", 
     "app": "live",
-    "tcUrl": "rtmp://video.test.com/live?key=xxx",
-    "pageUrl": "http://www.test.com/live.html"
+    "tcUrl": "rtmp://vhost/live?key=xxx",
+    "pageUrl": "http://server/live.html"
 }
 </pre>
 </td>
