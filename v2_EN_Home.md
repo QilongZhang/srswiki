@@ -68,9 +68,9 @@ How to choose delivering protocol? What about RTMP? What about HTTP? What about 
 
 Can SRS support HTTP? How to delivery files over HTTP by SRS? Why SRS support embeded HTTP server? Can you use external HTTP Server? Please see: [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
 
-## [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DVR)
+## [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR)
 
-How to record live stream to flv file? How to record to pieces of files which start from keyframe with similar duration? What is the dvr plan, for example, segment and session plan? Please see: [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DVR)
+How to record live stream to flv file? How to record to pieces of files which start from keyframe with similar duration? What is the dvr plan, for example, segment and session plan? Please see: [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR)
 
 ## [DRM] (https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DRM)
 
