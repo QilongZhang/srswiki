@@ -2,7 +2,7 @@
 
 直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
 
-低延迟的部署实例参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleRealtime)
+低延迟的部署实例参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)
 
 ## 应用场景
 
@@ -59,7 +59,7 @@ vhost mrw.srs.com {
 }
 ```
 
-部署低延时的实例，参考：[wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleRealtime)).
+部署低延时的实例，参考：[wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)).
 
 ## Merged-Read
 

@@ -135,9 +135,9 @@ SRS的配置(configure)参数说明如下：
 * --help 配置的帮助信息
 * --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake)。
 * --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
-* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DVR)
+* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR)
 * --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
-* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPCallback)
+* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPCallback)
 * --with-http-api 打开HTTP管理接口。参考：[HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
 * --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
