@@ -81,7 +81,7 @@ We can custom the dvr path(dir and filename) by rules:
 * Use date and time and stream info as dir name, to avoid too many files in a dir.
 * Use date and time and stream info as filename, for better search.
 * Provides the data/time and stream info variables, use brackets to identify them.
-* Keep SRS1.0 rule, supports write to a specified dir and uses timestamp as filename.
+* Keep SRS1.0 rule, supports write to a specified dir and uses timestamp as filename. If no filename specified(dir specified only), use `[stream].[timestamp].flv` as filename to compatible with SRS1.0 rule.
 
 About the data and time variable, refer to go time format string, for example, use an actual year 2006 instead YYYY, it's a good design:
 
@@ -98,12 +98,35 @@ The variables of dvr:
 1. Minute, [04], repleace this const to current minute.
 1. Second, [05], repleace this const to current second.
 1. Millisecond, [999], repleace this const to current millisecond.
+1. Timestamp, [timestamp],replace this const to current UNIX timestamp in ms.
 1. Stream info, refer to transcode output, variables are [vhost], [app], [stream]
 
-For example:
+For example, for url `rtmp://ossrs.net/live/livestream` and time `2015-01-03 10:57:30.776`:
 
-<table>
-</table>
+1. No variables, the rule of SRS1.0:
+    * dvr_path ./objs/nginx/html;
+    * =>
+    * dvr_path ./objs/nginx/html;
+
+1. Use stream and date as dir name, time as filename:
+    * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;
+
+1. Use stream and year/month as dir name, date and time as filename:
+    * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;
+
+1. Use vhost/app and year/month as dir name, stream/date/time as filename:
+    * dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
+
+1. Use app as dirname, stream and timestamp as filename(the SRS1.0 rule):
+    * dvr_path /data/[app]/[stream].[timestamp].flv;
+    * =>
+    * dvr_path /data/live/livestream.1420254068776.flv;
 
 ## Bug
 
