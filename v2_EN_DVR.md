@@ -70,9 +70,45 @@ The plan of DVR used to reap flv file:
 * session: When start publish, open flv file, close file when unpublish.
 * segment: Reap flv file by the dvr_duration and dvr_wait_keyframe.
 * time_jitter: The time jitter algorithm to use.
+* dvr_path: The path of dvr, the rules is specified at below.
 
 The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
 
 ## Custom Path
+
+We can custom the dvr path(dir and filename) by rules:
+
+* Use date and time and stream info as dir name, to avoid too many files in a dir.
+* Use date and time and stream info as filename, for better search.
+* Provides the data/time and stream info variables, use brackets to identify them.
+* Keep SRS1.0 rule, supports write to a specified dir and uses timestamp as filename.
+
+About the data and time variable, refer to go time format string, for example, use an actual year 2006 instead YYYY, it's a good design:
+
+```
+2006-01-02 15:04:05.999
+```
+
+The variables of dvr:
+
+1. Year, [2006], replace this const to current year.
+1. Month, [01], replace this const to current month.
+1. Date, [02], replace this const to current date.
+1. Hour, [15], replace this const to current hour.
+1. Minute, [04], repleace this const to current minute.
+1. Second, [05], repleace this const to current second.
+1. Millisecond, [999], repleace this const to current millisecond.
+1. Stream info, refer to transcode output, variables are [vhost], [app], [stream]
+
+For example:
+
+<table>
+</table>
+
+## Bug
+
+The bugs of dvr:
+
+* The dir and filename rules: [#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
 
 Winlin 2015.1
