@@ -156,6 +156,7 @@ DVR支持的变量包括：
 关于DVR的bug：
 
 * 文件名规则：[#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
+* DVR时HTTP回调：[#274](https://github.com/winlinvip/simple-rtmp-server/issues/274)
 
 ## Reload
 
