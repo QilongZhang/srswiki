@@ -101,27 +101,27 @@ DVR支持的变量包括：
 1. 时间戳：[timestamp]，将这个字符串替换成UNIX时间戳，单位是毫秒。
 1. 流相关变量，参考转码：[vhost], [app], [stream]
 
-下面的例子说明了替换方式, url是`rtmp://ossrs.net/live/livestream`，time是`2015-01-03 10:57:30.776`：
+下面的例子说明了替换方式, url是`rtmp://ossrs.net/live/livestream`，time是`2015-01-03 10:57:30.776`
 
-没有变量，SRS1.0方式：
-* dvr_path ./objs/nginx/html;
-* =>
-* dvr_path ./objs/nginx/html;
+1. 没有变量，SRS1.0方式：
+    * dvr_path ./objs/nginx/html;
+    * =>
+    * dvr_path ./objs/nginx/html;
 
-按流和年月日分目录，时间作为文件名：
-* dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
-* =>
-* dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;
+1. 按流和年月日分目录，时间作为文件名：
+    * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;
 
-按流和年月分目录，日和时间作为文件名：
-* dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;
-* =>
-* dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;
+1. 按流和年月分目录，日和时间作为文件名：
+    * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;
+    * =>
+    * dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;
 
-按app分目录，流和时间戳作为文件名（SRS1.0方式）：
-* dvr_path /data/[app]/[stream].[timestamp].flv;
-* =>
-* dvr_path /data/live/livestream.1420254068776.flv;
+1. 按app分目录，流和时间戳作为文件名（SRS1.0方式）：
+    * dvr_path /data/[app]/[stream].[timestamp].flv;
+    * =>
+    * dvr_path /data/live/livestream.1420254068776.flv;
 
 ## Bug
 
