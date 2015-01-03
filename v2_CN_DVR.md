@@ -103,28 +103,21 @@ DVR支持的变量包括：
 
 下面的例子说明了替换方式, url是`rtmp://ossrs.net/live/livestream`，time是`2015-01-03 10:57:30.776`：
 
-<table>
-<tr>
-    <th>Path</th>
-    <th>Result</th>
-</tr>
-<tr>
-    <td>dvr_path ./objs/nginx/html;</td>
-    <td>dvr_path ./objs/nginx/html;</td>
-</tr>
-<tr>
-    <td>dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;</td>
-    <td>dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;</td>
-</tr>
-<tr>
-    <td>dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;</td>
-    <td>dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;</td>
-</tr>
-<tr>
-    <td>dvr_path /data/[app]/[stream].[timestamp].flv;</td>
-    <td>dvr_path /data/live/livestream.1420254068776.flv;</td>
-</tr>
-</table>
+* dvr_path ./objs/nginx/html;
+* =>
+* dvr_path ./objs/nginx/html;
+
+* dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
+* =>
+* dvr_path /data/ossrs.net/live/livestream/2015/01/03/10.57.30.776.flv;
+
+* dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]-[15].[04].[05].[999].flv;
+* =>
+* dvr_path /data/ossrs.net/live/livestream/2015/01/03-10.57.30.776.flv;
+
+* dvr_path /data/[app]/[stream].[timestamp].flv;
+* =>
+* dvr_path /data/live/livestream.1420254068776.flv;
 
 ## Bug
 
