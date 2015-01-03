@@ -2,14 +2,14 @@
 
 SRS supports DVR RTMP stream to flv file.
 
-## Configure Options
+## Build
 
 Use `--with-dvr` to enable dvr, while `--without-dvr` to disable it.
 
 For information about the dvr option, read 
 [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
-## Config DVR
+## Config
 
 The difficult of DVR is about the flv name, while SRS use app/stream+random name.
 User can use http-callback to rename, for example, when DVR reap flv file.
@@ -72,5 +72,7 @@ The plan of DVR used to reap flv file:
 * time_jitter: The time jitter algorithm to use.
 
 The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
+
+## Custom Path
 
 Winlin 2015.1
