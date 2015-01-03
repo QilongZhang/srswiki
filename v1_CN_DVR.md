@@ -73,4 +73,8 @@ DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主�
 
 参考`conf/dvr.segment.conf`和`conf/dvr.session.conf`配置实例。
 
+## Reload
+
+改变dvr配置后reload，会导致dvr重启，即关闭当前dvr文件后重新应用dvr配置。
+
 Winlin 2014.4
