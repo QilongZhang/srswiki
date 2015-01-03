@@ -8,6 +8,39 @@ http-callback, read [ServerSide script](https://github.com/winlinvip/simple-rtmp
 Build SRS with or without http callback, read
 [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
 
+## Config SRS
+
+For example, when user connect at vhost/app, verify the ip of client:
+
+```bash
+# the listen ports, split by space.
+listen              1935;
+vhost __defaultVhost__ {
+    http_hooks {
+        # whether the http hooks enalbe.
+        # default off.
+        enabled         on;
+        # when client connect to vhost/app, call the hook,
+        # the request in the POST data string is a object encode by json:
+        #       {
+        #           "action": "on_connect",
+        #           "client_id": 1985,
+        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
+        #           "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
+        #           "pageUrl": "http://www.test.com/live.html"
+        #       }
+        # if valid, the hook must return HTTP code 200(Stauts OK) and response
+        # an int value specifies the error code(0 corresponding to success):
+        #       0
+        # support multiple api hooks, format:
+        #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
+        on_connect      http://127.0.0.1:8085/api/v1/clients;
+    }
+}
+```
+
+Note: For more information, read conf/full.conf the section hooks.callback.vhost.com
+
 ## HTTP callback events
 
 SRS can call the http callback, for events:
@@ -120,39 +153,6 @@ Note:
 * Data: SRS will POST the data to specified HTTP api.
 * Return Code: SRS requires the response is an int, indicates the error, 0 is success.
 SRS will disconnect the connection when response is not 0, or http status is not 200.
-
-## Config SRS
-
-For example, when user connect at vhost/app, verify the ip of client:
-
-```bash
-# the listen ports, split by space.
-listen              1935;
-vhost __defaultVhost__ {
-    http_hooks {
-        # whether the http hooks enalbe.
-        # default off.
-        enabled         on;
-        # when client connect to vhost/app, call the hook,
-        # the request in the POST data string is a object encode by json:
-        #       {
-        #           "action": "on_connect",
-        #           "client_id": 1985,
-        #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
-        #           "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
-        #           "pageUrl": "http://www.test.com/live.html"
-        #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
-        #       0
-        # support multiple api hooks, format:
-        #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
-        on_connect      http://127.0.0.1:8085/api/v1/clients;
-    }
-}
-```
-
-Note: For more information, read conf/full.conf the section hooks.callback.vhost.com
 
 ## SRS HTTP callback Server
 
