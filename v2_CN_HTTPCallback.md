@@ -21,10 +21,11 @@ SRS的回调事件包括：
 {
     "action": "on_connect",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
-    "tcUrl": "rtmp://video.test.com/live?key=xxx",
-    "pageUrl": "http://www.test.com/live.html"
+    "tcUrl": "rtmp://x/x?key=xxx",
+    "pageUrl": "http://x/x.html"
 }
 </pre>
 </td>
@@ -37,7 +38,8 @@ SRS的回调事件包括：
 {
     "action": "on_close",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live"
 }
 </pre>
@@ -51,7 +53,8 @@ SRS的回调事件包括：
 {
     "action": "on_publish",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -66,7 +69,8 @@ SRS的回调事件包括：
 {
     "action": "on_unpublish",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -81,7 +85,8 @@ SRS的回调事件包括：
 {
     "action": "on_play",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -96,7 +101,8 @@ SRS的回调事件包括：
 {
     "action": "on_stop",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
