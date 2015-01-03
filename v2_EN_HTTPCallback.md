@@ -23,7 +23,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_connect",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "tcUrl": "rtmp://video.test.com/live?key=xxx",
     "pageUrl": "http://www.test.com/live.html"
@@ -39,7 +40,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_close",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live"
 }
 </pre>
@@ -53,7 +55,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_publish",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -68,7 +71,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_unpublish",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -83,7 +87,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_play",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
@@ -98,7 +103,8 @@ SRS can call the http callback, for events:
 {
     "action": "on_stop",
     "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
+    "ip": "192.168.1.10", 
+    "vhost": "video.test.com", 
     "app": "live",
     "stream": "livestream"
 }
