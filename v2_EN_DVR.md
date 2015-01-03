@@ -103,10 +103,10 @@ The variables of dvr:
 
 For example, for url `rtmp://ossrs.net/live/livestream` and time `2015-01-03 10:57:30.776`:
 
-1. No variables, the rule of SRS1.0:
+1. No variables, the rule of SRS1.0(auto add `[stream].[timestamp].flv` as filename):
     * dvr_path ./objs/nginx/html;
     * =>
-    * dvr_path ./objs/nginx/html;
+    * dvr_path ./objs/nginx/html/live/livestream.1420254068776.flv;
 
 1. Use stream and date as dir name, time as filename:
     * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
