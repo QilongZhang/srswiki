@@ -84,9 +84,9 @@ How to reload SRS? How to add new vhost and donot restart server? How to change 
 
 How to use SRS in pseudo realtime? What is the latency? What is the mininum latency of SRS in commercial scenario, for example, CDN network? Please see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_LowLatency)
 
-## [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
+## [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
 
-How to authenticate the client? How to callback external http api when client publish stream? How to notice your system when client connect or disconnect? Please see: [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
+About the HttpCallback or HttpHooks. How to authenticate the client? How to callback external http api when client publish stream? How to notice your system when client connect or disconnect? How to hook the dvr? Please see: [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
 
 ## [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)
 
