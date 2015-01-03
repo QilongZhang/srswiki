@@ -103,10 +103,10 @@ DVR支持的变量包括：
 
 下面的例子说明了替换方式, url是`rtmp://ossrs.net/live/livestream`，time是`2015-01-03 10:57:30.776`
 
-1. 没有变量，SRS1.0方式：
+1. 没有变量，SRS1.0方式（自动添加`[stream].[timestamp].flv`作为文件名）：
     * dvr_path ./objs/nginx/html;
     * =>
-    * dvr_path ./objs/nginx/html;
+    * dvr_path ./objs/nginx/html/live/livestream.1420254068776.flv;
 
 1. 按流和年月日分目录，时间作为文件名：
     * dvr_path /data/[vhost]/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
