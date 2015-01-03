@@ -6,7 +6,7 @@ SRS不支持服务器脚本（参考：[服务器端脚本](https://github.com/w
 
 HttpCallback的编译选项为`--with-http-callback`，关闭HttpCallback的选项为`--without-http-callback`。
 
-HTTP回调功能提供了编译选项，可以开启或者关闭这个功能。参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)
 
 ## Config SRS
 
