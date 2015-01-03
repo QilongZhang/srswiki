@@ -153,6 +153,30 @@ DVR支持的变量包括：
 
 ## Http Callback
 
+打开`http_hooks`的`on_dvr`配置：
+
+```
+    dvr {
+        enabled             on;
+        dvr_path            ./objs/nginx/html/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
+        dvr_plan            segment;
+        dvr_duration        30;
+        dvr_wait_keyframe   on;
+    }
+    http_hooks {
+        enabled         on;
+        on_dvr          http://127.0.0.1:8085/api/v1/dvrs;
+    }
+```
+
+api-server的日志：
+
+```
+[2015-01-03 15:25:48][trace] post to dvrs, req={"action":"on_dvr","client_id":108,"ip":"127.0.0.1","vhost":"__defaultVhost__","app":"live","stream":"livestream","cwd":"/home/winlin/git/simple-rtmp-server/trunk","file":"./objs/nginx/html/live/livestream/2015/1/3/15.25.18.442.flv"}
+[2015-01-03 15:25:48][trace] srs on_dvr: client id=108, ip=127.0.0.1, vhost=__defaultVhost__, app=live, stream=livestream, cwd=/home/winlin/git/simple-rtmp-server/trunk, file=./objs/nginx/html/live/livestream/2015/1/3/15.25.18.442.flv
+127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
+```
+
 更多HTTP回调的信息，请参考 [HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
 
 ## Bug
