@@ -151,6 +151,10 @@ DVR支持的变量包括：
     * =>
     * dvr_path /data/live/livestream.1420254068776.flv;
 
+## Http Callback
+
+更多HTTP回调的信息，请参考 [HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
+
 ## Bug
 
 关于DVR的bug：
