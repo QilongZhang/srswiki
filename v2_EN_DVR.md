@@ -156,6 +156,7 @@ For example, for url `rtmp://ossrs.net/live/livestream` and time `2015-01-03 10:
 The bugs of dvr:
 
 * The dir and filename rules: [#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
+* The http callback for dvr: [#274](https://github.com/winlinvip/simple-rtmp-server/issues/274)
 
 ## Reload
 
