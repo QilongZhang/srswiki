@@ -157,4 +157,8 @@ DVR支持的变量包括：
 
 * 文件名规则：[#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
 
+## Reload
+
+改变dvr配置后reload，会导致dvr重启，即关闭当前dvr文件后重新应用dvr配置。
+
 Winlin 2015.1
