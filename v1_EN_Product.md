@@ -42,7 +42,7 @@ SRS release 2.0, about 6 months and the main goals:
 * The srs-librtmp supports hijack io for [st-load](https://github.com/winlinvip/st-load).
 * Support min-latency(realtime) mode, 0.1s+ latency. Read [#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)
 * Support [custom dvr path](https://github.com/winlinvip/simple-rtmp-server/issues/179) 
-and [dvr callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
+and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
 * Other small changes.
 
 ## Release3.0
