@@ -44,6 +44,7 @@ SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 * 支持实时模式，最低支持0.1秒延迟。参考：[#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)
 * 支持允许和禁止客户端推流或播放。参考：[#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
 * DVR支持[自定义文件路径](https://github.com/winlinvip/simple-rtmp-server/issues/179)和[DVR http callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
+* 可商用的内置HTTP服务器。参考：[#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
 * 其他小功能的完善。
 
 ## Release3.0
