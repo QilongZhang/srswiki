@@ -64,9 +64,9 @@ How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in S
 
 How to choose delivering protocol? What about RTMP? What about HTTP? What about HLS? The history and use scenarios of RTMP, HTTP and HLS. Please see: [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP)
 
-## [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
+## [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
-Can SRS support HTTP? How to delivery files over HTTP by SRS? Why SRS support embeded HTTP server? Can you use external HTTP Server? Please see: [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
+Can SRS support HTTP? How to delivery files over HTTP by SRS? Why SRS support embeded HTTP server? Can you use external HTTP Server? Please see: [Embeded HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
 ## [DVR record live stream] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR)
 
