@@ -64,9 +64,9 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何选择分发协议？RTMP的优势在哪里？什么时候用HTTP？HLS优势和缺点是什么？参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMP.PK.HTTP)
 
-## [内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
+## [内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPServer)
 
-如何不依赖外部web服务器直接可分发HTTP流譬如HLS？SRS为何支持内置的HTTP服务器？参考：[内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
+如何不依赖外部web服务器直接可分发HTTP流譬如HLS？SRS为何支持内置的HTTP服务器？参考：[内置HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPServer)
 
 ## [DVR录制] (https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR)
 
