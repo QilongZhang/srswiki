@@ -44,6 +44,7 @@ SRS release 2.0, about 6 months and the main goals:
 * Support security allow/deny publish/play all/ip. Read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
 * Support [custom dvr path](https://github.com/winlinvip/simple-rtmp-server/issues/179) 
 and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
+* Rewrite the embeded http server, refer to go http. Read [#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
 * Other small changes.
 
 ## Release3.0
