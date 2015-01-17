@@ -1,4 +1,4 @@
-# 内置HTTP服务器
+# SRS Embeded HTTP Server
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
