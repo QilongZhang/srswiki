@@ -18,8 +18,6 @@ SRS support remux the rtmp stream to http aac stream, drop video and mount aac h
 
 ## HTTP Live Stream Config
 
-## HTTP Live Stream Config
-
 The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply different stream:
 
 ```
