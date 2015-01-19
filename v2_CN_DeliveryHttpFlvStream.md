@@ -50,4 +50,8 @@ The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply di
 
 Remark: Use forward+vhost to support multiple http live stream for a stream.
 
+## Sample
+
+配置实例参考：https://github.com/winlinvip/simple-rtmp-server/issues/293#issuecomment-70449126
+
 Winlin 2015.1
