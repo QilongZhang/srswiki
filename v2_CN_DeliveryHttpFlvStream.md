@@ -2,25 +2,23 @@
 
 ## HTTP FLV VOD Stream
 
-About the HTTP flv vod stream, read https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FlvVodStream
+关于HTTP flv点播流，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FlvVodStream
 
 ## HTTP FLV Live Stream
 
-SRS supports remux the rtmp stream to http flv stream, when publish rtmp stream on SRS, SRS will mount a http flv url and when user access the flv url, SRS will remux the rtmp stream to user.
+SRS支持将RTMP流转封装为HTTP flv流，即在publish发布RTMP流时，在SRS的http模块中挂载一个对应的http地址（根据配置），用户在访问这个http flv文件时，从rtmp流转封装为flv分发给用户。
 
 ## HTTP Mp3 Live Stream
 
-SRS support remux the rtmp stream to http mp3 stream, drop video and mount mp3 http url, SRS will delivery mp3 stream when user access it.
+SRS支持将rtmp流中的视频丢弃，将音频流转封装为mp3格式，在SRS的http模块中挂载对应的http地址（根据配置），用户在访问这个http mp3文件时，从rtmp转封装为mp3分发给用户。
 
 ## HTTP Aac Live Stream
 
-SRS support remux the rtmp stream to http aac stream, drop video and mount aac http url, SRS will delivery aac stream when user access it.
+SRS支持将rtmp流中的视频丢弃，将音频流转封装为aac格式，在SRS的http模块中挂载对应的http地址（根据配置），用户在访问这个http aac文件时，从rtmp转封装为aac分发给用户。
 
 ## HTTP Live Stream Config
 
-## HTTP Live Stream Config
-
-The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply different stream:
+HTTP Flv/Mp3/Aac Live Stream的配置如下，更改不同的扩展名即可以不同方式分发：
 
 ```
     # http flv stream vhost specified config
@@ -48,7 +46,7 @@ The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply di
     }
 ```
 
-Remark: Use forward+vhost to support multiple http live stream for a stream.
+备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
 ## Sample
 
