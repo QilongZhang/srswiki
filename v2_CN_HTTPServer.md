@@ -56,25 +56,38 @@ http_stream {
 }
 ```
 
-同时，vhost上可以指定虚拟目录（默认根目录）。
+同时，vhost上可以指定http配置（虚拟目录和vhost）：
 
 ```bash
-vhost __defaultVhost__ {
-    # http vhost specified config
+    # http static vhost specified config
     http {
-        # whether enable the http streaming service for vhost.
+        # whether enabled the http static service for vhost.
         # default: off
         enabled     on;
-        # the virtual directory root for this vhost to mount at
-        # for example, if mount to /hls, user access by http://server/hls
-        # default: /
-        mount       /hls;
+        # the url to mount to, 
+        # typical mount to [vhost]/
+        # the variables:
+        #       [vhost] current vhost for http server.
+        # @remark the [vhost] is optional, used to mount at specified vhost.
+        # @remark the http of __defaultVhost__ will override the http_stream section.
+        # for example:
+        #       mount to [vhost]/
+        #           access by http://ossrs.net:8080/xxx.html
+        #       mount to [vhost]/hls
+        #           access by http://ossrs.net:8080/hls/xxx.html
+        #       mount to /
+        #           access by http://ossrs.net:8080/xxx.html
+        #           or by http://192.168.1.173:8080/xxx.html
+        #       mount to /hls
+        #           access by http://ossrs.net:8080/hls/xxx.html
+        #           or by http://192.168.1.173:8080/hls/xxx.html
+        # default: [vhost]/
+        mount       [vhost]/hls;
         # main dir of vhost,
         # to delivery HTTP stream of this vhost.
         # default: ./objs/nginx/html
-        dir         ./objs/nginx/html;
+        dir         ./objs/nginx/html/hls;
     }
-}
 ```
 
 注意：vhost的http配置是可选的，就算不配置，http根目录依然可以访问。
