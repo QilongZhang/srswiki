@@ -32,15 +32,26 @@ The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply di
         # default: 30
         fast_cache  30;
         # the stream mout for rtmp to remux to flv live streaming.
-        # for example, if mount to [vhost]/[app]/[stream].flv, user access by http://[vhost]/[app]/[stream].flv
+        # typical mount to [vhost]/[app]/[stream].flv
         # the variables:
         #       [vhost] current vhost for http flv live stream.
         #       [app] current app for http flv live stream.
         #       [stream] current stream for http flv live stream.
+        # @remark the [vhost] is optional, used to mount at specified vhost.
         # the extension:
         #       .flv mount http live flv stream, use default gop cache.
         #       .mp3 mount http live mp3 stream, ignore video and audio mp3 codec required.
         #       .aac mount http live aac stream, ignore video and audio aac codec required.
+        # for example:
+        #       mount to [vhost]/[app]/[stream].flv
+        #           access by http://ossrs.net/live/livestream.flv
+        #       mount to /[app]/[stream].flv
+        #           access by http://ossrs.net/live/livestream.flv
+        #           or by http://192.168.1.173/live/livestream.flv
+        #       mount to [vhost]/[app]/[stream].mp3
+        #           access by http://ossrs.net/live/livestream.mp3
+        #       mount to [vhost]/[app]/[stream].aac
+        #           access by http://ossrs.net/live/livestream.aac
         # default: [vhost]/[app]/[stream].flv
         mount       [vhost]/[app]/[stream].flv;
     }
