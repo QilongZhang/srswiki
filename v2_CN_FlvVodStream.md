@@ -65,4 +65,6 @@ HTTP FLV点播流的配置:
     }
 ```
 
+备注：HTTP服务器配置，参考[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+
 Winlin 2015.1
