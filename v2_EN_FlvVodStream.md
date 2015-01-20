@@ -35,40 +35,6 @@ for arm is not easy to build some server.
 
 ## Config
 
-The config for http vod streaming:
-
-```
-    # http static vhost specified config
-    http {
-        # whether enabled the http static service for vhost.
-        # default: off
-        enabled     on;
-        # the url to mount to, 
-        # typical mount to [vhost]/
-        # the variables:
-        #       [vhost] current vhost for http server.
-        # @remark the [vhost] is optional, used to mount at specified vhost.
-        # @remark the http of __defaultVhost__ will override the http_stream section.
-        # for example:
-        #       mount to [vhost]/
-        #           access by http://ossrs.net:8080/xxx.html
-        #       mount to [vhost]/hls
-        #           access by http://ossrs.net:8080/hls/xxx.html
-        #       mount to /
-        #           access by http://ossrs.net:8080/xxx.html
-        #           or by http://192.168.1.173:8080/xxx.html
-        #       mount to /hls
-        #           access by http://ossrs.net:8080/hls/xxx.html
-        #           or by http://192.168.1.173:8080/hls/xxx.html
-        # default: [vhost]/
-        mount       [vhost]/hls;
-        # main dir of vhost,
-        # to delivery HTTP stream of this vhost.
-        # default: ./objs/nginx/html
-        dir         ./objs/nginx/html/hls;
-    }
-```
-
-Remark: The http server config section, read [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+Read [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
 
 Winlin 2015.1
