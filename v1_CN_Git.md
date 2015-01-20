@@ -22,11 +22,13 @@ git pull && git checkout develop
 
 ## SRS稳定版本
 
-稳定的SRS版本会新建branch，譬如1.0release。
+稳定的SRS版本会新建branch，譬如1.0release。1.0release是1.0的release，有最新的bug fix。
 
-Master分支是目前主要的稳定版本，更新频率也比release低。
+Master分支是主要的release，目前就是1.0。对比1.0release分支bug fix频率低，每隔1-2个月会集中merge 1.0release的bug fix到master。
 
-Hotfix会在release上提交。多个hotfix或者新的release版本会更新到master。
+develop是开发版，目前是2.0。
+
+所以稳定度master >= 1.0release >> develop.
 
 ## 如何获取SRS代码
 
