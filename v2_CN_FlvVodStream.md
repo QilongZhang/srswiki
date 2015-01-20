@@ -47,15 +47,15 @@ HTTP FLV点播流的配置:
         # @remark the http of __defaultVhost__ will override the http_stream section.
         # for example:
         #       mount to [vhost]/
-        #           access by http://ossrs.net/xxx.html
+        #           access by http://ossrs.net:8080/xxx.html
         #       mount to [vhost]/hls
-        #           access by http://ossrs.net/hls/xxx.html
+        #           access by http://ossrs.net:8080/hls/xxx.html
         #       mount to /
-        #           access by http://ossrs.net/xxx.html
-        #           or by http://192.168.1.173/xxx.html
+        #           access by http://ossrs.net:8080/xxx.html
+        #           or by http://192.168.1.173:8080/xxx.html
         #       mount to /hls
-        #           access by http://ossrs.net/hls/xxx.html
-        #           or by http://192.168.1.173/hls/xxx.html
+        #           access by http://ossrs.net:8080/hls/xxx.html
+        #           or by http://192.168.1.173:8080/hls/xxx.html
         # default: [vhost]/
         mount       [vhost]/hls;
         # main dir of vhost,
