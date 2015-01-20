@@ -60,6 +60,8 @@ HTTP Flv/Mp3/Aac Live Stream的配置如下，更改不同的扩展名即可以�
 
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
+备注：HTTP服务器配置，参考[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+
 ## Sample
 
 配置实例参考：https://github.com/winlinvip/simple-rtmp-server/issues/293#issuecomment-70449126
