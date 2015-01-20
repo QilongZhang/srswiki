@@ -32,6 +32,8 @@ develop是开发版，目前是2.0。
 
 ## 如何获取SRS代码
 
+注意：中国国内访问github慢，可以使用oschina或csdn镜像，参考下面的其他镜像。
+
 你可以从github获取SRS的代码，需要先安装git（如何安装git可以百度下）。
 
 安装好git后，执行以下命令获取SRS最新代码：
