@@ -69,4 +69,6 @@ The config for http vod streaming:
     }
 ```
 
+Remark: The http server config section, read [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+
 Winlin 2015.1
