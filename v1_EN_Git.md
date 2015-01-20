@@ -21,11 +21,15 @@ git pull && git checkout develop
 
 Note: The master branch is main release.
 
-## SRS Stable Version
+## SRS Branches
 
-The stable SRS will create a new branch, for example, branch 1.0release.
+Each release will branch with hotfix, for example, 1.0release with latest bug fixed.
 
-Master branch used to release current big release with lots of hotfix or new release.
+The main stable branch is the main release branch. The hotfixes will be merged from release to master every 1 or 2 months. For example, the hotfixes of 1.0release will be merged to master for 1.0r1, 1.0r2 to 1.0rN.
+
+The develop is the dev branch, for example, 2.0 dev branch.
+
+The stable is: master >= 1.0release >> develop.
 
 ## How to get code?
 
