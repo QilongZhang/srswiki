@@ -20,7 +20,7 @@ git pull && git checkout develop
 
 注意：master是作为稳定版本分支。
 
-## SRS稳定版本
+## SRS Branches
 
 稳定的SRS版本会新建branch，譬如1.0release。1.0release是1.0的release，有最新的bug fix。
 
