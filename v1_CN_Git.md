@@ -135,4 +135,28 @@ SRS只有master，develop和release分支；master是主要的稳定版本分支
 
 参考：[http://blog.csdn.net/sabalol/article/details/7049851](http://blog.csdn.net/sabalol/article/details/7049851)
 
+## GIT常用命令
+
+### 撤销commit
+
+撤销上次commit（还没有push到服务器时，只是commit到本地git）：
+
+```
+git reset --soft HEAD~1
+```
+
+执行完后`git status`可以看到有修改的文件，就回退到了`git commit`之前的状态了。
+
+### 撤销push
+
+若已经push到了服务器，就没法撤销commit了，只能撤销本地的commit。
+
+git提供了一个方案，再次提交一次commit正好和上次commit相反，这样的效果也是撤销了：
+
+```
+git revert HEAD~1
+```
+
+执行完后`git status`可以看到有新的修改，用来覆盖上次的commit。
+
 Winlin 2014.3
