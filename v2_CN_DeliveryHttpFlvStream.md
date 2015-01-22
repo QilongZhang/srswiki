@@ -23,7 +23,7 @@ HTTP Flv/Mp3/Aac Live Stream的配置如下，更改不同的扩展名即可以�
 ```
 vhost your_vhost {
     # http flv/mp3/aac stream vhost specified config
-    http_flv {
+    http_remux {
         # whether enable the http flv live streaming service for vhost.
         # default: off
         enabled     on;

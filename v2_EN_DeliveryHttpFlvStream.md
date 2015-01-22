@@ -23,7 +23,7 @@ The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply di
 ```
 vhost your_vhost {
     # http flv/mp3/aac stream vhost specified config
-    http_flv {
+    http_remux {
         # whether enable the http flv live streaming service for vhost.
         # default: off
         enabled     on;
