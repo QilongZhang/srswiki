@@ -8,13 +8,66 @@ About the HTTP flv vod stream, read https://github.com/winlinvip/simple-rtmp-ser
 
 SRS supports remux the rtmp stream to http flv stream, when publish rtmp stream on SRS, SRS will mount a http flv url and when user access the flv url, SRS will remux the rtmp stream to user.
 
+The config to delivery HTTP flv live stream:
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].flv;
+    }
+}
+```
+
+@remark For more information about config, read following detail config.
+
 ## HTTP Mp3 Live Stream
 
 SRS support remux the rtmp stream to http mp3 stream, drop video and mount mp3 http url, SRS will delivery mp3 stream when user access it.
 
+The config to delivery HTTP mp3 live stream:
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        fast_cache  30;
+        mount       [vhost]/[app]/[stream].mp3;
+    }
+}
+```
+
+@remark For more information about config, read following detail config.
+
 ## HTTP Aac Live Stream
 
 SRS support remux the rtmp stream to http aac stream, drop video and mount aac http url, SRS will delivery aac stream when user access it.
+
+The config to delivery HTTP ac live stream:
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        fast_cache  30;
+        mount       [vhost]/[app]/[stream].aac;
+    }
+}
+```
+
+@remark For more information about config, read following detail config.
 
 ## HTTP Live Stream Config
 
