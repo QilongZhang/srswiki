@@ -93,7 +93,7 @@ vhost your_vhost {
 ```
 
 注意：SRS1中的`http_stream`在SRS2改名为`http_server`，全局的server配置，即静态HTTP服务器，可用来分发dvr的HLS/FLV/HDS/MPEG-DASH等。
-注意：SRS1中vhost的`http`在SRS2改名为`http_static`，区分于`http_remux`（即动态转封装的HTTP Live FLV/Mp3/Aac/Hls/Hds/MPEG-DASH流）。
+注意：SRS1中vhost的`http`在SRS2改名为`http_static`，和全局的`http_server`类似用来分发静态的文件。而SRS2新增的功能`http_remux`，用来动态转封装，将RTMP流转封装为 HTTP Live FLV/Mp3/Aac/Hls/Hds/MPEG-DASH流。
 
 ## MIME
 
