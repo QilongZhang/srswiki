@@ -59,6 +59,7 @@ http_server {
 同时，vhost上可以指定http配置（虚拟目录和vhost）：
 
 ```bash
+vhost your_vhost {
     # http static vhost specified config
     http_static {
         # whether enabled the http static service for vhost.
@@ -88,6 +89,7 @@ http_server {
         # default: ./objs/nginx/html
         dir         ./objs/nginx/html/hls;
     }
+}
 ```
 
 注意：SRS1中的`http_stream`在SRS2改名为`http_server`，全局的server配置，即静态HTTP服务器，可用来分发dvr的HLS/FLV/HDS/MPEG-DASH等。
