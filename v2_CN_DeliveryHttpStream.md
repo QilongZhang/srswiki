@@ -8,13 +8,64 @@
 
 SRS支持将RTMP流转封装为HTTP flv流，即在publish发布RTMP流时，在SRS的http模块中挂载一个对应的http地址（根据配置），用户在访问这个http flv文件时，从rtmp流转封装为flv分发给用户。
 
+分发HTTP FLV直播流的配置如下：
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].flv;
+    }
+}
+```
+
+配置项的详细信息参考下面的配置章节的说明。
+
 ## HTTP Mp3 Live Stream
 
 SRS支持将rtmp流中的视频丢弃，将音频流转封装为mp3格式，在SRS的http模块中挂载对应的http地址（根据配置），用户在访问这个http mp3文件时，从rtmp转封装为mp3分发给用户。
 
+分发HTTP mp3直播流的配置如下：
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].mp3;
+    }
+}
+```
+
+配置项的详细信息参考下面的配置章节的说明。
+
 ## HTTP Aac Live Stream
 
 SRS支持将rtmp流中的视频丢弃，将音频流转封装为aac格式，在SRS的http模块中挂载对应的http地址（根据配置），用户在访问这个http aac文件时，从rtmp转封装为aac分发给用户。
+
+分发HTTP aac直播流的配置如下：
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+}
+vhost your_vhost {
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].aac;
+    }
+}
+```
+
+配置项的详细信息参考下面的配置章节的说明。
 
 ## HTTP Live Stream Config
 
