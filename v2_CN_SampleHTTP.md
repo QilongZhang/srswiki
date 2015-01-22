@@ -19,13 +19,13 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+<strong>第二步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)
 
 ```bash
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
+<strong>第三步，编写SRS配置文件。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPServer)
 
 将以下内容保存为文件，譬如`conf/http.hls.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -50,7 +50,7 @@ vhost __defaultVhost__ {
 
 备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
 
-<strong>第四步，启动SRS。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)
+<strong>第四步，启动SRS。</strong>详细参考[HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPServer)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf

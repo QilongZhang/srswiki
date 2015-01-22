@@ -156,9 +156,9 @@ How does SRS correct the timestamp of stream? How to correct the time jitter? Ho
 
 SRS can report the status to external HTTP server by POST to a http url. For example, the SRS on arm can report its data to management server. Please see: [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Heartbeat)
 
-## [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FlvVodStream)
+## [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_FlvVodStream)
 
-Does SRS support VOD? What about the FLV VOD stream? How to support time-shift for live stream? How to delivery the DVR files as VOD stream? Please see: [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FlvVodStream)
+Does SRS support VOD? What about the FLV VOD stream? How to support time-shift for live stream? How to delivery the DVR files as VOD stream? Please see: [FLV VOD stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_FlvVodStream)
 
 ## [GPERF Memory and Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_GPERF)
 
@@ -212,9 +212,9 @@ Usage: How to descrease the lantecy to <1s? How to config SRS in mininum latency
 
 Usage: How to run SRS on ARM linux? Please see: [Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleARM)
 
-## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHTTP)
+## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleHTTP)
 
-Usage: How to delivery HLS without external HTTP server? How to use the embeded HTTP server of SRS? Please see: [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHTTP)
+Usage: How to delivery HLS without external HTTP server? How to use the embeded HTTP server of SRS? Please see: [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleHTTP)
 
 ## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)
 

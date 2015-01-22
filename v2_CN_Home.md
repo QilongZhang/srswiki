@@ -156,9 +156,9 @@ SRS如何矫正时间戳？时间戳抖动如何处理？RTMP时间戳单增如�
 
 SRS如何以心跳形式汇报自己的信息？譬如arm嵌入式设备上运行服务器，每隔一定时间将自己的信息上报到api服务器。参考：[Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Heartbeat)
 
-## [点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FlvVodStream)
+## [点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_FlvVodStream)
 
-SRS如何支持点播？FLV流如何支持？如何支持时移？录制的文件如何作为点播分发？参考：[点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FlvVodStream)
+SRS如何支持点播？FLV流如何支持？如何支持时移？录制的文件如何作为点播分发？参考：[点播FLV流](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_FlvVodStream)
 
 ## [GPERF内存和性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_GPERF)
 
@@ -212,9 +212,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何搭建ARM虚拟开发环境？如何在ARM上部署SRS服务器端？参考：[Usage: ARM](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleARM)
 
-## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHTTP)
+## [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleHTTP)
 
-使用实例：如何不依赖外部服务器分发HLS流？如何使用SRS内置的HTTP Server？参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHTTP)
+使用实例：如何不依赖外部服务器分发HLS流？如何使用SRS内置的HTTP Server？参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleHTTP)
 
 ## [Usage: DEMO](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleDemo)
 

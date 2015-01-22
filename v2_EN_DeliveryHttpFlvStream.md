@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-About the HTTP flv vod stream, read https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FlvVodStream
+About the HTTP flv vod stream, read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_FlvVodStream
 
 ## HTTP FLV Live Stream
 

@@ -17,13 +17,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
 
 ```bash
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
+<strong>Step 3, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
 Save bellow as config, or use `conf/http.hls.conf`:
 
@@ -50,7 +50,7 @@ Note: The hls_path must exists, srs never create it. For detail,
 read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
 
 <strong>Step 4, start srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
-and [SRS HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)
+and [SRS HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf
