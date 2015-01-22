@@ -60,7 +60,7 @@ http_stream {
 
 ```bash
     # http static vhost specified config
-    http {
+    http_static {
         # whether enabled the http static service for vhost.
         # default: off
         enabled     on;
@@ -90,7 +90,8 @@ http_stream {
     }
 ```
 
-注意：vhost的http配置是可选的，就算不配置，http根目录依然可以访问。
+注意：SRS1中的`http_stream`在SRS2改名为`http_server`，全局的server配置。
+注意：SRS1中vhost的`http`在SRS2改名为`http_static`，区分于`http_remux`（即HTTP Live FLV/Mp3/Aac/Hls/Hds/MPEG-DASH流）。
 
 ## MIME
 
