@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read following detail config.
+@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Mp3 Live Stream
 
@@ -45,7 +45,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read following detail config.
+@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Aac Live Stream
 
@@ -67,7 +67,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read following detail config.
+@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Live Stream Config
 
