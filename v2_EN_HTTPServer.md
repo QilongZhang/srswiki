@@ -32,7 +32,7 @@ Config the HTTP port and root.
 # which will show srs version and welcome to srs.
 # @remeark, the http embeded stream need to config the vhost, for instance, the __defaultVhost__
 # need to open the feature http of vhost.
-http_stream {
+http_server {
     # whether http streaming service is enabled.
     # default: off
     enabled         on;
@@ -50,7 +50,7 @@ And, each vhost can specifies the dir.
 
 ```bash
     # http static vhost specified config
-    http {
+    http_static {
         # whether enabled the http static service for vhost.
         # default: off
         enabled     on;
@@ -79,6 +79,10 @@ And, each vhost can specifies the dir.
         dir         ./objs/nginx/html/hls;
     }
 ```
+
+Remark: The `http_stream` of SRS1 renamed to `http_server` in SRS2, which specifies the global HTTP server config, used to delivery http static files, for dvr files(HLS/FLV/HDS/MPEG-DASH).
+
+Remark: The `http` of vhost of SRS1 renamed to `http_static`, similar to global `http_server` for HTTP static files delivery. While the `http_remux` introduced in SRS2 is dynamic remux RTMP to HTTP Live FLV/Mp3/Aac/HLS/Hds/MPEG-DASH stream.
 
 ## MIME
 
