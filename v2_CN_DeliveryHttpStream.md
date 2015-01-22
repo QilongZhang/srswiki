@@ -39,6 +39,7 @@ http_server {
 vhost your_vhost {
     http_remux {
         enabled     on;
+        fast_cache  30;
         mount       [vhost]/[app]/[stream].mp3;
     }
 }
@@ -60,6 +61,7 @@ http_server {
 vhost your_vhost {
     http_remux {
         enabled     on;
+        fast_cache  30;
         mount       [vhost]/[app]/[stream].aac;
     }
 }
