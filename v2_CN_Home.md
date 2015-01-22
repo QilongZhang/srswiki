@@ -60,9 +60,9 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
 
-## [HTTP FLV Stream分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpFlvStream)
+## [HTTP Stream分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream)
 
-如何分发点播flv流，支持`xxx.flv?start=offset`请求？如何分发直播flv流，rtmp流转换为flv流？参考链接：[HTTP FLV Stream分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpFlvStream)
+如何分发点播flv流，支持`xxx.flv?start=offset`请求？如何分发直播flv流，rtmp流转换为flv流？参考链接：[HTTP Stream分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream)
 
 ## [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMP.PK.HTTP)
 
