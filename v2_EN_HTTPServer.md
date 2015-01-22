@@ -49,6 +49,7 @@ http_server {
 And, each vhost can specifies the dir.
 
 ```bash
+vhost your_vhost {
     # http static vhost specified config
     http_static {
         # whether enabled the http static service for vhost.
@@ -78,6 +79,7 @@ And, each vhost can specifies the dir.
         # default: ./objs/nginx/html
         dir         ./objs/nginx/html/hls;
     }
+}
 ```
 
 Remark: The `http_stream` of SRS1 renamed to `http_server` in SRS2, which specifies the global HTTP server config, used to delivery http static files, for dvr files(HLS/FLV/HDS/MPEG-DASH).
