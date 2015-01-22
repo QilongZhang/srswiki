@@ -7,6 +7,7 @@ SRS提供了禁用或允许客户端的简单安全策略。
 Vhost中安全策略的配置：
 
 ```
+vhost your_vhost {
     # security for host to allow or deny clients.
     # @see https://github.com/winlinvip/simple-rtmp-server/issues/211   
     security {
@@ -32,6 +33,7 @@ Vhost中安全策略的配置：
         allow           play        all;
         allow           publish     all;
     }
+}
 ```
 
 SRS应用安全策略的方式是:

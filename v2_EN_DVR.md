@@ -156,6 +156,7 @@ For example, for url `rtmp://ossrs.net/live/livestream` and time `2015-01-03 10:
 Enable the `on_dvr` of `http_hooks`:
 
 ```
+vhost your_vhost {
     dvr {
         enabled             on;
         dvr_path            ./objs/nginx/html/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
@@ -167,6 +168,7 @@ Enable the `on_dvr` of `http_hooks`:
         enabled         on;
         on_dvr          http://127.0.0.1:8085/api/v1/dvrs;
     }
+}
 ```
 
 The log of api-server for api dvrs：

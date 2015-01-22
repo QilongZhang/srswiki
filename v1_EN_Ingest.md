@@ -33,6 +33,7 @@ The ingest tool of SRS can use FFMPEG, or use your own tool.
 The config to use ingest:
 
 ```bash
+vhost your_vhost {
     # ingest file/stream/device then push to SRS over RTMP.
     # the name/id used to identify the ingest, must be unique in global.
     # ingest id is used in reload or http api management.
@@ -68,6 +69,7 @@ The config to use ingest:
             output          rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
         }
     }
+}
 ```
 
 The word after ingest keyword is the id of ingest, the id must be unique.

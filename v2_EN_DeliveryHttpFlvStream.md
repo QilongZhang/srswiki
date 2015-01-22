@@ -21,6 +21,7 @@ SRS support remux the rtmp stream to http aac stream, drop video and mount aac h
 The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply different stream:
 
 ```
+vhost your_vhost {
     # http flv/mp3/aac stream vhost specified config
     http_flv {
         # whether enable the http flv live streaming service for vhost.
@@ -56,6 +57,7 @@ The config for HTTP Flv/Mp3/Aac Live Stream, use different extension to apply di
         # default: [vhost]/[app]/[stream].flv
         mount       [vhost]/[app]/[stream].flv;
     }
+}
 ```
 
 Remark: Use forward+vhost to support multiple http live stream for a stream.

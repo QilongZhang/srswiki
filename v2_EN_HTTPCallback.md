@@ -14,6 +14,7 @@ For more information, read [Build](https://github.com/winlinvip/simple-rtmp-serv
 The config of http hooks is:
 
 ```
+vhost your_vhost {
     http_hooks {
         # whether the http hooks enalbe.
         # default off.
@@ -117,6 +118,7 @@ The config of http hooks is:
         #       0
         on_dvr          http://127.0.0.1:8085/api/v1/dvrs http://localhost:8085/api/v1/dvrs;
     }
+}
 ```
 
 Note: For more information, read conf/full.conf the section hooks.callback.vhost.com

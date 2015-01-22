@@ -17,6 +17,7 @@ DVR的难点在于写入flv和文件命名，SRS的做法是随机生成文件�
 DVR的配置文件说明：
 
 ```bash
+vhost your_vhost {
     # dvr RTMP stream to file,
     # start to record to file when encoder publish,
     # reap flv according by specified dvr_plan.
@@ -86,6 +87,7 @@ DVR的配置文件说明：
         # default: full
         time_jitter             full;
     }
+}
 ```
 
 DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主要的录制计划包括：
@@ -156,6 +158,7 @@ DVR支持的变量包括：
 打开`http_hooks`的`on_dvr`配置：
 
 ```
+vhost your_vhost {
     dvr {
         enabled             on;
         dvr_path            ./objs/nginx/html/[app]/[stream]/[2006]/[01]/[02]/[15].[04].[05].[999].flv;
@@ -167,6 +170,7 @@ DVR支持的变量包括：
         enabled         on;
         on_dvr          http://127.0.0.1:8085/api/v1/dvrs;
     }
+}
 ```
 
 api-server的日志：

@@ -31,6 +31,7 @@ Ingest默认使用自带的ffmpeg，也可以不编译ffmpeg，使用自己的�
 Ingest的配置如下：
 
 ```bash
+vhost your_vhost {
     # ingest file/stream/device then push to SRS over RTMP.
     # the name/id used to identify the ingest, must be unique in global.
     # ingest id is used in reload or http api management.
@@ -66,6 +67,7 @@ Ingest的配置如下：
             output          rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
         }
     }
+}
 ```
 
 ingest指令后面是ingest的id，全局需要唯一，用来标识这个ingest。在reload/http-api管理时才知道操作的是哪个。譬如，reload时用来检测哪些ingest更新了，需要通知那些已经存在的ingest，停止已经不存在的ingest。

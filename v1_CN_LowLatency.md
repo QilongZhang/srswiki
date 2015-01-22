@@ -80,11 +80,13 @@ vhost __defaultVhost__ {
 除了GOP-Cache，还有一个有关系，就是累积延迟。SRS可以配置直播队列的长度，服务器会将数据放在直播队列中，如果超过这个长度就清空到最后一个I帧：
 
 ```bash
+vhost your_vhost {
     # the max live queue length in seconds.
     # if the messages in the queue exceed the max length, 
     # drop the old whole gop.
     # default: 30
     queue_length    10;
+}
 ```
 
 当然这个不能配置太小，譬如GOP是1秒，queue_length是1秒，这样会导致有1秒数据就清空，会导致跳跃。

@@ -13,6 +13,7 @@ HttpCallback的编译选项为`--with-http-callback`，关闭HttpCallback的选�
 http hooks的配置如下：
 
 ```bash
+vhost your_vhost {
     http_hooks {
         # whether the http hooks enalbe.
         # default off.
@@ -116,6 +117,7 @@ http hooks的配置如下：
         #       0
         on_dvr          http://127.0.0.1:8085/api/v1/dvrs http://localhost:8085/api/v1/dvrs;
     }
+}
 ```
 
 备注：可以参考conf/full.conf配置文件中的hooks.callback.vhost.com实例。

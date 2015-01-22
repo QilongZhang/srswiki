@@ -7,6 +7,7 @@ SRS provides simple security strategy to allow or deny specifies clients.
 The config for security of vhost:
 
 ```
+vhost your_vhost {
     # security for host to allow or deny clients.
     # @see https://github.com/winlinvip/simple-rtmp-server/issues/211   
     security {
@@ -32,6 +33,7 @@ The config for security of vhost:
         allow           play        all;
         allow           publish     all;
     }
+}
 ```
 
 Please see `conf/security.deny.publish.conf` for detail.

@@ -21,6 +21,7 @@ SRS支持将rtmp流中的视频丢弃，将音频流转封装为aac格式，在S
 HTTP Flv/Mp3/Aac Live Stream的配置如下，更改不同的扩展名即可以不同方式分发：
 
 ```
+vhost your_vhost {
     # http flv/mp3/aac stream vhost specified config
     http_flv {
         # whether enable the http flv live streaming service for vhost.
@@ -56,6 +57,7 @@ HTTP Flv/Mp3/Aac Live Stream的配置如下，更改不同的扩展名即可以�
         # default: [vhost]/[app]/[stream].flv
         mount       [vhost]/[app]/[stream].flv;
     }
+}
 ```
 
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
