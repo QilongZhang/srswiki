@@ -31,7 +31,7 @@ Save bellow as config, or use `conf/http.hls.conf`:
 # conf/http.hls.conf
 listen              1935;
 max_connections     1000;
-http_stream {
+http_server {
     enabled         on;
     listen          8080;
     dir             ./objs/nginx/html;
