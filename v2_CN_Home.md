@@ -100,7 +100,7 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将设备中的媒体数据编码为流输出？参考：[Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)
 
-## [Stream流转换服务](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Streamer)
+## [Stream Cast流转换服务](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Streamer)
 
 SRS如何接收RTSP流？如何Push MPEG-TS over UDP到SRS？如何接收其他协议的流？参考：[Streamer](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Streamer)
 
