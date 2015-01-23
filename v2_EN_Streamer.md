@@ -13,4 +13,10 @@ Typically use scenarios:
 
 Remark: The streamer will demux other protocol then push to SRS over RTMP, so all features of SRS are available, for example, push RTSP to SRS over RTMP to edge vhost which will forward stream to origin, or transcode the rtmp stream, or directly forward to other server. And, all delivery methods are ok, for example, push RTSP to SRS overy RTMP, delivery in RTMP/HLS/HTTP.
 
+## Protcols
+
+The protocols supported by Streamer:
+
+* MPEG-TS over UDP: Developing.
+
 2015.1
