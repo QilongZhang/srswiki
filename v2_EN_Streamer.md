@@ -17,6 +17,6 @@ Remark: The streamer will demux other protocol then push to SRS over RTMP, so al
 
 The protocols supported by Streamer:
 
-* MPEG-TS over UDP: Coming sone.
+* MPEG-TS over UDP: Coming soon...
 
 2015.1
