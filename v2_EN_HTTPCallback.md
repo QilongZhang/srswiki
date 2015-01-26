@@ -3,6 +3,8 @@
 SRS does not support server-side script, but support
 http-callback, read [ServerSide script](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_ServerSideScript).
 
+About the token authentication which is base on http callback, read [Token Authentication](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DRM#token-authentication)
+
 ## Compile
 
 Use `--with-http-callback` to enable HttpCallback, while `--without-http-callback` to disable it.
