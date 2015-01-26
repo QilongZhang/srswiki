@@ -7,7 +7,7 @@ DRM重要的功能就是防盗链，只有允许的用户，才能访问服务�
 * Access服务器：专门的access服务器负责DRM。譬如adobe的access服务器。
 * 推流认证：adobe的RTMP推流时，支持几种认证方式，这个也可以归于防盗链概念。
 
-## Refer防盗链
+## Refer Authentication
 
 SRS支持refer防盗链，adobe的flash在播放RTMP流时，会把页面的http url放在请求中，
 as客户端代码不可以更改。当然如果用自己的客户端，不用flash播放流，就可以随意伪造了；
@@ -36,7 +36,7 @@ vhost refer.anti_suck.com {
 }
 ```
 
-## Token防盗链
+## Token Authentication
 
 token类似于refer，不过是放在RTMP url中，或者在connect的请求参数中：
 * token在RTMP url，譬如：`rtmp://vhost/app?token=xxxx/stream`，这样服务器在on_connect回调接口中，
