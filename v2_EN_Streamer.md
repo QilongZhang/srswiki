@@ -17,6 +17,34 @@ Remark: The streamer will demux other protocol then push to SRS over RTMP, so al
 
 The protocols supported by Streamer:
 
-* MPEG-TS over UDP: Coming soon...
+* MPEG-TS over UDP: Support encoder to push MPEG-TS over UDP to SRS.
+
+## Push MPEG-TS over UDP
+
+SRS can listen a udp port, which recv udp packet(SPTS) from encoder, then remux the SPTS to a RTMP stream. All features for RTMP is ok for this RTMP stream.
+
+The config for pushing MPEG-TS over UDP:
+
+```
+# the streamer cast stream from other protocol to SRS over RTMP.
+# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+stream_caster {
+    # whether stream caster is enabled.
+    # default: off
+    enabled         on;
+    # the caster type of stream, the casters:
+    #       mpegts_over_udp, MPEG-TS over UDP caster.
+    caster          mpegts_over_udp;
+    # the output rtmp url.
+    # for example, rtmp://127.0.0.1/live/livestream.
+    output          rtmp://127.0.0.1/live/livestream;
+    # the listen port for stream caster.
+    # for caster:
+    #       mpegts_over_udp, listen at udp port.
+    listen          1935;
+}
+```
+
+For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/250#issuecomment-72321769
 
 2015.1
