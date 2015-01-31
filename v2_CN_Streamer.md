@@ -21,7 +21,7 @@ Streamer是SRS作为服务器侦听并接收其他协议的流（譬如RTSP，MP
 
 SRS可以侦听一个udp端口，编码器将流推送到这个udp端口（SPTS）后，SRS会转成一路RTMP流。后面RTMP流能支持的功能都支持。
 
-配置如下：
+配置如下，参考`conf/push.mpegts.over.udp.conf`：
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
