@@ -23,7 +23,7 @@ The protocols supported by Streamer:
 
 SRS can listen a udp port, which recv udp packet(SPTS) from encoder, then remux the SPTS to a RTMP stream. All features for RTMP is ok for this RTMP stream.
 
-The config for pushing MPEG-TS over UDP:
+The config for pushing MPEG-TS over UDP, see `conf/push.mpegts.over.udp.conf`:
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
