@@ -25,7 +25,7 @@ SRS release 1.0, about 1 year and the main goals:
 * For ARM and MIPS, SRS can running on raspberry-pi and cubieboard.
 * High performance, supports 2.7k clients.
 
-[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/releases/tag/1.0) already released at 2014.12.5.
+[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/releases/tag/1.0r0) already released at 2014.12.5.
 
 The hotfixes of SRS 1.0, read [hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0...1.0release)
 
