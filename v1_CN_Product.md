@@ -26,7 +26,7 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 * 在ARM/MIPS等嵌入式CPU设备Linux上运行。另外，提供配套的内网监控和排错，cubieboard/raspberry-pi的嵌入式服务器。
 * 高性能服务器，支持2.7k并发。
 
-[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/releases/tag/1.0)已经在2014.12.5如期发布。
+[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/releases/tag/1.0r0)已经在2014.12.5如期发布。
 
 查看1.0release之后的改动：[hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0...1.0release)
 
