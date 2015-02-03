@@ -47,6 +47,7 @@ SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 * 可商用的内置HTTP服务器，参考GO的http模块。参考：[#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
 * RTMP流转封装为HTTP Live flv/aac/mp3/ts流分发。参考：[#293](https://github.com/winlinvip/simple-rtmp-server/issues/293).
 * 支持Push MPEG-TS over UDP to SRS, 参考：[#250](https://github.com/winlinvip/simple-rtmp-server/issues/250).
+* 支持内存HLS，无磁盘IO, 参考：[#136](https://github.com/winlinvip/simple-rtmp-server/issues/136).
 * 其他小功能的完善。
 
 ## Release3.0
