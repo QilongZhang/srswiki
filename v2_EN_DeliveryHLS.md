@@ -134,41 +134,50 @@ vhost __defaultVhost__ {
         # if off, donot write hls(ts and m3u8) when publish.
         # default: off
         enabled         on;
-        # the hls output path.
-        # the app dir is auto created under the hls_path.
-        # for example, for rtmp stream:
-        #   rtmp://127.0.0.1/live/livestream
-        #   http://127.0.0.1/live/livestream.m3u8
-        # where hls_path is /hls, srs will create the following files:
-        #   /hls/live       the app dir for all streams.
-        #   /hls/live/livestream.m3u8   the HLS m3u8 file.
-        #   /hls/live/livestream-1.ts   the HLS media/ts file.
-        # in a word, the hls_path is for vhost.
-        # default: ./objs/nginx/html
-        hls_path        /data/nginx/html;
         # the hls fragment in seconds, the duration of a piece of ts.
         # default: 10
         hls_fragment    10;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
+        # the error strategy. canbe:
+        #       ignore, when error ignore and disable hls.
+        #       disconnect, when error disconnect the publish connection.
+        #       continue, when error ignore and continue output hls.
+        # @see https://github.com/winlinvip/simple-rtmp-server/issues/264
+        # default: ignore
+        hls_on_error    ignore;
+        # the hls storage: disk, ram or both.
+        #       disk, to write hls m3u8/ts to disk.
+        #       ram, serve m3u8/ts in memory, which use embeded http server to delivery.
+        #       both, disk and ram.
+        # default: disk
+        hls_storage     disk;
+        # the hls output path.
+        # the app dir is auto created under the hls_path.
+        # for example, for rtmp stream:
+        #       rtmp://127.0.0.1/live/livestream
+        #       http://127.0.0.1/live/livestream.m3u8
+        # where hls_path is /hls, srs will create the following files:
+        #       /hls/live       the app dir for all streams.
+        #       /hls/live/livestream.m3u8   the HLS m3u8 file.
+        #       /hls/live/livestream-1.ts   the HLS media/ts file.
+        # in a word, the hls_path is for vhost.
+        # default: ./objs/nginx/html
+        hls_path        ./objs/nginx/html;
+        # the hls mount for hls_storage ram,
+        # which use srs embeded http server to delivery HLS,
+        # where the mount specifies the HTTP url to mount.
+        # @see the mount of http_remux.
+        # @remark the hls_mount must endswith .m3u8.
+        # default: [vhost]/[app]/[stream].m3u8
+        hls_mount       [vhost]/[app]/[stream].m3u8;
     }
 }
 ```
 
 The section `hls` is for HLS config:
 * enabled: Whether enable HLS, on to enable, off to disable. Default: off.
-* hls_path: The path to save m3u8 and ts file, where SRS will use app as dir and stream as ts file prefix. For example:
-```bash
-For RTMP stream: rtmp://localhost/live/livestream
-HLS path: hls_path        /data/nginx/html;
-SRS will generate below files:
-/data/nginx/html/live/livestream.m3u8
-/data/nginx/html/live/livestream-0.ts
-/data/nginx/html/live/livestream-1.ts
-/data/nginx/html/live/livestream-2.ts
-And the HLS url to play: http://localhost/live/livestream.m3u8
-```
 * hls_fragment: The HLS duration in seconds. The actual duration of ts file is by:
 ```bash
 TS duration(s) = max(hls_fragment, gop_size)
@@ -180,6 +189,19 @@ So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is lar
 ```bash
 hls_window >= sum(each ts duration in m3u8)
 ```
+* hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
+* hls_path: The path to save m3u8 and ts file, where SRS will use app as dir and stream as ts file prefix. For example:
+```bash
+For RTMP stream: rtmp://localhost/live/livestream
+HLS path: hls_path        /data/nginx/html;
+SRS will generate below files:
+/data/nginx/html/live/livestream.m3u8
+/data/nginx/html/live/livestream-0.ts
+/data/nginx/html/live/livestream-1.ts
+/data/nginx/html/live/livestream-2.ts
+And the HLS url to play: http://localhost/live/livestream.m3u8
+```
+* hls_mount: The mount of m3u8 ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
 
 How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
 
