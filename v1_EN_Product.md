@@ -47,6 +47,7 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 * Rewrite the embeded http server, refer to go http. Read [#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
 * Remux RTMP to HTTP flv/mp3/aac/ts live stream, read [#293](https://github.com/winlinvip/simple-rtmp-server/issues/293).
 * Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/winlinvip/simple-rtmp-server/issues/250).
+* Support HLS in RAM, without write disk. Read [#136](https://github.com/winlinvip/simple-rtmp-server/issues/136).
 * Other small changes.
 
 ## Release3.0
