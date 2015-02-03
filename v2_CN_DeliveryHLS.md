@@ -119,7 +119,7 @@ HLS的主要流程是：
 
 注意：SRS只需要在Vhost上配置HLS，会自动根据流的app创建目录，但是配置的hls_path必须自己创建
 
-## 配置方法
+## HLS Config
 
 conf/full.conf中的with-hls.vhost.com是HLS配置的实例，可以拷贝到默认的Vhost，例如：
 ```bash
