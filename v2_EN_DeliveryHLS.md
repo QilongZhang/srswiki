@@ -201,7 +201,7 @@ SRS will generate below files:
 /data/nginx/html/live/livestream-2.ts
 And the HLS url to play: http://localhost/live/livestream.m3u8
 ```
-* hls_mount: The mount of m3u8 ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
+* hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
 
 How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
 
