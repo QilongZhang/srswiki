@@ -366,6 +366,8 @@ vhost __defaultVhost__ {
 
 譬如，推流地址：`rtmp://192.168.1.173/live/livestream`，上面的配置生成的HLS地址是：`http://192.168.1.173:8080/live/livestream.m3u8`
 
+配置项的具体含义参考：[Config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config)
+
 ## SRS如何支持HLS
 
 SRS的HLS主要参考了nginx-rtmp的HLS实现方式，SRS没有做什么事情，都是nginx-rtmp实现的。而分发m3u8和ts文件，也是使用nginx分发的。
