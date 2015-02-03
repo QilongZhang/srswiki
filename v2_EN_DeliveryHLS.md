@@ -318,6 +318,31 @@ news-431.ts
 #EXT-X-ENDLIST
 ```
 
+## HLS in RAM
+
+SRS supports delivery HLS in RAM, without write m3u8/ts to disk. Read [136](https://github.com/winlinvip/simple-rtmp-server/issues/136)
+
+The config example, refer to `conf/ram.hls.conf`:
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+    dir             ./objs/nginx/html;
+}
+vhost __defaultVhost__ {
+    hls {
+        enabled         on;
+        hls_fragment    10;
+        hls_window      60;
+        hls_storage     ram;
+        hls_mount       /[app]/[stream].m3u8;
+    }
+}
+```
+
+Remark: The HTTP server must enabled.
+
 ## SRS How to Support HLS
 
 The ts write code of SRS is refer to nginx-rtmp, and add some comments according to ts specification.
