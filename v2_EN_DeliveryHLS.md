@@ -365,6 +365,10 @@ vhost __defaultVhost__ {
 
 Remark: The HTTP server must enabled.
 
+For example, publish rtmp at `rtmp://192.168.1.173/live/livestream`, the HLS stream url is `http://192.168.1.173:8080/live/livestream.m3u8`
+
+For information about config, read [Config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config)
+
 ## SRS How to Support HLS
 
 The ts write code of SRS is refer to nginx-rtmp, and add some comments according to ts specification.
