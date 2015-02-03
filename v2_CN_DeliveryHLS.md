@@ -129,41 +129,50 @@ vhost __defaultVhost__ {
         # if off, donot write hls(ts and m3u8) when publish.
         # default: off
         enabled         on;
-        # the hls output path.
-        # the app dir is auto created under the hls_path.
-        # for example, for rtmp stream:
-        #   rtmp://127.0.0.1/live/livestream
-        #   http://127.0.0.1/live/livestream.m3u8
-        # where hls_path is /hls, srs will create the following files:
-        #   /hls/live       the app dir for all streams.
-        #   /hls/live/livestream.m3u8   the HLS m3u8 file.
-        #   /hls/live/livestream-1.ts   the HLS media/ts file.
-        # in a word, the hls_path is for vhost.
-        # default: ./objs/nginx/html
-        hls_path        /data/nginx/html;
         # the hls fragment in seconds, the duration of a piece of ts.
         # default: 10
         hls_fragment    10;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
+        # the error strategy. canbe:
+        #       ignore, when error ignore and disable hls.
+        #       disconnect, when error disconnect the publish connection.
+        #       continue, when error ignore and continue output hls.
+        # @see https://github.com/winlinvip/simple-rtmp-server/issues/264
+        # default: ignore
+        hls_on_error    ignore;
+        # the hls storage: disk, ram or both.
+        #       disk, to write hls m3u8/ts to disk.
+        #       ram, serve m3u8/ts in memory, which use embeded http server to delivery.
+        #       both, disk and ram.
+        # default: disk
+        hls_storage     disk;
+        # the hls output path.
+        # the app dir is auto created under the hls_path.
+        # for example, for rtmp stream:
+        #       rtmp://127.0.0.1/live/livestream
+        #       http://127.0.0.1/live/livestream.m3u8
+        # where hls_path is /hls, srs will create the following files:
+        #       /hls/live       the app dir for all streams.
+        #       /hls/live/livestream.m3u8   the HLS m3u8 file.
+        #       /hls/live/livestream-1.ts   the HLS media/ts file.
+        # in a word, the hls_path is for vhost.
+        # default: ./objs/nginx/html
+        hls_path        ./objs/nginx/html;
+        # the hls mount for hls_storage ram,
+        # which use srs embeded http server to delivery HLS,
+        # where the mount specifies the HTTP url to mount.
+        # @see the mount of http_remux.
+        # @remark the hls_mount must endswith .m3u8.
+        # default: [vhost]/[app]/[stream].m3u8
+        hls_mount       [vhost]/[app]/[stream].m3u8;
     }
 }
 ```
 
 其中hls配置就是HLS的配置，主要配置项如下：
 * enabled：是否开启HLS，on/off，默认off。
-* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
-```bash
-对于RTMP流：rtmp://localhost/live/livestream
-HLS配置路径：hls_path        /data/nginx/html;
-那么会生成以下文件：
-/data/nginx/html/live/livestream.m3u8
-/data/nginx/html/live/livestream-0.ts
-/data/nginx/html/live/livestream-1.ts
-/data/nginx/html/live/livestream-2.ts
-最后的HLS地址为：http://localhost/live/livestream.m3u8
-```
 * hls_fragment：秒，指定ts切片的最小长度。实际上ts文件的长度由以下公式决定：
 ```bash
 ts文件时长 = max(hls_fragment, gop_size)
@@ -175,6 +184,19 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 ```bash
 hls_window >= sum(m3u8中每个ts的时长)
 ```
+* hls_storage：存储方式，可以是ram(内存)，disk(磁盘)，both(两者同时支持)。若指定为disk或both，则需要指定hls_path。若指定ram或both，则需要指定hls_mount。具体参考后面的描述。
+* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
+```bash
+对于RTMP流：rtmp://localhost/live/livestream
+HLS配置路径：hls_path        /data/nginx/html;
+那么会生成以下文件：
+/data/nginx/html/live/livestream.m3u8
+/data/nginx/html/live/livestream-0.ts
+/data/nginx/html/live/livestream-1.ts
+/data/nginx/html/live/livestream-2.ts
+最后的HLS地址为：http://localhost/live/livestream.m3u8
+```
+* hls_mount: M3u8挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
 
@@ -321,7 +343,7 @@ news-431.ts
 
 SRS支持内存直接分发HLS，不写入磁盘。参考：[136](https://github.com/winlinvip/simple-rtmp-server/issues/136)
 
-配置实例：
+配置实例，参考`conf/ram.hls.conf`：
 
 ```
 http_server {
