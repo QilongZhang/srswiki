@@ -317,6 +317,31 @@ news-431.ts
 #EXT-X-ENDLIST
 ```
 
+## HLS in RAM
+
+SRS支持内存直接分发HLS，不写入磁盘。参考：[136](https://github.com/winlinvip/simple-rtmp-server/issues/136)
+
+配置实例：
+
+```
+http_server {
+    enabled         on;
+    listen          8080;
+    dir             ./objs/nginx/html;
+}
+vhost __defaultVhost__ {
+    hls {
+        enabled         on;
+        hls_fragment    10;
+        hls_window      60;
+        hls_storage     ram;
+        hls_mount       /[app]/[stream].m3u8;
+    }
+}
+```
+
+必须开启SRS的内置HTTP服务器功能，否则无法分发HLS。
+
 ## SRS如何支持HLS
 
 SRS的HLS主要参考了nginx-rtmp的HLS实现方式，SRS没有做什么事情，都是nginx-rtmp实现的。而分发m3u8和ts文件，也是使用nginx分发的。
