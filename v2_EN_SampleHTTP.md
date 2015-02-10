@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
+<strong>Step 3, config srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)和[HTTP服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
 Save bellow as config, or use `conf/http.hls.conf`:
 
@@ -47,16 +47,16 @@ vhost __defaultVhost__ {
 ```
 
 Note: The hls_path must exists, srs never create it. For detail, 
-read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
-<strong>Step 4, start srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 4, start srs.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 and [SRS HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 5, start encoder.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -81,7 +81,7 @@ The streams on SRS:
 * RTMP: `rtmp://192.168.1.170/live/livestream`
 * HLS: `http://192.168.1.170:8080/live/livestream.m3u8`
 
-<strong>Step 6, play RTMP.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 6, play RTMP.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -91,7 +91,7 @@ Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/researc
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 7, play HLS.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+<strong>Step 7, play HLS.</strong> For detail, read [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
 HLS url: `http://192.168.1.170:8080/live/livestream.m3u8`
 

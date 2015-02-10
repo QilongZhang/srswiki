@@ -56,9 +56,9 @@ RTMP为何要依赖ssl？什么是RTMP简单握手和复杂握手？什么时候
 
 SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryRTMP)
 
-## [HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
+## [HLS分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS)
 
-如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)
+如何将RTMP流切片成HLS分发？HLS相关知识，SRS配置HLS？参考链接：[Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS)
 
 ## [HTTP Stream分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream)
 

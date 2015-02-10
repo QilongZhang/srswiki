@@ -1,6 +1,6 @@
 # 低延时直播应用
 
-直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
+直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
 
 低延迟的部署实例参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)
 

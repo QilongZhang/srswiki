@@ -56,9 +56,9 @@ How to use SRS to transcode live stream? How to transcode audio only? How to pas
 
 How SRS to support RTMP streaming? How to config SRS to support RTMP? What is the benifit of RTMP? Please see: [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
 
-## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+## [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
-How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in SRS? Please see: [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in SRS? Please see: [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
 ## [Delivery HTTP Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream)
 

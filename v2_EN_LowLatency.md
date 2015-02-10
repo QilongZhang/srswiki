@@ -1,7 +1,7 @@
 # Low Latency Live Stream
 
 The RTMP and HLS can cover all requires for internet live stream,
-read  [DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS),
+read  [DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS),
 while RTMP is designed for low latency live stream.
 
 The deploy for low latency, read [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime)
