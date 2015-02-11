@@ -17,6 +17,8 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 ## Release1.0
 
+开发代号：HuKaiqun（胡开群）。感谢我的初中老师胡开群和高昂老师，教育我热爱自己所做的事情。
+
 SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 
 * 提供互联网直播的核心业务功能，即RTMP/HLS直播。能对接任意的编码器和播放器，集群支持对接任意的源站服务器。
@@ -31,6 +33,8 @@ SRS release 1.0，预计研发周期为1年左右。主要的目标是：
 查看1.0release之后的改动：[hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0...1.0release)
 
 ## Release2.0
+
+开发代号：ZhouGuowen（周国文）。感谢我的高中老师周国文老师，教我成人自立，为我翻开一个新的篇章。
 
 SRS release 2.0，预计研发周期为6个月左右。主要的目标是：
 
