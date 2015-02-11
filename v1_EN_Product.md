@@ -18,7 +18,7 @@ Notes: the conceptual integrity refer to Brooks.
 
 Dev code: HuKaiqun, my teacher.
 
-SRS release 1.0, about 1 year and the main goals:
+[SRS release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release), about 1 year and the main goals:
 
 * Live stream for internet application: the RTMP and HLS stream delivering, support any origin, encoder and player.
 * Dozens of features, for example, Foward, Transcode, Ingest, DVR, to build your application very fast and stable. Comparing to FMS, user need a server-side dvr script and click the DVR button on FMLE, SRS only need 3lines conf to enable the dvr feature.
@@ -27,15 +27,13 @@ SRS release 1.0, about 1 year and the main goals:
 * For ARM and MIPS, SRS can running on raspberry-pi and cubieboard.
 * High performance, supports 2.7k clients.
 
-[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/releases/tag/1.0r0) already released at 2014.12.5.
-
-The hotfixes of SRS 1.0, read [hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0...1.0release)
+[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release) already released at 2014.12.5.
 
 ## Release2.0
 
 Dev code: ZhouGuowen, my teacher.
 
-SRS release 2.0, about 6 months and the main goals:
+[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop), about 6 months and the main goals:
 
 * Support English wiki(EN+CN).
 * Enhance performance, supports 10k+ play and 4.5k+ publish. Read [#194](https://github.com/winlinvip/simple-rtmp-server/issues/194), [#237](https://github.com/winlinvip/simple-rtmp-server/issues/237) and [#251](https://github.com/winlinvip/simple-rtmp-server/issues/251)
