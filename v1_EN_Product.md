@@ -16,6 +16,8 @@ Notes: the conceptual integrity refer to Brooks.
 
 ## Release1.0
 
+Dev code: HuKaiqun, my teacher.
+
 SRS release 1.0, about 1 year and the main goals:
 
 * Live stream for internet application: the RTMP and HLS stream delivering, support any origin, encoder and player.
@@ -30,6 +32,8 @@ SRS release 1.0, about 1 year and the main goals:
 The hotfixes of SRS 1.0, read [hotfixes](https://github.com/winlinvip/simple-rtmp-server/compare/1.0...1.0release)
 
 ## Release2.0
+
+Dev code: ZhouGuowen, my teacher.
 
 SRS release 2.0, about 6 months and the main goals:
 
