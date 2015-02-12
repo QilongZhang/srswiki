@@ -132,6 +132,12 @@ vhost __defaultVhost__ {
         # the hls fragment in seconds, the duration of a piece of ts.
         # default: 10
         hls_fragment    10;
+        # the hls m3u8 target duration ratio,
+        #   EXT-X-TARGETDURATION = hls_td_ratio * hls_fragment // init
+        #   EXT-X-TARGETDURATION = max(ts_duration, EXT-X-TARGETDURATION) // for each ts
+        # @see https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+        # default: 1.5
+        hls_td_ratio    1.5;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
@@ -180,6 +186,7 @@ hls_fragment：配置文件中的长度。譬如：5秒。
 gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，gop为200帧，则gop_size=gop/fps=10秒。
 那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
 ```
+* hls_td_ratio：倍数。控制m3u8的EXT-X-TARGETDURATION，参考：https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
 * hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
 ```bash
 hls_window >= sum(m3u8中每个ts的时长)
