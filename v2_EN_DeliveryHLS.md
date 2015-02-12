@@ -137,6 +137,12 @@ vhost __defaultVhost__ {
         # the hls fragment in seconds, the duration of a piece of ts.
         # default: 10
         hls_fragment    10;
+        # the hls m3u8 target duration ratio,
+        #   EXT-X-TARGETDURATION = hls_td_ratio * hls_fragment // init
+        #   EXT-X-TARGETDURATION = max(ts_duration, EXT-X-TARGETDURATION) // for each ts
+        # @see https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+        # default: 1.5
+        hls_td_ratio    1.5;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
@@ -185,6 +191,7 @@ hls_fragment: The config seconds for ts file, for example, 5s.
 gop_size: The stream gop size, for example, the fps is 20, gop is 200frames, then gop_size=gop/fps=10s.
 So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is larger than hls_fragment.
 ```
+* hls_td_ratio: The ratio to calc the m3u8 EXT-X-TARGETDURATION, read https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
 * hls_window: The total HLS windows size in seconds, the sum of all ts duration in m3u8. SRS will drop the old ts file in m3u8 and delete the file on fs. SRS will keep:
 ```bash
 hls_window >= sum(each ts duration in m3u8)
