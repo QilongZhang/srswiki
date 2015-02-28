@@ -50,6 +50,8 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 * Remux RTMP to HTTP flv/mp3/aac/ts live stream, read [#293](https://github.com/winlinvip/simple-rtmp-server/issues/293).
 * Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/winlinvip/simple-rtmp-server/issues/250).
 * Support HLS in RAM, without write disk. Read [#136](https://github.com/winlinvip/simple-rtmp-server/issues/136).
+* Support push RTSP to SRS, read [#133](https://github.com/winlinvip/simple-rtmp-server/issues/133).
+* Support HTTP DVR API, read [#179](https://github.com/winlinvip/simple-rtmp-server/issues/179).
 * Other small changes.
 
 ## Release3.0
