@@ -178,6 +178,20 @@ vhost __defaultVhost__ {
         # @remark the hls_mount must endswith .m3u8.
         # default: [vhost]/[app]/[stream].m3u8
         hls_mount       [vhost]/[app]/[stream].m3u8;
+        # the default audio codec of hls.
+        # when codec changed, write the PAT/PMT table, but maybe ok util next ts.
+        # so user can set the default codec for mp3.
+        # the available audio codec: 
+        #       aac, mp3
+        # default: aac
+        hls_acodec      aac;
+        # the default video codec of hls.
+        # when codec changed, write the PAT/PMT table, but maybe ok util next ts.
+        # so user can set the default codec for pure audio(without video) to vn.
+        # the available video codec:
+        #       h264, vn
+        # default: h264
+        hls_vcodec      h264;
     }
 }
 ```
@@ -209,6 +223,8 @@ SRS will generate below files:
 And the HLS url to play: http://localhost/live/livestream.m3u8
 ```
 * hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
+* hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
+* hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
 
 How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
 
@@ -226,7 +242,7 @@ All stream publish by forward will output HLS when HLS enalbed.
 
 ## HLS and Transcode
 
-User can use transcode to ensure the video codec is h.264 and audio codec is aac, because h.264+aac is required by HLS.
+User can use transcode to ensure the video codec is h.264 and audio codec is aac/mp3, because h.264+aac/mp3 is required by HLS.
 
 The below transcode config set the [gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7) to keep ts duration small:
 ```bash
