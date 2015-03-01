@@ -10,6 +10,7 @@ Typically use scenarios:
 
 * Push MPEG-TS over UDP to SRS, delivery in RTMP/HLS/HTTP.
 * Push RTSP to SRS, delivery in RTMP/HLS/HTTP.
+* POST FLV over HTTP to SRS, delivery in RTMP/HLS/HTTP.
 
 Remark: The streamer will demux other protocol then push to SRS over RTMP, so all features of SRS are available, for example, push RTSP to SRS over RTMP to edge vhost which will forward stream to origin, or transcode the rtmp stream, or directly forward to other server. And, all delivery methods are ok, for example, push RTSP to SRS overy RTMP, delivery in RTMP/HLS/HTTP.
 
@@ -18,6 +19,8 @@ Remark: The streamer will demux other protocol then push to SRS over RTMP, so al
 The protocols supported by Streamer:
 
 * MPEG-TS over UDP: Support encoder to push MPEG-TS over UDP to SRS.
+* Push RTSP to SRS: Support encoder to push RTSP to SRS.
+* POST FLV over HTTP to SRS: In plan.
 
 ## Push MPEG-TS over UDP
 
@@ -46,5 +49,42 @@ stream_caster {
 ```
 
 For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/250#issuecomment-72321769
+
+# Push RTSP to SRS
+
+SRS can listen a tcp port, which recv tcp packet(RTSP) from encoder, then remux the RTSP/RTP to a RTMP stream. All features for RTMP is ok for this RTMP stream.
+
+The config for pushing MPEG-TS over UDP, see `conf/push.rtsp.conf`：
+
+```
+# the streamer cast stream from other protocol to SRS over RTMP.
+# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+stream_caster {
+    # whether stream caster is enabled.
+    # default: off
+    enabled         off;
+    # the caster type of stream, the casters:
+    #       rtsp, Real Time Streaming Protocol (RTSP).
+    caster          rtsp;
+    # the output rtmp url.
+    # for rtsp caster, the typically output url:
+    #       rtmp://127.0.0.1/[app]/[stream]
+    #       for example, the rtsp url:
+    #           rtsp://192.168.1.173:8544/live/livestream.sdp
+    #           where the [app] is "live" and [stream] is "livestream", output is:
+    #           rtmp://127.0.0.1/live/livestream
+    output          rtmp://127.0.0.1/live/livestream;
+    # the listen port for stream caster.
+    #       for rtsp caster, listen at tcp port. for example, 554.
+    listen          554;
+    # for the rtsp caster, the rtp server local port over udp,
+    # which reply the rtsp setup request message, the port will be used:
+    #       [rtp_port_min, rtp_port_max)
+    rtp_port_min    57200;
+    rtp_port_max    57300;
+}
+```
+
+For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/133#issuecomment-75531884
 
 2015.1
