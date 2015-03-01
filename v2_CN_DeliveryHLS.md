@@ -173,6 +173,20 @@ vhost __defaultVhost__ {
         # @remark the hls_mount must endswith .m3u8.
         # default: [vhost]/[app]/[stream].m3u8
         hls_mount       [vhost]/[app]/[stream].m3u8;
+        # the default audio codec of hls.
+        # when codec changed, write the PAT/PMT table, but maybe ok util next ts.
+        # so user can set the default codec for mp3.
+        # the available audio codec: 
+        #       aac, mp3
+        # default: aac
+        hls_acodec      aac;
+        # the default video codec of hls.
+        # when codec changed, write the PAT/PMT table, but maybe ok util next ts.
+        # so user can set the default codec for pure audio(without video) to vn.
+        # the available video codec:
+        #       h264, vn
+        # default: h264
+        hls_vcodec      h264;
     }
 }
 ```
@@ -204,6 +218,8 @@ HLS配置路径：hls_path        /data/nginx/html;
 最后的HLS地址为：http://localhost/live/livestream.m3u8
 ```
 * hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
+* hls_acodec: 默认的音频编码。当流的编码改变时，会更新PMT/PAT信息；默认是aac，因此默认的PMT/PAT信息是aac；如果流是mp3，那么可以配置这个参数为mp3，避免PMT/PAT改变。
+* hls_vcodec: 默认的视频编码。当流的编码改变时，会更新PMT/PAT信息；默认是h264。如果是纯音频HLS，可以配置为vn，可以减少SRS检测纯音频的时间，直接进入纯音频模式。
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
 
@@ -223,9 +239,9 @@ Forward的流和普通流不做区分，若forward的流所在的VHOST配置了H
 
 ## HLS和Transcode
 
-HLS要求RTMP流的编码为h.264+aac，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
+HLS要求RTMP流的编码为h.264+aac/mp3，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
 
-Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac编码方式。
+Transcode将RTMP流转码后，可以让SRS接入任何编码的RTMP流，然后转换成HLS要求的h.264/aac/mp3编码方式。
 
 配置Transcode时，若需要控制ts长度，需要[配置ffmpeg编码的gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7)，譬如：
 ```bash
