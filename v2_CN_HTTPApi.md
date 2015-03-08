@@ -182,4 +182,20 @@ Content-Length: 81
 
 SRS提供HTTP服务的基本原则是支持少量的HTTP协议，并且只提供给程序读的信息。尽量保证提供的信息都是可读的json，除非连不上服务器，或者服务器崩溃，否则数据都是json。
 
+## Crossdomain
+
+SRS HTTP API支持跨域，js可以直接调用srs的http api。
+
+## Vhost
+
+SRS提供获取所有vhost的接口，vhost中的server为srs的id，用来标识是否服务器重启了。
+
+地址为：`http://192.168.1.102:1985/api/v1/vhosts`
+
+## Stream
+
+SRS提供获取所有stream的接口，stream中的server为srs的id，用来标识是否服务器重启了。vhost为stream所属的vhost的id。
+
+地址为：`http://192.168.1.102:1985/api/v1/streams`
+
 Winlin 2015.3
