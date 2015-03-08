@@ -92,9 +92,9 @@ How to use SRS in pseudo realtime? What is the latency? What is the mininum late
 
 About the HttpCallback or HttpHooks. How to authenticate the client? How to callback external http api when client publish stream? How to notice your system when client connect or disconnect? How to hook the dvr? Please see: [HTTP Callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
 
-## [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)
+## [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPApi)
 
-How to manage server by http management api? How to manage server, for example, get server status in HTML pages? How your php/python management system to manage the SRS? Please see: [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)
+How to manage server by http management api? How to manage server, for example, get server status in HTML pages? How your php/python management system to manage the SRS? Please see: [HTTP Management API](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPApi)
 
 ## [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)
 
