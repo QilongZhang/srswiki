@@ -161,4 +161,20 @@ Content-Length: 81
 
 Not all HTTP protocol is supported by SRS.
 
+## Crossdomain
+
+SRS HTTP API supports js crossdomain, so the html/js can invoke http api of srs。
+
+## Vhost
+
+SRS provides http api to query all vhosts, where server is the id of srs, which identify whether srs restarted.
+
+The http api vhost url: `http://192.168.1.102:1985/api/v1/vhosts`
+
+## Stream
+
+SRS provides http api to query all streams, where sever is the id of srs, and vhost is the vhost contains the stream.
+
+The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
+
 Winlin 2015.3
