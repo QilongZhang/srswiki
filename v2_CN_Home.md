@@ -92,9 +92,9 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 关于HttpCallback，即HttpHooks。如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？如何hook dvr事件？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPCallback)
 
-## [HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)
+## [HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPApi)
 
-如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)
+如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPApi)
 
 ## [Ingest采集](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)
 
