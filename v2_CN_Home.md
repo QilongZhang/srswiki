@@ -176,9 +176,9 @@ SRS如何支持点播？FLV流如何支持？如何支持时移？录制的文�
 
 如何使用内核性能分析工具分析srs性能？参考：[Perf性能分析](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Perf)
 
-## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_IDE)
+## [C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_IDE)
 
-C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_IDE)
+C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://www.jetbrains.com/idea/)出Windows下C++的IDE了会更好。参考：[C++的开发环境](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_IDE)
 
 ## [GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Git)
 
