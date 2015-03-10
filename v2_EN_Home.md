@@ -176,9 +176,9 @@ How to finger out the performance issue of SRS? How to use gprof? How to draw th
 
 How to use kernel performance tools perf to finger out the performance issue of SRS? Please see: [Perf Performance Analysis](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Perf)
 
-## [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_IDE)
+## [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_IDE)
 
-How to choose C++ IDE? We recomment the UltimateC++ or Clion. Please see: [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_IDE)
+How to choose C++ IDE? We recomment the UltimateC++ or Clion. Please see: [C++ IDE](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_IDE)
 
 ## [GIT Usage](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
 
