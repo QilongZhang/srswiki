@@ -4,8 +4,6 @@ windows/linux下开发srs的IDE：[http://blog.csdn.net/win_lin/article/details/
 
 我也比较过其他的IDE，可以参考：[开源日志：关于IDE/源代码编辑](http://blog.csdn.net/win_lin/article/details/8142981)
 
-SRS支持xcode中开发，参考[SRS for OSX](https://github.com/winlinvip/simple-rtmp-server/issues/155#issuecomment-77995950)
-
 ## QtCreator
 
 SRS添加了QT的配置文件，使用QT打开`simple-rtmp-server/trunk/src/qt/srs/srs-qt.pro`即可。
