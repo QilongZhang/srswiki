@@ -60,6 +60,10 @@ How SRS to support RTMP streaming? How to config SRS to support RTMP? What is th
 
 How to convert RTMP to delivery as HLS? What is HLS tech? How to config HLS in SRS? Please see: [Delivery HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
 
+## [Delivery HDS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHDS)
+
+How to convert RTMP to delivery as HDS? What is HDS tech? How to config HDS in SRS? Please see: [Delivery HDS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHDS)
+
 ## [Delivery HTTP Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream)
 
 How to delivery flv vod stream, to support `xxx.flv?start=offset`? How to delivery flv live stream, to remux rtmp to flv? Please read [Delivery HTTP Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream)
