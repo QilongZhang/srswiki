@@ -2,6 +2,8 @@
 
 HDS is the Http Dynamic Stream of Adobe，similar to Apple [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS).
 
+For specification of HDS, read http://www.adobe.com/devnet/hds.html
+
 # Build
 
 We can disable or enable HDS when build SRS, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
