@@ -56,7 +56,7 @@ The table bellow describes the different protocols for PC and mobile platform.
 <td>-</td>
 <td>HTTP</td>
 <td>Adobe</td>
-<td>HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benifits, so SRS never support it.</td>
+<td>HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benefits, however, SRS2 support HDS.</td>
 </tr>
 <tr>
 <td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
