@@ -12,9 +12,9 @@ What's the product plan of SRS? What's the key features? Please see: [SRS Produc
 
 Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Compare)
 
-## [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Features)
+## [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Features)
 
-The key features of SRS, the implemented, in plan and not plan. Please see: [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Features)
+The key features of SRS, the implemented, in plan and not plan. Please see: [SRS Features](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Features)
 
 ## [SRS Demo Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LiveShow)
 
