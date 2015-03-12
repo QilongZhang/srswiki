@@ -51,6 +51,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持内存HLS，无磁盘IO, 参考：[#136](https://github.com/winlinvip/simple-rtmp-server/issues/136).
 * 增强的DVR，支持Append/callback，参考：[#179](https://github.com/winlinvip/simple-rtmp-server/issues/179).
 * 增强的HTTP API，支持stream/vhost查询，参考：[#316](https://github.com/winlinvip/simple-rtmp-server/issues/316).
+* 支持HDS，参考：[#328](https://github.com/winlinvip/simple-rtmp-server/issues/328).
 * [experiment]支持Push MPEG-TS over UDP to SRS, 参考：[#250](https://github.com/winlinvip/simple-rtmp-server/issues/250).
 * [experiment]支持Push RTSP to SRS，参考：[#133](https://github.com/winlinvip/simple-rtmp-server/issues/133).
 * 其他小功能的完善。
