@@ -133,6 +133,7 @@ The options of configure:
 * --help print help and exit.
 * --with-ssl support RTMP complex handshake, see: [RTMP Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)。
 * --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS)
+* --with-hds support output HDS for Adobe OSMF. See: [HDS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHDS)
 * --with-dvr dvr RTMP to FLV file, see: [DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
 * --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
