@@ -56,7 +56,7 @@ HLS主要的应用场景包括：
 <td>-</td>
 <td>HTTP</td>
 <td>Adobe</td>
-<td>Adobe自己的HLS，<br/>协议方面做得是复杂而且没有什么好处，<br/>国内没有什么应用，传说国外有，<br/>像这种东西SRS是绝对不会支持的。</td>
+<td>Adobe自己的HLS，<br/>协议方面做得是复杂而且没有什么好处，<br/>国内没有什么应用，传说国外有，<br/>SRS2已经支持。</td>
 </tr>
 <tr>
 <td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
