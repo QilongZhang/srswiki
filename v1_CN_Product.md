@@ -58,9 +58,13 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 ## Release3.0
 
-SRS release 3.0，预研阶段，没有时间表。主要的目标是：
+SRS release 3.0，预研阶段，没有时间表。可能主要的目标是：
 
-* SRS.GO，转向GO语言。参考：[SRS.GO项目](https://github.com/winlinvip/srs.go)，以及[GO性能评测](http://blog.csdn.net/win_lin/article/details/41379799)
+* 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目](https://github.com/winlinvip/srs.go)，以及[GO性能评测](http://blog.csdn.net/win_lin/article/details/41379799)
+* 支持h.265直播，在RTMP中加入265支持，输出HLS。
+* 支持MPEG-DASH，可能的未来标准。
+* 支持HTTP边缘服务器。
+* 其他。
 
 ## Backlog
 
