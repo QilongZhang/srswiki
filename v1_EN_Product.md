@@ -58,9 +58,13 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 
 ## Release3.0
 
-SRS release 3.0, in researching now, no milestone. The main goals:
+SRS release 3.0, in researching now, no milestone. The main goals maybe:
 
-* SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
+* Research SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
+* Support H.265, push RTMP with h.265, delivery in HLS.
+* Support MPEG-DASH, the future streaming protocol.
+* Support HTTP edge server.
+* Others.
 
 ## Backlog
 
