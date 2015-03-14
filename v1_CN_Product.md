@@ -34,7 +34,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 开发代号：ZhouGuowen（周国文）。感谢我的高中老师周国文老师，教我成人自立，为我翻开一个新的篇章。
 
-[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop)，预计研发周期为6个月左右。主要的目标是：
+[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release)，预计研发周期为6个月左右。主要的目标是：
 
 * 翻译中文wiki为英文。
 * 提升性能，支持10k+播放和4.5k+推流。参考：[#194](https://github.com/winlinvip/simple-rtmp-server/issues/194)，[#237](https://github.com/winlinvip/simple-rtmp-server/issues/237)和[#251](https://github.com/winlinvip/simple-rtmp-server/issues/251)
@@ -59,9 +59,9 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 ## Release3.0
 
-开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com](http://qgzxol.com)让我可以在大学学习软件理论时还能实践出真知。感谢中勤的同学们，陈哲、刘小婧、盛谢华、易念华、马琰，希望SRS能带着我们最初的梦想越行越远。
+开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com](http://www.qgzxol.com)让我可以在大学学习软件理论时还能实践出真知。感谢中勤的同学们，陈哲、刘小婧、盛谢华、易念华、马琰，希望SRS能带着我们最初的梦想越行越远。
 
-SRS release 3.0，预研阶段，没有时间表。可能主要的目标是：
+[SRS release 3.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop)，预研阶段，没有时间表。可能主要的目标是：
 
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目](https://github.com/winlinvip/srs.go)，以及[GO性能评测](http://blog.csdn.net/win_lin/article/details/41379799)
 * 支持h.265直播，在RTMP中加入265支持，输出HLS。
