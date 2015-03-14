@@ -2,7 +2,7 @@
 
 ## 腾讯QQ群
 
-![腾讯QQ群](http://winlinvip.github.io/srs.release/wiki/images/srs_qq_95.jpg)
+![腾讯QQ群](http://winlinvip.github.io/srs.release/wiki/images/srs_qq_95.png)
 
 或者加入腾讯QQ群：365936885，你可以在QQ群获取大家实时的帮助。
 
