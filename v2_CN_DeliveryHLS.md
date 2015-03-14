@@ -1,4 +1,4 @@
-# 分发方式：HLS
+# Delivery HLS
 
 SRS支持HLS/RTMP两种成熟而且广泛应用的流媒体分发方式。
 
@@ -12,7 +12,7 @@ RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rt
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
 
-## 应用场景
+## Use Scenario
 
 HLS主要的应用场景包括：
 * 跨平台：PC主要的直播方案是RTMP，也有一些库能播放HLS，譬如jwplayer，基于osmf的hls插件也一大堆。所以实际上如果选一种协议能跨PC/Android/IOS，那就是HLS。
@@ -22,7 +22,7 @@ HLS主要的应用场景包括：
 
 总之，SRS支持HLS主要是作为输出的分发协议，直播以RTMP+HLS分发，满总各种应用场景。点播以HLS为主。
 
-## 分发方式比较
+## Delivering Streams
 
 详见下表：
 
@@ -68,7 +68,7 @@ HLS主要的应用场景包括：
 </tbody>
 </table>
 
-## HLS简介
+## HLS
 
 HLS是提供一个m3u8地址，Apple的Safari浏览器直接就能打开m3u8地址，譬如：
 ```bash
@@ -109,7 +109,7 @@ livestream-67.ts
 
 譬如，每个ts切片为10秒，窗口为60秒，那么m3u8中会保存6个ts切片。
 
-## HLS流程
+## HLS Workflow
 
 HLS的主要流程是：
 
@@ -231,13 +231,13 @@ SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可�
 
 分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
 
-## HLS和Forward
+## HLS and Forward
 
 Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
 
 因此，可以对原始流进行Transcode之后，保证流符合h.264/aac的规范，然后forward到多个配置了HLS的VHOST进行切片。支持多个源站的热备。
 
-## HLS和Transcode
+## HLS and Transcode
 
 HLS要求RTMP流的编码为h.264+aac/mp3，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
 
@@ -277,11 +277,11 @@ vhost hls.transcode.vhost.com {
 ```
 该FFMPEG转码参数，指定gop时长为100/20=5秒，fps帧率（vfps=20），gop帧数（g=100）。
 
-## HLS自适应码流
+## HLS Multiple Bitrate
 
 SRS目前不支持HLS自适应码流，需要调研这个功能。
 
-## HLS实例
+## HLS M3u8 Examples
 
 ### live.m3u8
 
@@ -395,7 +395,7 @@ vhost __defaultVhost__ {
 
 配置项的具体含义参考：[Config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config)
 
-## SRS如何支持HLS
+## SRS How to Support HLS
 
 SRS1的HLS主要参考了nginx-rtmp的HLS实现方式，SRS2已经按照HLS标准规范重新实现。
 
