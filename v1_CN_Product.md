@@ -59,6 +59,8 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 ## Release3.0
 
+开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com](http://qgzxol.com)让我可以在大学学习软件理论时还能实践出真知。
+
 SRS release 3.0，预研阶段，没有时间表。可能主要的目标是：
 
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目](https://github.com/winlinvip/srs.go)，以及[GO性能评测](http://blog.csdn.net/win_lin/article/details/41379799)
