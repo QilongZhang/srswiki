@@ -141,6 +141,7 @@ SRS的配置(configure)参数说明如下：
 * --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPCallback)
 * --with-http-api 打开HTTP管理接口。参考：[HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_HTTPServer)
+* --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Streamer)
 * --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 * --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)
 * --with-ingest 采集文件/流/设备数据，封装为RTMP流后，推送到SRS。参考：[Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)
