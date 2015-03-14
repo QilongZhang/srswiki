@@ -33,7 +33,7 @@ Dev code: HuKaiqun, my teacher.
 
 Dev code: ZhouGuowen, my teacher.
 
-[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop), about 6 months and the main goals:
+[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release), about 6 months and the main goals:
 
 * Support English wiki(EN+CN).
 * Enhance performance, supports 10k+ play and 4.5k+ publish. Read [#194](https://github.com/winlinvip/simple-rtmp-server/issues/194), [#237](https://github.com/winlinvip/simple-rtmp-server/issues/237) and [#251](https://github.com/winlinvip/simple-rtmp-server/issues/251)
@@ -61,7 +61,7 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 
 Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://qgzxol.com).
 
-SRS release 3.0, in researching now, no milestone. The main goals maybe:
+[SRS release 3.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop), in researching now, no milestone. The main goals maybe:
 
 * Research SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 * Support H.265, push RTMP with h.265, delivery in HLS.
