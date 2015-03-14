@@ -59,6 +59,8 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 
 ## Release3.0
 
+Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://qgzxol.com).
+
 SRS release 3.0, in researching now, no milestone. The main goals maybe:
 
 * Research SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
