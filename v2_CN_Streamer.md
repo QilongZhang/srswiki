@@ -12,6 +12,14 @@ Streamer是SRS作为服务器侦听并接收其他协议的流（譬如RTSP，MP
 
 备注：Streamer将其他支持的协议推送RTMP给SRS后，所有SRS的功能都能支持。譬如，推RTSP流给Streamer，Streamer转成RTMP推送给SRS，若vhost是edge，SRS将RTMP流转发给源站。或者将RTMP流转码，或者直接转发。另外，所有分发方法都是可用的，譬如推RTSP流给Streamer，Streamer转成RTMP推给SRS，以RTMP/HLS/HTTP分发。
 
+## Build
+
+编译SRS时打开StreamCaster支持，参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)：
+
+```
+./configure --with-stream-caster
+```
+
 ## Protocols
 
 目前Streamer支持的协议包括：
