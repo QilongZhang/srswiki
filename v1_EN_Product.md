@@ -59,7 +59,7 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 
 ## Release3.0
 
-Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://qgzxol.com).
+Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxol.com).
 
 [SRS release 3.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop), in researching now, no milestone. The main goals maybe:
 
