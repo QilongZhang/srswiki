@@ -137,7 +137,7 @@ The options of configure:
 * --with-dvr dvr RTMP to FLV file, see: [DVR](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
 * --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
-* --with-http-api support http api, see: [HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)
+* --with-http-api support http api, see: [HTTP API](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPApi)
 * --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer)
 * --with-stream-caster enable the stream caster, read [Stream Caster](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Streamer)
 * --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)

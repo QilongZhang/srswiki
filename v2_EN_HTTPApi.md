@@ -16,7 +16,7 @@ The HTTP API of SRS follows the simple priciple:
 ## Build
 
 To enable http api, configure SRS with `--with-http-api`, 
-read [configure](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+read [configure](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
 
 ```bash
 ./configure --with-http-api && make
