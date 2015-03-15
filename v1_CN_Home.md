@@ -2,6 +2,14 @@ Welcome to **SRS** - the open-source, industrial-strength live streaming cluster
 
 This wiki is the main source of documentation for **developers** working with (or contributing to) the SRS project. Downloading is available at [SRS website][website].
 
+## Quick navigation
+
+| About SRS             | Project & Community              | Setup Guide          | Technical Documentation                  |
+|----------------------------|---------------------------------|-------------------------------|---------------------------|
+| [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
+| [[About SRS| v1_CN_Product]] | [[Project & Community| v1_CN_Project]]       | [[Setup Guide| v1_CN_Setup]] | [[Technical Documentation| v1_CN_Docs]]|
+| Introducing SRS - why we built it and what it does | About the open-source project, our community and how to contribute | A step-by-step guide to running SRS | Detailed technical documentation on SRS |
+
 ## Questions or need help?
 
 Check out our [Talk to us](v1_CN_Contact) page for different ways of getting in touch.
