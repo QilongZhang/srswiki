@@ -25,4 +25,6 @@
 
 SRS的架构是什么？如何设置http回调？SRS为何不支持服务器端脚本？SRS如何矫正时间戳？RTMP的时间戳单增是什么意思？如何让SRS主动汇报信息到你的服务器？请读[Arch](v1_CN_Architecture)、[Callback](v1_CN_HTTPCallback)、[Script](v1_CN_ServerSideScript)、[Jitter](v1_CN_TimeJitter)、[Heartbeat](v1_CN_Heartbeat)
 
+SRS支持哪些IDE？如何使用GIT？如何切换分支？如何切换到开发版？如何切换到其他release分支？如何提交pull request？如何和SRS保持同步？如何分析SRS的性能瓶颈？请读[IDE](v1_CN_IDE)、[Git](v1_CN_Git)、[Perf](v1_CN_Performance)、[GProf](v1_CN_GPROF)、[GPerf](v1_CN_GPERF)
+
 Winlin 2015.3
