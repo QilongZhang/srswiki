@@ -1,3 +1,5 @@
+[**HOME**](Home) > [**V1 Home**](v1_CN_Home)
+
 Welcome to the simple-rtmp-server wiki!
 
 ## [QQ群和微信](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Contact)
