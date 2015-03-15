@@ -13,7 +13,13 @@ To checkout SRS1.0 branch:
 git pull && git checkout 1.0release
 ```
 
-To checkout SRS2.0 branch(if no 2.0release branch, it's develop):
+To checkout SRS2.0 branch:
+
+```
+git pull && git checkout 2.0release
+```
+
+To checkout SRS3.0 branch(if no 3.0release branch, it's develop):
 
 ```
 git pull && git checkout develop
