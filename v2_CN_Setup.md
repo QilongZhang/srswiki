@@ -2,6 +2,7 @@
 
 下面的列表可以让你一步步了解SRS的各项功能：
 
+1. [查看ossrs.net的公网服务器演示流](v1_CN_LiveShow)
 1. [运行SRS的演示](v1_CN_SampleDemo)
 1. [分发RTMP流](v1_CN_SampleRTMP)
 1. [分发RTMP+HLS流](v1_CN_SampleHLS)
@@ -21,10 +22,18 @@
 
 到底使用RTMP还是HLS？甚至是HDS？这些分发方式到底有啥区别？HTTP-FLV又是什么？HTTP-FLV和RTMP的区别在哪里？请读[RTMP](v1_CN_DeliveryRTMP)、[HLS](v1_CN_DeliveryHLS)、[RTMP PK HLS](v1_CN_RTMP.PK.HTTP)、[HDS](v2_CN_DeliveryHDS)、[HTTP Stream](v2_CN_DeliveryHttpStream)
 
-如何搭建RTMP集群？如何支持全国各地的观众观看？如何跨网分发流？如何预推流到边缘？CDN的RTMP集群如何使用SRS搭建？如何构建自己的RTMP直播分发CDN？Forward和Edge的区别是什么？为何优先使用Edge而不是Forward？什么是HSTRS？SRS是否支持HTTP-FLV的合并回源？如何搭建HTTP-FLV集群？请读[Forward](v1_CN_Forward)、[Edge](v1_CN_Edge)、[HTTP Stream](v2_CN_DeliveryHttpStream)
+如何搭建RTMP集群？如何支持全国各地的观众观看？如何跨网分发流？如何预推流到边缘？CDN的RTMP集群如何使用SRS搭建？如何构建自己的RTMP直播分发CDN？Forward和Edge的区别是什么？为何优先使用Edge而不是Forward？什么是HSTRS？SRS是否支持HTTP-FLV的合并回源？如何搭建HTTP-FLV集群？如何支持绝对时间？如何做主备？请读[Forward](v1_CN_Forward)、[Edge](v1_CN_Edge)、[HTTP Stream](v2_CN_DeliveryHttpStream)、[ATC](v1_CN_RTMP-ATC)
 
 SRS的架构是什么？如何设置http回调？SRS为何不支持服务器端脚本？SRS如何矫正时间戳？RTMP的时间戳单增是什么意思？如何让SRS主动汇报信息到你的服务器？请读[Arch](v1_CN_Architecture)、[Callback](v1_CN_HTTPCallback)、[Script](v1_CN_ServerSideScript)、[Jitter](v1_CN_TimeJitter)、[Heartbeat](v1_CN_Heartbeat)
 
 SRS支持哪些IDE？如何使用GIT？如何切换分支？如何切换到开发版？如何切换到其他release分支？如何提交pull request？如何和SRS保持同步？如何分析SRS的性能瓶颈？请读[IDE](v1_CN_IDE)、[Git](v1_CN_Git)、[Perf](v1_CN_Performance)、[GProf](v1_CN_GPROF)、[GPerf](v1_CN_GPERF)
+
+如何做认证？如何支持Referer防盗链？如何支持RTMP token穿越？请读[Callback](v1_CN_HTTPCallback)、[DRM](v1_CN_DRM)
+
+如何支持录制？如何按时间段录制？如何按照推流和结束推流录制？如何定制DVR的路径？如何设置DVR的HTTP回调？请读[DVR](v1_CN_DVR)
+
+如何分析SRS日志？流卡顿如何分析？如何不重启服务器应用新配置？如何做带宽测试排错？如何知道客户端连接的服务器IP？如何知道客户端在服务器的id？请读[Reload](v1_CN_Reload)、[Log](v1_CN_SrsLog)、[SrsLibrtmp](v1_CN_SrsLibrtmp)、[Bandwidth](v1_CN_BandwidthTestTool)
+
+如果没有找到你的答案，请在QQ群、微信或邮件[联系我们](v1_CN_Contact)，请先阅读[如何提问](v1_CN_HowToAskQuestion)
 
 Winlin 2015.3
