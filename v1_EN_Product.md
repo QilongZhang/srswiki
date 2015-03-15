@@ -57,6 +57,8 @@ and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/2
 * [experiment]Support push RTSP to SRS, read [#133](https://github.com/winlinvip/simple-rtmp-server/issues/133).
 * Other small changes.
 
+[SRS Release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release) plan to release on 2015.12.
+
 ## Release3.0
 
 Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxol.com).
