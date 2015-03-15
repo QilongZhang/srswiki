@@ -6,4 +6,17 @@ The SRS team works with the open source community to deliver SRS, the world's mo
 
 Let's build the future of media streaming together.
 
+## Tell the world
+
+Using SRS in your company? Add your site [to our list](v1_EN_Sample)!
+
+## Improve SRS
+
+* [Ticket system] [issues] - report bugs and make feature requests
+* Chat to us - by [qq, weixin or email](v1_EN_Contact)
+* [SRS wiki] [wiki] - fork it to contribute tips and documentation
+
 Winlin 2015.3
+
+[issues]: https://github.com/winlinvip/simple-rtmp-server/issues
+[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki
