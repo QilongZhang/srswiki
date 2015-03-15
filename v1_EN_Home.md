@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**HOME EN(1.0)**](v1_EN_Home)
+[**HOME**](Home) > [**EN(1.0)**](v1_EN_Home)
 
 Welcome to **SRS** - the open-source, industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation, powered by [state-threads](st).
 
