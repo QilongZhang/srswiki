@@ -2,7 +2,7 @@
 
 Welcome to **SRS** - the open-source, industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation, powered by [state-threads](st).
 
-This wiki is the main source of documentation for **developers** working with (or contributing to) the SRS project. Downloading is available at [SRS website][website].
+This wiki is the main source of documentation for **developers** working with (or contributing to) the SRS project. Downloading is available at [**ossrs.net**][website].
 
 ## Quick navigation
 
