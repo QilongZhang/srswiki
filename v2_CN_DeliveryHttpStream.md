@@ -134,6 +134,11 @@ vhost your_vhost {
         # @remark the port of http is specified by http_server section.
         # default: [vhost]/[app]/[stream].flv
         mount       [vhost]/[app]/[stream].flv;
+        # whether http stream trigger rtmp stream source when no stream available,
+        # for example, when encoder has not publish stream yet,
+        # user can play the http flv stream and wait for stream.
+        # default: on
+        hstrs       on;
     }
 }
 ```
@@ -141,6 +146,14 @@ vhost your_vhost {
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
 备注：HTTP服务器配置，参考[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+
+## HSTRS
+
+HSTRS(http stream trigger rtmp source)由HTTP流触发的RTMP回源，该功能可以用于构建HTTP-FLV集群，即HTTP-FLV流的合并回源，以及HTTP-FLV在没有流时的等待standby。
+
+HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
+
+详细信息参考：https://github.com/winlinvip/simple-rtmp-server/issues/324
 
 ## Sample
 
