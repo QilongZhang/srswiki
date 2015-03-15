@@ -12,9 +12,9 @@ SRS是2013.9(2013.8.22提离职申请，理论上2013.9.22就离职，为了交�
 
 2014.5，SRS功能冻结，测试和解决问题。我们公司扩大产品线，准备做VDN，视频分发网络，自然srs成为最佳选择。公司各位老大也一致认为srs的定位比较合适，一致商议决定直播服务器使用srs。SRS的功能都已经完善，VDN其他业务系统譬如监控和计费开始研发，我只有周末时间做SRS了。
 
-2014.10，[SRS1.0](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#release10)beta发布，坐等大家反馈bug，如果没有bug就在2014年底发布[SRS1.0](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#release10)release。观止创想也准备在1.0release的基础上上研发下一代商用流媒体服务器。从0到1.0，SRS花了1年时间，[17](https://github.com/winlinvip/simple-rtmp-server/releases)个里程碑，[7](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#releases)个开发版，223个修订版，43700行功能代码，15616行utest代码，1803次提交，[161](https://github.com/winlinvip/simple-rtmp-server/issues)个bug和功能，解决了[117](https://github.com/winlinvip/simple-rtmp-server/issues?q=milestone%3A"srs+1.0+release")个，可在[1](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#system-requirements)个平台运行(linux)，支持4种cpu(x86/x64/arm/mips)，[11](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#about)个核心功能(origin、 [edge](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Edge)、 [vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RtmpUrlVhost)、 [transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)、 [ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Ingest)、 [dvr](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DVR)、 [forward](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG)、 [http-api](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)、 [http-callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPCallback)、 [reload](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Reload)、 [tracable-log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLog))，[35](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#summary)个功能点，[58](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Home)篇wiki，SRS的QQ群有245位成员，活跃成员141人，[2](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#authors)位主作者，[12](https://github.com/winlinvip/simple-rtmp-server/blob/master/AUTHORS.txt)位贡献者，[14](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#donation)位捐赠者，至少有蓝汛、VeryCloud、VeryCDN、清华电视台在[使用或基于SRS改自己的服务器](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Sample)，数百个各种行业的公司在使用SRS主要包含视频监控、移动端、在线教育、秀场和KTV、互动视频、电视台、物联网、学生。
+2014.10，[SRS1.0][p1.0release]beta发布，坐等大家反馈bug，如果没有bug就在2014年底发布[SRS1.0][p1.0release]release。观止创想也准备在1.0release的基础上上研发下一代商用流媒体服务器。从0到1.0，SRS花了1年时间，[17][releases]个里程碑，[7][1.0release]个开发版，223个修订版，43700行功能代码，15616行utest代码，1803次提交，[161][issues]个bug和功能，解决了[117][1.0release]个，可在[1][1.0release]个平台运行(linux)，支持4种cpu(x86/x64/arm/mips)，[11][1.0release]个核心功能(origin、 [edge](v1_CN_Edge)、 [vhost](v1_CN_RtmpUrlVhost)、 [transcode](v1_CN_FFMPEG)、 [ingest](v1_CN_Ingest)、 [dvr](v1_CN_DVR)、 [forward](v1_CN_FFMPEG)、 [http-api](v1_CN_HTTPApi)、 [http-callback](v1_CN_HTTPCallback)、 [reload](v1_CN_Reload)、 [tracable-log](v1_CN_SrsLog))，[35][1.0release]个功能点，[58](v1_CN_Home)篇wiki，SRS的QQ群有245位成员，活跃成员141人，[2][authors]位主作者，[12][authors]位贡献者，[14][donations]位捐赠者，至少有蓝汛、VeryCloud、VeryCDN、清华电视台在[使用或基于SRS改自己的服务器](v1_CN_Sample)，数百个各种行业的公司在使用SRS主要包含视频监控、移动端、在线教育、秀场和KTV、互动视频、电视台、物联网、学生。
 
-2014.10启动[SRS2.0](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#release20)研发，预计6个月左右的研发周期，主要目标是完全了解和掌握st，简化服务器的客户端模型，以及其他小功能的完善。比较[大的方向](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#backlog)在3.0+支持。
+2014.10启动[SRS2.0][p2.0release]研发，预计6个月左右的研发周期，主要目标是完全了解和掌握st，简化服务器的客户端模型，以及其他小功能的完善。比较[大的方向][backlog]在3.0+支持。
 
 感谢我自己像个偏执狂一样独自坚持完成srs的定位，架构，编码，测试和文档。感谢父母的养育，老师的培养，尤其是初中的胡开群高昂老师，高中的周国文老师，大学的欧旭理老师。感谢刚毕业在大唐工作时何力对我的帮助，以及微软时期赵斌对于接口设计的教导。感谢蓝汛时期付亮副总裁，我的研发管理启蒙老师对我认可和支持；感谢蓝汛时期Micheal热情大气无私，以及精湛的能力教我解决蓝汛边缘服务器的异步状态问题，让我领悟到要不断学习和进步；感谢蓝汛流媒体团队的各位同事，陪我走过我技术发展的黄金时期之一，尤其是文杰和刘岐能把蓝汛流媒体团队发展更上一层楼。感谢观止创想各位老大信任和支持我的管理方法和工作，以及认同SRS的架构在SRS基础上开发商用服务器平台。感谢所有关注和使用SRS的公司和用户，以及SRS的贡献者和主作者们，共同推动SRS向前发展。
 
@@ -43,7 +43,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 开发代号：HuKaiqun（胡开群）。感谢我的初中老师胡开群和高昂老师，教育我热爱自己所做的事情。
 
-[SRS release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release)，预计研发周期为1年左右。主要的目标是：
+[SRS release 1.0][1.0release]，预计研发周期为1年左右。主要的目标是：
 
 * 提供互联网直播的核心业务功能，即RTMP/HLS直播。能对接任意的编码器和播放器，集群支持对接任意的源站服务器。
 * 提供丰富的外围流媒体功能，譬如Forward，Transcode，Ingest，DVR。方便开展多种源站业务。
@@ -52,22 +52,13 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 在ARM/MIPS等嵌入式CPU设备Linux上运行。另外，提供配套的内网监控和排错，cubieboard/raspberry-pi的嵌入式服务器。
 * 高性能服务器，支持2.7k并发。
 
-[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release)已经在2014.12.5如期发布。
+[SRS Release 1.0][1.0release]已经在2014.12.5如期发布。
 
 ## Release2.0
 
 开发代号：ZhouGuowen（周国文）。感谢我的高中老师周国文老师，教我成人自立，为我翻开一个新的篇章。
 
-[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release)，预计研发周期为6个月左右。主要的目标是：
-
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-[bug]: https://github.com/winlinvip/simple-rtmp-server/issues/
-
+[SRS release 2.0][2.0release]，预计研发周期为6个月左右。主要的目标是：
 * 翻译中文wiki为英文。
 * 提升性能，支持10k+播放和4.5k+推流。参考：[#194][bug194]，[#237][bug237]和[#251][bug251]
 * srs-librtmp支持发送h.264和aac裸码流。参考：[#66][bug66]和[#212][bug212]
@@ -77,8 +68,8 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * srs-librtmp支持劫持IO，应用于[st-load][load].
 * 支持实时模式，最低支持0.1秒延迟。参考：[#257][bug257]
 * 支持允许和禁止客户端推流或播放。参考：[#211][bug211]
-* DVR支持[自定义文件路径][bug179]和[DVR http callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
-* 可商用的内置HTTP服务器，参考GO的http模块。参考：[#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
+* DVR支持[自定义文件路径][bug179]和[DVR http callback][bug274].
+* 可商用的内置HTTP服务器，参考GO的http模块。参考：[#277][bug277].
 * RTMP流转封装为HTTP Live flv/aac/mp3/ts流分发。参考：[#293][bug293].
 * 支持内存HLS，无磁盘IO, 参考：[#136][bug136].
 * 增强的DVR，支持Append/callback，参考：[#179][bug179].
@@ -150,10 +141,19 @@ Winlin
 [bug257]: https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208
 [bug211]: https://github.com/winlinvip/simple-rtmp-server/issues/211
 [bug179]: https://github.com/winlinvip/simple-rtmp-server/issues/179
+[bug274]: https://github.com/winlinvip/simple-rtmp-server/issues/274
+[bug277]: https://github.com/winlinvip/simple-rtmp-server/issues/277
 
-[authors]: https://github.com/winlinvip/simple-rtmp-server/tree/develop#authors
 [develop]: https://github.com/winlinvip/simple-rtmp-server/tree/develop
 [2.0release]: https://github.com/winlinvip/simple-rtmp-server/tree/2.0release
+[1.0release]: https://github.com/winlinvip/simple-rtmp-server/tree/1.0release
+[p2.0release]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#release20
+[p1.0release]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#release10
+[backlog]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product#backlog
+[donations]: https://github.com/winlinvip/simple-rtmp-server/blob/develop/DONATIONS.txt
+[issues]: https://github.com/winlinvip/simple-rtmp-server/issues
+[releases]: https://github.com/winlinvip/simple-rtmp-server/releases
+[authors]: https://github.com/winlinvip/simple-rtmp-server/tree/develop#authors
 [librtmp]: https://github.com/winlinvip/srs.librtmp
 [load]: https://github.com/winlinvip/st-load
 
