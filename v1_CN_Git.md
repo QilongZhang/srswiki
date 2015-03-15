@@ -12,7 +12,13 @@
 git pull && git checkout 1.0release
 ```
 
-如果是2.0的功能，更新代码后要改变到2.0分支（没有单独的2.0release分支就是develop）：
+如果是2.0的功能，更新代码后要改变到2.0分支：
+
+```
+git pull && git checkout 2.0release
+```
+
+如果是3.0的功能，更新代码后要改变到3.0分支（没有单独的3.0release分支就是develop）：
 
 ```
 git pull && git checkout develop
