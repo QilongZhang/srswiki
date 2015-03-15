@@ -134,6 +134,11 @@ vhost your_vhost {
         # @remark the port of http is specified by http_server section.
         # default: [vhost]/[app]/[stream].flv
         mount       [vhost]/[app]/[stream].flv;
+        # whether http stream trigger rtmp stream source when no stream available,
+        # for example, when encoder has not publish stream yet,
+        # user can play the http flv stream and wait for stream.
+        # default: on
+        hstrs       on;
     }
 }
 ```
@@ -141,6 +146,14 @@ vhost your_vhost {
 Remark: Use forward+vhost to support multiple http live stream for a stream.
 
 Remark: The http server config section, read [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+
+## HSTRS
+
+HSTRS(http stream trigger rtmp source) used for http-flv cluster and the http-flv standby to wait for encoder to publish.
+
+HSTRS should set `hstrs` to "on" of `http_remux`, default is "on".
+
+For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/324
 
 ## Sample
 
