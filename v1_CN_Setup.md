@@ -34,4 +34,6 @@ SRS支持哪些IDE？如何使用GIT？如何切换分支？如何切换到开�
 
 如何分析SRS日志？流卡顿如何分析？如何不重启服务器应用新配置？如何做带宽测试排错？如何知道客户端连接的服务器IP？如何知道客户端在服务器的id？请读[Reload](v1_CN_Reload)、[Log](v1_CN_SrsLog)、[SrsLibrtmp](v1_CN_SrsLibrtmp)、[Bandwidth](v1_CN_BandwidthTestTool)
 
+如果没有找到你的答案，请在QQ群、微信或邮件[联系我们](v1_CN_Contact)，请先阅读[如何提问](v1_CN_HowToAskQuestion)
+
 Winlin 2015.3
