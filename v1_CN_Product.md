@@ -57,6 +57,8 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [experiment]支持Push RTSP to SRS，参考：[#133](https://github.com/winlinvip/simple-rtmp-server/issues/133).
 * 其他小功能的完善。
 
+[SRS Release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release)预计在2015.12发布。
+
 ## Release3.0
 
 开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com](http://www.qgzxol.com)让我可以在大学学习软件理论时还能实践出真知。感谢中勤的同学们，陈哲、刘小婧、盛谢华、易念华、马琰，希望SRS能带着我们最初的梦想越行越远。
