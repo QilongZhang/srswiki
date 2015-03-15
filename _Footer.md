@@ -1,1 +1,4 @@
-[SRS(Simple RTMP Server)](https://github.com/winlinvip/simple-rtmp-server) Copyright &copy; 2013-2015 [winlin](mailto:winlin@vip.126.com)
+[[Home]] *|* [[About|v1_CN_Product]] *|*
+[[Project| v1_CN_Project]] *|*
+[[Setup Guide| v1_CN_Setup]] *|*
+[[Technical Docs| v1_CN_Docs]] *|* Copyright &copy; 2013-2015 winlin
