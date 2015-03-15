@@ -2,8 +2,8 @@
 
 # Project
 
-The SRS team works with the open source community to deliver SRS, the world's most powerful streaming platform. We are proud to be involved in developing, releasing and nurturing open source projects, helping to build and sustain communities (of analysts as well as coders) around them.
+The SRS team works with the open source community to deliver SRS, the world's most powerful streaming platform. We are proud to be involved in developing, releasing and nurturing open source projects.
 
-Let's build the future of analytics together.
+Let's build the future of media streaming together.
 
 Winlin 2015.3
