@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**EN(1.0)**](v2_EN_Home) > [**Setup**](v2_EN_Setup)
+[**HOME**](Home) > [**EN(2.0)**](v2_EN_Home) > [**Setup**](v2_EN_Setup)
 
 下面的列表可以让你一步步了解SRS的各项功能：
 
