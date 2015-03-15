@@ -20,5 +20,3 @@ Winlin 2015.3
 
 [issues]: https://github.com/winlinvip/simple-rtmp-server/issues
 [wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki
-
-Winlin 2015.3
