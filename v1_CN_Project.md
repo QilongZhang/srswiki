@@ -6,4 +6,19 @@ SRS团队致力于和开源社区一起打造最牛逼的流媒体分发平台�
 
 让我们一起在流媒体领域从装逼到牛逼吧~
 
+## Tell the world
+
+你或公司在用SRS？添加你的链接到[应用实例](v1_CN_Sample)吧!
+
+## Improve SRS
+
+* [问题跟踪] [issues] - 提交Bug和功能。
+* 和我们沟通 - 使用 [QQ、微信或电邮](v1_CN_Contact)
+* [SRS wiki] [wiki] - 改进wiki
+
+Winlin 2015.3
+
+[issues]: https://github.com/winlinvip/simple-rtmp-server/issues
+[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki
+
 Winlin 2015.3
