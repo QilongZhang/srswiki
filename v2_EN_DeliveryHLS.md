@@ -171,6 +171,13 @@ vhost __defaultVhost__ {
         # in a word, the hls_path is for vhost.
         # default: ./objs/nginx/html
         hls_path        ./objs/nginx/html;
+        # the hls entry prefix, which is base url of ts url.
+        # if specified, the ts path in m3u8 will be like:
+        #         http://your-server/live/livestream-0.ts
+        #         http://your-server/live/livestream-1.ts
+        #         ...
+        # optional, default to empty string.
+        hls_entry_prefix http://your-server;
         # the hls mount for hls_storage ram,
         # which use srs embeded http server to delivery HLS,
         # where the mount specifies the HTTP url to mount.
@@ -221,6 +228,12 @@ SRS will generate below files:
 /data/nginx/html/live/livestream-1.ts
 /data/nginx/html/live/livestream-2.ts
 And the HLS url to play: http://localhost/live/livestream.m3u8
+```
+* hls_entry_prefix: the base url for ts. optional and default to empty string.
+```
+For ts: live/livestream-0.ts
+When config: hls_entry_prefix http://your-server;
+The ts url generated to: http://your-server/live/livestream-0.ts
 ```
 * hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
