@@ -166,6 +166,13 @@ vhost __defaultVhost__ {
         # in a word, the hls_path is for vhost.
         # default: ./objs/nginx/html
         hls_path        ./objs/nginx/html;
+        # the hls entry prefix, which is base url of ts url.
+        # if specified, the ts path in m3u8 will be like:
+        #         http://your-server/live/livestream-0.ts
+        #         http://your-server/live/livestream-1.ts
+        #         ...
+        # optional, default to empty string.
+        hls_entry_prefix http://your-server;
         # the hls mount for hls_storage ram,
         # which use srs embeded http server to delivery HLS,
         # where the mount specifies the HTTP url to mount.
@@ -216,6 +223,12 @@ HLS配置路径：hls_path        /data/nginx/html;
 /data/nginx/html/live/livestream-1.ts
 /data/nginx/html/live/livestream-2.ts
 最后的HLS地址为：http://localhost/live/livestream.m3u8
+```
+* hls_entry_prefix: TS的base url。可选默认为空字符串；非空时加在ts前面作为base url。
+```
+对于ts切片：live/livestream-0.ts
+若配置为：hls_entry_prefix http://your-server;
+则最后的TS的URL是：http://your-server/live/livestream-0.ts
 ```
 * hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
 * hls_acodec: 默认的音频编码。当流的编码改变时，会更新PMT/PAT信息；默认是aac，因此默认的PMT/PAT信息是aac；如果流是mp3，那么可以配置这个参数为mp3，避免PMT/PAT改变。
