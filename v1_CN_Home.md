@@ -6,11 +6,13 @@ WIKI是开发者的主要文档。若需要下载安装包，请访问[**ossrs.n
 
 ## Quick navigation
 
-| 关于SRS             | 项目              | 安装          | 文档                  |
+| 关于SRS             | 项目              | 安装设置          | 文档                  |
 |----------------------------|---------------------------------|-------------------------------|---------------------------|
 | [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
-| [[关于SRS| v1_CN_Product]] | [[项目| v1_CN_Project]]       | [[安装| v1_CN_Setup]] | [[文档| v1_CN_Docs]]|
+| [[关于SRS| v1_CN_Product]] | [[项目| v1_CN_Project]]       | [[安装设置| v1_CN_Setup]] | [[文档| v1_CN_Docs]]|
 | 关于SRS的背景和产品定位 | 关于SRS项目，如何贡献代码 | 如何一步一步安装和运行SRS | SRS的详细技术资料 |
+
+备注：请点击上面的链接进入，譬如点击安装设置，进入如何安装和设置SRS页面。
 
 ## Questions or need help?
 
