@@ -16,7 +16,7 @@ If you want to talk directly to us (e.g. about a commercially sensitive issue), 
 
 Join us by Tencent QQ:
 
-![Tencent QQ](http://winlinvip.github.io/srs.release/wiki/images/srs_qq_95.png)
+[[/images/srs_qq_95.png]]
 
 or join by number: 365936885
 
@@ -24,9 +24,17 @@ or join by number: 365936885
 
 Join us by weixin:
 
-![weixin](http://winlinvip.github.io/srs.release/wiki/images/srs_weixin_430.jpg)
+[[/images/srs_weixin_430.jpg]]
 
 or join by account srs-server
+
+## Donation
+
+Donation by alipay:
+
+[[/images/alipay-w/alipay.72px.png]]
+
+Or alipay account: winterserver@126.com
 
 Winlin 2015.3
 
