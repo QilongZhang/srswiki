@@ -16,7 +16,7 @@
 
 扫描下面的二维码加入QQ群：
 
-![腾讯QQ群](/images/srs_qq_95.png)
+[[/images/srs_qq_95.png]]
 
 或者加入腾讯QQ群：365936885，你可以在QQ群获取大家实时的帮助。
 
@@ -24,7 +24,7 @@
 
 扫描下面的二维码加SRS微信号：
 
-![微信号](/images/srs_weixin_430.jpg)
+[[/images/srs_weixin_430.jpg]]
 
 或者加微信号：srs-server，我会在公众号上发布最新的消息。
 
@@ -32,7 +32,7 @@
 
 给SRS加油吧，扫描支付宝二维码：
 
-![支付宝](/images/alipay-w/alipay.72px.png)
+[[/images/alipay-w/alipay.72px.png]]
 
 或直接转账给支付宝帐号: winterserver@126.com
 
