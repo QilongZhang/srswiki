@@ -1,3 +1,5 @@
+[**HOME**](Home) > [**EN(1.0)**](v1_EN_Home) > [**Git**](v1_EN_Git)
+
 # Git Usage
 
 How to use stable version of SRS? How to update code?
