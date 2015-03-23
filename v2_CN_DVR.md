@@ -58,8 +58,8 @@ vhost your_vhost {
         #       dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
         # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
         # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR#custom-path
-        # default: ./objs/nginx/html
-        dvr_path        ./objs/nginx/html;
+        # default: ./objs/nginx/html/[app]/[stream].[timestamp].flv
+        dvr_path        ./objs/nginx/html/[app]/[stream].[timestamp].flv;
         # the dvr plan. canbe:
         #   session reap flv when session end(unpublish).
         #   segment reap flv when flv duration exceed the specified dvr_duration.
