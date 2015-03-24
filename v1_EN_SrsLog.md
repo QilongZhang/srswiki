@@ -1,4 +1,4 @@
-# SRS system log
+# SRS Log System
 
 SRS can log to console or file, with level, session oriented log and tracable log.
 
