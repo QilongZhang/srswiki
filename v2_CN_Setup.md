@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**CN(1.0)**](v2_CN_Home) > [**Setup**](v2_CN_Setup)
+[**HOME**](Home) > [**CN(2.0)**](v2_CN_Home) > [**Setup**](v2_CN_Setup)
 
 下面的列表可以让你一步步了解SRS的各项功能：
 
