@@ -4,6 +4,21 @@
 
 如何选择SRS的稳定版本？如何更新代码？
 
+## Fast Checkout
+
+很多人希望缩减仓库大小，很多doc和3rdparty中的第三方代码压缩包。我在这里集中说明一次，为何需要把doc收集那么全？这个不言自明，srs中23%的代码都是注释，注释会说明是哪个文档的哪一页，难道还需要再下载一次这个文档吗？为何需要把依赖的第三方代码放进来，譬如ffmpeg和nignx还有openssl？谁会无聊到再执行几个命令去下载？
+
+为何不做这些改变？这些是次要复杂度，仓库多大对于代码质量没有任何影响。而且更重要的是，国内很多git镜像站点，SRS是同步更新的，阿里云提供服务的oschina，我git clone一次是40秒左右。难道一定得是3秒clone下来才叫做满意吗？不要纠缠这个问题了。
+
+如何使用国内镜像站点clone，然后把服务器设置为github上？这样和直接从github上clone一模一样了。执行下面的命令就可以了：
+
+```
+git clone https://git.oschina.net/winlinvip/srs.oschina.git && cd srs.oschina &&
+git remote set-url origin https://github.com/winlinvip/simple-rtmp-server.git
+```
+
+其他国内镜像参考：https://github.com/winlinvip/simple-rtmp-server/tree/develop#mirrors
+
 ## Checkout Branch
 
 有些功能只有SRS2.0有，SRS1.0没有，请注意看wiki是v1还是v2的。
