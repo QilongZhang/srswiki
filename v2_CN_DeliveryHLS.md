@@ -161,17 +161,38 @@ vhost __defaultVhost__ {
         # default: disk
         hls_storage     disk;
         # the hls output path.
-        # the app dir is auto created under the hls_path.
-        # for example, for rtmp stream:
-        #       rtmp://127.0.0.1/live/livestream
-        #       http://127.0.0.1/live/livestream.m3u8
-        # where hls_path is /hls, srs will create the following files:
-        #       /hls/live       the app dir for all streams.
-        #       /hls/live/livestream.m3u8   the HLS m3u8 file.
-        #       /hls/live/livestream-1.ts   the HLS media/ts file.
-        # in a word, the hls_path is for vhost.
+        # the m3u8 file is configed by hls_path/hls_m3u8_file, the default is:
+        #       ./objs/nginx/html/[app]/[stream].m3u8
+        # the ts file is configed by hls_path/hls_ts_file, the default is:
+        #       ./objs/nginx/html/[app]/[stream]-[seq].ts
+        # @remark the hls_path is compatible with srs v1 config.
         # default: ./objs/nginx/html
         hls_path        ./objs/nginx/html;
+        # the hls m3u8 file name.
+        # we supports some variables to generate the filename.
+        #       [vhost], the vhost of stream.
+        #       [app], the app of stream.
+        #       [stream], the stream name of stream.
+        # default: [app]/[stream].m3u8
+        hls_m3u8_file   [app]/[stream].m3u8;
+        # the hls ts file name.
+        # we supports some variables to generate the filename.
+        #       [vhost], the vhost of stream.
+        #       [app], the app of stream.
+        #       [stream], the stream name of stream.
+        #       [2006], replace this const to current year.
+        #       [01], replace this const to current month.
+        #       [02], replace this const to current date.
+        #       [15], replace this const to current hour.
+        #       [04], repleace this const to current minute.
+        #       [05], repleace this const to current second.
+        #       [999], repleace this const to current millisecond.
+        #       [timestamp],replace this const to current UNIX timestamp in ms.
+        #       [seq], the sequence number of ts.
+        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config
+        # default: [app]/[stream]-[seq].ts
+        hls_ts_file     [app]/[stream]-[seq].ts;
         # the hls entry prefix, which is base url of ts url.
         # if specified, the ts path in m3u8 will be like:
         #         http://your-server/live/livestream-0.ts
@@ -220,10 +241,15 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 hls_window >= sum(m3u8中每个ts的时长)
 ```
 * hls_storage：存储方式，可以是ram(内存)，disk(磁盘)，both(两者同时支持)。若指定为disk或both，则需要指定hls_path。若指定ram或both，则需要指定hls_mount。具体参考后面的描述。
-* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
+* hls_path：HLS的m3u8和ts文件保存的路径。m3u8和ts文件都保存在这个目录中。
+* hls_m3u8_file: HLS的m3u8文件名，包含可替换的[vhost],[app]和[stream]变量。
+* hls_ts_file: HLS的ts文件名，包含可替换的一系列变量，参考[dvr variables](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path)，另外，[seq]是ts的seqence number。
 ```bash
 对于RTMP流：rtmp://localhost/live/livestream
-HLS配置路径：hls_path        /data/nginx/html;
+HLS配置路径：
+        hls_path        /data/nginx/html;
+        hls_m3u8_file   [app]/[stream].m3u8;
+        hls_ts_file     [app]/[stream]-[seq].ts;
 那么会生成以下文件：
 /data/nginx/html/live/livestream.m3u8
 /data/nginx/html/live/livestream-0.ts
