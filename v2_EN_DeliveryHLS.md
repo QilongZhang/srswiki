@@ -166,23 +166,16 @@ vhost __defaultVhost__ {
         # default: disk
         hls_storage     disk;
         # the hls output path.
-        # we supports some variables to generate the filename.
-        #       [vhost], the vhost of stream.
-        #       [app], the app of stream.
-        #       [stream], the stream name of stream.
-        #       [2006], replace this const to current year.
-        #       [01], replace this const to current month.
-        #       [02], replace this const to current date.
-        #       [15], replace this const to current hour.
-        #       [04], repleace this const to current minute.
-        #       [05], repleace this const to current second.
-        #       [999], repleace this const to current millisecond.
-        #       [timestamp],replace this const to current UNIX timestamp in ms.
-        #       [seq], the sequence number of ts.
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config
+        # the app dir is auto created under the hls_path.
+        # for example, for rtmp stream:
+        #       rtmp://127.0.0.1/live/livestream
+        #       http://127.0.0.1/live/livestream.m3u8
+        # where hls_path is /hls, srs will create the following files:
+        #       /hls/live       the app dir for all streams.
+        #       /hls/live/livestream.m3u8   the HLS m3u8 file.
+        #       /hls/live/livestream-1.ts   the HLS media/ts file.
+        # in a word, the hls_path is for vhost.
         # default: ./objs/nginx/html
-        #      or: ./objs/nginx/html/[app]/[stream]-[seq].ts
         hls_path        ./objs/nginx/html;
         # the hls entry prefix, which is base url of ts url.
         # if specified, the ts path in m3u8 will be like:
@@ -232,7 +225,17 @@ So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is lar
 hls_window >= sum(each ts duration in m3u8)
 ```
 * hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
-* hls_path: The path to save m3u8 and ts file. SRS will replace some variable, read [dvr variables](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path), and variable [seq] is the sequence number of ts.
+* hls_path: The path to save m3u8 and ts file, where SRS will use app as dir and stream as ts file prefix. For example:
+```bash
+For RTMP stream: rtmp://localhost/live/livestream
+HLS path: hls_path        /data/nginx/html;
+SRS will generate below files:
+/data/nginx/html/live/livestream.m3u8
+/data/nginx/html/live/livestream-0.ts
+/data/nginx/html/live/livestream-1.ts
+/data/nginx/html/live/livestream-2.ts
+And the HLS url to play: http://localhost/live/livestream.m3u8
+```
 * hls_entry_prefix: the base url for ts. optional and default to empty string.
 ```
 For ts: live/livestream-0.ts
