@@ -161,16 +161,23 @@ vhost __defaultVhost__ {
         # default: disk
         hls_storage     disk;
         # the hls output path.
-        # the app dir is auto created under the hls_path.
-        # for example, for rtmp stream:
-        #       rtmp://127.0.0.1/live/livestream
-        #       http://127.0.0.1/live/livestream.m3u8
-        # where hls_path is /hls, srs will create the following files:
-        #       /hls/live       the app dir for all streams.
-        #       /hls/live/livestream.m3u8   the HLS m3u8 file.
-        #       /hls/live/livestream-1.ts   the HLS media/ts file.
-        # in a word, the hls_path is for vhost.
+        # we supports some variables to generate the filename.
+        #       [vhost], the vhost of stream.
+        #       [app], the app of stream.
+        #       [stream], the stream name of stream.
+        #       [2006], replace this const to current year.
+        #       [01], replace this const to current month.
+        #       [02], replace this const to current date.
+        #       [15], replace this const to current hour.
+        #       [04], repleace this const to current minute.
+        #       [05], repleace this const to current second.
+        #       [999], repleace this const to current millisecond.
+        #       [timestamp],replace this const to current UNIX timestamp in ms.
+        #       [seq], the sequence number of ts.
+        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config
         # default: ./objs/nginx/html
+        #      or: ./objs/nginx/html/[app]/[stream]-[seq].ts
         hls_path        ./objs/nginx/html;
         # the hls entry prefix, which is base url of ts url.
         # if specified, the ts path in m3u8 will be like:
@@ -220,17 +227,7 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 hls_window >= sum(m3u8中每个ts的时长)
 ```
 * hls_storage：存储方式，可以是ram(内存)，disk(磁盘)，both(两者同时支持)。若指定为disk或both，则需要指定hls_path。若指定ram或both，则需要指定hls_mount。具体参考后面的描述。
-* hls_path：HLS的m3u8和ts文件保存的路径。SRS会自动加上app和stream名称。譬如：
-```bash
-对于RTMP流：rtmp://localhost/live/livestream
-HLS配置路径：hls_path        /data/nginx/html;
-那么会生成以下文件：
-/data/nginx/html/live/livestream.m3u8
-/data/nginx/html/live/livestream-0.ts
-/data/nginx/html/live/livestream-1.ts
-/data/nginx/html/live/livestream-2.ts
-最后的HLS地址为：http://localhost/live/livestream.m3u8
-```
+* hls_path：HLS的m3u8和ts文件保存的路径。SRS会根据指定的变量替换。可参考[dvr variables](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path)，另外变量[seq]是ts的sequence number。
 * hls_entry_prefix: TS的base url。可选默认为空字符串；非空时加在ts前面作为base url。
 ```
 对于ts切片：live/livestream-0.ts
