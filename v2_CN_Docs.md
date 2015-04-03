@@ -112,9 +112,9 @@ SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将�
 
 SRS如何接收RTSP流？如何Push MPEG-TS over UDP到SRS？如何接收其他协议的流？参考：[Streamer](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Streamer)
 
-## [Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Edge)
+## [Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Edge)
 
-SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Edge)
+SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Edge)
 
 ## [Forward搭建小型集群](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Forward)
 

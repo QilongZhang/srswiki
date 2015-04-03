@@ -22,7 +22,7 @@
 
 到底使用RTMP还是HLS？甚至是HDS？这些分发方式到底有啥区别？HTTP-FLV又是什么？HTTP-FLV和RTMP的区别在哪里？请读[RTMP](v1_CN_DeliveryRTMP)、[HLS](v2_CN_DeliveryHLS)、[RTMP PK HLS](v1_CN_RTMP.PK.HTTP)、[HDS](v2_CN_DeliveryHDS)、[HTTP Stream](v2_CN_DeliveryHttpStream)
 
-如何搭建RTMP集群？如何支持全国各地的观众观看？如何跨网分发流？如何预推流到边缘？CDN的RTMP集群如何使用SRS搭建？如何构建自己的RTMP直播分发CDN？Forward和Edge的区别是什么？为何优先使用Edge而不是Forward？什么是HSTRS？SRS是否支持HTTP-FLV的合并回源？如何搭建HTTP-FLV集群？如何支持绝对时间？如何做主备？请读[Forward](v1_CN_Forward)、[Edge](v1_CN_Edge)、[HTTP Stream](v2_CN_DeliveryHttpStream)、[ATC](v1_CN_RTMP-ATC)
+如何搭建RTMP集群？如何支持全国各地的观众观看？如何跨网分发流？如何预推流到边缘？CDN的RTMP集群如何使用SRS搭建？如何构建自己的RTMP直播分发CDN？Forward和Edge的区别是什么？为何优先使用Edge而不是Forward？什么是HSTRS？SRS是否支持HTTP-FLV的合并回源？如何搭建HTTP-FLV集群？如何支持绝对时间？如何做主备？请读[Forward](v1_CN_Forward)、[Edge](v2_CN_Edge)、[HTTP Stream](v2_CN_DeliveryHttpStream)、[ATC](v1_CN_RTMP-ATC)
 
 SRS的架构是什么？如何设置http回调？SRS为何不支持服务器端脚本？SRS如何矫正时间戳？RTMP的时间戳单增是什么意思？如何让SRS主动汇报信息到你的服务器？请读[Arch](v1_CN_Architecture)、[Callback](v2_CN_HTTPCallback)、[Script](v1_CN_ServerSideScript)、[Jitter](v1_CN_TimeJitter)、[Heartbeat](v1_CN_Heartbeat)
 

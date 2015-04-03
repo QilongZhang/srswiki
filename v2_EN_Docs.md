@@ -108,9 +108,9 @@ How does SRS to pull specified RTMP/RTSP/HTTP stream to itself and delivery it? 
 
 How to push RTSP to SRS? How does SRS accept RTSP stream? How to push MPEG-TS over UDP to SRS? How does SRS accept stream over other protocol? Read [Streamer](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Streamer)
 
-## [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Edge)
+## [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Edge)
 
-How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, reload, http api and MIT source code? Why forward and ingest is not ok for huge live cluster? Does SRS support FMS edge mode? Please see: [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Edge)
+How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, reload, http api and MIT source code? Why forward and ingest is not ok for huge live cluster? Does SRS support FMS edge mode? Please see: [Edge: Huge Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Edge)
 
 ## [Forward: Tiny Live Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Forward)
 

@@ -22,7 +22,7 @@ What is the vhost, app and stream? What about gop? How to config in low latency 
 
 Use RTMP or HLS? Or HDS? What about HTTP-FLV stream? What is the difference between RTMP and HTTP-FLV? Read [RTMP](v1_EN_DeliveryRTMP)、[HLS](v2_EN_DeliveryHLS)、[RTMP PK HLS](v1_EN_RTMP.PK.HTTP)、[HDS](v2_EN_DeliveryHDS)、[HTTP Stream](v2_EN_DeliveryHttpStream)
 
-How to build RTMP cluster? Why use edge, not the forward? How to enable ATC for fault backup? What is HSTRS? How to support merge fetch from origin for HTTP-FLV edge server? Read [Forward](v1_EN_Forward)、[Edge](v1_EN_Edge)、[HTTP Stream](v2_EN_DeliveryHttpStream)、[ATC](v1_EN_RTMP-ATC)
+How to build RTMP cluster? Why use edge, not the forward? How to enable ATC for fault backup? What is HSTRS? How to support merge fetch from origin for HTTP-FLV edge server? Read [Forward](v1_EN_Forward)、[Edge](v2_EN_Edge)、[HTTP Stream](v2_EN_DeliveryHttpStream)、[ATC](v1_EN_RTMP-ATC)
 
 What is the architecture of SRS? How to set http callback? How does SRS correct the timestamp? Why timestamp should monotonically increase for RTMP? How to config SRS to report to your system? Read [Arch](v1_EN_Architecture)、[Callback](v2_EN_HTTPCallback)、[Script](v1_EN_ServerSideScript)、[Jitter](v1_EN_TimeJitter)、[Heartbeat](v1_EN_Heartbeat)
 
