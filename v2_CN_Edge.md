@@ -1,4 +1,4 @@
-# Edge边缘服务器
+# Edge Server
 
 SRS的Edge提供访问时回源机制，在CDN/VDN等流众多的应用场景中有重大意义，
 forward/ingest方案会造成大量带宽浪费。同时，SRS的Edge能对接所有的RTMP源站服务器，
@@ -181,4 +181,4 @@ RTMP回源连接。
 
 具体配置参考上面的Config。
 
-Winlin 2014.4
+Winlin 2015.4
