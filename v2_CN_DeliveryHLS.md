@@ -221,6 +221,21 @@ vhost __defaultVhost__ {
         #       h264, vn
         # default: h264
         hls_vcodec      h264;
+        # whether cleanup the old ts files.
+        # default: on
+        hls_cleanup     on;
+
+        # on_hls, never config in here, should config in http_hooks.
+        # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#http-callback
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#http-callback
+        
+        # on_hls_notify, never config in here, should config in http_hooks.
+        # we support the variables to generate the notify url:
+        #       [ts_url], replace with the ts url.
+        # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#on-hls-notify
     }
 }
 ```
@@ -266,8 +281,19 @@ HLS配置路径：
 * hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
 * hls_acodec: 默认的音频编码。当流的编码改变时，会更新PMT/PAT信息；默认是aac，因此默认的PMT/PAT信息是aac；如果流是mp3，那么可以配置这个参数为mp3，避免PMT/PAT改变。
 * hls_vcodec: 默认的视频编码。当流的编码改变时，会更新PMT/PAT信息；默认是h264。如果是纯音频HLS，可以配置为vn，可以减少SRS检测纯音频的时间，直接进入纯音频模式。
+* hls_cleanup: 是否删除过期的ts切片，不在m3u8中就是过期。可以关闭清除ts切片，实现时移和存储，使用自己的切片管理系统。
+* on_hls: 当切片生成时，回调这个url，使用POST回调。用来和自己的系统集成，譬如实现切片移动等。
+* on_hls_notify: 当切片生成时，回调这个url，使用GET回调。用来和系统集成，可以使用[ts_url]变量，实现预分发(即下载一次ts片)。
 
 部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
+
+## HTTP Callback
+
+可以配置`on_hls`实现回调，应该在`http_hooks`中配置，而不是在hls中配置。
+
+## ON HLS Notify
+
+可以配置`on_hls_notify`实现CDN预分发，应该在`http_hooks`中配置，而不是在hls中配置。
 
 ## HLSAudioOnly
 
