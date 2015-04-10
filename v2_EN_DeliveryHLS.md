@@ -229,6 +229,11 @@ vhost __defaultVhost__ {
         # whether cleanup the old ts files.
         # default: on
         hls_cleanup     on;
+        # the max size to notify hls,
+        # to read max bytes from ts of specified cdn network,
+        # @remark only used when on_hls_notify is config.
+        # default: 64
+        hls_nb_notify   64;
 
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
@@ -287,6 +292,7 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
 * hls_cleanup: whether cleanup the ts files.
+* hls_nb_notify: the max bytes to read from notify server.
 * on_hls: callback when ts generated.
 * on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
 
