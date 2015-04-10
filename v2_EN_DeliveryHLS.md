@@ -226,6 +226,21 @@ vhost __defaultVhost__ {
         #       h264, vn
         # default: h264
         hls_vcodec      h264;
+        # whether cleanup the old ts files.
+        # default: on
+        hls_cleanup     on;
+
+        # on_hls, never config in here, should config in http_hooks.
+        # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#http-callback
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#http-callback
+        
+        # on_hls_notify, never config in here, should config in http_hooks.
+        # we support the variables to generate the notify url:
+        #       [ts_url], replace with the ts url.
+        # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#on-hls-notify
     }
 }
 ```
@@ -271,8 +286,19 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
+* hls_cleanup: whether cleanup the ts files.
+* on_hls: callback when ts generated.
+* on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
 
 How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+
+## HTTP Callback
+
+To config `on_hls` for http hooks, should config in `http_hooks` section, not in hls.
+
+## ON HLS Notify
+
+To config the `on_hls_notify` for push ts file to can network, should config in `http_hooks` section, not in hls.
 
 ## HLSAudioOnly
 
