@@ -234,6 +234,11 @@ vhost __defaultVhost__ {
         # @remark only used when on_hls_notify is config.
         # default: 64
         hls_nb_notify   64;
+        # whether wait keyframe to reap segment,
+        # if off, reap segment when duration exceed the fragment,
+        # if on, reap segment when duration exceed and got keyframe.
+        # default: on
+        hls_wait_keyframe       on;
 
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
@@ -292,6 +297,7 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
 * hls_cleanup: whether cleanup the ts files.
+* hls_wait_keyframe: whether reap the ts base on top, that is, reap when got keyframe.
 * hls_nb_notify: the max bytes to read from notify server.
 * on_hls: callback when ts generated.
 * on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
