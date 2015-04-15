@@ -156,9 +156,9 @@ What is the bandwidth between the player and the SRS server? SRS provides c(in s
 
 How to delivery stream with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please see: [RTMP ATC](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP-ATC)
 
-## [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_TimeJitter)
+## [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_TimeJitter)
 
-How does SRS correct the timestamp of stream? How to correct the time jitter? How to ensure the timestamp of RTMP to monotonically increase? Please see: [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_TimeJitter)
+How does SRS correct the timestamp of stream? How to correct the time jitter? How to ensure the timestamp of RTMP to monotonically increase? Please see: [TimeJitter Timestamp Correct](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_TimeJitter)
 
 ## [Heartbeat](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Heartbeat)
 
