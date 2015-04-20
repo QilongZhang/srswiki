@@ -322,6 +322,7 @@ SRS提供了实例sample，也会在编译srs-librtmp时自动编译：
 * research/librtmp/srs_audio_raw_publish.c: Audio裸码流发布到SRS实例。
 * research/librtmp/srs_aac_raw_publish.c: Audio AAC ADTS裸码流发布到SRS实例。
 * research/librtmp/srs_rtmp_dump.c: 将RTMP流录制成flv文件实例。
+* ./objs/srs_ingest_hls: 将HLS流采集成RTMP推送给SRS。
 
 ## 运行实例
 
