@@ -1,6 +1,6 @@
-# How to Ask Question
+[**HOME**](Home) > [**EN(1.0)**](v1_EN_Home) > [**HowToAskQuestion**](v1_EN_HowToAskQuestion)
 
-Before you ask any question, please read the [Wiki](https://github.com/winlinvip/simple-rtmp-server/wiki) and try to answer the question yourself.
+Before ask any question, read the [wiki][wiki], or find in [issues][issues], or [contact][group] us, file an [issues][new] when still have questions.
 
 ## FAQ
 
@@ -36,3 +36,8 @@ Please file bug with following description:
 * Replay step: the description to replay the bug.
 
 Winlin 2014.10
+
+[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki/Home
+[issues]: https://github.com/winlinvip/simple-rtmp-server/issues?q=
+[group]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Contact
+[new]: https://github.com/winlinvip/simple-rtmp-server/issues/new
