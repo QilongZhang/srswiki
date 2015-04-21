@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**CN(1.0)**](v1_CN_Home)
+[**HOME**](Home) > [**CN(1.0)**](v1_CN_Home) > [**HowToAskQuestion**](v1_CN_HowToAskQuestion)
 
 为了减少沟通成本，帮助大家直接解决问题，提问前请阅读这个wiki，帮助大家提出更好的问题，更快速高效的解决问题。
 
