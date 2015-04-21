@@ -39,5 +39,5 @@ Winlin 2014.10
 
 [wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki/Home
 [issues]: https://github.com/winlinvip/simple-rtmp-server/issues?q=
-[group]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Contact
+[group]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Contact
 [new]: https://github.com/winlinvip/simple-rtmp-server/issues/new
