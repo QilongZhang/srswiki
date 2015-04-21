@@ -1,12 +1,8 @@
-# 如何提问
+[**HOME**](Home) > [**CN(1.0)**](v1_CN_Home)
 
 为了减少沟通成本，帮助大家直接解决问题，提问前请阅读这个wiki，帮助大家提出更好的问题，更快速高效的解决问题。
 
-希望把80%的时间花在解决问题上，而不是一问一答的Q&A上，真的很浪费时间。如果我们在浪费别人的时间，别人如何肯花时间帮你解决问题？与人方便，自己方便。
-
-如果你是开发者，准备看SRS代码，准备改点什么，那么下面的“开发者须知”就是你要详细看的。
-
-如果你是用户，只是运行SRS，或者发现bug需要报告bug，那么查看“用户须知”就好了。
+提问前请先在[wiki][wiki]中找您需要的答案，如果wiki没有在[issues][issues]中找找，如果还是没有就可以在[群里][group]问问，群里也不知道就提[issues][new]。
 
 ## 常见问题
 
@@ -57,3 +53,8 @@
 这个问题就很快能得到排查，开发人员能按照重现步骤进行复现。
 
 Winlin 2014.1
+
+[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki/Home
+[issues]: https://github.com/winlinvip/simple-rtmp-server/issues?q=
+[group]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Contact
+[new]: https://github.com/winlinvip/simple-rtmp-server/issues/new
