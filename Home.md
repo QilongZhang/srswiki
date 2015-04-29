@@ -24,5 +24,5 @@ Winlin 2014.5
 [cn1]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Home
 [en2]: https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Home
 [cn2]: https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Home
-[en3]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_Home
-[cn3]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_Home
+[en3]: https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Home
+[cn3]: https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Home
