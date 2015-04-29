@@ -9,7 +9,7 @@ Vhost中安全策略的配置：
 ```
 vhost your_vhost {
     # security for host to allow or deny clients.
-    # @see https://github.com/winlinvip/simple-rtmp-server/issues/211   
+    # @see https://github.com/simple-rtmp-server/srs/issues/211   
     security {
         # whether enable the security for vhost.
         # default: off
@@ -47,7 +47,7 @@ SRS应用安全策略的方式是:
 
 ## Bug
 
-关于这个功能的Bug，参考：[#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
+关于这个功能的Bug，参考：[#211](https://github.com/simple-rtmp-server/srs/issues/211)
 
 ## Reload
 

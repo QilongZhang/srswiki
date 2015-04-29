@@ -15,7 +15,7 @@ SRS的HTTP接口遵循最简单原则，主要包括：
 
 ## 编译和启动
 
-SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)
+SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Build)
 
 ```bash
 ./configure --with-http-api && make
@@ -142,7 +142,7 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
     "code": 0,
     "data": {
         "primary_authors": "winlin,wenjie.zhao",
-        "contributors_link": "https://github.com/winlinvip/simple-rtmp-server/blob/master/AUTHORS.txt",
+        "contributors_link": "https://github.com/simple-rtmp-server/srs/blob/master/AUTHORS.txt",
         "contributors": "winlin<winlin@vip.126.com> wenjie.zhao<740936897@qq.com> xiangcheng.liu<liuxc0116@foxmail.com> naijia.liu<youngcow@youngcow.net> alcoholyi<alcoholyi@qq.com> "
     }
 

@@ -1,1 +1,1 @@
-https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake
+https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMPHandshake

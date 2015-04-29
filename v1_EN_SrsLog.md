@@ -489,7 +489,7 @@ To startup with default config `conf/srs.conf`:
 [2014-04-14 12:12:57.775][trace][0][0] config parse complete
 [2014-04-14 12:12:57.775][trace][0][0] write log to file ./objs/srs.log
 [2014-04-14 12:12:57.775][trace][0][0] you can: tailf ./objs/srs.log
-[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog
+[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLog
 ```
 
 Winlin 2014.10

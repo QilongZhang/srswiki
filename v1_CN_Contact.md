@@ -39,4 +39,4 @@
 Winlin 2015.3
 
 [email]: mailto:winlin@vip.126.com
-[issues]: https://github.com/winlinvip/simple-rtmp-server/issues/new
+[issues]: https://github.com/simple-rtmp-server/srs/issues/new

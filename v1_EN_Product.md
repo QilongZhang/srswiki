@@ -18,7 +18,7 @@ Notes: the conceptual integrity refer to Brooks.
 
 Dev code: HuKaiqun, my teacher.
 
-[SRS release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release), about 1 year and the main goals:
+[SRS release 1.0](https://github.com/simple-rtmp-server/srs/tree/1.0release), about 1 year and the main goals:
 
 * Live stream for internet application: the RTMP and HLS stream delivering, support any origin, encoder and player.
 * Dozens of features, for example, Foward, Transcode, Ingest, DVR, to build your application very fast and stable. Comparing to FMS, user need a server-side dvr script and click the DVR button on FMLE, SRS only need 3lines conf to enable the dvr feature.
@@ -27,43 +27,43 @@ Dev code: HuKaiqun, my teacher.
 * For ARM and MIPS, SRS can running on raspberry-pi and cubieboard.
 * High performance, supports 2.7k clients.
 
-[SRS Release 1.0](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release) already released at 2014.12.5.
+[SRS Release 1.0](https://github.com/simple-rtmp-server/srs/tree/1.0release) already released at 2014.12.5.
 
 ## Release2.0
 
 Dev code: ZhouGuowen, my teacher.
 
-[SRS release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release), about 6 months and the main goals:
+[SRS release 2.0](https://github.com/simple-rtmp-server/srs/tree/2.0release), about 6 months and the main goals:
 
 * Support English wiki(EN+CN).
-* Enhance performance, supports 10k+ play and 4.5k+ publish. Read [#194](https://github.com/winlinvip/simple-rtmp-server/issues/194), [#237](https://github.com/winlinvip/simple-rtmp-server/issues/237) and [#251](https://github.com/winlinvip/simple-rtmp-server/issues/251)
-* The srs-librtmp supports publish h.264 and aac raw stream. Read [#66](https://github.com/winlinvip/simple-rtmp-server/issues/66) and [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212)
-* Research and simplify st, remove platform code to only support linux/arm. Read [#182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
-* The srs-librtmp compile on windows, read [bug #213](https://github.com/winlinvip/simple-rtmp-server/issues/213) and [srs-librtmp](https://github.com/winlinvip/srs.librtmp)
-* Simplify the handshake, use template method to remove union. Read [#235](https://github.com/winlinvip/simple-rtmp-server/issues/235) 
+* Enhance performance, supports 10k+ play and 4.5k+ publish. Read [#194](https://github.com/simple-rtmp-server/srs/issues/194), [#237](https://github.com/simple-rtmp-server/srs/issues/237) and [#251](https://github.com/simple-rtmp-server/srs/issues/251)
+* The srs-librtmp supports publish h.264 and aac raw stream. Read [#66](https://github.com/simple-rtmp-server/srs/issues/66) and [#212](https://github.com/simple-rtmp-server/srs/issues/212)
+* Research and simplify st, remove platform code to only support linux/arm. Read [#182](https://github.com/simple-rtmp-server/srs/issues/182)
+* The srs-librtmp compile on windows, read [bug #213](https://github.com/simple-rtmp-server/srs/issues/213) and [srs-librtmp](https://github.com/winlinvip/srs.librtmp)
+* Simplify the handshake, use template method to remove union. Read [#235](https://github.com/simple-rtmp-server/srs/issues/235) 
 * The srs-librtmp supports hijack io for [st-load](https://github.com/winlinvip/st-load).
-* Support min-latency(realtime) mode, 0.1s+ latency. Read [#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)
-* Support security allow/deny publish/play all/ip. Read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
-* Support [custom dvr path](https://github.com/winlinvip/simple-rtmp-server/issues/179) 
-and [dvr http callback](https://github.com/winlinvip/simple-rtmp-server/issues/274).
-* Rewrite the embeded http server, refer to go http. Read [#277](https://github.com/winlinvip/simple-rtmp-server/issues/277).
-* Remux RTMP to HTTP flv/mp3/aac/ts live stream, read [#293](https://github.com/winlinvip/simple-rtmp-server/issues/293).
-* Support HLS in RAM, without write disk. Read [#136](https://github.com/winlinvip/simple-rtmp-server/issues/136).
-* Enhanced DVR, support Append/callback, read [#179](https://github.com/winlinvip/simple-rtmp-server/issues/179).
-* Enhanced HTTP API, support query stream/vhost, read [#316](https://github.com/winlinvip/simple-rtmp-server/issues/316).
-* Support HDS, read [#328](https://github.com/winlinvip/simple-rtmp-server/issues/328).
-* Support HSTRS(http stream trigger ramp source), for http-flv standby and edge server, read [#324](https://github.com/winlinvip/simple-rtmp-server/issues/324).
-* [experiment]Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/winlinvip/simple-rtmp-server/issues/250).
-* [experiment]Support push RTSP to SRS, read [#133](https://github.com/winlinvip/simple-rtmp-server/issues/133).
+* Support min-latency(realtime) mode, 0.1s+ latency. Read [#257](https://github.com/simple-rtmp-server/srs/issues/257#issuecomment-66773208)
+* Support security allow/deny publish/play all/ip. Read [#211](https://github.com/simple-rtmp-server/srs/issues/211)
+* Support [custom dvr path](https://github.com/simple-rtmp-server/srs/issues/179) 
+and [dvr http callback](https://github.com/simple-rtmp-server/srs/issues/274).
+* Rewrite the embeded http server, refer to go http. Read [#277](https://github.com/simple-rtmp-server/srs/issues/277).
+* Remux RTMP to HTTP flv/mp3/aac/ts live stream, read [#293](https://github.com/simple-rtmp-server/srs/issues/293).
+* Support HLS in RAM, without write disk. Read [#136](https://github.com/simple-rtmp-server/srs/issues/136).
+* Enhanced DVR, support Append/callback, read [#179](https://github.com/simple-rtmp-server/srs/issues/179).
+* Enhanced HTTP API, support query stream/vhost, read [#316](https://github.com/simple-rtmp-server/srs/issues/316).
+* Support HDS, read [#328](https://github.com/simple-rtmp-server/srs/issues/328).
+* Support HSTRS(http stream trigger ramp source), for http-flv standby and edge server, read [#324](https://github.com/simple-rtmp-server/srs/issues/324).
+* [experiment]Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/simple-rtmp-server/srs/issues/250).
+* [experiment]Support push RTSP to SRS, read [#133](https://github.com/simple-rtmp-server/srs/issues/133).
 * Other small changes.
 
-[SRS Release 2.0](https://github.com/winlinvip/simple-rtmp-server/tree/2.0release) plan to release on 2015.12.
+[SRS Release 2.0](https://github.com/simple-rtmp-server/srs/tree/2.0release) plan to release on 2015.12.
 
 ## Release3.0
 
 Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxol.com).
 
-[SRS release 3.0](https://github.com/winlinvip/simple-rtmp-server/tree/develop), in researching now, no milestone. The main goals maybe:
+[SRS release 3.0](https://github.com/simple-rtmp-server/srs/tree/develop), in researching now, no milestone. The main goals maybe:
 
 * Research SRS.GO, implements srs in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 * Support H.265, push RTMP with h.265, delivery in HLS.
@@ -76,28 +76,28 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxo
 SRS 3.0+ features backlog:
 
 * HTTP Streaming:
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/130" target="_blank">HLS edge</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/129" target="_blank">HTTP FLV delivering</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/83" target="_blank">HTTP API authentication</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/139" target="_blank">HLS fast cache</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/140" target="_blank">HTTP support vhost</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/52" target="_blank">HTTP trigger RTMP</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/174" target="_blank">HTTP-MP4 streaming</a>
+<a href="https://github.com/simple-rtmp-server/srs/issues/130" target="_blank">HLS edge</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/129" target="_blank">HTTP FLV delivering</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/83" target="_blank">HTTP API authentication</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/139" target="_blank">HLS fast cache</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/140" target="_blank">HTTP support vhost</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/52" target="_blank">HTTP trigger RTMP</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/174" target="_blank">HTTP-MP4 streaming</a>
 * Enhanced RTMP Streaming:
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/106" target="_blank">RTMP call forward</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/92" target="_blank">RTMP302 Redirection</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/71" target="_blank">RTMP publish authentication</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/131" target="_blank">AMF3 codec</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/132" target="_blank">SharedObject and text delivery</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/156" target="_blank">Multiple stream over the same connection</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/163" target="_blank">Forward with extra parameters</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/164" target="_blank">Edge with extra parameters</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/93" target="_blank">RTMFP protocol</a>
+<a href="https://github.com/simple-rtmp-server/srs/issues/106" target="_blank">RTMP call forward</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/92" target="_blank">RTMP302 Redirection</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/71" target="_blank">RTMP publish authentication</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/131" target="_blank">AMF3 codec</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/132" target="_blank">SharedObject and text delivery</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/156" target="_blank">Multiple stream over the same connection</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/163" target="_blank">Forward with extra parameters</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/164" target="_blank">Edge with extra parameters</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/93" target="_blank">RTMFP protocol</a>
 * Realtime without latency:
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/120" target="_blank">FRSC realtime</a>，
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/94" target="_blank">UDP for server communication</a>
+<a href="https://github.com/simple-rtmp-server/srs/issues/120" target="_blank">FRSC realtime</a>，
+<a href="https://github.com/simple-rtmp-server/srs/issues/94" target="_blank">UDP for server communication</a>
 * RTSP Streaming:
-<a href="https://github.com/winlinvip/simple-rtmp-server/issues/133" target="_blank">RTSP streaming</a>
+<a href="https://github.com/simple-rtmp-server/srs/issues/133" target="_blank">RTSP streaming</a>
 
 SRS features: the best or nothing!
 
@@ -111,9 +111,9 @@ SRS features: the best or nothing!
 
 2014.5, features freezed, start to test and fix bug. Chnvideo plan to use SRS in some product.
 
-2014.10，[SRS1.0](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Product#release10)beta is ok, waiting for bugs and 1.0 will be released at 2014.12. SRS 1.0, total 1 year, [17](https://github.com/winlinvip/simple-rtmp-server/releases)milestones, [7](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#releases)mainline versions, 223 revisions, 43700 lines feature code, 15616 lines utest code, 1803 commits, [161](https://github.com/winlinvip/simple-rtmp-server/issues) bugs and features, [117](https://github.com/winlinvip/simple-rtmp-server/issues?q=milestone%3A"srs+1.0+release")bugs fixed, [1](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#system-requirements)os supported(linux), 4 cpu(x86/x64/arm/mips), [11](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#about)kernel features(origin、 [edge](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Edge)、 [vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RtmpUrlVhost)、 [transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)、 [ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Ingest)、 [dvr](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DVR)、 [forward](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)、 [http-api](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)、 [http-callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)、 [reload](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Reload)、 [tracable-log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog))，[35](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#summary)features，[58](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Home) wiki，[2](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#authors)primary authors，[12](https://github.com/winlinvip/simple-rtmp-server/blob/master/AUTHORS.txt)contributors，[14](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#donation)donation，ChinaCache、VeryCloud、VeryCDN、Tsinghua[use or develop on SRS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Sample)，100 companies use SRS.
+2014.10，[SRS1.0](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#release10)beta is ok, waiting for bugs and 1.0 will be released at 2014.12. SRS 1.0, total 1 year, [17](https://github.com/simple-rtmp-server/srs/releases)milestones, [7](https://github.com/simple-rtmp-server/srs/tree/1.0release#releases)mainline versions, 223 revisions, 43700 lines feature code, 15616 lines utest code, 1803 commits, [161](https://github.com/simple-rtmp-server/srs/issues) bugs and features, [117](https://github.com/simple-rtmp-server/srs/issues?q=milestone%3A"srs+1.0+release")bugs fixed, [1](https://github.com/simple-rtmp-server/srs/tree/1.0release#system-requirements)os supported(linux), 4 cpu(x86/x64/arm/mips), [11](https://github.com/simple-rtmp-server/srs/tree/1.0release#about)kernel features(origin、 [edge](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Edge)、 [vhost](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RtmpUrlVhost)、 [transcode](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG)、 [ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest)、 [dvr](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DVR)、 [forward](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG)、 [http-api](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi)、 [http-callback](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPCallback)、 [reload](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Reload)、 [tracable-log](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLog))，[35](https://github.com/simple-rtmp-server/srs/tree/1.0release#summary)features，[58](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Home) wiki，[2](https://github.com/simple-rtmp-server/srs/tree/1.0release#authors)primary authors，[12](https://github.com/simple-rtmp-server/srs/blob/master/AUTHORS.txt)contributors，[14](https://github.com/simple-rtmp-server/srs/tree/1.0release#donation)donation，ChinaCache、VeryCloud、VeryCDN、Tsinghua[use or develop on SRS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Sample)，100 companies use SRS.
 
-2014.10 startup [SRS2.0](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Product#release20)develop，6 months to comlete，to research and master st, simplify client packet send model, with other small feature refine. [Other features](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Product#backlog) postpone to 3.0+。
+2014.10 startup [SRS2.0](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#release20)develop，6 months to comlete，to research and master st, simplify client packet send model, with other small feature refine. [Other features](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#backlog) postpone to 3.0+。
 
 Thanks winlin to create, arch, coding, test and write wiki for SRS. Thanks for my parents and teachers. Thanks colleague who help me. Thanks all contributors and users of SRS. Let's push SRS to be better together~
 

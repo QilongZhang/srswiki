@@ -99,7 +99,7 @@ SRS will install api to `/usr/local/srs`, which is specified by configure.
 
 The api is the api-server of SRS, which is used for SRS to callback the http api. The http callback need to open the feature `--with-http-callback`, and SRS use python(cherrypy) for server.py, which user can directly run.
 
-The api-server tp provide http service, and the pages for demo of SRS including the player, encoder and the meeting demo of SRS. When api-server start, we can access `http://192.168.1.170:8085`, the demo of SRS. See: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo).
+The api-server tp provide http service, and the pages for demo of SRS including the player, encoder and the meeting demo of SRS. When api-server start, we can access `http://192.168.1.170:8085`, the demo of SRS. See: [Usage: Demo](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleDemo).
 
 <strong>Step1:</strong> Enable the demo feature:
 
@@ -119,7 +119,7 @@ Start api-server:
 /usr/local/srs/etc/init.d/srs-api start
 ```
 
-See: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)
+See: [Usage: Demo](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleDemo)
 
 <strong>Step3:</strong> Link api script:
 

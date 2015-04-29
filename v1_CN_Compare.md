@@ -2,11 +2,11 @@
 
 对比几个知名的商业流媒体服务器，知名的开源流媒体服务器，以星级评定。难免有主观因素，以及不熟悉该产品的因素，有异议可以在群里面告知。
 
-SRS聚焦在某些方面，这些都是由[产品定位](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Product)决定的，有所不为才能有所为。
+SRS聚焦在某些方面，这些都是由[产品定位](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product)决定的，有所不为才能有所为。
 
-SRS优势的基础在于基础架构，采用ST轻量线程，SRS和其他流媒体系统的根本区别（类似于GO）就是轻量线程，参考[SRS架构](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Architecture)。
+SRS优势的基础在于基础架构，采用ST轻量线程，SRS和其他流媒体系统的根本区别（类似于GO）就是轻量线程，参考[SRS架构](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Architecture)。
 
-详细的功能列表，以及研发计划，参考：[产品功能列表](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Features)
+详细的功能列表，以及研发计划，参考：[产品功能列表](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Features)
 
 ## 术语表
 

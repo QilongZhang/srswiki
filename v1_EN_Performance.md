@@ -79,7 +79,7 @@ tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LIST
 
 SRS version and build.
 
-* SRS: [SRS 0.9](https://github.com/winlinvip/simple-rtmp-server/releases/tag/0.9)
+* SRS: [SRS 0.9](https://github.com/simple-rtmp-server/srs/releases/tag/0.9)
 * Build: ``./configure && make``
 * Config SRS：`conf/srs.conf`
 
@@ -637,10 +637,10 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 ## Performance Banchmark 6k
 
 SRS2.0.15, not SRS1.0, performance is refined to support 6k clients.
-That is 4Gbps for 522kbps bitrate, for a single SRS process. Read https://github.com/winlinvip/simple-rtmp-server/issues/194
+That is 4Gbps for 522kbps bitrate, for a single SRS process. Read https://github.com/simple-rtmp-server/srs/issues/194
 
 ## Performance Banchmark 7.5k
 
-SRS2.0.30 refined to support 7.5k clients, read https://github.com/winlinvip/simple-rtmp-server/issues/217
+SRS2.0.30 refined to support 7.5k clients, read https://github.com/simple-rtmp-server/srs/issues/217
 
 Winlin 2014.11

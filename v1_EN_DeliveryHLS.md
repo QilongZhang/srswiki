@@ -6,11 +6,11 @@ RTMP is Adobe RTMP(Realtime Message Protocol), for low latency live streaming, a
 
 HLS is Apple HLS(Http Live Streaming), for both live and vod streaming over HTTP, and the standard protocol on Apple platform.
 
-Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)。
+Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)。
 
-For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP).
+For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMP.PK.HTTP).
 
-For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS).
+For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS).
 
 ## Use Scenario
 
@@ -87,7 +87,7 @@ The m3u8 url must embed in HTML5 for Android. For example:
 </video>
 ```
 
-The [m3u8](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) of HLS is a play list actually. For example:
+The [m3u8](https://github.com/simple-rtmp-server/srs/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) of HLS is a play list actually. For example:
 
 ```bash
 #EXTM3U
@@ -181,15 +181,15 @@ So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is lar
 hls_window >= sum(each ts duration in m3u8)
 ```
 
-How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
 
 ## HLSAudioOnly
 
-SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)
+SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS)
 
-For information about drop video, read [Transcode: Disable Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG#drop-video-or-audio)
+For information about drop video, read [Transcode: Disable Stream](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG#drop-video-or-audio)
 
-There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
 
 ## HLS and Forward
 

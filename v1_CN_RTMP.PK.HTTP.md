@@ -1,6 +1,6 @@
 # 分发方式比较
 
-互联网上的两种主要的分发方式：[HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryRTMP)，什么时候用谁，完全决定于应用场景。
+互联网上的两种主要的分发方式：[HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS)和[RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP)，什么时候用谁，完全决定于应用场景。
 
 还有其他的分发方式，这些分发方式不属于互联网常见和通用的方式，不予以比较：
 * UDP：譬如YY的实时应用，视频会议等等，或者RTSP之类。这类应用的特点就是实时性要求特别高，以毫秒计算。TCP家族协议根本就满足不了要求，所以HTTP/TCP都不靠谱。这类应用没有通用的方案，必须自己实现分发（服务端）和播放（客户端）。
@@ -61,7 +61,7 @@ HLS的主要劣势是：
 
 ## 应用方式
 
-参考[HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryHLS)和[RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryRTMP)
+参考[HTTP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS)和[RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP)
 
 推荐的方式是：
 * 编码器输出RTMP协议。

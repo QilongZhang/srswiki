@@ -16,7 +16,7 @@ The HTTP API of SRS follows the simple priciple:
 ## Build
 
 To enable http api, configure SRS with `--with-http-api`, 
-read [configure](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+read [configure](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
 
 ```bash
 ./configure --with-http-api && make
@@ -121,7 +121,7 @@ Or:
     "code": 0,
     "data": {
         "primary_authors": "winlin,wenjie.zhao",
-        "contributors_link": "https://github.com/winlinvip/simple-rtmp-server/blob/master/AUTHORS.txt",
+        "contributors_link": "https://github.com/simple-rtmp-server/srs/blob/master/AUTHORS.txt",
         "contributors": "winlin<winlin@vip.126.com> wenjie.zhao<740936897@qq.com> xiangcheng.liu<liuxc0116@foxmail.com> naijia.liu<youngcow@youngcow.net> alcoholyi<alcoholyi@qq.com> "
     }
 

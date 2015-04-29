@@ -14,10 +14,10 @@
 
 ```
 git clone https://git.oschina.net/winlinvip/srs.oschina.git && cd srs.oschina &&
-git remote set-url origin https://github.com/winlinvip/simple-rtmp-server.git
+git remote set-url origin https://github.com/simple-rtmp-server/srs.git
 ```
 
-其他国内镜像参考：https://github.com/winlinvip/simple-rtmp-server/tree/develop#mirrors
+其他国内镜像参考：https://github.com/simple-rtmp-server/srs/tree/develop#mirrors
 
 ## Checkout Branch
 
@@ -62,10 +62,10 @@ develop是开发版，目前是2.0。
 安装好git后，执行以下命令获取SRS最新代码：
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 ```
 
-其他镜像git地址: https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#mirrors
+其他镜像git地址: https://github.com/simple-rtmp-server/srs/tree/1.0release#mirrors
 
 ## 如何更新SRS最新代码
 

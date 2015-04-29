@@ -9,7 +9,7 @@ The config for security of vhost:
 ```
 vhost your_vhost {
     # security for host to allow or deny clients.
-    # @see https://github.com/winlinvip/simple-rtmp-server/issues/211   
+    # @see https://github.com/simple-rtmp-server/srs/issues/211   
     security {
         # whether enable the security for vhost.
         # default: off
@@ -40,7 +40,7 @@ Please see `conf/security.deny.publish.conf` for detail.
 
 ## Bug
 
-The bug about this feature, read [#211](https://github.com/winlinvip/simple-rtmp-server/issues/211)
+The bug about this feature, read [#211](https://github.com/simple-rtmp-server/srs/issues/211)
 
 ## Reload
 

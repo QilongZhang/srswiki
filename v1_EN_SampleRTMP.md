@@ -4,10 +4,10 @@ RTMP is the kernel feature of SRS.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 cd simple-rtmp-server/trunk
 ```
 
@@ -17,13 +17,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 3, config srs.</strong> For detail, read [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)
 
 Save bellow as config, or use `conf/rtmp.conf`:
 
@@ -35,13 +35,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, start srs.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 4, start srs.</strong> For detail, read [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 5, start encoder.</strong> For detail, read [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)
 
 Use FFMPEG to publish stream:
 
@@ -61,7 +61,7 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-<strong>Step 6, play RTMP.</strong> For detail, read [RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)
+<strong>Step 6, play RTMP.</strong> For detail, read [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 

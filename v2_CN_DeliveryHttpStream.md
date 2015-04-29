@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-关于HTTP flv 点播流，参考：https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_FlvVodStream
+关于HTTP flv 点播流，参考：https://github.com/simple-rtmp-server/srs/wiki/v2_CN_FlvVodStream
 
 ## HTTP FLV Live Stream
 
@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP TS Live Stream
 
@@ -44,7 +44,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Mp3 Live Stream
 
@@ -66,7 +66,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Aac Live Stream
 
@@ -88,7 +88,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Live Stream Config
 
@@ -145,7 +145,7 @@ vhost your_vhost {
 
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
-备注：HTTP服务器配置，参考[HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+备注：HTTP服务器配置，参考[HTTP Server](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPServer#config)
 
 ## HSTRS
 
@@ -153,10 +153,10 @@ HSTRS(http stream trigger rtmp source)由HTTP流触发的RTMP回源，该功能�
 
 HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
 
-详细信息参考：https://github.com/winlinvip/simple-rtmp-server/issues/324
+详细信息参考：https://github.com/simple-rtmp-server/srs/issues/324
 
 ## Sample
 
-配置实例参考：https://github.com/winlinvip/simple-rtmp-server/issues/293#issuecomment-70449126
+配置实例参考：https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
 Winlin 2015.1

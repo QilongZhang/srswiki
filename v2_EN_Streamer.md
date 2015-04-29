@@ -16,7 +16,7 @@ Remark: The streamer will demux other protocol then push to SRS over RTMP, so al
 
 ## Build
 
-Build SRS with stream caster, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_Build)
+Build SRS with stream caster, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Build)
 
 ```
 ./configure --with-stream-caster
@@ -38,7 +38,7 @@ The config for pushing MPEG-TS over UDP, see `conf/push.mpegts.over.udp.conf`:
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
-# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
     # whether stream caster is enabled.
     # default: off
@@ -56,7 +56,7 @@ stream_caster {
 }
 ```
 
-For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/250#issuecomment-72321769
+For more information, read https://github.com/simple-rtmp-server/srs/issues/250#issuecomment-72321769
 
 # Push RTSP to SRS
 
@@ -66,7 +66,7 @@ The config for pushing MPEG-TS over UDP, see `conf/push.rtsp.conf`：
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
-# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
     # whether stream caster is enabled.
     # default: off
@@ -93,6 +93,6 @@ stream_caster {
 }
 ```
 
-For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/133#issuecomment-75531884
+For more information, read https://github.com/simple-rtmp-server/srs/issues/133#issuecomment-75531884
 
 2015.1

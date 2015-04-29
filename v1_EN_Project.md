@@ -18,5 +18,5 @@ Using SRS in your company? Add your site [to our list](v1_EN_Sample)!
 
 Winlin 2015.3
 
-[issues]: https://github.com/winlinvip/simple-rtmp-server/issues
-[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki
+[issues]: https://github.com/simple-rtmp-server/srs/issues
+[wiki]: https://github.com/simple-rtmp-server/srs/wiki

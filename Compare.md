@@ -1,1 +1,1 @@
-See: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Compare
+See: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Compare

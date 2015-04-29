@@ -1,7 +1,7 @@
 # SRS应用于linux-arm
 
 arm芯片上，如何使用SRS？一般arm上的硬件可以获取到h.264裸码流。有几个方案：
-* arm推送RTMP到SRS：从arm上将h.264裸码流包装成flv流，使用[srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLibrtmp)，或者librtmp，将flv格式的包以RTMP发送到SRS。
+* arm推送RTMP到SRS：从arm上将h.264裸码流包装成flv流，使用[srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLibrtmp)，或者librtmp，将flv格式的包以RTMP发送到SRS。
 * arm推送h.264裸码流到SRS（目前还不支持）：可以使用自定义协议，可以不必使用RTMP这么复杂的协议，使用socket将h.264裸码流发送到SRS，SRS服务器端将裸码流打包成RTMP分发。
 * arm上运行SRS：在arm上运行SRS，使用上面两个方案将h.264裸码流推送到arm上的SRS。客户端或者RTMP边缘直接从arm上的SRS源站取RTMP流。
 
@@ -50,10 +50,10 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 
 其中，
 * --with-arm-ubuntu12：必选，指定为arm编译。注意目前只支持ubuntu，CentOS的交叉环境不好搭。
-* --with-ssl：默认开启，可关闭。支持复杂握手。参考：[握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake)
+* --with-ssl：默认开启，可关闭。支持复杂握手。参考：[握手协议](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMPHandshake)
 * --with-hls：默认开启，可关闭。支持将RTMP流切成HLS片。注意不会编译nginx，在i386/x86_64平台上srs会编译nginx用于分发。
-* --with-http-server: 默认开启，可关闭。开启[内嵌的http服务器分发hls](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPServer)。
-* --with-http-api: 默认开启，可关闭。支持[http api](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_HTTPApi)。
+* --with-http-server: 默认开启，可关闭。开启[内嵌的http服务器分发hls](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPServer)。
+* --with-http-api: 默认开启，可关闭。支持[http api](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi)。
 * --with-librtmp：默认关闭，可开启。编译客户端库，arm客户端可以调用这个库将流推送到srs。
 
 编译成功后，srs即为arm上可运行：
@@ -358,7 +358,7 @@ st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开�
 实际上是因为i386和x86_64的setjmp是汇编写的，st自己实现的，所以这个偏移量是有效的。
 但是对于arm，st是使用的默认的setjmp，即libc的函数，而libc的这个jmpbuf是有变更的，
 在2.4以上甚至都不是公开的了（这是为何st要自己实现的原因），具体参考：
-[bug #182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
+[bug #182](https://github.com/simple-rtmp-server/srs/issues/182)
 
 ```bash
 // md.h
@@ -456,6 +456,6 @@ schema=rtmp, vhost=__defaultVhost__, port=19350, app=live
 
 备注：另外，ST还有个bug，多进程启动时，st只能在fork之后启动。否则会有问题。
 
-see: https://github.com/winlinvip/simple-rtmp-server/issues/190
+see: https://github.com/simple-rtmp-server/srs/issues/190
 
 Winlin 2014.2

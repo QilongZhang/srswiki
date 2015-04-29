@@ -44,10 +44,10 @@ The stable is: master >= 1.0release >> develop.
 User can git clone the SRS project:
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 ```
 
-Mirrors: https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#mirrors
+Mirrors: https://github.com/simple-rtmp-server/srs/tree/1.0release#mirrors
 
 ## How to update code?
 

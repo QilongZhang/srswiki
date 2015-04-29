@@ -9,11 +9,11 @@ The use scenarios of librtmp:
 * Publish RTMP stream: Publish RTMP stream to server.
 * Use sync block socket: It's ok for client.
 * ARM: Can used for linux arm, for some embed device, to publish stream to server.
-* Publish h.264 raw stream: SRS2.0 supports this feature, read [publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
+* Publish h.264 raw stream: SRS2.0 supports this feature, read [publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
 
-Note: About the openssl, complex and simple handshake, read [RTMP protocol](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)
+Note: About the openssl, complex and simple handshake, read [RTMP protocol](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMPHandshake)
 
-Note: To cross build srs-librtmp for ARM cpu, read [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+Note: To cross build srs-librtmp for ARM cpu, read [srs-arm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ## librtmp For Server
 
@@ -28,10 +28,10 @@ SRS provides different librtmp:
 * Min depends, SRS extract core/kernel/rtmp modules for srs-librtmp.
 * Min library requires, srs-librtmp only depends on stdc++.
 * NO ST, srs-librtmp does not depends on st.
-* Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_BandwidthTestTool)
-* Provides tracable log, to get the information on server of client, read [Tracable log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog)
-* Supports directly publish h.264 raw stream, read [publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
-* Exports SRS to srs-librtmp as single project which can be make to .h and .a, or exports SRS to a single .h and .cpp file, read [export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp)
+* Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_BandwidthTestTool)
+* Provides tracable log, to get the information on server of client, read [Tracable log](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLog)
+* Supports directly publish h.264 raw stream, read [publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
+* Exports SRS to srs-librtmp as single project which can be make to .h and .a, or exports SRS to a single .h and .cpp file, read [export srs librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp)
 
 In a word, SRS provides more efficient and simple client library srs-librtmp.
 
@@ -71,7 +71,7 @@ When make SRS, the srs-librtmp will auto generated when configure with librtmp:
 ./configure --with-librtmp --without-ssl && make
 ```
 
-All examples are built, read [Examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+All examples are built, read [Examples](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
 <strong>Note: Recomment to disable ssl, for librtmp does not depends on ssl.</strong>
 
@@ -83,7 +83,7 @@ When build ok, user can use .h and .a library to build client application.
 
 srs-librtmp only depends on libc++, so can be build on windows.
 
-SRS 2.0 can export srs-librtmp to single project, or a .h and a .cpp file, read [export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp).
+SRS 2.0 can export srs-librtmp to single project, or a .h and a .cpp file, read [export srs librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp).
 
 Need to port some linux header files.
 
@@ -96,7 +96,7 @@ This section descrips the RTMP packet specification, for the srs-librtmp api to 
 The api about data:
 * Read RTMP packet from server: int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * Write RTMP packet to server: int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
-* Write h.264 raw data to server, read [publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
+* Write h.264 raw data to server, read [publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
 
 The RTMP packet(char* data) for api, is format in flv Video/Audio, read the trunk/doc [video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * Audio data, read `E.4.2.1 AUDIODATA`，p76, for example, the aac codec audio data.
@@ -199,9 +199,9 @@ srs_h264_write_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts,
 srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
 ```
 
-About the api, read https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
+About the api, read https://github.com/simple-rtmp-server/srs/issues/66#issuecomment-62240521
 
-About to use the api, read https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
+About to use the api, read https://github.com/simple-rtmp-server/srs/issues/66#issuecomment-62245512
 
 ## Publish Audio Raw Stream
 
@@ -256,7 +256,7 @@ The api:
 * @remark for aac, only support profile 1-4, AAC main/LC/SSR/LTP,
 *       @see aac-mp4a-format-ISO_IEC_14496-3+2001.pdf, page 23, 1.5.1.1 Audio object type
 *
-* @see https://github.com/winlinvip/simple-rtmp-server/issues/212
+* @see https://github.com/simple-rtmp-server/srs/issues/212
 * @see E.4.2.1 AUDIODATA of video_file_format_spec_v10_1.pdf
 * 
 * @return 0, success; otherswise, failed.
@@ -291,11 +291,11 @@ extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
 extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
-The example for bug [#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+The example for bug [#212](https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
-About the api, read https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63755405
+About the api, read https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63755405
 
-About to use the example, read https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-64164018
+About to use the example, read https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-64164018
 
 ## srs-librtmp Examples
 

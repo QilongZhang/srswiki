@@ -7,7 +7,7 @@ encode or passthrough then publish as RTMP to SRS.
 Ingest actually use FFMEPG, or your tool, to encode or remux
 to suck known data to RTMP to SRS.
 
-How to deploy ingest, read [Ingest](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleIngest)
+How to deploy ingest, read [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleIngest)
 
 ## Use Scenario
 
@@ -24,7 +24,7 @@ stream from other place.
 
 ## Build
 
-Config SRS with option `--with-ingest`, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+Config SRS with option `--with-ingest`, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
 
 The ingest tool of SRS can use FFMPEG, or use your own tool.
 
@@ -82,7 +82,7 @@ The `type` specifies the ingest type:
 The `engine` specifies the transcode engine and output:
 * enabled: Whether transcode, remux when off.
 * output：The output RTMP url. The vhost and port is variable.
-* others is same to [FFMPEG](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG)
+* others is same to [FFMPEG](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG)
 
 Note: Engine is copy, when:
 * The enabled is off.
@@ -93,6 +93,6 @@ Note: Engine is copy, when:
 SRS does not ingest a file list, a wordaround:
 * Use script as the ingest tool, which use ffmpeg to copy file to RTMP stream one by one.
 
-Read https://github.com/winlinvip/simple-rtmp-server/issues/55
+Read https://github.com/simple-rtmp-server/srs/issues/55
 
 Winlin 2014.11

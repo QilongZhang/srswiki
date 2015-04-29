@@ -2,7 +2,7 @@
 
 SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等。
 
-<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage)的每个单独的使用，然后再动demo。</strong>
+<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage](https://github.com/simple-rtmp-server/srs/tree/1.0release#usage)的每个单独的使用，然后再动demo。</strong>
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
@@ -16,10 +16,10 @@ SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，�
 192.168.1.170 demo.srs.com
 ```
 
-<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Git)
+<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Git)
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 cd simple-rtmp-server/trunk
 ```
 
@@ -29,7 +29,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第三步，编译SRS。</strong>详细参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
+<strong>第三步，编译SRS。</strong>详细参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
 
 ```bash
 bash scripts/build.sh

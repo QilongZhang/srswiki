@@ -55,4 +55,4 @@ SRS支持多进程吗？不支持。SRS能支持多进程吗？可以的。简�
 
 Winlin 2014.2
 
-[hls]: https://github.com/winlinvip/simple-rtmp-server/issues/351
+[hls]: https://github.com/simple-rtmp-server/srs/issues/351

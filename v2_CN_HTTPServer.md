@@ -2,9 +2,9 @@
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
-部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleHTTP)
+部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SampleHTTP)
 
-SRS的内置HTTP服务器已经参考GO的HTTP模块重写，满足商用要求，可以当作web服务器使用。参考：[#277](https://github.com/winlinvip/simple-rtmp-server/issues/277)
+SRS的内置HTTP服务器已经参考GO的HTTP模块重写，满足商用要求，可以当作web服务器使用。参考：[#277](https://github.com/simple-rtmp-server/srs/issues/277)
 
 ## 应用场景
 

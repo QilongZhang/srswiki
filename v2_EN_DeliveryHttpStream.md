@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-About the HTTP flv vod stream, read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_FlvVodStream
+About the HTTP flv vod stream, read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_FlvVodStream
 
 ## HTTP FLV Live Stream
 
@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP TS Live Stream
 
@@ -44,7 +44,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Mp3 Live Stream
 
@@ -66,7 +66,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Aac Live Stream
 
@@ -88,7 +88,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Live Stream Config
 
@@ -145,7 +145,7 @@ vhost your_vhost {
 
 Remark: Use forward+vhost to support multiple http live stream for a stream.
 
-Remark: The http server config section, read [HTTP Server](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPServer#config)
+Remark: The http server config section, read [HTTP Server](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPServer#config)
 
 ## HSTRS
 
@@ -153,10 +153,10 @@ HSTRS(http stream trigger rtmp source) used for http-flv cluster and the http-fl
 
 HSTRS should set `hstrs` to "on" of `http_remux`, default is "on".
 
-For more information, read https://github.com/winlinvip/simple-rtmp-server/issues/324
+For more information, read https://github.com/simple-rtmp-server/srs/issues/324
 
 ## Sample
 
-The config sample, read https://github.com/winlinvip/simple-rtmp-server/issues/293#issuecomment-70449126
+The config sample, read https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
 Winlin 2015.1

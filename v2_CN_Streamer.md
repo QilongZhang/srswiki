@@ -14,7 +14,7 @@ Streamer是SRS作为服务器侦听并接收其他协议的流（譬如RTSP，MP
 
 ## Build
 
-编译SRS时打开StreamCaster支持，参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)：
+编译SRS时打开StreamCaster支持，参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Build)：
 
 ```
 ./configure --with-stream-caster
@@ -36,7 +36,7 @@ SRS可以侦听一个udp端口，编码器将流推送到这个udp端口（SPTS�
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
-# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
     # whether stream caster is enabled.
     # default: off
@@ -54,7 +54,7 @@ stream_caster {
 }
 ```
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/250#issuecomment-72321769
+参考：https://github.com/simple-rtmp-server/srs/issues/250#issuecomment-72321769
 
 # Push RTSP to SRS
 
@@ -64,7 +64,7 @@ SRS可以侦听一个tcp端口，编码器将流推送到这个tcp端口（RTSP�
 
 ```
 # the streamer cast stream from other protocol to SRS over RTMP.
-# @see https://github.com/winlinvip/simple-rtmp-server/tree/develop#stream-architecture
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
     # whether stream caster is enabled.
     # default: off
@@ -91,6 +91,6 @@ stream_caster {
 }
 ```
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/133#issuecomment-75531884
+参考：https://github.com/simple-rtmp-server/srs/issues/133#issuecomment-75531884
 
 2015.1

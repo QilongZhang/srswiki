@@ -44,7 +44,7 @@ vhost refer.anti_suck.com {
 
 The token authentication similar to refer, but the token is put in the url, not in the args of connect:
 * Put token in RTMP url, for example, `rtmp://vhost/app?token=xxxx/stream`, SRS will pass the token 
-in the http-callback. read [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback)
+in the http-callback. read [HTTP callback](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPCallback)
 * Put token in the connect args, for example, as code NetConnection.connect(url, token), need to modify SRS code.
 
 Token is robust then refer, can specifies more params, for instance, the expire time.
@@ -55,7 +55,7 @@ For example:
 token = md5(time + id + salt + expire) = 88195f8943e5c944066725df2b1706f8
 1. The RTMP url to play is, for instance, rtmp://192.168.1.10/live?time=1402307089&expire=3600&token=88195f8943e5c944066725df2b1706f8/livestream
 1. Config the http callback of SRS `on_connect http://127.0.0.1:8085/api/v1/clients;`, 
-read [HTTP callback](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPCallback#config-srs)
+read [HTTP callback](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPCallback#config-srs)
 1. When user play stream, SRS will callback the url with token to verify,
 if invalid, the http callback can return none zero which indicates error.
 
@@ -68,7 +68,7 @@ tranverse from edge to origin server.
 
 FMS edge and origin use private protocol, use a connection to fetch data, 
 another to transport the control message, for example, the token tranverse
-is a special command, @see https://github.com/winlinvip/simple-rtmp-server/issues/104
+is a special command, @see https://github.com/simple-rtmp-server/srs/issues/104
 
 Recomment the token authentication to use http protocol;
 the token tranverse must use RTMP protocol, so many RTMP servers do not 

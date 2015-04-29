@@ -314,9 +314,9 @@ There are lots of vhost in conf/full.conf for transcode, or refer to the FFMPEG:
 
 ## Transcode on ARM cpu
 
-SRS can fork the FFMEPG on ARM, see: [Raspberry pi Transcode](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_ARMTranscode)
+SRS can fork the FFMEPG on ARM, see: [Raspberry pi Transcode](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_ARMTranscode)
 
-Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
 
 ## FFMPEG Transcode the Stream by Flash encoder
 

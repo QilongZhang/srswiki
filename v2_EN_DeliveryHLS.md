@@ -6,11 +6,11 @@ RTMP is Adobe RTMP(Realtime Message Protocol), for low latency live streaming, a
 
 HLS is Apple HLS(Http Live Streaming), for both live and vod streaming over HTTP, and the standard protocol on Apple platform.
 
-Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryRTMP)。
+Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)。
 
-For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP).
+For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMP.PK.HTTP).
 
-For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS).
+For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS).
 
 ## Use Scenario
 
@@ -87,7 +87,7 @@ The m3u8 url must embed in HTML5 for Android. For example:
 </video>
 ```
 
-The [m3u8](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) of HLS is a play list actually. For example:
+The [m3u8](https://github.com/simple-rtmp-server/srs/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) of HLS is a play list actually. For example:
 
 ```bash
 #EXTM3U
@@ -140,7 +140,7 @@ vhost __defaultVhost__ {
         # the hls m3u8 target duration ratio,
         #   EXT-X-TARGETDURATION = hls_td_ratio * hls_fragment // init
         #   EXT-X-TARGETDURATION = max(ts_duration, EXT-X-TARGETDURATION) // for each ts
-        # @see https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+        # @see https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
         # default: 1.5
         hls_td_ratio    1.5;
         # the audio overflow ratio.
@@ -156,7 +156,7 @@ vhost __defaultVhost__ {
         #       ignore, when error ignore and disable hls.
         #       disconnect, when error disconnect the publish connection.
         #       continue, when error ignore and continue output hls.
-        # @see https://github.com/winlinvip/simple-rtmp-server/issues/264
+        # @see https://github.com/simple-rtmp-server/srs/issues/264
         # default: ignore
         hls_on_error    ignore;
         # the hls storage: disk, ram or both.
@@ -194,8 +194,8 @@ vhost __defaultVhost__ {
         #       [999], repleace this const to current millisecond.
         #       [timestamp],replace this const to current UNIX timestamp in ms.
         #       [seq], the sequence number of ts.
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config
         # default: [app]/[stream]-[seq].ts
         hls_ts_file     [app]/[stream]-[seq].ts;
         # the hls entry prefix, which is base url of ts url.
@@ -242,15 +242,15 @@ vhost __defaultVhost__ {
 
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#http-callback
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#http-callback
         
         # on_hls_notify, never config in here, should config in http_hooks.
         # we support the variables to generate the notify url:
         #       [ts_url], replace with the ts url.
         # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#on-hls-notify
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#on-hls-notify
     }
 }
 ```
@@ -264,7 +264,7 @@ hls_fragment: The config seconds for ts file, for example, 5s.
 gop_size: The stream gop size, for example, the fps is 20, gop is 200frames, then gop_size=gop/fps=10s.
 So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is larger than hls_fragment.
 ```
-* hls_td_ratio: The ratio to calc the m3u8 EXT-X-TARGETDURATION, read https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+* hls_td_ratio: The ratio to calc the m3u8 EXT-X-TARGETDURATION, read https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
 * hls_aof_ratio: The ratio to determine whether the pure audio shoule be reap. For example, when hls_fragment is 10s, the hls_aof_ratio is 2.0, for pure audio, reap ts every 10s*2.0=20s.
 * hls_window: The total HLS windows size in seconds, the sum of all ts duration in m3u8. SRS will drop the old ts file in m3u8 and delete the file on fs. SRS will keep:
 ```bash
@@ -273,7 +273,7 @@ hls_window >= sum(each ts duration in m3u8)
 * hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
 * hls_path: The path to save m3u8 and ts file, where m3u8 and ts files saved in.
 * hls_m3u8_file: The filename of m3u8 file, with variables [vhost], [app] and [stream] to replace.
-* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path). And, variable [seq] is the ts seqence number.
+* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path). And, variable [seq] is the ts seqence number.
 ```bash
 For RTMP stream: rtmp://localhost/live/livestream
 HLS path: 
@@ -293,7 +293,7 @@ For ts: live/livestream-0.ts
 When config: hls_entry_prefix http://your-server;
 The ts url generated to: http://your-server/live/livestream-0.ts
 ```
-* hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
+* hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
 * hls_cleanup: whether cleanup the ts files.
@@ -302,7 +302,7 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * on_hls: callback when ts generated.
 * on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
 
-How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
 
 ## HTTP Callback
 
@@ -314,11 +314,11 @@ To config the `on_hls_notify` for push ts file to can network, should config in 
 
 ## HLSAudioOnly
 
-SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleTranscode2HLS)
+SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS)
 
-For information about drop video, read [Transcode: Disable Stream](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_FFMPEG#drop-video-or-audio)
+For information about drop video, read [Transcode: Disable Stream](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG#drop-video-or-audio)
 
-There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleHLS)
+There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
 
 ## HLS and Forward
 
@@ -460,7 +460,7 @@ news-431.ts
 
 ## HLS in RAM
 
-SRS supports delivery HLS in RAM, without write m3u8/ts to disk. Read [136](https://github.com/winlinvip/simple-rtmp-server/issues/136)
+SRS supports delivery HLS in RAM, without write m3u8/ts to disk. Read [136](https://github.com/simple-rtmp-server/srs/issues/136)
 
 The config example, refer to `conf/ram.hls.conf`:
 
@@ -485,7 +485,7 @@ Remark: The HTTP server must enabled.
 
 For example, publish rtmp at `rtmp://192.168.1.173/live/livestream`, the HLS stream url is `http://192.168.1.173:8080/live/livestream.m3u8`
 
-For information about config, read [Config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config)
+For information about config, read [Config](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config)
 
 ## SRS How to Support HLS
 

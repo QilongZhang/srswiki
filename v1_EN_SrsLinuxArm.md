@@ -2,7 +2,7 @@
 
 How to run SRS on ARM pcu?
 
-* Application on ARM to publish stream to SRS, use [srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLibrtmp).
+* Application on ARM to publish stream to SRS, use [srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLibrtmp).
 * ARM directly publish h.264 stream to SRS(Not support yet).
 * Run SRS on ARM: Client can play strema on ARm.
 
@@ -43,10 +43,10 @@ Cross build:
 
 The bellow features can used for ARM-SRS:
 * --with-arm-ubuntu12: To use the cross build tools for ubuntu.
-* --with-ssl: To support complex handshake, read [Handshake](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)
+* --with-ssl: To support complex handshake, read [Handshake](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMPHandshake)
 * --with-hls: To support HLS.
-* --with-http-server: To support embeded server to delivery HLS, read [SRS HTTP SERVER](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPServer)。
-* --with-http-api: To support http api, read [http api](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_HTTPApi)。
+* --with-http-server: To support embeded server to delivery HLS, read [SRS HTTP SERVER](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer)。
+* --with-http-api: To support http api, read [http api](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi)。
 * --with-librtmp: The client library.
 
 Copy the binary to ARM and run:
@@ -172,7 +172,7 @@ I fixed a bug for ARM in st, the setjmp.h layout changed:
 * x86_64 offset of sp is 6：env[0].__jmp_buf[6]=(long)sp
 * armhf(v7cpu) sp offset is 8, but st use 20.
 
-Read [bug #182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
+Read [bug #182](https://github.com/simple-rtmp-server/srs/issues/182)
 
 ```bash
 // md.h
@@ -187,6 +187,6 @@ Read [bug #182](https://github.com/winlinvip/simple-rtmp-server/issues/182)
 ```
 
 When st_init(), we should never fork process,
-read [bug #190](https://github.com/winlinvip/simple-rtmp-server/issues/190)
+read [bug #190](https://github.com/simple-rtmp-server/srs/issues/190)
 
 Winlin 2014.11

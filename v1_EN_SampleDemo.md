@@ -3,7 +3,7 @@
 The DEMO of SRS, to study RTMP and HLS, show the player/publisher/meeting/transcoding features.
 
 <strong>Note: Strongly recomment that fresher never modify demo, just study. 
-Please study all [Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usage).</strong>
+Please study all [Usage](https://github.com/simple-rtmp-server/srs/tree/1.0release#usage).</strong>
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -17,10 +17,10 @@ Please study all [Usage](https://github.com/winlinvip/simple-rtmp-server/tree/1.
 192.168.1.170 demo.srs.com
 ```
 
-<strong>Step 2, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 2, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 cd simple-rtmp-server/trunk
 ```
 
@@ -30,7 +30,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 3, build SRS.</strong> For detail, read [Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Build)
+<strong>Step 3, build SRS.</strong> For detail, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
 
 ```bash
 bash scripts/build.sh

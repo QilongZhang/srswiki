@@ -18,5 +18,5 @@ SRS团队致力于和开源社区一起打造最牛逼的流媒体分发平台�
 
 Winlin 2015.3
 
-[issues]: https://github.com/winlinvip/simple-rtmp-server/issues
-[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki
+[issues]: https://github.com/simple-rtmp-server/srs/issues
+[wiki]: https://github.com/simple-rtmp-server/srs/wiki

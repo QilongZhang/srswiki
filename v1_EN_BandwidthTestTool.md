@@ -51,14 +51,14 @@ authors:winlin,wenjie.zhao, srs_id:123, srs_pid:32057, ip:192.168.1.170
 SRS provides as and js library, to test the bandwidth of server.
 
 The as library, user can directly use `SrsBandwidth.as`:
-* The as library object [SrsBandwidth.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
-* The as active object [srs_bwt.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as), the example to how to use `SrsBandwidth.as`.
+* The as library object [SrsBandwidth.as](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
+* The as active object [srs_bwt.as](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as), the example to how to use `SrsBandwidth.as`.
 
 The js library, copy the `srs_bwt.swf` and `srs.bandwidth.js`:
-* The js library object [srs.bandwidth.js](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
-* The js active object, the html page [srs_bwt.html](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt.html), the example to how to use `srs.bandwidth.js`.
+* The js library object [srs.bandwidth.js](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
+* The js active object, the html page [srs_bwt.html](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt.html), the example to how to use `srs.bandwidth.js`.
 
-Note: The js library depends on the swf exported js functions. The RTMP packets is sent by the [srs_bwt.swf](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
+Note: The js library depends on the swf exported js functions. The RTMP packets is sent by the [srs_bwt.swf](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
 
 ## Linux Bandwidth Tool
 

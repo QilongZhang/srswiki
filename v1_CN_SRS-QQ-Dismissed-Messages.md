@@ -908,7 +908,7 @@ http://jq.qq.com/?_wv=1027&k=WAZh2X
 【巨能】赵文杰(740936897) 15:42:55 
 别加了。。
 【巨能】winlin<winterserver@126.com> 15:43:04 
-https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SRS-QQ-Dismissed
+https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SRS-QQ-Dismissed
 以下是SRS群解散的始末。群已散，SRS不受影响。
 打扰～
 【沉默】xueyejus(905550285) 15:43:25 

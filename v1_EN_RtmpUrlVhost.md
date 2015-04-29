@@ -2,7 +2,7 @@
 
 The url of RTMP is simple, and the vhost is not a new concept, although it's easy to confuse for the fresh. What is vhost? What is app? Why FMLE should input the app and stream?
 
-The benifit of RTMP and HLS, see: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+The benifit of RTMP and HLS, see: [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
 
 ## Use Scenario
 
@@ -458,7 +458,7 @@ The full.conf of conf of SRS contains many vhost, which used to show each featur
 </tbody>
 </table>
 
-The demo.conf of conf of SRS, used for demo of SRS, see: [Usage: Demo](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleDemo)。
+The demo.conf of conf of SRS, used for demo of SRS, see: [Usage: Demo](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleDemo)。
 
 <table>
 <thead>

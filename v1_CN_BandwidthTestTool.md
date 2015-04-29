@@ -49,14 +49,14 @@ authors:winlin,wenjie.zhao, srs_id:123, srs_pid:32057, ip:192.168.1.170
 我提供了AS和JS的库，可以直接调用来和服务器测速。
 
 AS的库，直接拷贝文件`SrsBandwidth.as`到工程，调用即可（参考注释说明）：
-* AS库对象：[SrsBandwidth.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
-* AS调用对象（主对象）：[srs_bwt.as](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as)，如何调用`SrsBandwidth.as`的实例。
+* AS库对象：[SrsBandwidth.as](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/SrsBandwidth.as)
+* AS调用对象（主对象）：[srs_bwt.as](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/srs_bwt.as)，如何调用`SrsBandwidth.as`的实例。
 
 JS的库，需要拷贝`srs_bwt.swf`和`srs.bandwidth.js`，调用方法参考js说明：
-* JS库对象：[srs.bandwidth.js](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
-* JS调用对象（页面）：[srs_bwt.html](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt.html)，如何调用`srs.bandwidth.js`的实例。
+* JS库对象：[srs.bandwidth.js](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/src/srs.bandwidth.js)
+* JS调用对象（页面）：[srs_bwt.html](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt.html)，如何调用`srs.bandwidth.js`的实例。
 
-备注：JS需要调用swf导出的js函数，由Flash发送RTMP包测速，因此js库依赖于as。可以导入Flex工程自己编译，或者使用已经编译好的[srs_bwt.swf](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
+备注：JS需要调用swf导出的js函数，由Flash发送RTMP包测速，因此js库依赖于as。可以导入Flex工程自己编译，或者使用已经编译好的[srs_bwt.swf](https://github.com/simple-rtmp-server/srs/blob/master/trunk/research/players/srs_bwt/release/srs_bwt.swf)
 
 ## Linux工具测速
 

@@ -10,9 +10,9 @@ The use scenarios of librtmp:
 * Use sync block socket: It's ok for client.
 * ARM: Can used for linux arm, for some embed device, to publish stream to server.
 
-Note: About the openssl, complex and simple handshake, read [RTMP protocol](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMPHandshake)
+Note: About the openssl, complex and simple handshake, read [RTMP protocol](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMPHandshake)
 
-Note: To cross build srs-librtmp for ARM cpu, read [srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+Note: To cross build srs-librtmp for ARM cpu, read [srs-arm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ## librtmp For Server
 
@@ -27,8 +27,8 @@ SRS provides different librtmp:
 * Min depends, SRS extract core/kernel/rtmp modules for srs-librtmp.
 * Min library requires, srs-librtmp only depends on stdc++.
 * NO ST, srs-librtmp does not depends on st.
-* Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_BandwidthTestTool)
-* Provides tracable log, to get the information on server of client, read [Tracable log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLog)
+* Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_BandwidthTestTool)
+* Provides tracable log, to get the information on server of client, read [Tracable log](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLog)
 
 In a word, SRS provides more efficient and simple client library srs-librtmp.
 
@@ -40,7 +40,7 @@ When make SRS, the srs-librtmp will auto generated when configure with librtmp:
 ./configure --with-librtmp --without-ssl && make
 ```
 
-All examples are built, read [Examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+All examples are built, read [Examples](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
 <strong>Note: Recomment to disable ssl, for librtmp does not depends on ssl.</strong>
 
@@ -63,7 +63,7 @@ src/libs/*
 ```
 
 Note: Donot need ssl and st.
-Note: SRS2.0 can directly export srs-librtmp to a single project, or .h+.cpp file, read [export srs-librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp).
+Note: SRS2.0 can directly export srs-librtmp to a single project, or .h+.cpp file, read [export srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#export-srs-librtmp).
 
 ## RTMP packet specification
 
@@ -96,7 +96,7 @@ Why use flv format as srs-librtmp api data format:
 * Only need to add flv tag header, then we can write to flv file.
 * When publish flv file to server, only need to parse the tag header, the tag body is the data.
 
-Note: SRS2.0 supports directly write h.264 raw stream, read [publish h.264 raw data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
+Note: SRS2.0 supports directly write h.264 raw stream, read [publish h.264 raw data](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#publish-h264-raw-data)
 
 ## srs-librtmp Examples
 

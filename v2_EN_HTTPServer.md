@@ -2,9 +2,9 @@
 
 SRS Embeded a HTTP web server, supports api and simple HTTP file for HLS.
 
-To deploy SRS HTTP server, read [Usage: HTTP](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleHTTP)
+To deploy SRS HTTP server, read [Usage: HTTP](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SampleHTTP)
 
-The SRS Embeded HTTP server is rewrite refer to go http module, so it's ok to use srs as http server. Read [#277](https://github.com/winlinvip/simple-rtmp-server/issues/277)
+The SRS Embeded HTTP server is rewrite refer to go http module, so it's ok to use srs as http server. Read [#277](https://github.com/simple-rtmp-server/srs/issues/277)
 
 
 ## Use Scenario

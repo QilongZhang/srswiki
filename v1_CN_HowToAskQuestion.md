@@ -10,23 +10,23 @@
 
 下面是一些基本的问题：
 
-* 如何编译：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
-* SRS需要什么硬件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
-* SRS需要什么软件环境：参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
-* 为何看不到流？可能是防火墙问题，参考[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Build)
-* 如何搭建集群：参考[Cluster](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_Cluster)
-* 如何测SRS性能：参考[Performance](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Performance)
-* SRS的授权是MIT？参考[License](https://github.com/winlinvip/simple-rtmp-server/blob/master/LICENSE)
-* 如何看SRS的DEMO？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usagesimple)
-* 如何一步一步编译SRS的DEMO？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#usagedetail)
-* SRS的主要作者是谁？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#authors)
-* SRS的架构是什么？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#architecture)
-* SRS的功能有哪些，哪些是开发中的？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#summary)
-* SRS发布的版本有哪些？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#releases)
-* SRS和Nginx-Rtmp/CRtmpServer/Red5/Wowza/FMS/Helix相比，优势在哪里？参考[Readme](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#compare)
-* SRS开发人员每天都在做些什么？参考[Reaame](https://github.com/winlinvip/simple-rtmp-server/tree/1.0release#history)
+* 如何编译：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+* SRS需要什么硬件环境：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+* SRS需要什么软件环境：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+* 为何看不到流？可能是防火墙问题，参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+* 如何搭建集群：参考[Cluster](https://github.com/simple-rtmp-server/srs/wiki/v1_Cluster)
+* 如何测SRS性能：参考[Performance](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Performance)
+* SRS的授权是MIT？参考[License](https://github.com/simple-rtmp-server/srs/blob/master/LICENSE)
+* 如何看SRS的DEMO？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#usagesimple)
+* 如何一步一步编译SRS的DEMO？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#usagedetail)
+* SRS的主要作者是谁？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#authors)
+* SRS的架构是什么？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#architecture)
+* SRS的功能有哪些，哪些是开发中的？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#summary)
+* SRS发布的版本有哪些？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#releases)
+* SRS和Nginx-Rtmp/CRtmpServer/Red5/Wowza/FMS/Helix相比，优势在哪里？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#compare)
+* SRS开发人员每天都在做些什么？参考[Reaame](https://github.com/simple-rtmp-server/srs/tree/1.0release#history)
 
-如果上面都不是你要提的问题，查看[Wiki](https://github.com/winlinvip/simple-rtmp-server/wiki)，若Wiki都翻遍了，还是没有，那就参考下面的提问要求提问吧。
+如果上面都不是你要提的问题，查看[Wiki](https://github.com/simple-rtmp-server/srs/wiki)，若Wiki都翻遍了，还是没有，那就参考下面的提问要求提问吧。
 
 ## 提问范例
 
@@ -54,7 +54,7 @@
 
 Winlin 2014.1
 
-[wiki]: https://github.com/winlinvip/simple-rtmp-server/wiki/Home
-[issues]: https://github.com/winlinvip/simple-rtmp-server/issues?q=
-[group]: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Contact
-[new]: https://github.com/winlinvip/simple-rtmp-server/issues/new
+[wiki]: https://github.com/simple-rtmp-server/srs/wiki/Home
+[issues]: https://github.com/simple-rtmp-server/srs/issues?q=
+[group]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Contact
+[new]: https://github.com/simple-rtmp-server/srs/issues/new

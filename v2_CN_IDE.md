@@ -1,6 +1,6 @@
 # 集成开发环境
 
-xcode开发SRS，参考：[SRS for osx](https://github.com/winlinvip/simple-rtmp-server/issues/155#issuecomment-77995950).
+xcode开发SRS，参考：[SRS for osx](https://github.com/simple-rtmp-server/srs/issues/155#issuecomment-77995950).
 
 windows/linux下开发srs的IDE：[http://blog.csdn.net/win_lin/article/details/39579799](http://blog.csdn.net/win_lin/article/details/39579799)
 

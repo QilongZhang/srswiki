@@ -489,7 +489,7 @@ vhost __defaultVhost__ {
 
 系统默认方式是daemon+log2file，具体参考`full.conf`的说明。
 
-注意：[init.d脚本启动](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
+注意：[init.d脚本启动](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LinuxService)会将console日志也打印到文件，若没有指定文件，默认文件为`./objs/srs.log`。脚本启动尽量保证日志不丢失。
 
 注意：一般以daemon后台启动，并将日志写到文件（默认），srs会提示配置解析成功，日志写到文件。
 
@@ -498,7 +498,7 @@ vhost __defaultVhost__ {
 [2014-04-14 12:12:57.775][trace][0][0] config parse complete
 [2014-04-14 12:12:57.775][trace][0][0] write log to file ./objs/srs.log
 [2014-04-14 12:12:57.775][trace][0][0] you can: tailf ./objs/srs.log
-[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLog
+[2014-04-14 12:12:57.775][trace][0][0] @see: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLog
 ```
 
 Winlin 2014.3

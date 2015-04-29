@@ -1,8 +1,8 @@
 # 低延时直播应用
 
-直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
+直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
 
-低延迟的部署实例参考：[Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)
+低延迟的部署实例参考：[Usage: Realtime](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SampleRealtime)
 
 ## 应用场景
 
@@ -45,7 +45,7 @@ HLS解决延时，就像是爬到枫树上去捉鱼，奇怪的是还有人喊�
 
 当开启最低延迟配置后，SRS会禁用mr(merged-read)，并且在consumer队列中使用超时等待，大约每收到1-2个视频包就发送给客户端，达到最低延迟目标。
 
-测试vp6纯视频流能达到0.1秒延迟，参考[#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208)。配置文件：
+测试vp6纯视频流能达到0.1秒延迟，参考[#257](https://github.com/simple-rtmp-server/srs/issues/257#issuecomment-66773208)。配置文件：
 
 ```
 vhost mrw.srs.com {
@@ -53,13 +53,13 @@ vhost mrw.srs.com {
     # for min latence mode:
     # 1. disable the mr for vhost.
     # 2. use timeout for cond wait for consumer queue.
-    # @see https://github.com/winlinvip/simple-rtmp-server/issues/257
+    # @see https://github.com/simple-rtmp-server/srs/issues/257
     # default: on
     min_latency     off;
 }
 ```
 
-部署低延时的实例，参考：[wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)).
+部署低延时的实例，参考：[wiki]([EN](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SampleRealtime), [CN](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SampleRealtime)).
 
 ## Merged-Read
 
@@ -70,7 +70,7 @@ RTMP的Read效率非常低，需要先读一个字节，判断是哪个chunk，�
 ```
 # the MR(merged-read) setting for publisher.
 vhost mrw.srs.com {
-    # about MR, read https://github.com/winlinvip/simple-rtmp-server/issues/241
+    # about MR, read https://github.com/simple-rtmp-server/srs/issues/241
     mr {
         # whether enable the MR(merged-read)
         # default: off
@@ -189,7 +189,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-当然，服务器的性能也要考虑，不可以让一个SRS进程跑太高带宽，一般CPU在80%以下不会影响延迟，连接数参考[性能](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_Performance)。
+当然，服务器的性能也要考虑，不可以让一个SRS进程跑太高带宽，一般CPU在80%以下不会影响延迟，连接数参考[性能](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Performance)。
 
 ## 实测
 

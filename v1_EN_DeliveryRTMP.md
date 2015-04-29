@@ -2,11 +2,11 @@
 
 The kernel feature of SRS is RTMP.
 
-The RTMP and HLS, see: [HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_DeliveryHLS)
+The RTMP and HLS, see: [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
 
-For information about compare the RTMP and HLS, read [RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RTMP.PK.HTTP).
+For information about compare the RTMP and HLS, read [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMP.PK.HTTP).
 
-For information about how to deploy SRS to support RTMP, read [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP).
+For information about how to deploy SRS to support RTMP, read [Usage: RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleRTMP).
 
 ## Use Scenario
 
@@ -58,9 +58,9 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-The RTMP url, see: [RTMP URL&Vhost](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_RtmpUrlVhost)
+The RTMP url, see: [RTMP URL&Vhost](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RtmpUrlVhost)
 
-The deploy sample, see: [Usage: RTMP](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SampleRTMP)
+The deploy sample, see: [Usage: RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleRTMP)
 
 The FMLE publish example:
 ![FMLE publish RTMP to SRS](http://winlinvip.github.io/srs.release/wiki/images/FMLE.png)
@@ -71,6 +71,6 @@ User can use flash player or vlc to play RTMP stream, for example, the RTMP url:
 
 ## Config Low Latency for RTMP
 
-The latency of RTMP is in 1-3s, the config see: [Low Latency](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_LowLatency)
+The latency of RTMP is in 1-3s, the config see: [Low Latency](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_LowLatency)
 
 Winlin 2014.11

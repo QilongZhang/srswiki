@@ -2,20 +2,20 @@
 
 SRS can deploy on ARM linux. SRS provides srs-librtmp as client library for ARM.
 
-Compile and build ARM, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm),
+Compile and build ARM, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm),
 this artical describes how to deploy.
 
 <strong>Suppose the IP of ubuntu12: 192.168.1.170</strong><br/>
 <strong>Suppose the ARM device running in VirtualBox 1935 mapped to Ubuntu12 19350, 22 mapped to 2200.
 That is, we can access Ubuntu12 19350 to access the ARM 1935, while the Ubuntu 2200 for ARM 22.</strong>
-For more information, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+For more information, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ## Ubuntu12 cross build SRS
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
 
 ```bash
-git clone https://github.com/winlinvip/simple-rtmp-server
+git clone https://github.com/simple-rtmp-server/srs
 cd simple-rtmp-server/trunk
 ```
 
@@ -25,13 +25,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
 # Password is：root
@@ -43,13 +43,13 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
 
 Login to Ubuntu 2200, we are on ARM:
 
-<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
 
 Use FFMPEG to publish stream:
 

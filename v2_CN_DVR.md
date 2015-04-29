@@ -6,7 +6,7 @@ SRS支持将RTMP流录制成flv文件。
 
 DVR的编译选项为`--with-dvr`，关闭DVR的选项为`--without-dvr`。
 
-参考：[Build](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_Build)
+参考：[Build](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Build)
 
 ## Config
 
@@ -56,8 +56,8 @@ vhost your_vhost {
         #       dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
         #       =>
         #       dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DVR#custom-path
         # default: ./objs/nginx/html/[app]/[stream].[timestamp].flv
         dvr_path        ./objs/nginx/html/[app]/[stream].[timestamp].flv;
         # the dvr plan. canbe:
@@ -181,14 +181,14 @@ api-server的日志：
 127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
 ```
 
-更多HTTP回调的信息，请参考 [HttpCallback](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_HTTPCallback)
+更多HTTP回调的信息，请参考 [HttpCallback](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPCallback)
 
 ## Bug
 
 关于DVR的bug：
 
-* 文件名规则：[#179](https://github.com/winlinvip/simple-rtmp-server/issues/179)
-* DVR时HTTP回调：[#274](https://github.com/winlinvip/simple-rtmp-server/issues/274)
+* 文件名规则：[#179](https://github.com/simple-rtmp-server/srs/issues/179)
+* DVR时HTTP回调：[#274](https://github.com/simple-rtmp-server/srs/issues/274)
 
 ## Reload
 

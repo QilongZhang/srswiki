@@ -9,11 +9,11 @@ librtmp的主要应用场景包括：
 * 推流：提供推流到RTMP服务器。
 * 基于同步阻塞socket，客户端用可以了。
 * arm：编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
-* 不支持直接发布h.264裸码流，而srs-librtmp支持，参考：[publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
+* 不支持直接发布h.264裸码流，而srs-librtmp支持，参考：[publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
 
-备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMPHandshake)
+备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMPHandshake)
 
-备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
+备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
 
 ## librtmp做Server
 
@@ -38,10 +38,10 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
-* SRS提供了测速函数，直接调用srs-librtmp就可以完成到服务器的测速。参考：[Bandwidth Test](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_BandwidthTestTool)
-* SRS提供了日志接口，可以获取服务器端的信息，譬如版本，对应的session id。参考：[Tracable log](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SrsLog)
-* 支持直接发布h.264裸码流，参考：[publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
-* SRS可以直接导出一个srs-librtmp的project，编译成.h和.a使用。或者导出为.h和.cpp，一个大文件。参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
+* SRS提供了测速函数，直接调用srs-librtmp就可以完成到服务器的测速。参考：[Bandwidth Test](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_BandwidthTestTool)
+* SRS提供了日志接口，可以获取服务器端的信息，譬如版本，对应的session id。参考：[Tracable log](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLog)
+* 支持直接发布h.264裸码流，参考：[publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
+* SRS可以直接导出一个srs-librtmp的project，编译成.h和.a使用。或者导出为.h和.cpp，一个大文件。参考：[export srs librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
@@ -61,7 +61,7 @@ cd $dir && make &&
 
 SRS将srs-librtmp导出为独立可以make的项目，生成.a静态库和.h头文件，以及生成了srs-librtmp的所有实例。
 
-还可以直接导出为一个文件，提供了简单的使用实例，[其他实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)参考research的其他例子：
+还可以直接导出为一个文件，提供了简单的使用实例，[其他实例](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)参考research的其他例子：
 
 ```
 dir=/home/winlin/srs-librtmp &&
@@ -81,7 +81,7 @@ strip example && ./example
 ./configure --with-librtmp --without-ssl
 ```
 
-编译会生成srs-librtmp和对应的[实例](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)。
+编译会生成srs-librtmp和对应的[实例](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#srs-librtmp-examples)。
 
 <strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
 
@@ -93,7 +93,7 @@ SRS编译成功后，用户就可以使用这些库开发
 
 srs-librtmp可以只依赖于c++和socket，可以在windows下编译。
 
-先使用SRS导出srs-librtmp，然后在vs中编译，参考：[export srs librtmp](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
+先使用SRS导出srs-librtmp，然后在vs中编译，参考：[export srs librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)
 
 使用了一些linux的头文件，需要做一些portal。
 
@@ -106,7 +106,7 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 数据接口包括：
 * 读取数据包：int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * 发送数据包：int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
-* 发送h.264裸码流：参考[publish-h264-raw-data](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
+* 发送h.264裸码流：参考[publish-h264-raw-data](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
 
 接口接受的的数据(char* data)，音视频数据，格式为flv的Video/Audio数据。参考srs的doc目录的规范文件[video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * 音频数据格式参考：`E.4.2.1 AUDIODATA`，p76，譬如，aac编码的音频数据。
@@ -209,9 +209,9 @@ srs_h264_write_raw_frame('0000000165B8041014C038008B0D0D3A071......', size, dts,
 srs_h264_write_raw_frame('0000000141E02041F8CDDC562BBDEFAD2F......', size, dts, pts) 
 ```
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62240521
+参考：https://github.com/simple-rtmp-server/srs/issues/66#issuecomment-62240521
 
-使用：https://github.com/winlinvip/simple-rtmp-server/issues/66#issuecomment-62245512
+使用：https://github.com/simple-rtmp-server/srs/issues/66#issuecomment-62245512
 
 ## Publish Audio Raw Stream
 
@@ -266,7 +266,7 @@ API定义如下：
 * @remark for aac, only support profile 1-4, AAC main/LC/SSR/LTP,
 *       @see aac-mp4a-format-ISO_IEC_14496-3+2001.pdf, page 23, 1.5.1.1 Audio object type
 *
-* @see https://github.com/winlinvip/simple-rtmp-server/issues/212
+* @see https://github.com/simple-rtmp-server/srs/issues/212
 * @see E.4.2.1 AUDIODATA of video_file_format_spec_v10_1.pdf
 * 
 * @return 0, success; otherswise, failed.
@@ -301,11 +301,11 @@ extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
 extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
-调用实例参考[#212](https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c和srs_aac_raw_publish.c，参考[examples](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
+调用实例参考[#212](https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63648892)，以及srs_audio_raw_publish.c和srs_aac_raw_publish.c，参考[examples](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp#srs-librtmp-examples).
 
-参考：https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-63755405
+参考：https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63755405
 
-使用实例：https://github.com/winlinvip/simple-rtmp-server/issues/212#issuecomment-64164018
+使用实例：https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-64164018
 
 ## srs-librtmp Examples
 
@@ -338,7 +338,7 @@ make && ./objs/srs -c srs.conf
 make && ./objs/research/librtmp/objs/srs_publish rtmp://127.0.0.1:1935/live/livestream
 ```
 
-备注：推流实例发送的视频数据不是真正的视频数据，实际使用时，譬如从摄像头取出h.264裸码流，需要封装成接口要求的数据，然后调用接口发送出去。或者[直接发送h264裸码流](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)。
+备注：推流实例发送的视频数据不是真正的视频数据，实际使用时，譬如从摄像头取出h.264裸码流，需要封装成接口要求的数据，然后调用接口发送出去。或者[直接发送h264裸码流](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)。
 
 播放实例：
 

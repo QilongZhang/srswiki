@@ -6,11 +6,11 @@ RTMP指Adobe的RTMP(Realtime Message Protocol)，广泛应用于低延时直播�
 
 HLS指Apple的HLS(Http Live Streaming)，本身就是Live（直播）的，不过Vod（点播）也能支持。HLS是Apple平台的标准流媒体协议，和RTMP在PC上一样支持得天衣无缝。
 
-HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_DeliveryRTMP)。
+HLS和RTMP两种分发方式，就可以支持所有的终端。RTMP参考[RTMP分发](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP)。
 
-RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_RTMP.PK.HTTP)
+RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMP.PK.HTTP)
 
-部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleHLS)
 
 ## Use Scenario
 
@@ -85,7 +85,7 @@ Android不能直接打开，需要使用html5的video标签，然后在浏览器
 </video>
 ```
 
-HLS的[m3u8](https://github.com/winlinvip/simple-rtmp-server/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt)，是一个ts的列表，也就是告诉浏览器可以播放这些ts文件，譬如：
+HLS的[m3u8](https://github.com/simple-rtmp-server/srs/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt)，是一个ts的列表，也就是告诉浏览器可以播放这些ts文件，譬如：
 ```bash
 #EXTM3U
 #EXT-X-VERSION:3
@@ -135,7 +135,7 @@ vhost __defaultVhost__ {
         # the hls m3u8 target duration ratio,
         #   EXT-X-TARGETDURATION = hls_td_ratio * hls_fragment // init
         #   EXT-X-TARGETDURATION = max(ts_duration, EXT-X-TARGETDURATION) // for each ts
-        # @see https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+        # @see https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
         # default: 1.5
         hls_td_ratio    1.5;
         # the audio overflow ratio.
@@ -151,7 +151,7 @@ vhost __defaultVhost__ {
         #       ignore, when error ignore and disable hls.
         #       disconnect, when error disconnect the publish connection.
         #       continue, when error ignore and continue output hls.
-        # @see https://github.com/winlinvip/simple-rtmp-server/issues/264
+        # @see https://github.com/simple-rtmp-server/srs/issues/264
         # default: ignore
         hls_on_error    ignore;
         # the hls storage: disk, ram or both.
@@ -189,8 +189,8 @@ vhost __defaultVhost__ {
         #       [999], repleace this const to current millisecond.
         #       [timestamp],replace this const to current UNIX timestamp in ms.
         #       [seq], the sequence number of ts.
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config
         # default: [app]/[stream]-[seq].ts
         hls_ts_file     [app]/[stream]-[seq].ts;
         # the hls entry prefix, which is base url of ts url.
@@ -237,15 +237,15 @@ vhost __defaultVhost__ {
 
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#http-callback
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#http-callback
         
         # on_hls_notify, never config in here, should config in http_hooks.
         # we support the variables to generate the notify url:
         #       [ts_url], replace with the ts url.
         # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#on-hls-notify
-        # @read https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#on-hls-notify
     }
 }
 ```
@@ -259,7 +259,7 @@ hls_fragment：配置文件中的长度。譬如：5秒。
 gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，gop为200帧，则gop_size=gop/fps=10秒。
 那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
 ```
-* hls_td_ratio：倍数。控制m3u8的EXT-X-TARGETDURATION，参考：https://github.com/winlinvip/simple-rtmp-server/issues/304#issuecomment-74000081
+* hls_td_ratio：倍数。控制m3u8的EXT-X-TARGETDURATION，参考：https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
 * hls_aof_ratio: 倍数。纯音频时，当ts时长超过配置的ls_fragment乘以这个系数时就切割文件。例如，当ls_fragment是10秒，hls_aof_ratio是2.0时，对于纯音频，10s*2.0=20秒时就切割ts文件。
 * hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
 ```bash
@@ -268,7 +268,7 @@ hls_window >= sum(m3u8中每个ts的时长)
 * hls_storage：存储方式，可以是ram(内存)，disk(磁盘)，both(两者同时支持)。若指定为disk或both，则需要指定hls_path。若指定ram或both，则需要指定hls_mount。具体参考后面的描述。
 * hls_path：HLS的m3u8和ts文件保存的路径。m3u8和ts文件都保存在这个目录中。
 * hls_m3u8_file: HLS的m3u8文件名，包含可替换的[vhost],[app]和[stream]变量。
-* hls_ts_file: HLS的ts文件名，包含可替换的一系列变量，参考[dvr variables](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DVR#custom-path)，另外，[seq]是ts的seqence number。
+* hls_ts_file: HLS的ts文件名，包含可替换的一系列变量，参考[dvr variables](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path)，另外，[seq]是ts的seqence number。
 ```bash
 对于RTMP流：rtmp://localhost/live/livestream
 HLS配置路径：
@@ -288,7 +288,7 @@ HLS配置路径：
 若配置为：hls_entry_prefix http://your-server;
 则最后的TS的URL是：http://your-server/live/livestream-0.ts
 ```
-* hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
+* hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream#http-live-stream-config)。
 * hls_acodec: 默认的音频编码。当流的编码改变时，会更新PMT/PAT信息；默认是aac，因此默认的PMT/PAT信息是aac；如果流是mp3，那么可以配置这个参数为mp3，避免PMT/PAT改变。
 * hls_vcodec: 默认的视频编码。当流的编码改变时，会更新PMT/PAT信息；默认是h264。如果是纯音频HLS，可以配置为vn，可以减少SRS检测纯音频的时间，直接进入纯音频模式。
 * hls_cleanup: 是否删除过期的ts切片，不在m3u8中就是过期。可以关闭清除ts切片，实现时移和存储，使用自己的切片管理系统。
@@ -297,7 +297,7 @@ HLS配置路径：
 * on_hls: 当切片生成时，回调这个url，使用POST回调。用来和自己的系统集成，譬如实现切片移动等。
 * on_hls_notify: 当切片生成时，回调这个url，使用GET回调。用来和系统集成，可以使用[ts_url]变量，实现预分发(即下载一次ts片)。
 
-部署分发HLS的实例，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
+部署分发HLS的实例，参考：[Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleHLS)
 
 ## HTTP Callback
 
@@ -309,11 +309,11 @@ HLS配置路径：
 
 ## HLSAudioOnly
 
-SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleTranscode2HLS)），SRS只切片音频。
+SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleTranscode2HLS)），SRS只切片音频。
 
-若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
+若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
 
-分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v1_CN_SampleHLS)
+分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleHLS)
 
 ## HLS and Forward
 
@@ -459,7 +459,7 @@ news-431.ts
 
 ## HLS in RAM
 
-SRS支持内存直接分发HLS，不写入磁盘。参考：[136](https://github.com/winlinvip/simple-rtmp-server/issues/136)
+SRS支持内存直接分发HLS，不写入磁盘。参考：[136](https://github.com/simple-rtmp-server/srs/issues/136)
 
 配置实例，参考`conf/ram.hls.conf`：
 
@@ -484,7 +484,7 @@ vhost __defaultVhost__ {
 
 譬如，推流地址：`rtmp://192.168.1.173/live/livestream`，上面的配置生成的HLS地址是：`http://192.168.1.173:8080/live/livestream.m3u8`
 
-配置项的具体含义参考：[Config](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_DeliveryHLS#hls-config)
+配置项的具体含义参考：[Config](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config)
 
 ## SRS How to Support HLS
 

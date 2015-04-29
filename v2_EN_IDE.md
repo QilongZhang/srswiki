@@ -1,6 +1,6 @@
 # IDE
 
-About xcode to develop SRS, read [SRS for OSX](https://github.com/winlinvip/simple-rtmp-server/issues/155#issuecomment-77995950).
+About xcode to develop SRS, read [SRS for OSX](https://github.com/simple-rtmp-server/srs/issues/155#issuecomment-77995950).
 
 About IDE for SRS on windows, read 
 [http://blog.csdn.net/win_lin/article/details/39579799](http://blog.csdn.net/win_lin/article/details/39579799)

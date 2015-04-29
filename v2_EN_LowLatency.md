@@ -1,10 +1,10 @@
 # Low Latency Live Stream
 
 The RTMP and HLS can cover all requires for internet live stream,
-read  [DeliveryHLS](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_DeliveryHLS),
+read  [DeliveryHLS](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS),
 while RTMP is designed for low latency live stream.
 
-The deploy for low latency, read [Usage: Realtime](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime)
+The deploy for low latency, read [Usage: Realtime](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SampleRealtime)
 
 ## Use Scenario
 
@@ -37,7 +37,7 @@ When netowork is ok:
 
 When min-latency is enabled, SRS will diable the mr(merged-read) and use timeout cond wait, to send about 1-2 video packets when got it.
 
-We can got 0.1s latency for vp6 video only stream, read [#257](https://github.com/winlinvip/simple-rtmp-server/issues/257#issuecomment-66773208). The config:
+We can got 0.1s latency for vp6 video only stream, read [#257](https://github.com/simple-rtmp-server/srs/issues/257#issuecomment-66773208). The config:
 
 ```
 vhost mrw.srs.com {
@@ -45,13 +45,13 @@ vhost mrw.srs.com {
     # for min latence mode:
     # 1. disable the mr for vhost.
     # 2. use timeout for cond wait for consumer queue.
-    # @see https://github.com/winlinvip/simple-rtmp-server/issues/257
+    # @see https://github.com/simple-rtmp-server/srs/issues/257
     # default: on
     min_latency     off;
 }
 ```
 
-For example to deploy realtime stream, read [wiki]([EN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_EN_SampleRealtime), [CN](https://github.com/winlinvip/simple-rtmp-server/wiki/v2_CN_SampleRealtime)).
+For example to deploy realtime stream, read [wiki]([EN](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SampleRealtime), [CN](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SampleRealtime)).
 
 ## Merged-Read
 
@@ -62,7 +62,7 @@ To improve the read performance, SRS2.0 introduced the merged-read, which read N
 ```
 # the MR(merged-read) setting for publisher.
 vhost mrw.srs.com {
-    # about MR, read https://github.com/winlinvip/simple-rtmp-server/issues/241
+    # about MR, read https://github.com/simple-rtmp-server/srs/issues/241
     mr {
         # whether enable the MR(merged-read)
         # default: off
