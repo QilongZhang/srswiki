@@ -50,7 +50,7 @@ HTTP is bad for:
 
 ## HLS
 
-HLS is the open standard of Adobe. HLS is supported by Android3+.
+HLS is the open standard of Apple. HLS is supported by Android3+.
 
 HLS is good for:
 * High performance: Same to HTTP stream.

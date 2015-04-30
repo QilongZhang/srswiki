@@ -48,7 +48,7 @@ HTTP的劣势是：
 
 ## HLS
 
-HLS是adobe的开放标准，在Android3?以上也原生支持.
+HLS是Apple的开放标准，在Android3?以上也原生支持.
 
 HLS的主要优势是：
 * 性能高：和HTTP一样。
