@@ -12,6 +12,12 @@
 
 若你需要直接联系，例如因为商业原因，邮件是个好方式。
 
+## Skype
+
+Skype帐号：winterserver
+
+国外用户，没有QQ，可以考虑用Skype。
+
 ## TencentQQ
 
 扫描下面的二维码加入QQ群：
