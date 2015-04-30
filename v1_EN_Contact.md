@@ -12,6 +12,12 @@ If you spot a bug, then please raise an issue in ou GitHub project (`winlinvip/s
 
 If you want to talk directly to us (e.g. about a commercially sensitive issue), email is the easiest way.
 
+## Skype
+
+Skype ID：winterserver
+
+For international user who can not use TencentQQ.
+
 ## TencentQQ
 
 Join us by Tencent QQ:
