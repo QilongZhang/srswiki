@@ -28,7 +28,7 @@ The protocols supported by Streamer:
 
 * MPEG-TS over UDP: Support encoder to push MPEG-TS over UDP to SRS.
 * Push RTSP to SRS: Support encoder to push RTSP to SRS.
-* POST FLV over HTTP to SRS: In plan.
+* POST FLV over HTTP to SRS: In dev, used for [AndroidPublisher][ap] to SRS.
 
 ## Push MPEG-TS over UDP
 
@@ -96,3 +96,5 @@ stream_caster {
 For more information, read https://github.com/simple-rtmp-server/srs/issues/133#issuecomment-75531884
 
 2015.1
+
+[ap]: https://github.com/simple-rtmp-server/android-publisher
