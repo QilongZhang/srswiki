@@ -26,7 +26,7 @@ Streamer是SRS作为服务器侦听并接收其他协议的流（譬如RTSP，MP
 
 * MPEG-TS over UDP：已支持，可使用FFMPEG或其他编码器`push MPEG-TS over UDP`到SRS上。
 * Push RTSP to SRS：已支持，可以使用FFMPEG或其他编码器`push rtsp to SRS`。
-* POST FLV over HTTP to SRS: 规划中。
+* POST FLV over HTTP to SRS: 开发中，可用于[AndroidPublisher][ap]推流。
 
 ## Push MPEG-TS over UDP
 
@@ -94,3 +94,5 @@ stream_caster {
 参考：https://github.com/simple-rtmp-server/srs/issues/133#issuecomment-75531884
 
 2015.1
+
+[ap]: https://github.com/simple-rtmp-server/android-publisher
