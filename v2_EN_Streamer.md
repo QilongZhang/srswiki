@@ -28,7 +28,47 @@ The protocols supported by Streamer:
 
 * MPEG-TS over UDP: Support encoder to push MPEG-TS over UDP to SRS.
 * Push RTSP to SRS: Support encoder to push RTSP to SRS.
-* POST FLV over HTTP to SRS: In dev, used for [AndroidPublisher][ap] to SRS.
+* POST FLV over HTTP to SRS: Support encoder, for instance [AndroidPublisher][ap] to push HTTP FLV to SRS.
+
+## Config
+
+The config for stream casters:
+
+```
+# the streamer cast stream from other protocol to SRS over RTMP.
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
+stream_caster {
+    # whether stream caster is enabled.
+    # default: off
+    enabled         off;
+    # the caster type of stream, the casters:
+    #       mpegts_over_udp, MPEG-TS over UDP caster.
+    #       rtsp, Real Time Streaming Protocol (RTSP).
+    #       flv, FLV over HTTP POST.
+    caster          mpegts_over_udp;
+    # the output rtmp url.
+    # for mpegts_over_udp caster, the typically output url:
+    #       rtmp://127.0.0.1/live/livestream
+    # for rtsp caster, the typically output url:
+    #       rtmp://127.0.0.1/[app]/[stream]
+    #       for example, the rtsp url:
+    #           rtsp://192.168.1.173:8544/live/livestream.sdp
+    #           where the [app] is "live" and [stream] is "livestream", output is:
+    #           rtmp://127.0.0.1/live/livestream
+    output          rtmp://127.0.0.1/live/livestream;
+    # the listen port for stream caster.
+    #       for mpegts_over_udp caster, listen at udp port. for example, 8935.
+    #       for rtsp caster, listen at tcp port. for example, 554.
+    #       for flv caster, listen at tcp port. for example, 8936.
+    # TODO: support listen at <[ip:]port>
+    listen          8935;
+    # for the rtsp caster, the rtp server local port over udp,
+    # which reply the rtsp setup request message, the port will be used:
+    #       [rtp_port_min, rtp_port_max)
+    rtp_port_min    57200;
+    rtp_port_max    57300;
+}
+```
 
 ## Push MPEG-TS over UDP
 
@@ -40,18 +80,9 @@ The config for pushing MPEG-TS over UDP, see `conf/push.mpegts.over.udp.conf`:
 # the streamer cast stream from other protocol to SRS over RTMP.
 # @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
-    # whether stream caster is enabled.
-    # default: off
     enabled         on;
-    # the caster type of stream, the casters:
-    #       mpegts_over_udp, MPEG-TS over UDP caster.
     caster          mpegts_over_udp;
-    # the output rtmp url.
-    # for example, rtmp://127.0.0.1/live/livestream.
     output          rtmp://127.0.0.1/live/livestream;
-    # the listen port for stream caster.
-    # for caster:
-    #       mpegts_over_udp, listen at udp port.
     listen          1935;
 }
 ```
@@ -68,32 +99,33 @@ The config for pushing MPEG-TS over UDP, see `conf/push.rtsp.conf`：
 # the streamer cast stream from other protocol to SRS over RTMP.
 # @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
 stream_caster {
-    # whether stream caster is enabled.
-    # default: off
-    enabled         off;
-    # the caster type of stream, the casters:
-    #       rtsp, Real Time Streaming Protocol (RTSP).
+    enabled         on;
     caster          rtsp;
-    # the output rtmp url.
-    # for rtsp caster, the typically output url:
-    #       rtmp://127.0.0.1/[app]/[stream]
-    #       for example, the rtsp url:
-    #           rtsp://192.168.1.173:8544/live/livestream.sdp
-    #           where the [app] is "live" and [stream] is "livestream", output is:
-    #           rtmp://127.0.0.1/live/livestream
-    output          rtmp://127.0.0.1/live/livestream;
-    # the listen port for stream caster.
-    #       for rtsp caster, listen at tcp port. for example, 554.
+    output          rtmp://127.0.0.1/[app]/[stream];
     listen          554;
-    # for the rtsp caster, the rtp server local port over udp,
-    # which reply the rtsp setup request message, the port will be used:
-    #       [rtp_port_min, rtp_port_max)
     rtp_port_min    57200;
     rtp_port_max    57300;
 }
 ```
 
 For more information, read https://github.com/simple-rtmp-server/srs/issues/133#issuecomment-75531884
+
+## Push HTTP FLV to SRS
+
+SRS can listen at a http port, to which encoder to push stream, then remux the HTTP flv to RTMP. All features for RTMP is ok for this RTMP stream.
+
+The config for pushing HTTP FLV to SRS, read `conf/push.flv.conf`：
+
+```
+# the streamer cast stream from other protocol to SRS over RTMP.
+# @see https://github.com/simple-rtmp-server/srs/tree/develop#stream-architecture
+stream_caster {
+    enabled         on;
+    caster          flv;
+    output          rtmp://127.0.0.1/[app]/[stream];
+    listen          8936;
+}
+```
 
 2015.1
 
