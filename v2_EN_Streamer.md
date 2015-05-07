@@ -127,6 +127,12 @@ stream_caster {
 }
 ```
 
+The app publish url: `http://127.0.0.1:8936/live/sea.flv`<br/>
+The RTMP url to play: `rtmp://127.0.0.1/live/sea`<br/>
+The HLS url to play: `http://127.0.0.1:8080/live/sea.m3u8`
+
+Remark: User should enable the HTTP server and HLS, read `conf/push.flv.conf`
+
 2015.1
 
 [ap]: https://github.com/simple-rtmp-server/android-publisher
