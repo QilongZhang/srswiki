@@ -129,6 +129,8 @@ stream_caster {
 播放RTMP流地址是：`rtmp://127.0.0.1/live/sea`<br/>
 播放HLS流地址是：`http://127.0.0.1:8080/live/sea.m3u8`
 
+注意：需要配置HTTP服务器和HLS，参考`conf/push.flv.conf`
+
 2015.1
 
 [ap]: https://github.com/simple-rtmp-server/android-publisher
