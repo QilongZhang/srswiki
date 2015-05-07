@@ -70,7 +70,7 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](ht
 
 ## [HTTP Stream分发](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream)
 
-如何分发点播flv流，支持`xxx.flv?start=offset`请求？如何分发直播flv流，rtmp流转换为flv流？参考链接：[HTTP Stream分发](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream)
+如何分发点播flv流，支持`xxx.flv?start=offset`请求？如何分发直播flv流，rtmp流转换为flv流？如何分发HTTP流？如何分发HTTP aac流？分发HTTP ts流？分发HTTP mp3流？参考链接：[HTTP Stream分发](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHttpStream)
 
 ## [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMP.PK.HTTP)
 
