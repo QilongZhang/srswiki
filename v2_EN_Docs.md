@@ -66,7 +66,7 @@ How to convert RTMP to delivery as HDS? What is HDS tech? How to config HDS in S
 
 ## [Delivery HTTP Stream](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream)
 
-How to delivery flv vod stream, to support `xxx.flv?start=offset`? How to delivery flv live stream, to remux rtmp to flv? Please read [Delivery HTTP Stream](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream)
+How to delivery flv vod stream, to support `xxx.flv?start=offset`? How to delivery flv live stream, to remux rtmp to flv? To delivery HTTP aac stream? To delivery HTTP ts stream? To delivery HTTP mp3 stream? Please read [Delivery HTTP Stream](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream)
 
 ## [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMP.PK.HTTP)
 
