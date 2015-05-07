@@ -126,7 +126,9 @@ stream_caster {
 ```
 
 这个配置时，客户端推流的地址，例如：`http://127.0.0.1:8936/live/sea.flv`
+
 播放RTMP流地址是：`rtmp://127.0.0.1/live/sea`
+
 播放HLS流地址是：`http://127.0.0.1:8080/live/sea.m3u8`
 
 2015.1
