@@ -1,5 +1,7 @@
 # SRS-HTTP服务部署实例
 
+SRS支持HTTP FLV直播流分发，详细参考[HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
+
 SRS内嵌了http服务器，支持分发hls流和文件。
 
 注意：SRS内嵌的HTTP服务器是实验性的，不推荐使用。
