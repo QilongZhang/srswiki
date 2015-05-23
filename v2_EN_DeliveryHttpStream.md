@@ -192,6 +192,6 @@ Why SRS supports HTTP FLV?
 
 The config sample, read https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
-To config HTTP FLV, read [Sample](v2_EN_SampleHttpFlv))
+To config HTTP FLV, read [Sample](v2_EN_SampleHttpFlv)
 
 Winlin 2015.1
