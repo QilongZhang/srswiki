@@ -68,6 +68,8 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
 Winlin 2014.4
 
+[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
+[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
 [Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
 [Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
 [FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
