@@ -8,9 +8,9 @@ To ask questions or file bug, please see [HowToAskQuestion](https://github.com/s
 
 What's the product plan of SRS? What's the key features? Please see: [SRS Product] (https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product)
 
-## [Product Comparision](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Compare)
+## [Product Comparision](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Compare)
 
-Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Compare)
+Comparision of SRS and other streaming media server, please see the [Product Comparision](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Compare)
 
 ## [SRS Features](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Features)
 

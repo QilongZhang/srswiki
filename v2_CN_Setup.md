@@ -14,7 +14,7 @@
 1. [在ARM上运行SRS](v1_CN_SampleARM)
 1. [使用SRS内嵌的HTTP服务器](v2_CN_SampleHTTP)
 
-不知道SRS的版本规划，功能列表，目前的进度，定位，联系方式？性能报告？Raspberrypi性能？请读[Contact](v1_CN_Contact)、[Product](v1_CN_Product)、[Compare](v1_CN_Compare)、[Features](v2_CN_Features)、[Performance](v1_CN_Performance)、[RaspberrypiPerf](v1_CN_RaspberryPi)
+不知道SRS的版本规划，功能列表，目前的进度，定位，联系方式？性能报告？Raspberrypi性能？请读[Contact](v1_CN_Contact)、[Product](v1_CN_Product)、[Compare](v2_CN_Compare)、[Features](v2_CN_Features)、[Performance](v1_CN_Performance)、[RaspberrypiPerf](v1_CN_RaspberryPi)
 
 如何编译SRS？开启和关闭某些功能？如何在ARM下编译？交叉编译？使用多个CPU编译SRS？如何编译SRS时编译FFMPEG和NGINX？如何打包？如何启动SRS？如何以服务启动？SRS日志格式是什么？HTTP管理接口有哪些？请读[Build](v2_CN_Build)、[Service](v1_CN_LinuxService)、[Log](v1_CN_SrsLog)、[HttpApi](v2_CN_HTTPApi)
 
@@ -24,7 +24,7 @@
 
 如何搭建RTMP集群？如何支持全国各地的观众观看？如何跨网分发流？如何预推流到边缘？CDN的RTMP集群如何使用SRS搭建？如何构建自己的RTMP直播分发CDN？Forward和Edge的区别是什么？为何优先使用Edge而不是Forward？什么是HSTRS？SRS是否支持HTTP-FLV的合并回源？如何搭建HTTP-FLV集群？如何支持绝对时间？如何做主备？请读[Forward](v1_CN_Forward)、[Edge](v2_CN_Edge)、[HTTP Stream](v2_CN_DeliveryHttpStream)、[ATC](v1_CN_RTMP-ATC)
 
-SRS的架构是什么？如何设置http回调？SRS为何不支持服务器端脚本？SRS如何矫正时间戳？RTMP的时间戳单增是什么意思？如何让SRS主动汇报信息到你的服务器？请读[Arch](v1_CN_Architecture)、[Callback](v2_CN_HTTPCallback)、[Script](v1_CN_ServerSideScript)、[Jitter](v1_CN_TimeJitter)、[Heartbeat](v1_CN_Heartbeat)
+SRS的架构是什么？如何设置http回调？SRS为何不支持服务器端脚本？SRS如何矫正时间戳？RTMP的时间戳单增是什么意思？如何让SRS主动汇报信息到你的服务器？请读[Arch](v1_CN_Architecture)、[Callback](v2_CN_HTTPCallback)、[Script](v1_CN_ServerSideScript)、[Jitter](v2_CN_TimeJitter)、[Heartbeat](v1_CN_Heartbeat)
 
 SRS支持哪些IDE？如何使用GIT？如何切换分支？如何切换到开发版？如何切换到其他release分支？如何提交pull request？如何和SRS保持同步？如何分析SRS的性能瓶颈？请读[IDE](v2_CN_IDE)、[Git](v1_CN_Git)、[Perf](v1_CN_Performance)、[GProf](v1_CN_GPROF)、[GPerf](v1_CN_GPERF)
 

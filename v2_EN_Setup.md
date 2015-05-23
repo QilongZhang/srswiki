@@ -14,7 +14,7 @@ The following guide you to basic feature of SRS:
 1. [Run SRS on ARM](v1_EN_SampleARM)
 1. [Use the embedded HTTP server of SRS](v2_EN_SampleHTTP)
 
-What's the product, roadmap, contact and performance benchmark of SRS? What about the performance on Raspberrypi? Read [Contact](v1_EN_Contact)、[Product](v1_EN_Product)、[Compare](v1_EN_Compare)、[Features](v2_EN_Features)、[Performance](v1_EN_Performance)、[RaspberrypiPerf](v1_EN_RaspberryPi)
+What's the product, roadmap, contact and performance benchmark of SRS? What about the performance on Raspberrypi? Read [Contact](v1_EN_Contact)、[Product](v1_EN_Product)、[Compare](v2_EN_Compare)、[Features](v2_EN_Features)、[Performance](v1_EN_Performance)、[RaspberrypiPerf](v1_EN_RaspberryPi)
 
 How to build, enable or disable feature? Build on ARM? Cross build on ubuntu? Use multiple core to make? How to build FFMPEG and nginx? How to package, run and run as service? What's the format of log? What about the http api? Read [Build](v2_EN_Build)、[Service](v1_EN_LinuxService)、[Log](v1_EN_SrsLog)、[HttpApi](v2_EN_HTTPApi)
 
@@ -24,7 +24,7 @@ Use RTMP or HLS? Or HDS? What about HTTP-FLV stream? What is the difference betw
 
 How to build RTMP cluster? Why use edge, not the forward? How to enable ATC for fault backup? What is HSTRS? How to support merge fetch from origin for HTTP-FLV edge server? Read [Forward](v1_EN_Forward)、[Edge](v2_EN_Edge)、[HTTP Stream](v2_EN_DeliveryHttpStream)、[ATC](v1_EN_RTMP-ATC)
 
-What is the architecture of SRS? How to set http callback? How does SRS correct the timestamp? Why timestamp should monotonically increase for RTMP? How to config SRS to report to your system? Read [Arch](v1_EN_Architecture)、[Callback](v2_EN_HTTPCallback)、[Script](v1_EN_ServerSideScript)、[Jitter](v1_EN_TimeJitter)、[Heartbeat](v1_EN_Heartbeat)
+What is the architecture of SRS? How to set http callback? How does SRS correct the timestamp? Why timestamp should monotonically increase for RTMP? How to config SRS to report to your system? Read [Arch](v1_EN_Architecture)、[Callback](v2_EN_HTTPCallback)、[Script](v1_EN_ServerSideScript)、[Jitter](v2_EN_TimeJitter)、[Heartbeat](v1_EN_Heartbeat)
 
 What is the IDE supported by SRS? How to use git? How to switch to develop branch? What about other release branch? How to create pull request, or sync with SRS? How to analysis the performance bottleneck? Read [IDE](v2_EN_IDE)、[Git](v1_EN_Git)、[Perf](v1_EN_Performance)、[GProf](v1_EN_GPROF)、[GPerf](v1_EN_GPERF)
 
