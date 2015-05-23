@@ -155,6 +155,39 @@ HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
 
 详细信息参考：https://github.com/simple-rtmp-server/srs/issues/324
 
+## About HTTP FLV
+
+这一节详细解释HTTP FLV的背景。
+
+### What is HTTP FLV
+
+所有的HTTP FLV流都是一个HTTP FLV地址，譬如：http://ossrs.net:8081/live/livestream.flv，但是，流的形式却至少有三种：
+
+1. FLV文件，渐进式HTTP流。放一个文件到nginx目录，可以访问下载在播放器播放，这是HTTP FLV文件，也就是渐进式下载流。所谓渐进式下载，也就是用户观看时无法从未下载的地方开始看。
+1. FLV伪流。一般说的HTTP FLV，比这个HTTP FLV点播高级一点，譬如，一个120分钟的电影，作为点播播放时，用户需要从60分钟开始看，如何支持呢？因为nginx是当做文件下载的，无法直接跳转到第60分钟（nginx也不知道60分钟对应的字节偏移是多少呀）。这种支持flv?start=，就是http flv的伪流，本质上还是点播流。
+1. FLV直播流。SRS所指的HTTP FLV流，是严格意义上的直播流，有RTMP的所有特征，譬如集群、低延迟、热备、GOP cache，而且有HTTP的优势，譬如302、穿墙、通用。由于SRS内部实现了HTTP服务器，所以SRS是在边缘将RTMP流转换成HTTP流，SRS集群内部还是使用RTMP分发。当前唯一将RTMP和HTTP协议都解析的服务器，目前只有SRS和nginx-rtmp，可惜nginx-rtmp没有实现这个流。
+
+用一句话概括，SRS的HTTP FLV就是增强的RTMP，真正的实时流媒体分发。
+
+### Confuse HTTP FLV
+
+SRS的HTTP FLV容易和下面的几种分发方式混淆：
+
+1. RTMPT：这个实际上是最接近SRS的HTTP FLV的概念的。但是从本质上来讲，rtmpt是基于HTTP的RTMP，所以还是RTMP而不是FLV。
+2. HDL/HFL：国内一些厂家的HXX流，就是FLV流，主要和SRS的区别在于服务器集群内部SRS还是走RTMP，所以延迟会有很大差异。SRS的HTTP FLV和RTMP延迟一样，0.8-3秒。
+3. HDS：这个差的太远了，不是一个东西。HDS和HLS像，但是HTTP FLV和他们两个都完全不像。
+
+### Why HTTP FLV
+
+为何要整个HTTP FLV出来呢？当下HTTP FLV流正大行其道。主要的优势在于：
+
+1. 互联网流媒体实时领域，还是RTMP。HTTP-FLV和RTMP的延迟一样，因此可以满足延迟的要求。
+1. 穿墙：很多防火墙会墙掉RTMP，但是不会墙HTTP，因此HTTP FLV出现奇怪问题的概率很小。
+1. 调度：RTMP也有个302，可惜是播放器as中支持的，HTTP FLV流就支持302方便CDN纠正DNS的错误。
+1. 容错：SRS的HTTP FLV回源时可以回多个，和RTMP一样，可以支持多级热备。
+1. 通用：Flash可以播RTMP，也可以播HTTP FLV。自己做的APP，也都能支持。主流播放器也都支持http flv的播放。
+1. 简单：FLV是最简单的流媒体封装，HTTP是最广泛的协议，这两个到一起维护性很高，比RTMP简单多了。
+
 ## Sample
 
 配置实例参考：https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
