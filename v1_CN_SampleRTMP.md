@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>第三步，编写SRS配置文件。</strong>详细参考[RTMP分发][RTMP]
+<strong>第三步，编写SRS配置文件。</strong>详细参考[RTMP分发](v1_CN_DeliveryRTMP)
 
 将以下内容保存为文件，譬如`conf/rtmp.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -35,13 +35,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第四步，启动SRS。</strong>详细参考[RTMP分发][RTMP]
+<strong>第四步，启动SRS。</strong>详细参考[RTMP分发](v1_CN_DeliveryRTMP)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>第五步，启动推流编码器。</strong>详细参考[RTMP分发][RTMP]
+<strong>第五步，启动推流编码器。</strong>详细参考[RTMP分发](v1_CN_DeliveryRTMP)
 
 使用FFMPEG命令推流：
 
@@ -61,7 +61,7 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-<strong>第六步，观看RTMP流。</strong>详细参考[RTMP分发][RTMP]
+<strong>第六步，观看RTMP流。</strong>详细参考[RTMP分发](v1_CN_DeliveryRTMP)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 

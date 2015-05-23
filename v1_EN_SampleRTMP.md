@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [RTMP][RTMP]
+<strong>Step 3, config srs.</strong> For detail, read [RTMP](v1_CN_DeliveryRTMP)
 
 Save bellow as config, or use `conf/rtmp.conf`:
 
@@ -35,13 +35,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, start srs.</strong> For detail, read [RTMP][RTMP]
+<strong>Step 4, start srs.</strong> For detail, read [RTMP](v1_CN_DeliveryRTMP)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [RTMP][RTMP]
+<strong>Step 5, start encoder.</strong> For detail, read [RTMP](v1_CN_DeliveryRTMP)
 
 Use FFMPEG to publish stream:
 
@@ -61,7 +61,7 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-<strong>Step 6, play RTMP.</strong> For detail, read [RTMP][RTMP]
+<strong>Step 6, play RTMP.</strong> For detail, read [RTMP](v1_CN_DeliveryRTMP)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
