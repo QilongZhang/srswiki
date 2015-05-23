@@ -19,7 +19,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build][Build]
 
 ```bash
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make

@@ -89,7 +89,7 @@ RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
 User can use vlc to play the RTMP stream.
 
-Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935)
+Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
@@ -99,7 +99,7 @@ HLS url： `http://192.168.1.170/live/livestream.m3u8`
 
 User can use vlc to play the HLS stream.
 
-Or, use online SRS player：[http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream)
+Or, use online SRS player：[jwplayer][jwplayer]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
@@ -108,3 +108,25 @@ Note: VLC can not play the pure audio stream, while jwplayer can.
 For detail about pure audio HLS, read [HLS audio only](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hlsaudioonly)
 
 Winlin 2014.11
+
+[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
+[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
+[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
+[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
+[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
+[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[nginx]: http://192.168.1.170:8080/nginx.html
+[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
+[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
+[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
+[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
+[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
+[srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
+[jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
+
