@@ -103,7 +103,7 @@ SRS最适合做这个事情，依赖很少，提供[arm编译脚本](https://git
 
 主要流程：
 * 在教室使用播控系统（摄像机+采集卡或者摄像机+导播台）推送RTMP流到主SRS
-* 主SRS自动Forward给从SRS（参考[Cluster](https://github.com/simple-rtmp-server/srs/wiki/v1_Cluster)）
+* 主SRS自动Forward给从SRS（参考[Forward][Forward]）
 * PC客户端（Flash）使用FlowerPlayer，支持多个服务器的负载均衡
 * FlowerPlayer支持在两个主从SRS，自动选择一个服务器，实现负载均衡
 
