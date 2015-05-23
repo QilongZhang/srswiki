@@ -91,7 +91,7 @@ HLS url: `http://192.168.1.170:8080/live/livestream.flv`
 
 User can use vlc to play the HLS stream.
 
-Or, use online SRS player(you must input the flv url): [osmf][osmf]
+Or, use online SRS player(you must input the flv url): [jwplayer-flv][jwplayer-flv]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
@@ -103,5 +103,4 @@ Winlin 2014.11
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
-[osmf]: http://www.ossrs.net/players/osmf.html?vhost=dev&stream=livestream&server=dev&port=1935
-
+[jwplayer-flv]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_autostart=true
