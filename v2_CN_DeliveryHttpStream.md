@@ -192,4 +192,6 @@ SRS的HTTP FLV容易和下面的几种分发方式混淆：
 
 配置实例参考：https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
+一步一步配置HTTP FLV： [Sample](v2_CN_SampleHttpFlv)
+
 Winlin 2015.1
