@@ -155,6 +155,39 @@ HSTRS should set `hstrs` to "on" of `http_remux`, default is "on".
 
 For more information, read https://github.com/simple-rtmp-server/srs/issues/324
 
+## About HTTP FLV
+
+This section descrbes the HTTP FLV live streaming.
+
+### What is HTTP FLV
+
+All http streaming is a http flv url, for instance `http://ossrs.net:8081/live/livestream.flv`, but the delivery methods maybe different:
+
+1. FLV file, HTTP progressiv streaming. User can download and play the file which is serve by nginx, but user cannot seek to the part that not downloaded.
+1. FLV pseudo streaming. This is the common used HTTP FLV streaming, to support to seek to the part which is not download, the server must accept a param, for instance .flv?start= to specifies the start time to play. This is HTTP FLV pseudo stream, but it's vod not live streaming.
+1. FLV live streaming. The HTTP FLV streaming of SRS, is absolute live streaming, which is similar to RTMP for cluster, low latency, fault-backup and gop cache. And the HTTP FLV also similar to HTTP which can traverse firewall, HTTP 302 and simple. Because of SRS implements the HTTP and RTMP protocol, SRS remux the HTTP FLV stream on the edge server, and still use RTMP in cluster inside. The server which implements the RTMP and HTTP, only SRS and nginx-rtmp, but nginx-rtmp does not support HTTP FLV.
+
+In a word, the HTTP FLV of SRS is enhanced RTMP, absolute realtime media streaming delivery.
+
+### Confuse HTTP FLV
+
+The HTTP FLV of SRS is not:
+
+1. RTMPT: The rtmpt is similar to HTTP FLV of SRS, but rtmpt is rtmp over HTTP, not FLV over HTTP.
+2. HDL/HFL: There exists another HXX stream, the latence maybe different, for SRS use RTMP to delivery HTTP FLV.
+3. HDS: Absolutely not HTTP FLV, HDS is similar to HLS.
+
+### Why HTTP FLV
+
+Why SRS supports HTTP FLV?
+
+1. The internet realtime live streaming, generally use RTMP for low latence, while HTTP FLV latency equals to RTMP.
+1. Firewall traverse: Many firewall may block RTMP, but never HTTP.
+1. For GSLB: The HTTP FLV can support HTTP 302, to help GSLB to correct the stupid DNS problem.
+1. Fault tolerance: The HTTP FLV of SRS similar to RTMP, support mulitple origin and fault backup.
+1. Common Protocol: The HTTP FLV is ok for flash and other player.
+1. Simple: FLV is the most simple media stream fomat, HTTP is the standard protocol of internet, they make thinks simple.
+
 ## Sample
 
 The config sample, read https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
