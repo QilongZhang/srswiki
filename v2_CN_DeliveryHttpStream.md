@@ -145,7 +145,7 @@ vhost your_vhost {
 
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
-备注：HTTP服务器配置，参考[HTTP Server](v2_EN_HTTPServer#config)
+备注：HTTP服务器配置，参考[HTTP Server](v2_CN_HTTPServer#config)
 
 ## HSTRS
 

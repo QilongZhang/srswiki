@@ -194,8 +194,8 @@ vhost __defaultVhost__ {
         #       [999], repleace this const to current millisecond.
         #       [timestamp],replace this const to current UNIX timestamp in ms.
         #       [seq], the sequence number of ts.
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#hls-config
         # default: [app]/[stream]-[seq].ts
         hls_ts_file     [app]/[stream]-[seq].ts;
         # the hls entry prefix, which is base url of ts url.
@@ -242,14 +242,14 @@ vhost __defaultVhost__ {
 
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
-        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#http-callback
         # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#http-callback
         
         # on_hls_notify, never config in here, should config in http_hooks.
         # we support the variables to generate the notify url:
         #       [ts_url], replace with the ts url.
         # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
-        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#on-hls-notify
         # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#on-hls-notify
     }
 }
@@ -273,7 +273,7 @@ hls_window >= sum(each ts duration in m3u8)
 * hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
 * hls_path: The path to save m3u8 and ts file, where m3u8 and ts files saved in.
 * hls_m3u8_file: The filename of m3u8 file, with variables [vhost], [app] and [stream] to replace.
-* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](v2_CN_DVR#custom-path). And, variable [seq] is the ts seqence number.
+* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](v2_EN_DVR#custom-path). And, variable [seq] is the ts seqence number.
 ```bash
 For RTMP stream: rtmp://localhost/live/livestream
 HLS path: 
@@ -485,7 +485,7 @@ Remark: The HTTP server must enabled.
 
 For example, publish rtmp at `rtmp://192.168.1.173/live/livestream`, the HLS stream url is `http://192.168.1.173:8080/live/livestream.m3u8`
 
-For information about config, read [Config](v2_CN_DeliveryHLS#hls-config)
+For information about config, read [Config](v2_EN_DeliveryHLS#hls-config)
 
 ## SRS How to Support HLS
 

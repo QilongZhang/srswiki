@@ -59,7 +59,7 @@ vhost mrw.srs.com {
 }
 ```
 
-部署低延时的实例，参考：[wiki]([EN](v2_EN_SampleRealtime), [CN](v2_CN_SampleRealtime)).
+部署低延时的实例，参考：[wiki]([EN](v2_CN_SampleRealtime), [CN](v2_CN_SampleRealtime)).
 
 ## Merged-Read
 

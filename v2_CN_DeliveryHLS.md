@@ -238,14 +238,14 @@ vhost __defaultVhost__ {
         # on_hls, never config in here, should config in http_hooks.
         # for the hls http callback, @see http_hooks.on_hls of vhost hooks.callback.srs.com
         # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#http-callback
-        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#http-callback
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#http-callback
         
         # on_hls_notify, never config in here, should config in http_hooks.
         # we support the variables to generate the notify url:
         #       [ts_url], replace with the ts url.
         # for the hls http callback, @see http_hooks.on_hls_notify of vhost hooks.callback.srs.com
         # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#on-hls-notify
-        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#on-hls-notify
+        # @read https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#on-hls-notify
     }
 }
 ```

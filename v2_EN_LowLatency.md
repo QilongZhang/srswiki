@@ -51,7 +51,7 @@ vhost mrw.srs.com {
 }
 ```
 
-For example to deploy realtime stream, read [wiki]([EN](v2_EN_SampleRealtime), [CN](v2_CN_SampleRealtime)).
+For example to deploy realtime stream, read [wiki]([EN](v2_EN_SampleRealtime), [CN](v2_EN_SampleRealtime)).
 
 ## Merged-Read
 
