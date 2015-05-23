@@ -1,7 +1,7 @@
 # Ingest deploy example
 
 SRS can start process to ingest file/stream/device, transcode or not,
-then publish to SRS. For detail, read [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest).
+then publish to SRS. For detail, read [Ingest][Ingest].
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -24,7 +24,7 @@ git pull
 ./configure --disable-all --with-ssl --with-ffmpeg --with-ingest && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest)
+<strong>Step 3, config srs.</strong> For detail, read [Ingest][Ingest]
 
 Save bellow as config, or use `conf/ingest.conf`:
 
@@ -48,7 +48,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, start srs.</strong> For detail, read [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest)
+<strong>Step 4, start srs.</strong> For detail, read [Ingest][Ingest]
 
 ```bash
 ./objs/srs -c conf/ingest.conf
@@ -57,7 +57,7 @@ vhost __defaultVhost__ {
 The streams on SRS:
 * Stream ingest: rtmp://192.168.1.170:1935/live/livestream
 
-<strong>Step 5, play RTMP.</strong> For detail, read [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest)
+<strong>Step 5, play RTMP.</strong> For detail, read [Ingest][Ingest]
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 

@@ -2,7 +2,7 @@
 
 HLS required h.264+aac, user can transcode for other codecs.
 
-Pure audio HLS, read [HLS audio only](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hlsaudioonly)
+Pure audio HLS, read [HLS audio only][HLS-Audio-Only]
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -25,15 +25,15 @@ git pull
 ./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make
 ```
 
-<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS][HLS]
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
 ```
 
-Note: Ensure nginx is ok, to access [http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html).
+Note: Ensure nginx is ok, to access [nginx][nginx].
 
-<strong>Step 4, config srs.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 4, config srs.</strong> For detail, read [HLS][HLS]
 
 Save bellow as config, or use `conf/transcode2hls.audio.only.conf`:
 
@@ -66,13 +66,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 5, strat SRS.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 5, strat SRS.</strong> For detail, read [HLS][HLS]
 
 ```bash
 ./objs/srs -c conf/transcode2hls.audio.only.conf
 ```
 
-<strong>Step 6, start encoder.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 6, start encoder.</strong> For detail, read [HLS][HLS]
 
 Use FFMPEG to publish stream:
 
@@ -99,7 +99,7 @@ The stream in SRS:
 
 Note: we can use another vhost to output HLS, other codecs transcode then output to this vhost.
 
-<strong>Step 7, play RTMP.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 7, play RTMP.</strong> For detail, read [HLS][HLS]
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream_ff`
 
@@ -109,7 +109,7 @@ Or, use online SRS player: [srs-player-ff][srs-player-ff]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 8, play HLS.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 8, play HLS.</strong> For detail, read [HLS][HLS]
 
 HLS url: `http://192.168.1.170/live/livestream_ff.m3u8`
 

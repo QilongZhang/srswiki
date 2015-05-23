@@ -23,15 +23,15 @@ git pull
 ./configure --disable-all --with-ssl --with-hls --with-nginx && make
 ```
 
-<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS][HLS]
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
 ```
 
-Note: Ensure nginx is ok, to access [http://192.168.1.170/nginx.html](http://192.168.1.170/nginx.html).
+Note: Ensure nginx is ok, to access [nginx][nginx].
 
-<strong>Step 4, config srs.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 4, config srs.</strong> For detail, read [HLS][HLS]
 
 Save bellow as config, or use `conf/hls.conf`:
 
@@ -50,15 +50,15 @@ vhost __defaultVhost__ {
 ```
 
 Note: The hls_path must exists, srs never create it. For detail, 
-read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+read [HLS][HLS]
 
-<strong>Step 5, start srs.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 5, start srs.</strong> For detail, read [HLS][HLS]
 
 ```bash
 ./objs/srs -c conf/hls.conf
 ```
 
-<strong>Step 6, start encoder.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 6, start encoder.</strong> For detail, read [HLS][HLS]
 
 Use FFMPEG to publish stream:
 
@@ -72,7 +72,7 @@ Use FFMPEG to publish stream:
 ```
 
 Or use FMLE(which support h.264+aac) to publish, read 
-[Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS)：
+[Transcode2HLS][Transcode2HLS]：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -83,7 +83,7 @@ The stream in SRS:
 * RTMP url：`rtmp://192.168.1.170/live/livestream`
 * HLS url： `http://192.168.1.170/live/livestream.m3u8`
 
-<strong>Step 7, play RTMP stream.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 7, play RTMP stream.</strong> For detail, read [HLS][HLS]
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -93,7 +93,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 8, play HLS stream.</strong> For detail, read [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
+<strong>Step 8, play HLS stream.</strong> For detail, read [HLS][HLS]
 
 HLS url： `http://192.168.1.170/live/livestream.m3u8`
 
@@ -105,7 +105,7 @@ Note: Please replace all ip 192.168.1.170 to your server ip.
 
 Note: VLC can not play the pure audio stream, while jwplayer can.
 
-For detail about pure audio HLS, read [HLS audio only](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hlsaudioonly)
+For detail about pure audio HLS, read [HLS audio only][HLS-Audio-Only]
 
 Winlin 2014.11
 
