@@ -6,7 +6,7 @@ Note: Never use SRS HTTP server for online service.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT][GIT]
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -19,7 +19,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build][Build]
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_CN_Build)
 
 ```bash
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make

@@ -2,15 +2,15 @@
 
 SRS可以在SRS上作为服务器运行，播放器可以从arm设备上取流播放；arm也可以作为客户端推流到外部srs服务器，使用srs-librtmp库。
 
-编译和搭建ARM环境，详细信息可以参考：[SrsLinuxArm][SrsLinuxArm]，本文举例说明部署的实例步骤。
+编译和搭建ARM环境，详细信息可以参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)，本文举例说明部署的实例步骤。
 
 <strong>假设编译为Ubuntu12的IP是：192.168.1.170</strong><br/>
 <strong>假设ARM虚拟设备：1935映射到Ubuntu12的19350端口，22映射到2200端口。即访问Ubuntu的19350就是访问ARM虚拟机的1935（流媒体）；访问Ubuntu的2200就是访问ARM虚拟机的22（SSH登录）。</strong> 
-详细信息可以参考：[SrsLinuxArm][SrsLinuxArm]
+详细信息可以参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ## Ubuntu12交叉编译SRS
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
+<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -23,13 +23,13 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
+<strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
+<strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 # 密码为：root
@@ -41,13 +41,13 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
 
 登录到Ubuntu的2200端口，就是登录到了ARM虚拟设备。
 
-<strong>第四步，启动SRS。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
+<strong>第四步，启动SRS。</strong>详细参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>第五步，启动推流编码器。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
+<strong>第五步，启动推流编码器。</strong>详细参考：[SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 使用FFMPEG命令推流：
 

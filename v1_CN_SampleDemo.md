@@ -16,7 +16,7 @@ SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，�
 192.168.1.170 demo.srs.com
 ```
 
-<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
+<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -29,7 +29,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第三步，编译SRS。</strong>详细参考[Build][Build]
+<strong>第三步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
 bash scripts/build.sh

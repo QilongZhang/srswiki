@@ -9,7 +9,7 @@ Forward就是SRS将流拷贝输出给其他的RTMP服务器，以SRS转发给SRS
 * 备SRS：Slave, 主SRS转发流到备SRS，就像编码器推送流到备用SRS一样。
 我们的部署实例中，主SRS侦听1935端口，备SRS侦听19350端口。
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
+<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -22,13 +22,13 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build][Build]
+<strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>第三步，编写主SRS配置文件。</strong>详细参考[Forward][Forward]
+<strong>第三步，编写主SRS配置文件。</strong>详细参考[Forward](v1_CN_Forward)
 
 将以下内容保存为文件，譬如`conf/forward.master.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -44,13 +44,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第四步，启动主SRS，主SRS将流转发到备SRS。</strong>详细参考[Forward][Forward]
+<strong>第四步，启动主SRS，主SRS将流转发到备SRS。</strong>详细参考[Forward](v1_CN_Forward)
 
 ```bash
 ./objs/srs -c conf/forward.master.conf
 ```
 
-<strong>第五步，编写备SRS配置文件。</strong>详细参考[Forward][Forward]
+<strong>第五步，编写备SRS配置文件。</strong>详细参考[Forward](v1_CN_Forward)
 
 将以下内容保存为文件，譬如`conf/forward.slave.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -64,7 +64,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第六步，启动备SRS，主SRS将流转发到备SRS。</strong>详细参考[Forward][Forward]
+<strong>第六步，启动备SRS，主SRS将流转发到备SRS。</strong>详细参考[Forward](v1_CN_Forward)
 
 ```bash
 ./objs/srs -c conf/forward.slave.conf
@@ -78,7 +78,7 @@ tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LIST
 tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      7834/srs
 ```
 
-<strong>第七步，启动推流编码器。</strong>详细参考[Forward][Forward]
+<strong>第七步，启动推流编码器。</strong>详细参考[Forward](v1_CN_Forward)
 
 使用FFMPEG命令推流：
 
@@ -104,7 +104,7 @@ Stream: livestream
 * 观看主SRS的流：rtmp://192.168.1.170/live/livestream
 * 观看备SRS的流：rtmp://192.168.1.170:19350/live/livestream
 
-<strong>第八步，观看主SRS的RTMP流。</strong>详细参考[Forward][Forward]
+<strong>第八步，观看主SRS的RTMP流。</strong>详细参考[Forward](v1_CN_Forward)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
@@ -114,7 +114,7 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第九步，观看备SRS的RTMP流。</strong>详细参考[Forward][Forward]
+<strong>第九步，观看备SRS的RTMP流。</strong>详细参考[Forward](v1_CN_Forward)
 
 RTMP流地址为：`rtmp://192.168.1.170:19350/live/livestream`
 

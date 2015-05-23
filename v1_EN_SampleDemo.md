@@ -17,7 +17,7 @@ Please study all [Usage](https://github.com/simple-rtmp-server/srs/tree/1.0relea
 192.168.1.170 demo.srs.com
 ```
 
-<strong>Step 2, get SRS.</strong> For detail, read [GIT][GIT]
+<strong>Step 2, get SRS.</strong> For detail, read [GIT](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -30,7 +30,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 3, build SRS.</strong> For detail, read [Build][Build]
+<strong>Step 3, build SRS.</strong> For detail, read [Build](v1_CN_Build)
 
 ```bash
 bash scripts/build.sh

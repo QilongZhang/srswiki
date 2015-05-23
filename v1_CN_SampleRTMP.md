@@ -4,7 +4,7 @@ RTMP部署的步骤。
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
+<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -17,7 +17,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build][Build]
+<strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl && make

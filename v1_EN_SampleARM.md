@@ -2,17 +2,17 @@
 
 SRS can deploy on ARM linux. SRS provides srs-librtmp as client library for ARM.
 
-Compile and build ARM, read [SrsLinuxArm][SrsLinuxArm],
+Compile and build ARM, read [SrsLinuxArm](v1_CN_SrsLinuxArm),
 this artical describes how to deploy.
 
 <strong>Suppose the IP of ubuntu12: 192.168.1.170</strong><br/>
 <strong>Suppose the ARM device running in VirtualBox 1935 mapped to Ubuntu12 19350, 22 mapped to 2200.
 That is, we can access Ubuntu12 19350 to access the ARM 1935, while the Ubuntu 2200 for ARM 22.</strong>
-For more information, read [SrsLinuxArm][SrsLinuxArm]
+For more information, read [SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ## Ubuntu12 cross build SRS
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT][GIT]
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_CN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -25,13 +25,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
+<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
+<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 # Password is：root
@@ -43,13 +43,13 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
 
 Login to Ubuntu 2200, we are on ARM:
 
-<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
+<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
+<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm](v1_CN_SrsLinuxArm)
 
 Use FFMPEG to publish stream:
 
