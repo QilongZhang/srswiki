@@ -161,7 +161,7 @@ HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
 
 ### What is HTTP FLV
 
-所有的HTTP FLV流都是一个HTTP FLV地址，譬如：http://ossrs.net:8081/live/livestream.flv，但是，流的形式却至少有三种：
+所有的HTTP FLV流都是一个HTTP FLV地址，譬如：`http://ossrs.net:8081/live/livestream.flv`，但是，流的形式却至少有三种：
 
 1. FLV文件，渐进式HTTP流。放一个文件到nginx目录，可以访问下载在播放器播放，这是HTTP FLV文件，也就是渐进式下载流。所谓渐进式下载，也就是用户观看时无法从未下载的地方开始看。
 1. FLV伪流。一般说的HTTP FLV，比这个HTTP FLV点播高级一点，譬如，一个120分钟的电影，作为点播播放时，用户需要从60分钟开始看，如何支持呢？因为nginx是当做文件下载的，无法直接跳转到第60分钟（nginx也不知道60分钟对应的字节偏移是多少呀）。这种支持flv?start=，就是http flv的伪流，本质上还是点播流。
