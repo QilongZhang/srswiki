@@ -2,7 +2,7 @@
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
-部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleHTTP)
+部署和使用SRS的内嵌http服务器，参考：[Usage: HTTP](v1_CN_SampleHTTP)
 
 SRS的内置HTTP服务器属于实验功能；建议不要当作web服务器，主要是提供API服务；建议使用nginx等成熟web服务器分发文件。
 

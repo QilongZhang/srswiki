@@ -2,11 +2,11 @@
 
 SRS（Simple RTMP Server）分发RTMP是核心功能，srs的主要定位就是分发RTMP低延时流媒体，同时支持分发HLS流。
 
-RTMP和HLS的优势参考：[HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS)
+RTMP和HLS的优势参考：[HLS](v1_CN_DeliveryHLS)
 
-RTMP和HLS的比较参考：[RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMP.PK.HTTP)
+RTMP和HLS的比较参考：[RTMP PK HLS](v1_CN_RTMP.PK.HTTP)
 
-部署RTMP的实例参考：[Usage: RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleRTMP)
+部署RTMP的实例参考：[Usage: RTMP](v1_CN_SampleRTMP)
 
 ## 应用场景
 
@@ -58,9 +58,9 @@ FMS URL: rtmp://192.168.1.170/live
 Stream: livestream
 ```
 
-RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RtmpUrlVhost)
+RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](v1_CN_RtmpUrlVhost)
 
-部署分发RTMP流的实例，参考：[Usage: RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleRTMP)
+部署分发RTMP流的实例，参考：[Usage: RTMP](v1_CN_SampleRTMP)
 
 如下图所示：
 ![FMLE推流到SRS](http://winlinvip.github.io/srs.release/wiki/images/FMLE.png)
@@ -71,6 +71,6 @@ RTMP的URL规则，Vhost规则，参考：[RTMP URL&Vhost](https://github.com/si
 
 ## RTMP流的低延时配置
 
-RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency)
+RTMP流的延时在1-3秒，比HLS的延时更靠谱，低延时的配置参考：[低延时](v1_CN_LowLatency)
 
 Winlin 2013.10

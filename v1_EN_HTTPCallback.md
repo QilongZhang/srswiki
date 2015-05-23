@@ -1,14 +1,14 @@
 # HTTP callback
 
 SRS does not support server-side script, but support
-http-callback, read [ServerSide script](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_ServerSideScript).
+http-callback, read [ServerSide script](v1_EN_ServerSideScript).
 
-About the token authentication which is base on http callback, read [Token Authentication](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DRM#token-authentication)
+About the token authentication which is base on http callback, read [Token Authentication](v1_CN_DRM#token-authentication)
 
 ## Compile
 
 Build SRS with or without http callback, read
-[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+[Build](v1_EN_Build)
 
 ## HTTP callback events
 

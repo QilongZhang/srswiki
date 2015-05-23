@@ -40,7 +40,7 @@ Also easy to start SRS:
 ./objs/srs -c conf/srs.conf
 ```
 
-Publish RTMP, please see: [Usage: RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleRTMP)
+Publish RTMP, please see: [Usage: RTMP](v1_EN_SampleRTMP)
 
 More usages, please see: [Usage](https://github.com/simple-rtmp-server/srs/tree/1.0release#usage)
 
@@ -111,7 +111,7 @@ The g++/gcc/make and st-1.9 is required, others are optional.
 
 ## Custom Compile Tool Chain
 
-User can use other compile tool chain, for instance, arm usig arm-linux-g++, see: [ARM：compile manually](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+User can use other compile tool chain, for instance, arm usig arm-linux-g++, see: [ARM：compile manually](v1_EN_SrsLinuxArm)
 
 ## Build Outputs
 
@@ -131,30 +131,30 @@ The outputs of configure and make are put in objs.
 
 The options of configure:
 * --help print help and exit.
-* --with-ssl support RTMP complex handshake, see: [RTMP Handshake](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMPHandshake)。
-* --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS)
-* --with-hds support output HDS for Adobe OSMF. See: [HDS](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHDS)
-* --with-dvr dvr RTMP to FLV file, see: [DVR](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DVR)
+* --with-ssl support RTMP complex handshake, see: [RTMP Handshake](v1_EN_RTMPHandshake)。
+* --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](v2_EN_DeliveryHLS)
+* --with-hds support output HDS for Adobe OSMF. See: [HDS](v2_EN_DeliveryHDS)
+* --with-dvr dvr RTMP to FLV file, see: [DVR](v2_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
-* --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPCallback)
-* --with-http-api support http api, see: [HTTP API](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPApi)
-* --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPServer)
-* --with-stream-caster enable the stream caster, read [Stream Caster](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Streamer)
-* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG)
-* --with-transcode live stream transcode, see: [FFMPEG](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG)
-* --with-ingest ingest file, stream or device to RTMP to SRS, see: [Ingest](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest)
+* --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](v2_EN_HTTPCallback)
+* --with-http-api support http api, see: [HTTP API](v2_EN_HTTPApi)
+* --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](v2_EN_HTTPServer)
+* --with-stream-caster enable the stream caster, read [Stream Caster](v2_EN_Streamer)
+* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](v1_EN_FFMPEG)
+* --with-transcode live stream transcode, see: [FFMPEG](v1_EN_FFMPEG)
+* --with-ingest ingest file, stream or device to RTMP to SRS, see: [Ingest](v1_EN_Ingest)
 * --with-stat stat the cpu, memory, network and disk io, user can access stat by http api(not supported by darwin/OSX).
 * --with-research buidl the research tools, for instance, ts info, ingest flv/rtmp, flv parser and bandwidth test.
 * --with-utest build the utest of SRS, it's ok to disable it.
 * --with-gperf use google tcmalloc, seems no effect.
-* --with-gmc use gerf memory check, which will hurt performance, only for memory check, see: [gperf](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_GPERF)
-* --with-gmp use gperf memory performance analysis, which will hurt performance, only for memory performance analysis, see: [gperf](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_GPERF)
-* --with-gcp use gperf cpu profile, which will hurt performance, only for cpu profile, see: [gperf](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_GPERF)
-* --with-gprof use gprof, which will hurt performance, see: [gprof](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_GPROF)
-* --with-librtmp client librtmp, see: [srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp)
-* --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
-* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Build#jobs-speedup-build)
-* --static use static link for arm, see: [ARM](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+* --with-gmc use gerf memory check, which will hurt performance, only for memory check, see: [gperf](v1_EN_GPERF)
+* --with-gmp use gperf memory performance analysis, which will hurt performance, only for memory performance analysis, see: [gperf](v1_EN_GPERF)
+* --with-gcp use gperf cpu profile, which will hurt performance, only for cpu profile, see: [gperf](v1_EN_GPERF)
+* --with-gprof use gprof, which will hurt performance, see: [gprof](v1_EN_GPROF)
+* --with-librtmp client librtmp, see: [srs-librtmp](v2_EN_SrsLibrtmp)
+* --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](v1_EN_SrsLinuxArm)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](v2_EN_Build#jobs-speedup-build)
+* --static use static link for arm, see: [ARM](v1_EN_SrsLinuxArm)
 
 The preset of configure:
 * --x86-x64, default, for x86(32bits) or x64(64bits) server.

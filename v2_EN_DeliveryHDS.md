@@ -1,12 +1,12 @@
 # DeliveryHDS
 
-HDS is the Http Dynamic Stream of Adobe，similar to Apple [HLS](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS).
+HDS is the Http Dynamic Stream of Adobe，similar to Apple [HLS](v2_EN_DeliveryHLS).
 
 For specification of HDS, read http://www.adobe.com/devnet/hds.html
 
 # Build
 
-We can disable or enable HDS when build SRS, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_Build)
+We can disable or enable HDS when build SRS, read [Build](v2_EN_Build)
 
 ```
 ./configure --with-hds
@@ -43,6 +43,6 @@ vhost __defaultVhost__ {
 }
 ```
 
-The config items are similar to HLS, read [HLS config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#hls-config)
+The config items are similar to HLS, read [HLS config](v2_EN_DeliveryHLS#hls-config)
 
 Winlin 2015.3

@@ -15,7 +15,7 @@ SRS的HTTP接口遵循最简单原则，主要包括：
 
 ## 编译和启动
 
-SRS需要打开HTTPApi选项，参考：[configure选项](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_Build)
+SRS需要打开HTTPApi选项，参考：[configure选项](v2_CN_Build)
 
 ```bash
 ./configure --with-http-api && make

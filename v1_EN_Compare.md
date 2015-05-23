@@ -2,11 +2,11 @@
 
 We compare some famous media streaming server with SRS.
 
-SRS focus on live streaming server, to provide the best feature or nothing, see [Product](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product).
+SRS focus on live streaming server, to provide the best feature or nothing, see [Product](v1_EN_Product).
 
-SRS use the best tech for RTMP protocol, the coroutine, which can simplify the state machine of async epoll states, provides by st(state-threads), see [Architecture](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Architecture)。
+SRS use the best tech for RTMP protocol, the coroutine, which can simplify the state machine of async epoll states, provides by st(state-threads), see [Architecture](v1_EN_Architecture)。
 
-For detail feature and roadmap, see [Features](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Features)
+For detail feature and roadmap, see [Features](v1_EN_Features)
 
 ## Introduction
 

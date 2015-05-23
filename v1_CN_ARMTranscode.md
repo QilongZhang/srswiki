@@ -4,7 +4,7 @@ ARM下，譬如raspberry pi，转码音频还是可行的。ffmpeg转码音频�
 
 ## 编译
 
-使用系统的ffmpeg转码时，需要禁止srs编译ffmpeg，同时打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+使用系统的ffmpeg转码时，需要禁止srs编译ffmpeg，同时打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](v1_CN_Build)
 
 ## 配置文件
 

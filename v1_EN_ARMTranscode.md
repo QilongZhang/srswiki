@@ -4,7 +4,7 @@ It's ok to transcode the audio only on ARM. FFMPEG consumes about 50% to transco
 
 ## Build
 
-To configure SRS by `--with-transcode --without-ffmpeg`, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+To configure SRS by `--with-transcode --without-ffmpeg`, read [Build](v1_EN_Build)
 
 ## Config file
 

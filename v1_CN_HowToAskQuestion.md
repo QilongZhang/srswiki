@@ -10,12 +10,12 @@
 
 下面是一些基本的问题：
 
-* 如何编译：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
-* SRS需要什么硬件环境：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
-* SRS需要什么软件环境：参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
-* 为何看不到流？可能是防火墙问题，参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
-* 如何搭建集群：参考[Cluster](https://github.com/simple-rtmp-server/srs/wiki/v1_Cluster)
-* 如何测SRS性能：参考[Performance](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Performance)
+* 如何编译：参考[Build](v1_CN_Build)
+* SRS需要什么硬件环境：参考[Build](v1_CN_Build)
+* SRS需要什么软件环境：参考[Build](v1_CN_Build)
+* 为何看不到流？可能是防火墙问题，参考[Build](v1_CN_Build)
+* 如何搭建集群：参考[Cluster](v1_Cluster)
+* 如何测SRS性能：参考[Performance](v1_CN_Performance)
 * SRS的授权是MIT？参考[License](https://github.com/simple-rtmp-server/srs/blob/master/LICENSE)
 * 如何看SRS的DEMO？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#usagesimple)
 * 如何一步一步编译SRS的DEMO？参考[Readme](https://github.com/simple-rtmp-server/srs/tree/1.0release#usagedetail)

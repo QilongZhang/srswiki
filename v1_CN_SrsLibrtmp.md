@@ -10,9 +10,9 @@ librtmp的主要应用场景包括：
 * 基于同步阻塞socket，客户端用可以了。
 * arm：编译出来给arm-linux用，譬如某些设备上，采集后推送到RTMP服务器。
 
-备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RTMPHandshake)
+备注：关于链接ssl，握手协议，简单握手和复杂握手，参考[RTMP握手协议](v1_CN_RTMPHandshake)
 
-备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
+备注：ARM上使用srs-librtmp需要交叉编译，参考[srs-arm](v1_CN_SrsLinuxArm)，即使用交叉编译环境编译srs-librtmp（可以不依赖于其他库，ssl/st都不需要）
 
 ## librtmp做Server
 
@@ -37,8 +37,8 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 * 最小依赖关系：srs调整了模块化，只取出了core/kernel/rtmp三个模块，其他代码没有编译到srs-librtmp中，避免了冗余。
 * 最少依赖库：srs-librtmp只依赖c/c++标准库（若需要复杂握手需要依赖openssl，srs也编译出来了，只需要加入链接即可）。
 * 不依赖st：srs-librtmp使用同步阻塞socket，没有使用st（st主要是服务器处理并发需要）。
-* SRS提供了测速函数，直接调用srs-librtmp就可以完成到服务器的测速。参考：[Bandwidth Test](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_BandwidthTestTool)
-* SRS提供了日志接口，可以获取服务器端的信息，譬如版本，对应的session id。参考：[Tracable log](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLog)
+* SRS提供了测速函数，直接调用srs-librtmp就可以完成到服务器的测速。参考：[Bandwidth Test](v1_CN_BandwidthTestTool)
+* SRS提供了日志接口，可以获取服务器端的信息，譬如版本，对应的session id。参考：[Tracable log](v1_CN_SrsLog)
 
 一句话，srs为何提供客户端开发库？因为rtmp客户端开发不方便，不直观，不简洁。
 
@@ -50,7 +50,7 @@ srs提供的客户端srs-librtmp的定位和librtmp不一样，主要是：
 ./configure --with-librtmp --without-ssl
 ```
 
-编译会生成srs-librtmp和对应的[实例](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLibrtmp#srs-librtmp-examples)。
+编译会生成srs-librtmp和对应的[实例](v1_CN_SrsLibrtmp#srs-librtmp-examples)。
 
 <strong>备注：支持librtmp只需要打开--with-librtmp，但推荐打开--without-ssl，不依赖于ssl，对于一般客户端（不需要模拟flash）足够了。这样srs-librtmp不依赖于任何其他库，在x86/x64/arm等平台都可以编译和运行</strong>
 
@@ -73,7 +73,7 @@ src/libs/*
 ```
 
 注意：srs-librtmp客户端推流和抓流，不需要ssl库。代码都是c++/stl，网络部分用的是同步socket。
-备注：SRS2.0提供将srs-librtmp导出为一个project或者文件，参考[导出srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#export-srs-librtmp)。SRS1.0不支持导出，可以自己合并2.0的修改到1.0。
+备注：SRS2.0提供将srs-librtmp导出为一个project或者文件，参考[导出srs-librtmp](v2_CN_SrsLibrtmp#export-srs-librtmp)。SRS1.0不支持导出，可以自己合并2.0的修改到1.0。
 
 ## 数据格式
 
@@ -106,7 +106,7 @@ srs-librtmp提供了一系列接口函数，就数据按照一定格式发送到
 * 收到流后加上flv tag header，就可以直接保存为flv文件
 * 从flv文件解封装数据后，只要将tag的内容给接口就可以，flv的tag头很简单。
 
-备注：SRS2.0支持直接发送h264裸码流，参考[publish h.264 raw data](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp#publish-h264-raw-data)
+备注：SRS2.0支持直接发送h264裸码流，参考[publish h.264 raw data](v2_CN_SrsLibrtmp#publish-h264-raw-data)
 
 ## srs-librtmp Examples
 

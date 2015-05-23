@@ -16,7 +16,7 @@ The HTTP API of SRS follows the simple priciple:
 ## Build
 
 To enable http api, configure SRS with `--with-http-api`, 
-read [configure](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+read [configure](v1_EN_Build)
 
 ```bash
 ./configure --with-http-api && make

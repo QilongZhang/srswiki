@@ -2,7 +2,7 @@
 
 SRS Embeded a HTTP web server, supports api and simple HTTP file for HLS.
 
-To deploy SRS HTTP server, read [Usage: HTTP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHTTP)
+To deploy SRS HTTP server, read [Usage: HTTP](v1_EN_SampleHTTP)
 
 The SRS Embeded HTTP server is expirement feature. Never use it to delivery file, 
 only used for API service. Recomment to use nginx web server to delivery HTTP file.

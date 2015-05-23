@@ -2,7 +2,7 @@
 
 How to run SRS on ARM pcu?
 
-* Application on ARM to publish stream to SRS, use [srs-librtmp](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLibrtmp).
+* Application on ARM to publish stream to SRS, use [srs-librtmp](v1_EN_SrsLibrtmp).
 * ARM directly publish h.264 stream to SRS(Not support yet).
 * Run SRS on ARM: Client can play strema on ARm.
 
@@ -43,10 +43,10 @@ Cross build:
 
 The bellow features can used for ARM-SRS:
 * --with-arm-ubuntu12: To use the cross build tools for ubuntu.
-* --with-ssl: To support complex handshake, read [Handshake](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMPHandshake)
+* --with-ssl: To support complex handshake, read [Handshake](v1_EN_RTMPHandshake)
 * --with-hls: To support HLS.
-* --with-http-server: To support embeded server to delivery HLS, read [SRS HTTP SERVER](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer)。
-* --with-http-api: To support http api, read [http api](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi)。
+* --with-http-server: To support embeded server to delivery HLS, read [SRS HTTP SERVER](v1_EN_HTTPServer)。
+* --with-http-api: To support http api, read [http api](v1_EN_HTTPApi)。
 * --with-librtmp: The client library.
 
 Copy the binary to ARM and run:

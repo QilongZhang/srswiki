@@ -42,7 +42,7 @@ Stream information:
 * Resolution: 768x320
 * Audio Bitrate: 30kbps
 
-For arm [SRS: arm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm#raspberrypi)
+For arm [SRS: arm](v1_EN_SrsLinuxArm#raspberrypi)
 
 ## OS settings
 

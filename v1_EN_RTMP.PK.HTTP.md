@@ -1,7 +1,7 @@
 # RTMP PK HTTP
 
-The two major delivery methods on internet, [HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
-and [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP).
+The two major delivery methods on internet, [HLS](v1_EN_DeliveryHLS)
+and [RTMP](v1_EN_DeliveryRTMP).
 
 Ignore other delivery protocol, which is not used on internet:
 * UDP: Private protocols, realtime protocol, latence in ms.
@@ -63,8 +63,8 @@ HLS is bad for:
 
 ## Use Scenario
 
-See [HTTP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS)
-and [RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)
+See [HTTP](v1_EN_DeliveryHLS)
+and [RTMP](v1_EN_DeliveryRTMP)
 
 I recomment to use these delivery protocols in:
 * Encoder always output RTMP for internet server.

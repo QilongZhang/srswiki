@@ -11,7 +11,7 @@ SRS使用gprof分析的步骤如下：
 * 退出SRS：`killall -2 srs # or CTRL+C to stop gprof`
 * 生成gprof报告：`gprof -b ./objs/srs gmon.out > gprof.srs.log && rm -f gmon.out`
 
-可以打开`gprof.srs.log`查看性能报告，譬如([raspberry-pi下30个连接的性能数据](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RaspberryPi)）：
+可以打开`gprof.srs.log`查看性能报告，譬如([raspberry-pi下30个连接的性能数据](v1_CN_RaspberryPi)）：
 ```bash
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
@@ -42,7 +42,7 @@ gprof还能图形化，可以将结果绘制成调用图：
 * 生成gprof数据：`gprof -b ./objs/srs gmon.out > gprof.srs.log`
 * 将报表转换为图片：`./3rdparty/gprof/gprof2dot.py gprof.srs.log | dot -Tpng -o winlin.png`
 
-图片中一眼就能看出性能有问题的函数([raspberry-pi下30个连接的性能数据](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_RaspberryPi)），参考下图：
+图片中一眼就能看出性能有问题的函数([raspberry-pi下30个连接的性能数据](v1_CN_RaspberryPi)），参考下图：
 ![SRS-gprof性能分析图片](http://winlinvip.github.io/srs.release/wiki/images/gprof-raspberry-pi.png)
 
 备注：有时候dot会占用N多内存，而且还出不了图片，这个应该是dot的bug。这时候赶快`killall -9 dot`，不要等了。有可能是因为性能数据太少，一般让SRS的CPU跑高点（5%以上），gprof的数据较多时，不会出现这种情况；若出现了，就重新gprof采样就好了。

@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP TS Live Stream
 
@@ -44,7 +44,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Mp3 Live Stream
 
@@ -66,7 +66,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Aac Live Stream
 
@@ -88,7 +88,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Live Stream Config
 
@@ -145,7 +145,7 @@ vhost your_vhost {
 
 Remark: Use forward+vhost to support multiple http live stream for a stream.
 
-Remark: The http server config section, read [HTTP Server](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPServer#config)
+Remark: The http server config section, read [HTTP Server](v2_EN_HTTPServer#config)
 
 ## HSTRS
 

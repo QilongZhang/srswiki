@@ -6,11 +6,11 @@ RTMP is Adobe RTMP(Realtime Message Protocol), for low latency live streaming, a
 
 HLS is Apple HLS(Http Live Streaming), for both live and vod streaming over HTTP, and the standard protocol on Apple platform.
 
-Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP)。
+Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](v1_EN_DeliveryRTMP)。
 
-For information about compare RTMP and HLS, read [RTMP PK HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_RTMP.PK.HTTP).
+For information about compare RTMP and HLS, read [RTMP PK HLS](v1_EN_RTMP.PK.HTTP).
 
-For information about how to deploy SRS to support HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS).
+For information about how to deploy SRS to support HLS, read [Usage: HLS](v1_EN_SampleHLS).
 
 ## Use Scenario
 
@@ -273,7 +273,7 @@ hls_window >= sum(each ts duration in m3u8)
 * hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
 * hls_path: The path to save m3u8 and ts file, where m3u8 and ts files saved in.
 * hls_m3u8_file: The filename of m3u8 file, with variables [vhost], [app] and [stream] to replace.
-* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path). And, variable [seq] is the ts seqence number.
+* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](v2_CN_DVR#custom-path). And, variable [seq] is the ts seqence number.
 ```bash
 For RTMP stream: rtmp://localhost/live/livestream
 HLS path: 
@@ -293,7 +293,7 @@ For ts: live/livestream-0.ts
 When config: hls_entry_prefix http://your-server;
 The ts url generated to: http://your-server/live/livestream-0.ts
 ```
-* hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHttpStream#http-live-stream-config)
+* hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](v2_EN_DeliveryHttpStream#http-live-stream-config)
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
 * hls_cleanup: whether cleanup the ts files.
@@ -302,7 +302,7 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * on_hls: callback when ts generated.
 * on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
 
-How to deploy SRS to delivery HLS, read [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
+How to deploy SRS to delivery HLS, read [Usage: HLS](v1_EN_SampleHLS)
 
 ## HTTP Callback
 
@@ -314,11 +314,11 @@ To config the `on_hls_notify` for push ts file to can network, should config in 
 
 ## HLSAudioOnly
 
-SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS)
+SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
-For information about drop video, read [Transcode: Disable Stream](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG#drop-video-or-audio)
+For information about drop video, read [Transcode: Disable Stream](v1_EN_FFMPEG#drop-video-or-audio)
 
-There is no special config for pure audio for HLS. Please read  [Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleHLS)
+There is no special config for pure audio for HLS. Please read  [Usage: HLS](v1_EN_SampleHLS)
 
 ## HLS and Forward
 
@@ -485,7 +485,7 @@ Remark: The HTTP server must enabled.
 
 For example, publish rtmp at `rtmp://192.168.1.173/live/livestream`, the HLS stream url is `http://192.168.1.173:8080/live/livestream.m3u8`
 
-For information about config, read [Config](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hls-config)
+For information about config, read [Config](v2_CN_DeliveryHLS#hls-config)
 
 ## SRS How to Support HLS
 
