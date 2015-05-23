@@ -1,8 +1,6 @@
-# SRS HTTP server deploy example
+# SRS HTTP FLV deploy example
 
-SRS embeded HTTP server, to delivery HLS and files.
-
-Note: Never use SRS HTTP server for online service.
+About the HTTP FLV of SRS, read [HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -25,40 +23,35 @@ git pull
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)和[HTTP服务器](v1_EN_HTTPServer)
+<strong>Step 3, config srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
-Save bellow as config, or use `conf/http.hls.conf`:
+Save bellow as config, or use `conf/http.flv.live.conf`:
 
 ```bash
-# conf/http.hls.conf
+# conf/http.flv.live.conf
 listen              1935;
 max_connections     1000;
-http_stream {
+http_server {
     enabled         on;
     listen          8080;
     dir             ./objs/nginx/html;
 }
 vhost __defaultVhost__ {
-    hls {
-        enabled         on;
-        hls_path        ./objs/nginx/html;
-        hls_fragment    10;
-        hls_window      60;
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].flv;
+        hstrs       on;
     }
 }
 ```
 
-Note: The hls_path must exists, srs never create it. For detail, 
-read [HLS](v1_CN_DeliveryHLS)
-
-<strong>Step 4, start srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
-and [SRS HTTP Server](v1_EN_HTTPServer)
+<strong>Step 4, start srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 5, start encoder.</strong> For detail, read read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
 Use FFMPEG to publish stream:
 
@@ -71,8 +64,7 @@ Use FFMPEG to publish stream:
     done
 ```
 
-Or use FMLE(which support h.264+aac) to publish, read 
-[Transcode2HLS](v1_CN_SampleTranscode2HLS)：
+Or use FMLE to publish：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -81,9 +73,9 @@ Stream: livestream
 
 The streams on SRS:
 * RTMP: `rtmp://192.168.1.170/live/livestream`
-* HLS: `http://192.168.1.170:8080/live/livestream.m3u8`
+* HTTP FLV: `http://192.168.1.170:8080/live/livestream.flv`
 
-<strong>Step 6, play RTMP.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 6, play RTMP.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -93,13 +85,13 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 7, play HLS.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 7, play HTTP FLV.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
-HLS url: `http://192.168.1.170:8080/live/livestream.m3u8`
+HLS url: `http://192.168.1.170:8080/live/livestream.flv`
 
 User can use vlc to play the HLS stream.
 
-Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080](http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080)
+Or, use online SRS player(you must input the flv url): [osmf][osmf]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
@@ -111,4 +103,5 @@ Winlin 2014.11
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
+[osmf]: http://www.ossrs.net/players/osmf.html?vhost=dev&stream=livestream&server=dev&port=1935
 
