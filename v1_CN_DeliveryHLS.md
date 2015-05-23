@@ -186,13 +186,13 @@ SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可�
 
 分发纯音频流不需要特殊配置，和HLS分发一样，参考：[Usage: HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleHLS)
 
-## HLS和Forward
+## HLS And Forward
 
 Forward的流和普通流不做区分，若forward的流所在的VHOST配置了HLS，一样会应用HLS配置进行切片。
 
 因此，可以对原始流进行Transcode之后，保证流符合h.264/aac的规范，然后forward到多个配置了HLS的VHOST进行切片。支持多个源站的热备。
 
-## HLS和Transcode
+## HLS And Transcode
 
 HLS要求RTMP流的编码为h.264+aac，否则会自动禁用HLS，会出现RTMP流能看HLS流不能看（或者看到的HLS是之前的流）。
 
