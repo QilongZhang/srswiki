@@ -25,7 +25,7 @@ git pull
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [HLS][HLS] and [HTTP Server][HTTP-Server]
+<strong>Step 3, config srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS) and [HTTP Server](v1_CN_HTTPServer)
 
 Save bellow as config, or use `conf/http.hls.conf`:
 
@@ -48,15 +48,15 @@ vhost __defaultVhost__ {
 }
 ```
 
-Note: The hls_path must exists, srs never create it. For detail, read [HLS][HLS]
+Note: The hls_path must exists, srs never create it. For detail, read [HLS](v1_CN_DeliveryHLS)
 
-<strong>Step 4, start srs.</strong> For detail, read [HLS][HLS] and [SRS HTTP Server][HTTP-Server]
+<strong>Step 4, start srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS) and [SRS HTTP Server](v1_CN_HTTPServer)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [HLS][HLS]
+<strong>Step 5, start encoder.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -69,7 +69,7 @@ Use FFMPEG to publish stream:
     done
 ```
 
-Or use FMLE(which support h.264+aac) to publish, read [Transcode2HLS][Transcode2HLS]：
+Or use FMLE(which support h.264+aac) to publish, read [Transcode2HLS](v1_CN_SampleTranscode2HLS)：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -80,7 +80,7 @@ The streams on SRS:
 * RTMP: `rtmp://192.168.1.170/live/livestream`
 * HLS: `http://192.168.1.170:8080/live/livestream.m3u8`
 
-<strong>Step 6, play RTMP.</strong> For detail, read [HLS][HLS]
+<strong>Step 6, play RTMP.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -90,7 +90,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 7, play HLS.</strong> For detail, read [HLS][HLS]
+<strong>Step 7, play HLS.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
 
 HLS url: `http://192.168.1.170:8080/live/livestream.m3u8`
 
@@ -102,10 +102,9 @@ Note: Please replace all ip 192.168.1.170 to your server ip.
 
 Winlin 2014.11
 
-[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
-[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
-[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
-[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
-[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[nginx]: http://192.168.1.170:8080/nginx.html
 [srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
+[srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
+[jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080

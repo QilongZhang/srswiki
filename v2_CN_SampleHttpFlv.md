@@ -124,3 +124,11 @@ HLS流地址为： `http://192.168.1.170:8080/live/livestream.m3u8`
 * 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考只转码音频[Transcode2HLS](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleTranscode2HLS)或者全转码[HLS+Transcode](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#wiki-hls%E5%92%8Ctranscode)
 
 Winlin 2014.4
+
+[nginx]: http://192.168.1.170:8080/nginx.html
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
+[srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
+[jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
+

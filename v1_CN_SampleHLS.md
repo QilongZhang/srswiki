@@ -23,7 +23,7 @@ git pull
 ./configure --disable-all --with-ssl --with-hls --with-nginx && make
 ```
 
-<strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发][HLS]
+<strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
@@ -33,7 +33,7 @@ sudo ./objs/nginx/sbin/nginx
 
 备注：请确定nginx已经启动，可以访问[nginx][nginx]，若能看到`nginx is ok`则没有问题。
 
-<strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发][HLS]
+<strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 将以下内容保存为文件，譬如`conf/hls.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -51,15 +51,15 @@ vhost __defaultVhost__ {
 }
 ```
 
-备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程][HLS]
+备注：hls_path必须存在，srs只会自动创建${hls_path}下的app的目录。参考：[HLS分发: HLS流程](v1_CN_DeliveryHLS)
 
-<strong>第五步，启动SRS。</strong>详细参考[HLS分发][HLS]
+<strong>第五步，启动SRS。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 ```bash
 ./objs/srs -c conf/hls.conf
 ```
 
-<strong>第六步，启动推流编码器。</strong>详细参考[HLS分发][HLS]
+<strong>第六步，启动推流编码器。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 使用FFMPEG命令推流：
 
@@ -72,7 +72,7 @@ vhost __defaultVhost__ {
     done
 ```
 
-或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS][Transcode2HLS]）：
+或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS](v1_CN_SampleTranscode2HLS)）：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -83,7 +83,7 @@ Stream: livestream
 * RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 * HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
-<strong>第七步，观看RTMP流。</strong>详细参考[HLS分发][HLS]
+<strong>第七步，观看RTMP流。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
@@ -93,7 +93,7 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第八步，观看HLS流。</strong>详细参考[HLS分发][HLS]
+<strong>第八步，观看HLS流。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
 
 HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
@@ -118,25 +118,11 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 <strong>RTMP流内容和HLS流内容不一致</strong>
 * 一般这种问题出现在使用上面的例子推流，然后换成别的编码器推流，或者换个文件推流。
-* 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考只转码音频[Transcode2HLS][Transcode2HLS]
+* 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考只转码音频[Transcode2HLS](v1_CN_SampleTranscode2HLS)
 
 Winlin 2014.3
 
-[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
-[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
-[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
-[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
-[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
-[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
-[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
-[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
-[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
 [nginx]: http://192.168.1.170:8080/nginx.html
-[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Git
-[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build
-[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS
-[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPServer
-[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleTranscode2HLS
 [srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
 [srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff

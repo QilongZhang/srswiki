@@ -126,21 +126,7 @@ RTMP流地址为：`rtmp://192.168.1.170:19350/live/livestream`
 
 Winlin 2014.3
 
-[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
-[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
-[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
-[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
-[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
-[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
-[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
-[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
-[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
 [nginx]: http://192.168.1.170:8080/nginx.html
-[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Git
-[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build
-[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS
-[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPServer
-[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SampleTranscode2HLS
 [srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
 [srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
