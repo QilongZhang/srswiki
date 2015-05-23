@@ -10,7 +10,7 @@ Forward will copy streams to other RTMP server:
 
 We use master to listen at 1935, and slave listen at 19350.
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -23,7 +23,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build][Build]
 
 ```bash
 ./configure --disable-all --with-ssl && make

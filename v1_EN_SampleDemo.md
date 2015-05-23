@@ -17,7 +17,7 @@ Please study all [Usage](https://github.com/simple-rtmp-server/srs/tree/1.0relea
 192.168.1.170 demo.srs.com
 ```
 
-<strong>Step 2, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
+<strong>Step 2, get SRS.</strong> For detail, read [GIT][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -30,7 +30,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 3, build SRS.</strong> For detail, read [Build](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build)
+<strong>Step 3, build SRS.</strong> For detail, read [Build][Build]
 
 ```bash
 bash scripts/build.sh
@@ -58,3 +58,24 @@ Note: Demo does not depends on nginx, we use cherrypy to delivery the web pages 
 Demo use FFMPEG to transcode.
 
 Winlin 2014.11
+
+[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
+[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
+[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
+[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
+[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
+[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[nginx]: http://192.168.1.170:8080/nginx.html
+[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
+[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
+[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
+[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
+[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
+[srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
+[jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080

@@ -2,17 +2,17 @@
 
 SRS can deploy on ARM linux. SRS provides srs-librtmp as client library for ARM.
 
-Compile and build ARM, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm),
+Compile and build ARM, read [SrsLinuxArm][SrsLinuxArm],
 this artical describes how to deploy.
 
 <strong>Suppose the IP of ubuntu12: 192.168.1.170</strong><br/>
 <strong>Suppose the ARM device running in VirtualBox 1935 mapped to Ubuntu12 19350, 22 mapped to 2200.
 That is, we can access Ubuntu12 19350 to access the ARM 1935, while the Ubuntu 2200 for ARM 22.</strong>
-For more information, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+For more information, read [SrsLinuxArm][SrsLinuxArm]
 
 ## Ubuntu12 cross build SRS
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -25,13 +25,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 2, build SRS.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 3, send SRS to ARM virtual machine.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 # Password is：root
@@ -43,13 +43,13 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
 
 Login to Ubuntu 2200, we are on ARM:
 
-<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 4, start SRS.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm)
+<strong>Step 5, start encoder.</strong> For detail, read [SrsLinuxArm][SrsLinuxArm]
 
 Use FFMPEG to publish stream:
 
@@ -79,8 +79,29 @@ RTMP url is: `rtmp://192.168.1.170:19350/live/livestream`
 
 User can use vlc to play the RTMP stream.
 
-Or, use online SRS player: [http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
+Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
 Winlin 2014.11
+
+[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
+[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
+[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
+[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
+[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
+[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[nginx]: http://192.168.1.170:8080/nginx.html
+[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
+[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
+[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
+[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
+[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[srs-player-19350]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350
+[srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
+[jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080

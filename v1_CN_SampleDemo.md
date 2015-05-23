@@ -2,7 +2,7 @@
 
 SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，转码，视频会议等。
 
-<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage](https://github.com/simple-rtmp-server/srs/tree/1.0release#usage)的每个单独的使用，然后再动demo。</strong>
+<strong>注意：强烈建议初学者不要动demo，只要看demo就好；建议学完[Usage][Usage]的每个单独的使用，然后再动demo。</strong>
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
@@ -16,7 +16,7 @@ SRS的DEMO的部署，提供网页演示播放/推送RTMP到SRS，播放HLS，�
 192.168.1.170 demo.srs.com
 ```
 
-<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Git)
+<strong>第二步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -29,7 +29,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第三步，编译SRS。</strong>详细参考[Build](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Build)
+<strong>第三步，编译SRS。</strong>详细参考[Build][Build]
 
 ```bash
 bash scripts/build.sh
@@ -56,3 +56,16 @@ bash scripts/stop.sh
 备注：DEMO不依赖nginx，使用cherrypy做演示网站以及分发HLS，依赖FFMPEG需要演示转码。
 
 Winlin 2014.3
+
+[Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[nginx]: http://192.168.1.170:8080/nginx.html
+[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
+[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
+[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
+[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
+[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080

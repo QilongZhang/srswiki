@@ -2,14 +2,15 @@
 
 SRS可以在SRS上作为服务器运行，播放器可以从arm设备上取流播放；arm也可以作为客户端推流到外部srs服务器，使用srs-librtmp库。
 
-编译和搭建ARM环境，详细信息可以参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)，本文举例说明部署的实例步骤。
+编译和搭建ARM环境，详细信息可以参考：[SrsLinuxArm][SrsLinuxArm]，本文举例说明部署的实例步骤。
 
 <strong>假设编译为Ubuntu12的IP是：192.168.1.170</strong><br/>
-<strong>假设ARM虚拟设备：1935映射到Ubuntu12的19350端口，22映射到2200端口。即访问Ubuntu的19350就是访问ARM虚拟机的1935（流媒体）；访问Ubuntu的2200就是访问ARM虚拟机的22（SSH登录）。</strong> 详细信息可以参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)
+<strong>假设ARM虚拟设备：1935映射到Ubuntu12的19350端口，22映射到2200端口。即访问Ubuntu的19350就是访问ARM虚拟机的1935（流媒体）；访问Ubuntu的2200就是访问ARM虚拟机的22（SSH登录）。</strong> 
+详细信息可以参考：[SrsLinuxArm][SrsLinuxArm]
 
 ## Ubuntu12交叉编译SRS
 
-<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Git)
+<strong>第一步，获取SRS。</strong>详细参考[GIT获取代码][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -22,13 +23,13 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)
+<strong>第二步，编译SRS。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 ./configure --arm && make
 ```
 
-<strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)
+<strong>第三步，将SRS发送到ARM虚拟机。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 # 密码为：root
@@ -40,13 +41,13 @@ scp -P 2200 conf/rtmp.conf root@localhost:~
 
 登录到Ubuntu的2200端口，就是登录到了ARM虚拟设备。
 
-<strong>第四步，启动SRS。</strong>详细参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)
+<strong>第四步，启动SRS。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
 
 ```bash
 ./objs/srs -c conf/rtmp.conf
 ```
 
-<strong>第五步，启动推流编码器。</strong>详细参考：[SrsLinuxArm](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm)
+<strong>第五步，启动推流编码器。</strong>详细参考：[SrsLinuxArm][SrsLinuxArm]
 
 使用FFMPEG命令推流：
 
@@ -76,9 +77,22 @@ RTMP流地址为：`rtmp://192.168.1.170:19350/live/livestream`
 
 可以使用VLC观看。
 
-或者使用在线SRS播放器播放：[http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350](http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=19350)
+或者使用在线SRS播放器播放：[srs-player][srs-player]
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
 
 Winlin 2014.3
+
+
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[nginx]: http://192.168.1.170:8080/nginx.html
+[GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
+[Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
+[HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS
+[HTTP-Server]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPServer
+[Transcode2HLS]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SampleTranscode2HLS
+[srs-player]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream&port=1935
+[jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080

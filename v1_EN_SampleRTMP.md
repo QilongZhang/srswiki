@@ -4,7 +4,7 @@ RTMP is the kernel feature of SRS.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT][GIT]
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
