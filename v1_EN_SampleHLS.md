@@ -4,7 +4,7 @@ To deploy HLS on SRS:
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_CN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_EN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs
@@ -17,13 +17,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_CN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl --with-hls --with-nginx && make
 ```
 
-<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
@@ -31,7 +31,7 @@ sudo ./objs/nginx/sbin/nginx
 
 Note: Ensure nginx is ok, to access [nginx][nginx].
 
-<strong>Step 4, config srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 4, config srs.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 Save bellow as config, or use `conf/hls.conf`:
 
@@ -50,15 +50,15 @@ vhost __defaultVhost__ {
 ```
 
 Note: The hls_path must exists, srs never create it. For detail, 
-read [HLS](v1_CN_DeliveryHLS)
+read [HLS](v1_EN_DeliveryHLS)
 
-<strong>Step 5, start srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 5, start srs.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 ```bash
 ./objs/srs -c conf/hls.conf
 ```
 
-<strong>Step 6, start encoder.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 6, start encoder.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -72,7 +72,7 @@ Use FFMPEG to publish stream:
 ```
 
 Or use FMLE(which support h.264+aac) to publish, read 
-[Transcode2HLS](v1_CN_SampleTranscode2HLS)：
+[Transcode2HLS](v1_EN_SampleTranscode2HLS)：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -83,7 +83,7 @@ The stream in SRS:
 * RTMP url：`rtmp://192.168.1.170/live/livestream`
 * HLS url： `http://192.168.1.170/live/livestream.m3u8`
 
-<strong>Step 7, play RTMP stream.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 7, play RTMP stream.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -93,7 +93,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 8, play HLS stream.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 8, play HLS stream.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
 
 HLS url： `http://192.168.1.170/live/livestream.m3u8`
 
