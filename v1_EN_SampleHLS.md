@@ -109,15 +109,15 @@ For detail about pure audio HLS, read [HLS audio only][HLS-Audio-Only]
 
 Winlin 2014.11
 
-[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryRTMP
-[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_LowLatency
-[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Ingest
-[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Forward
-[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_FFMPEG
+[RTMP]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryRTMP
+[LowLatency]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_LowLatency
+[Ingest]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Ingest
+[Forward]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Forward
+[FFMPEG]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_FFMPEG
 [Usage]: https://github.com/simple-rtmp-server/srs/tree/1.0release#usage
-[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLinuxArm
-[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hls-and-transcode
-[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[SrsLinuxArm]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLinuxArm
+[HLS-And-Transcode]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hls-and-transcode
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hlsaudioonly
 [nginx]: http://192.168.1.170:8080/nginx.html
 [GIT]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Git
 [Build]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Build
