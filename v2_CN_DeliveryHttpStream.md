@@ -174,7 +174,7 @@ HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
 SRS的HTTP FLV容易和下面的几种分发方式混淆：
 
 1. RTMPT：这个实际上是最接近SRS的HTTP FLV的概念的。但是从本质上来讲，rtmpt是基于HTTP的RTMP，所以还是RTMP而不是FLV。
-2. HDL/HFL：国内一些厂家的HXX流，就是FLV流，主要和SRS的区别在于服务器集群内部SRS还是走RTMP，所以延迟会有很大差异。SRS的HTTP FLV和RTMP延迟一样，0.8-3秒。
+2. HDL/HFL：国内一些厂家的HXX流，就是FLV流，主要和SRS的区别在于服务器集群内部SRS还是走RTMP，所以延迟可能会有很大差异。SRS的HTTP FLV和RTMP延迟一样，0.8-3秒。
 3. HDS：这个差的太远了，不是一个东西。HDS和HLS像，但是HTTP FLV和他们两个都完全不像。
 
 ### Why HTTP FLV
