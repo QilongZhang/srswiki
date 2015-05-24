@@ -5,6 +5,8 @@
 1. [查看ossrs.net的公网服务器演示流](v1_CN_LiveShow)
 1. [运行SRS的演示](v1_CN_SampleDemo)
 1. [分发RTMP流](v1_CN_SampleRTMP)
+1. [分发HTTP FLV流](v2_CN_SampleHttpFlv)
+1. [分发HTTP FLV流集群](v2_CN_SampleHttpFlvCluster)
 1. [分发RTMP+HLS流](v1_CN_SampleHLS)
 1. [转码后分发HLS流](v1_CN_SampleTranscode2HLS)
 1. [使用FFMPEG转码](v1_CN_SampleFFMPEG)
