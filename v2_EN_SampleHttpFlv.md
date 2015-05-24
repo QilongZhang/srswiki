@@ -48,7 +48,7 @@ vhost __defaultVhost__ {
 <strong>Step 4, start srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
 ```bash
-./objs/srs -c conf/http.hls.conf
+./objs/srs -c conf/http.flv.live.conf
 ```
 
 <strong>Step 5, start encoder.</strong> For detail, read read [HTTP FLV](v2_CN_DeliveryHttpStream)
