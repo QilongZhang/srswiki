@@ -77,21 +77,13 @@ The streams on SRS:
 
 <strong>Step 6, play RTMP.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
-RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
-
-User can use vlc to play the RTMP stream.
-
-Or, use online SRS player: [srs-player][srs-player]
+RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`, User can use vlc to play the RTMP stream. Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
 <strong>Step 7, play HTTP FLV.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
 
-HLS url: `http://192.168.1.170:8080/live/livestream.flv`
-
-User can use vlc to play the HLS stream.
-
-Or, use online SRS player(you must input the flv url): [jwplayer-flv][jwplayer-flv]
+HTTP FLV url: `http://192.168.1.170:8080/live/livestream.flv`, User can use vlc to play the HLS stream. Or, use online SRS player(you must input the flv url): [jwplayer-flv][jwplayer-flv]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
