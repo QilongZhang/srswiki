@@ -2,6 +2,8 @@
 
 SRS支持HTTP FLV直播流分发，详细参考[HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
 
+SRS的HTTP FLV边缘只能使用单进程，如何做到多进程呢？可以使用HTTP反向代理，SRS提供了go-sharp，支持根据SRS边缘的负载均衡以及心跳检测。参考：[go-sharp][go-sharp]
+
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
 <strong>第一步，获取SRS。</strong>详细参考[GIT获取代码](v1_CN_Git)
@@ -96,3 +98,4 @@ Winlin 2014.4
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
 [jwplayer-flv]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_autostart=true
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
