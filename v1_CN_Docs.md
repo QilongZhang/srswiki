@@ -180,6 +180,10 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发RTMP流？参考：[Usage: RTMP](v1_CN_SampleRTMP)
 
+## [Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
+
+使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
+
 ## [Usage: HLS](v1_CN_SampleHLS)
 
 使用实例：如何使用SRS分发HLS(m3u8/ts)流？参考：[Usage: HLS](v1_CN_SampleHLS)
