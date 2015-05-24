@@ -2,6 +2,8 @@
 
 About the HTTP FLV cluster of SRS, read [HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
 
+How to use multiple process for HTTP FLV? You can use HTTP reverse proxy, and SRS start the go-sharp project, which can proxy in load balance mode and detect the status of SRS. For go-sharp, read [go-sharp][go-sharp]
+
 This example show how to deploy three SRS instance, listen at different port at a machine(user can deploy each to different machine, use same port), while one is origin server, another two are edge servers. We can publish RTMP to origin or edge, and play the RTMP/FLV at any edge. The latency is same to RTMP, 0.8-1s.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
@@ -146,3 +148,4 @@ Winlin 2014.11
 [jwplayer-flv]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_autostart=true
 [jwplayer-flv-8081]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_port=8081&hls_autostart=true
 [jwplayer-flv-8082]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_port=8082&hls_autostart=true
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
