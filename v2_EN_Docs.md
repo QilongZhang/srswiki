@@ -192,6 +192,14 @@ How to get the stable release of SRS? How to merge master with your branch? How 
 
 Usage: How to use SRS to delivery RTMP? Please see: [Usage: RTMP](v1_EN_SampleRTMP)
 
+## [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
+
+Usage: How to use SRS to delivery HTTP FLV live streaming? Please read [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
+
+## [Usage: HTTP FLV Cluster](v2_CN_SampleHttpFlvCluster)
+
+Usage: How to use SRS to delivery HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v2_CN_SampleHttpFlvCluster)
+
 ## [Usage: HLS](v1_EN_SampleHLS)
 
 Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v1_EN_SampleHLS)
