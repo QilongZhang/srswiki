@@ -176,6 +176,10 @@ How to get the stable release of SRS? How to merge master with your branch? How 
 
 Usage: How to use SRS to delivery RTMP? Please see: [Usage: RTMP](v1_EN_SampleRTMP)
 
+## [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
+
+Usage: How to use SRS to delivery RTMP Cluster? Please see: [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
+
 ## [Usage: HLS](v1_EN_SampleHLS)
 
 Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v1_EN_SampleHLS)
