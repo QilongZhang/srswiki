@@ -2,6 +2,8 @@
 
 SRS支持HTTP FLV直播流集群分发，详细参考[HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
 
+SRS的HTTP FLV边缘只能使用单进程，如何做到多进程呢？可以使用HTTP反向代理，SRS提供了go-sharp，支持根据SRS边缘的负载均衡以及心跳检测。参考：[go-sharp][go-sharp]
+
 本例子部署了三个SRS，侦听不同的端口（实际可以部署到不同的机器，侦听同一个端口），一个作为Origin源站，两个作为Edge边缘。推RTMP流到源站或者边缘后，可以通过任何Edge观看，和RTMP的效果一样，集群的延迟在0.8-3秒。
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
@@ -146,3 +148,4 @@ Winlin 2014.4
 [jwplayer-flv]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_autostart=true
 [jwplayer-flv-8081]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_port=8081&hls_autostart=true
 [jwplayer-flv-8082]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_port=8082&hls_autostart=true
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
