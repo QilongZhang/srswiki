@@ -159,6 +159,8 @@ For more information, read https://github.com/simple-rtmp-server/srs/issues/324
 
 This section descrbes the HTTP FLV live streaming.
 
+How to use multiple process for HTTP FLV? You can use HTTP reverse proxy, and SRS start the go-sharp project, which can proxy in load balance mode and detect the status of SRS. For go-sharp, read [go-sharp][go-sharp]
+
 ### What is HTTP FLV
 
 All http streaming is a http flv url, for instance `http://ossrs.net:8081/live/livestream.flv`, but the delivery methods maybe different:
@@ -195,3 +197,5 @@ The config sample, read https://github.com/simple-rtmp-server/srs/issues/293#iss
 To config HTTP FLV, read [Sample](v2_EN_SampleHttpFlv)
 
 Winlin 2015.1
+
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
