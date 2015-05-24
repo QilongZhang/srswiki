@@ -5,6 +5,8 @@ The following guide you to basic feature of SRS:
 1. [The demo stream of ossrs.net](v1_EN_LiveShow)
 1. [Run the demo of SRS](v1_EN_SampleDemo)
 1. [Delivery RTMP stream](v1_EN_SampleRTMP)
+1. [Delivery HTTP FLV live streaming](v2_EN_SampleHttpFlv)
+1. [Delivery HTTP FLV live streaming cluster](v2_EN_SampleHttpFlvCluster)
 1. [Delivery RTMP+HLS](v1_EN_SampleHLS)
 1. [Transcode and delivery HLS stream](v1_EN_SampleTranscode2HLS)
 1. [Use FFMPEG to transcode stream](v1_EN_SampleFFMPEG)
