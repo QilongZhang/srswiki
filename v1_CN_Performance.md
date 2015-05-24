@@ -636,7 +636,7 @@ CentOS6 x86_64虚拟机，SRS和nginx-rtmp的数据对比如下：
 </tr>
 </table>
 
-## 性能例行报告:4k
+## PerformanceReport4k
 
 今天做了性能优化，默认演示流（即采集doc/source.200kbps.768x320.flv文件为流）达到4k以上并发没有问题。
 
@@ -684,11 +684,11 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 不过我是在虚拟机测试，物理机的实际情况还有待数据观察。
 
-## 性能例行报告:6k
+## PerformanceReport6k
 
 SRS2.0.15（注意是SRS2.0，而不是SRS1.0）支持6k客户端，522kbps的流可以跑到近4Gbps带宽，单进程。参考：https://github.com/simple-rtmp-server/srs/issues/194
 
-## 性能例行报告:7.5k
+## PerformanceReport7.5k
 
 SRS2.0.30支持7.5k客户端，参考：https://github.com/simple-rtmp-server/srs/issues/217
 
