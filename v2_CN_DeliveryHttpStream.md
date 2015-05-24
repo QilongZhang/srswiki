@@ -159,6 +159,8 @@ HSTRS需要开启配置项`http_remux`的`hstrs`，默认是开启的。
 
 这一节详细解释HTTP FLV的背景。
 
+SRS的HTTP FLV边缘只能使用单进程，如何做到多进程呢？可以使用HTTP反向代理，SRS提供了go-sharp，支持根据SRS边缘的负载均衡以及心跳检测。参考：[go-sharp][go-sharp]
+
 ### What is HTTP FLV
 
 所有的HTTP FLV流都是一个HTTP FLV地址，譬如：`http://ossrs.net:8081/live/livestream.flv`，但是，流的形式却至少有三种：
@@ -195,3 +197,5 @@ SRS的HTTP FLV容易和下面的几种分发方式混淆：
 一步一步配置HTTP FLV： [Sample](v2_CN_SampleHttpFlv)
 
 Winlin 2015.1
+
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
