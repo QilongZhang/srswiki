@@ -192,6 +192,14 @@ C++如何选择开发环境？建议UltimateC++，当然等[jetbrains](http://ww
 
 SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎么办？参考：[GIT获取代码](v1_CN_Git)
 
+## [Usage: RTMP](v2_CN_SampleRTMP)
+
+使用实例：如何使用SRS分发RTMP直播流？参考：[Usage: RTMP](v2_CN_SampleRTMP)
+
+## [Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
+
+使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
+
 ## [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
 
 使用实例：如何使用SRS分发HTTP FLV直播流？参考：[Usage: HTTP FLV](v2_CN_SampleHttpFlv)
