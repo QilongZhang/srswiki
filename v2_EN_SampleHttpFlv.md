@@ -2,6 +2,8 @@
 
 About the HTTP FLV of SRS, read [HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
 
+How to use multiple process for HTTP FLV? You can use HTTP reverse proxy, and SRS start the go-sharp project, which can proxy in load balance mode and detect the status of SRS. For go-sharp, read [go-sharp][go-sharp]
+
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
 <strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_EN_Git)
@@ -96,3 +98,4 @@ Winlin 2014.11
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
 [jwplayer-flv]: http://www.ossrs.net/players/jwplayer6.html?vhost=192.168.1.170&stream=livestream.flv&server=192.168.1.170&port=1935&hls_autostart=true
+[go-sharp]: https://github.com/simple-rtmp-server/go-sharp
