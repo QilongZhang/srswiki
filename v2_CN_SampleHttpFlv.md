@@ -48,7 +48,7 @@ vhost __defaultVhost__ {
 <strong>第四步，启动SRS。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 ```bash
-./objs/srs -c conf/http.hls.conf
+./objs/srs -c conf/http.flv.live.conf
 ```
 
 <strong>第五步，启动推流编码器。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
