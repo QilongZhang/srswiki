@@ -77,21 +77,13 @@ Stream: livestream
 
 <strong>第六步，观看RTMP流。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
-RTMP流地址为：`rtmp://192.168.1.170/live/livestream`
-
-可以使用VLC观看。
-
-或者使用在线SRS播放器播放：[srs-player][srs-player]
+RTMP流地址为：`rtmp://192.168.1.170/live/livestream`，可以使用VLC观看，或者使用在线SRS播放器播放：[srs-player][srs-player]
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第七步，观看HLS流。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>第七步，观看FLV流。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
-HTTP FLV流地址为： `http://192.168.1.170:8080/live/livestream.flv`
-
-可以使用VLC观看。
-
-或者使用在线SRS播放器播放：[jwplayer-flv][jwplayer-flv]
+HTTP FLV流地址为： `http://192.168.1.170:8080/live/livestream.flv`，可以使用VLC观看，或者使用在线SRS播放器播放：[jwplayer-flv][jwplayer-flv]
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
