@@ -1,6 +1,6 @@
 # SRS-HTTP-FLV部署实例
 
-SRS支持HTTP FLV直播流分发，详细参考[HTTP FLV](v2_EN_DeliveryHttpStream#about-http-flv)
+SRS支持HTTP FLV直播流分发，详细参考[HTTP FLV](v2_CN_DeliveryHttpStream#about-http-flv)
 
 SRS的HTTP FLV边缘只能使用单进程，如何做到多进程呢？可以使用HTTP反向代理，SRS提供了go-sharp，支持根据SRS边缘的负载均衡以及心跳检测。参考：[go-sharp][go-sharp]
 

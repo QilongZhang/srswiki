@@ -196,13 +196,13 @@ Usage: How to use SRS to delivery RTMP? Please see: [Usage: RTMP](v1_EN_SampleRT
 
 Usage: How to use SRS to delivery RTMP Cluster? Please see: [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
 
-## [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
+## [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
-Usage: How to use SRS to delivery HTTP FLV live streaming? Please read [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
+Usage: How to use SRS to delivery HTTP FLV live streaming? Please read [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
-## [Usage: HTTP FLV Cluster](v2_CN_SampleHttpFlvCluster)
+## [Usage: HTTP FLV Cluster](v2_EN_SampleHttpFlvCluster)
 
-Usage: How to use SRS to delivery HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v2_CN_SampleHttpFlvCluster)
+Usage: How to use SRS to delivery HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v2_EN_SampleHttpFlvCluster)
 
 ## [Usage: HLS](v1_EN_SampleHLS)
 

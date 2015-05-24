@@ -27,7 +27,7 @@ git pull
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config origin srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 3, config origin srs.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 Save bellow as config, or use `conf/http.flv.live.conf`:
 
@@ -49,7 +49,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, config edge srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 4, config edge srs.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 Save bellow as config, or use `conf/http.flv.live.edge1.conf` or `conf/http.flv.live.edge2.conf`:
 
@@ -75,7 +75,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 5, start srs.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 5, start srs.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 ```bash
 ./objs/srs -c conf/http.flv.live.conf &&
@@ -83,7 +83,7 @@ vhost __defaultVhost__ {
 ./objs/srs -c conf/http.flv.live.edg2.conf
 ```
 
-<strong>Step 6, start encoder.</strong> For detail, read read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 6, start encoder.</strong> For detail, read read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 Use FFMPEG to publish stream:
 
@@ -115,7 +115,7 @@ The streams on SRS edge2:
 * RTMP: `rtmp://192.168.1.170:19352/live/livestream`
 * HTTP FLV: `http://192.168.1.170:8082/live/livestream.flv`
 
-<strong>Step 7, play RTMP.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 7, play RTMP.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 Origin RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`, User can use vlc to play the RTMP stream. Or, use online SRS player: [srs-player][srs-player]
 
@@ -125,7 +125,7 @@ Edge2 RTMP url is: `rtmp://192.168.1.170:19352/live/livestream`, User can use vl
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 8, play HTTP FLV.</strong> For detail, read [HTTP FLV](v2_CN_DeliveryHttpStream)
+<strong>Step 8, play HTTP FLV.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
 
 Origin HTTP FLV url: `http://192.168.1.170:8080/live/livestream.flv`, User can use vlc to play the HLS stream. Or, use online SRS player(you must input the flv url): [jwplayer-flv][jwplayer-flv]
 
