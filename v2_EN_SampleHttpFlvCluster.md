@@ -24,7 +24,10 @@ git pull
 <strong>Step 2, build SRS.</strong> For detail, read [Build](v1_CN_Build)
 
 ```bash
-./configure --disable-all --with-hls --with-ssl --with-http-server --with-http-api && make
+./configure --disable-all \
+    --with-hls --with-ssl --with-http-server \
+    --with-http-api && 
+make
 ```
 
 <strong>Step 3, config origin srs.</strong> For detail, read [HTTP FLV](v2_EN_DeliveryHttpStream)
