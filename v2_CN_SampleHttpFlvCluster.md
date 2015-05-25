@@ -24,7 +24,7 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
-./configure --disable-all --with-hls --with-ssl --with-http-server && make
+./configure --disable-all --with-hls --with-ssl --with-http-server --with-http-api && make
 ```
 
 <strong>第三步，编写SRS源站配置文件。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
