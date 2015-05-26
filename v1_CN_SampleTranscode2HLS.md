@@ -29,7 +29,9 @@ git pull
 <strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
-./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make
+./configure --disable-all \
+    --with-ssl --with-hls --with-nginx \
+    --with-ffmpeg --with-transcode && make
 ```
 
 <strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](v1_CN_DeliveryHLS)
