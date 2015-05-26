@@ -120,7 +120,7 @@ SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参
 
 如何在RaspberryPi下转码音频？如何在pi下面开启HTTP服务器分发HLS？参考：[RaspberryPi下转码](v1_CN_ARMTranscode)
 
-## [服务器端脚本](v1_CN_ServerSideScript)
+## [ServerSideScript服务器端脚本](v1_CN_ServerSideScript)
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](v1_CN_ServerSideScript)
 
