@@ -22,7 +22,9 @@ git pull
 <strong>Step 2, build SRS.</strong> For detail, read [Build](v1_EN_Build)
 
 ```bash
-./configure --disable-all --with-ssl --with-hls --with-nginx --with-ffmpeg --with-transcode && make
+./configure --disable-all \
+    --with-ssl --with-hls --with-nginx \
+    --with-ffmpeg --with-transcode && make
 ```
 
 <strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
