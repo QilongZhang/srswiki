@@ -136,9 +136,13 @@ SRS在arm（RaspberryPi）下的性能如何？最多支持多少个并发？参
 
 如何在RaspberryPi下转码音频？如何在pi下面开启HTTP服务器分发HLS？参考：[RaspberryPi下转码](v1_CN_ARMTranscode)
 
-## [服务器端脚本](v1_CN_ServerSideScript)
+## [ServerSideScript服务器端脚本](v1_CN_ServerSideScript)
 
 SRS为何不支持服务器端脚本？链接：[服务器端脚本](v1_CN_ServerSideScript)
+
+## [Flash/Android/IOS P2P](v2_CN_WebP2P)
+
+SRS支持Flash/Android/IOS P2P吗？如何支持？参考：[Flash/Android/IOS P2P](v2_CN_WebP2P)
 
 ## [SRS-librtmp](v2_CN_SrsLibrtmp)
 
