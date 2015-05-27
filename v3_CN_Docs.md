@@ -40,9 +40,9 @@ SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](v1
 
 如何查看SRS的日志？如何不以nohup但是后台启动？如何将日志打印到控制台？如何打印出更多或者更少的日志？如何打印出详细级别的日志？如何只打印出警告以上的日志？参考：[SRS日志](v1_CN_SrsLog)
 
-## [SRS的架构](v1_CN_Architecture)
+## [SRS的架构](v3_CN_Architecture)
 
-SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v1_CN_Architecture)
+SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v3_CN_Architecture)
 
 ## [RTMP URL & Vhost](v1_CN_RtmpUrlVhost)
 
