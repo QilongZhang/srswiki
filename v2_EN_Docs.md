@@ -36,9 +36,9 @@ How to use init.d script to start SRS as system service? How to run SRS in daemo
 
 How to get the log of SRS? How to trace log to console? How to get less log for log file too large? How to get more detail level log? How to get warn level log only? Please see: [SRS Log](v1_EN_SrsLog)
 
-## [SRS Architecture](v2_EN_Architecture)
+## [SRS Architecture](v1_EN_Architecture)
 
-The architecture for all SRS developers。Please see: [SRS Architecture](v2_EN_Architecture)
+The architecture for all SRS developers。Please see: [SRS Architecture](v1_EN_Architecture)
 
 ## [RTMP URL & Vhost](v1_EN_RtmpUrlVhost)
 
