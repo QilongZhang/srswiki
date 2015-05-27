@@ -16,21 +16,6 @@ SRS没有直接使用epoll进行状态处理，而是使用了协程库state-thr
 
 ST参考：[ST](https://github.com/winlinvip/state-threads)
 
-## Multiple Processes
-
-SRS支持多进程吗？不支持。SRS能支持多进程吗？可以的。简单讲有几个因素不支持多进程：
-
-1. 单进程9k并发够用了。
-1. 多进程比单进程还是麻烦点。
-1. RTMP302会更方便，只是需要播放器支持。
-
-在SRS1时，杰哥就提出过多进程的方案，这个方案比任何流媒体服务器多进程方案都要牛逼！简单讲，就是master进程作为源站origin服务器，然后fork多个边缘edge服务器，这些edge服务器通过lo网卡回本地的origin。这个方案牛逼的地方包括：
-
-1. 没有引入新的角色，只是fork进程，使用SRS本来的origin-edge结构合并回源。
-1. 不transfer fd，也就是edge直接处理连接，不用在进程间调度。
-
-如果你觉得9k的并发还不够，建议自己使用杰哥提供的这个多进程方案。
-
 ## HLS Fault Tolerance Backup
 
 关于HLS热备，在流媒体中是比较难以处理的一个问题，具体可以参考[hls][hls]。所谓HLS热备，是指编码器（它自己可以热备）输出两路相同的RTMP流给两个不同地方的机房的流媒体服务器，然后这两个服务器生成的切片一样，这样任何一个机房宕机都不会影响hls流的生成。
