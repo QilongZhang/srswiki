@@ -72,6 +72,8 @@ dolphin(master)   => 4 X dolphin(proxer)  => 4 X SRS
 
 这个结构最大的优势，在于SRS不需要做结构的变动，启动时也只是换成了srs-dolphin启动，其他的都不变。
 
+这个结构，和杰哥的PlanA结构的区别在于，dolphin没有开启源站合并回源，所以多核会增加回源带宽。不过可以通过适当的调度策略，跑满了一个进程再跑下一个，缓解这个问题。
+
 Winlin 2015.5
 
 [hls]: https://github.com/simple-rtmp-server/srs/issues/351
