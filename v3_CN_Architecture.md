@@ -57,7 +57,7 @@ SRS支持多进程吗？不支持。SRS能支持多进程吗？可以的。简�
 
 2015年5月我在下午休息时突然想到，为何不直接做TCP级别的反向代理，实现SRS的多进程呢？这样SRS不用改，多进程也非常简单。
 
-也就是说，可以单独开启一个项目[[ srs-dolphin|srs-dolphin ]]，类似于go-sharp（HTTP级别的FLV代理），但是和sharp不一样的是dolphin是TCP代理，dolphin的主要流程是：
+也就是说，可以单独开启一个项目[srs-dolphin][srs-dolphin]，类似于go-sharp（HTTP级别的FLV代理），但是和sharp不一样的是dolphin是TCP代理，dolphin的主要流程是：
 
 1. dolphin配置时指定侦听的端口，以及开启的核心数，譬如4核心侦听1935。dolphin会给每个核自动分配端口，譬如1936-1939。
 1. dolphin启动后，绑定指定的服务端口譬如1935，然后每个核启动一个进程共享这个服务端口。
