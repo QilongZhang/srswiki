@@ -9,7 +9,7 @@ This wiki is the main source of documentation for **developers** working with (o
 | About SRS             | Project & Community              | Setup Guide          | Technical Documentation                  |
 |----------------------------|---------------------------------|-------------------------------|---------------------------|
 | [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
-| [[About SRS| v1_EN_Product]] | [[Project & Community| v1_EN_Project]]       | [[Setup Guide| v3_EN_Setup]] | [[Technical Documentation| v2_EN_Docs]]|
+| [[About SRS| v1_EN_Product]] | [[Project & Community| v1_EN_Project]]       | [[Setup Guide| v2_EN_Setup]] | [[Technical Documentation| v3_EN_Docs]]|
 | Introducing SRS - why we built it and what it does | About the open-source project, our community and how to contribute | A step-by-step guide to running SRS | Detailed technical documentation on SRS |
 
 ## Questions or need help?
