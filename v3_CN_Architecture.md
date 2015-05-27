@@ -75,3 +75,5 @@ dolphin(master)   => 4 X dolphin(proxer)  => 4 X SRS
 Winlin 2015.5
 
 [hls]: https://github.com/simple-rtmp-server/srs/issues/351
+
+[srs-dolphin]: https://github.com/simple-rtmp-server/srs-dolphin
