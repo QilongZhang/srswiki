@@ -27,7 +27,7 @@ Use RTMP or HLS? Or HDS? What about HTTP-FLV stream? What is the difference betw
 
 How to build RTMP cluster? Why use edge, not the forward? How to enable ATC for fault backup? What is HSTRS? How to support merge fetch from origin for HTTP-FLV edge server? Read [Forward](v1_EN_Forward)、[Edge](v2_EN_Edge)、[HTTP Stream](v2_EN_DeliveryHttpStream)、[ATC](v1_EN_RTMP-ATC)
 
-What is the architecture of SRS? How to set http callback? How does SRS correct the timestamp? Why timestamp should monotonically increase for RTMP? How to config SRS to report to your system? Read [Arch](v1_EN_Architecture)、[Callback](v2_EN_HTTPCallback)、[Script](v1_EN_ServerSideScript)、[Jitter](v2_EN_TimeJitter)、[Heartbeat](v1_EN_Heartbeat)
+What is the architecture of SRS? How to set http callback? How does SRS correct the timestamp? Why timestamp should monotonically increase for RTMP? How to config SRS to report to your system? Read [Arch](v2_EN_Architecture)、[Callback](v2_EN_HTTPCallback)、[Script](v1_EN_ServerSideScript)、[Jitter](v2_EN_TimeJitter)、[Heartbeat](v1_EN_Heartbeat)
 
 What is the IDE supported by SRS? How to use git? How to switch to develop branch? What about other release branch? How to create pull request, or sync with SRS? How to analysis the performance bottleneck? Read [IDE](v2_EN_IDE)、[Git](v1_EN_Git)、[Perf](v1_EN_Performance)、[GProf](v1_EN_GPROF)、[GPerf](v1_EN_GPERF)
 

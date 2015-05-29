@@ -19,13 +19,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_CN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v2_CN_Build)
 
 ```bash
 ./configure --disable-all --with-hls --with-ssl --with-http-server && make
 ```
 
-<strong>Step 3, config srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS) and [HTTP Server](v1_CN_HTTPServer)
+<strong>Step 3, config srs.</strong> For detail, read [HLS](v2_CN_DeliveryHLS) and [HTTP Server](v2_CN_HTTPServer)
 
 Save bellow as config, or use `conf/http.hls.conf`:
 
@@ -48,15 +48,15 @@ vhost __defaultVhost__ {
 }
 ```
 
-Note: The hls_path must exists, srs never create it. For detail, read [HLS](v1_CN_DeliveryHLS)
+Note: The hls_path must exists, srs never create it. For detail, read [HLS](v2_CN_DeliveryHLS)
 
-<strong>Step 4, start srs.</strong> For detail, read [HLS](v1_CN_DeliveryHLS) and [SRS HTTP Server](v1_CN_HTTPServer)
+<strong>Step 4, start srs.</strong> For detail, read [HLS](v2_CN_DeliveryHLS) and [SRS HTTP Server](v2_CN_HTTPServer)
 
 ```bash
 ./objs/srs -c conf/http.hls.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 5, start encoder.</strong> For detail, read [HLS](v2_CN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -80,7 +80,7 @@ The streams on SRS:
 * RTMP: `rtmp://192.168.1.170/live/livestream`
 * HLS: `http://192.168.1.170:8080/live/livestream.m3u8`
 
-<strong>Step 6, play RTMP.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 6, play RTMP.</strong> For detail, read [HLS](v2_CN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -90,7 +90,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 7, play HLS.</strong> For detail, read [HLS](v1_CN_DeliveryHLS)
+<strong>Step 7, play HLS.</strong> For detail, read [HLS](v2_CN_DeliveryHLS)
 
 HLS url: `http://192.168.1.170:8080/live/livestream.m3u8`
 
