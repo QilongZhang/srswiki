@@ -20,11 +20,22 @@ Skype帐号：winterserver
 
 ## TencentQQ
 
-扫描下面的二维码加入QQ群：
+扫描下面的二维码加入SRS使用者QQ群：
 
 [[/images/srs_qq_95.png]]
 
-或者加入腾讯QQ群：365936885，你可以在QQ群获取大家实时的帮助。
+或者加入SRS使用者QQ群：365936885，你可以在QQ群获取大家实时的帮助。
+
+## SrsDeveloper
+
+关于如何基于SRS做定制或者开发，欢迎加入SRS开发者群，请咨询1900013283，非请勿入。
+
+加入SRS开发者群的条件：
+
+1. 只向SRS定制或者开发者开放，使用者可以加入上面的SRS使用者QQ群，可以按照WIKI使用。
+1. SRS开发者的费用是每年$99，也就是每年600人民币。和Apple的开发者一个价格。支付方式为转账到支付宝（可以转账到捐献的那个支付宝帐号），参考[Donation](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Contact#donation)。
+1. 提供的服务包括：回答关于现有代码结构的问题，新增功能的建议，CR(CodeReview)，方案推荐和评审。
+1. 请先咨询1900013283。
 
 ## Weixin
 
