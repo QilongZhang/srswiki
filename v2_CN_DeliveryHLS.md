@@ -224,6 +224,12 @@ vhost __defaultVhost__ {
         # whether cleanup the old ts files.
         # default: on
         hls_cleanup     on;
+        # the timeout in seconds to dispose the hls,
+        # dispose is to remove all hls files, m3u8 and ts files.
+        # when timeout or server terminate, dispose hls.
+        # @remark 0 to disable dispose.
+        # default: 0
+        hls_dispose     0;
         # the max size to notify hls,
         # to read max bytes from ts of specified cdn network,
         # @remark only used when on_hls_notify is config.
@@ -291,7 +297,8 @@ HLS配置路径：
 * hls_mount: 内存HLS的M3u8/ts挂载点，和`http_remux`的`mount`含义一样。参考：[http_remux](v2_CN_DeliveryHttpStream#http-live-stream-config)。
 * hls_acodec: 默认的音频编码。当流的编码改变时，会更新PMT/PAT信息；默认是aac，因此默认的PMT/PAT信息是aac；如果流是mp3，那么可以配置这个参数为mp3，避免PMT/PAT改变。
 * hls_vcodec: 默认的视频编码。当流的编码改变时，会更新PMT/PAT信息；默认是h264。如果是纯音频HLS，可以配置为vn，可以减少SRS检测纯音频的时间，直接进入纯音频模式。
-* hls_cleanup: 是否删除过期的ts切片，不在m3u8中就是过期。可以关闭清除ts切片，实现时移和存储，使用自己的切片管理系统。
+* hls_cleanup: 是否删除过期的ts切片，不在hls_window中就是过期。可以关闭清除ts切片，实现时移和存储，使用自己的切片管理系统。
+* hls_dispose: HLS清理的过期时间（秒），系统重启或者超过这个时间时，清理HLS的所有文件，包括m3u8和ts。默认为0，即不清理。
 * hls_wait_keyframe: 是否按top切片，即等待到关键帧后开始切片。测试发现OS X和android上可以不用按go切片。
 * hls_nb_notify: 从notify服务器读取数据的长度。
 * on_hls: 当切片生成时，回调这个url，使用POST回调。用来和自己的系统集成，譬如实现切片移动等。

@@ -229,6 +229,12 @@ vhost __defaultVhost__ {
         # whether cleanup the old ts files.
         # default: on
         hls_cleanup     on;
+        # the timeout in seconds to dispose the hls,
+        # dispose is to remove all hls files, m3u8 and ts files.
+        # when timeout or server terminate, dispose hls.
+        # @remark 0 to disable dispose.
+        # default: 0
+        hls_dispose     0;
         # the max size to notify hls,
         # to read max bytes from ts of specified cdn network,
         # @remark only used when on_hls_notify is config.
@@ -296,7 +302,8 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](v2_EN_DeliveryHttpStream#http-live-stream-config)
 * hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
 * hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
-* hls_cleanup: whether cleanup the ts files.
+* hls_cleanup: whether cleanup the expired ts files, which exceed the hls_window.
+* hls_dispose: the timeout in seconds to remove all hls files, the m3u8 and ts files. when server restart or exceed this timeout, remove all the hls fiels. Default to 0, which never cleanup the timeout pieces.
 * hls_wait_keyframe: whether reap the ts base on top, that is, reap when got keyframe.
 * hls_nb_notify: the max bytes to read from notify server.
 * on_hls: callback when ts generated.
