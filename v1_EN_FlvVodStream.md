@@ -13,14 +13,14 @@ The workflow of flv vod stream:
 
 * SRS dvr live stream to flv file, or upload flv vod file, to the HTTP root dir: `objs/nginx/html`
 * HTTP server must support flv?start=offset, for example, flv module of nginx, or use experiment SRS HTTP server.
-* Use `research/librtmp/srs_flv_injecter` inject the keyframe offset to metadata of flv.
+* Use `research/librtmp/objs/srs_flv_injecter` inject the keyframe offset to metadata of flv.
 * Flash player play http flv url, for instance, `http://192.168.1.170:8080/sample.flv`
 * When user seek, for instance, seek to 300s.
 * Player use the keyframe offset in metadata to calc the offset of 300s, for instance, 300s offset=`6638860`
 * Start new request, url is `http://192.168.1.170:8080/sample.flv?start=6638860`
 
 Note: SRS HTTP server is experiment, do not limit the bandwidth.
-Note: SRS provides flv view tool `research/librtmp/srs_flv_parser`, to list the seconds:offsets in metadata.
+Note: SRS provides flv view tool `research/librtmp/objs/srs_flv_parser`, to list the seconds:offsets in metadata.
 
 ## SRS Embeded HTTP server
 
