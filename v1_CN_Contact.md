@@ -48,6 +48,8 @@ Skype帐号：winterserver
 
 [[/images/cr.srs.jpg]]
 
+是这个研发太愚蠢？绝对不是。最好的研发比最烂的研发，在于CR时学习的次数，最好的研发不贰过，触类旁通，CR能提出来的问题越来越少，因此乐于CR和接受别人CR。
+
 ## TencentQQ
 
 扫描下面的二维码加入SRS使用者QQ群：
