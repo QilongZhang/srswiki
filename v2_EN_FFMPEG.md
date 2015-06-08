@@ -185,10 +185,10 @@ All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 <td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>The preset for x264.</td>
 </tr>
 <tr>
-<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libaacplus ...</td><td>The codec for audio.</td>
+<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libfdk_aac ...</td><td>The codec for audio.</td>
 </tr>
 <tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k</td>
+<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k. No limit for libfdk_aac.</td>
 </tr>
 <tr>
 <td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>The audio sample rate.</td>
@@ -217,7 +217,7 @@ log: ./objs/logs/encoder-__defaultVhost__-live-livestream.log,
 params: ./objs/ffmpeg/bin/ffmpeg -f flv -i 
 rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream 
 -vcodec libx264 -b:v 500000 -r 25.00 -s 768x320 -aspect 768:320 
--threads 12 -profile:v main -preset medium -acodec libaacplus 
+-threads 12 -profile:v main -preset medium -acodec libfdk_aac 
 -b:a 70000 -ar 44100 -ac 2 -f flv 
 -y rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream_ff 
 ```
@@ -248,7 +248,7 @@ vhost __defaultVhost__ {
             vpreset         medium;
             vparams {
             }
-            acodec          libaacplus;
+            acodec          libfdk_aac;
             abitrate        70;
             asample_rate    44100;
             achannels       2;
@@ -275,7 +275,7 @@ vhost __defaultVhost__ {
         engine ff {
             enabled         on;
             vcodec          copy;
-            acodec          libaacplus;
+            acodec          libfdk_aac;
             abitrate        70;
             asample_rate    44100;
             achannels       2;
@@ -317,7 +317,7 @@ vhost __defaultVhost__ {
         engine vn {
             enabled         on;
             vcodec          vn;
-            acodec          libaacplus;
+            acodec          libfdk_aac;
             abitrate        45;
             asample_rate    44100;
             achannels       2;
