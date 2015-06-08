@@ -1,8 +1,8 @@
-# 直播流转码
+# Live Streaming Transcode
 
 SRS可以对推送到SRS的RTMP流进行转码，然后输出到RTMP服务器（也可以是SRS自己）。
 
-## 应用场景
+## Use Scenario
 
 FFMPEG的重要应用场景包括：
 * 推送一路高码率，转多路输出。譬如：游戏直播中，推送一路1080p流到SRS，SRS可以转码输出1080p/720p/576p多路，低码率可以给移动设备观看。这样节省了推流带宽（一般源站为BGP带宽，很贵），也减轻了客户端压力（譬如客户端边玩游戏边直播）。
@@ -10,7 +10,7 @@ FFMPEG的重要应用场景包括：
 * 加水印。适用于需要对流进行加水印的情况，譬如打上自己的logo。SRS支持文字水印和图片水印，也可以支持视频作为水印，或者将两路流叠加（参考ffmpeg的用法）。
 * 其他滤镜：SRS支持所有ffmpeg的滤镜。
 
-## 主要流程
+## Workflow
 
 SRS转码的主要流程包括：
 
@@ -18,7 +18,7 @@ SRS转码的主要流程包括：
 1. SRS的vhost若配置了转码，则进行转码。
 1. 转码后，按照配置，推送到SRS本身或者其他RTMP服务器。
 
-## 配置方法
+## Transcode Config
 
 SRS可以对vhost的所有的流转码，或者对某些app的流转码，或者对某些流转码。
 
@@ -123,7 +123,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-## 转码规则
+## Transcode Rulers
 
 SRS的转码参数全是FFMPEG的参数，有些参数SRS做了自定义，见下表。
 
@@ -188,7 +188,7 @@ rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream
 -y rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream_ff 
 ```
 
-## FFMPEG日志过大
+## FFMPEG Log Path
 
 FFMPEG启动后，SRS会将stdout和stderr都定向到日志文件，譬如`./objs/logs/encoder-__defaultVhost__-live-livestream.log`，有时候日志会比较大。可以配置ffmpeg输出较少日志：
 
@@ -228,7 +228,7 @@ vhost __defaultVhost__ {
 
 对ffmpeg添加`-v quiet`参数即可。
 
-## 拷贝
+## Copy Without Transcode
 
 可以配置vcodec/acodec copy，实现不转码。譬如，视频为h264编码，但是音频是mp3/speex，需要转码音频为aac，然后切片为HLS输出。
 
@@ -270,7 +270,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-## 禁用
+## Drop Video or Audio
 
 可以禁用视频或者音频，只输出音频或视频。譬如，电台可以丢弃视频，对音频转码为aac后输出HLS。
 
@@ -299,7 +299,7 @@ vhost __defaultVhost__ {
 
 该配置只输出纯音频，编码为aac。
 
-## 其他转码配置
+## Other Transcode Config
 
 conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的命令行。
 * mirror.transcode.srs.com 将视频流上半截，翻转到下半截，看起来像个镜子。
@@ -314,13 +314,13 @@ conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的
 * stream.transcode.srs.com 对指定的流转码。
 * vn.transcode.srs.com 只输出音频，禁止视频输出。
 
-## ARM下转码
+## Transcode on ARM cpu
 
 SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](v1_CN_ARMTranscode)
 
 注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](v1_CN_Build)
 
-## FFMPEG转码flash流
+## FFMPEG Transcode the Stream by Flash encoder
 
 flash可以当作编码器推流，参考演示中的编码器或者视频会议。flash只支持speex/nellymoser/pcma/pcmu，但flash会有一个特性，没有声音时就没有音频包。FFMPEG会依赖于这些音频包，如果没有会认为没有音频。
 
