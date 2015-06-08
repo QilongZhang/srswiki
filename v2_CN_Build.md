@@ -142,8 +142,8 @@ SRS的配置(configure)参数说明如下：
 * --with-http-api 打开HTTP管理接口。参考：[HTTP API](v2_CN_HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](v2_CN_HTTPServer)
 * --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](v2_CN_Streamer)
-* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](v1_CN_FFMPEG)
-* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](v1_CN_FFMPEG)
+* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](v2_CN_FFMPEG)
+* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](v2_CN_FFMPEG)
 * --with-ingest 采集文件/流/设备数据，封装为RTMP流后，推送到SRS。参考：[Ingest](v1_CN_Ingest)
 * --with-stat 是否开启数据统计功能，SRS可以采集cpu/内存/网络/磁盘IO等数据，共监控系统通过http-api获取。（目前osx不支持）。
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。

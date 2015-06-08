@@ -350,7 +350,7 @@ There are lots of vhost in conf/full.conf for transcode, or refer to the FFMPEG:
 
 SRS can fork the FFMEPG on ARM, see: [Raspberry pi Transcode](v1_EN_ARMTranscode)
 
-Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](v1_EN_Build)
+Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](v2_EN_Build)
 
 ## FFMPEG Transcode the Stream by Flash encoder
 

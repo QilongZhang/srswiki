@@ -48,9 +48,9 @@ What is the vhost or app or stream of RTMP? How to pass the authentication param
 
 Why build openssl for RTMP server? What is the simple and complex handshake of RTMP? Which scenario to use simple handshake? Please see: [RTMP Handshake](v1_EN_RTMPHandshake)
 
-## [FFMPEG Live Transcoding](v1_EN_FFMPEG)
+## [FFMPEG Live Transcoding](v2_EN_FFMPEG)
 
-How to use SRS to transcode live stream? How to transcode audio only? How to passthrough audio or video? How to add logo to stream? What is the transcode params and the sequence for FFPMEG? Please see: [FFMPEG Live Transcoding](v1_EN_FFMPEG)
+How to use SRS to transcode live stream? How to transcode audio only? How to passthrough audio or video? How to add logo to stream? What is the transcode params and the sequence for FFPMEG? Please see: [FFMPEG Live Transcoding](v2_EN_FFMPEG)
 
 ## [Delivery RTMP](v1_EN_DeliveryRTMP)
 

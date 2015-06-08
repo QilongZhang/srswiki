@@ -323,7 +323,7 @@ To config the `on_hls_notify` for push ts file to can network, should config in 
 
 SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
-For information about drop video, read [Transcode: Disable Stream](v1_EN_FFMPEG#drop-video-or-audio)
+For information about drop video, read [Transcode: Disable Stream](v2_EN_FFMPEG#drop-video-or-audio)
 
 There is no special config for pure audio for HLS. Please read  [Usage: HLS](v1_EN_SampleHLS)
 

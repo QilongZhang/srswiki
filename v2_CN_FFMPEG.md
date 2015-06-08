@@ -352,7 +352,7 @@ conf/full.conf中有很多FFMPEG转码配置的实例，也可以参考ffmpeg的
 
 SRS可以在ARM下调用系统的ffmpeg转码，参考：[Raspberry pi 转码](v1_CN_ARMTranscode)
 
-注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](v1_CN_Build)
+注意：使用自己的工具时，需要禁用ffmpeg，但是打开transcode选项：`--with-transcode --without-ffmpeg`，这样就不会编译ffmpeg，但是编译了直播转码功能。参考：[Build](v2_CN_Build)
 
 ## FFMPEG Transcode the Stream by Flash encoder
 

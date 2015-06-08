@@ -140,8 +140,8 @@ The options of configure:
 * --with-http-api support http api, see: [HTTP API](v2_EN_HTTPApi)
 * --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](v2_EN_HTTPServer)
 * --with-stream-caster enable the stream caster, read [Stream Caster](v2_EN_Streamer)
-* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](v1_EN_FFMPEG)
-* --with-transcode live stream transcode, see: [FFMPEG](v1_EN_FFMPEG)
+* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](v2_EN_FFMPEG)
+* --with-transcode live stream transcode, see: [FFMPEG](v2_EN_FFMPEG)
 * --with-ingest ingest file, stream or device to RTMP to SRS, see: [Ingest](v1_EN_Ingest)
 * --with-stat stat the cpu, memory, network and disk io, user can access stat by http api(not supported by darwin/OSX).
 * --with-research buidl the research tools, for instance, ts info, ingest flv/rtmp, flv parser and bandwidth test.
