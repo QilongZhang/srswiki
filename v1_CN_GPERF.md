@@ -45,6 +45,37 @@ Leak of 56 bytes in 1 objects allocated from:
 	@ 3855a1ec5d __libc_start_main
 ```
 
+有的时候gmc显示符号有问题，无法显示函数，那么就直接运行pprof，gmc会有提示，譬如：
+```
+pprof ./objs/srs "/tmp/srs.11469._main_-end.heap" --inuse_objects --lines --heapcheck  --edgefraction=1e-10 --nodefraction=1e-10 --gv
+```
+
+需要改动两个地方：
+
+1. pprof改成`./objs/pprof`。
+1. 去掉--gv，直接进入命令行，然后输入top就可以看到。
+
+结果如下：
+
+```
+[winlin@centos6 srs]$ ./objs/pprof ./objs/srs "/tmp/srs.11469._main_-end.heap" --inuse_objects --lines --heapcheck  --edgefraction=1e-10 --nodefraction=1e-10
+Using local file ./objs/srs.
+Using local file /tmp/srs.11469._main_-end.heap.
+Welcome to pprof!  For help, type 'help'.
+(pprof) top
+Total: 9 objects
+       3  33.3%  33.3%        3  33.3% _st_netfd_new /home/winlin/srs/objs/st-1.9/io.c:136
+       3  33.3%  66.7%        3  33.3% _st_stack_new /home/winlin/srs/objs/st-1.9/stk.c:78
+       2  22.2%  88.9%        2  22.2% st_cond_new /home/winlin/srs/objs/st-1.9/sync.c:158
+       1  11.1% 100.0%        1  11.1% SrsPithyPrint::create_ingester /home/winlin/srs/src/app/srs_app_pithy_print.cpp:139
+       0   0.0% 100.0%        4  44.4% SrsAsyncCallWorker::start /home/winlin/srs/src/app/srs_app_async_call.cpp:70
+       0   0.0% 100.0%        4  44.4% SrsConnection::cycle /home/winlin/srs/src/app/srs_app_conn.cpp:88
+       0   0.0% 100.0%        2  22.2% SrsDvr::initialize /home/winlin/srs/src/app/srs_app_dvr.cpp:980
+       0   0.0% 100.0%        2  22.2% SrsDvrPlan::initialize /home/winlin/srs/src/app/srs_app_dvr.cpp:570
+       0   0.0% 100.0%        2  22.2% SrsHls::initialize /home/winlin/srs/src/app/srs_app_hls.cpp:1214
+       0   0.0% 100.0%        2  22.2% SrsHlsMuxer::initialize /home/winlin/srs/src/app/srs_app_hls.cpp:370
+```
+
 另外，SRS有例子说明如何使用gmc，参考：research/gperftools/heap-checker
 
 ## GMP内存性能
