@@ -22,7 +22,7 @@ Some components use the timestamp jitter:
 * DVR: The timestamp jitter algorithm can set by dvr `time_jitter`.
 * HLS: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
 * Forward: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
-* HTTP Audio Stream Fast Cache: Always use `off` timestamp jitter algorithm. @see `fast_cache`.
+* HTTP Audio Stream Fast Cache: Equals to RTMP time jitter, the vhost config. @see `fast_cache`.
 
 You can disable the timestamp jitter algorithm when your encoder can not ensure the 
 video+autio mono-inc, some encoder can ensure video mono-inc and audio mono-inc.
