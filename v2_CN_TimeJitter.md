@@ -23,7 +23,7 @@ RTMP协议没有说道要求什么级别的单增，但一般指流单增。
 * DVR录制：可以设置vhost的dvr的time_jitter来配置矫正机制。录制为flv文件的时间戳处理机制。
 * HLS：打开时间戳矫正机制。
 * Forward：打开时间戳矫正机制。
-* HTTP Audio Stream Fast Cache: 关闭时间戳矫正算法，参考`fast_cache`.
+* HTTP Audio Stream Fast Cache: 和RTMP一样，即在vhost中配置，参考`fast_cache`.
 
 如果你的编码器只能做到分别单增（对音频和视频分别编码的情况很常见），那么可以关闭时间戳矫正。
 
