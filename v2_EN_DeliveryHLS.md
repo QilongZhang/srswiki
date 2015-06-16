@@ -1,30 +1,30 @@
-# Delivery HLS
+# HLS Delivery
 
-SRS supports RTMP and HLS, the most popular delivery protocol for internet.
+SRS supports RTMP and HLS, the most popular delivery protocols for the Internet.
 
-RTMP is Adobe RTMP(Realtime Message Protocol), for low latency live streaming, and the standard protocol for internet encoder, and the best protocol for flash on PC.
+RTMP is Adobe RTMP (Realtime Message Protocol), for low latency live streaming, and the standard protocol for Internet encoding, and the best protocol for Flash on PC.
 
-HLS is Apple HLS(Http Live Streaming), for both live and vod streaming over HTTP, and the standard protocol on Apple platform.
+HLS is Apple HLS (HTTP Live Streaming), for both live and VOD streaming over HTTP, and the standard protocol on Apple platforms.
 
-Server deliverying HLS and RTMP can support all screen. For RTMP, see: [Delivery RTMP](v1_EN_DeliveryRTMP)。
+Servers delivering both HLS and RTMP can support all screens. For RTMP, see: [RTMP Delivery](v1_EN_DeliveryRTMP)。
 
-For information about compare RTMP and HLS, read [RTMP PK HLS](v1_EN_RTMP.PK.HTTP).
+For information comparing RTMP and HLS, read [RTMP PK HLS](v1_EN_RTMP.PK.HTTP).
 
 For information about how to deploy SRS to support HLS, read [Usage: HLS](v1_EN_SampleHLS).
 
 ## Use Scenario
 
 The main use scenario of HLS:
-* Cross Platform: Live streaming on PC is RTMP, and some as library can play HLS on flash right now. Android 3.0 can play HLS, and Apple always support HLS.
-* Industrial Strength on Apple: The most stable live streaming protocol for OSX/IOS is HLS, similar the RTMP for flash.
-* Friendly for CDN: The HLS over HTTP is friendly for CDN to delivery HLS.
-* Simple: The HLS is open protocol and there are lots of tools for ts.
+* Cross Platform: the default for live streaming to PCs is RTMP, although some libraries can play HLS in Flash right now. Android 3.0+ can play HLS, and iOS has always supported HLS.
+* Industrial Strength on Apple platforms: the most stable live streaming protocol for OSX/iOS is HLS, similar to RTMP for Flash on Windows PCs.
+* Friendly for CDNs: HLS, since it streams over HTTP, is a CDN-friendly delivery protocol.
+* Simple: HLS is an open protocol and there are lots of tools for TS (MPEG transport stream is the container format used by HLS).
 
-In a word, HLS is the best delivery protocol when user donot care about the latency, for both PC and mobile(Android and IOS).
+In a word, HLS is the best delivery protocol when the user does not care about the latency, for both PC and mobile (Android and iOS).
 
 ## Delivering Streams
 
-The table bellow describes the different protocols for PC and mobile platform.
+The table below describes the different protocols for PC and mobile platforms.
 
 <table>
 <thead>
@@ -39,44 +39,44 @@ The table bellow describes the different protocols for PC and mobile platform.
 <tbody>
 <tr>
 <td>RTMP</td>
-<td>Windows Flash</td>
+<td>Windows/Flash</td>
 <td>RTMP</td>
 <td>Adobe</td>
-<td>The RTMP is used to delivery low latency stream over internet, especially for the web explorer application for flash on PC. The RTMP allows you to publish stream to server very stable and for a long time.</td>
+<td>RTMP is used to deliver low latency stream over the Internet, especially for Flash in Internet Explorer, and other web browsers, on PC. RTMP allows you to publish streams to servers very stably and for long durations.</td>
 </tr>
 <tr>
 <td>HLS</td>
 <td>Apple/<br/>Android</td>
 <td>HTTP</td>
 <td>Apple/<br/>Google</td>
-<td>HLS lantency >= 10s. Android3+ supports HLS. All Apple platforms support HLS.</td>
+<td>HLS lantency >= 10s. Android 3+ supports HLS. All Apple platforms support HLS.</td>
 </tr>
 <tr>
 <td>HDS</td>
 <td>-</td>
 <td>HTTP</td>
 <td>Adobe</td>
-<td>HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benefits, however, SRS2 support HDS.</td>
+<td>HDS is a protocol similar to HLS, developed by Adobe. HDS is complex and offers no unique benefits, nonetheless, SRS2 support HDS.</td>
 </tr>
 <tr>
 <td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
 <td>-</td>
 <td>HTTP</td>
 <td>-</td>
-<td>Dash(Dynamic Adaptive Streaming over HTTP), developed by some company similar to HLS. It's a new protocol, and SRS maybe support it when it already used by many users.</td>
+<td>Dash (Dynamic Adaptive Streaming over HTTP), developed by the MPEG working group, is similar to HLS. It's a new protocol, and SRS may support it once it's used by many users.</td>
 </tr>
 </tbody>
 </table>
 
 ## HLS
 
-HLS is a http m3u8 url, which can be play in Apple Safari directly. For example:
+HLS is an HTTP m3u8 URL, which can be played in Apple's Safari directly. For example:
 
 ```bash
 http://demo.srs.com/live/livestream.m3u8
 ```
 
-The m3u8 url must embed in HTML5 for Android. For example:
+The m3u8 url must be embedded in HTML5 for Android. For example:
 
 ```html
 <!-- livestream.html -->
@@ -87,7 +87,7 @@ The m3u8 url must embed in HTML5 for Android. For example:
 </video>
 ```
 
-The [m3u8](https://github.com/simple-rtmp-server/srs/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) of HLS is a play list actually. For example:
+The [m3u8](https://github.com/simple-rtmp-server/srs/blob/master/trunk/doc/hls-m3u8-draft-pantos-http-live-streaming-12.txt) file of HLS is actually a play list. For example:
 
 ```bash
 #EXTM3U
@@ -104,28 +104,28 @@ livestream-66.ts
 livestream-67.ts
 ```
 
-The important data item can be configed in SRS config file:
+The important data items can be configured in SRS's config file:
 
-* EXT-X-TARGETDURATION: It's calc by SRS automatically. The EXT-X-TARGETDURATION tag specifies the maximum media segment duration.  The EXTINF duration of each media segment in the Playlist file, when rounded to the nearest integer, MUST be less than or equal to the target duration.  This tag MUST appear once in a Media Playlist file.  It applies to the entire Playlist file.
-* EXTINF: It's calc by SRS automatically, and the max value is configed in SRS `hls_fragment`. The EXTINF tag specifies the duration of a media segment.  It applies only to the media segment that follows it, and MUST be followed by a media segment URI.  Each media segment MUST be preceded by an EXTINF tag.
-* Number of ts in m3u8: The `hls_window` in seconds specifies how many ts files in m3u8, and SRS will delete the old ts files.
-* Name of ts filename: For example, `livestream-67.ts`, SRS will increase the number, the next ts for instance is `livestream-68.ts`.
+* EXT-X-TARGETDURATION: This is calculated by SRS automatically. The EXT-X-TARGETDURATION tag specifies the maximum media segment duration.  The EXTINF duration of each media segment in the playlist file, when rounded to the nearest integer, MUST be less than or equal to the target duration.  This tag MUST appear once in a media playlist file.  It applies to the entire playlist file.
+* EXTINF: This is calculated by SRS automatically, and the maximum value is configured by SRS setting `hls_fragment`. The EXTINF tag specifies the duration of a media segment.  It applies only to the media segment that follows it, and MUST be followed by a media segment URI.  Each media segment MUST be preceded by an EXTINF tag.
+* Number of ts in m3u8: The `hls_window`, in seconds, specifies how many ts files will be in an m3u8, and SRS will delete the old ts files.
+* Name of ts filenames: For example, `livestream-67.ts`, SRS will increase the number automatically; the next ts for instance is `livestream-68.ts`.
 
-For example, the `hls_fragment` is 10s, and the `hls_window` is 60s, then there about 60/10=6 ts files i m3u8, and the old ts files are automatically deleted by SRS.
+For example, if the `hls_fragment` is 10s, and the `hls_window` is 60s, then there are 60/10=6 ts files in the m3u8, and the old ts files are automatically deleted by SRS.
 
 ## HLS Workflow
 
 The workflow of HLS: 
 
-1. Encoder, for example, FFMPEG or FMLE, publish RTMP stream to SRS, and the codec of stream must be H.264+AAC(Use transcode for other codecs).
-1. SRS demux RTMP then mux mpegts and write to ts file, update the m3u8.
-1. Client, for example, the IPhone or VLC, access m3u8 provides by any web server, for instance, SRS embeded HTTP server, or nginx.
+1. The encoder, for example, FFMPEG or FMLE, publishes an RTMP stream to SRS, and the codec of that stream must be H.264+AAC (use transcoding to convert other codecs when required).
+1. SRS demuxes RTMP then remuxes the content into mpegts and writes a ts file, updating the m3u8.
+1. The client, for example, an iPhone or VLC, accesses the m3u8 provided by any web server, for instance, SRS's embedded HTTP server, or nginx.
 
-Note: SRS only need to config the HLS on vhost, and SRS will create the dir by app name.
+Note: SRS only needs you to configure HLS on the vhost, and SRS will create the directory by app name.
 
-## HLS Config
+## HLS Configuration
 
-the vhost `with-hls.vhost.com` in conf/full.conf of SRS is a example to config HLS, which user can copy the hls section to vhost:
+The vhost `with-hls.vhost.com` in conf/full.conf of SRS is an example of how to configure HLS, which users can copy the hls section from to their vhosts:
 
 ```bash
 vhost __defaultVhost__ {
@@ -261,81 +261,81 @@ vhost __defaultVhost__ {
 }
 ```
 
-The section `hls` is for HLS config:
-* enabled: Whether enable HLS, on to enable, off to disable. Default: off.
-* hls_fragment: The HLS duration in seconds. The actual duration of ts file is by:
+The section `hls` is for HLS configuration:
+* enabled: Whether to enable HLS, on to enable, off to disable. Default: off.
+* hls_fragment: The HLS duration in seconds. The actual duration of ts file is determined by:
 ```bash
 TS duration(s) = max(hls_fragment, gop_size)
-hls_fragment: The config seconds for ts file, for example, 5s.
+hls_fragment: The length, in seconds, per ts file, for example, 5s.
 gop_size: The stream gop size, for example, the fps is 20, gop is 200frames, then gop_size=gop/fps=10s.
 So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is larger than hls_fragment.
 ```
-* hls_td_ratio: The ratio to calc the m3u8 EXT-X-TARGETDURATION, read https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
-* hls_aof_ratio: The ratio to determine whether the pure audio shoule be reap. For example, when hls_fragment is 10s, the hls_aof_ratio is 2.0, for pure audio, reap ts every 10s*2.0=20s.
-* hls_window: The total HLS windows size in seconds, the sum of all ts duration in m3u8. SRS will drop the old ts file in m3u8 and delete the file on fs. SRS will keep:
+* hls_td_ratio: The ratio to calculate the m3u8 EXT-X-TARGETDURATION, read https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
+* hls_aof_ratio: The ratio to determine whether the pure audio should be reap. For example, when hls_fragment is 10s, the hls_aof_ratio is 2.0, for pure audio, reap ts every 10s*2.0=20s.
+* hls_window: The total HLS windows size in seconds, the sum of all ts durations in the m3u8. SRS will drop the old ts file in the m3u8 and delete the files from the filesystem. SRS will keep:
 ```bash
 hls_window >= sum(each ts duration in m3u8)
 ```
-* hls_storage: The storage type, can be ram(in memory only), disk(in disk only), both(in memory and disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
-* hls_path: The path to save m3u8 and ts file, where m3u8 and ts files saved in.
-* hls_m3u8_file: The filename of m3u8 file, with variables [vhost], [app] and [stream] to replace.
-* hls_ts_file: The filename of ts fle, with some variables in [dvr variables](v2_EN_DVR#custom-path). And, variable [seq] is the ts seqence number.
+* hls_storage: The storage type, can be ram (in memory only), disk (on disk only), both (in memory and on disk). The hls_path must be specified for disk or both; while the hls_mount must be specified for ram or both.
+* hls_path: The path to save m3u8 and ts files, where m3u8 and ts files are saved.
+* hls_m3u8_file: The filename of the m3u8 file, with variables [vhost], [app] and [stream] available for replacement.
+* hls_ts_file: The filename of the ts file, with some variables in [dvr variables](v2_EN_DVR#custom-path). And, variable [seq] is the ts seqence number.
 ```bash
 For RTMP stream: rtmp://localhost/live/livestream
 HLS path: 
         hls_path        /data/nginx/html;
         hls_m3u8_file   [app]/[stream].m3u8;
         hls_ts_file     [app]/[stream]-[seq].ts;
-SRS will generate below files:
+SRS will generate the below files:
 /data/nginx/html/live/livestream.m3u8
 /data/nginx/html/live/livestream-0.ts
 /data/nginx/html/live/livestream-1.ts
 /data/nginx/html/live/livestream-2.ts
-And the HLS url to play: http://localhost/live/livestream.m3u8
+And the HLS URL for playback will be: http://localhost/live/livestream.m3u8
 ```
-* hls_entry_prefix: the base url for ts. optional and default to empty string.
+* hls_entry_prefix: the base URL for ts. Optional and defaults to an empty string.
 ```
 For ts: live/livestream-0.ts
 When config: hls_entry_prefix http://your-server;
 The ts url generated to: http://your-server/live/livestream-0.ts
 ```
 * hls_mount: The mount of m3u8/ts ram, refer to `mount` of `http_remux` at [http_remux](v2_EN_DeliveryHttpStream#http-live-stream-config)
-* hls_acodec: the default audio codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts.so user can set the default codec for mp3.
-* hls_vcodec: the default video codec of hls. when codec changed, write the PAT/PMT table, but maybe ok util next ts. so user can set the default codec for pure audio(without video) to vn.
-* hls_cleanup: whether cleanup the expired ts files, which exceed the hls_window.
-* hls_dispose: the timeout in seconds to remove all hls files, the m3u8 and ts files. when server restart or exceed this timeout, remove all the hls fiels. Default to 0, which never cleanup the timeout pieces.
+* hls_acodec: the default audio codec of hls. When the codec is changed, write the PAT/PMT table, but maybe okay until the next ts. So user can set the default codec for mp3.
+* hls_vcodec: the default video codec of hls. When the codec is changed, write the PAT/PMT table, but maybe okay until next ts. So user can set the default codec for pure audio (without video) to vn.
+* hls_cleanup: whether to cleanup the expired ts files, which exceed the hls_window.
+* hls_dispose: the timeout in seconds to remove all hls files, the m3u8 and ts files. When the server restarts or exceeds this timeout, it removes all the hls files. Defaults to 0, which never cleans up the timeout pieces.
 * hls_wait_keyframe: whether reap the ts base on top, that is, reap when got keyframe.
-* hls_nb_notify: the max bytes to read from notify server.
+* hls_nb_notify: the maximum number of bytes to read from the notify server.
 * on_hls: callback when ts generated.
-* on_hls_notify: callback when ts generated, use [ts_url] as variable, use GET method. can used to push ts file to can network.
+* on_hls_notify: callback when ts generated, use [ts_url] as a variable, uses GET method. Can be used to push ts files to can network.
 
-How to deploy SRS to delivery HLS, read [Usage: HLS](v1_EN_SampleHLS)
+For how to deploy SRS to deliver HLS, read [Usage: HLS](v1_EN_SampleHLS)
 
 ## HTTP Callback
 
-To config `on_hls` for http hooks, should config in `http_hooks` section, not in hls.
+To configure `on_hls` for HTTP hooks, you should configure them in the `http_hooks` section, not in the hls section.
 
 ## ON HLS Notify
 
-To config the `on_hls_notify` for push ts file to can network, should config in `http_hooks` section, not in hls.
+To configure the `on_hls_notify` for pushing ts files to can network, you should configure them in the `http_hooks` section, not in the hls section.
 
 ## HLSAudioOnly
 
-SRS supports to deliver pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to aac, read [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
+SRS support delivering pure audio stream by HLS. The audio codec requires AAC, user must transcode other codecs to AAC, read [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
-For information about drop video, read [Transcode: Disable Stream](v2_EN_FFMPEG#drop-video-or-audio)
+For information about dropping video, read [Transcode: Disable Stream](v2_EN_FFMPEG#drop-video-or-audio)
 
-There is no special config for pure audio for HLS. Please read  [Usage: HLS](v1_EN_SampleHLS)
+There is no special configuration for pure audio for HLS. Please read [Usage: HLS](v1_EN_SampleHLS)
 
-## HLS and Forward
+## HLS and Forwarding
 
-All stream publish by forward will output HLS when HLS enalbed.
+All streams published by forwarding will output HLS when HLS is enabled.
 
-## HLS and Transcode
+## HLS and Transcoding
 
-User can use transcode to ensure the video codec is h.264 and audio codec is aac/mp3, because h.264+aac/mp3 is required by HLS.
+Users should use transcoding to ensure the video codec is H.264 and the audio codec is AAC/MP3, because H.264+AAC/MP3 is required by HLS.
 
-The below transcode config set the [gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7) to keep ts duration small:
+The below transcoding configuration sets the [gop](http://ffmpeg.org/ffmpeg-codecs.html#Options-7) to keep ts duration small:
 ```bash
 vhost hls.transcode.vhost.com {
     transcode {
@@ -369,9 +369,9 @@ vhost hls.transcode.vhost.com {
 ```
 The gop is 100/20=5s, where fps specified by vfps is 20, and gop frames specified by g is 100.
 
-## HLS Multiple Bitrate
+## HLS Multiple Bitrates
 
-SRS does not support HLS multiple bitrate.
+SRS does not support HLS multiple bitrates.
 
 ## HLS M3u8 Examples
 
@@ -467,9 +467,9 @@ news-431.ts
 
 ## HLS in RAM
 
-SRS supports delivery HLS in RAM, without write m3u8/ts to disk. Read [136](https://github.com/simple-rtmp-server/srs/issues/136)
+SRS supports HLS delivery from RAM, without writing m3u8/ts to disk. Read [136](https://github.com/simple-rtmp-server/srs/issues/136)
 
-The config example, refer to `conf/ram.hls.conf`:
+For an example configuration, refer to `conf/ram.hls.conf`:
 
 ```
 http_server {
@@ -488,16 +488,16 @@ vhost __defaultVhost__ {
 }
 ```
 
-Remark: The HTTP server must enabled.
+Note: The HTTP server must enabled.
 
-For example, publish rtmp at `rtmp://192.168.1.173/live/livestream`, the HLS stream url is `http://192.168.1.173:8080/live/livestream.m3u8`
+For example, if RTMP is published at `rtmp://192.168.1.173/live/livestream`, the HLS stream URL will be `http://192.168.1.173:8080/live/livestream.m3u8`
 
-For information about config, read [Config](v2_EN_DeliveryHLS#hls-config)
+For information about configuration, read [Config](v2_EN_DeliveryHLS#hls-config)
 
 ## SRS How to Support HLS
 
-The HLS of SRS1 refer to nginx-rtmp.
+The HLS of SRS1 refers to nginx-rtmp.
 
-SRS2 already rewrite the HLS strictly following the spec.
+SRS2 already rewrites the HLS strictly following the HLS specification.
 
 Winlin 2015.2
