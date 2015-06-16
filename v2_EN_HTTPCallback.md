@@ -1,9 +1,9 @@
 # HTTPCallback
 
-SRS does not support server-side script, but support
-http-callback, read [ServerSide script](v1_EN_ServerSideScript).
+SRS does not support server-side scripting, instead it supports
+HTTP callbacks; read [ServerSide script](v1_EN_ServerSideScript).
 
-About the token authentication which is base on http callback, read [Token Authentication](v1_CN_DRM#token-authentication)
+For token authentication based on HTTP callbacks, read [Token Authentication](v1_CN_DRM#token-authentication)
 
 ## Compile
 
@@ -11,18 +11,21 @@ Use `--with-http-callback` to enable HttpCallback, while `--without-http-callbac
 
 For more information, read [Build](v2_EN_Build)
 
-## Config SRS
+## Configuring SRS
 
-The config of http hooks is:
+The config for HTTP hooks is:
 
 ```
 vhost your_vhost {
     http_hooks {
-        # whether the http hooks enalbe.
-        # default off.
+        # Whether http hooks are enabled.
+        # Default: off
         enabled         on;
-        # when client connect to vhost/app, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_connect Hook
+        #
+        # When clients connect to the vhost/app, call this hook, with
+        # the request's POST data containing a JSON-encoded object like this:
         #       {
         #           "action": "on_connect",
         #           "client_id": 1985,
@@ -30,83 +33,101 @@ vhost your_vhost {
         #           "tcUrl": "rtmp://video.test.com/live?key=d2fa801d08e3f90ed1e1670e6e52651a",
         #           "pageUrl": "http://www.test.com/live.html"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported in this format:
         #       on_connect http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_connect      http://127.0.0.1:8085/api/v1/clients http://localhost:8085/api/v1/clients;
-        # when client close/disconnect to vhost/app/stream, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_close Hook
+        #
+        # When clients close/disconnect from the vhost/app/stream, call this hook.
+        # The request's POST data will be a JSON object like the following:
         #       {
         #           "action": "on_close",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) with its response,
+        # an int value, specifying the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported in this format:
         #       on_close http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_close        http://127.0.0.1:8085/api/v1/clients http://localhost:8085/api/v1/clients;
-        # when client(encoder) publish to vhost/app/stream, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_publish Hook
+        #
+        # When a client (encoder) publishes to the vhost/app/stream, call this hook.
+        # The request's POST data will be a JSON object similar to the following:
         #       {
         #           "action": "on_publish",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
         #           "stream": "livestream"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported in this format:
         #       on_publish http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_publish      http://127.0.0.1:8085/api/v1/streams http://localhost:8085/api/v1/streams;
-        # when client(encoder) stop publish to vhost/app/stream, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_unpublish Hook
+        #
+        # When a client (encoder) stops publishing to the vhost/app/stream, call this hook.
+        # The request's POST data will be a JSON object like this:
         #       {
         #           "action": "on_unpublish",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
         #           "stream": "livestream"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported with this format:
         #       on_unpublish http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_unpublish    http://127.0.0.1:8085/api/v1/streams http://localhost:8085/api/v1/streams;
-        # when client start to play vhost/app/stream, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_play Hook
+        #
+        # When client start to play the vhost/app/stream, call this hook,
+        # with the request's POST data a JSON object similar to:
         #       {
         #           "action": "on_play",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
         #           "stream": "livestream"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported with this format:
         #       on_play http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_play         http://127.0.0.1:8085/api/v1/sessions http://localhost:8085/api/v1/sessions;
-        # when client stop to play vhost/app/stream, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_stop
+        #
+        # When a client stops playing the vhost/app/stream, call this hook,
+        # with the request's POST data a JSON object as follows:
         #       {
         #           "action": "on_stop",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
         #           "stream": "livestream"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
-        # support multiple api hooks, format:
+        # Multiple API hooks are supported with this format:
         #       on_stop http://xxx/api0 http://xxx/api1 http://xxx/apiN
         on_stop         http://127.0.0.1:8085/api/v1/sessions http://localhost:8085/api/v1/sessions;
-        # when srs reap a dvr file, call the hook,
-        # the request in the POST data string is a object encode by json:
+
+        # on_dvr Hook
+        #
+        # When SRS reads a DVR file, call this hook,
+        # with the request's POST data a JSON object like this:
         #       {
         #           "action": "on_dvr",
         #           "client_id": 1985,
@@ -115,19 +136,19 @@ vhost your_vhost {
         #           "cwd": "/usr/local/srs",
         #           "file": "./objs/nginx/html/live/livestream.1420254068776.flv"
         #       }
-        # if valid, the hook must return HTTP code 200(Stauts OK) and response
-        # an int value specifies the error code(0 corresponding to success):
+        # If valid, the hook must return HTTP code 200 (Status OK) and its response,
+        # an int value, specifies the error code (0 corresponding to success):
         #       0
         on_dvr          http://127.0.0.1:8085/api/v1/dvrs http://localhost:8085/api/v1/dvrs;
     }
 }
 ```
 
-Note: For more information, read conf/full.conf the section hooks.callback.vhost.com
+Note: For more information, read the section hooks.callback.vhost.com in conf/full.conf 
 
-## HTTP callback events
+## HTTP Callback Events
 
-SRS can call the http callback, for events:
+SRS can call HTTP callbacks for events:
 
 <table>
 <tr>
@@ -148,7 +169,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client connected at the specified vhost and app.</td>
+<td>When a client connects to the specified vhost and app.</td>
 </tr>
 <tr>
 <td>on_close</td>
@@ -163,7 +184,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client close connection, or server disconnect the connection.</td>
+<td>When a client closes a connection, or the server drops a connection.</td>
 </tr>
 <tr>
 <td>on_publish</td>
@@ -179,7 +200,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client publish stream, for example, use flash or FMLE publish stream to server.</td>
+<td>When a client publishes a stream, for example, using flash or FMLE to publish a stream to the server.</td>
 </tr>
 <tr>
 <td>on_unpublish</td>
@@ -195,7 +216,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client stop publish stream.</td>
+<td>When a client stops publishing a stream.</td>
 </tr>
 <tr>
 <td>on_play</td>
@@ -211,7 +232,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client start play stream.</td>
+<td>When a client starts playing a stream.</td>
 </tr>
 <tr>
 <td>on_stop</td>
@@ -227,7 +248,7 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When client stop play.</td>
+<td>When a client stops playback.</td>
 </tr>
 <tr>
 <td>on_dvr</td>
@@ -245,20 +266,20 @@ SRS can call the http callback, for events:
 }
 </pre>
 </td>
-<td>When reap a dvr file.</td>
+<td>When a DVR file is read.</td>
 </tr>
 </table>
 
-Note:
-* Event: When this event occur, callback the specified HTTP url.
-* HTTP url: Can be multiple urls, splits by space, SRS will notice all one by one.
-* Data: SRS will POST the data to specified HTTP api.
-* Return Code: SRS requires the response is an int, indicates the error, 0 is success.
-SRS will disconnect the connection when response is not 0, or http status is not 200.
+Notes:
+* Event: When this event occurs, call back to the specified HTTP URL.
+* HTTP URL: Can be multiple URLs, split by spaces, SRS will notify all one by one.
+* Data: SRS will POST the data to specified HTTP API.
+* Return Code: SRS requires that the response is an int indicating the error, 0 is success.
+SRS will disconnect the connection when the response is not 0, or HTTP status is not 200.
 
-## SRS HTTP callback Server
+## SRS HTTP Callback Server
 
-SRS provides a default HTTP callback server, use cherrypy.
+SRS provides a default HTTP callback server, using cherrypy.
 
 To start it: `python research/api-server/server.py 8085`
 
@@ -278,7 +299,7 @@ To start it: `python research/api-server/server.py 8085`
 
 ## Publish and Play
 
-Publish stream to SRS, SRS will call the http callback:
+When publishing a stream to SRS, SRS will call the registered HTTP callback:
 
 ```bash
 [2014-02-27 09:41:33][trace] post to clients, req={"action":"on_connect","client_id":4,"ip":"192.168.1.179","vhost":"__defaultVhost__","app":"live","pageUrl":""}
@@ -286,7 +307,7 @@ Publish stream to SRS, SRS will call the http callback:
 127.0.0.1 - - [27/Feb/2014:09:41:33] "POST /api/v1/clients HTTP/1.1" 200 1 "" "srs(simple rtmp server)0.9.2"
 ```
 
-Play stream on SRS, SRS will call the http callback:
+When playing a stream on SRS, SRS will call the registered HTTP callback:
 
 ```bash
 [2014-02-27 09:41:50][trace] post to clients, req={"action":"on_connect","client_id":5,"ip":"192.168.1.179","vhost":"__defaultVhost__","app":"live","pageUrl":"http://dev.chnvideo.com:3080/players/rtmp/"}
