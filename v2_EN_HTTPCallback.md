@@ -126,7 +126,7 @@ vhost your_vhost {
 
         # on_dvr Hook
         #
-        # When SRS reads a DVR file, call this hook,
+        # When SRS reap a DVR file, call this hook,
         # with the request's POST data a JSON object like this:
         #       {
         #           "action": "on_dvr",
@@ -266,7 +266,7 @@ SRS can call HTTP callbacks for events:
 }
 </pre>
 </td>
-<td>When a DVR file is read.</td>
+<td>When reap a DVR file.</td>
 </tr>
 </table>
 
