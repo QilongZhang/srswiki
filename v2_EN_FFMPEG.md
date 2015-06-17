@@ -1,48 +1,48 @@
 # Live Streaming Transcode
 
-SRS can transcode the RTMP stream and output to any RTMP server, typically itself.
+SRS can transcode RTMP streams and output to any RTMP server, typically itself.
 
 ## Use Scenario
 
-The important use scenaio of FFMPEG:
+The important use scenario of FFMPEG:
 * One in N out: Publish a high resolution video with big bitrate, for intance, h.264 5Mbps 1080p. Then use FFMPEG to transcode to multiple bitrates, for example, 1080p/720p/576p, the 576p is for mobile devices.
 * Support multiple screen: The stream published by flash is in h264/vp6/mp3/speex codec. Use FFMPEG to transcode to HLS(h264+aac) for IOS/Android.
-* Stream filters: For example, add logo to stream. SRS support all filters of FFMPEG.
+* Stream filters: For example, add logo to stream. SRS supports all filters from FFMPEG.
 
 ## Workflow
 
 The workflow of SRS transcoding:
 
-1. Encoder publish RTMP to SRS.
-1. SRS fork process for FFMPEG when transcode configed.
-1. The forked FFMPEG transcode stream and publish to SRS or other servers.
+1. Encoder publishes RTMP to SRS.
+1. SRS forks a process for FFMPEG when transcoding is configured.
+1. The forked FFMPEG transcodes the stream and publishes it to SRS or other servers.
 
-## Transcode Config
+## Transcode Configuration
 
-The SRS transcoding feature can apply on vhost, app or specified stream.
+The SRS transcoding feature can apply on vhost, app or a specified stream.
 
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
     # the streaming transcode configs.
     transcode {
-        # whether the transcode enabled.
-        # if off, donot transcode.
+        # whether transcoding is enabled.
+        # if off, do not transcode.
         # default: off.
         enabled     on;
-        # the ffmpeg 
+        # ffmpeg binary location 
         ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
-        # the transcode engine for matched stream.
-        # all matched stream will transcoded to the following stream.
-        # the transcode set name(ie. hd) is optional and not used.
+        # the transcode engine for matched streams.
+        # all matched streams will be transcoded to the following stream.
+        # the transcode set name (ie. hd) is optional and not used.
         engine example {
             # whether the engine is enabled
             # default: off.
             enabled         on;
             # input format, can be:
-            # off, do not specifies the format, ffmpeg will guess it.
+            # off, do not specify the format, ffmpeg will guess it.
             # flv, for flv or RTMP stream.
-            # other format, for example, mp4/aac whatever.
+            # other format, for example, mp4/aac or whatever.
             # default: flv
             iformat         flv;
             # ffmpeg filters, follows the main input.
@@ -55,18 +55,18 @@ vhost __defaultVhost__ {
             }
             # video encoder name. can be:
             #       libx264: use h.264(libx264) video encoder.
-            #       copy: donot encoder the video stream, copy it.
+            #       copy: do not encode the video stream, copy it.
             #       vn: disable video output.
             vcodec          libx264;
             # video bitrate, in kbps
             vbitrate        1500;
             # video framerate.
             vfps            25;
-            # video width, must be even numbers.
+            # video width, must be an even number.
             vwidth          768;
-            # video height, must be even numbers.
+            # video height, must be an even number.
             vheight         320;
-            # the max threads for ffmpeg to used.
+            # the maximum number of threads for ffmpeg to use.
             vthreads        12;
             # x264 profile, @see x264 -help, can be:
             # high,main,baseline
@@ -75,7 +75,7 @@ vhost __defaultVhost__ {
             #       ultrafast,superfast,veryfast,faster,fast
             #       medium,slow,slower,veryslow,placebo
             vpreset         medium;
-            # other x264 or ffmpeg video params
+            # other x264 or ffmpeg video parameters
             vparams {
                 # ffmpeg options, @see: http://ffmpeg.org/ffmpeg.html
                 t               100;
@@ -86,8 +86,8 @@ vhost __defaultVhost__ {
                 refs            10;
             }
             # audio encoder name. can be:
-            #       libfdk_aac: use aac(libfdk_aac) audio encoder.
-            #       copy: donot encoder the audio stream, copy it.
+            #       libfdk_aac: use aac (libfdk_aac) audio encoder.
+            #       copy: do not encode the audio stream, copy it.
             #       an: disable audio output.
             acodec          libfdk_aac;
             # audio bitrate, in kbps. [16, 72] for libfdk_aac.
@@ -97,16 +97,16 @@ vhost __defaultVhost__ {
             asample_rate    44100;
             # audio channel, 1 for mono, 2 for stereo.
             achannels       2;
-            # other ffmpeg audio params
+            # other ffmpeg audio parameters
             aparams {
                 # audio params, @see: http://ffmpeg.org/ffmpeg-codecs.html#Audio-Encoders
                 # @remark SRS supported aac profile for HLS is: aac_low, aac_he, aac_he_v2
                 profile:a   aac_low;
             }
             # output format, can be:
-            #       off, do not specifies the format, ffmpeg will guess it.
+            #       off, do not specify the format, ffmpeg will guess it.
             #       flv, for flv or RTMP stream.
-            #       other format, for example, mp4/aac whatever.
+            #       other format, for example, mp4/aac or whatever.
             # default: flv
             oformat         flv;
             # output stream. variables:
@@ -121,19 +121,19 @@ vhost __defaultVhost__ {
 }
 ```
 
-The config apply to all streams of this vhost, for example:
+The configuration applies to all streams of this vhost, for example:
 * Publish stream to: rtmp://dev:1935/live/livestream
 * Play the origin stream: rtmp://dev:1935/live/livestream
 * Play the transcoded stream: rtmp://dev:1935/live/livestream_ff
 
-The output url contains some variables:
+The output URL contains some variables:
 * [vhost] The input stream vhost, for instance, dev.ossrs.net
 * [port] The input stream port, for instance, 1935
 * [app] The input stream app, for instance, live
-* [stream] The intput stream name, for instance, livestream
-* [engine] The transcode engine name, which follow the keyword engine, for instance, ff
+* [stream] The input stream name, for instance, livestream
+* [engine] The transcode engine name, which follows the keyword engine, for instance, ff
 
-Add the app or app/stream when need to apply transcode to app or stream:
+Add the app or app/stream when you need to apply transcoding to it:
 
 ```bash
 listen              1935;
@@ -144,12 +144,12 @@ vhost __defaultVhost__ {
 }
 ```
 
-Or for stream:
+Or for streams:
 
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
-    # Transcode stream name "livestream" and app is "live"
+    # Transcode stream name is "livestream" and app is "live"
     transcode live/livestream{
     }
 }
@@ -157,7 +157,7 @@ vhost __defaultVhost__ {
 
 ## Transcode Rulers
 
-All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
+All params of SRS transcode are for FFMPEG, and SRS renames some parameters:
 
 <table>
 <tr>
@@ -167,7 +167,7 @@ All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 <td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>The codec to use.</td>
 </tr>
 <tr>
-<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>The bitrate in kbps(for SRS) or bps(for FFMPEG) to output transcode stream.</td>
+<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>The bitrate in kbps (for SRS) or bps (for FFMPEG) at which to output the transcoded stream.</td>
 </tr>
 <tr>
 <td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>The output framerate.</td>
@@ -176,7 +176,7 @@ All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 <td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>The output video size, the width x height and the aspect set to width:height.</td>
 </tr>
 <tr>
-<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>The encode thread for x264.</td>
+<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>The number of encoding threads for x264.</td>
 </tr>
 <tr>
 <td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>The profile for x264.</td>
@@ -188,28 +188,28 @@ All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 <td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libfdk_aac ...</td><td>The codec for audio.</td>
 </tr>
 <tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k. No limit for libfdk_aac.</td>
+<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps (for SRS) and bps (for FFMPEG) for output audio. For libaacplus：16-72k. No limit for libfdk_aac.</td>
 </tr>
 <tr>
 <td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>The audio sample rate.</td>
 </tr>
 <tr>
-<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>THe audio channel.</td>
+<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>The audio channel.</td>
 </tr>
 </table>
 
-There are more parameter of SRS:
+There are more parameters for SRS:
 * vfilter：Parameters added before the vcodec, for the FFMPEG filters.
 * vparams：Parameters added after the vcodec, for the video transcode parameters.
 * aparams：Parameters added after the acodec and before the -y, for the audio transcode parameters.
 
-These parameters will generate by the sequence:
+These parameters will generated by the sequence:
 
 ```bash
 ffmpeg -f flv -i <input_rtmp> {vfilter} -vcodec ... {vparams} -acodec ... {aparams} -f flv -y {output}
 ```
 
-The actual parameters to fork FFMPEG can find the log by keyword `start transcoder`:
+The actual parameters used to fork FFMPEG can be found in the log by the keywords `start transcoder`:
 
 ```bash
 [2014-02-28 21:38:09.603][4][trace][start] start transcoder, 
@@ -224,7 +224,7 @@ rtmp://127.0.0.1:1935/live?vhost=__defaultVhost__/livestream
 
 ## FFMPEG Log Path
 
-When FFMPEG process forked, SRS will redirect the stdout and stderr to the log file, for instance, `./objs/logs/encoder-__defaultVhost__-live-livestream.log`, sometimes the log file is very large. User can add parameter to vfilter to tell FFMPEG to generate less log:
+When an FFMPEG process is forked, SRS will redirect the stdout and stderr to the log file, for instance, `./objs/logs/encoder-__defaultVhost__-live-livestream.log`. Sometimes the log file is very large, so users can add parameters to vfilter to tell FFMPEG to generate less verbose logs:
 
 ```bash
 listen              1935;
@@ -260,11 +260,11 @@ vhost __defaultVhost__ {
 }
 ```
 
-That is, add parameter `-v quiet` to FFMPEG.
+That is, add the parameter `-v quiet` to FFMPEG.
 
 ## Copy Without Transcode
 
-Set the vcodec/acodec to copy, FFMPEG will demux and mux without transcode, like the forward of SRS. User can copy video and transcode audio, for example, when the flash publish stream with h264+speex.
+Set the vcodec/acodec to copy, FFMPEG will demux and mux without transcoding, like the forward of SRS. Users can copy video and transcode audio, for example, when flash is publishing the stream with h264+speex.
 
 ```bash
 listen              1935;
@@ -306,7 +306,7 @@ vhost __defaultVhost__ {
 
 ## Drop Video or Audio
 
-FFMPEG can drop video or audio stream by config the vcodec to vn and acodec to an. For example:
+FFMPEG can drop video or audio streams by configuring vcodec to vn and acodec to an. For example:
 
 ```bash
 listen              1935;
@@ -329,11 +329,11 @@ vhost __defaultVhost__ {
 }
 ```
 
-The config above will output pure audio in aac codec.
+The configuration above will output pure audio in the aac codec.
 
-## Other Transcode Config
+## Other Transcoding Configuration
 
-There are lots of vhost in conf/full.conf for transcode, or refer to the FFMPEG:
+There are lots of vhost in conf/full.conf for transcoding, or refer to FFMPEG:
 * mirror.transcode.srs.com
 * drawtext.transcode.srs.com 
 * crop.transcode.srs.com
@@ -346,17 +346,17 @@ There are lots of vhost in conf/full.conf for transcode, or refer to the FFMPEG:
 * stream.transcode.srs.com 
 * vn.transcode.srs.com
 
-## Transcode on ARM cpu
+## Transcoding on ARM CPUs
 
-SRS can fork the FFMEPG on ARM, see: [Raspberry pi Transcode](v1_EN_ARMTranscode)
+SRS can fork FFMEPG on ARM, see: [Raspberry pi Transcode](v1_EN_ARMTranscode)
 
-Note: To use your own tool, you can disable the ffmpeg by `--without-ffmpeg`, but must open the transcode `--with-transcode`, see: [Build](v2_EN_Build)
+Note: To use your own tool, you can disable ffmpeg by `--without-ffmpeg`, but you must open a transcoder by using `--with-transcode`, see: [Build](v2_EN_Build)
 
-## FFMPEG Transcode the Stream by Flash encoder
+## FFMPEG Transcoding Streams by Flash Encoder
 
-The flash web page can encode and publish RTMP stream to server, and the audio codec must be speex, nellymoser or pcma/pcmu.
+Flash web pages can encode and publish RTMP streams to the server, and the audio codec must be speex, nellymoser or pcma/pcmu.
 
-The flash will disable audio when no audio when publish, so FFMPEG may cannot discovery the audio in stream and disable the audio.
+Flash will disable audio when no audio is published, so FFMPEG may cannot discover the audio in the stream and will disable the audio.
 
 ## FFMPEG
 
