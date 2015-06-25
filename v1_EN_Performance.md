@@ -4,7 +4,7 @@ The performance benchmark for SRS, compare with nginx-rtmp single process.
 
 Provides detail benchmark steps.
 
-The latest data, read [performance](https://github.com/simple-rtmp-server/srs/tree/1.0release#performance).
+The latest data, read [performance](https://github.com/simple-rtmp-server/srs/tree/develop#performance).
 
 ## Hardware
 
