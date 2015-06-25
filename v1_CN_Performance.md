@@ -4,6 +4,8 @@
 
 提供详细的性能测试的过程，可以为其他性能测试做参考，譬如测试nginx-rtmp的多进程，和srs的forward对比之类。
 
+最新的性能测试数据，请参考[performance](https://github.com/simple-rtmp-server/srs/tree/develop#performance)。
+
 ## 硬件环境
 
 本次对比所用到的硬件环境，使用虚拟机，客户端和服务器都运行于一台机器，避开网络瓶颈。
