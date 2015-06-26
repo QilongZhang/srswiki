@@ -25,15 +25,49 @@ read [configure](v2_EN_Build)
 The config also need to enable it:
 
 ```bash
-# http-api.conf
 listen              1935;
+# system statistics section.
+# the main cycle will retrieve the system stat,
+# for example, the cpu/mem/network/disk-io data,
+# the http api, for instance, /api/v1/summaries will show these data.
+# @remark the heartbeat depends on the network,
+#       for example, the eth0 maybe the device which index is 0.
+stats {
+    # the index of device ip.
+    # we may retrieve more than one network device.
+    # default: 0
+    network         0;
+    # the device name to stat the disk iops.
+    # ignore the device of /proc/diskstats if not configed.
+    disk            sda sdb xvda xvdb;
+}
+# api of srs.
+# the http api config, export for external program to manage srs.
+# user can access http api of srs in browser directly, for instance, to access by:
+#       curl http://192.168.1.170:1985/api/v1/reload
+# which will reload srs, like cmd killall -1 srs, but the js can also invoke the http api,
+# where the cli can only be used in shell/terminate.
 http_api {
+    # whether http api is enabled.
+    # default: off
     enabled         on;
+    # the http api listen entry is <[ip:]port>
+    # for example, 192.168.1.100:1985
+    # where the ip is optional, default to 0.0.0.0, that is 1985 equals to 0.0.0.0:1985
+    # default: 1985
     listen          1985;
+    # whether enable crossdomain request.
+    # default: on
+    crossdomain     on;
 }
 vhost __defaultVhost__ {
 }
 ```
+
+The `http_api` enable the HTTP API, and `stats` used for SRS to stat the system info, including:
+
+* network: Used for heartbeat to report the network info, where heartbeat used to report system info. Please read [Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Heartbeat)
+* disk: Used to stat the specified disk iops. You can use command `cat /proc/diskstats` to get the right disk names, for instance, xvda.
 
 Start SRS: `./objs/srs -c http-api.conf`
 
