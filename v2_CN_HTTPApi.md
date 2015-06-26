@@ -12,13 +12,15 @@ SRS的HTTP接口遵循最简单原则，主要包括：
 * 只提供json数据格式接口，要求请求和响应的数据全都是json。
 * 不提供html数据，譬如运行SRS后，浏览器打开HTTP接口或HTTP服务地址，看到的是json，不是html。
 
-## 编译和启动
+## Build
 
 SRS需要打开HTTPApi选项，参考：[configure选项](v2_CN_Build)
 
 ```bash
 ./configure --with-http-api && make
 ```
+
+## Config
 
 配置文件需要开启http-api：
 
@@ -66,6 +68,8 @@ vhost __defaultVhost__ {
 
 * network: 这个配置了heartbeat使用的网卡ip，即SRS主动汇报的网卡信息。参考[Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Heartbeat)
 * disk: 这个配置了需要统计的磁盘的IOPS，可以通过`cat /proc/diskstats`命令获得名称，譬如阿里云的磁盘名称叫xvda.
+
+## Start
 
 启动服务器：`./objs/srs -c http-api.conf`
 
