@@ -2,8 +2,7 @@
 
 SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可以直接控制和获取服务器的各种信息）。
 
-下面是ossrs.net一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本
-（可以做更高级的功能，扫描即可发现bug，扫描即可管理，扫描即可重启，等等）：
+下面是ossrs.net一台演示SRS的二维码，使用微信扫描即可看到这台服务器的版本：
 
 ![SRS](http://winlinvip.github.io/srs.release/wiki/images/demo.api.png?v1)
 
@@ -24,15 +23,49 @@ SRS需要打开HTTPApi选项，参考：[configure选项](v2_CN_Build)
 配置文件需要开启http-api：
 
 ```bash
-# http-api.conf
 listen              1935;
+# system statistics section.
+# the main cycle will retrieve the system stat,
+# for example, the cpu/mem/network/disk-io data,
+# the http api, for instance, /api/v1/summaries will show these data.
+# @remark the heartbeat depends on the network,
+#       for example, the eth0 maybe the device which index is 0.
+stats {
+    # the index of device ip.
+    # we may retrieve more than one network device.
+    # default: 0
+    network         0;
+    # the device name to stat the disk iops.
+    # ignore the device of /proc/diskstats if not configed.
+    disk            sda sdb xvda xvdb;
+}
+# api of srs.
+# the http api config, export for external program to manage srs.
+# user can access http api of srs in browser directly, for instance, to access by:
+#       curl http://192.168.1.170:1985/api/v1/reload
+# which will reload srs, like cmd killall -1 srs, but the js can also invoke the http api,
+# where the cli can only be used in shell/terminate.
 http_api {
+    # whether http api is enabled.
+    # default: off
     enabled         on;
+    # the http api listen entry is <[ip:]port>
+    # for example, 192.168.1.100:1985
+    # where the ip is optional, default to 0.0.0.0, that is 1985 equals to 0.0.0.0:1985
+    # default: 1985
     listen          1985;
+    # whether enable crossdomain request.
+    # default: on
+    crossdomain     on;
 }
 vhost __defaultVhost__ {
 }
 ```
+
+其中，`http_api`开启了HTTP API，`stats`配置了SRS后台统计的信息，包括：
+
+* network: 这个配置了heartbeat使用的网卡ip，即SRS主动汇报的网卡信息。参考[Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Heartbeat)
+* disk: 这个配置了需要统计的磁盘的IOPS，可以通过`cat /proc/diskstats`命令获得名称，譬如阿里云的磁盘名称叫xvda.
 
 启动服务器：`./objs/srs -c http-api.conf`
 
