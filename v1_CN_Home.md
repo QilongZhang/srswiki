@@ -34,16 +34,17 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[HTTP Server|v1_CN_SampleHTTP]]: 如何部署SRS为HTTP服务器。
 * [[SRS DEMO|v1_CN_SampleDemo]]: 如何启动SRS的DEMO。
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
+* [[Setup|v1_CN_Setup]]: SRS安装和部署摘要。
 
-## Quick navigation
+**Benchmarks:***
 
-| 关于SRS             | 项目              | 安装设置          | 文档                  |
-|----------------------------|---------------------------------|-------------------------------|---------------------------|
-| [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
-| [[关于SRS| v1_CN_Product]] | [[项目| v1_CN_Project]]       | [[安装设置| v1_CN_Setup]] | [[文档| v1_CN_Docs]]|
-| 关于SRS的背景和产品定位 | 关于SRS项目，如何贡献代码 | 如何一步一步安装和运行SRS | SRS的详细技术资料 |
+* [Performance][performance]: SRS的性能测试报告。
 
-备注：请点击上面的链接进入，譬如点击安装设置，进入如何安装和设置SRS页面。
+**Join Us:***
+
+* [Donation][donation]: 给SRS捐献。
+* [File Issue][issue]: 提交需求、Bug和反馈。
+* [[Contact|v1_CN_Contact]]: 用QQ、邮箱、微信联系我们。
 
 ## Questions or need help?
 
@@ -58,3 +59,8 @@ Winlin 2015.3
 [mirrors]: https://github.com/simple-rtmp-server/srs/tree/1.0release#mirrors
 [features]: https://github.com/simple-rtmp-server/srs/tree/1.0release#summary
 [releases]: https://github.com/simple-rtmp-server/srs/tree/1.0release#releases
+
+[donation]: http://www.ossrs.net/srs.release/donation/index.html
+[issue]: https://github.com/simple-rtmp-server/srs/issues/new
+
+[performance]: https://github.com/simple-rtmp-server/srs/tree/1.0release#performance
