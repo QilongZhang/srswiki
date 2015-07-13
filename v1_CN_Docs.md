@@ -94,7 +94,7 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 ## [HTTP管理接口](v1_CN_HTTPApi)
 
-如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](v1_CN_HTTPApi)
+SRS是否提供HTTP API？如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](v1_CN_HTTPApi)
 
 ## [Ingest采集](v1_CN_Ingest)
 
