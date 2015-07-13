@@ -12,6 +12,29 @@ SRS主要运行在Linux系统上，譬如Centos和Ubuntu，包括x86、x86-64、
 
 SRS可以在一台服务器上运行集群，或者在多台服务器上也可以运行集群。SRS是单进程模型，不支持多进程；您可以使用[go-sharp][sharp]支持HTTP FLV的多进程，以及[srs-dolphin][dolphin]支持RTMP的多进程。
 
+## Where to Go from Here
+
+***User Guides:***
+
+* [[Why SRS|v1_CN_Product]]: 为何选择SRS？SRS的路线图？
+* [Quick Start][qstart]: 使用SRS的主要功能的快速手册。
+* [GIT Mirrors][mirrors]: SRS在各个主要GIT站点的镜像，代码都是保持同步的。
+* [Main Features][features]: SRS的功能列表。请注意有些功能只有特定的版本才有。请注意有些功能是实验性的。
+* [Releases][releases]: SRS目前已经发布的版本。
+* [[Docs|v1_CN_Docs]]: SRS的详细文档。
+
+**Deployment Guides:***
+
+* [[RTMP Server|v1_CN_SampleRTMP]]: 如何部署SRS提供RTMP服务。
+* [[Delivery HLS|v1_CN_SampleHLS]]: 如何部署SRS提供RTMP和HLS服务。
+* [[Transcode|v1_CN_SampleFFMPEG]]: 如何部署SRS对直播流转码。
+* [[Forward|v1_CN_SampleForward]]: 如何部署SRS转发RTMP流到其他服务器。
+* [[Low latency|v1_CN_SampleRealtime]]: 如何部署SRS为低延迟模式。
+* [[Ingest|v1_CN_SampleIngest]]: 如何将其他流拉到SRS作为RTMP流。
+* [[HTTP Server|v1_CN_SampleHTTP]]: 如何部署SRS为HTTP服务器。
+* [[SRS DEMO|v1_CN_SampleDemo]]: 如何启动SRS的DEMO。
+* [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
+
 ## Quick navigation
 
 | 关于SRS             | 项目              | 安装设置          | 文档                  |
@@ -33,3 +56,8 @@ Winlin 2015.3
 
 [sharp]: https://github.com/simple-rtmp-server/go-sharp
 [dolphin]: https://github.com/simple-rtmp-server/srs-dolphin
+
+[qstart]: https://github.com/simple-rtmp-server/srs/tree/2.0release#usage
+[mirrors]: https://github.com/simple-rtmp-server/srs/tree/2.0release#mirrors
+[features]: https://github.com/simple-rtmp-server/srs/tree/2.0release#summary
+[releases]: https://github.com/simple-rtmp-server/srs/tree/2.0release#releases
