@@ -23,7 +23,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [Releases][releases]: SRS目前已经发布的版本。
 * [[Docs|v1_CN_Docs]]: SRS的详细文档。
 
-**Deployment Guides:***
+***Deployment Guides:***
 
 * [[RTMP Server|v1_CN_SampleRTMP]]: 如何部署SRS提供RTMP服务。
 * [[Delivery HLS|v1_CN_SampleHLS]]: 如何部署SRS提供RTMP和HLS服务。
@@ -36,13 +36,13 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[SRS DEMO|v1_CN_SampleDemo]]: 如何启动SRS的DEMO。
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
 
-**Join Us:***
+***Join Us:***
 
 * [Donation][donation]: 给SRS捐献。
 * [File Issue][issue]: 提交需求、Bug和反馈。
 * [[Contact|v1_CN_Contact]]: 用QQ、邮箱、微信联系我们。
 
-**Benchmarks:***
+***Benchmarks:***
 
 * [Compare][compare]: SRS和其他服务器的对比。
 * [Performance][performance]: SRS的性能测试报告。
