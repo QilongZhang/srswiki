@@ -27,6 +27,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 
 * [[RTMP Server|v1_CN_SampleRTMP]]: 如何部署SRS提供RTMP服务。
 * [[Delivery HLS|v1_CN_SampleHLS]]: 如何部署SRS提供RTMP和HLS服务。
+* [[HTTP FLV|v2_CN_SampleHttpFlv]]: 如何部署SRS分发FLV流。
 * [[Transcode|v1_CN_SampleFFMPEG]]: 如何部署SRS对直播流转码。
 * [[Forward|v1_CN_SampleForward]]: 如何部署SRS转发RTMP流到其他服务器。
 * [[Low latency|v1_CN_SampleRealtime]]: 如何部署SRS为低延迟模式。
@@ -35,15 +36,16 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[SRS DEMO|v1_CN_SampleDemo]]: 如何启动SRS的DEMO。
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
 
-## Quick navigation
+**Join Us:***
 
-| 关于SRS             | 项目              | 安装设置          | 文档                  |
-|----------------------------|---------------------------------|-------------------------------|---------------------------|
-| [[/images/help.png]] | [[/images/users.png]] | [[/images/tools.png]] | [[/images/database.png]] |
-| [[关于SRS| v1_CN_Product]] | [[项目| v1_CN_Project]]       | [[安装设置| v2_CN_Setup]] | [[文档| v2_CN_Docs]]|
-| 关于SRS的背景和产品定位 | 关于SRS项目，如何贡献代码 | 如何一步一步安装和运行SRS | SRS的详细技术资料 |
+* [Donation][donation]: 给SRS捐献。
+* [File Issue][issue]: 提交需求、Bug和反馈。
+* [[Contact|v1_CN_Contact]]: 用QQ、邮箱、微信联系我们。
 
-备注：请点击上面的链接进入，譬如点击安装设置，进入如何安装和设置SRS页面。
+**Benchmarks:***
+
+* [Compare][compare]: SRS和其他服务器的对比。
+* [Performance][performance]: SRS的性能测试报告。
 
 ## Questions or need help?
 
@@ -61,3 +63,9 @@ Winlin 2015.3
 [mirrors]: https://github.com/simple-rtmp-server/srs/tree/2.0release#mirrors
 [features]: https://github.com/simple-rtmp-server/srs/tree/2.0release#summary
 [releases]: https://github.com/simple-rtmp-server/srs/tree/2.0release#releases
+
+[donation]: http://www.ossrs.net/srs.release/donation/index.html
+[issue]: https://github.com/simple-rtmp-server/srs/issues/new
+
+[compare]: https://github.com/simple-rtmp-server/srs/tree/2.0release#compare
+[performance]: https://github.com/simple-rtmp-server/srs/tree/2.0release#performance
