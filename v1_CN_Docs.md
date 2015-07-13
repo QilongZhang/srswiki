@@ -90,7 +90,7 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 ## [HTTP回调](v1_CN_HTTPCallback)
 
-如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](v1_CN_HTTPCallback)
+如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？SRS在各种事件时可以回调HTTP接口(HTTP Callback、HTTP Hooks)。参考：[HTTP回调](v1_CN_HTTPCallback)
 
 ## [HTTP管理接口](v1_CN_HTTPApi)
 
