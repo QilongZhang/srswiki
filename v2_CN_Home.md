@@ -4,9 +4,13 @@
 
 SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS提供了丰富的接入方案将RTMP流接入SRS，包括[[推送RTMP到SRS | v1_CN_SampleRTMP ]]、[[推送RTSP/UDP/FLV到SRS | v2_CN_Streamer]]、[[拉取流到SRS | v1_CN_Ingest]]。SRS还支持将接入的RTMP流进行各种变换，譬如[[将RTMP流转码 | v1_CN_SampleFFMPEG]]、[[转封装成HTTP-FLV流 | v2_CN_SampleHttpFlv]]、[[转封装成HLS | v1_CN_SampleHLS]]、[[转封装成HDS | v2_CN_DeliveryHDS]]、[[录制成FLV | v1_CN_DVR]]。SRS包含支大规模集群如CDN业务的关键特性，譬如[[RTMP多级集群 | v1_CN_SampleRTMPCluster]]、[[VHOST虚拟服务器  | v1_CN_RtmpUrlVhost]]、[[无中断服务Reload | v1_CN_Reload]]、[[HTTP-FLV集群 | v2_CN_SampleHttpFlvCluster]]。此外，SRS还提供丰富的应用接口，包括[[HTTP回调 | v1_CN_HTTPCallback]]、[[安全策略Security | v2_CN_Security]]、[[HTTP API接口 | v1_CN_HTTPApi]]、[[RTMP测速 | v1_CN_BandwidthTestTool]]。
 
-欢迎关注 **SRS** - 开源的，运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS基于协程技术[state-threads](st).
+## Downloading
 
-WIKI是开发者的主要文档。若需要下载安装包，请访问[**ossrs.net**][website].
+SRS发布版本提供安装包下载，请访问[**ossrs.net**][website]。若您需要自己编译SRS，请参考[[编译SRS | v1_CN_Build]]。
+
+SRS主要运行在Linux系统上，譬如Centos和Ubuntu，包括x86、x86-64、ARM和MIPS。MacOS支持代码编辑和编译。其他Unix-like系统不支持，SRS也不支持Windows系统。SRS的系统偏好主要是由于[state-threads][st]导致的，它极大的简化了服务器在复杂协议的处理。
+
+SRS可以在一台服务器上运行集群，或者在多台服务器上也可以运行集群。SRS是单进程模型，不支持多进程；您可以使用[go-sharp][sharp]支持HTTP FLV的多进程，以及[srs-dolphin][dolphin]支持RTMP的多进程。
 
 ## Quick navigation
 
@@ -26,3 +30,6 @@ Winlin 2015.3
 
 [st]: https://github.com/winlinvip/state-threads
 [website]: http://ossrs.net
+
+[sharp]: https://github.com/simple-rtmp-server/go-sharp
+[dolphin]: https://github.com/simple-rtmp-server/srs-dolphin
