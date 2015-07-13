@@ -30,7 +30,7 @@ SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](v1
 
 ## [编译SRS](v1_CN_Build)
 
-编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](v1_CN_Build)
+编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法，如何Build SRS。链接：[编译SRS](v1_CN_Build)
 
 ## [SRS启动](v1_CN_LinuxService)
 
