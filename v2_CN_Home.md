@@ -2,7 +2,7 @@
 
 ## SRS Overview
 
-SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS提供了丰富的接入方案将RTMP流接入SRS，包括[[推送RTMP到SRS | v1_CN_SampleRTMP ]]、[[推送RTSP/UDP/FLV到SRS | v2_CN_Streamer]]、[[拉取流到SRS | v1_CN_Ingest]]。SRS还支持将接入的RTMP流进行各种变换，譬如[[将RTMP流转码 | v1_CN_SampleFFMPEG]]、[[转封装成HTTP-FLV流 | v2_CN_SampleHttpFlv]]、[[转封装成HLS | v1_CN_SampleHLS]]、[[转封装成HDS | v2_CN_DeliveryHDS]]、[[录制成FLV | v1_CN_DVR]]。SRS包含支大规模集群如CDN业务的关键特性，譬如[[RTMP多级集群 | v1_CN_SampleRTMPCluster]]、[[VHOST虚拟服务器  | v1_CN_RtmpUrlVhost]]、[[无中断服务Reload | v1_CN_Reload]]、[[HTTP-FLV集群 | v2_CN_SampleHttpFlvCluster]]。此外，SRS还提供丰富的应用接口，包括[[HTTP回调 | v1_CN_HTTPCallback]]、[[安全策略Security | v2_CN_Security]]、[[HTTP API接口 | v1_CN_HTTPApi]]、[[RTMP测速 | v1_CN_BandwidthTestTool]]。
+SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS提供了丰富的接入方案将RTMP流接入SRS，包括[[推送RTMP到SRS | v1_CN_SampleRTMP ]]、[[推送RTSP/UDP/FLV到SRS | v2_CN_Streamer]]、[[拉取流到SRS | v1_CN_Ingest]]。SRS还支持将接入的RTMP流进行各种变换，譬如[[将RTMP流转码 | v1_CN_SampleFFMPEG]]、[[转发给其他服务器 | v1_CN_SampleForward]]、[[转封装成HTTP-FLV流 | v2_CN_SampleHttpFlv]]、[[转封装成HLS | v1_CN_SampleHLS]]、[[转封装成HDS | v2_CN_DeliveryHDS]]、[[录制成FLV | v1_CN_DVR]]。SRS包含支大规模集群如CDN业务的关键特性，譬如[[RTMP多级集群 | v1_CN_SampleRTMPCluster]]、[[VHOST虚拟服务器  | v1_CN_RtmpUrlVhost]]、[[无中断服务Reload | v1_CN_Reload]]、[[HTTP-FLV集群 | v2_CN_SampleHttpFlvCluster]]。此外，SRS还提供丰富的应用接口，包括[[HTTP回调 | v1_CN_HTTPCallback]]、[[安全策略Security | v2_CN_Security]]、[[HTTP API接口 | v1_CN_HTTPApi]]、[[RTMP测速 | v1_CN_BandwidthTestTool]]。
 
 ## Downloading
 
@@ -16,8 +16,8 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 
 ***User Guides:***
 
+* [Quick Start][qstart]: 使用SRS的主要功能的快速手册。您应该从这个文章入手。
 * [[Why SRS|v1_CN_Product]]: 为何选择SRS？SRS的路线图？
-* [Quick Start][qstart]: 使用SRS的主要功能的快速手册。
 * [GIT Mirrors][mirrors]: SRS在各个主要GIT站点的镜像，代码都是保持同步的。
 * [Main Features][features]: SRS的功能列表。请注意有些功能只有特定的版本才有。请注意有些功能是实验性的。
 * [Releases][releases]: SRS目前已经发布的版本。
@@ -35,6 +35,12 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[HTTP Server|v1_CN_SampleHTTP]]: 如何部署SRS为HTTP服务器。
 * [[SRS DEMO|v1_CN_SampleDemo]]: 如何启动SRS的DEMO。
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
+* [[Setup|v1_CN_Setup]]: SRS安装和部署摘要。
+
+***Benchmarks:***
+
+* [Compare][compare]: SRS和其他服务器的对比。
+* [Performance][performance]: SRS的性能测试报告。
 
 ***Join Us:***
 
@@ -42,16 +48,11 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [File Issue][issue]: 提交需求、Bug和反馈。
 * [[Contact|v1_CN_Contact]]: 用QQ、邮箱、微信联系我们。
 
-***Benchmarks:***
-
-* [Compare][compare]: SRS和其他服务器的对比。
-* [Performance][performance]: SRS的性能测试报告。
-
 ## Questions or need help?
 
 其他联系方式，参考[联系我们](v1_CN_Contact)
 
-Winlin 2015.3
+Winlin 2015.7
 
 [st]: https://github.com/winlinvip/state-threads
 [website]: http://ossrs.net
