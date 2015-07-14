@@ -20,8 +20,8 @@ SRS will ensure the stream timestamp is mono-inc. When delta of packets too larg
 Some components use the timestamp jitter:
 * RTMP delivery: The timestamp jitter algorithm can set by vhost `time_jitter`.
 * DVR: The timestamp jitter algorithm can set by dvr `time_jitter`.
-* HLS: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
-* Forward: Always ensure the timestamp is mono-inc, use `full` timestamp jitter algorithm.
+* HLS: Always disable the timestamp is mono-inc, use `off` timestamp jitter algorithm.
+* Forward: Always disable the timestamp is mono-inc, use `off` timestamp jitter algorithm.
 
 You can disable the timestamp jitter algorithm when your encoder can not ensure the 
 video+autio mono-inc, some encoder can ensure video mono-inc and audio mono-inc.
