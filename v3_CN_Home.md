@@ -62,7 +62,7 @@ Winlin 2015.7
 
 [qstart]: https://github.com/simple-rtmp-server/srs/tree/2.0release#usage
 [mirrors]: https://github.com/simple-rtmp-server/srs/tree/2.0release#mirrors
-[features]: https://github.com/simple-rtmp-server/srs/tree/2.0release#summary
+[features]: https://github.com/simple-rtmp-server/srs/tree/2.0release#features
 [releases]: https://github.com/simple-rtmp-server/srs/tree/2.0release#releases
 
 [donation]: http://www.ossrs.net/srs.release/donation/index.html
