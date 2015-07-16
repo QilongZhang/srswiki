@@ -74,8 +74,8 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持内存HLS，无磁盘IO, 参考：[#136][bug136].
 * 增强的DVR，支持Append/callback，参考：[#179][bug179].
 * 增强的HTTP API，支持stream/vhost查询，参考：[#316][bug316].
-* 支持HDS，参考：[#328][bug328].
 * 支持HSTRS(HTTP流触发RTMP回源)，支持HTTP-FLV等待，支持边缘回源，参考：[#324][bug324].
+* [experiment]支持HDS，参考：[#328][bug328].
 * [experiment]支持Push MPEG-TS over UDP to SRS, 参考：[#250][bug250].
 * [experiment]支持Push RTSP to SRS，参考：[#133][bug133].
 * 其他小功能的完善。
@@ -92,6 +92,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持h.265直播，在RTMP中加入265支持，输出HLS。
 * 支持MPEG-DASH，可能的未来标准。
 * 支持HTTP边缘服务器。
+* 支持接入Spark大数据系统。
 * 其他。
 
 ## Backlog
