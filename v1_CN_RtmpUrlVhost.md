@@ -16,44 +16,10 @@ Vhost的主要应用场景包括：
 
 标准RTMP URL指的是最大兼容的RTMP URL，基本上所有的服务器和播放器都能识别的URL，和HTTP URL其实很相似，例如：
 
-<table>
-<thead>
-<tr>
-<th>HTTP</th>
-<th>Schema</th>
-<th>Host</th>
-<th>Port</th>
-<th colspan=2>Path</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http://192.168.1.10:80/players/srs_player.html</td>
-<td>http</td>
-<td>192.168.1.10</td>
-<td>80</td>
-<td colspan=2>/players/srs_player.html</td>
-</tr>
-<tr>
-<td>rtmp://192.168.1.10:1935/live/livestream</td>
-<td>rtmp</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<th>RTMP</th>
-<th>Schema</th>
-<th>Host</th>
-<th>Port</th>
-<th>App</th>
-<th>Stream</th>
-</tr>
-</tfoot>
-</table>
+| HTTP | Schema | Host | Port | App | Stream |
+| ----- | ----- | ----- | ----| ---- | ---- |
+| http://192.168.1.10:80/players/srs_player.html | http | 192.168.1.10 | 80 | players | srs_player.html|
+| rtmp://192.168.1.10:1935/live/livestream | rtmp | 192.168.1.10 | 1935 | live | livestream |
 
 其中：
 * Schema：协议头，HTTP为HTTP或HTTPS，RTMP为RTMP/RTMPS/RTMPE/RTMPT等众多协议，还有新出的RTMFP。
@@ -89,38 +55,10 @@ vhost __defaultVhost__ {
 
 RTMP的Vhost和HTTP的Vhost概念是一样的：虚拟主机。详见下表（假设域名demo.srs.com被解析到IP为192.168.1.10的服务器）：
 
-<table>
-<thead>
-<tr>
-<th>HTTP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http://demo.srs.com:80/players/srs_player.html</td>
-<td>192.168.1.10</td>
-<td>80</td>
-<td>demo.srs.com</td>
-</tr>
-<tr>
-<td>rtmp://demo.srs.com:1935/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>demo.srs.com</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<th>RTMP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-</tr>
-</tfoot>
-</table>
+| HTTP | Host | Port | Vhost |
+| --- | --- | --- | ----- |
+| http://demo.srs.com:80/players/srs_player.html | 192.168.1.10 | 80 | demo.srs.com |
+|  | rtmp://demo.srs.com:1935/live/livestream | 192.168.1.10 | 1935 | demo.srs.com |
 
 Vhost主要的作用是：
 * 支持多用户：当一台服务器需要服务多个客户，譬如CDN有cctv（央视）和wasu（华数传媒）两个客户时，如何隔离他们两个的资源？相当于不同的用户共用一台计算机，他们可以在自己的文件系统建立同样的文件目录结构，但是彼此不会冲突。
@@ -131,36 +69,10 @@ Vhost主要的作用是：
 
 假设cctv和wasu都运行在一台边缘节点(192.168.1.10)上，用户访问这两个媒体的流时，Vhost的作用见下表：
 
-<table>
-<thead>
-<tr>
-<th>RTMP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-<th>App</th>
-<th>Stream</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rtmp://show.cctv.cn/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>show.cctv.cn</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-<tr>
-<td>rtmp://show.wasu.cn/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>show.wasu.cn</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-</tbody>
-</table>
+| RTMP | Host | Port | Vhost | App | Stream |
+| --- | --- | -------| ----- | ---| --------|
+|  rtmp://show.cctv.cn/live/livestream | 192.168.1.10 | 1935 | show.cctv.cn | live | livestream |
+|  rtmp://show.wasu.cn/live/livestream | 192.168.1.10 | 1935 | show.wasu.cn | live | livestream |
 
 在边缘节点（192.168.1.10）上的SRS，需要配置Vhost，例如：
 
@@ -235,42 +147,12 @@ RTMP URL: rtmp://demo.srs.com/live/livestream
 
 各种访问方式见下表：
 
-<table>
-<thead>
-<tr>
-<th>用户</th>
-<th>RTMP URL</th>
-<th>hosts设置</th>
-<th>目标</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通用户</td>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<th>无</th>
-<td>由DNS<br/>解析到指定边缘</td>
-</tr>
-<tr>
-<td>运维</td>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<th>192.168.1.100 demo.srs.com</th>
-<td>查看192.168.1.100上的流</td>
-</tr>
-<tr>
-<td>运维</td>
-<td>rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream</td>
-<th>无</th>
-<td>查看192.168.1.100上的流</td>
-</tr>
-<tr>
-<td>运维</td>
-<td>rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream</td>
-<th>无</th>
-<td>查看192.168.1.100上的流</td>
-</tr>
-</tbody>
-</table>
+| 用户 | RTMP URL | hosts设置 | 目标 |
+| ---- | -------- | ------- | ------ |
+| 普通用户 | rtmp://demo.srs.com/live/livestream | 无 | 由DNS<br/>解析到指定边缘 |
+| 运维 | rtmp://demo.srs.com/live/livestream | 192.168.1.100 demo.srs.com | 查看192.168.1.100上的流 |
+| 运维 | rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream | 无 | 查看192.168.1.100上的流 |
+| 运维 | rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream | 无 | 查看192.168.1.100上的流|
 
 访问其他服务器的流也类似。
 
@@ -361,128 +243,46 @@ stream: 2013
 做此简化的好处是，srs播放器和编码器，只需要指定一个url，而且两者的url是一样的。
 
 SRS常见的三种RTMP URL，详细见下表：
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<td>普通用户的标准访问方式，观看直播流</td>
-</tr>
-<tr>
-<td>rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream</td>
-<td>运维对特定服务器排错</td>
-</tr>
-<tr>
-<td>rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream</td>
-<td>token验证用户，或者带宽测试的key验证</td>
-</tr>
-</tbody>
-</table>
+
+| URL | 说明 |
+| rtmp://demo.srs.com/live/livestream | 普通用户的标准访问方式，观看直播流 |
+| rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream | 运维对特定服务器排错 |
+| rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream | token验证用户，或者带宽测试的key验证 |
 
 ## SRS的Vhost
 
 SRS的full.conf配置文件中，有很多Vhost，主要是为了说明各个功能，每个功能都单独列出一个vhost。所有功能都放在demo.srs.com这个vhost中。
 
-<table>
-<thead>
-<th>Category</th>
-<th>Vhost</th>
-<th>说明</th>
-</thead>
-<tbody>
-<tr>
-<td>RTMP</td><td>__defaultVhost__</td><td>默认Vhost的配置，只支持RTMP功能</td>
-</tr>
-<tr>
-<td>RTMP</td><td>chunksize.vhost.com</td><td>如何设置chunk size的实例。其他Vhost将此配置打开，即可设置chunk size。</td>
-</tr>
-<tr>
-<td>Forward</td><td>same.vhost.forward.vhost.com</td><td>Forward实例：将流转发到同一个vhost。</td>
-</tr>
-<tr>
-<td>Forward</td><td>change.vhost.forward.vhost.com</td><td>Forward实例：转发时，转发到服务器的不同vhost。</td>
-</tr>
-<tr>
-<td>HLS</td><td>with-hls.vhost.com</td><td>HLS实例：如何开启HLS，以及HLS的相关配置。</td>
-</tr>
-<tr>
-<td>HLS</td><td>no-hls.vhost.com</td><td>HLS实例：如何禁用HLS。</td>
-</tr>
-<tr>
-<td>RTMP</td><td>min.delay.com</td><td>RTMP最低延迟：如何配置最低延迟的RTMP流。</td>
-</tr>
-<tr>
-<td>RTMP</td><td>refer.anti_suck.com</td><td>Refer实例：如何配置Refer防盗链。</td>
-</tr>
-<tr>
-<td>RTMP</td><td>bandcheck.srs.com</td><td>带宽测试用的vhost，srs测速默认连接到这个vhost。这个vhost配置了带宽测速的key，可测速间隔和最大测速带宽限制。其他Vhost也可以支持测速，只要把这个配置项打开，然后在测速播放器的参数中指明另外的vhost</td>
-</tr>
-<tr>
-<td>RTMP</td><td>removed.vhost.com</td><td>禁用vhost实例：如何禁用vhost。</td>
-</tr>
-<tr>
-<td>Callback</td><td>hooks.callback.vhost.com</td><td>设置http callback的实例，当这些事件发生时，SRS会调用指定的http api。其他Vhost将这些配置打开，就可以支持http callback。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>mirror.transcode.vhost.com</td><td>转码实例：使用ffmpeg的实例filter，将视频做镜像翻转处理。其他Vhost添加这个配置，就可以对流进行转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>crop.transcode.vhost.com</td><td>转码实例：剪裁视频filter。其他vhost添加此filter，即可对视频进行剪裁。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>logo.transcode.vhost.com</td><td>转码实例：添加图片/视频水印。其他vhost添加这些配置，可以加图片/视频水印。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>audio.transcode.vhost.com</td><td>转码实例：只对音频转码。其他vhost添加此配置，可只对音频转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>copy.transcode.vhost.com</td><td>转码实例：只转封装。类似于forward功能。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>all.transcode.vhost.com</td><td>转码实例：对上面的实例的汇总。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>ffempty.transcode.vhost.com</td><td>调用ffempty程序转码，这个只是一个stub，打印出参数而已。用作调试用，看参数是否传递正确。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>app.transcode.vhost.com</td><td>转码实例：只对匹配的app的流进行转码。</td>
-</tr>
-<tr>
-<td>Transcode</td><td>stream.transcode.vhost.com</td><td>转码实例：只对匹配的流进行转码。</td>
-</tr>
-</tbody>
-</table>
+| Category | Vhost | 说明 |
+| -------- | ----- | ---- |
+| RTMP | __defaultVhost__ | 默认Vhost的配置，只支持RTMP功能 |
+| RTMP | chunksize.vhost.com | 如何设置chunk size的实例。其他Vhost将此配置打开，即可设置chunk size。|
+| Forward | same.vhost.forward.vhost.com | Forward实例：将流转发到同一个vhost。|
+| HLS | with-hls.vhost.com | HLS实例：如何开启HLS，以及HLS的相关配置。|
+| HLS | no-hls.vhost.com | HLS实例：如何禁用HLS。|
+| RTMP | min.delay.com | RTMP最低延迟：如何配置最低延迟的RTMP流 |
+| RTMP | refer.anti_suck.com | Refer实例：如何配置Refer防盗链。|
+| RTMP | bandcheck.srs.com | 带宽测试用的vhost，srs测速默认连接到这个vhost。这个vhost配置了带宽测速的key，可测速间隔和最大测速带宽限制。其他Vhost也可以支持测速，只要把这个配置项打开，然后在测速播放器的参数中指明另外的vhost|
+| RTMP | removed.vhost.com | 禁用vhost实例：如何禁用vhost。|
+| Callback | hooks.callback.vhost.com | 设置http callback的实例，当这些事件发生时，SRS会调用指定的http api。其他Vhost将这些配置打开，就可以支持http callback。 |
+| Transcode | mirror.transcode.vhost.com | 转码实例：使用ffmpeg的实例filter，将视频做镜像翻转处理。其他Vhost添加这个配置，就可以对流进行转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。|
+| Transcode | crop.transcode.vhost.com | 转码实例：剪裁视频filter。其他vhost添加此filter，即可对视频进行剪裁。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。 |
+| Transcode | logo.transcode.vhost.com | 转码实例：添加图片/视频水印。其他vhost添加这些配置，可以加图片/视频水印。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。 |
+| Transcode | audio.transcode.vhost.com | 转码实例：只对音频转码。其他vhost添加此配置，可只对音频转码。<br/>注：所有转码的流都需要重新推送到SRS，使用不同的流名称（vhost和app也可以不一样）。|
+| Transcode | copy.transcode.vhost.com | 转码实例：只转封装。类似于forward功能。|
+| Transcode | all.transcode.vhost.com | 转码实例：对上面的实例的汇总。|
+| Transcode | ffempty.transcode.vhost.com | 调用ffempty程序转码，这个只是一个stub，打印出参数而已。用作调试用，看参数是否传递正确。|
+| Transcode | app.transcode.vhost.com | 转码实例：只对匹配的app的流进行转码。|
+| Transcode | stream.transcode.vhost.com | 转码实例：只对匹配的流进行转码。|
 
 SRS的demo.conf配置文件中，包含了demo用到的一些vhost，参考[Usage: Demo](v1_CN_SampleDemo)。
 
-<table>
-<thead>
-<th>Category</th>
-<th>Vhost</th>
-<th>说明</th>
-</thead>
-<tbody>
-<tr>
-<td>DEMO</td><td>players</td><td>srs_player播放的演示流，按照Readme的Step会推流到这个vhost，demo页面打开后播放的流就是这个vhost中的流</td>
-</tr>
-<tr>
-<td>DEMO</td><td>players_pub</td><td>srs编码器推流到players这个vhost，然后转码后将流推送到这个vhost，并切片为hls，srs编码器播放的带字幕的流就是这个vhost的流</td>
-</tr>
-<tr>
-<td>DEMO</td><td>players_pub_rtmp</td><td>srs编码器演示页面中的低延时播放器，播放的就是这个vhost的流，这个vhost关闭了gop cache，关闭了hls，让延时最低（在1秒内）</td>
-</tr>
-<tr>
-<td>DEMO</td><td>demo.srs.com</td><td>srs的演示vhost，Readme的step最后的12路流演示，以及播放器的12路流延时，都是访问的这个vhost。包含了SRS所有的功能。</td>
-</tr>
-<tr>
-<td>Others</td><td>dev</td><td>开发用的，可忽略</td>
-</tr>
-</tbody>
-</table>
+| Category | Vhost | 说明 |
+| -------- | ----- | ---- |
+| DEMO | players | srs_player播放的演示流，按照Readme的Step会推流到这个vhost，demo页面打开后播放的流就是这个vhost中的流 |
+| DEMO | players_pub | srs编码器推流到players这个vhost，然后转码后将流推送到这个vhost，并切片为hls，srs编码器播放的带字幕的流就是这个vhost的流 |
+| DEMO | players_pub_rtmp | srs编码器演示页面中的低延时播放器，播放的就是这个vhost的流，这个vhost关闭了gop cache，关闭了hls，让延时最低（在1秒内）|
+| DEMO | demo.srs.com | srs的演示vhost，Readme的step最后的12路流演示，以及播放器的12路流延时，都是访问的这个vhost。包含了SRS所有的功能。 |
+| Others | dev | 开发用的，可忽略 |
 
 Winlin 2014.2
