@@ -16,44 +16,10 @@ In a word, vhost is the element of config, to seperate customer and apply differ
 
 Standard RTMP URL is the most compatible URL, for all servers and players can identify. The RTMP URL is similar to the HTTP URL:
 
-<table>
-<thead>
-<tr>
-<th>HTTP</th>
-<th>Schema</th>
-<th>Host</th>
-<th>Port</th>
-<th colspan=2>Path</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http://192.168.1.10:80/players/srs_player.html</td>
-<td>http</td>
-<td>192.168.1.10</td>
-<td>80</td>
-<td colspan=2>/players/srs_player.html</td>
-</tr>
-<tr>
-<td>rtmp://192.168.1.10:1935/live/livestream</td>
-<td>rtmp</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<th>RTMP</th>
-<th>Schema</th>
-<th>Host</th>
-<th>Port</th>
-<th>App</th>
-<th>Stream</th>
-</tr>
-</tfoot>
-</table>
+| HTTP | Schema | Host | Port | App | Stream |
+| ----- | ----- | ----- | ----| ---- | ---- |
+| http://192.168.1.10:80/players/srs_player.html | http | 192.168.1.10 | 80 | players | srs_player.html|
+| rtmp://192.168.1.10:1935/live/livestream | rtmp | 192.168.1.10 | 1935 | live | livestream |
 
 It is:
 * Schema：The protocol prefix, HTTP/HTTPS for HTTP protocol, and RTMP/RTMPS/RTMPE/RTMPT for RTMP protocol, while the RTMFP is adobe flash p2p protocol.
@@ -89,38 +55,10 @@ The reader category can use app `reader`, and the `red_mansion` chat room can us
 
 The vhost of RTMP is same to HTTP virtual server. For example, the demo.srs.com is resolve to 192.168.1.10 by dns or hosts:
 
-<table>
-<thead>
-<tr>
-<th>HTTP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http://demo.srs.com:80/players/srs_player.html</td>
-<td>192.168.1.10</td>
-<td>80</td>
-<td>demo.srs.com</td>
-</tr>
-<tr>
-<td>rtmp://demo.srs.com:1935/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>demo.srs.com</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<th>RTMP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-</tr>
-</tfoot>
-</table>
+| HTTP | Host | Port | Vhost |
+| --- | --- | --- | ----- |
+| http://demo.srs.com:80/players/srs_player.html | 192.168.1.10 | 80 | demo.srs.com |
+| rtmp://demo.srs.com:1935/live/livestream | 192.168.1.10 | 1935 | demo.srs.com |
 
 The use scenario of vhost:
 * Multiple Customers: When need to serve multiple customers use the same network, for example, cctv and wasu delivery stream on the same CDN, how to seperate them, when they use the same app and stream?
@@ -131,36 +69,10 @@ The use scenario of vhost:
 
 For example, we got two customers cctv and wasu, use the same edge server 192.168.1.10, when user access the stream of these two customers:
 
-<table>
-<thead>
-<tr>
-<th>RTMP</th>
-<th>Host</th>
-<th>Port</th>
-<th>VHost</th>
-<th>App</th>
-<th>Stream</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rtmp://show.cctv.cn/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>show.cctv.cn</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-<tr>
-<td>rtmp://show.wasu.cn/live/livestream</td>
-<td>192.168.1.10</td>
-<td>1935</td>
-<td>show.wasu.cn</td>
-<td>live</td>
-<td>livestream</td>
-</tr>
-</tbody>
-</table>
+| RTMP | Host | Port | Vhost | App | Stream |
+| --- | --- | -------| ----- | ---| --------|
+|  rtmp://show.cctv.cn/live/livestream | 192.168.1.10 | 1935 | show.cctv.cn | live | livestream |
+|  rtmp://show.wasu.cn/live/livestream | 192.168.1.10 | 1935 | show.wasu.cn | live | livestream |
 
 The config on the edge 192.168.1.10, need to config the vhost:
 
@@ -234,42 +146,12 @@ Edge SRS config:
 
 The ways to access the url on edge servers:
 
-<table>
-<thead>
-<tr>
-<th>User</th>
-<th>RTMP URL</th>
-<th>Hosts file</th>
-<th>Target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>User</td>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<th>NO</th>
-<td>Scheduled by DNS</td>
-</tr>
-<tr>
-<td>Admin</td>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<th>192.168.1.100 demo.srs.com</th>
-<td>Stream on 192.168.1.100</td>
-</tr>
-<tr>
-<td>Admin</td>
-<td>rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream</td>
-<th>NO</th>
-<td>Stream on 192.168.1.100</td>
-</tr>
-<tr>
-<td>Admin</td>
-<td>rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream</td>
-<th>NO</th>
-<td>Stream on 192.168.1.100</td>
-</tr>
-</tbody>
-</table>
+| 用户 | RTMP URL | hosts设置 | 目标 |
+| ---- | -------- | ------- | ------ |
+| 普通用户 | rtmp://demo.srs.com/live/livestream | 无 | 由DNS<br/>解析到指定边缘 |
+| 运维 | rtmp://demo.srs.com/live/livestream | 192.168.1.100 demo.srs.com | 查看192.168.1.100上的流 |
+| 运维 | rtmp://192.168.1.100/live?<br/>vhost=demo.srs.com/livestream | 无 | 查看192.168.1.100上的流 |
+| 运维 | rtmp://192.168.1.100/live<br/>...vhost...demo.srs.com/livestream | 无 | 查看192.168.1.100上的流|
 
 It is sample way to access other servers.
 
@@ -361,128 +243,46 @@ stream: 2013
 It simplify the url, the palyer and publisher only need user to input a url, not tcUrl and stream.
 
 The RTMP URL of SRS:
-<table>
-<thead>
-<tr>
-<th>URL</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rtmp://demo.srs.com/live/livestream</td>
-<td>Standard RTMP URL</td>
-</tr>
-<tr>
-<td>rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream</td>
-<td>URL specifies vhost</td>
-</tr>
-<tr>
-<td>rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream</td>
-<td>URL specifies token authentication</td>
-</tr>
-</tbody>
-</table>
+
+| URL | Description |
+| rtmp://demo.srs.com/live/livestream | Standard RTMP URL |
+| rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream | URL specifies vhost |
+| rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream | URL specifies token authentication |
 
 ## Vhost of SRS config
 
 The full.conf of conf of SRS contains many vhost, which used to show each feature. All features is put into the vhost demo.srs.com:
 
-<table>
-<thead>
-<th>Category</th>
-<th>Vhost</th>
-<th>Description</th>
-</thead>
-<tbody>
-<tr>
-<td>RTMP</td><td>__defaultVhost__</td><td>Default Vhost, only RTMP.</td>
-</tr>
-<tr>
-<td>RTMP</td><td>chunksize.vhost.com</td><td>Sample to set the chunk_size.</td>
-</tr>
-<tr>
-<td>Forward</td><td>same.vhost.forward.vhost.com</td><td>Sample for Foward stream to the same vhost.</td>
-</tr>
-<tr>
-<td>Forward</td><td>change.vhost.forward.vhost.com</td><td>Sample for Foward stream to the different vhost.</td>
-</tr>
-<tr>
-<td>HLS</td><td>with-hls.vhost.com</td><td>Sample for HLS.</td>
-</tr>
-<tr>
-<td>HLS</td><td>no-hls.vhost.com</td><td>Sample to disable the HLS.</td>
-</tr>
-<tr>
-<td>RTMP</td><td>min.delay.com</td><td>Sample to config the minimum latency for RTMP.</td>
-</tr>
-<tr>
-<td>RTMP</td><td>refer.anti_suck.com</td><td>Sample for Refer anti-suck DRM.</td>
-</tr>
-<tr>
-<td>RTMP</td><td>bandcheck.srs.com</td><td>Sample for bandwidth check config.</td>
-</tr>
-<tr>
-<td>RTMP</td><td>removed.vhost.com</td><td>Sample to disable vhost.</td>
-</tr>
-<tr>
-<td>Callback</td><td>hooks.callback.vhost.com</td><td>Sample for http callback.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>mirror.transcode.vhost.com</td><td>Sample for transcode, to use the sample filter of FFMPEG.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>crop.transcode.vhost.com</td><td>Sample for transcode, to use the crop filter of FFMPEG.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>logo.transcode.vhost.com</td><td>Sample for transcode, to use the logo filter of FFMPEG.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>audio.transcode.vhost.com</td><td>Sample for transcode, to transcode audio only.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>copy.transcode.vhost.com</td><td>Sample for transcode, demux and mux.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>all.transcode.vhost.com</td><td>Sample for transcode, all transcode features.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>ffempty.transcode.vhost.com</td><td>Sample for empty transcode, display the parameters.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>app.transcode.vhost.com</td><td>Sample for transcode, transcode specified app streams.</td>
-</tr>
-<tr>
-<td>Transcode</td><td>stream.transcode.vhost.com</td><td>Sample for transcode, transcode specified streams.</td>
-</tr>
-</tbody>
-</table>
+| Category | Vhost | 说明 |
+| -------- | ----- | ---- |
+| RTMP | __defaultVhost__ | Default Vhost, only RTMP.| 
+| RTMP | chunksize.vhost.com | Sample to set the chunk_size.| 
+| Forward | same.vhost.forward.vhost.com | Sample for Foward stream to the same vhost.| 
+| HLS | with-hls.vhost.com | Sample for HLS.| 
+| HLS | no-hls.vhost.com | Sample to disable the HLS.| 
+| RTMP | min.delay.com | Sample to config the minimum latency for RTMP.| 
+| RTMP | refer.anti_suck.com | Sample for Refer anti-suck DRM.| 
+| RTMP | bandcheck.srs.com | Sample for bandwidth check config.| 
+| RTMP | removed.vhost.com | Sample to disable vhost.| 
+| Callback | hooks.callback.vhost.com | Sample for http callback.| 
+| Transcode | mirror.transcode.vhost.com | Sample for transcode, to use the sample filter of FFMPEG.| 
+| Transcode | crop.transcode.vhost.com | Sample for transcode, to use the crop filter of FFMPEG.| 
+| Transcode | logo.transcode.vhost.com | Sample for transcode, to use the logo filter of FFMPEG.| 
+| Transcode | audio.transcode.vhost.com | Sample for transcode, to transcode audio only.| 
+| Transcode | copy.transcode.vhost.com | Sample for transcode, demux and mux.| 
+| Transcode | all.transcode.vhost.com | Sample for transcode, all transcode features.| 
+| Transcode | ffempty.transcode.vhost.com | Sample for empty transcode, display the parameters.| 
+| Transcode | app.transcode.vhost.com | Sample for transcode, transcode specified app streams.| 
+| Transcode | stream.transcode.vhost.com | Sample for transcode, transcode specified streams. |
 
 The demo.conf of conf of SRS, used for demo of SRS, see: [Usage: Demo](v1_EN_SampleDemo)。
 
-<table>
-<thead>
-<th>Category</th>
-<th>Vhost</th>
-<th>Description</th>
-</thead>
-<tbody>
-<tr>
-<td>DEMO</td><td>players</td><td>The vhost for default stream of srs_player, ingest this stream.</td>
-</tr>
-<tr>
-<td>DEMO</td><td>players_pub</td><td>The vhost for the srs_publisher to publish stream to.</td>
-</tr>
-<tr>
-<td>DEMO</td><td>players_pub_rtmp</td><td>The low latency vhost for demo.</td>
-</tr>
-<tr>
-<td>DEMO</td><td>demo.srs.com</td><td>The full features for demo.</td>
-</tr>
-<tr>
-<td>Others</td><td>dev</td><td>The vhost for dev, ignore.</td>
-</tr>
-</tbody>
-</table>
+| Category | Vhost | Description |
+| -------- | ----- | ---- |
+| DEMO | players | The vhost for default stream of srs_player, ingest this stream.| 
+| DEMO | players_pub | The vhost for the srs_publisher to publish stream to.| 
+| DEMO | players_pub_rtmp | The low latency vhost for demo.| 
+| DEMO | demo.srs.com | The full features for demo.| 
+| Others | dev | The vhost for dev, ignore.|
 
 Winlin 2014.10
