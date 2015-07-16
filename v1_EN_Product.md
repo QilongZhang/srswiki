@@ -51,8 +51,8 @@ and [dvr http callback](https://github.com/simple-rtmp-server/srs/issues/274).
 * Support HLS in RAM, without writing to disk. Read [#136](https://github.com/simple-rtmp-server/srs/issues/136).
 * Enhanced DVR, support append/callback, read [#179](https://github.com/simple-rtmp-server/srs/issues/179).
 * Enhanced HTTP API, support query stream/vhost, read [#316](https://github.com/simple-rtmp-server/srs/issues/316).
-* Support HDS, read [#328](https://github.com/simple-rtmp-server/srs/issues/328).
 * Support HSTRS(http stream trigger ramp source), for HTTP-FLV standby and edge server, read [#324](https://github.com/simple-rtmp-server/srs/issues/324).
+* [experimental]Support HDS, read [#328](https://github.com/simple-rtmp-server/srs/issues/328).
 * [experimental]Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/simple-rtmp-server/srs/issues/250).
 * [experimental]Support push RTSP to SRS, read [#133](https://github.com/simple-rtmp-server/srs/issues/133).
 * Other small changes.
@@ -69,6 +69,7 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxo
 * Support H.265, push RTMP with H.265, delivery in HLS.
 * Support MPEG-DASH, the future streaming protocol.
 * Support HTTP edge server.
+* Support Spark big-data.
 * Others.
 
 ## Backlog
