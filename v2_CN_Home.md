@@ -37,6 +37,14 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
 * [[Setup|v1_CN_Setup]]: SRS安装和部署摘要。
 
+***Cluster Guides:***
+
+* [[RTMP Cluster|v1_CN_SampleRTMPCluster]]: 如何部署RTMP分发集群，譬如CDN支持RTMP分发。
+* [[FLV Cluster|v2_CN_SampleHttpFlvCluster]]: 如何部署HTTP-FLV分发集群，譬如CDN支持HTTP-FLV分发。
+* [[VHOST|v1_CN_RtmpUrlVhost]]: 如何一个集群支持多个用户，即Vhost。
+* [[Reload|v1_CN_Reload]]: 如何不中断服务的前提下应用新的配置，即Reload。
+* [[Tracable Log|v1_CN_SrsLog]]: 如何在集群中追溯错误和日志，基于连接的日志，排错日志。
+
 ***Integration Guides:***
 
 * [[HTTP Callback | v1_CN_HTTPCallback]]: 使用HTTP回调侦听SRS的事件。
