@@ -37,6 +37,14 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [[Projects|v1_CN_Sample]]: Who are using SRS.
 * [[Setup|v1_CN_Setup]]: How to setup SRS.
 
+***Cluster Guides:***
+
+* [[RTMP Cluster|v1_CN_SampleRTMPCluster]]: Deploy the RTMP cluster for CDN.
+* [[FLV Cluster|v2_CN_SampleHttpFlvCluster]]: Deploy the HTTP-FLV cluser for CDN.
+* [[VHOST|v1_CN_RtmpUrlVhost]]: Support multiple customers in the same cluster by vhost.
+* [[Reload|v1_CN_Reload]]: Apply changed config by reload.
+* [[Tracable Log|v1_CN_SrsLog]]: Debug and trace user in cluster log.
+
 ***Integration Guides:***
 
 * [[HTTP Callback | v1_CN_HTTPCallback]]: Use HTTP callback to hook the events of SRS.
