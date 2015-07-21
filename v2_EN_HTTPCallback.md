@@ -98,7 +98,8 @@ vhost your_vhost {
         #           "action": "on_play",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
-        #           "stream": "livestream"
+        #           "stream": "livestream",
+        #           "pageUrl": "http://www.test.com/live.html"
         #       }
         # If valid, the hook must return HTTP code 200 (Status OK) and its response,
         # an int value, specifies the error code (0 corresponding to success):
@@ -228,7 +229,8 @@ SRS can call HTTP callbacks for events:
     "ip": "192.168.1.10", 
     "vhost": "video.test.com", 
     "app": "live",
-    "stream": "livestream"
+    "stream": "livestream",
+    "pageUrl": "http://www.test.com/live.html"
 }
 </pre>
 </td>

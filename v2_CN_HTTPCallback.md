@@ -82,7 +82,8 @@ vhost your_vhost {
         #           "action": "on_play",
         #           "client_id": 1985,
         #           "ip": "192.168.1.10", "vhost": "video.test.com", "app": "live",
-        #           "stream": "livestream"
+        #           "stream": "livestream",
+        #           "pageUrl": "http://www.test.com/live.html"
         #       }
         # if valid, the hook must return HTTP code 200(Stauts OK) and response
         # an int value specifies the error code(0 corresponding to success):
@@ -128,14 +129,9 @@ vhost your_vhost {
 
 SRS的回调事件包括：
 
-<table>
-<tr>
-<th>事件</th><th>数据</th><th>说明</th>
-</tr>
-<tr>
-<td>on_connect</td>
-<td>
-<pre>
+| 事件 | 数据 | 说明 |
+| --- | ---- | ---- |
+| on_connect| <pre>
 {
     "action": "on_connect",
     "client_id": 1985,
@@ -145,14 +141,8 @@ SRS的回调事件包括：
     "tcUrl": "rtmp://x/x?key=xxx",
     "pageUrl": "http://x/x.html"
 }
-</pre>
-</td>
-<td>当客户端连接到指定的vhost和app时</td>
-</tr>
-<tr>
-<td>on_close</td>
-<td>
-<pre>
+</pre>| 当客户端连接到指定的vhost和app时| 
+| on_close| <pre>
 {
     "action": "on_close",
     "client_id": 1985,
@@ -160,14 +150,8 @@ SRS的回调事件包括：
     "vhost": "video.test.com", 
     "app": "live"
 }
-</pre>
-</td>
-<td>当客户端关闭连接，或者SRS主动关闭连接时</td>
-</tr>
-<tr>
-<td>on_publish</td>
-<td>
-<pre>
+</pre>| 当客户端关闭连接，或者SRS主动关闭连接时| 
+| on_publish| <pre>
 {
     "action": "on_publish",
     "client_id": 1985,
@@ -176,14 +160,8 @@ SRS的回调事件包括：
     "app": "live",
     "stream": "livestream"
 }
-</pre>
-</td>
-<td>当客户端发布流时，譬如flash/FMLE方式推流到服务器</td>
-</tr>
-<tr>
-<td>on_unpublish</td>
-<td>
-<pre>
+</pre>| 当客户端发布流时，譬如flash/FMLE方式推流到服务器| 
+| on_unpublish| <pre>
 {
     "action": "on_unpublish",
     "client_id": 1985,
@@ -192,30 +170,19 @@ SRS的回调事件包括：
     "app": "live",
     "stream": "livestream"
 }
-</pre>
-</td>
-<td>当客户端停止发布流时</td>
-</tr>
-<tr>
-<td>on_play</td>
-<td>
-<pre>
+</pre>| 当客户端停止发布流时| 
+| on_play| <pre>
 {
     "action": "on_play",
     "client_id": 1985,
     "ip": "192.168.1.10", 
     "vhost": "video.test.com", 
     "app": "live",
-    "stream": "livestream"
+    "stream": "livestream",
+    "pageUrl": "http://www.test.com/live.html"
 }
-</pre>
-</td>
-<td>当客户端开始播放流时</td>
-</tr>
-<tr>
-<td>on_stop</td>
-<td>
-<pre>
+</pre>| 当客户端开始播放流时| 
+| on_stop| <pre>
 {
     "action": "on_stop",
     "client_id": 1985,
@@ -224,14 +191,8 @@ SRS的回调事件包括：
     "app": "live",
     "stream": "livestream"
 }
-</pre>
-</td>
-<td>当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。</td>
-</tr>
-<tr>
-<td>on_dvr</td>
-<td>
-<pre>
+</pre>| 当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。| 
+| on_dvr| <pre>
 {
     "action": "on_dvr",
     "client_id": 1985,
@@ -242,9 +203,7 @@ SRS的回调事件包括：
     "cwd": "/opt",
     "file": "./l.xxx.flv"
 }
-</pre>
-</td>
-<td>当DVR录制关闭一个flv文件时</td>
+</pre>| 当DVR录制关闭一个flv文件时</td>
 </tr>
 </table>
 
