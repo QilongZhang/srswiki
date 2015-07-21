@@ -25,7 +25,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 
 **Deployment Guides:***
 
-* [[RTMP Server|v1_CN_SampleRTMP]]: How to delivery RTMP using SRS.
+* [[Delivery RTMP|v1_CN_SampleRTMP]]: How to delivery RTMP using SRS.
 * [[Delivery HLS|v1_CN_SampleHLS]]: How to delivery RTMP and HLS using SRS.
 * [[Transcode|v1_CN_SampleFFMPEG]]: How to transcode the RTMP stream.
 * [[Forward|v1_CN_SampleForward]]: How to forward RTMP to other servers.
