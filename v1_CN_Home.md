@@ -25,7 +25,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 
 ***Deployment Guides:***
 
-* [[RTMP Server|v1_CN_SampleRTMP]]: 如何部署SRS提供RTMP服务。
+* [[Delivery RTMP|v1_CN_SampleRTMP]]: 如何部署SRS提供RTMP服务。
 * [[Delivery HLS|v1_CN_SampleHLS]]: 如何部署SRS提供RTMP和HLS服务。
 * [[Transcode|v1_CN_SampleFFMPEG]]: 如何部署SRS对直播流转码。
 * [[Forward|v1_CN_SampleForward]]: 如何部署SRS转发RTMP流到其他服务器。
