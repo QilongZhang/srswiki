@@ -12,101 +12,14 @@ HTTP回调功能提供了编译选项，可以开启或者关闭这个功能。�
 
 SRS的回调事件包括：
 
-<table>
-<tr>
-<th>事件</th><th>数据</th><th>说明</th>
-</tr>
-<tr>
-<td>on_connect</td>
-<td>
-<pre>
-{
-    "action": "on_connect",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "tcUrl": "rtmp://video.test.com/live?key=xxx",
-    "pageUrl": "http://www.test.com/live.html"
-}
-</pre>
-</td>
-<td>当客户端连接到指定的vhost和app时</td>
-</tr>
-<tr>
-<td>on_close</td>
-<td>
-<pre>
-{
-    "action": "on_close",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live"
-}
-</pre>
-</td>
-<td>当客户端关闭连接，或者SRS主动关闭连接时</td>
-</tr>
-<tr>
-<td>on_publish</td>
-<td>
-<pre>
-{
-    "action": "on_publish",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>当客户端发布流时，譬如flash/FMLE方式推流到服务器</td>
-</tr>
-<tr>
-<td>on_unpublish</td>
-<td>
-<pre>
-{
-    "action": "on_unpublish",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>当客户端停止发布流时</td>
-</tr>
-<tr>
-<td>on_play</td>
-<td>
-<pre>
-{
-    "action": "on_play",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>当客户端开始播放流时</td>
-</tr>
-<tr>
-<td>on_stop</td>
-<td>
-<pre>
-{
-    "action": "on_stop",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。</td>
-</tr>
-</table>
+| 事件 | 数据 | 说明 |
+| --- | ---- | ---- |
+| on_connect|{<br/> "action": "on_connect",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "tcUrl": "rtmp://x/x?key=xxx",<br/> "pageUrl": "http://x/x.html"<br/> } | 当客户端连接到指定的vhost和app时| 
+| on_close|{<br/> "action": "on_close",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live"<br/> } | 当客户端关闭连接，或者SRS主动关闭连接时| 
+| on_publish|{<br/> "action": "on_publish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端发布流时，譬如flash/FMLE方式推流到服务器| 
+| on_unpublish|{<br/> "action": "on_unpublish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端停止发布流时| 
+| on_play|{<br/> "action": "on_play",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端开始播放流时| 
+| on_stop|{<br/> "action": "on_stop",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。| 
 
 其中，
 * 事件：发生该事件时，即回调指定的HTTP地址。

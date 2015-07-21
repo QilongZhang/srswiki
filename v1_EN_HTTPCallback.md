@@ -13,102 +13,14 @@ Build SRS with or without http callback, read
 ## HTTP callback events
 
 SRS can call the http callback, for events:
-
-<table>
-<tr>
-<th>Event</th><th>Data</th><th>Description</th>
-</tr>
-<tr>
-<td>on_connect</td>
-<td>
-<pre>
-{
-    "action": "on_connect",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "tcUrl": "rtmp://video.test.com/live?key=xxx",
-    "pageUrl": "http://www.test.com/live.html"
-}
-</pre>
-</td>
-<td>When client connected at the specified vhost and app.</td>
-</tr>
-<tr>
-<td>on_close</td>
-<td>
-<pre>
-{
-    "action": "on_close",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live"
-}
-</pre>
-</td>
-<td>When client close connection, or server disconnect the connection.</td>
-</tr>
-<tr>
-<td>on_publish</td>
-<td>
-<pre>
-{
-    "action": "on_publish",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>When client publish stream, for example, use flash or FMLE publish stream to server.</td>
-</tr>
-<tr>
-<td>on_unpublish</td>
-<td>
-<pre>
-{
-    "action": "on_unpublish",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>When client stop publish stream.</td>
-</tr>
-<tr>
-<td>on_play</td>
-<td>
-<pre>
-{
-    "action": "on_play",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>When client start play stream.</td>
-</tr>
-<tr>
-<td>on_stop</td>
-<td>
-<pre>
-{
-    "action": "on_stop",
-    "client_id": 1985,
-    "ip": "192.168.1.10", "vhost": "video.test.com", 
-    "app": "live",
-    "stream": "livestream"
-}
-</pre>
-</td>
-<td>When client stop play.</td>
-</tr>
-</table>
+| Event | Data | Description |
+| --- | ---- | ---- |
+| on_connect|{<br/> "action": "on_connect",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "tcUrl": "rtmp://x/x?key=xxx",<br/> "pageUrl": "http://x/x.html"<br/> } | When a client connects to the specified vhost and app.| 
+| on_close|{<br/> "action": "on_close",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live"<br/> } | When a client closes a connection, or the server drops a connection.| 
+| on_publish|{<br/> "action": "on_publish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | When a client publishes a stream, for example, using flash or FMLE to publish a stream to the server.| 
+| on_unpublish|{<br/> "action": "on_unpublish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | When a client stops publishing a stream.| 
+| on_play|{<br/> "action": "on_play",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | When a client starts playing a stream.| 
+| on_stop|{<br/> "action": "on_stop",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | When a client stops playback.| 
 
 Note:
 * Event: When this event occur, callback the specified HTTP url.
