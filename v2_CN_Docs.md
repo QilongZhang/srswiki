@@ -216,9 +216,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发HLS(m3u8/ts)流？参考：[Usage: HLS](v2_CN_SampleHLS)
 
-## [Usage: Transcode2HLS](v1_CN_SampleTranscode2HLS)
+## [Usage: Transcode2HLS](v2_CN_SampleTranscode2HLS)
 
-使用实例：如何对不符合要求的流(h.264+aac)进行HLS流分发？参考：[Usage: Transcode2HLS](v1_CN_SampleTranscode2HLS)
+使用实例：如何对不符合要求的流(h.264+aac)进行HLS流分发？参考：[Usage: Transcode2HLS](v2_CN_SampleTranscode2HLS)
 
 ## [Usage: FFMPEG](v2_CN_SampleFFMPEG)
 

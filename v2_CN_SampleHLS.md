@@ -72,7 +72,7 @@ vhost __defaultVhost__ {
     done
 ```
 
-或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS](v1_CN_SampleTranscode2HLS)）：
+或使用支持h.264+aac的FMLE推流（若不支持h.264+aac，则可以使用srs转码，参考[Transcode2HLS](v2_CN_SampleTranscode2HLS)）：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live
@@ -118,7 +118,7 @@ HLS流地址为： `http://192.168.1.170/live/livestream.m3u8`
 
 <strong>RTMP流内容和HLS流内容不一致</strong>
 * 一般这种问题出现在使用上面的例子推流，然后换成别的编码器推流，或者换个文件推流。
-* 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考只转码音频[Transcode2HLS](v1_CN_SampleTranscode2HLS)
+* 可能是流的编码不对（推流时使用FMLE），HLS需要h.264+aac，需要转码，参考只转码音频[Transcode2HLS](v2_CN_SampleTranscode2HLS)
 
 Winlin 2014.3
 

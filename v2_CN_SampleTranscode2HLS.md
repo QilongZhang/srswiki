@@ -1,9 +1,9 @@
 # 转码后分发HLS部署实例
 
-HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](v1_CN_DeliveryHLS)部署，若不符合这个要求则需要转码。
+HLS需要h.264+aac，若符合这个要求可以按照[Usage: HLS](v2_CN_DeliveryHLS)部署，若不符合这个要求则需要转码。
 
 如何知道流是否是h264+aac编码：
-* [Usage: HLS](v1_CN_DeliveryHLS)中的`Q&A`说明的问题。
+* [Usage: HLS](v2_CN_DeliveryHLS)中的`Q&A`说明的问题。
 * 看编码器的参数，FMLE可以选视频编码为vp6或者h264，音频一般为mp3/NellyMoser。，所以FMLE肯定推流是不符合要求的。
 * 看SRS的日志，若显示`hls only support video h.264/avc codec. ret=601`，就明显说明是编码问题。
 
@@ -26,7 +26,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
+<strong>第二步，编译SRS。</strong>详细参考[Build](v2_CN_Build)
 
 ```bash
 ./configure --disable-all \
@@ -34,17 +34,17 @@ git pull
     --with-ffmpeg --with-transcode && make
 ```
 
-<strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第三步，启动分发hls（m3u8/ts）的nginx。详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
 ```
 
-备注：为了突出HLS的配置，我们在HLS的实例中没有使用SRS内置的HTTP Server，可以配置几行就可以不用nginx。参考：[Usage: HTTP](v1_CN_SampleHTTP)
+备注：为了突出HLS的配置，我们在HLS的实例中没有使用SRS内置的HTTP Server，可以配置几行就可以不用nginx。参考：[Usage: HTTP](v2_CN_SampleHTTP)
 
 备注：请确定nginx已经启动，可以访问[nginx][nginx]，若能看到`nginx is ok`则没有问题。
 
-<strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第四步，编写SRS配置文件。</strong>详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 将以下内容保存为文件，譬如`conf/transcode2hls.audio.only.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -79,13 +79,13 @@ vhost __defaultVhost__ {
 
 备注：这个配置使用只转码音频，因为视频是h.264符合要求，若需要全转码，参考[HLS+Transcode][HLS-And-Transcode]
 
-<strong>第五步，启动SRS。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第五步，启动SRS。</strong>详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 ```bash
 ./objs/srs -c conf/transcode2hls.audio.only.conf
 ```
 
-<strong>第六步，启动推流编码器。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第六步，启动推流编码器。</strong>详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 使用FFMPEG命令推流：
 
@@ -114,7 +114,7 @@ Stream: livestream
 
 备注：如何只对符合要求的流切hls？可以用vhost。默认的vhost不切hls，将转码后的流推送到另外一个vhost，这个vhost切hls。
 
-<strong>第七步，观看RTMP流。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第七步，观看RTMP流。</strong>详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
 
@@ -124,7 +124,7 @@ RTMP流地址为：`rtmp://192.168.1.170/live/livestream_ff`
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第八步，观看HLS流。</strong>详细参考[HLS分发](v1_CN_DeliveryHLS)
+<strong>第八步，观看HLS流。</strong>详细参考[HLS分发](v2_CN_DeliveryHLS)
 
 HLS流地址为： `http://192.168.1.170/live/livestream_ff.m3u8`
 
@@ -142,4 +142,4 @@ Winlin 2014.3
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
-[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DeliveryHLS#hlsaudioonly
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DeliveryHLS#hlsaudioonly

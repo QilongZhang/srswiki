@@ -69,7 +69,7 @@ Use FFMPEG to publish stream:
     done
 ```
 
-Or use FMLE(which support h.264+aac) to publish, read [Transcode2HLS](v1_CN_SampleTranscode2HLS)：
+Or use FMLE(which support h.264+aac) to publish, read [Transcode2HLS](v2_CN_SampleTranscode2HLS)：
 
 ```bash
 FMS URL: rtmp://192.168.1.170/live

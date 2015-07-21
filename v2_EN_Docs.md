@@ -212,9 +212,9 @@ Usage: How to use SRS to delivery HTTP FLV live streaming cluster? Please read [
 
 Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v2_EN_SampleHLS)
 
-## [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
+## [Usage: Transcode2HLS](v2_EN_SampleTranscode2HLS)
 
-Usage: How to use SRS to transcode stream(not h.264+aac) to delivery HLS? Please see: [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
+Usage: How to use SRS to transcode stream(not h.264+aac) to delivery HLS? Please see: [Usage: Transcode2HLS](v2_EN_SampleTranscode2HLS)
 
 ## [Usage: FFMPEG](v2_EN_SampleFFMPEG)
 

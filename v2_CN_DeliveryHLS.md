@@ -316,7 +316,7 @@ HLS配置路径：
 
 ## HLSAudioOnly
 
-SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](v1_CN_SampleTranscode2HLS)），SRS只切片音频。
+SRS支持分发HLS纯音频流，当RTMP流没有视频，且音频为aac（可以使用转码转为aac，参考[Usage: Transcode2HLS](v2_CN_SampleTranscode2HLS)），SRS只切片音频。
 
 若RTMP流中已经有视频和音频，需要支持纯音频HLS流，可以用转码将视频去掉，参考：[转码: 禁用流](v2_CN_FFMPEG#%E7%A6%81%E7%94%A8)。然后分发音频流。
 

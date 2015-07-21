@@ -26,7 +26,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 **Deployment Guides:***
 
 * [[Delivery RTMP|v1_CN_SampleRTMP]]: How to delivery RTMP using SRS.
-* [[Delivery HLS|v2_CN_SampleHLS]]: How to delivery RTMP and HLS using SRS.
+* [[Delivery HLS|v2_EN_SampleHLS]]: How to delivery RTMP and HLS using SRS.
 * [[Delivery HTTP FLV|v2_EN_SampleHttpFlv]]: How to remux RTMP to HTTP FLV stream.
 * [[Delivery HDS|v2_EN_DeliveryHDS]]: How to delivery HDS using SRS.
 * [[Transcode|v2_EN_SampleFFMPEG]]: How to transcode the RTMP stream.
