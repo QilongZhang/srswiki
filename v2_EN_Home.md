@@ -37,6 +37,12 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [[Projects|v1_CN_Sample]]: Who are using SRS.
 * [[Setup|v1_CN_Setup]]: How to setup SRS.
 
+***Integration Guides:***
+
+* [[HTTP Callback | v1_CN_HTTPCallback]]: Use HTTP callback to hook the events of SRS.
+* [[HTTP API | v1_CN_HTTPApi]]: Get system data from HTTP API of SRS.
+* [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: Use bandwidth api to test the available bandwidth for SRS.
+
 **Benchmarks:***
 
 * [Compare][compare]: The comparation of SRS to other servers.
