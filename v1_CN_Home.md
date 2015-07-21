@@ -36,6 +36,12 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[Projects|v1_CN_Sample]]: 都有谁在使用SRS。
 * [[Setup|v1_CN_Setup]]: SRS安装和部署摘要。
 
+***Integration Guides:***
+
+* [[HTTP Callback | v1_CN_HTTPCallback]]: 使用HTTP回调侦听SRS的事件。
+* [[HTTP API | v1_CN_HTTPApi]]: 使用SRS的HTTP API获取数据。
+* [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: 使用SRS测速接口获取带宽数据。
+
 ***Benchmarks:***
 
 * [Performance][performance]: SRS的性能测试报告。
