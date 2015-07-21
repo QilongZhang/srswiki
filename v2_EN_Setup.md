@@ -8,7 +8,7 @@ The following guide you to basic feature of SRS:
 1. [Delivery RTMP stream cluster](v1_EN_SampleRTMPCluster)
 1. [Delivery HTTP FLV live streaming](v2_EN_SampleHttpFlv)
 1. [Delivery HTTP FLV live streaming cluster](v2_EN_SampleHttpFlvCluster)
-1. [Delivery RTMP+HLS](v1_EN_SampleHLS)
+1. [Delivery RTMP+HLS](v2_EN_SampleHLS)
 1. [Transcode and delivery HLS stream](v1_EN_SampleTranscode2HLS)
 1. [Use FFMPEG to transcode stream](v2_EN_SampleFFMPEG)
 1. [Use Ingest to pull stream to SRS](v1_EN_SampleIngest)

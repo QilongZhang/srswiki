@@ -8,7 +8,7 @@
 1. [分发RTMP流集群](v1_CN_SampleRTMPCluster)
 1. [分发HTTP FLV流](v2_CN_SampleHttpFlv)
 1. [分发HTTP FLV流集群](v2_CN_SampleHttpFlvCluster)
-1. [分发RTMP+HLS流](v1_CN_SampleHLS)
+1. [分发RTMP+HLS流](v2_CN_SampleHLS)
 1. [转码后分发HLS流](v1_CN_SampleTranscode2HLS)
 1. [使用FFMPEG转码](v2_CN_SampleFFMPEG)
 1. [使用Ingest拉流到服务器](v1_CN_SampleIngest)

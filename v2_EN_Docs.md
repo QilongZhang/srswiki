@@ -208,9 +208,9 @@ Usage: How to use SRS to delivery HTTP FLV live streaming? Please read [Usage: H
 
 Usage: How to use SRS to delivery HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v2_EN_SampleHttpFlvCluster)
 
-## [Usage: HLS](v1_EN_SampleHLS)
+## [Usage: HLS](v2_EN_SampleHLS)
 
-Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v1_EN_SampleHLS)
+Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v2_EN_SampleHLS)
 
 ## [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 

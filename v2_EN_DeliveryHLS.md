@@ -10,7 +10,7 @@ Servers delivering both HLS and RTMP can support all screens. For RTMP, see: [RT
 
 For information comparing RTMP and HLS, read [RTMP PK HLS](v1_EN_RTMP.PK.HTTP).
 
-For information about how to deploy SRS to support HLS, read [Usage: HLS](v1_EN_SampleHLS).
+For information about how to deploy SRS to support HLS, read [Usage: HLS](v2_EN_SampleHLS).
 
 ## Use Scenario
 
@@ -309,7 +309,7 @@ The ts url generated to: http://your-server/live/livestream-0.ts
 * on_hls: callback when ts generated.
 * on_hls_notify: callback when ts generated, use [ts_url] as a variable, uses GET method. Can be used to push ts files to can network.
 
-For how to deploy SRS to deliver HLS, read [Usage: HLS](v1_EN_SampleHLS)
+For how to deploy SRS to deliver HLS, read [Usage: HLS](v2_EN_SampleHLS)
 
 ## HTTP Callback
 
@@ -325,7 +325,7 @@ SRS support delivering pure audio stream by HLS. The audio codec requires AAC, u
 
 For information about dropping video, read [Transcode: Disable Stream](v2_EN_FFMPEG#drop-video-or-audio)
 
-There is no special configuration for pure audio for HLS. Please read [Usage: HLS](v1_EN_SampleHLS)
+There is no special configuration for pure audio for HLS. Please read [Usage: HLS](v2_EN_SampleHLS)
 
 ## HLS and Forwarding
 

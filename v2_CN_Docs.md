@@ -212,9 +212,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发HTTP FLV直播流集群？参考：[Usage: HTTP FLV Cluster](v2_CN_SampleHttpFlvCluster)
 
-## [Usage: HLS](v1_CN_SampleHLS)
+## [Usage: HLS](v2_CN_SampleHLS)
 
-使用实例：如何使用SRS分发HLS(m3u8/ts)流？参考：[Usage: HLS](v1_CN_SampleHLS)
+使用实例：如何使用SRS分发HLS(m3u8/ts)流？参考：[Usage: HLS](v2_CN_SampleHLS)
 
 ## [Usage: Transcode2HLS](v1_CN_SampleTranscode2HLS)
 
