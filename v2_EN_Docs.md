@@ -216,9 +216,9 @@ Usage: How to use SRS to delivery HLS? Please see: [Usage: HLS](v1_EN_SampleHLS)
 
 Usage: How to use SRS to transcode stream(not h.264+aac) to delivery HLS? Please see: [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
-## [Usage: FFMPEG](v1_EN_SampleFFMPEG)
+## [Usage: FFMPEG](v2_EN_SampleFFMPEG)
 
-Usage: How to use SRS to transcode stream? How to transcode the codec for HLS? Please see: [Usage: FFMPEG](v1_EN_SampleFFMPEG)
+Usage: How to use SRS to transcode stream? How to transcode the codec for HLS? Please see: [Usage: FFMPEG](v2_EN_SampleFFMPEG)
 
 ## [Usage: Ingest](v1_EN_SampleIngest)
 

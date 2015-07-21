@@ -220,9 +220,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何对不符合要求的流(h.264+aac)进行HLS流分发？参考：[Usage: Transcode2HLS](v1_CN_SampleTranscode2HLS)
 
-## [Usage: FFMPEG](v1_CN_SampleFFMPEG)
+## [Usage: FFMPEG](v2_CN_SampleFFMPEG)
 
-使用实例：如何使用SRS实时转码RTMP流？编码器不能输出h264+aac如何转码后分发HLS？参考：[Usage: FFMPEG](v1_CN_SampleFFMPEG)
+使用实例：如何使用SRS实时转码RTMP流？编码器不能输出h264+aac如何转码后分发HLS？参考：[Usage: FFMPEG](v2_CN_SampleFFMPEG)
 
 ## [Usage: Ingest](v1_CN_SampleIngest)
 

@@ -10,7 +10,7 @@
 1. [分发HTTP FLV流集群](v2_CN_SampleHttpFlvCluster)
 1. [分发RTMP+HLS流](v1_CN_SampleHLS)
 1. [转码后分发HLS流](v1_CN_SampleTranscode2HLS)
-1. [使用FFMPEG转码](v1_CN_SampleFFMPEG)
+1. [使用FFMPEG转码](v2_CN_SampleFFMPEG)
 1. [使用Ingest拉流到服务器](v1_CN_SampleIngest)
 1. [转发流到其他服务器](v1_CN_SampleForward)
 1. [最低延迟模式分发实时流](v2_CN_SampleRealtime)
