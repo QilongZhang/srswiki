@@ -1,8 +1,8 @@
-[**HOME**](Home) > [**CN(2.0)**](v2_CN_Home)
+[**HOME**](Home) > [**CN(2.0)**](v2_EN_Home)
 
 ## SRS Overview
 
-SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v1_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_CN_DeliveryHDS]], [[DVR to FLV | v1_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v1_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v2_CN_SampleHttpFlvCluster]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_CN_Security]], [[HTTP API | v1_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
+SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v1_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_EN_DeliveryHDS]], [[DVR to FLV | v1_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v1_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v2_EN_SampleHttpFlvCluster]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_EN_Security]], [[HTTP API | v1_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
 
 ## Downloading
 
@@ -27,8 +27,8 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 
 * [[Delivery RTMP|v1_CN_SampleRTMP]]: How to delivery RTMP using SRS.
 * [[Delivery HLS|v1_CN_SampleHLS]]: How to delivery RTMP and HLS using SRS.
-* [[Delivery HTTP FLV|v2_CN_SampleHttpFlv]]: How to remux RTMP to HTTP FLV stream.
-* [[Delivery HDS|v2_CN_DeliveryHDS]]: How to delivery HDS using SRS.
+* [[Delivery HTTP FLV|v2_EN_SampleHttpFlv]]: How to remux RTMP to HTTP FLV stream.
+* [[Delivery HDS|v2_EN_DeliveryHDS]]: How to delivery HDS using SRS.
 * [[Transcode|v1_CN_SampleFFMPEG]]: How to transcode the RTMP stream.
 * [[Forward|v1_CN_SampleForward]]: How to forward RTMP to other servers.
 * [[Low latency|v1_CN_SampleRealtime]]: How to deploy the low latency SRS.
@@ -41,7 +41,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 ***Cluster Guides:***
 
 * [[RTMP Cluster|v1_CN_SampleRTMPCluster]]: Deploy the RTMP cluster for CDN.
-* [[FLV Cluster|v2_CN_SampleHttpFlvCluster]]: Deploy the HTTP-FLV cluser for CDN.
+* [[FLV Cluster|v2_EN_SampleHttpFlvCluster]]: Deploy the HTTP-FLV cluser for CDN.
 * [[VHOST|v1_CN_RtmpUrlVhost]]: Support multiple customers in the same cluster by vhost.
 * [[Reload|v1_CN_Reload]]: Apply changed config by reload.
 * [[Tracable Log|v1_CN_SrsLog]]: Debug and trace user in cluster log.
