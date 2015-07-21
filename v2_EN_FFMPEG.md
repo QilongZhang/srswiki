@@ -26,23 +26,23 @@ listen              1935;
 vhost __defaultVhost__ {
     # the streaming transcode configs.
     transcode {
-        # whether transcoding is enabled.
-        # if off, do not transcode.
+        # whether the transcode enabled.
+        # if off, donot transcode.
         # default: off.
         enabled     on;
-        # ffmpeg binary location 
+        # the ffmpeg 
         ffmpeg      ./objs/ffmpeg/bin/ffmpeg;
-        # the transcode engine for matched streams.
-        # all matched streams will be transcoded to the following stream.
-        # the transcode set name (ie. hd) is optional and not used.
+        # the transcode engine for matched stream.
+        # all matched stream will transcoded to the following stream.
+        # the transcode set name(ie. hd) is optional and not used.
         engine example {
             # whether the engine is enabled
             # default: off.
             enabled         on;
             # input format, can be:
-            # off, do not specify the format, ffmpeg will guess it.
+            # off, do not specifies the format, ffmpeg will guess it.
             # flv, for flv or RTMP stream.
-            # other format, for example, mp4/aac or whatever.
+            # other format, for example, mp4/aac whatever.
             # default: flv
             iformat         flv;
             # ffmpeg filters, follows the main input.
@@ -55,18 +55,27 @@ vhost __defaultVhost__ {
             }
             # video encoder name. can be:
             #       libx264: use h.264(libx264) video encoder.
-            #       copy: do not encode the video stream, copy it.
+            #       copy: donot encoder the video stream, copy it.
             #       vn: disable video output.
             vcodec          libx264;
             # video bitrate, in kbps
+            # @remark 0 to use source video bitrate.
+            # default: 0
             vbitrate        1500;
             # video framerate.
+            # @remark 0 to use source video fps.
+            # default: 0
             vfps            25;
-            # video width, must be an even number.
+            # video width, must be even numbers.
+            # @remark 0 to use source video width.
+            # default: 0
             vwidth          768;
-            # video height, must be an even number.
+            # video height, must be even numbers.
+            # @remark 0 to use source video height.
+            # default: 0
             vheight         320;
-            # the maximum number of threads for ffmpeg to use.
+            # the max threads for ffmpeg to used.
+            # default: 1
             vthreads        12;
             # x264 profile, @see x264 -help, can be:
             # high,main,baseline
@@ -75,7 +84,7 @@ vhost __defaultVhost__ {
             #       ultrafast,superfast,veryfast,faster,fast
             #       medium,slow,slower,veryslow,placebo
             vpreset         medium;
-            # other x264 or ffmpeg video parameters
+            # other x264 or ffmpeg video params
             vparams {
                 # ffmpeg options, @see: http://ffmpeg.org/ffmpeg.html
                 t               100;
@@ -86,27 +95,34 @@ vhost __defaultVhost__ {
                 refs            10;
             }
             # audio encoder name. can be:
-            #       libfdk_aac: use aac (libfdk_aac) audio encoder.
-            #       copy: do not encode the audio stream, copy it.
+            #       libfdk_aac: use aac(libfdk_aac) audio encoder.
+            #       copy: donot encoder the audio stream, copy it.
             #       an: disable audio output.
             acodec          libfdk_aac;
             # audio bitrate, in kbps. [16, 72] for libfdk_aac.
+            # @remark 0 to use source audio bitrate.
+            # default: 0
             abitrate        70;
             # audio sample rate. for flv/rtmp, it must be:
             #       44100,22050,11025,5512
+            # @remark 0 to use source audio sample rate.
+            # default: 0
             asample_rate    44100;
             # audio channel, 1 for mono, 2 for stereo.
+            # @remark 0 to use source audio channels.
+            # default: 0
             achannels       2;
-            # other ffmpeg audio parameters
+            # other ffmpeg audio params
             aparams {
                 # audio params, @see: http://ffmpeg.org/ffmpeg-codecs.html#Audio-Encoders
                 # @remark SRS supported aac profile for HLS is: aac_low, aac_he, aac_he_v2
                 profile:a   aac_low;
+                bsf:a       aac_adtstoasc;
             }
             # output format, can be:
-            #       off, do not specify the format, ffmpeg will guess it.
+            #       off, do not specifies the format, ffmpeg will guess it.
             #       flv, for flv or RTMP stream.
-            #       other format, for example, mp4/aac or whatever.
+            #       other format, for example, mp4/aac whatever.
             # default: flv
             oformat         flv;
             # output stream. variables:
