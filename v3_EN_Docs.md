@@ -82,7 +82,7 @@ How to record a live stream to an FLV file? How to record to pieces of files whi
 
 ## [DRM] (v1_EN_DRM)
 
-Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please see: [DRM] (v1_EN_DRM)
+How to support hotlink denial? Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please see: [DRM] (v1_EN_DRM)
 
 ## [Reload](v1_EN_Reload)
 
