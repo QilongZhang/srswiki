@@ -38,6 +38,10 @@ vhost your_vhost {
 
 Please see `conf/security.deny.publish.conf` for detail.
 
+## Kickoff Client
+
+SRS provides api to kickoff user.
+
 ## Bug
 
 The bug about this feature, read [#211](https://github.com/simple-rtmp-server/srs/issues/211)
