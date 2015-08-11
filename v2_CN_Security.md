@@ -45,6 +45,10 @@ SRS应用安全策略的方式是:
 
 参考配置文件`conf/security.deny.publish.conf`.
 
+## Kickoff Client
+
+可以踢掉连接的用户。
+
 ## Bug
 
 关于这个功能的Bug，参考：[#211](https://github.com/simple-rtmp-server/srs/issues/211)
