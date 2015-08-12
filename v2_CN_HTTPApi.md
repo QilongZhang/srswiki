@@ -240,10 +240,16 @@ SRS提供获取所有stream的接口，stream中的server为srs的id，用来标
 可以踢掉连接的用户，SRS提供了HTTP RESTful接口：
 
 ```
-DELETE /api/v1/streams/{id}
+DELETE /api/v1/clients/{id}
 ```
 
-可以先查询到需要踢掉的Stream的ID：
+可以先查询到需要踢掉的Client的ID：
+
+```
+GET /api/v1/clients
+```
+
+若需要踢掉推流的Client，可以从streams接口中查询推流client的id：
 
 ```
 GET /api/v1/streams
