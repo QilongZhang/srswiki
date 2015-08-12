@@ -237,6 +237,18 @@ SRS提供获取所有stream的接口，stream中的server为srs的id，用来标
 
 ## Kickoff Client
 
-可以踢掉连接的用户。
+可以踢掉连接的用户，SRS提供了HTTP RESTful接口：
+
+```
+DELETE /api/v1/streams/{id}
+```
+
+可以先查询到需要踢掉的Stream的ID：
+
+```
+GET /api/v1/streams
+```
+
+备注：HTTP请求可以使用[HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html)
 
 Winlin 2015.3
