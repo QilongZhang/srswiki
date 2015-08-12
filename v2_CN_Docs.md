@@ -94,7 +94,7 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 ## [低延时应用](v2_CN_LowLatency)
 
-如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](v2_CN_LowLatency)
+如何配置低延时LowLatency/Realtime？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](v2_CN_LowLatency)
 
 ## [HTTP Callback](v2_CN_HTTPCallback)
 
