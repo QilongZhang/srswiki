@@ -217,6 +217,18 @@ The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
 
 ## Kickoff Client
 
-SRS provides api to kickoff user.
+SRS provides HTTP RESTful api to kickoff user:
+
+```
+DELETE /api/v1/streams/{id}
+```
+
+User can get the id of stream to kickoff:
+
+```
+GET /api/v1/streams
+```
+
+Remark: User can use [HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html) to send a request.
 
 Winlin 2015.3
