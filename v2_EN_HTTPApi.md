@@ -215,4 +215,8 @@ SRS provides http api to query all streams, where sever is the id of srs, and vh
 
 The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
 
+## Kickoff Client
+
+SRS provides api to kickoff user.
+
 Winlin 2015.3
