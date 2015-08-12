@@ -141,20 +141,14 @@ Recoment to use the bellow config for low latency application:
 # the listen ports, split by space.
 listen              1935;
 vhost __defaultVhost__ {
-    # whether cache the last gop.
-    # if on, cache the last gop and dispatch to client,
-    #   to enable fast startup for client, client play immediately.
-    # if off, send the latest media data to client,
-    #   client need to wait for the next Iframe to decode and show the video.
-    # set to off if requires min delay;
-    # set to on if requires client fast startup.
-    # default: on
     gop_cache       off;
-    # the max live queue length in seconds.
-    # if the messages in the queue exceed the max length, 
-    # drop the old whole gop.
-    # default: 30
     queue_length    10;
+    min_latency     on;
+    mr {
+        enabled     off;
+    }
+    mw_latency      100;
+    tcp_nodelay     on;
 }
 ```
 
