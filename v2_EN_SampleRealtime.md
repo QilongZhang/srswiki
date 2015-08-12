@@ -40,6 +40,7 @@ vhost __defaultVhost__ {
         enabled     off;
     }
     mw_latency      100;
+    tcp_nodelay     on;
 }
 ```
 
