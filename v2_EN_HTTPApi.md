@@ -220,10 +220,16 @@ The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
 SRS provides HTTP RESTful api to kickoff user:
 
 ```
-DELETE /api/v1/streams/{id}
+DELETE /api/v1/clients/{id}
 ```
 
-User can get the id of stream to kickoff:
+User can get the id of client to kickoff:
+
+```
+GET /api/v1/clients
+```
+
+User can get the id of publish client from streams api:
 
 ```
 GET /api/v1/streams
