@@ -235,4 +235,8 @@ SRS提供获取所有stream的接口，stream中的server为srs的id，用来标
 
 地址为：`http://192.168.1.102:1985/api/v1/streams`
 
+## Kickoff Client
+
+可以踢掉连接的用户。
+
 Winlin 2015.3
