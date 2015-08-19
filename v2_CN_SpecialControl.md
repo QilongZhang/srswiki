@@ -132,4 +132,16 @@ vhost __defaultVhost__ {
 }
 ```
 
+## ATC Auto
+
+```
+vhost __defaultVhost__ {
+    # whether enable the auto atc,
+    # if enabled, detect the bravo_atc="true" in onMetaData packet,
+    # set atc to on if matched.
+    # always ignore the onMetaData if atc_auto is off.
+    # default: on
+    atc_auto        on;
+}
+
 Winlin 2015.8
