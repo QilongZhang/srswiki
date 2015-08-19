@@ -51,6 +51,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [[HTTP Callback | v2_EN_HTTPCallback]]: Use HTTP callback to hook the events of SRS.
 * [[HTTP API | v2_EN_HTTPApi]]: Get system data from HTTP API of SRS.
 * [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: Use bandwidth api to test the available bandwidth for SRS.
+* [[Special Control | v2_CN_SpecialControl]]: Some special control config for expert.
 
 **Benchmarks:***
 
