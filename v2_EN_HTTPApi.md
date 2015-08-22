@@ -244,6 +244,7 @@ User can get the id of publish client from streams api:
 
 ```
 GET /api/v1/streams
+or GET /api/v1/streams/6745
 ```
 
 The client cid is the info from stream api `stream.publish.cid`:
