@@ -223,17 +223,46 @@ SRS提供HTTP服务的基本原则是支持少量的HTTP协议，并且只提供
 
 SRS HTTP API支持跨域，js可以直接调用srs的http api。
 
+## Server ID
+
+SRS返回的api中都会带有`server`的信息，即Server的ID，用来标识服务器。客户端在获取信息时，必须检查ServerID是否改变，改变时就是服务器重启，之前所有的数据都应该作废了。
+
+## API Nevigation
+
+SRS提供了API的导航，即所有支持的API及描述。
+
+地址是：`http://`92.168.1.102:1985/api/v1/vhosts`，主要包含的子api有：
+
+| API | Example  | Description |
+| --- | -------- | ---------   |
+| server | 4481  | 服务器标识   |
+| versions | /api/v1/versions  | 获取服务器版本信息 |
+| summaries | /api/v1/summaries | 获取服务器的摘要信息 |
+| rusages  | /api/v1/rusages | 获取服务器资源使用信息 |
+| self_proc_stats | /api/v1/self_proc_stats | 获取服务器进程信息 |
+| system_proc_stats | /api/v1/system_proc_stats | 获取服务器所有进程情况 |
+| meminfos | /api/v1/meminfos | 获取服务器内存使用情况 |
+| authors | /api/v1/authors | 获取作者、版权和License信息 |
+| requests | /api/v1/requests | 获取请求的信息，即当前发起的请求的详细信息 |
+| vhosts | /api/v1/vhosts | 获取服务器上的vhosts信息 |
+| streams | /api/v1/streams | 获取服务器的streams信息 |
+| clients | /api/v1/clients | 获取服务器的clients信息，默认获取前10个 |
+
 ## Vhost
 
 SRS提供获取所有vhost的接口，vhost中的server为srs的id，用来标识是否服务器重启了。
 
 地址为：`http://192.168.1.102:1985/api/v1/vhosts`
 
+还可以继续处理某个vhost的信息，譬如`http://192.168.1.102:1985/api/v1/vhosts/3756`
+
 ## Stream
 
 SRS提供获取所有stream的接口，stream中的server为srs的id，用来标识是否服务器重启了。vhost为stream所属的vhost的id。
 
 地址为：`http://192.168.1.102:1985/api/v1/streams`
+
+还可以继续处理某个stream的信息，譬如`http://192.168.1.102:1985/api/v1/streams/3756`
 
 ## Kickoff Client
 
