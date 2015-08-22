@@ -225,6 +225,10 @@ SRS提供了API的导航，即所有支持的API及描述。
 
 ## Summaries
 
+SRS提供系统的摘要信息接口，譬如当前的内存、CPU、网络、负载使用率。
+
+地址为：`http://192.168.1.170:1985/api/v1/summaries`
+
 ## Vhosts
 
 SRS提供获取所有vhost的接口，vhost中的server为srs的id，用来标识是否服务器重启了。
