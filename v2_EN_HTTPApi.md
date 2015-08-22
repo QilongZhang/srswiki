@@ -198,6 +198,7 @@ User can access the `http://192.168.1.102:1985/api/v1`, where:
 | system_proc_stats | /api/v1/system_proc_stats | the system process stats |
 | meminfos | /api/v1/meminfos | the meminfo of system |
 | authors | /api/v1/authors | the license, copyright, authors and contributors |
+| features | /api/v1/features | the supported features of SRS |
 | requests | /api/v1/requests | the request itself, for http debug |
 | vhosts | /api/v1/vhosts | manage all vhosts or specified vhost |
 | streams | /api/v1/streams | manage all streams or specified stream |
