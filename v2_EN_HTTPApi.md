@@ -249,7 +249,7 @@ GET /api/v1/streams
 The client cid is the info from stream api `stream.publish.cid`:
 
 ```
-1. GET http://localhost:1985/api/v1/streams/6745
+1. GET http://192.168.1.170:1985/api/v1/streams/6745
 2. Response stream.publish.cid:
 stream: {
     publish: {
