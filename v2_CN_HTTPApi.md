@@ -188,36 +188,37 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 
 SRS的API属于“自解释型，HTTP RESTful API”
 
-## 错误码
+## Error Code
 
-当HTTP错误时，譬如404，默认的HTTP服务器会返回错误页面，SRS返回的永远是程序能解析的json。
+SRS可能返回HTTP错误，即Status不等于200；或者在HTTP Status为200时，响应的json的code不为0.
 
-譬如，浏览器打开地址`http://192.168.1.102:1985/apis`，api多写了个s，是404，服务器返回：
+譬如，返回HTTP错误：
 
-```bash
-{
-
-    "code": 804,
-    "data": {
-        "status_code": 404,
-        "reason_phrase": "Not Found",
-        "url": "/apis"
-    }
-
-}
+```
+winlin:~ winlin$ curl -v http://127.0.0.1:1985 && echo ""
+< HTTP/1.1 404 Not Found
+< Connection: Keep-Alive
+< Content-Length: 9
+< Content-Type: text/plain; charset=utf-8
+< Server: SRS/2.0.184
+< 
+Not Found
 ```
 
-查看HTTP的响应头为：
+譬如，HTTP200时内容中code不等于0：
 
-```bash
-HTTP/1.1 404 Not Found
-Server: SRS/0.9.43
-Content-Type: application/json;charset=utf-8
-Allow: DELETE, GET, HEAD, OPTIONS, POST, PUT
-Content-Length: 81
+```
+winlin:~ winlin$ curl -v http://127.0.0.1:1985/api/v1/tests/errors && echo ""
+< HTTP/1.1 200 OK
+< Connection: Keep-Alive
+< Content-Length: 12
+< Content-Type: application/json
+< Server: SRS/2.0.184
+< 
+{"code":100}
 ```
 
-SRS提供HTTP服务的基本原则是支持少量的HTTP协议，并且只提供给程序读的信息。尽量保证提供的信息都是可读的json，除非连不上服务器，或者服务器崩溃，否则数据都是json。
+用户应该处理这两种错误。
 
 ## Crossdomain
 
