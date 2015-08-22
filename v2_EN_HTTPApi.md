@@ -203,6 +203,12 @@ User can access the `http://192.168.1.102:1985/api/v1`, where:
 | streams | /api/v1/streams | manage all streams or specified stream |
 | clients | /api/v1/clients | manage all clients or specified client, default query top 10 clients |
 
+## Summaries
+
+User can get the system summaries, for instance, the memory, cpu, network, load usage.
+
+Please access the url `http://192.168.1.170:1985/api/v1/summaries`
+
 ## Vhost
 
 SRS provides http api to query all vhosts, where server is the id of srs, which identify whether srs restarted.
