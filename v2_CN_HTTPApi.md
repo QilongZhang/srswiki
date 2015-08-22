@@ -218,6 +218,7 @@ SRS提供了API的导航，即所有支持的API及描述。
 | system_proc_stats | /api/v1/system_proc_stats | 获取服务器所有进程情况 |
 | meminfos | /api/v1/meminfos | 获取服务器内存使用情况 |
 | authors | /api/v1/authors | 获取作者、版权和License信息 |
+| features | /api/v1/features | 获取系统支持的功能列表 |
 | requests | /api/v1/requests | 获取请求的信息，即当前发起的请求的详细信息 |
 | vhosts | /api/v1/vhosts | 获取服务器上的vhosts信息 |
 | streams | /api/v1/streams | 获取服务器的streams信息 |
