@@ -77,6 +77,8 @@ Start SRS: `./objs/srs -c http-api.conf`
 
 Access api, open the url in web browser: [http://192.168.1.170:1985/api/v1](http://192.168.1.170:1985/api/v1)
 
+Remark: Please use your server ip instead.
+
 ## Performance
 
 The HTTP api supports 370 request per seconds.
