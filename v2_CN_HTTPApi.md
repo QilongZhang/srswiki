@@ -202,12 +202,15 @@ SRS支持两种跨域方式：
 
 * OPTIONS: jquery可以直接跨域请求API，浏览器会发送一个OPTIONS跨域请求，SRS允许跨域后，浏览器再次发起API请求。
 * JSONP: jquery/angularjs可以发起JSONP跨域请求，服务器会将响应作为js文件，内容是调用一个函数，函数名由QueryString中的callback指定。
+* JSONP-DELETE: JSONP只能GET，因此DELETE方法是由QueryString的method指定的。
 
 JSONP实例，例如：
 
 ```
 GET http://localhost:1985/api/v1/vhosts/?callback=JSON_CALLBACK
 JSON_CALLBACK({"code":0,"server":13449})
+GET http://localhost:1985/api/v1/vhosts/100?callback=JSON_CALLBACK&method=DELETE
+JSON_CALLBACK({"code":0})
 ```
 
 ## Server ID
