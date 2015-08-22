@@ -198,6 +198,18 @@ winlin:~ winlin$ curl -v http://127.0.0.1:1985/api/v1/tests/errors && echo ""
 
 SRS HTTP API支持跨域，js可以直接调用srs的http api。
 
+SRS支持两种跨域方式：
+
+* OPTIONS: jquery可以直接跨域请求API，浏览器会发送一个OPTIONS跨域请求，SRS允许跨域后，浏览器再次发起API请求。
+* JSONP: jquery/angularjs可以发起JSONP跨域请求，服务器会将响应作为js文件，内容是调用一个函数，函数名由QueryString中的callback指定。
+
+JSONP实例，例如：
+
+```
+GET http://localhost:1985/api/v1/vhosts/?callback=JSON_CALLBACK
+JSON_CALLBACK({"code":0,"server":13449})
+```
+
 ## Server ID
 
 SRS返回的api中都会带有`server`的信息，即Server的ID，用来标识服务器。客户端在获取信息时，必须检查ServerID是否改变，改变时就是服务器重启，之前所有的数据都应该作废了。
