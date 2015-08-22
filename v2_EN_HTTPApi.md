@@ -182,12 +182,15 @@ SRS support two main CROS styles:
 
 * OPTIONS: JQuery can directly access the CROS, where the brower will send an OPTIONS first, then the API request.
 * JSONP: JQuery/Angularjs can send JSONP CROS request to SRS API, where specifes the function name by QueryString `callback`.
+* JSONP-DELETE: JSONP only support GET, so we use the `method` in QueryString to override the HTTP method for JSONP.
 
 For example, the JSONP crossdomain request:
 
 ```
 GET http://localhost:1985/api/v1/vhosts/?callback=JSON_CALLBACK
 JSON_CALLBACK({"code":0,"server":13449})
+GET http://localhost:1985/api/v1/vhosts/100?callback=JSON_CALLBACK&method=DELETE
+JSON_CALLBACK({"code":0})
 ```
 
 ## Server ID
