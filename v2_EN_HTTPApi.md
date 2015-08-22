@@ -262,6 +262,7 @@ stream: {
 ```
 
 Remark: User can use [HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html) to send a request.
+
 Remark: User can use linux tool `curl` to start HTTP request. For example:
 
 ```
