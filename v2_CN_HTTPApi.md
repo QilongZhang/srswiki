@@ -274,6 +274,18 @@ GET /api/v1/clients
 GET /api/v1/streams
 ```
 
+流信息中的`stream.publish.cid`就是推流的客户端id：
+
+```
+http://localhost:1985/api/v1/streams/6745
+stream: {
+    publish: {
+        active: true,
+        cid: 107
+    }
+}
+```
+
 备注：HTTP请求可以使用[HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html)
 
 Winlin 2015.3
