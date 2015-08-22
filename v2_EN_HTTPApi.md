@@ -203,17 +203,46 @@ Not all HTTP protocol is supported by SRS.
 
 SRS HTTP API supports js crossdomain, so the html/js can invoke http api of srs。
 
+## Server ID
+
+Each response of api contains a `server` field, which identify the server. When ServerID changed, SRS already restarted, all information before is invalid.
+
+## API Nevigation
+
+SRS提供了API的导航，即所有支持的API及描述。
+
+地址是：`http://`92.168.1.102:1985/api/v1/vhosts`，主要包含的子api有：
+
+| API | Example  | Description |
+| --- | -------- | ---------   |
+| server | 4481  | The identity of SRS   |
+| versions | /api/v1/versions  | the version of SRS |
+| summaries | /api/v1/summaries | the summary(pid, argv, pwd, cpu, mem) of SRS |
+| rusages  | /api/v1/rusages | the rusage of SRS |
+| self_proc_stats | /api/v1/self_proc_stats | the self process stats |
+| system_proc_stats | /api/v1/system_proc_stats | the system process stats |
+| meminfos | /api/v1/meminfos | the meminfo of system |
+| authors | /api/v1/authors | the license, copyright, authors and contributors |
+| requests | /api/v1/requests | the request itself, for http debug |
+| vhosts | /api/v1/vhosts | manage all vhosts or specified vhost |
+| streams | /api/v1/streams | manage all streams or specified stream |
+| clients | /api/v1/clients | manage all clients or specified client, default query top 10 clients |
+
 ## Vhost
 
 SRS provides http api to query all vhosts, where server is the id of srs, which identify whether srs restarted.
 
 The http api vhost url: `http://192.168.1.102:1985/api/v1/vhosts`
 
+To process specified vhost by id, for instance `http://192.168.1.102:1985/api/v1/vhosts/3756`
+
 ## Stream
 
 SRS provides http api to query all streams, where sever is the id of srs, and vhost is the vhost contains the stream.
 
 The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
+
+To process specified stream by id, for instance `http://192.168.1.102:1985/api/v1/streams/3756`
 
 ## Kickoff Client
 
