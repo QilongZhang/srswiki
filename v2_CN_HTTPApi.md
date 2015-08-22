@@ -290,5 +290,11 @@ stream: {
 ```
 
 备注：HTTP请求可以使用[HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html)
+备注：HTTP请求还可以使用Linux的工具`curl`，常见的请求如下：
+
+```
+curl -v -X GET http://192.168.1.170:1985/api/v1/clients/426 && echo ""
+curl -v -X DELETE http://192.168.1.170:1985/api/v1/clients/426 && echo ""
+```
 
 Winlin 2015.3
