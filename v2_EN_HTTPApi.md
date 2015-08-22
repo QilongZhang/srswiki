@@ -246,6 +246,20 @@ User can get the id of publish client from streams api:
 GET /api/v1/streams
 ```
 
+The client cid is the info from stream api `stream.publish.cid`:
+
+```
+1. GET http://localhost:1985/api/v1/streams/6745
+2. Response stream.publish.cid:
+stream: {
+    publish: {
+        active: true,
+        cid: 107
+    }
+}
+3. DELETE http://192.168.1.170:1985/api/v1/clients/107
+```
+
 Remark: User can use [HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html) to send a request.
 
 Winlin 2015.3
