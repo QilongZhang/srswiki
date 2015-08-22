@@ -262,5 +262,11 @@ stream: {
 ```
 
 Remark: User can use [HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html) to send a request.
+Remark: User can use linux tool `curl` to start HTTP request. For example:
+
+```
+curl -v -X GET http://192.168.1.170:1985/api/v1/clients/426 && echo ""
+curl -v -X DELETE http://192.168.1.170:1985/api/v1/clients/426 && echo ""
+```
 
 Winlin 2015.3
