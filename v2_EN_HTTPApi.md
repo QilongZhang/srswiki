@@ -178,6 +178,18 @@ User should handle these two error style.
 
 SRS HTTP API supports js crossdomain, so the html/js can invoke http api of srs。
 
+SRS support two main CROS styles:
+
+* OPTIONS: JQuery can directly access the CROS, where the brower will send an OPTIONS first, then the API request.
+* JSONP: JQuery/Angularjs can send JSONP CROS request to SRS API, where specifes the function name by QueryString `callback`.
+
+For example, the JSONP crossdomain request:
+
+```
+GET http://localhost:1985/api/v1/vhosts/?callback=JSON_CALLBACK
+JSON_CALLBACK({"code":0,"server":13449})
+```
+
 ## Server ID
 
 Each response of api contains a `server` field, which identify the server. When ServerID changed, SRS already restarted, all information before is invalid.
