@@ -11,6 +11,7 @@ SRS提供HTTP接口，供外部程序管理服务器，并支持跨域（js可�
 SRS的HTTP接口遵循最简单原则，主要包括：
 * 只提供json数据格式接口，要求请求和响应的数据全都是json。
 * 不提供html数据，譬如运行SRS后，浏览器打开HTTP接口或HTTP服务地址，看到的是json，不是html。
+* 发生错误时，支持HTTP错误码，或者json中的code错误码。
 
 ## Build
 
@@ -116,76 +117,47 @@ SRS提供了api的面包屑，可以从根目录开始导航，不需要任何�
 
 ```bash
 # curl http://192.168.1.170:1985/
-{
-
-    "code": 0,
     "urls": {
         "api": "the api root"
     }
-
-}
 ```
 
 返回的urls表示子链接可以访问。接着访问：
 
 ```bash
 # curl http://192.168.1.170:1985/api/
-{
-
-    "code": 0,
     "urls": {
         "v1": "the api version 1.0"
     }
-
-}
 ```
 
 继续：
 
 ```bash
 # curl http://192.168.1.170:1985/api/v1/
-{
-
-    "code": 0,
     "urls": {
         "versions": "the version of SRS",
         "authors": "the primary authors and contributors"
     }
-
-}
 ```
 
 继续：
 
 ```bash
 # curl http://192.168.1.170:1985/api/v1/versions
-{
-
-    "code": 0,
-    "data": {
         "major": 0,
         "minor": 9,
         "revision": 43,
         "version": "0.9.43"
-    }
-
-}
 ```
 
 或者：
 
 ```bash
 # curl http://192.168.1.170:1985/api/v1/authors
-{
-
-    "code": 0,
-    "data": {
         "primary_authors": "winlin,wenjie.zhao",
         "contributors_link": "https://github.com/simple-rtmp-server/srs/blob/master/AUTHORS.txt",
         "contributors": "winlin<winlin@vip.126.com> wenjie.zhao<740936897@qq.com> xiangcheng.liu<liuxc0116@foxmail.com> naijia.liu<youngcow@youngcow.net> alcoholyi<alcoholyi@qq.com> "
-    }
-
-}
 ```
 
 SRS的API属于“自解释型，HTTP RESTful API”
@@ -234,7 +206,7 @@ SRS返回的api中都会带有`server`的信息，即Server的ID，用来标识�
 
 SRS提供了API的导航，即所有支持的API及描述。
 
-地址是：`http://`92.168.1.102:1985/api/v1/vhosts`，主要包含的子api有：
+地址是：`http://192.168.1.170:1985/api/v1`，主要包含的子api有：
 
 | API | Example  | Description |
 | --- | -------- | ---------   |
