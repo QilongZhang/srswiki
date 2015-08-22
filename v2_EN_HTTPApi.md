@@ -170,34 +170,35 @@ The Api of SRS is self-describes api.
 
 ## Error Code
 
-When error for http server, maybe return an error page, SRS always return the json result.
+SRS response error in both HTTP status or HTTP body.
 
-For example, the 404 `not found` api `http://192.168.1.102:1985/apis`:
+For example, SRS response HTTP error, where HTTP status not 200:
 
-```bash
-{
-
-    "code": 804,
-    "data": {
-        "status_code": 404,
-        "reason_phrase": "Not Found",
-        "url": "/apis"
-    }
-
-}
+```
+winlin:~ winlin$ curl -v http://127.0.0.1:1985 && echo ""
+< HTTP/1.1 404 Not Found
+< Connection: Keep-Alive
+< Content-Length: 9
+< Content-Type: text/plain; charset=utf-8
+< Server: SRS/2.0.184
+< 
+Not Found
 ```
 
-While the http header is 404:
+For example, SRS response code not 0 when HTTTP Status 200:
 
-```bash
-HTTP/1.1 404 Not Found
-Server: SRS/0.9.43
-Content-Type: application/json;charset=utf-8
-Allow: DELETE, GET, HEAD, OPTIONS, POST, PUT
-Content-Length: 81
+```
+winlin:~ winlin$ curl -v http://127.0.0.1:1985/api/v1/tests/errors && echo ""
+< HTTP/1.1 200 OK
+< Connection: Keep-Alive
+< Content-Length: 12
+< Content-Type: application/json
+< Server: SRS/2.0.184
+< 
+{"code":100}
 ```
 
-Not all HTTP protocol is supported by SRS.
+User should handle these two error style.
 
 ## Crossdomain
 
