@@ -272,18 +272,21 @@ GET /api/v1/clients
 
 ```
 GET /api/v1/streams
+or GET /api/v1/streams/6745
 ```
 
 流信息中的`stream.publish.cid`就是推流的客户端id：
 
 ```
-http://localhost:1985/api/v1/streams/6745
+1. GET http://192.168.1.170:1985/api/v1/streams/6745
+2. Response stream.publish.cid:
 stream: {
     publish: {
         active: true,
         cid: 107
     }
 }
+3. DELETE http://192.168.1.170:1985/api/v1/clients/107
 ```
 
 备注：HTTP请求可以使用[HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html)
