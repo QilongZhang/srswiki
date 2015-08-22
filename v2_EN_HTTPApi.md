@@ -12,6 +12,7 @@ The HTTP API of SRS follows the simple priciple:
 
 * Only provides API in json format, both request and json are json.
 * No html, access the api return json format.
+* When error, response in HTTP status or code in json.
 
 ## Build
 
@@ -96,76 +97,47 @@ Root directory:
 
 ```bash
 # curl http://192.168.1.102:1985/
-{
-
-    "code": 0,
     "urls": {
         "api": "the api root"
     }
-
-}
 ```
 
 The urls is the apis to access:
 
 ```bash
 # curl http://192.168.1.102:1985/api/
-{
-
-    "code": 0,
     "urls": {
         "v1": "the api version 1.0"
     }
-
-}
 ```
 
 Go on:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/
-{
-
-    "code": 0,
     "urls": {
         "versions": "the version of SRS",
         "authors": "the primary authors and contributors"
     }
-
-}
 ```
 
 Go on:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/versions
-{
-
-    "code": 0,
-    "data": {
         "major": 0,
         "minor": 9,
         "revision": 43,
         "version": "0.9.43"
-    }
-
-}
 ```
 
 Or:
 
 ```bash
 # curl http://192.168.1.102:1985/api/v1/authors
-{
-
-    "code": 0,
-    "data": {
         "primary_authors": "winlin,wenjie.zhao",
         "contributors_link": "https://github.com/simple-rtmp-server/srs/blob/master/AUTHORS.txt",
         "contributors": "winlin<winlin@vip.126.com> wenjie.zhao<740936897@qq.com> xiangcheng.liu<liuxc0116@foxmail.com> naijia.liu<youngcow@youngcow.net> alcoholyi<alcoholyi@qq.com> "
-    }
-
-}
 ```
 
 The Api of SRS is self-describes api.
@@ -212,9 +184,9 @@ Each response of api contains a `server` field, which identify the server. When 
 
 ## API Nevigation
 
-SRS提供了API的导航，即所有支持的API及描述。
+SRS provides the nevigation of APIs.
 
-地址是：`http://`92.168.1.102:1985/api/v1/vhosts`，主要包含的子api有：
+User can access the `http://192.168.1.102:1985/api/v1`, where:
 
 | API | Example  | Description |
 | --- | -------- | ---------   |
