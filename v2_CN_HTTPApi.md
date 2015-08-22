@@ -290,6 +290,7 @@ stream: {
 ```
 
 备注：HTTP请求可以使用[HTTP REST Tool](http://ossrs.net/srs.release/http-rest/index.html)
+
 备注：HTTP请求还可以使用Linux的工具`curl`，常见的请求如下：
 
 ```
