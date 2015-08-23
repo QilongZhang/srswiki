@@ -55,6 +55,7 @@ and [dvr http callback](https://github.com/simple-rtmp-server/srs/issues/274).
 * [experimental]Support HDS, read [#328](https://github.com/simple-rtmp-server/srs/issues/328).
 * [experimental]Support push MPEG-TS over UDP to SRS, read [#250](https://github.com/simple-rtmp-server/srs/issues/250).
 * [experimental]Support push RTSP to SRS, read [#133](https://github.com/simple-rtmp-server/srs/issues/133).
+* [experimental]Support remote console management, read [console](http://ossrs.net:1985/console).
 * Other small changes.
 
 [SRS Release 2.0](https://github.com/simple-rtmp-server/srs/tree/2.0release) planned release on 2015.12.
