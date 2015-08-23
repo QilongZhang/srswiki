@@ -78,6 +78,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [experiment]支持HDS，参考：[#328][bug328].
 * [experiment]支持Push MPEG-TS over UDP to SRS, 参考：[#250][bug250].
 * [experiment]支持Push RTSP to SRS，参考：[#133][bug133].
+* [experimental]支持远程控制台，链接： [console](http://ossrs.net:1985/console).
 * 其他小功能的完善。
 
 [SRS Release 2.0][2.0release]预计在2015.12发布。
