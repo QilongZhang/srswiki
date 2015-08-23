@@ -84,11 +84,11 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 [SRS release 3.0[3.0release] is developing now. The main goals may include:
 
 * Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464].
+* Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
+* Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
+* Support HTTP edge server, read [#466][bug466].
+* Support Integration with Spark Big-Data system, read [#467][bug467].
 * Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
-* Support H.265, push RTMP with H.265, delivery in HLS.
-* Support MPEG-DASH, the future streaming protocol.
-* Support HTTP edge server.
-* Support Spark big-data.
 * Others.
 
 [SRS Release 3.0][3.0release] plan to release at 2016.12.
@@ -143,6 +143,10 @@ Winlin, 2014.10
 [bug277]: https://github.com/simple-rtmp-server/srs/issues/277
 [bug367]: https://github.com/simple-rtmp-server/srs/issues/367
 [bug464]: https://github.com/simple-rtmp-server/srs/issues/464
+[bug465]: https://github.com/simple-rtmp-server/srs/issues/465
+[bug299]: https://github.com/simple-rtmp-server/srs/issues/299
+[bug466]: https://github.com/simple-rtmp-server/srs/issues/466
+[bug467]: https://github.com/simple-rtmp-server/srs/issues/467
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
