@@ -64,8 +64,9 @@ and [dvr http callback](https://github.com/simple-rtmp-server/srs/issues/274).
 
 Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxol.com).
 
-[SRS release 3.0](https://github.com/simple-rtmp-server/srs/tree/develop), is being researched now, no milestone yet. The main goals may include:
+[SRS release 3.0](https://github.com/simple-rtmp-server/srs/tree/develop), is developing now. The main goals may include:
 
+* Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464].
 * Research SRS.GO, implements SRS in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 * Support H.265, push RTMP with H.265, delivery in HLS.
 * Support MPEG-DASH, the future streaming protocol.
@@ -142,6 +143,7 @@ Winlin, 2014.10
 [bug274]: https://github.com/simple-rtmp-server/srs/issues/274
 [bug277]: https://github.com/simple-rtmp-server/srs/issues/277
 [bug367]: https://github.com/simple-rtmp-server/srs/issues/367
+[bug464]: https://github.com/simple-rtmp-server/srs/issues/464
 
 [develop]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
