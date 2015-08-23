@@ -66,6 +66,7 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxo
 
 [SRS release 3.0](https://github.com/simple-rtmp-server/srs/tree/develop), is being researched now, no milestone yet. The main goals may include:
 
+* Support exec, which is popular in nginx-rtmp, read [#367][bug367].
 * Research SRS.GO, implements SRS in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 * Support H.265, push RTMP with H.265, delivery in HLS.
 * Support MPEG-DASH, the future streaming protocol.
@@ -73,33 +74,15 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxo
 * Support Spark big-data.
 * Others.
 
+[SRS Release 3.0][develop] plan to release at 2016.12.
+
 ## Backlog
 
 SRS 3.0+ features backlog:
 
-* HTTP Streaming:
-<a href="https://github.com/simple-rtmp-server/srs/issues/130" target="_blank">HLS edge</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/129" target="_blank">HTTP FLV delivering</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/83" target="_blank">HTTP API authentication</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/139" target="_blank">HLS fast cache</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/140" target="_blank">HTTP support vhost</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/52" target="_blank">HTTP trigger RTMP</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/174" target="_blank">HTTP-MP4 streaming</a>
-* Enhanced RTMP Streaming:
-<a href="https://github.com/simple-rtmp-server/srs/issues/106" target="_blank">RTMP call forward</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/92" target="_blank">RTMP302 Redirection</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/71" target="_blank">RTMP publish authentication</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/131" target="_blank">AMF3 codec</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/132" target="_blank">SharedObject and text delivery</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/156" target="_blank">Multiple streams over the same connection</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/163" target="_blank">Forward with extra parameters</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/164" target="_blank">Edge with extra parameters</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/93" target="_blank">RTMFP protocol</a>
-* Realtime without latency:
-<a href="https://github.com/simple-rtmp-server/srs/issues/120" target="_blank">FRSC realtime</a>，
-<a href="https://github.com/simple-rtmp-server/srs/issues/94" target="_blank">UDP for server communication</a>
-* RTSP Streaming:
-<a href="https://github.com/simple-rtmp-server/srs/issues/133" target="_blank">RTSP streaming</a>
+* HTTP Streaming：[HLS Edge][bug130]，[HTTP API Authencation][bug83]，[Callback for HTTP][bug52]，[HTTP-MP4 Streaming][bug174]
+* Enhanced RTMP: [Forward Call][bug106]，[RTMP 302 Redirect][bug92]，[RTMP Token][bug71]，[AMF3][bug131]，[SharedObject][bug132]，[Multiple Streams per Connection][bug156]，[Forward With extra params][bug163]，[Edge with extra params][bug164]，[RTMFP][bug93]
+* Realtime：[FRSC][bug90]，[UDP in cluster][bug94]
 
 SRS features: the best or nothing!
 
@@ -122,3 +105,58 @@ Thanks to winlin for creating, architecting, coding, testing and writing the wik
 SRS will be a very important member for server software development.
 
 Winlin, 2014.10
+
+[bug133]: https://github.com/simple-rtmp-server/srs/issues/133
+[bug94]: https://github.com/simple-rtmp-server/srs/issues/94
+[bug90]: https://github.com/simple-rtmp-server/srs/issues/120
+[bug93]: https://github.com/simple-rtmp-server/srs/issues/93
+[bug164]: https://github.com/simple-rtmp-server/srs/issues/164
+[bug163]: https://github.com/simple-rtmp-server/srs/issues/163
+[bug156]: https://github.com/simple-rtmp-server/srs/issues/156
+[bug132]: https://github.com/simple-rtmp-server/srs/issues/132
+[bug131]: https://github.com/simple-rtmp-server/srs/issues/131
+[bug71]: https://github.com/simple-rtmp-server/srs/issues/71
+[bug92]: https://github.com/simple-rtmp-server/srs/issues/92
+[bug106]: https://github.com/simple-rtmp-server/srs/issues/106
+[bug174]: https://github.com/simple-rtmp-server/srs/issues/174
+[bug52]: https://github.com/simple-rtmp-server/srs/issues/52
+[bug83]: https://github.com/simple-rtmp-server/srs/issues/83
+[bug130]: https://github.com/simple-rtmp-server/srs/issues/130
+[bug250]: https://github.com/simple-rtmp-server/srs/issues/250
+[bug324]: https://github.com/simple-rtmp-server/srs/issues/324
+[bug328]: https://github.com/simple-rtmp-server/srs/issues/328
+[bug316]: https://github.com/simple-rtmp-server/srs/issues/316
+[bug179]: https://github.com/simple-rtmp-server/srs/issues/179
+[bug136]: https://github.com/simple-rtmp-server/srs/issues/136
+[bug293]: https://github.com/simple-rtmp-server/srs/issues/293
+[bug194]: https://github.com/simple-rtmp-server/srs/issues/194
+[bug237]: https://github.com/simple-rtmp-server/srs/issues/237
+[bug251]: https://github.com/simple-rtmp-server/srs/issues/251
+[bug66]: https://github.com/simple-rtmp-server/srs/issues/66
+[bug212]: https://github.com/simple-rtmp-server/srs/issues/212
+[bug182]: https://github.com/simple-rtmp-server/srs/issues/182
+[bug213]: https://github.com/simple-rtmp-server/srs/issues/213
+[bug235]: https://github.com/simple-rtmp-server/srs/issues/235
+[bug257]: https://github.com/simple-rtmp-server/srs/issues/257#issuecomment-66773208
+[bug211]: https://github.com/simple-rtmp-server/srs/issues/211
+[bug179]: https://github.com/simple-rtmp-server/srs/issues/179
+[bug274]: https://github.com/simple-rtmp-server/srs/issues/274
+[bug277]: https://github.com/simple-rtmp-server/srs/issues/277
+[bug367]: https://github.com/simple-rtmp-server/srs/issues/367
+
+[develop]: https://github.com/simple-rtmp-server/srs/tree/develop
+[2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
+[1.0release]: https://github.com/simple-rtmp-server/srs/tree/1.0release
+[p2.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#release20
+[p1.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#release10
+[backlog]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#backlog
+[donations]: https://github.com/simple-rtmp-server/srs/blob/develop/DONATIONS.txt
+[issues]: https://github.com/simple-rtmp-server/srs/issues
+[releases]: https://github.com/simple-rtmp-server/srs/releases
+[authors]: https://github.com/simple-rtmp-server/srs/tree/develop#authors
+[librtmp]: https://github.com/winlinvip/srs.librtmp
+[load]: https://github.com/winlinvip/st-load
+
+[blog_go]: http://blog.csdn.net/win_lin/article/details/41379799
+[srs_go]: https://github.com/winlinvip/srs.go
+[qgzxol]: http://www.qgzxol.com
