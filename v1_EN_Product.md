@@ -66,7 +66,6 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com](http://www.qgzxo
 
 [SRS release 3.0](https://github.com/simple-rtmp-server/srs/tree/develop), is being researched now, no milestone yet. The main goals may include:
 
-* Support exec, which is popular in nginx-rtmp, read [#367][bug367].
 * Research SRS.GO, implements SRS in go language, read [SRS.GO project](https://github.com/winlinvip/srs.go) and the [GO Performance Benchmark](http://blog.csdn.net/win_lin/article/details/41379799)
 * Support H.265, push RTMP with H.265, delivery in HLS.
 * Support MPEG-DASH, the future streaming protocol.
