@@ -87,14 +87,17 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com][qgzxol]让我可以在大学学习软件理论时还能实践出真知。感谢中勤的同学们，陈哲、刘小婧、盛谢华、易念华、马琰以及中勤的其他同学，希望SRS能带着我们最初的梦想越行越远~
 
-[SRS release 3.0][develop]，预研阶段，没有时间表。可能主要的目标是：
+[SRS release 3.0][develop]，研发阶段。可能主要的目标是：
 
+* 支持exec，nginx-rtmp中使用频率很高的功能。参考：[#367][bug367].
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
 * 支持h.265直播，在RTMP中加入265支持，输出HLS。
 * 支持MPEG-DASH，可能的未来标准。
 * 支持HTTP边缘服务器。
 * 支持接入Spark大数据系统。
 * 其他。
+
+[SRS Release 3.0][develop]预计在2016.12发布。
 
 ## Backlog
 
@@ -145,6 +148,7 @@ Winlin
 [bug179]: https://github.com/simple-rtmp-server/srs/issues/179
 [bug274]: https://github.com/simple-rtmp-server/srs/issues/274
 [bug277]: https://github.com/simple-rtmp-server/srs/issues/277
+[bug367]: https://github.com/simple-rtmp-server/srs/issues/367
 
 [develop]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
