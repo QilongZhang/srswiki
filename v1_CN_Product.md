@@ -4,7 +4,7 @@
 
 ## BigThanks
 
-SRS是2013.9(2013.8.22提离职申请，理论上2013.9.22就离职，为了交接平稳我增加了交接时间)我从蓝汛离职后，我参考nginx_rtmp写了个简洁直播源站服务器。蓝汛接我工作的同事也可以看到服务器如何一步步构建。蓝汛的客户也可以用这个源站，那些乱七八糟的源站对接太麻烦。我想用业余时间构建不受客户随意影响的产品，只遵循核心价值而加入功能，而不是为了赚钱或者客户头脑发热，总之，实现我对于产品价值和质量，真正实现客户核心要求，定位清晰，一个实践现代软件工程和研发理念的服务器。
+SRS是2013.9我从蓝汛离职后，我参考nginx_rtmp写了个简洁直播源站服务器。蓝汛接我工作的同事也可以看到服务器如何一步步构建。蓝汛的客户也可以用这个源站，那些乱七八糟的源站对接太麻烦。我想用业余时间构建不受客户随意影响的产品，只遵循核心价值而加入功能，而不是为了赚钱或者客户头脑发热，总之，实现我对于产品价值和质量，真正实现客户核心要求，定位清晰，一个实践现代软件工程和研发理念的服务器。
 
 2013.10底加入观止负责研发管理工作。后来观止创想做编码器，编码器需要输出到rtmp服务器，nginx-rtmp又经常出问题，就打算用我的SRS替换nginx-rtmp。后来编码器上线过程中，我也逐步完善了SRS，是快速成长期。开放服务器，就让客户可以更好的用我们编码器，而且我们编码器可以支持拉模式。这个阶段主要是源站阶段。
 
@@ -58,7 +58,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 开发代号：ZhouGuowen（周国文）。感谢我的高中老师周国文老师，教我成人自立，为我翻开一个新的篇章。
 
-[SRS release 2.0][2.0release]，预计研发周期为6个月左右。主要的目标是：
+[SRS release 2.0][2.0release]，预计研发周期为1年左右。主要的目标是：
 * 翻译中文wiki为英文。
 * 提升性能，支持10k+播放和4.5k+推流。参考：[#194][bug194]，[#237][bug237]和[#251][bug251]
 * srs-librtmp支持发送h.264和aac裸码流。参考：[#66][bug66]和[#212][bug212]
@@ -78,7 +78,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [experiment]支持HDS，参考：[#328][bug328].
 * [experiment]支持Push MPEG-TS over UDP to SRS, 参考：[#250][bug250].
 * [experiment]支持Push RTSP to SRS，参考：[#133][bug133].
-* [experimental]支持远程控制台，链接： [console](http://ossrs.net:1985/console).
+* [experimental]支持远程控制台，链接： [console][console].
 * 其他小功能的完善。
 
 [SRS Release 2.0][2.0release]预计在2015.12发布。
@@ -87,7 +87,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 开发代号：OuXuli（欧旭理）。感谢我的大学老师欧旭理老师(欧工)，他创建的[Qgzxol.com][qgzxol]让我可以在大学学习软件理论时还能实践出真知。感谢中勤的同学们，陈哲、刘小婧、盛谢华、易念华、马琰以及中勤的其他同学，希望SRS能带着我们最初的梦想越行越远~
 
-[SRS release 3.0][develop]，研发阶段。可能主要的目标是：
+[SRS release 3.0][3.0release]，研发阶段。可能主要的目标是：
 
 * 支持源站集群，负载均衡和热备。参考：[#464][bug464].
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
@@ -97,7 +97,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持接入Spark大数据系统。
 * 其他。
 
-[SRS Release 3.0][develop]预计在2016.12发布。
+[SRS Release 3.0][3.0release]预计在2016.12发布。
 
 ## Backlog
 
@@ -151,7 +151,7 @@ Winlin
 [bug367]: https://github.com/simple-rtmp-server/srs/issues/367
 [bug464]: https://github.com/simple-rtmp-server/srs/issues/464
 
-[develop]: https://github.com/simple-rtmp-server/srs/tree/develop
+[3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
 [1.0release]: https://github.com/simple-rtmp-server/srs/tree/1.0release
 [p2.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#release20
@@ -163,6 +163,7 @@ Winlin
 [authors]: https://github.com/simple-rtmp-server/srs/tree/develop#authors
 [librtmp]: https://github.com/winlinvip/srs.librtmp
 [load]: https://github.com/winlinvip/st-load
+[console]: http://ossrs.net:1985/console
 
 [blog_go]: http://blog.csdn.net/win_lin/article/details/41379799
 [srs_go]: https://github.com/winlinvip/srs.go
