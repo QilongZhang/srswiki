@@ -89,7 +89,6 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 [SRS release 3.0][develop]，研发阶段。可能主要的目标是：
 
-* 支持exec，nginx-rtmp中使用频率很高的功能。参考：[#367][bug367].
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
 * 支持h.265直播，在RTMP中加入265支持，输出HLS。
 * 支持MPEG-DASH，可能的未来标准。
