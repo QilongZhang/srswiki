@@ -87,6 +87,7 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 * Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
 * Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
 * Support HTTP edge server, read [#466][bug466].
+* Support HLS low lantency, read [#468][bug468].
 * Support Integration with Spark Big-Data system, read [#467][bug467].
 * Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
 * Others.
@@ -147,6 +148,7 @@ Winlin, 2014.10
 [bug299]: https://github.com/simple-rtmp-server/srs/issues/299
 [bug466]: https://github.com/simple-rtmp-server/srs/issues/466
 [bug467]: https://github.com/simple-rtmp-server/srs/issues/467
+[bug468]: https://github.com/simple-rtmp-server/srs/issues/468
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
