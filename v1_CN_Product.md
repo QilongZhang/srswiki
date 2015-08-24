@@ -93,6 +93,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持h.265直播，在RTMP中加入265支持，输出HLS。参考：[#465][bug465].
 * 支持MPEG-DASH，可能的未来标准。参考：[#299][bug299].
 * 支持HTTP边缘服务器。参考：[#466][bug466].
+* 支持HLS低延迟模式。参考：[#468][bug468].
 * 支持接入Spark大数据系统。参考：[#467][bug467].
 * 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
 * 其他。
@@ -154,6 +155,7 @@ Winlin
 [bug299]: https://github.com/simple-rtmp-server/srs/issues/299
 [bug466]: https://github.com/simple-rtmp-server/srs/issues/466
 [bug467]: https://github.com/simple-rtmp-server/srs/issues/467
+[bug468]: https://github.com/simple-rtmp-server/srs/issues/468
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
