@@ -21,7 +21,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [GIT Mirrors][mirrors]: SRS在各个主要GIT站点的镜像，代码都是保持同步的。
 * [Main Features][features]: SRS的功能列表。请注意有些功能只有特定的版本才有。请注意有些功能是实验性的。
 * [Releases][releases]: SRS目前已经发布的版本。
-* [[Docs|v1_CN_Docs]]: SRS的详细文档。
+* [[Docs|v3_CN_Docs]]: SRS的详细文档。
 
 ***Deployment Guides:***
 

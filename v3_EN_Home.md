@@ -21,7 +21,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [GIT Mirrors][mirrors]: The GIT mirrors of SRS to get SRS faster.
 * [Main Features][features]: The features list of SRS. Some features is introduced from specified version; while some features are experiment.
 * [Releases][releases]: The released versions of SRS.
-* [[Docs|v1_CN_Docs]]: The detail tech docs of SRS.
+* [[Docs|v3_CN_Docs]]: The detail tech docs of SRS.
 
 **Deployment Guides:***
 

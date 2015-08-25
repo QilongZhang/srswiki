@@ -36,9 +36,9 @@ How to use init.d script to start SRS as a system service? How to run SRS as a d
 
 How to get the SRS logs? How to trace logs to console? How to get less verbose logs because the log files are too large? How to get more detailed log levels? How to get warning level log only? Please see: [SRS Log](v1_EN_SrsLog)
 
-## [SRS Architecture](v1_EN_Architecture)
+## [SRS Architecture](v3_EN_Architecture)
 
-The architecture for all SRS developers。Please see: [SRS Architecture](v1_EN_Architecture)
+The architecture for all SRS developers。Please see: [SRS Architecture](v3_EN_Architecture)
 
 ## [RTMP URL & Vhost](v1_EN_RtmpUrlVhost)
 
