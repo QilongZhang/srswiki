@@ -108,6 +108,10 @@ SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么
 
 使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v1_CN_Forward)
 
+## [Exec启动外部程序](v3_CN_NgExec)
+
+如何像nginx-rtmp一样在publish时执行外部程序？如何支持exec？如何支持exec_publish？参考：[Exec启动外部程序](v3_CN_NgExec)
+
 ## [性能测试和对比](v1_CN_Performance)
 
 对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](v1_CN_Performance)
