@@ -104,10 +104,6 @@ How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, r
 
 How to use SRS for few stream and servers cluster? How to build origin fault backup when only one stream? Please see: [Forward: Tiny Live Cluster](v1_EN_Forward)
 
-## [Exec: Fork external program](v3_EN_NgExec)
-
-How to support exec or exec_publish like nginx-rtmp? Please read [Exec: Fork external program](v3_EN_NgExec)
-
 ## [Performance Benchmark](v1_EN_Performance)
 
 How many concurrency connections can SRS to serve? What about the performance of SRS? We compare the high performance server nginx-rtmp and SRS, and provides some benchmarks for server performance check. Please see: [Performance Benchmark](v1_EN_Performance)
