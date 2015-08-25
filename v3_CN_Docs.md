@@ -124,6 +124,10 @@ SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么
 
 如何使用SRS的安全策略？如何禁止客户端推流到SRS，但是允许播放？如何允许某些IP的客户端？参考：[Security禁用或允许连接](v2_CN_Security)
 
+## [Exec启动外部程序](v3_CN_NgExec)
+
+如何像nginx-rtmp一样在publish时执行外部程序？如何支持exec？如何支持exec_publish？参考：[Exec启动外部程序](v3_CN_NgExec)
+
 ## [性能测试和对比](v1_CN_Performance)
 
 对比了SRS和高性能服务器nginx-rtmp，提供详细的测试步骤，供其他性能对比进行参考。链接：[性能测试和对比](v1_CN_Performance)
