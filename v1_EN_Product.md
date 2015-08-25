@@ -153,9 +153,9 @@ Winlin, 2014.10
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
 [1.0release]: https://github.com/simple-rtmp-server/srs/tree/1.0release
-[p2.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#release20
-[p1.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#release10
-[backlog]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Product#backlog
+[p2.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#release20
+[p1.0release]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#release10
+[backlog]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Product#backlog
 [donations]: https://github.com/simple-rtmp-server/srs/blob/develop/DONATIONS.txt
 [issues]: https://github.com/simple-rtmp-server/srs/issues
 [releases]: https://github.com/simple-rtmp-server/srs/releases
