@@ -52,6 +52,10 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[HTTP API | v1_CN_HTTPApi]]: 使用SRS的HTTP API获取数据。
 * [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: 使用SRS测速接口获取带宽数据。
 
+***Migrate From NginxRtmp:***
+
+* [[NG EXEC | v3_CN_NgExec]]: Nginx支持的Exec功能。
+
 ***Benchmarks:***
 
 * [Compare][compare]: SRS和其他服务器的对比。
