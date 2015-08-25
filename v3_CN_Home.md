@@ -54,7 +54,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 
 ***Migrate From NGINX-RTMP:***
 
-* [[NG EXEC | v3_CN_NgExec]]: Nginx支持的Exec功能。
+* [[NG EXEC | v3_CN_NgExec]]: 为特殊的事件执行外部程序，譬如exec_publish，当发布流时exec外部程序。
 
 ***Benchmarks:***
 
