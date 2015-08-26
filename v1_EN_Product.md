@@ -83,14 +83,18 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 
 [SRS release 3.0[3.0release] is developing now. The main goals may include:
 
-* Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464].
-* Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
-* Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
-* Support HTTP edge server, read [#466][bug466].
-* Support HLS low lantency, read [#468][bug468].
-* Support Integration with Spark Big-Data system, read [#467][bug467].
-* Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
-* Others.
+* Support NGINX-RTMP style EXEC, read [#367][bug367].
+* [plan]Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464].
+* [plan]Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
+* [plan]Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
+* [plan]Support HTTP edge server, read [#466][bug466].
+* [plan]Support HLS low lantency, read [#468][bug468].
+* [plan]Support Integration with Spark Big-Data system, read [#467][bug467].
+* [plan]Support NGINX-RTMP style control module for dvr, read [#459][bug459].
+* [plan]Support security feature for HTTP API, read [#470][bug470].
+* [plan]Support HTTP API to write and reload config, read [#319][bug319].
+* [plan]Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
+* [plan]Others.
 
 [SRS Release 3.0][3.0release] plan to release at 2016.12.
 
@@ -149,6 +153,10 @@ Winlin, 2014.10
 [bug466]: https://github.com/simple-rtmp-server/srs/issues/466
 [bug467]: https://github.com/simple-rtmp-server/srs/issues/467
 [bug468]: https://github.com/simple-rtmp-server/srs/issues/468
+[bug367]: https://github.com/simple-rtmp-server/srs/issues/367
+[bug459]: https://github.com/simple-rtmp-server/srs/issues/459
+[bug470]: https://github.com/simple-rtmp-server/srs/issues/470
+[bug319]: https://github.com/simple-rtmp-server/srs/issues/319
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
