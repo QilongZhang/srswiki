@@ -327,6 +327,49 @@ killall -s SIGUSR1 srs
 killall -30 srs
 ```
 
+写出来的配置文件可能是：
+
+```
+listen 1935;
+max_connections 1000;
+daemon off;
+srs_log_tank console;
+pithy_print_ms 1000;
+http_api {
+    enabled on;
+    listen 1985;
+}
+http_server {
+    enabled on;
+    listen 8080;
+}
+stream_caster {
+    enabled off;
+    caster flv;
+    output rtmp://127.0.0.1/[app]/[stream];
+    listen 8936;
+}
+vhost __defaultVhost__ {
+    ingest livestream {
+        enabled on;
+        input {
+            type file;
+            url doc/source.200kbps.768x320.flv;
+        }
+        ffmpeg ./objs/ffmpeg/bin/ffmpeg;
+        engine {
+            enabled off;
+            output rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
+        }
+    }
+    http_remux {
+        enabled off;
+        mount [vhost]/[app]/[stream].flv;
+        hstrs on;
+    }
+}
+```
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
