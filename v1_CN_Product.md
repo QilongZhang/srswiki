@@ -89,14 +89,18 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 [SRS release 3.0][3.0release]，研发阶段。主要的目标是：
 
-* 支持源站集群，负载均衡和热备。参考：[#464][bug464].
-* 支持h.265直播，在RTMP中加入265支持，输出HLS。参考：[#465][bug465].
-* 支持MPEG-DASH，可能的未来标准。参考：[#299][bug299].
-* 支持HTTP边缘服务器。参考：[#466][bug466].
-* 支持HLS低延迟模式。参考：[#468][bug468].
-* 支持接入Spark大数据系统。参考：[#467][bug467].
-* 预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
-* 其他。
+* 支持NGINX-RTMP的EXEC功能。参考：[#367][bug367].
+* [plan]支持源站集群，负载均衡和热备。参考：[#464][bug464].
+* [plan]支持h.265直播，在RTMP中加入265支持，输出HLS。参考：[#465][bug465].
+* [plan]支持MPEG-DASH，可能的未来标准。参考：[#299][bug299].
+* [plan]支持HTTP边缘服务器。参考：[#466][bug466].
+* [plan]支持HLS低延迟模式。参考：[#468][bug468].
+* [plan]支持接入Spark大数据系统。参考：[#467][bug467].
+* [plan]支持NGINX-RTMP的control module，控制DVR。参考：[#459][bug459].
+* [plan]支持HTTP API安全特性。参考：[#470][bug470].
+* [plan]增强的HTTP API支持写服务器配置和Reload。参考：[#319][bug319].
+* [plan]预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
+* [plan]其他。
 
 [SRS Release 3.0][3.0release]预计在2016.12发布。
 
@@ -156,6 +160,10 @@ Winlin
 [bug466]: https://github.com/simple-rtmp-server/srs/issues/466
 [bug467]: https://github.com/simple-rtmp-server/srs/issues/467
 [bug468]: https://github.com/simple-rtmp-server/srs/issues/468
+[bug367]: https://github.com/simple-rtmp-server/srs/issues/367
+[bug459]: https://github.com/simple-rtmp-server/srs/issues/459
+[bug470]: https://github.com/simple-rtmp-server/srs/issues/470
+[bug319]: https://github.com/simple-rtmp-server/srs/issues/319
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
