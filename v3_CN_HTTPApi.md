@@ -329,4 +329,4 @@ killall -30 srs
 
 Winlin 2015.8
 
-[HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319#issuecomment-134993922
+[HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
