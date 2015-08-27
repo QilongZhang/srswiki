@@ -14,6 +14,16 @@
 
 本节以一个实例，介绍如何在SRS基础上新增一个HTTP服务，这个服务侦听端口9000，将服务器的`__defaultVhost__/live/livestream`的流，分发给所有客户端(VLC)，流格式是HTTP FLV和TS。
 
+服务器配置（实例没有新增配置，都是写死的，譬如端口9000，实时转的流地址，流的封装）：
+```
+listen              1935;
+max_connections     1000;
+daemon              off;
+srs_log_tank        console;
+vhost __defaultVhost__ {
+}
+```
+
 譬如，推流到服务器：
 ```
 ffmpeg -re -i doc/source.*.flv -c copy -f flv -y rtmp://127.0.0.1/live/livestream
