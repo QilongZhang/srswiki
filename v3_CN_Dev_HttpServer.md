@@ -29,10 +29,10 @@ vhost __defaultVhost__ {
 ffmpeg -re -i doc/source.*.flv -c copy -f flv -y rtmp://127.0.0.1/live/livestream
 ```
 
-客户端VLC可以播放下面两个流：
+客户端VLC可以播放下面两个流(播放地址是固定的stream.flv和stream.ts)：
 ```
-http://server:9000/?flv
-http://server:9000/?ts
+http://server:9000/stream.flv
+http://server:9000/stream.ts
 ```
 
 FlyBird, 2015.8
