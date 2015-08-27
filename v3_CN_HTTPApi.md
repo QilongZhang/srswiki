@@ -379,7 +379,19 @@ vhost __defaultVhost__ {
 
 SRS支持RAW API，一般的服务器只能提供读(Read)形式的API，譬如获取系统状态之类，但是SRS提供写(Write)形式的API，譬如Reload和修改系统配置等所有改写系统的行为。
 
-注意：必须在`http_api`配置中，开启`raw_api on;`才能允许HTTP RAW API，否则会返回错误代码是1061。
+<b>注意:</b> 必须在`http_api`配置中，开启`raw_api on;`才能允许HTTP RAW API，否则会返回错误代码是1061。
+
+SRS支持的HTTP RAW API包括：
+
+* Reload: 支持reload配置。
+
+### Reload
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 可以重新加载配置，和`killall -1 srs`的效果是一样的 |
+| url  | /api/v1/raw?rpc=reload |
+| curl | curl http://127.0.0.1:1985/api/v1/raw?rpc=reload |
 
 Winlin 2015.8
 
