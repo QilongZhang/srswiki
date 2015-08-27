@@ -62,6 +62,10 @@ http_api {
     # whether enable crossdomain request.
     # default: on
     crossdomain     on;
+    # whether enable the HTTP RAW API,
+    # which is more powerful api to change srs state and reload.
+    # default: off
+    raw_api         off;
 }
 vhost __defaultVhost__ {
 }
@@ -342,6 +346,12 @@ vhost __defaultVhost__ {
     }
 }
 ```
+
+## HTTP RAW API
+
+SRS supports powerful HTTP RAW API, while other server only support `Read API`, for instance, to get the stat of server. SRS supports `Write API`, which can `Reload` or change server state.
+
+<b>Remark:</b> User must enable the HTTP RAW API, in config section `http_api` to enable the `raw_api on;`, or SRS will response error code 1061.
 
 Winlin 2015.8
 
