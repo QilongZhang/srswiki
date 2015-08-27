@@ -238,6 +238,7 @@ SRS提供了API的导航，即所有支持的API及描述。
 | vhosts | /api/v1/vhosts | 获取服务器上的vhosts信息 |
 | streams | /api/v1/streams | 获取服务器的streams信息 |
 | clients | /api/v1/clients | 获取服务器的clients信息，默认获取前10个 |
+| configs | /api/v1/configs | CUID配置，RAW API |
 
 ## Summaries
 
