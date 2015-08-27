@@ -383,7 +383,7 @@ SRS支持RAW API，一般的服务器只能提供读(Read)形式的API，譬如�
 
 SRS支持的HTTP RAW API包括：
 
-* Reload: 支持reload配置。
+* [Reload][raw-reload]: 支持reload配置。
 
 ### Reload
 
@@ -396,3 +396,4 @@ SRS支持的HTTP RAW API包括：
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
+[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
