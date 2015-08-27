@@ -392,6 +392,7 @@ SRS支持的HTTP RAW API包括：
 | feature | 可以重新加载配置，和`killall -1 srs`的效果是一样的 |
 | url  | /api/v1/raw?rpc=reload |
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
+| params | 无参数 |
 
 Winlin 2015.8
 
