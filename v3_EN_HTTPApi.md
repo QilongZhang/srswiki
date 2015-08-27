@@ -355,7 +355,7 @@ SRS supports powerful HTTP RAW API, while other server only support `Read API`, 
 
 The supported HTTP RAW APi of SRS is:
 
-* Reload: To reload the SRS.
+* [Reload][raw-reload]: To reload the SRS.
 
 ### Reload
 
@@ -368,3 +368,4 @@ The supported HTTP RAW APi of SRS is:
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
+[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
