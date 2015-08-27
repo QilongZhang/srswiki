@@ -67,6 +67,10 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [File Issue][issue]: 提交需求、Bug和反馈。
 * [[Contact|v1_CN_Contact]]: 用QQ、邮箱、微信联系我们。
 
+***Programming Guide***
+
+* [[HTTP Server|v3_CN_Dev_HttpServer]]: 如何定制SRS的HTTP服务器。
+
 ## Questions or need help?
 
 其他联系方式，参考[联系我们](v1_CN_Contact)
