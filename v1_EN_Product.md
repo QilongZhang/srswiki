@@ -90,9 +90,7 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 * [plan]Support HTTP edge server, read [#466][bug466].
 * [plan]Support HLS low lantency, read [#468][bug468].
 * [plan]Support Integration with Spark Big-Data system, read [#467][bug467].
-* [plan]Support NGINX-RTMP style control module for dvr, read [#459][bug459].
-* [plan]Support security feature for HTTP API, read [#470][bug470].
-* [plan]Support HTTP API to write and reload config, read [#319][bug319].
+* [plan]Support HTTP Security Raw Api, read [#459][bug459], [#470][bug470], [#319][bug319].
 * [plan]Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
 * [plan]Others.
 
