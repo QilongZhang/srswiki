@@ -363,7 +363,7 @@ The supported HTTP RAW APi of SRS is:
 | ---- | ---- |
 | feature | Reload is the same to `killall -1 srs` to reload the config |
 | url  | /api/v1/raw?rpc=reload |
-| curl | curl http://127.0.0.1:1985/api/v1/raw?rpc=reload |
+| curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
 
 Winlin 2015.8
 
