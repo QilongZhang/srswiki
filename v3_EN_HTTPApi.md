@@ -218,6 +218,7 @@ User can access the `http://192.168.1.102:1985/api/v1`, where:
 | vhosts | /api/v1/vhosts | manage all vhosts or specified vhost |
 | streams | /api/v1/streams | manage all streams or specified stream |
 | clients | /api/v1/clients | manage all clients or specified client, default query top 10 clients |
+| configs | /api/v1/configs | RAW API for CUID the configs |
 
 ## Summaries
 
