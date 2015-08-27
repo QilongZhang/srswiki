@@ -353,6 +353,18 @@ SRS supports powerful HTTP RAW API, while other server only support `Read API`, 
 
 <b>Remark:</b> User must enable the HTTP RAW API, in config section `http_api` to enable the `raw_api on;`, or SRS will response error code 1061.
 
+The supported HTTP RAW APi of SRS is:
+
+* Reload: To reload the SRS.
+
+### Reload
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Reload is the same to `killall -1 srs` to reload the config |
+| url  | /api/v1/raw?rpc=reload |
+| curl | curl http://127.0.0.1:1985/api/v1/raw?rpc=reload |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
