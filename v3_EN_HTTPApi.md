@@ -62,10 +62,18 @@ http_api {
     # whether enable crossdomain request.
     # default: on
     crossdomain     on;
-    # whether enable the HTTP RAW API,
-    # which is more powerful api to change srs state and reload.
-    # default: off
-    raw_api         off;
+    # the HTTP RAW API is more powerful api to change srs state and reload.
+    raw_api {
+        # whether enable the HTTP RAW API.
+        # default: off
+        enabled             off;
+        # whether enable rpc reload.
+        # default: off
+        allow_reload        off;
+        # whether enable rpc query.
+        # default: off
+        allow_query  off;
+    }
 }
 vhost __defaultVhost__ {
 }
@@ -351,10 +359,23 @@ vhost __defaultVhost__ {
 
 SRS supports powerful HTTP RAW API, while other server only support `Read API`, for instance, to get the stat of server. SRS supports `Write API`, which can `Reload` or change server state.
 
-<b>Remark:</b> User must enable the HTTP RAW API, in config section `http_api` to enable the `raw_api on;`, or SRS will response error code 1061.
+<b>Remark:</b> User must enable the HTTP RAW API, in config section `http_api` to enable the `http_api.raw_api.enabled`, or SRS will response error code 1061.
+
+```
+http_api {
+    enabled         on;
+    listen          1985;
+    raw_api {
+        enabled             on;
+        allow_reload        on;
+        allow_query         on;
+    }
+}
+```
 
 The supported HTTP RAW APi of SRS is:
 
+* [Raw][raw-raw]: To query the HTTP RAW API config.
 * [Reload][raw-reload]: To reload the SRS.
 
 ### Reload
@@ -369,4 +390,5 @@ The supported HTTP RAW APi of SRS is:
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
+[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
