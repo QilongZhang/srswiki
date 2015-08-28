@@ -60,10 +60,18 @@ http_api {
     # whether enable crossdomain request.
     # default: on
     crossdomain     on;
-    # whether enable the HTTP RAW API,
-    # which is more powerful api to change srs state and reload.
-    # default: off
-    raw_api         off;
+    # the HTTP RAW API is more powerful api to change srs state and reload.
+    raw_api {
+        # whether enable the HTTP RAW API.
+        # default: off
+        enabled             off;
+        # whether enable rpc reload.
+        # default: off
+        allow_reload        off;
+        # whether enable rpc query.
+        # default: off
+        allow_query  off;
+    }
 }
 vhost __defaultVhost__ {
 }
@@ -379,11 +387,34 @@ vhost __defaultVhost__ {
 
 SRS支持RAW API，一般的服务器只能提供读(Read)形式的API，譬如获取系统状态之类，但是SRS提供写(Write)形式的API，譬如Reload和修改系统配置等所有改写系统的行为。
 
-<b>注意:</b> 必须在`http_api`配置中，开启`raw_api on;`才能允许HTTP RAW API，否则会返回错误代码是1061。
+<b>注意:</b> 必须在`http_api`配置中，开启`http_api.raw_api.enabled`才能允许HTTP RAW API，否则会返回错误代码是1061。
+
+```
+http_api {
+    enabled         on;
+    listen          1985;
+    raw_api {
+        enabled             on;
+        allow_reload        on;
+        allow_query         on;
+    }
+}
+```
 
 SRS支持的HTTP RAW API包括：
 
+* [Raw][raw-raw]: 查看HTTP RAW API的配置。
 * [Reload][raw-reload]: 支持reload配置。
+
+### Raw
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 查询服务器端HTTP RAW API的配置 |
+| url  | /api/v1/raw?rpc=raw |
+| curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=raw` |
+| config | 不需要 |
+| params | 无参数 |
 
 ### Reload
 
@@ -392,9 +423,11 @@ SRS支持的HTTP RAW API包括：
 | feature | 可以重新加载配置，和`killall -1 srs`的效果是一样的 |
 | url  | /api/v1/raw?rpc=reload |
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
+| config | `allow_reload on;`|
 | params | 无参数 |
 
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
+[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
