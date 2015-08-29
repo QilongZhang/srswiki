@@ -51,10 +51,10 @@ HLS解决延时，就像是爬到枫树上去捉鱼，奇怪的是还有人喊�
 vhost mrw.srs.com {
     # whether enable min delay mode for vhost.
     # for min latence mode:
-    # 1. disable the mr for vhost.
+    # 1. disable the publish.mr for vhost.
     # 2. use timeout for cond wait for consumer queue.
     # @see https://github.com/simple-rtmp-server/srs/issues/257
-    # default: on
+    # default: off
     min_latency     off;
 }
 ```
@@ -70,11 +70,12 @@ RTMP的Read效率非常低，需要先读一个字节，判断是哪个chunk，�
 ```
 # the MR(merged-read) setting for publisher.
 vhost mrw.srs.com {
-    # about MR, read https://github.com/simple-rtmp-server/srs/issues/241
-    mr {
-        # whether enable the MR(merged-read)
+    # the config for FMLE/Flash publisher, which push RTMP to SRS.
+    publish {
+        # about MR, read https://github.com/simple-rtmp-server/srs/issues/241
+        # when enabled the mr, SRS will read as large as possible.
         # default: off
-        enabled     on;
+        mr          off;
         # the latency in ms for MR(merged-read),
         # the performance+ when latency+, and memory+,
         #       memory(buffer) = latency * kbps / 8
@@ -84,7 +85,7 @@ vhost mrw.srs.com {
         #       183KB * 2500 = 446MB
         # the value recomment is [300, 2000]
         # default: 350
-        latency     350;
+        mr_latency  350;
     }
 }
 ```
