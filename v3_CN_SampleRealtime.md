@@ -37,11 +37,11 @@ vhost __defaultVhost__ {
     gop_cache       off;
     queue_length    10;
     min_latency     on;
-    mr {
-        enabled     off;
-    }
     mw_latency      100;
     tcp_nodelay     on;
+    publish {
+        mr off;
+    }
 }
 ```
 
