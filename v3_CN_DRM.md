@@ -18,23 +18,31 @@ as客户端代码不可以更改。当然如果用自己的客户端，不用fla
 ```bash
 # the vhost for antisuck.
 vhost refer.anti_suck.com {
-    # the common refer for play and publish.
-    # if the page url of client not in the refer, access denied.
-    # if not specified this field, allow all.
-    # default: not specified.
-    refer           github.com github.io;
-    # refer for publish clients specified.
-    # the common refer is not overrided by this.
-    # if not specified this field, allow all.
-    # default: not specified.
-    refer_publish   github.com github.io;
-    # refer for play clients specified.
-    # the common refer is not overrided by this.
-    # if not specified this field, allow all.
-    # default: not specified.
-    refer_play      github.com github.io;
+    # refer hotlink-denial.
+    refer {
+        # whether enable the refer hotlink-denial.
+        # default: off.
+        enabled         on;
+        # the common refer for play and publish.
+        # if the page url of client not in the refer, access denied.
+        # if not specified this field, allow all.
+        # default: not specified.
+        all           github.com github.io;
+        # refer for publish clients specified.
+        # the common refer is not overrided by this.
+        # if not specified this field, allow all.
+        # default: not specified.
+        publish   github.com github.io;
+        # refer for play clients specified.
+        # the common refer is not overrided by this.
+        # if not specified this field, allow all.
+        # default: not specified.
+        play      github.com github.io;
+    }
 }
 ```
+
+备注：SRS1/2的Refer配置方法和SRS3不一致，SRS3兼容SRS1/2的配置方法。
 
 ## Token Authentication
 
