@@ -6,15 +6,19 @@ SRS提供了一些特殊的配置，主要用来和各种系统对接的设置�
 
 ```
 vhost __defaultVhost__ {
-    # the minimal packets send interval in ms,
-    # used to control the ndiff of stream by srs_rtmp_dump,
-    # for example, some device can only accept some stream which
-    # delivery packets in constant interval(not cbr).
-    # @remark 0 to disable the minimal interval.
-    # @remark >0 to make the srs to send message one by one.
-    # @remark user can get the right packets interval in ms by srs_rtmp_dump.
-    # default: 0
-    send_min_interval       10.0;
+    # for play client, both RTMP and other stream clients,
+    # for instance, the HTTP FLV stream clients.
+    play {
+        # the minimal packets send interval in ms,
+        # used to control the ndiff of stream by srs_rtmp_dump,
+        # for example, some device can only accept some stream which
+        # delivery packets in constant interval(not cbr).
+        # @remark 0 to disable the minimal interval.
+        # @remark >0 to make the srs to send message one by one.
+        # @remark user can get the right packets interval in ms by srs_rtmp_dump.
+        # default: 0
+        send_min_interval       10.0;
+    }
 }
 ```
 
@@ -22,11 +26,15 @@ vhost __defaultVhost__ {
 
 ```
 vhost __defaultVhost__ {
-    # whether reduce the sequence header,
-    # for some client which cannot got duplicated sequence header,
-    # while the sequence header is not changed yet.
-    # default: off
-    reduce_sequence_header  on;
+    # for play client, both RTMP and other stream clients,
+    # for instance, the HTTP FLV stream clients.
+    play {
+        # whether reduce the sequence header,
+        # for some client which cannot got duplicated sequence header,
+        # while the sequence header is not changed yet.
+        # default: off
+        reduce_sequence_header  on;
+    }
 }
 ```
 
