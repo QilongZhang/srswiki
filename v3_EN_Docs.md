@@ -80,9 +80,9 @@ Can SRS support HTTP? How to deliver files over HTTP with SRS? Why does SRS supp
 
 How to record a live stream to an FLV file? How to record to pieces of files which start from keyframes with similar duration? What is the DVR plan, for example, segment and session plan? How to specify the path and filename? Please see: [DVR record live stream] (v2_EN_DVR)
 
-## [DRM] (v1_EN_DRM)
+## [DRM] (v3_EN_DRM)
 
-How to support hotlink denial? Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please see: [DRM] (v1_EN_DRM)
+How to support hotlink denial? Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please see: [DRM] (v3_EN_DRM)
 
 ## [Reload](v1_EN_Reload)
 
