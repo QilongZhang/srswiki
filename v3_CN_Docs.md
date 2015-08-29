@@ -84,9 +84,9 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](v1
 
 如何将直播RTMP流录制为flv文件？如何让每一片都从关键帧开始？什么是DVR的plan，什么是segment和session方式的plan？如何自定义dvr的文件名和路径？参考：[DVR] (v2_CN_DVR)
 
-## [DRM防盗链] (v1_CN_DRM)
+## [DRM防盗链] (v3_CN_DRM)
 
-SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v1_CN_DRM)
+SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v3_CN_DRM)
 
 ## [Reload](v1_CN_Reload)
 
