@@ -34,9 +34,12 @@ vhost __defaultVhost__ {
 
 ```
 vhost __defaultVhost__ {
-    # the 1st packet timeout in ms for encoder.
-    # default: 20000
-    publish_1stpkt_timeout  20000;
+    # the config for FMLE/Flash publisher, which push RTMP to SRS.
+    publish {
+        # the 1st packet timeout in ms for encoder.
+        # default: 20000
+        firstpkt_timeout    20000;
+    }
 }
 ```
 
@@ -44,9 +47,12 @@ vhost __defaultVhost__ {
 
 ```
 vhost __defaultVhost__ {
-    # the normal packet timeout in ms for encoder.
-    # default: 5000
-    publish_normal_timeout  7000;
+    # the config for FMLE/Flash publisher, which push RTMP to SRS.
+    publish {
+        # the normal packet timeout in ms for encoder.
+        # default: 5000
+        normal_timeout      7000;
+    }
 }
 ```
 
