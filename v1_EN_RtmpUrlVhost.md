@@ -97,10 +97,10 @@ Then we config the cctv without gop cache, and wasu config with gop cache:
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    gop_cache       off;
+    chunk_size 128;
 }
 vhost show.wasu.cn {
-    gop_cache       on;
+    chunk_size 4096;
 }
 ```
 

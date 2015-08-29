@@ -71,7 +71,6 @@ listen              1935;
 pid                 ./objs/srs.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
-    gop_cache       on;
     forward         192.168.1.6:1935 192.168.1.6:1936 192.168.1.7:1935 192.168.1.7:1936;
 }
 ```
@@ -94,7 +93,6 @@ listen              1935;
 pid                 ./objs/srs.1935.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
-    gop_cache       on;
 }
 ```
 
@@ -105,7 +103,6 @@ listen              1936;
 pid                 ./objs/srs.1936.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
-    gop_cache       on;
 }
 ```
 

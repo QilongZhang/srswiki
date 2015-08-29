@@ -124,15 +124,19 @@ Config of srs:
 # the listen ports, split by space.
 listen              1935;
 vhost __defaultVhost__ {
-    # whether cache the last gop.
-    # if on, cache the last gop and dispatch to client,
-    #   to enable fast startup for client, client play immediately.
-    # if off, send the latest media data to client,
-    #   client need to wait for the next Iframe to decode and show the video.
-    # set to off if requires min delay;
-    # set to on if requires client fast startup.
-    # default: on
-    gop_cache       on;
+    # for play client, both RTMP and other stream clients,
+    # for instance, the HTTP FLV stream clients.
+    play {
+        # whether cache the last gop.
+        # if on, cache the last gop and dispatch to client,
+        #   to enabled fast startup for client, client play immediately.
+        # if off, send the latest media data to client,
+        #   client need to wait for the next Iframe to decode and show the video.
+        # set to off if requires min delay;
+        # set to on if requires client fast startup.
+        # default: on
+        gop_cache       off;
+    }
 }
 ```
 
@@ -176,7 +180,9 @@ SRS config:
 listen              1935;
 vhost __defaultVhost__ {
     enabled         on;
-    gop_cache       off;
+    play {
+        gop_cache       off;
+    }
     hls {
         enabled         on;
         hls_path        ./objs/nginx/html;

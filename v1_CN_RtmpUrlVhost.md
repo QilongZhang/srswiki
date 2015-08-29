@@ -97,10 +97,10 @@ vhost show.wasu.cn {
 ```bash
 listen              1935;
 vhost show.cctv.cn {
-    gop_cache       off;
+    chunk_size 128;
 }
 vhost show.wasu.cn {
-    gop_cache       on;
+    chunk_size 4906;
 }
 ```
 

@@ -93,7 +93,6 @@ SRS的版本和编译参数。
 listen              1935;
 max_connections     10240;
 vhost __defaultVhost__ {
-    gop_cache       on;
     forward         127.0.0.1:19350;
 }
 ```
