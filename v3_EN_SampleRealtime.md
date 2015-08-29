@@ -33,11 +33,15 @@ Save bellow as config, or use `conf/realtime.conf`:
 listen              1935;
 max_connections     1000;
 vhost __defaultVhost__ {
-    gop_cache       off;
-    queue_length    10;
+    tcp_nodelay     on
     min_latency     on;
-    mw_latency      100;
-    tcp_nodelay     on;
+
+    play {
+        gop_cache       off;
+        queue_length    10;
+        mw_latency      100;
+    }
+
     publish {
         mr off;
     }

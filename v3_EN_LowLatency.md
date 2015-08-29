@@ -95,12 +95,16 @@ User can config the merged write pacets in ms, recomment to use default value:
 ```
 # the MW(merged-write) settings for player.
 vhost mrw.srs.com {
-    # set the MW(merged-write) latency in ms. 
-    # SRS always set mw on, so we just set the latency value.
-    # the latency of stream >= mw_latency + mr_latency
-    # the value recomment is [300, 1800]
-    # default: 350
-    mw_latency      350;
+    # for play client, both RTMP and other stream clients,
+    # for instance, the HTTP FLV stream clients.
+    play {
+        # set the MW(merged-write) latency in ms.
+        # SRS always set mw on, so we just set the latency value.
+        # the latency of stream >= mw_latency + mr_latency
+        # the value recomment is [300, 1800]
+        # default: 350
+        mw_latency      350;
+    }
 }
 ```
 
@@ -142,14 +146,18 @@ Recoment to use the bellow config for low latency application:
 # the listen ports, split by space.
 listen              1935;
 vhost __defaultVhost__ {
-    gop_cache       off;
-    queue_length    10;
+    tcp_nodelay     on
     min_latency     on;
-    mr {
-        enabled     off;
+
+    play {
+        gop_cache       off;
+        queue_length    10;
+        mw_latency      100;
     }
-    mw_latency      100;
-    tcp_nodelay     on;
+
+    publish {
+        mr off;
+    }
 }
 ```
 
