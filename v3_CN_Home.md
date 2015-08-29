@@ -51,6 +51,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 * [[HTTP Callback | v1_CN_HTTPCallback]]: 使用HTTP回调侦听SRS的事件。
 * [[HTTP API | v1_CN_HTTPApi]]: 使用SRS的HTTP API获取数据。
 * [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: 使用SRS测速接口获取带宽数据。
+* [[Special Control | v3_CN_SpecialControl]]: 一些特殊的控制配置。
 
 ***Migrate From NGINX-RTMP:***
 
