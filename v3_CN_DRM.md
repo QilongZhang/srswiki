@@ -97,4 +97,4 @@ SRS暂时不支持。
 
 SRS暂时不支持，是RTMP特殊的握手协议。
 
-Winlin 2014.6
+Winlin 2015.8
