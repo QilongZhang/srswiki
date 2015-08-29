@@ -48,12 +48,12 @@ vhost jitter.srs.com {
         #   3. off, disable the time jitter algorithm, like atc.
         # default: full
         time_jitter             full;
+        # whether use the interleaved/mixed algorithm to correct the timestamp.
+        # if on, always ensure the timestamp of audio+video is interleaved/mixed monotonically increase.
+        # if off, use time_jitter to correct the timestamp if required.
+        # default: off
+        mix_correct             off;
     }
-    # whether use the mix algorithm to correct the timestamp.
-    # if on, always ensure the timestamp of audio+video is monotonically increase.
-    # if off, use time_jitter to correct the timestamp if required.
-    # default: off
-    mix_correct             off;
 }
 ```
 
