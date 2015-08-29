@@ -25,6 +25,26 @@ The forward defined some roles:
 Although the origin/edge can be master/slave, but it is too complex, it is strongly recomments that
 the forward(master/slave) only for origin, never use edge to forward stream.
 
+## Config
+
+Please refer to the vhost `same.vhost.forward.srs.com` of `full.conf`:
+
+```
+vhost __defaultVhost__ {
+    # forward stream to other servers.
+    forward {
+        # whether enable the forward.
+        # default: off
+        enabled on;
+        # forward all publish stream to the specified server.
+        # this used to split/forward the current stream for cluster active-standby,
+        # active-active for cdn to build high available fault tolerance system.
+        # format: {ip}:{port} {ip_N}:{port_N}
+        destination 127.0.0.1:1936 127.0.0.1:1937;
+    }
+}
+```
+
 ## For Small Cluster
 
 Forward can also used to build a small cluster:
@@ -72,6 +92,7 @@ pid                 ./objs/srs.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
     forward {
+        enabled on;
         destination 192.168.1.6:1935 192.168.1.6:1936 192.168.1.7:1935 192.168.1.7:1936;
     }
 }

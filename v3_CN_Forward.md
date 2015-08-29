@@ -1,4 +1,4 @@
-# Forward搭建小型集群
+# Forward
 
 srs定位为直播服务器，其中一项重要的功能是forward，即将服务器的流转发到其他服务器。
 
@@ -24,6 +24,26 @@ forward本身是用做热备，即用户推一路流上来，可以被SRS转发�
 如果结合edge集群方式，一般而言master和slave都是origin（源站服务器），edge边缘服务器可以从master或者slave回源取流。
 
 实际上master和slave也可以是edge，但是不推荐，这种组合方式太多了，测试没有办法覆盖到。因此，强烈建议简化服务器的结构，只有origin（源站服务器）才配置转发，edge（边缘服务器）只做边缘。
+
+## Config
+
+可以参考`full.conf`中的`same.vhost.forward.srs.com`的配置：
+
+```
+vhost __defaultVhost__ {
+    # forward stream to other servers.
+    forward {
+        # whether enable the forward.
+        # default: off
+        enabled on;
+        # forward all publish stream to the specified server.
+        # this used to split/forward the current stream for cluster active-standby,
+        # active-active for cdn to build high available fault tolerance system.
+        # format: {ip}:{port} {ip_N}:{port_N}
+        destination 127.0.0.1:1936 127.0.0.1:1937;
+    }
+}
+```
 
 ## For Small Cluster
 
@@ -72,6 +92,7 @@ pid                 ./objs/srs.pid;
 max_connections     10240;
 vhost __defaultVhost__ {
     forward {
+        enabled on;
         destination 192.168.1.6:1935 192.168.1.6:1936 192.168.1.7:1935 192.168.1.7:1936;
     }
 }

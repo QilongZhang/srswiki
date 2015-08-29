@@ -42,6 +42,7 @@ srs_log_tank        file;
 srs_log_file        ./objs/srs.master.log;
 vhost __defaultVhost__ {
     forward {
+        enabled on;
         destination 127.0.0.1:19350;
     }
 }
