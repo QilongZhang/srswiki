@@ -71,6 +71,9 @@ http_api {
         # whether enable rpc query.
         # default: off
         allow_query         off;
+        # whether enable rpc update.
+        # default: off
+        allow_update        off;
     }
 }
 vhost __defaultVhost__ {
@@ -406,6 +409,7 @@ SRS支持的HTTP RAW API包括：
 * [Raw][raw-raw]: 查看HTTP RAW API的配置。
 * [Reload][raw-reload]: 支持reload配置。
 * [Query][raw-query]: 查询全局和Vhost配置。
+* [Update][raw-update]: 更新全局和Vhost配置。
 
 ### Raw
 
@@ -445,9 +449,20 @@ SRS支持的HTTP RAW API包括：
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`，查询服务器的指定的Vhost的配置|
 
+### Update
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 更新服务器侦听端口 |
+| url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
+| config | `allow_update on;`|
+| params | `scope=global.listen&value=1935,1936`，指定侦听的端口列表|
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
 [raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
 [raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#update
