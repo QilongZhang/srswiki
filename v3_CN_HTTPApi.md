@@ -405,13 +405,14 @@ SRS支持的HTTP RAW API包括：
 
 * [Raw][raw-raw]: 查看HTTP RAW API的配置。
 * [Reload][raw-reload]: 支持reload配置。
+* [Query][raw-query]: 查询全局和Vhost配置。
 
 ### Raw
 
 | Key | DESC | 
 | ---- | ---- |
 | feature | 查询服务器端HTTP RAW API的配置 |
-| url  | /api/v1/raw?rpc=raw |
+| url  | `/api/v1/raw?rpc=raw` |
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=raw` |
 | config | 不需要 |
 | params | 无参数 |
@@ -421,13 +422,32 @@ SRS支持的HTTP RAW API包括：
 | Key | DESC | 
 | ---- | ---- |
 | feature | 可以重新加载配置，和`killall -1 srs`的效果是一样的 |
-| url  | /api/v1/raw?rpc=reload |
+| url  | `/api/v1/raw?rpc=reload` |
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
 | config | `allow_reload on;`|
 | params | 无参数 |
+
+### Query
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 查询服务器全局配置 |
+| url  | `/api/v1/raw?rpc=query&scope=global` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global"` |
+| config | `allow_query on;`|
+| params | `scope=global`，查询服务器的全局配置|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 查询服务器指定的Vhost配置 |
+| url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
+| config | `allow_query on;`|
+| params | `scope=vhost&vhost=xxx`，查询服务器的指定的Vhost的配置|
 
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
 [raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#query
