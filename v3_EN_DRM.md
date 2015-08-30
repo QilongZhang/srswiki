@@ -90,9 +90,11 @@ THe config for token tranverse, see `edge.token.traverse.conf`：
 ```bash
 listen              1935;
 vhost __defaultVhost__ {
-    mode            remote;
-    origin          127.0.0.1:19350;
-    token_traverse  on;
+    cluster {
+        mode            remote;
+        origin          127.0.0.1:19350;
+        token_traverse  on;
+    }
 }
 ```
 
