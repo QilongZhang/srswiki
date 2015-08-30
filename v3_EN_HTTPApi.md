@@ -72,7 +72,7 @@ http_api {
         allow_reload        off;
         # whether enable rpc query.
         # default: off
-        allow_query  off;
+        allow_query         off;
     }
 }
 vhost __defaultVhost__ {
@@ -377,18 +377,48 @@ The supported HTTP RAW APi of SRS is:
 
 * [Raw][raw-raw]: To query the HTTP RAW API config.
 * [Reload][raw-reload]: To reload the SRS.
+* [Query][raw-query]: Query the global and vhost config of SRS.
+
+### Raw
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Query the HTTP RAW API info. |
+| url  | `/api/v1/raw?rpc=raw` |
+| curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=raw` |
+| config | No config |
+| params | No params|
 
 ### Reload
 
 | Key | DESC | 
 | ---- | ---- |
 | feature | Reload is the same to `killall -1 srs` to reload the config |
-| url  | /api/v1/raw?rpc=reload |
+| url  | `/api/v1/raw?rpc=reload` |
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
 | params | No params |
+
+### Query
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Query the global config of SRS |
+| url  | `/api/v1/raw?rpc=query&scope=global` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global"` |
+| config | `allow_query on;`|
+| params | `scope=global`, to query global config of SRS|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Query specified vhost config. |
+| url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
+| config | `allow_query on;`|
+| params | `scope=vhost&vhost=xxx`, query specified vhost.|
 
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
 [raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#query
