@@ -70,7 +70,7 @@ http_api {
         allow_reload        off;
         # whether enable rpc query.
         # default: off
-        allow_query  off;
+        allow_query         off;
     }
 }
 vhost __defaultVhost__ {
