@@ -73,6 +73,9 @@ http_api {
         # whether enable rpc query.
         # default: off
         allow_query         off;
+        # whether enable rpc update.
+        # default: off
+        allow_update        off;
     }
 }
 vhost __defaultVhost__ {
@@ -378,6 +381,7 @@ The supported HTTP RAW APi of SRS is:
 * [Raw][raw-raw]: To query the HTTP RAW API config.
 * [Reload][raw-reload]: To reload the SRS.
 * [Query][raw-query]: Query the global and vhost config of SRS.
+* [Update][raw-update]: Update the global and vhost config of SRS.
 
 ### Raw
 
@@ -416,9 +420,20 @@ The supported HTTP RAW APi of SRS is:
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`, query specified vhost.|
 
+### Update
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update global listen port |
+| url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
+| config | `allow_update on;`|
+| params | `scope=global.listen&value=1935,1936`, specifies the listen port list|
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
 [raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
 [raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#update
