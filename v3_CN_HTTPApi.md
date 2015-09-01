@@ -463,17 +463,28 @@ SRS支持的HTTP RAW API包括：
 | ---- | ---- |
 | feature | 更新服务器侦听端口 |
 | url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936"` |
 | config | `allow_update on;`|
-| params | `scope=global.listen&value=1935,1936`，指定侦听的端口列表|
+| params | `scope=listen&value=1935,1936`，指定侦听的端口列表|
+| require | 参数必须是整数端口列表，多个端口时以逗号分割，譬如：1935,1936,1937 |
 
 | Key | DESC | 
 | ---- | ---- |
 | feature | 更新服务器PID文件 |
 | url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid"` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid"` |
 | config | `allow_update on;`|
-| params | `scope=global.pid&value=./objs/srs.pid`，指定新的PID文件|
+| params | `scope=pid&value=./objs/srs.pid`，指定新的PID文件|
+| require | 文件路径必须以./，/tmp或/var开头，并且扩展名必须是.pid，譬如：/var/srs.pid |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置RTMP全局chunk_size |
+| url  | `/api/v1/raw?rpc=update&scope=global.chunk_size&value=60000` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000"` |
+| config | `allow_update on;`|
+| params | `scope=chunk_size&value=60000`，指定新的全局chunk_size|
+| require | chunk_size必须是数字，并且在[128, 65535]中，譬如：60000 |
 
 Winlin 2015.8
 
