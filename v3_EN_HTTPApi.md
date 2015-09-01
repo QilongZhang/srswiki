@@ -414,6 +414,14 @@ The supported HTTP RAW APi of SRS is:
 
 | Key | DESC | 
 | ---- | ---- |
+| feature | Query the minimal global config of SRS |
+| url  | `/api/v1/raw?rpc=query&scope=minimal` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal"` |
+| config | `allow_query on;`|
+| params | `scope=minimal`, to query minimal global config of SRS|
+
+| Key | DESC | 
+| ---- | ---- |
 | feature | Query specified vhost config. |
 | url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
 | curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
@@ -429,6 +437,14 @@ The supported HTTP RAW APi of SRS is:
 | curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
 | config | `allow_update on;`|
 | params | `scope=global.listen&value=1935,1936`, specifies the listen port list|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the pid file of SRS |
+| url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid"` |
+| config | `allow_update on;`|
+| params | `scope=global.pid&value=./objs/srs.pid`, specifies the new pid file for SRS|
 
 Winlin 2015.8
 
