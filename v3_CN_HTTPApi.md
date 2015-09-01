@@ -443,6 +443,14 @@ SRS支持的HTTP RAW API包括：
 
 | Key | DESC | 
 | ---- | ---- |
+| feature | 查询服务器最小全局配置 |
+| url  | `/api/v1/raw?rpc=query&scope=minimal` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal"` |
+| config | `allow_query on;`|
+| params | `scope=minimal`，查询服务器的最小全局配置|
+
+| Key | DESC | 
+| ---- | ---- |
 | feature | 查询服务器指定的Vhost配置 |
 | url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
 | curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
@@ -458,6 +466,14 @@ SRS支持的HTTP RAW API包括：
 | curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
 | config | `allow_update on;`|
 | params | `scope=global.listen&value=1935,1936`，指定侦听的端口列表|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 更新服务器PID文件 |
+| url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid"` |
+| config | `allow_update on;`|
+| params | `scope=global.pid&value=./objs/srs.pid`，指定新的PID文件|
 
 Winlin 2015.8
 
