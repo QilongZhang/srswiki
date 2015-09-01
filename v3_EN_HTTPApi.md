@@ -434,17 +434,28 @@ The supported HTTP RAW APi of SRS is:
 | ---- | ---- |
 | feature | Update global listen port |
 | url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936"` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936"` |
 | config | `allow_update on;`|
-| params | `scope=global.listen&value=1935,1936`, specifies the listen port list|
+| params | `scope=listen&value=1935,1936`, specifies the listen port list|
+| require | Int port list split by comma, for instance, 1935,1936,1937 |
 
 | Key | DESC | 
 | ---- | ---- |
 | feature | Update the pid file of SRS |
 | url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid"` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid"` |
 | config | `allow_update on;`|
-| params | `scope=global.pid&value=./objs/srs.pid`, specifies the new pid file for SRS|
+| params | `scope=pid&value=./objs/srs.pid`, specifies the new pid file for SRS|
+| require | File path must starts with ./, /tmp or /var, and ends with .pid, for instance, /var/srs.pid |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global RTMP chunk_size |
+| url  | `/api/v1/raw?rpc=update&scope=global.chunk_size&value=60000` |
+| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000"` |
+| config | `allow_update on;`|
+| params | `scope=chunk_size&value=60000`, specifies the new global RTMP chunk_size |
+| require | chunk_size must be integer in [128, 65535], for instance, 60000 |
 
 Winlin 2015.8
 
