@@ -241,21 +241,29 @@ User can get the system summaries, for instance, the memory, cpu, network, load 
 
 Please access the url `http://192.168.1.170:1985/api/v1/summaries`
 
-## Vhost
+## Vhosts
 
-SRS provides http api to query all vhosts, where server is the id of srs, which identify whether srs restarted.
+SRS provides http api to query all vhosts.
 
 The http api vhost url: `http://192.168.1.102:1985/api/v1/vhosts`
 
 To process specified vhost by id, for instance `http://192.168.1.102:1985/api/v1/vhosts/3756`
 
-## Stream
+## Streams
 
-SRS provides http api to query all streams, where sever is the id of srs, and vhost is the vhost contains the stream.
+SRS provides http api to query all streams.
 
 The http api stream url: `http://192.168.1.102:1985/api/v1/streams`
 
 To process specified stream by id, for instance `http://192.168.1.102:1985/api/v1/streams/3756`
+
+## Clients
+
+SRS provides http api to query clients, default to get top 10 clients.
+
+The http api client url: `http://192.168.1.102:1985/api/v1/clients`
+
+To process specified client by id, for instance `http://192.168.1.102:1985/api/v1/clients/3756`
 
 ## Kickoff Client
 
