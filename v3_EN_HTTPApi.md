@@ -485,6 +485,42 @@ The supported HTTP RAW APi of SRS is:
 | params | `scope=srs_log_level&value=trace`, speicifies the new log level |
 | require | srs_log_level must be verbose,info,trace,warn,error, for inance, trace |
 
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global log file path for SRS.|
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_file&value=./objs/srs.log` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_file&value=./objs/srs.log'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_file&value=./objs/srs.log`, specifies the new log file |
+| require | srs_log_file must be *.log and in ./, /var/ or /tmp/, for instance, ./objs/srs.log |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the max connections for SRS, both RTMP and HTTP.|
+| url  | `/api/v1/raw?rpc=update&scope=max_connections&value=1000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=max_connections&value=1000'` |
+| config | `allow_update on;`|
+| params | `scope=max_connections&value=1000`, specifies the new max connections|
+| require | max_connections must be interger and in [10, 65535], for instance,  1000 |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Whether enable the utc time for log and path which use time|
+| url  | `/api/v1/raw?rpc=update&scope=utc_time&value=false` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=utc_time&value=false'` |
+| config | `allow_update on;`|
+| params | `scope=utc_time&value=false`, specifies whether enable the utc time |
+| require | utc_time must be true or false, for instance, false |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global pithy print time in ms |
+| url  | `/api/v1/raw?rpc=update&scope=pithy_print_ms&value=10000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pithy_print_ms&value=10000'` |
+| config | `allow_update on;`|
+| params | `scope=pithy_print_ms&value=10000`, specifies the new pithy print time |
+| require | pithy_print_ms must in [100,300000], in ms, for insance 10000 |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
