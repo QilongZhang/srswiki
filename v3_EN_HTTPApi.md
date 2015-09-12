@@ -383,6 +383,7 @@ The supported HTTP RAW APi of SRS is:
 * [Reload][raw-reload]: To reload the SRS.
 * [Query][raw-query]: Query the global and vhost config of SRS.
 * [Update][raw-update]: Update the global and vhost config of SRS.
+* [Vhost][raw-update]: Vhost is a subset of update.
 
 ### Raw
 
@@ -520,6 +521,19 @@ The supported HTTP RAW APi of SRS is:
 | config | `allow_update on;`|
 | params | `scope=pithy_print_ms&value=10000`, specifies the new pithy print time |
 | require | pithy_print_ms must in [100,300000], in ms, for insance 10000 |
+
+## Vhost
+
+The vhost raw apis is a subset of update.
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Add a none exists vhost. |
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=create` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=create'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=create` to create a vhost |
+| require | The vhost to crote must not be exists.|
 
 Winlin 2015.8
 
