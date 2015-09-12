@@ -514,6 +514,42 @@ SRS支持的HTTP RAW API包括：
 | params | `scope=srs_log_level&value=trace`，设置新的日志级别|
 | require | srs_log_level必须是verbose,info,trace,warn,error。譬如：trace |
 
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置SRS的日志文件路径|
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_file&value=./objs/srs.log` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_file&value=./objs/srs.log'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_file&value=./objs/srs.log`，设置新的日志文件路径|
+| require | srs_log_file必须是.log类型，并且在./, /var/, /tmp/开头。譬如：./objs/srs.log |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置SRS能服务的最大连接数，包含RTMP和HTTP连接|
+| url  | `/api/v1/raw?rpc=update&scope=max_connections&value=1000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=max_connections&value=1000'` |
+| config | `allow_update on;`|
+| params | `scope=max_connections&value=1000`，设置新的最大连接数|
+| require | max_connections必须是整型，并且在[10, 65535]范围内。譬如：1000 |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 是否开启utc时间，影响日志和包含时间的路径，譬如DVR和HLS|
+| url  | `/api/v1/raw?rpc=update&scope=utc_time&value=false` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=utc_time&value=false'` |
+| config | `allow_update on;`|
+| params | `scope=utc_time&value=false`，设置是否开启utc时间|
+| require | utc_time是bool，必须是true或false。譬如：false |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置全局的pithy打印时间间隔|
+| url  | `/api/v1/raw?rpc=update&scope=pithy_print_ms&value=10000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pithy_print_ms&value=10000'` |
+| config | `allow_update on;`|
+| params | `scope=pithy_print_ms&value=10000`，设置新的pithy打印时间间隔|
+| require | pithy_print_ms单位是毫秒，在[100,300000]范围内。譬如：10000 |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
