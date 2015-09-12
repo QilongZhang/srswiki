@@ -372,6 +372,7 @@ http_api {
         enabled             on;
         allow_reload        on;
         allow_query         on;
+        allow_update        on;
     }
 }
 ```
