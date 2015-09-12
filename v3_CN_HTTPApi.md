@@ -550,6 +550,19 @@ SRS支持的HTTP RAW API包括：
 | params | `scope=pithy_print_ms&value=10000`，设置新的pithy打印时间间隔|
 | require | pithy_print_ms单位是毫秒，在[100,300000]范围内。譬如：10000 |
 
+## Vhost
+
+Vhost操作是Update的一个子集。
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 新增vhost，指定vhost名称|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=create` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=create'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=create`，创建新的vhost|
+| require | 新创建的vhost必须是不存在的。注意禁用的vhost也算是存在的vhost。|
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
