@@ -409,7 +409,7 @@ The supported HTTP RAW APi of SRS is:
 | ---- | ---- |
 | feature | Query the global config of SRS |
 | url  | `/api/v1/raw?rpc=query&scope=global` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global'` |
 | config | `allow_query on;`|
 | params | `scope=global`, to query global config of SRS|
 
@@ -417,7 +417,7 @@ The supported HTTP RAW APi of SRS is:
 | ---- | ---- |
 | feature | Query the minimal global config of SRS |
 | url  | `/api/v1/raw?rpc=query&scope=minimal` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal'` |
 | config | `allow_query on;`|
 | params | `scope=minimal`, to query minimal global config of SRS|
 
@@ -425,7 +425,7 @@ The supported HTTP RAW APi of SRS is:
 | ---- | ---- |
 | feature | Query specified vhost config. |
 | url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__'` |
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`, query specified vhost.|
 
@@ -434,8 +434,8 @@ The supported HTTP RAW APi of SRS is:
 | Key | DESC | 
 | ---- | ---- |
 | feature | Update global listen port |
-| url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936"` |
+| url  | `/api/v1/raw?rpc=update&scope=listen&value=1935,1936` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936'` |
 | config | `allow_update on;`|
 | params | `scope=listen&value=1935,1936`, specifies the listen port list|
 | require | Int port list split by comma, for instance, 1935,1936,1937 |
@@ -443,8 +443,8 @@ The supported HTTP RAW APi of SRS is:
 | Key | DESC | 
 | ---- | ---- |
 | feature | Update the pid file of SRS |
-| url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid"` |
+| url  | `/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid'` |
 | config | `allow_update on;`|
 | params | `scope=pid&value=./objs/srs.pid`, specifies the new pid file for SRS|
 | require | File path must starts with ./, /tmp or /var, and ends with .pid, for instance, /var/srs.pid |
@@ -452,11 +452,38 @@ The supported HTTP RAW APi of SRS is:
 | Key | DESC | 
 | ---- | ---- |
 | feature | Update the global RTMP chunk_size |
-| url  | `/api/v1/raw?rpc=update&scope=global.chunk_size&value=60000` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000"` |
+| url  | `/api/v1/raw?rpc=update&scope=chunk_size&value=60000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000'` |
 | config | `allow_update on;`|
 | params | `scope=chunk_size&value=60000`, specifies the new global RTMP chunk_size |
 | require | chunk_size must be integer in [128, 65535], for instance, 60000 |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global log dir for ffmpeg |
+| url  | `/api/v1/raw?rpc=update&scope=ff_log_dir&value=./objs` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=ff_log_dir&value=./objs'` |
+| config | `allow_update on;`|
+| params | `scope=ff_log_dir&value=./objs`, specifies the new global ff_log_dir|
+| require | ff_log_dir must starts with ./, /tmp/ or /var/, for instance, ./objs |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global log tank for SRS |
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_tank&value=file` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_tank&value=file'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_tank&value=file`, specifies the new log tank. |
+| require | srs_log_tank must be file or console, for instance, file |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the global log level for SRS|
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_level&value=trace` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_level&value=trace'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_level&value=trace`, speicifies the new log level |
+| require | srs_log_level must be verbose,info,trace,warn,error, for inance, trace |
 
 Winlin 2015.8
 
