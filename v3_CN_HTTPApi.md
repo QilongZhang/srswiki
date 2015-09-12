@@ -411,6 +411,7 @@ SRS支持的HTTP RAW API包括：
 * [Reload][raw-reload]: 支持reload配置。
 * [Query][raw-query]: 查询全局和Vhost配置。
 * [Update][raw-update]: 更新全局和Vhost配置。
+* [Vhost][raw-update]: Vhost操作是Update的子集。
 
 ### Raw
 
