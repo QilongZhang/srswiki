@@ -438,7 +438,7 @@ SRS支持的HTTP RAW API包括：
 | ---- | ---- |
 | feature | 查询服务器全局配置 |
 | url  | `/api/v1/raw?rpc=query&scope=global` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=global'` |
 | config | `allow_query on;`|
 | params | `scope=global`，查询服务器的全局配置|
 
@@ -446,7 +446,7 @@ SRS支持的HTTP RAW API包括：
 | ---- | ---- |
 | feature | 查询服务器最小全局配置 |
 | url  | `/api/v1/raw?rpc=query&scope=minimal` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=minimal'` |
 | config | `allow_query on;`|
 | params | `scope=minimal`，查询服务器的最小全局配置|
 
@@ -454,7 +454,7 @@ SRS支持的HTTP RAW API包括：
 | ---- | ---- |
 | feature | 查询服务器指定的Vhost配置 |
 | url  | `/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__"` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=query&scope=vhost&vhost=__defaultVhost__'` |
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`，查询服务器的指定的Vhost的配置|
 
@@ -463,8 +463,8 @@ SRS支持的HTTP RAW API包括：
 | Key | DESC | 
 | ---- | ---- |
 | feature | 更新服务器侦听端口 |
-| url  | `/api/v1/raw?rpc=update&scope=global.listen&value=1935,1936` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936"` |
+| url  | `/api/v1/raw?rpc=update&scope=listen&value=1935,1936` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=listen&value=1935,1936'` |
 | config | `allow_update on;`|
 | params | `scope=listen&value=1935,1936`，指定侦听的端口列表|
 | require | 参数必须是整数端口列表，多个端口时以逗号分割，譬如：1935,1936,1937 |
@@ -472,20 +472,47 @@ SRS支持的HTTP RAW API包括：
 | Key | DESC | 
 | ---- | ---- |
 | feature | 更新服务器PID文件 |
-| url  | `/api/v1/raw?rpc=update&scope=global.pid&value=./objs/srs.pid` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid"` |
+| url  | `/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=pid&value=./objs/srs.pid'` |
 | config | `allow_update on;`|
 | params | `scope=pid&value=./objs/srs.pid`，指定新的PID文件|
-| require | 文件路径必须以./，/tmp或/var开头，并且扩展名必须是.pid，譬如：/var/srs.pid |
+| require | 文件路径必须以./，/tmp/或/var/开头，并且扩展名必须是.pid，譬如：/var/srs.pid |
 
 | Key | DESC | 
 | ---- | ---- |
 | feature | 设置RTMP全局chunk_size |
-| url  | `/api/v1/raw?rpc=update&scope=global.chunk_size&value=60000` |
-| curl | `curl "http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000"` |
+| url  | `/api/v1/raw?rpc=update&scope=chunk_size&value=60000` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=chunk_size&value=60000'` |
 | config | `allow_update on;`|
 | params | `scope=chunk_size&value=60000`，指定新的全局chunk_size|
 | require | chunk_size必须是数字，并且在[128, 65535]中，譬如：60000 |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置ffmpeg的全局日志路径 |
+| url  | `/api/v1/raw?rpc=update&scope=ff_log_dir&value=./objs` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=ff_log_dir&value=./objs'` |
+| config | `allow_update on;`|
+| params | `scope=ff_log_dir&value=./objs`，指定新的全局ff_log_dir|
+| require | ff_log_dir必须以./, /tmp/或/var/开头。譬如：./objs |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置SRS的日志容器|
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_tank&value=file` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_tank&value=file'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_tank&value=file`，设置新的日志容器|
+| require | srs_log_tank必须是file或console。譬如：file |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 设置SRS的日志级别|
+| url  | `/api/v1/raw?rpc=update&scope=srs_log_level&value=trace` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=srs_log_level&value=trace'` |
+| config | `allow_update on;`|
+| params | `scope=srs_log_level&value=trace`，设置新的日志级别|
+| require | srs_log_level必须是verbose,info,trace,warn,error。譬如：trace |
 
 Winlin 2015.8
 
