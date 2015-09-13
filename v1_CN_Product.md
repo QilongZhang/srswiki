@@ -94,6 +94,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [plan]支持h.265直播，在RTMP中加入265支持，输出HLS。参考：[#465][bug465].
 * [plan]支持MPEG-DASH，可能的未来标准。参考：[#299][bug299].
 * [plan]支持HLS边缘服务器。参考：[#466][bug466].
+* [plan]支持HLS低延迟模式。参考：[#468][bug468].
 * [plan]支持接入Kafka/Spark大数据系统。参考：[#467][bug467].
 * [plan]支持安全的可读写的HTTP API（HTTP Security Raw Api）。参考：[#470][bug470], [#319][bug319], [#459][bug459].
 * [plan]预研SRS.GO，GO语言的实现版本。参考：[SRS.GO项目][srs_go]，以及[GO性能评测][blog_go]
