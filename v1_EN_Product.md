@@ -84,7 +84,7 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 [SRS release 3.0[3.0release] is developing now. The main goals may include:
 
 * Support NGINX-RTMP style EXEC, read [#367][bug367].
-* [plan]Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464].
+* [plan]Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464], [RTMP 302][bug92].
 * [plan]Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
 * [plan]Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
 * [plan]Support HLS edge server, read [#466][bug466].
@@ -100,8 +100,8 @@ Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
 
 SRS 3.0+ features backlog:
 
-* HTTP Streaming：[HLS Edge][bug130]，[HTTP API Authencation][bug83]，[Callback for HTTP][bug52]，[HTTP-MP4 Streaming][bug174]
-* Enhanced RTMP: [Forward Call][bug106]，[RTMP 302 Redirect][bug92]，[RTMP Token][bug71]，[AMF3][bug131]，[SharedObject][bug132]，[Multiple Streams per Connection][bug156]，[Forward With extra params][bug163]，[Edge with extra params][bug164]，[RTMFP][bug93]
+* HTTP Streaming：[HTTP API Authencation][bug83]，[Callback for HTTP][bug52]，[HTTP-MP4 Streaming][bug174]
+* Enhanced RTMP: [Forward Call][bug106]，[RTMP Token][bug71]，[AMF3][bug131]，[SharedObject][bug132]，[Multiple Streams per Connection][bug156]，[Forward With extra params][bug163]，[Edge with extra params][bug164]，[RTMFP][bug93]
 * Realtime：[FRSC][bug90]，[UDP in cluster][bug94]
 
 SRS features: the best or nothing!
