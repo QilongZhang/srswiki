@@ -79,7 +79,7 @@ Dev code: ZhouGuowen, my teacher.
 
 ## Release3.0
 
-Dev code: OuXuli, my college teach, the founder of [Qgzxol.com][qgzxol].
+Dev code: OuXuli, my college teacher, the founder of [Qgzxol.com][qgzxol].
 
 [SRS release 3.0[3.0release] is developing now. The main goals may include:
 
