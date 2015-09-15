@@ -579,7 +579,7 @@ Vhost操作是Update的一个子集。
 | url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable` |
 | curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable'` |
 | config | `allow_update on;`|
-| params | `scope=vhost&value=ossrs.net&param=disable` to disable the vhost|
+| params | `scope=vhost&value=ossrs.net&param=disable`，禁用vhost |
 | require | 要禁用的vhost必须存在并且是启用状态。 |
 
 | Key | DESC | 
@@ -588,7 +588,7 @@ Vhost操作是Update的一个子集。
 | url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable` |
 | curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable'` |
 | config | `allow_update on;`|
-| params | `scope=vhost&value=ossrs.net&param=enable` to enable the vhost|
+| params | `scope=vhost&value=ossrs.net&param=enable`，启用vhost|
 | require | 要启用的vhost必须存在并且是禁用状态。 |
 
 Winlin 2015.8
