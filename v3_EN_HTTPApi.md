@@ -543,6 +543,33 @@ The vhost raw apis is a subset of update.
 | params | `scope=vhost&value=ossrs.net&param=create` to create a vhost |
 | require | The vhost to crote must not be exists.|
 
+| Key | DESC | 
+| ---- | ---- |
+| feature | Update the name of vhost. |
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net` to update the name of vhost |
+| require | The vhost to update must exists and disabled. |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Disable the vhost|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=disable` to disable the vhost|
+| require | The vhost to disable must exists and enabled.  |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Enable the vhost|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=enable` to enable the vhost|
+| require | The vhost to enable must exists and disabled. |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
