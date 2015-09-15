@@ -315,6 +315,8 @@ For how to deploy SRS to deliver HLS, read [Usage: HLS](v2_EN_SampleHLS)
 
 To configure `on_hls` for HTTP hooks, you should configure them in the `http_hooks` section, not in the hls section.
 
+Remark: The HLS fault backup can base on this callback.
+
 ## ON HLS Notify
 
 To configure the `on_hls_notify` for pushing ts files to can network, you should configure them in the `http_hooks` section, not in the hls section.
