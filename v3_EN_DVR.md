@@ -120,7 +120,7 @@ vhost xxx {
 }
 ```
 
-About the RAW API to control DVR, read [319](https://github.com/simple-rtmp-server/srs/issues/319).
+About the RAW API to control DVR, read [319](https://github.com/simple-rtmp-server/srs/issues/319) and [wiki](https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-dvr).
 
 ## Custom Path
 
