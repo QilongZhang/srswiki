@@ -564,6 +564,33 @@ Vhost操作是Update的一个子集。
 | params | `scope=vhost&value=ossrs.net&param=create`，创建新的vhost|
 | require | 新创建的vhost必须是不存在的。注意禁用的vhost也算是存在的vhost。|
 
+| Key | DESC | 
+| ---- | ---- |
+| feature | 修改禁用的vhost名称|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=update&data=new.ossrs.net`，修改vhost名称为新名称|
+| require | 需要修改的vhost必须存在，并且是禁用状态。|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 禁用vhost|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=disable'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=disable` to disable the vhost|
+| require | 要禁用的vhost必须存在并且是启用状态。 |
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | 启用vhost|
+| url  | `/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=vhost&value=ossrs.net&param=enable'` |
+| config | `allow_update on;`|
+| params | `scope=vhost&value=ossrs.net&param=enable` to enable the vhost|
+| require | 要启用的vhost必须存在并且是禁用状态。 |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
