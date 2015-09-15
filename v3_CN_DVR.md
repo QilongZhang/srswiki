@@ -122,7 +122,7 @@ vhost xxx {
 }
 ```
 
-可以使用RAW API控制DVR，参考[319](https://github.com/simple-rtmp-server/srs/issues/319).
+可以使用RAW API控制DVR，参考[319](https://github.com/simple-rtmp-server/srs/issues/319)和[wiki](https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-dvr).
 
 ## Custom Path
 
