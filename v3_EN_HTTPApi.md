@@ -403,7 +403,7 @@ The supported HTTP RAW APi of SRS is:
 | config | No config |
 | params | No params|
 
-### Reload
+### RAW Reload
 
 | Key | DESC | 
 | ---- | ---- |
@@ -412,7 +412,7 @@ The supported HTTP RAW APi of SRS is:
 | curl | `curl http://127.0.0.1:1985/api/v1/raw?rpc=reload` |
 | params | No params |
 
-### Query
+### RAW Query
 
 | Key | DESC | 
 | ---- | ---- |
@@ -438,7 +438,7 @@ The supported HTTP RAW APi of SRS is:
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`, query specified vhost.|
 
-### Update
+### RAW Update
 
 | Key | DESC | 
 | ---- | ---- |
@@ -530,7 +530,7 @@ The supported HTTP RAW APi of SRS is:
 | params | `scope=pithy_print_ms&value=10000`, specifies the new pithy print time |
 | require | pithy_print_ms must in [100,300000], in ms, for insance 10000 |
 
-## Vhost
+## RAW Vhost
 
 The vhost raw apis is a subset of update.
 
