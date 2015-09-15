@@ -391,7 +391,8 @@ The supported HTTP RAW APi of SRS is:
 * [Reload][raw-reload]: To reload the SRS.
 * [Query][raw-query]: Query the global and vhost config of SRS.
 * [Update][raw-update]: Update the global and vhost config of SRS.
-* [Vhost][raw-update]: Vhost is a subset of update.
+* [Vhost][raw-vhost]: Vhost is a subset of update.
+* [DVR][raw-dvr]: DVR is a subset of update.
 
 ### Raw
 
@@ -570,10 +571,34 @@ The vhost raw apis is a subset of update.
 | params | `scope=vhost&value=ossrs.net&param=enable` to enable the vhost|
 | require | The vhost to enable must exists and disabled. |
 
+## RAW DVR
+
+The DVR is a subset of Update.
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Enable the DVR of stream of vhost |
+| url  | `/api/v1/raw?rpc=update&scope=dvr&value=ossrs.net&param=enable&data=live/livestream` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=dvr&value=ossrs.net&param=enable&data=live/livestream'` |
+| config | `allow_update on;`|
+| params | `scope=dvr&value=ossrs.net&param=enable&data=live/livestream` to enable the DVR of stream|
+| require | The DVR of vhost must enabled.|
+
+| Key | DESC | 
+| ---- | ---- |
+| feature | Disable the DVR of stream of vhost|
+| url  | `/api/v1/raw?rpc=update&scope=dvr&value=ossrs.net&param=disable&data=live/livestream` |
+| curl | `curl 'http://127.0.0.1:1985/api/v1/raw?rpc=update&scope=dvr&value=ossrs.net&param=disable&data=live/livestream'` |
+| config | `allow_update on;`|
+| params | `scope=dvr&value=ossrs.net&param=disable&data=live/livestream` to disable the DVR of stream |
+| require | The DVR of vhost must enabled. |
+
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
 [raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
 [raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
-[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#query
-[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#update
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-update
+[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-vhost
+[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-dvr
