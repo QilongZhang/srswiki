@@ -84,13 +84,14 @@ Dev code: OuXuli, my college teacher, the founder of [Qgzxol.com][qgzxol].
 [SRS release 3.0[3.0release] is developing now. The main goals may include:
 
 * Support NGINX-RTMP style EXEC, read [#367][bug367].
+* Support NGINX-RTMP style dvr control module, read [#459][bug459].
+* Support HTTP Security Raw Api, read [#459][bug459], [#470][bug470], [#319][bug319].
 * [plan]Support Origin Cluster for Load Balance and Fault Tolarence, read [#464][bug464], [RTMP 302][bug92].
 * [plan]Support H.265, push RTMP with H.265, delivery in HLS, read [#465][bug465].
 * [plan]Support MPEG-DASH, the future streaming protocol, read [#299][bug299].
 * [plan]Support HLS edge server, read [#466][bug466].
 * [plan]Support HLS realtime latency mode, read [#468][bug468].
 * [plan]Support Integration with Kafka/Spark Big-Data system, read [#467][bug467].
-* [plan]Support HTTP Security Raw Api, read [#459][bug459], [#470][bug470], [#319][bug319].
 * [plan]Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
 * [plan]Others.
 
