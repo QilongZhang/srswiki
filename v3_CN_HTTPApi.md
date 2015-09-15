@@ -423,7 +423,7 @@ SRS支持的HTTP RAW API包括：
 | config | 不需要 |
 | params | 无参数 |
 
-### Reload
+### RAW Reload
 
 | Key | DESC | 
 | ---- | ---- |
@@ -433,7 +433,7 @@ SRS支持的HTTP RAW API包括：
 | config | `allow_reload on;`|
 | params | 无参数 |
 
-### Query
+### RAW Query
 
 | Key | DESC | 
 | ---- | ---- |
@@ -459,7 +459,7 @@ SRS支持的HTTP RAW API包括：
 | config | `allow_query on;`|
 | params | `scope=vhost&vhost=xxx`，查询服务器的指定的Vhost的配置|
 
-### Update
+### RAW Update
 
 | Key | DESC | 
 | ---- | ---- |
@@ -551,7 +551,7 @@ SRS支持的HTTP RAW API包括：
 | params | `scope=pithy_print_ms&value=10000`，设置新的pithy打印时间间隔|
 | require | pithy_print_ms单位是毫秒，在[100,300000]范围内。譬如：10000 |
 
-## Vhost
+## RAW Vhost
 
 Vhost操作是Update的一个子集。
 
