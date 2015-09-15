@@ -310,7 +310,7 @@ HLS配置路径：
 
 可以配置`on_hls`实现回调，应该在`http_hooks`中配置，而不是在hls中配置。
 
-备注：HLS热备可以基于这个回调实现，参考[#351](https://github.com/winlinvip/simple-rtmp-server/issues/351).
+备注：HLS热备可以基于这个回调实现，参考[#351](https://github.com/simple-rtmp-server/srs/issues/351).
 
 ## ON HLS Notify
 
