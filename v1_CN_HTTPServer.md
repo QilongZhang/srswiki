@@ -1,4 +1,4 @@
-# 内置HTTP服务器
+# SRS Embeded HTTP Server
 
 SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
@@ -6,7 +6,7 @@ SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
 SRS的内置HTTP服务器属于实验功能；建议不要当作web服务器，主要是提供API服务；建议使用nginx等成熟web服务器分发文件。
 
-## 应用场景
+## Use Scenario
 
 它的定位很简单：智能手机上的摄像头。
 
@@ -27,7 +27,7 @@ srs会一如既往的保持最简单，http的代码不会有多少行，功能�
 
 实际上，RTMP协议本身比HTTP复杂很多，所以st来做http分发，没有任何不可以的地方，更何况只是做部分。所以，淡定～
 
-## 配置
+## Config
 
 需要配置全局的HTTP端口和根目录的路径。
 
@@ -81,19 +81,18 @@ vhost __defaultVhost__ {
 
 ## MIME
 
-支持少量的MIME，见下表。
+支持少量的MIME，见下表。| 
 
-<table>
-<tr><th>文件扩展名</th><th>Content-Type</th></tr>
-<tr><td>.ts</td><td>Content-Type: video/MP2T;charset=utf-8</td>
-<tr><td>.m3u8</td><td>Content-Type: application/x-mpegURL;charset=utf-8</td>
-<tr><td>.json</td><td>Content-Type: application/json;charset=utf-8</td>
-<tr><td>.css</td><td>Content-Type: text/css;charset=utf-8</td>
-<tr><td>.swf</td><td>Content-Type: application/x-shockwave-flash;charset=utf-8</td>
-<tr><td>.js</td><td>Content-Type: text/javascript;charset=utf-8</td>
-<tr><td>.xml</td><td>Content-Type: text/xml;charset=utf-8</td>
-<tr><td>其他</td><td>Content-Type: text/html;charset=utf-8</td>
-</table>
+| 文件扩展名 | Content-Type |
+| -------- | ------------ |
+| .ts  | | Content-Type: video/MP2T;charset=utf-8 |
+| .m3u8 | Content-Type: application/x-mpegURL;charset=utf-8 |
+| .json | Content-Type: application/json;charset=utf-8 |
+| .css | Content-Type: text/css;charset=utf-8 |
+| .swf | Content-Type: application/x-shockwave-flash;charset=utf-8 |
+| .js | Content-Type: text/javascript;charset=utf-8 |
+| .xml | Content-Type: text/xml;charset=utf-8 |
+| 其他 | Content-Type: text/html;charset=utf-8 |
 
 ## Method
 
