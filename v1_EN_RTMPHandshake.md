@@ -8,34 +8,12 @@ This is the simple handshake, the standard handshake, and the FMLE use this hand
 
 While the server connected by flash player only support simple handshake, the flash player can only play the vp6 codec, and do not support h.264+aac. Adobe changed the simple handshake to encrypted complex handshake, see: [Changed Handshake of RTMP](http://blog.csdn.net/win_lin/article/details/13006803)
 
-The handshake summary:
+The handshake summary: | 
 
-<table>
-<tr>
-<th>Handshake</th>
-<th>Depends</th>
-<th>Flash player<br/>codec</th>
-<th>Client</th>
-<th>SRS</th>
-<th>Use Scenario</th>
-</tr>
-<tr>
-<td>Simple<br/>Standard</td>
-<td>No</td>
-<td>vp6+mp3/speex</td>
-<td>All</td>
-<td>Supprted</td>
-<td>Encoder, for examle, FMLE, FFMPEG</td>
-</tr>
-<tr>
-<td>Complex</td>
-<td>openssl</td>
-<td>vp6+mp3/speex<br/>h264+aac</td>
-<td>Flash Player</td>
-<td>Supported</td>
-<td>Flash player requires complex handshake to play h.264+aac codec.</td>
-</tr>
-</table>
+| Handshake | Depends | Flash player<br/>codec | Client | SRS | Use Scenario |
+| ---- | ----- | --------------------- | -------- | --- | ---- |
+| Simple<br/>Standard | No | vp6+mp3/speex | All | Supprted | Encoder, for examle, FMLE, FFMPEG |
+| Complex | openssl | vp6+mp3/speex<br/>h264+aac | Flash Player | Supported | Flash player requires complex handshake to play h.264+aac codec. |
 
 Notes: When compile SRS with SSL, SRS will try complex, then simple.
 
