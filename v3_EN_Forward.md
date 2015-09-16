@@ -146,38 +146,12 @@ The other slave server 192.168.1.7 is similar to 192.168.1.6
 
 The stream in service:
 
-<table>
-<tr>
-  <td>Url</td>
-  <td>Server</td>
-  <td>Port</td>
-  <td>Clients</td>
-</tr>
-<tr>
-  <td>rtmp://192.168.1.6:1935/live/livestream</td>
-  <td>192.168.1.6</td>
-  <td>1935</td>
-  <td>3000</td>
-</tr>
-<tr>
-  <td>rtmp://192.168.1.6:1936/live/livestream</td>
-  <td>192.168.1.6</td>
-  <td>1936</td>
-  <td>3000</td>
-</tr>
-<tr>
-  <td>rtmp://192.168.1.7:1935/live/livestream</td>
-  <td>192.168.1.7</td>
-  <td>1935</td>
-  <td>3000</td>
-</tr>
-<tr>
-  <td>rtmp://192.168.1.7:1936/live/livestream</td>
-  <td>192.168.1.7</td>
-  <td>1936</td>
-  <td>3000</td>
-</tr>
-</table>
+| Url | Server | Port | Clients |
+| ---- | ----- | ----- | ------- |
+| rtmp://192.168.1.6:1935/live/livestream | 192.168.1.6 | 1935 | 3000 |
+| rtmp://192.168.1.6:1936/live/livestream | 192.168.1.6 | 1936 | 3000 |
+| rtmp://192.168.1.7:1935/live/livestream | 192.168.1.7 | 1935 | 3000 |
+| rtmp://192.168.1.7:1936/live/livestream | 192.168.1.7 | 1936 | 3000 |
 
 This architecture can support 12k clients. 
 User can add more slave or start new ports.
