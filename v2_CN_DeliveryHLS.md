@@ -26,49 +26,14 @@ HLS主要的应用场景包括：
 
 详见下表：
 
-<table>
-<thead>
-<tr>
-<th>分发</th>
-<th>平台</th>
-<th>协议</th>
-<th>公司</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RTMP</td>
-<td>Windows Flash</td>
-<td>RTMP</td>
-<td>Adobe</td>
-<td>主流的低延时分发方式，<br/>Adobe对RTMP是Flash原生支持方式，<br/>FMS（Adobe Media Server前身），<br/>就是Flash Media Server的简写，可见Flash播放RTMP是多么“原生”，<br/>就像浏览器打开http网页一样“原生”，<br/>经测试，Flash播放RTMP流可以10天以上不间断播放。</td>
-</tr>
-<tr>
-<td>HLS</td>
-<td>Apple/<br/>Android</td>
-<td>HTTP</td>
-<td>Apple/<br/>Google</td>
-<td>延时一个切片以上（一般10秒以上），<br/>Apple平台上HLS的效果比PC的RTMP还要好，<br/>而且Apple所有设备都支持，<br/>Android最初不支持HLS，后来也支持了，<br/>但测试发现支持得还不如Apple，<br/>不过观看是没有问题，稳定性稍差，<br/>所以有些公司专门做Android上的流媒体播放器。</td>
-</tr>
-<tr>
-<td>HDS</td>
-<td>-</td>
-<td>HTTP</td>
-<td>Adobe</td>
-<td>Adobe自己的HLS，<br/>协议方面做得是复杂而且没有什么好处，<br/>国内没有什么应用，传说国外有，<br/>SRS2已经支持。</td>
-</tr>
-<tr>
-<td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
-<td>-</td>
-<td>HTTP</td>
-<td>-</td>
-<td>Dynamic Adaptive Streaming over HTTP (DASH)，<br/>一些公司提出的HLS，<br/>国内还没有应用，国外据说有用了，<br/>nginx-rtmp好像已经支持了，<br/>明显这个还不成熟，SRS是不会支持的。</td>
-</tr>
-</tbody>
-</table>
+| 分发 | 平台 | 协议 | 公司 | 说明 |
+| ---- | --- | ---  | ---  | --- |
+| RTMP | Windows Flash | RTMP | Adobe | 主流的低延时分发方式，<br/>Adobe对RTMP是Flash原生支持方式，<br/>FMS（Adobe Media Server前身），<br/>就是Flash Media Server的简写，可见Flash播放RTMP是多么“原生”，<br/>就像浏览器打开http网页一样“原生”，<br/>经测试，Flash播放RTMP流可以10天以上不间断播放。|
+| HLS | Apple/<br/>Android | HTTP | Apple/<br/>Google | 延时一个切片以上（一般10秒以上），<br/>Apple平台上HLS的效果比PC的RTMP还要好，<br/>而且Apple所有设备都支持，<br/>Android最初不支持HLS，后来也支持了，<br/>但测试发现支持得还不如Apple，<br/>不过观看是没有问题，稳定性稍差，<br/>所以有些公司专门做Android上的流媒体播放器。|
+| HDS | - | HTTP | Adobe | Adobe自己的HLS，<br/>协议方面做得是复杂而且没有什么好处，<br/>国内没有什么应用，传说国外有，<br/>SRS2已经支持。|
+| <a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a> | - | HTTP | - | Dynamic Adaptive Streaming over HTTP (DASH)，<br/>一些公司提出的HLS，<br/>国内还没有应用，国外据说有用了，<br/>nginx-rtmp好像已经支持了，<br/>明显这个还不成熟，SRS是不会支持的。|
 
-## HLS
+## HLS Introduction
 
 HLS是提供一个m3u8地址，Apple的Safari浏览器直接就能打开m3u8地址，譬如：
 ```bash
