@@ -17,7 +17,7 @@ The workflow of SRS transcoding:
 1. SRS forks a process for FFMPEG when transcoding is configured.
 1. The forked FFMPEG transcodes the stream and publishes it to SRS or other servers.
 
-## Transcode Configuration
+## Transcode Config
 
 The SRS transcoding feature can apply on vhost, app or a specified stream.
 
@@ -175,44 +175,19 @@ vhost __defaultVhost__ {
 
 All params of SRS transcode are for FFMPEG, and SRS renames some parameters:
 
-<table>
-<tr>
-<th>SRS</th><th>FFMPEG</th><th>Exammple</th><th>Description</th>
-</tr>
-<tr>
-<td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>The codec to use.</td>
-</tr>
-<tr>
-<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>The bitrate in kbps (for SRS) or bps (for FFMPEG) at which to output the transcoded stream.</td>
-</tr>
-<tr>
-<td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>The output framerate.</td>
-</tr>
-<tr>
-<td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>The output video size, the width x height and the aspect set to width:height.</td>
-</tr>
-<tr>
-<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>The number of encoding threads for x264.</td>
-</tr>
-<tr>
-<td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>The profile for x264.</td>
-</tr>
-<tr>
-<td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>The preset for x264.</td>
-</tr>
-<tr>
-<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libfdk_aac ...</td><td>The codec for audio.</td>
-</tr>
-<tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps (for SRS) and bps (for FFMPEG) for output audio. For libaacplus：16-72k. No limit for libfdk_aac.</td>
-</tr>
-<tr>
-<td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>The audio sample rate.</td>
-</tr>
-<tr>
-<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>The audio channel.</td>
-</tr>
-</table>
+| SRS | FFMPEG | Exammple | Description |
+| ------ | --------- | ---- | ----- |
+| vcodec | vcodec | ffmpeg ... -vcodec libx264 ... | The codec to use. |
+| vbitrate | b:v | ffmpeg ... -b:v 500000 ... | The bitrate in kbps (for SRS) or bps (for FFMPEG) at which to output the transcoded stream. |
+| vfps | r | ffmpeg ... -r 25 ... | The output framerate. |
+| vwidth/vheight | s | ffmpeg ... -s 400x300 -aspect 400:300 ... | The output video size, the width x height and the aspect set to width:height. |
+| vthreads | threads | ffmpeg ... -threads 8 ... | The number of encoding threads for x264. |
+| vprofile | profile:v | ffmpeg ... -profile:v high ... | The profile for x264. |
+| vpreset | preset | ffmpeg ... -preset medium ... | The preset for x264. |
+| acodec | acodec | ffmpeg ... -acodec libfdk_aac ... | The codec for audio. |
+| abitrate | b:a | ffmpeg ... -b:a 70000 ... | The bitrate in kbps (for SRS) and bps (for FFMPEG) for output audio. For libaacplus：16-72k. No limit for libfdk_aac. |
+| asample_rate | ar | ffmpeg ... -ar 44100 ... | The audio sample rate. |
+| achannels | ac | ffmpeg ... -ac 2 ... | The audio channel. |
 
 There are more parameters for SRS:
 * vfilter：Parameters added before the vcodec, for the FFMPEG filters.
