@@ -26,49 +26,14 @@ In a word, HLS is the best delivery protocol when user donot care about the late
 
 The table bellow describes the different protocols for PC and mobile platform.
 
-<table>
-<thead>
-<tr>
-<th>Delivery</th>
-<th>Platform</th>
-<th>Protocol</th>
-<th>Inventor</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RTMP</td>
-<td>Windows Flash</td>
-<td>RTMP</td>
-<td>Adobe</td>
-<td>The RTMP is used to delivery low latency stream over internet, especially for the web explorer application for flash on PC. The RTMP allows you to publish stream to server very stable and for a long time.</td>
-</tr>
-<tr>
-<td>HLS</td>
-<td>Apple/<br/>Android</td>
-<td>HTTP</td>
-<td>Apple/<br/>Google</td>
-<td>HLS lantency >= 10s. Android3+ supports HLS. All Apple platforms support HLS.</td>
-</tr>
-<tr>
-<td>HDS</td>
-<td>-</td>
-<td>HTTP</td>
-<td>Adobe</td>
-<td>HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benifits, so SRS never support it.</td>
-</tr>
-<tr>
-<td><a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a></td>
-<td>-</td>
-<td>HTTP</td>
-<td>-</td>
-<td>Dash(Dynamic Adaptive Streaming over HTTP), developed by some company similar to HLS. It's a new protocol, and SRS maybe support it when it already used by many users.</td>
-</tr>
-</tbody>
-</table>
+| Delivery | Platform | Protocol | Inventor | Description |
+|   ----- | -------- | --------- | -------- | ----------- |
+| RTMP | Windows Flash | RTMP | Adobe | The RTMP is used to delivery low latency stream over internet, especially for the web explorer application for flash on PC. The RTMP allows you to publish stream to server very stable and for a long time.|
+| HLS | Apple/<br/>Android | HTTP | Apple/<br/>Google | HLS lantency >= 10s. Android3+ supports HLS. All Apple platforms support HLS.|
+| HDS | - | HTTP | Adobe | HDS is a protocol similar to HLS, develped by Adobe. HDS is complex and no benifits, so SRS never support it.|
+| <a href='http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP'>DASH</a> | - | HTTP | - | Dash(Dynamic Adaptive Streaming over HTTP), developed by some company similar to HLS. It's a new protocol, and SRS maybe support it when it already used by many users. |
 
-## HLS
+## HLS Introduction
 
 HLS is a http m3u8 url, which can be play in Apple Safari directly. For example:
 
