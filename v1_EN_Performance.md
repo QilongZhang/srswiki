@@ -174,7 +174,7 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 * The table
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 1.0% | 3MB | 3 | - | - | - | 0.8s |
 | nginx-rtmp | 0.7% | 8MB | 2 | - | - | - | 0.8s |
@@ -186,6 +186,8 @@ Clients(Conn): The connections/clients to server.
 ExpectNbps(ENbps): The expect network bandwidth in Xbps.
 
 ActualNbps(ANBps): The actual network bandwidth in Xbps.
+
+st-load(srs-bench/sb): The mock benchmark client tool.
 
 Latency(Lat): The latency of client.
 
@@ -201,31 +203,31 @@ Let's start performance benchmark.
 
 * The data:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 9.0% | 8MB | 503 | 100Mbps | 112Mbps | 12.6% | 0.8s |
 
 * The data for 1000 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 23.6% | 13MB | 1003 | 200Mbps | 239Mbps | 16.6% | 0.8s |
 
 * The data for 1500 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 38.6% | 20MB | 1503 | 300Mbps | 360Mbps | 17% | 0.8s |
 
 * The data for 2000 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 65.2% | 34MB | 2003 | 400Mbps | 480Mbps | 22% | 0.8s |
 
 * The data for 2500 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | SRS | 72.9% | 38MB | 2503 | 500Mbps | 613Mbps | 24% | 0.8s |
 
@@ -240,7 +242,7 @@ Let's start performance benchmark.
 ```
 * The data for 500 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | nginx-rtmp | 8.3% | 13MB | 502 | 100Mbps | 120Mbps | 16.3% | 0.8s |
 
@@ -252,25 +254,25 @@ Let's start performance benchmark.
 
 * The data for 1500 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | nginx-rtmp | 42.3% | 25MB | 1502 | 300Mbps | 400Mbps | 31% | 0.8s |
 
 * The data for 2000 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | nginx-rtmp | 48.9% | 31MB | 2002 | 400Mbps | 520Mbps | 33% | 0.8s |
 
 * The data for 2500 clients:
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | nginx-rtmp | 74.2% | 37MB | 2502 | 500Mbps | 580Mbps | 35% | 0.8s |
 
 ## Performance Compare
 
-| Server | CPU | Mem | Conn | ENbps | ANbps | st-load | Lat |
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
 | ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
 | nginx-rtmp | 8.3% | 13MB | 502 | 100Mbps | 120Mbps | 16.3% | 0.8s |
 | SRS | 9.0% | 8MB | 503 | 100Mbps | 112Mbps | 12.6% | 0.8s |
