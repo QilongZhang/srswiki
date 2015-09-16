@@ -128,7 +128,7 @@ vhost __defaultVhost__ {
 SRS的转码参数全是FFMPEG的参数，有些参数SRS做了自定义，见下表。
 
 | SRS参数 | FFMPEG参数 | 实例 | 说明 |
-| ------ | ---------- | ----- | -- |
+| ------ | ---------- | ----- | ---- |
 | vcodec | vcodec | ffmpeg ... -vcodec libx264 ... | 指定视频编码器 | 
 | vbitrate | b:v | ffmpeg ... -b:v 500000 ... | 输出的视频码率 | 
 | vfps | r | ffmpeg ... -r 25 ... | 输出的视频帧率 | 
