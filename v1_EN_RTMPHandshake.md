@@ -10,10 +10,12 @@ While the server connected by flash player only support simple handshake, the fl
 
 The handshake summary: | 
 
-| Handshake | Depends | Flash player<br/>codec | Client | SRS | Use Scenario |
+| Handshake | Depends | Player | Client | SRS | Use Scenario |
 | ---- | ----- | --------------------- | -------- | --- | ---- |
 | Simple<br/>Standard | No | vp6+mp3/speex | All | Supprted | Encoder, for examle, FMLE, FFMPEG |
 | Complex | openssl | vp6+mp3/speex<br/>h264+aac | Flash | Supported | Flash player requires complex handshake to play h.264+aac codec. |
+
+Player(Flash palyer): The supported codec for flash player.
 
 Notes: When compile SRS with SSL, SRS will try complex, then simple.
 

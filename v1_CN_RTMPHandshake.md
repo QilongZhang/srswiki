@@ -10,10 +10,12 @@ Flash播放器连接服务器时，若服务器只支持简单握手，则无法
 
 下表为总结：
 
-| 方式 | 依赖库 | Flash播放<br/>支持的编码 | 常见客户端 | SRS | 用途 |
+| 方式 | 依赖库 | 播放器 | 客户端 | SRS | 用途 |
 | ---- | ----- | --------------------- | -------- | --- | ---- |
 | Simple<br/>标准握手<br/>简单握手 | 不依赖 | vp6+mp3/speex | 所有 | 支持 | 编码器，譬如FMLE，FFMPEG<br/>srs-librtmp（两种都支持，推荐用Simple） |
 | Complex<br/>复杂握手 | openssl | vp6+mp3/speex<br/>h264+aac | Flash | 支持 | 主要是Flash播放器播放H264+aac流时需要，<br/>其他都不需要 |
+
+播放器(Flash Player): Flash播放器支持的编码。
 
 备注：SRS编译时若打开了SSL选项（--with-ssl），SRS会先使用复杂握手和客户端握手，若复杂握手失败，则尝试简单握手。
 
