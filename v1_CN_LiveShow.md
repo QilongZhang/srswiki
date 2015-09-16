@@ -2,11 +2,11 @@
 
 公用机器是SRS提供给所有人使用的服务器。
 
-## 官方域名
+## SRS Website
 
 感谢JOHNNY贡献了[ossrs.net](http://www.ossrs.net)域名
 
-## 默认演示流轮播
+## Virtual Live Stream
 
 大家可以上传电影到SRS服务器，有100GB空间，上传的电影经过转码，我审核通过后，会自动加入播放列表，随机轮流播放。
 
@@ -24,7 +24,7 @@
 
 感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
 
-## 用途
+## Usage For Public server
 
 SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这些机器的用处：
 * 大家测试和学习使用
@@ -34,32 +34,15 @@ SRS感谢捐赠，我用这些捐赠购买公网阿里云的虚拟主机。这�
 * 版本发布
 * 发行版本下载
 
-## 机器信息
+## Machine Info
 
 这些机器的列表：
 
-<table>
-<tr>
-<th>供应商</th>
-<th>公网IP</th>
-<th>地域</th>
-<th>开放</th>
-<th>带宽</th>
-<th>磁盘</th>
-<th>链接</th>
-</tr>
-<tr>
-<td><a href="http://www.aliyun.com/product/ecs/">阿里云</a></td>
-<td>182.92.80.26</td>
-<td>北京</td>
-<td>开放</td>
-<td>5Mbps</td>
-<td>100GB</td>
-<td><a href="http://182.92.80.26" target="_blank">SRS</a></td>
-</tr>
-</table>
+| 供应商 | 公网IP | 地域 | 开放 | 带宽 | 磁盘 | 链接
+| ---- | ---- | ---- | ----- | --- | ---- | ---- |
+| <a href="http://www.aliyun.com/product/ecs/">阿里云</a> | 182.92.80.26 | 北京 | 开放 | 5Mbps | 100GB | <a href="http://182.92.80.26" target="_blank">SRS</a>|
 
-## SRS配置
+## SRS Config
 
 公用机器上配置了默认vhost，有需要可以联系我添加新的vhost。
 

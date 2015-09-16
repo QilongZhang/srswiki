@@ -22,7 +22,7 @@ You can play the virtual live stream of SRS：
 * [Origin RTMP, directly play on public server of SRS](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
 * [Origin HLS, directly play on public server of SRS](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
-Thanks [verycloud.cn](http://verycloud.cn/) to speedup the virtual live stream of SRS.
+Thanks [verycloud.cn](http://verycloud.cn/) to  | speedup the virtual live stream of SRS.
 
 ## Usage For Public server
 
@@ -38,26 +38,8 @@ Thanks all to donate SRS, I spent these money to buy the virtual public server. 
 
 The public server list：
 
-<table>
-<tr>
-<th>Provider</th>
-<th>Internet IP</th>
-<th>City</th>
-<th>Open?</th>
-<th>Bandwidth</th>
-<th>Disk</th>
-<th>Link</th>
-</tr>
-<tr>
-<td><a href="http://www.aliyun.com/product/ecs/">Aliyun</a></td>
-<td>182.92.80.26</td>
-<td>Beijing</td>
-<td>Open</td>
-<td>5Mbps</td>
-<td>100GB</td>
-<td><a href="http://182.92.80.26" target="_blank">SRS</a></td>
-</tr>
-</table>
+| Provider | Internet IP | City | Open? | Bandwidth | Disk | Link | | 
+| <a href="http://www.aliyun.com/product/ecs/">Aliyun</a> | 182.92.80.26 | Beijing | Open | 5Mbps | 100GB | <a href="http://182.92.80.26" target="_blank">SRS</a> |
 
 ## SRS Config
 
