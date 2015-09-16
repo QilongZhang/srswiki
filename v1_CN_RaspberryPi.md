@@ -1,8 +1,8 @@
-# 树莓派下的SRS性能指标
+# Performance benchmark for SRS on RaspberryPi
 
 SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能指标。
 
-## 准备服务器
+## Install SRS
 
 树莓派下安装和运行SRS，有以下方式：
 * 编译源站和运行：SRS在arm/raspberrypi下的编译，参考[Build: RaspberryPi](v1_CN_SrsLinuxArm#raspberrypi)
@@ -10,7 +10,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 查看SRS是否启动：`/etc/init.d/srs status`
 
-## 测试环境
+## RaspberryPi
 
 本次测试的硬件环境如下：
 * [RaspberryPi](http://item.jd.com/1014155.html)：B型
@@ -48,7 +48,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 环境搭建参考：[SRS: arm](v1_CN_SrsLinuxArm#raspberrypi)
 
-## OS设置
+## OS settings
 
 超过1024的连接数测试需要打开linux的限制。且必须以root登录和执行。
 
@@ -64,7 +64,7 @@ SRS支持arm，在树莓派上成功运行，本文记录了树莓派的性能�
 
 * 注意：启动服务器前必须确保连接数限制打开。
 
-## 推流和观看
+## Publish and Play
 
 可以使用centos虚拟机推流到srs，或者用FMLE推流到raspberry-pi的SRS。假设raspberry-pi服务器的ip是`192.168.1.105`，请换成你自己的服务器ip。
 
@@ -94,7 +94,7 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:8A:EC:94
 * SRS的流地址：`rtmp://192.168.1.105:1935/live/livestream`
 * 通过srs-players播放SRS流：[播放SRS的流](http://winlinvip.github.io/simple-rtmp-server/trunk/research/players/srs_player.html?server=192.168.1.105&port=1935&app=live&stream=livestream&vhost=192.168.1.105&autostart=true)
 
-## 客户端
+## Client
 
 使用linux工具模拟RTMP客户端访问，参考：[st-load](https://github.com/winlinvip/st-load)
 
@@ -103,7 +103,7 @@ st_rtmp_load为RTMP流负载测试工具，单个进程可以模拟1000至3000�
 * 编译：`./configure && make`
 * 启动参数：`./objs/st_rtmp_load -c 800 -r <rtmp_url>`
 
-## 开始负载测试前
+## Record Data
 
 测试前，记录SRS的各项资源使用指标，用作对比。
 
@@ -142,36 +142,17 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 * 数据见下表：
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>1.0%</td>
-  <td>3MB</td>
-  <td>3</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>不适用</td>
-  <td>0.8秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 1.0% | 3MB | 3 | 不适用 | 不适用 | 不适用 | 0.8秒 |
 
-期望带宽：譬如测试码率为200kbps时，若模拟1000个并发，应该是1000*200kbps=200Mbps带宽。
+期望带宽(E带宽)：譬如测试码率为200kbps时，若模拟1000个并发，应该是1000*200kbps=200Mbps带宽。
 
-实际带宽：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
+实际带宽(A带宽)：指服务器实际的吞吐率，服务器性能下降时（譬如性能瓶颈），可能达不到期望的带宽，会导致客户端拿不到足够的数据，也就是卡顿的现象。
 
-客户端延迟：粗略计算即为客户端的缓冲区长度，假设服务器端的缓冲区可以忽略不计。一般RTMP直播播放器的缓冲区设置为0.8秒，由于网络原因，或者服务器性能问题，数据未能及时发送到客户端，就会造成客户端卡（缓冲区空），网络好时将队列中的数据全部给客户端（缓冲区变大）。
+客户端延迟(延迟)：粗略计算即为客户端的缓冲区长度，假设服务器端的缓冲区可以忽略不计。一般RTMP直播播放器的缓冲区设置为0.8秒，由于网络原因，或者服务器性能问题，数据未能及时发送到客户端，就会造成客户端卡（缓冲区空），网络好时将队列中的数据全部给客户端（缓冲区变大）。
 
-st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客户端没有问题，若模拟1000个，则CPU简单除以2。
+st-load(srs-bench/sb)：指模拟500客户端的st-load的平均CPU。一般模拟1000个客户端没有问题，若模拟1000个，则CPU简单除以2。
 
 其中，“不适用”是指还未开始测试带宽，所以未记录数据。
 
@@ -191,125 +172,31 @@ st-load：指模拟500客户端的st-load的平均CPU。一般模拟1000个客�
 
 * 客户端开始播放30秒以上，并记录数据：
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>17%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.6Mbps</td>
-  <td>1.3%</td>
-  <td>1.7秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 17% | 1.4MB | 11 | 2.53Mbps | 2.6Mbps | 1.3% | 1.7秒 |
 
 * 再启动一个模拟10个连接的st-load，共20个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23%</td>
-  <td>2MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.5Mbps</td>
-  <td>2.3%</td>
-  <td>1.5秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 23% | 2MB | 21 | 4.83Mbps | 5.5Mbps | 2.3% | 1.5秒 |
 
 * 再启动一个模拟10个连接的st-load，共30个连接。
 * 客户端开始播放30秒以上，并记录数据：
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>50%</td>
-  <td>4MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8Mbps</td>
-  <td>4%</td>
-  <td>2秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 50% | 4MB | 31 | 7.1Mbps | 8Mbps | 4% | 2秒 |
 
 SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>17%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.6Mbps</td>
-  <td>1.3%</td>
-  <td>1.7秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23%</td>
-  <td>2MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.5Mbps</td>
-  <td>2.3%</td>
-  <td>1.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>50%</td>
-  <td>4MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8Mbps</td>
-  <td>4%</td>
-  <td>2秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 17% | 1.4MB | 11 | 2.53Mbps | 2.6Mbps | 1.3% | 1.7秒 |
+| SRS | 23% | 2MB | 21 | 4.83Mbps | 5.5Mbps | 2.3% | 1.5秒 |
+| SRS | 50% | 4MB | 31 | 7.1Mbps | 8Mbps | 4% | 2秒 |
 
 可见，RaspberryPi B型，SD卡class4，能支持的并发，SRS使用EPOLL时，码率为230kbps时，大约为xxxx个，网络带宽占用xxxxMbps。
 
@@ -322,80 +209,16 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 * 客户端：flash播放器，RTMP协议，st-load（RTMP负载测试工具）
 
 数据如下：
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU占用率</td>
-  <td>内存</td>
-  <td>连接数</td>
-  <td>期望带宽</td>
-  <td>实际带宽</td>
-  <td>st-load</td>
-  <td>客户端延迟</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>5%</td>
-  <td>2MB</td>
-  <td>2</td>
-  <td>1Mbps</td>
-  <td>1.2Mbps</td>
-  <td>0%</td>
-  <td>1.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>20%</td>
-  <td>2MB</td>
-  <td>12</td>
-  <td>6.9Mbps</td>
-  <td>6.6Mbps</td>
-  <td>2.8%</td>
-  <td>2秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>36%</td>
-  <td>2.4MB</td>
-  <td>22</td>
-  <td>12.7Mbps</td>
-  <td>12.9Mbps</td>
-  <td>2.3%</td>
-  <td>2.5秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>47%</td>
-  <td>3.1MB</td>
-  <td>32</td>
-  <td>18.5Mbps</td>
-  <td>18.5Mbps</td>
-  <td>5%</td>
-  <td>2.0秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>62%</td>
-  <td>3.4MB</td>
-  <td>42</td>
-  <td>24.3Mbps</td>
-  <td>25.7Mbps</td>
-  <td>9.3%</td>
-  <td>3.4秒</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>85%</td>
-  <td>3.7MB</td>
-  <td>52</td>
-  <td>30.2Mbps</td>
-  <td>30.7Mbps</td>
-  <td>13.6%</td>
-  <td>3.5秒</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
+| ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
+| SRS | 5% | 2MB | 2 | 1Mbps | 1.2Mbps | 0% | 1.5秒 |
+| SRS | 20% | 2MB | 12 | 6.9Mbps | 6.6Mbps | 2.8% | 2秒 |
+| SRS | 36% | 2.4MB | 22 | 12.7Mbps | 12.9Mbps | 2.3% | 2.5秒 |
+| SRS | 47% | 3.1MB | 32 | 18.5Mbps | 18.5Mbps | 5% | 2.0秒 |
+| SRS | 62% | 3.4MB | 42 | 24.3Mbps | 25.7Mbps | 9.3% | 3.4秒 |
+| SRS | 85% | 3.7MB | 52 | 30.2Mbps | 30.7Mbps | 13.6% | 3.5秒 |
 
-## cubieboard性能
+## cubieboard benchmark
 
 cubieboard是armv7 CPU，双核，性能比树莓派强很多。初步测试SRS支持300个客户端，占用一个CPU80%，可惜没有多进程；要是有多进程，能支持600个客户端，比较实用了。
 

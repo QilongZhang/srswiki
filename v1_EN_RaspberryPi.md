@@ -126,28 +126,17 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 * The table
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>1.0%</td>
-  <td>3MB</td>
-  <td>3</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 1.0% | 3MB | 3 | - | - | - | 0.8s |
+
+Memory(Mem): The memory usage for server.
+
+Clients(Conn): The cocurrency connections to server.
+
+ExpectNbps(ENbps): The expect network bandwidth in Xbps.
+
+ActualNbps(ANbps): The actual network bandwidth in Xbps.
 
 ## Benchmark SRS 0.9.38
 
@@ -159,200 +148,42 @@ Let's start performance benchmark.
 ./objs/st_rtmp_load -c 10 -r rtmp://192.168.1.105:1935/live/livestream >/dev/null &
 ```
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>17%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.6Mbps</td>
-  <td>1.3%</td>
-  <td>1.7s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 17% | 1.4MB | 11 | 2.53Mbps | 2.6Mbps | 1.3% | 1.7s |
 
 * The data for 20 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23%</td>
-  <td>2MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.5Mbps</td>
-  <td>2.3%</td>
-  <td>1.5s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 23% | 2MB | 21 | 4.83Mbps | 5.5Mbps | 2.3% | 1.5s |
 
 * The data for 30 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>50%</td>
-  <td>4MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8Mbps</td>
-  <td>4%</td>
-  <td>2s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 50% | 4MB | 31 | 7.1Mbps | 8Mbps | 4% | 2s |
 
 The summary for RaspberryPi Type B, 230kbps performance:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>17%</td>
-  <td>1.4MB</td>
-  <td>11</td>
-  <td>2.53Mbps</td>
-  <td>2.6Mbps</td>
-  <td>1.3%</td>
-  <td>1.7s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23%</td>
-  <td>2MB</td>
-  <td>21</td>
-  <td>4.83Mbps</td>
-  <td>5.5Mbps</td>
-  <td>2.3%</td>
-  <td>1.5s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>50%</td>
-  <td>4MB</td>
-  <td>31</td>
-  <td>7.1Mbps</td>
-  <td>8Mbps</td>
-  <td>4%</td>
-  <td>2s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 17% | 1.4MB | 11 | 2.53Mbps | 2.6Mbps | 1.3% | 1.7s |
+| SRS | 23% | 2MB | 21 | 4.83Mbps | 5.5Mbps | 2.3% | 1.5s |
+| SRS | 50% | 4MB | 31 | 7.1Mbps | 8Mbps | 4% | 2s |
 
 ## Benchmark SRS 0.9.72
 
 The benchmark for RTMP SRS 0.9.72.
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>5%</td>
-  <td>2MB</td>
-  <td>2</td>
-  <td>1Mbps</td>
-  <td>1.2Mbps</td>
-  <td>0%</td>
-  <td>1.5s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>20%</td>
-  <td>2MB</td>
-  <td>12</td>
-  <td>6.9Mbps</td>
-  <td>6.6Mbps</td>
-  <td>2.8%</td>
-  <td>2s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>36%</td>
-  <td>2.4MB</td>
-  <td>22</td>
-  <td>12.7Mbps</td>
-  <td>12.9Mbps</td>
-  <td>2.3%</td>
-  <td>2.5s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>47%</td>
-  <td>3.1MB</td>
-  <td>32</td>
-  <td>18.5Mbps</td>
-  <td>18.5Mbps</td>
-  <td>5%</td>
-  <td>2.0s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>62%</td>
-  <td>3.4MB</td>
-  <td>42</td>
-  <td>24.3Mbps</td>
-  <td>25.7Mbps</td>
-  <td>9.3%</td>
-  <td>3.4s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>85%</td>
-  <td>3.7MB</td>
-  <td>52</td>
-  <td>30.2Mbps</td>
-  <td>30.7Mbps</td>
-  <td>13.6%</td>
-  <td>3.5s</td>
-</tr>
-</table>
+| Server | CPU | Mem | Conn | ENbps | ANbps | sb | Lat |
+| ------ | --- | ------ | ------- | ---------- | ---------- | ------- | ------- |
+| SRS | 5% | 2MB | 2 | 1Mbps | 1.2Mbps | 0% | 1.5s |
+| SRS | 20% | 2MB | 12 | 6.9Mbps | 6.6Mbps | 2.8% | 2s |
+| SRS | 36% | 2.4MB | 22 | 12.7Mbps | 12.9Mbps | 2.3% | 2.5s |
+| SRS | 47% | 3.1MB | 32 | 18.5Mbps | 18.5Mbps | 5% | 2.0s |
+| SRS | 62% | 3.4MB | 42 | 24.3Mbps | 25.7Mbps | 9.3% | 3.4s |
+| SRS | 85% | 3.7MB | 52 | 30.2Mbps | 30.7Mbps | 13.6% | 3.5s |
 
 ## cubieboard benchmark
 
