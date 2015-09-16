@@ -1,11 +1,11 @@
-# SRS应用于linux-arm
+# SRS for linux-arm
 
 arm芯片上，如何使用SRS？一般arm上的硬件可以获取到h.264裸码流。有几个方案：
 * arm推送RTMP到SRS：从arm上将h.264裸码流包装成flv流，使用[srs-librtmp](v1_CN_SrsLibrtmp)，或者librtmp，将flv格式的包以RTMP发送到SRS。
 * arm推送h.264裸码流到SRS（目前还不支持）：可以使用自定义协议，可以不必使用RTMP这么复杂的协议，使用socket将h.264裸码流发送到SRS，SRS服务器端将裸码流打包成RTMP分发。
 * arm上运行SRS：在arm上运行SRS，使用上面两个方案将h.264裸码流推送到arm上的SRS。客户端或者RTMP边缘直接从arm上的SRS源站取RTMP流。
 
-## 为何ARM上跑SRS？
+## Why run SRS on ARM?
 
 ARM跑SRS主要原因：
 * arm设备，像摄像头，比较多，譬如一万个摄像头，如果有中心服务器，都往上面推，中心服务器就完蛋了。
@@ -17,7 +17,7 @@ SRS在ARM上主要是源站：
 * 不需要http-parser，nginx，ffmpeg，api-server，边缘，其他都不需要。
 * 支持RTMP/HLS，RTMP需要ssl，HLS不需要额外的支持，只是切片成文件。
 
-## Ubuntu编译arm-srs
+## Ubuntu Cross Build SRS
 
 srs使用的默认gcc/g++编译出来的srs无法在arm下使用，必须使用arm编译器。
 
@@ -31,16 +31,15 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 
 编译工具对比：
 
-<table>
-<tr><th>x86</th><th>armhf(v7cpu)</th></tr>
-<tr><td>gcc</td><td>arm-linux-gnueabi-gcc</td></tr>
-<tr><td>g++</td><td>arm-linux-gnueabi-g++</td></tr>
-<tr><td>ar</td><td>arm-linux-gnueabi-ar</td></tr>
-<tr><td>as</td><td>arm-linux-gnueabi-as</td></tr>
-<tr><td>ld</td><td>arm-linux-gnueabi-ld</td></tr>
-<tr><td>ranlib</td><td>arm-linux-gnueabi-ranlib</td></tr>
-<tr><td>strip</td><td>arm-linux-gnueabi-strip</td></tr>
-</table>
+| x86 | armhf(v7cpu) |
+| --- | ------- |
+| gcc | arm-linux-gnueabi-gcc |
+| g++ | arm-linux-gnueabi-g++ |
+| ar | arm-linux-gnueabi-ar |
+| as | arm-linux-gnueabi-as |
+| ld | arm-linux-gnueabi-ld |
+| ranlib | arm-linux-gnueabi-ranlib |
+| strip | arm-linux-gnueabi-strip | 
 
 交叉编译SRS：
 
@@ -69,7 +68,7 @@ not stripped
 
 备注：srs都是使用静态链接，不依赖st/ssl，链接.a库。
 
-## 使用其他交叉编译工具
+## Use Other Cross build tools
 
 ubuntu12默认的arm交叉编译工具是arm7，如何使用自己的交叉编译工具：
 * 修改configure后编译。
@@ -131,16 +130,15 @@ deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rp
 
 可以改为下表的Source：
 
-<table>
-<tr><th>说明</th><th>Source</th></tr>
-<tr><td>东软</td><td>deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-<tr><td>清华</td><td>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>成都凝聚工作室</td><td>deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>华中科大</td><td>deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-<tr><td>中科大</td><td>deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>中山大学</td><td>deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi</td></tr>
-<tr><td>新加坡大学</td><td>deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi</td></tr>
-</table>
+| 说明 | Source |
+| --- | ------- |
+| 东软 | deb http://mirrors.neusoft.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi |
+| 清华 | deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi |
+| 成都凝聚工作室 | deb http://raspbian.cnssuestc.org/raspbian/ wheezy main contrib non-free rpi |
+| 华中科大 | deb http://mirrors.hustunique.com/raspbian/raspbian wheezy main contrib non-free rpi |
+| 中科大 | deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi |
+| 中山大学 | deb http://mirror.sysu.edu.cn/raspbian/ wheezy main contrib non-free rpi |
+| 新加坡大学 | deb http://mirror.nus.edu.sg/raspbian/raspbian wheezy main contrib non-free rpi | 
 
 然后更新安装源：
 
@@ -156,7 +154,7 @@ sudo apt-get update
 
 就可以生成安装包，譬如`objs/SRS-RaspberryPi7-armv6l-0.9.37.zip`。
 
-## Armel和Armhf
+## Armel and Armhf
 
 有时候总是碰到`Illegal instruction`，那是编译器的目标CPU太高，虚拟机的CPU太低。
 参考：[http://stackoverflow.com/questions/14253626/arm-cross-compiling](http://stackoverflow.com/questions/14253626/arm-cross-compiling)
@@ -212,7 +210,7 @@ root@debian-armhf:~# ./test
 hello, arm!
 ```
 
-## 安装QEMU虚拟机环境
+## Install QEMU
 
 qemu可以模拟arm的环境，可以在CentOS/Ubuntu下先编译安装qemu（yum/aptitude安装的好像不全）。
 
@@ -239,7 +237,7 @@ qemu两个重要的工具：
 /usr/local/bin/qemu-system-arm
 ```
 
-## 启动ARM虚拟机
+## Start ARM VM
 
 网络安装很慢，而且有时候安装失败。可以直接使用别人提供的已经安装好的镜像，QEMU的磁盘文件和引导镜像。
 
@@ -263,7 +261,7 @@ qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress \
 * 用户名：user
 * 用户密码：user
 
-## ARM虚拟机网络设置
+## ARM VM Network
 
 arm虚拟机如何对外提供服务？桥接的方式很麻烦，有一种简单的方式，就是[端口转发](http://en.wikibooks.org/wiki/QEMU/Networking)，启动qemu时指定宿主host的端口和虚拟机的端口绑定，这样就可以访问宿主的端口来访问虚拟机了。譬如：
 
@@ -300,14 +298,14 @@ not stripped
 
 若srs编译时指定arm，则可以启动，推流和观看宿主的19350，就是arm提供服务了。
 
-## ARM和License
+## The SRS License for ARM
 
 ARM设备大多是消费类产品，所以对于依赖的软件授权（License）很敏感，nginx-rtmp/crtmpserver都是GPL授权，
 对于需要目标用户在国外的ARM设备还是SRS的MIT-License更商业友好。
 
 License也是很多ARM厂商考虑SRS的原因。
 
-## 其他：网络安装debian-arm虚拟机
+## Debian ARM VM
 
 除了直接使用已有的镜像，还可以通过网络安装（但网络比较慢，安装过程容易出错，不推荐）。
 

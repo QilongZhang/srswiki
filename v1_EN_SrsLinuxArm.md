@@ -24,16 +24,15 @@ sudo aptitude install -y gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
 
 The tools compare:
 
-<table>
-<tr><th>x86</th><th>armhf(v7cpu)</th></tr>
-<tr><td>gcc</td><td>arm-linux-gnueabi-gcc</td></tr>
-<tr><td>g++</td><td>arm-linux-gnueabi-g++</td></tr>
-<tr><td>ar</td><td>arm-linux-gnueabi-ar</td></tr>
-<tr><td>as</td><td>arm-linux-gnueabi-as</td></tr>
-<tr><td>ld</td><td>arm-linux-gnueabi-ld</td></tr>
-<tr><td>ranlib</td><td>arm-linux-gnueabi-ranlib</td></tr>
-<tr><td>strip</td><td>arm-linux-gnueabi-strip</td></tr>
-</table>
+| x86 | armhf(v7cpu) |
+| --- | ------------- |
+| gcc | arm-linux-gnueabi-gcc |
+| g++ | arm-linux-gnueabi-g++ |
+| ar | arm-linux-gnueabi-ar |
+| as | arm-linux-gnueabi-as |
+| ld | arm-linux-gnueabi-ld |
+| ranlib | arm-linux-gnueabi-ranlib |
+| strip | arm-linux-gnueabi-strip | 
 
 Cross build:
 
