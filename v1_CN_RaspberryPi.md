@@ -209,6 +209,7 @@ SRS使用epoll时，RaspberryPi B型，230Kbps视频性能测试如下表：
 * 客户端：flash播放器，RTMP协议，st-load（RTMP负载测试工具）
 
 数据如下：
+
 | Server | CPU | Mem | Conn | E带宽 | A带宽 | sb | 延迟 |
 | ------ | --- | ---- | ---- | ---- | ---- | ---- | ----- |
 | SRS | 5% | 2MB | 2 | 1Mbps | 1.2Mbps | 0% | 1.5秒 |
