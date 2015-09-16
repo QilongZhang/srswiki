@@ -90,17 +90,16 @@ Remark: The `http` of vhost of SRS1 renamed to `http_static`, similar to global 
 
 Only some MIME is supported:
 
-<table>
-<tr><th>File ext name</th><th>Content-Type</th></tr>
-<tr><td>.ts</td><td>Content-Type: video/MP2T;charset=utf-8</td>
-<tr><td>.m3u8</td><td>Content-Type: application/x-mpegURL;charset=utf-8</td>
-<tr><td>.json</td><td>Content-Type: application/json;charset=utf-8</td>
-<tr><td>.css</td><td>Content-Type: text/css;charset=utf-8</td>
-<tr><td>.swf</td><td>Content-Type: application/x-shockwave-flash;charset=utf-8</td>
-<tr><td>.js</td><td>Content-Type: text/javascript;charset=utf-8</td>
-<tr><td>.xml</td><td>Content-Type: text/xml;charset=utf-8</td>
-<tr><td>Others</td><td>Content-Type: text/html;charset=utf-8</td>
-</table>
+| File ext name | Content-Type |
+| ------------- | -----------  |
+| .ts | Content-Type: video/MP2T;charset=utf-8 |
+| .m3u8 | Content-Type: application/x-mpegURL;charset=utf-8 |
+| .json | Content-Type: application/json;charset=utf-8 |
+| .css | Content-Type: text/css;charset=utf-8 |
+| .swf | Content-Type: application/x-shockwave-flash;charset=utf-8 |
+| .js | Content-Type: text/javascript;charset=utf-8 |
+| .xml | Content-Type: text/xml;charset=utf-8 |
+| Others | Content-Type: text/html;charset=utf-8 |
 
 ## Method
 

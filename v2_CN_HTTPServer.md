@@ -6,7 +6,7 @@ SRS内嵌了一个web服务器，支持api和简单的文件分发。
 
 SRS的内置HTTP服务器已经参考GO的HTTP模块重写，满足商用要求，可以当作web服务器使用。参考：[#277](https://github.com/simple-rtmp-server/srs/issues/277)
 
-## 应用场景
+## Use Scenario
 
 它的定位很简单：智能手机上的摄像头。
 
@@ -100,17 +100,16 @@ vhost your_vhost {
 
 支持少量的MIME，见下表。
 
-<table>
-<tr><th>文件扩展名</th><th>Content-Type</th></tr>
-<tr><td>.ts</td><td>Content-Type: video/MP2T;charset=utf-8</td>
-<tr><td>.m3u8</td><td>Content-Type: application/x-mpegURL;charset=utf-8</td>
-<tr><td>.json</td><td>Content-Type: application/json;charset=utf-8</td>
-<tr><td>.css</td><td>Content-Type: text/css;charset=utf-8</td>
-<tr><td>.swf</td><td>Content-Type: application/x-shockwave-flash;charset=utf-8</td>
-<tr><td>.js</td><td>Content-Type: text/javascript;charset=utf-8</td>
-<tr><td>.xml</td><td>Content-Type: text/xml;charset=utf-8</td>
-<tr><td>其他</td><td>Content-Type: text/html;charset=utf-8</td>
-</table>
+| 文件扩展名 | Content-Type |
+| ------------- | -----------  |
+| .ts | Content-Type: video/MP2T;charset=utf-8 |
+| .m3u8 | Content-Type: application/x-mpegURL;charset=utf-8 |
+| .json | Content-Type: application/json;charset=utf-8 |
+| .css | Content-Type: text/css;charset=utf-8 |
+| .swf | Content-Type: application/x-shockwave-flash;charset=utf-8 |
+| .js | Content-Type: text/javascript;charset=utf-8 |
+| .xml | Content-Type: text/xml;charset=utf-8 |
+| 其他 | Content-Type: text/html;charset=utf-8 |
 
 ## Method
 
