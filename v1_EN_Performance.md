@@ -174,38 +174,10 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 * The table
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>1.0%</td>
-  <td>3MB</td>
-  <td>3</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>0.7%</td>
-  <td>8MB</td>
-  <td>2</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 1.0% | 3MB | 3 | - | - | - | 0.8s |
+| nginx-rtmp | 0.7% | 8MB | 2 | - | - | - | 0.8s |
 
 ## Benchmark SRS
 
@@ -219,128 +191,33 @@ Let's start performance benchmark.
 
 * The data:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>9.0%</td>
-  <td>8MB</td>
-  <td>503</td>
-  <td>100Mbps</td>
-  <td>112Mbps</td>
-  <td>12.6%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 9.0% | 8MB | 503 | 100Mbps | 112Mbps | 12.6% | 0.8s |
 
 * The data for 1000 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23.6%</td>
-  <td>13MB</td>
-  <td>1003</td>
-  <td>200Mbps</td>
-  <td>239Mbps</td>
-  <td>16.6%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 23.6% | 13MB | 1003 | 200Mbps | 239Mbps | 16.6% | 0.8s |
 
 * The data for 1500 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>38.6%</td>
-  <td>20MB</td>
-  <td>1503</td>
-  <td>300Mbps</td>
-  <td>360Mbps</td>
-  <td>17%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 38.6% | 20MB | 1503 | 300Mbps | 360Mbps | 17% | 0.8s |
 
 * The data for 2000 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>65.2%</td>
-  <td>34MB</td>
-  <td>2003</td>
-  <td>400Mbps</td>
-  <td>480Mbps</td>
-  <td>22%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 65.2% | 34MB | 2003 | 400Mbps | 480Mbps | 22% | 0.8s |
 
 * The data for 2500 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>72.9%</td>
-  <td>38MB</td>
-  <td>2503</td>
-  <td>500Mbps</td>
-  <td>613Mbps</td>
-  <td>24%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| SRS | 72.9% | 38MB | 2503 | 500Mbps | 613Mbps | 24% | 0.8s |
 
 ## Benchmark NginxRTMP
 
@@ -353,242 +230,48 @@ Let's start performance benchmark.
 ```
 * The data for 500 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>8.3%</td>
-  <td>13MB</td>
-  <td>502</td>
-  <td>100Mbps</td>
-  <td>120Mbps</td>
-  <td>16.3%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| nginx-rtmp | 8.3% | 13MB | 502 | 100Mbps | 120Mbps | 16.3% | 0.8s |
 
 * The data for 1000 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency</td>
 </tr>
-  <td>nginx-rtmp</td>
-  <td>27.3%</td>
-  <td>19MB</td>
-  <td>1002</td>
-  <td>200Mbps</td>
-  <td>240Mbps</td>
-  <td>30%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| nginx-rtmp | 27.3% | 19MB | 1002 | 200Mbps | 240Mbps | 30% | 0.8s |
 
 * The data for 1500 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>42.3%</td>
-  <td>25MB</td>
-  <td>1502</td>
-  <td>300Mbps</td>
-  <td>400Mbps</td>
-  <td>31%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| nginx-rtmp | 42.3% | 25MB | 1502 | 300Mbps | 400Mbps | 31% | 0.8s |
 
 * The data for 2000 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>48.9%</td>
-  <td>31MB</td>
-  <td>2002</td>
-  <td>400Mbps</td>
-  <td>520Mbps</td>
-  <td>33%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| nginx-rtmp | 48.9% | 31MB | 2002 | 400Mbps | 520Mbps | 33% | 0.8s |
 
 * The data for 2500 clients:
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>74.2%</td>
-  <td>37MB</td>
-  <td>2502</td>
-  <td>500Mbps</td>
-  <td>580Mbps</td>
-  <td>35%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| nginx-rtmp | 74.2% | 37MB | 2502 | 500Mbps | 580Mbps | 35% | 0.8s |
 
 ## Performance Compare
 
-<table>
-<tr>
-  <td>Server</td>
-  <td>CPU</td>
-  <td>Memory</td>
-  <td>Clients</td>
-  <td>ExpectNbps</td>
-  <td>ActualNbps</td>
-  <td>st-load</td>
-  <td>Latency</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>8.3%</td>
-  <td>13MB</td>
-  <td>502</td>
-  <td>100Mbps</td>
-  <td>120Mbps</td>
-  <td>16.3%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>9.0%</td>
-  <td>8MB</td>
-  <td>503</td>
-  <td>100Mbps</td>
-  <td>112Mbps</td>
-  <td>12.6%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>27.3%</td>
-  <td>19MB</td>
-  <td>1002</td>
-  <td>200Mbps</td>
-  <td>240Mbps</td>
-  <td>30%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>23.6%</td>
-  <td>13MB</td>
-  <td>1003</td>
-  <td>200Mbps</td>
-  <td>239Mbps</td>
-  <td>16.6%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>42.3%</td>
-  <td>25MB</td>
-  <td>1502</td>
-  <td>300Mbps</td>
-  <td>400Mbps</td>
-  <td>31%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>38.6%</td>
-  <td>20MB</td>
-  <td>1503</td>
-  <td>300Mbps</td>
-  <td>360Mbps</td>
-  <td>17%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>48.9%</td>
-  <td>31MB</td>
-  <td>2002</td>
-  <td>400Mbps</td>
-  <td>520Mbps</td>
-  <td>33%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>65.2%</td>
-  <td>34MB</td>
-  <td>2003</td>
-  <td>400Mbps</td>
-  <td>480Mbps</td>
-  <td>22%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>nginx-rtmp</td>
-  <td>74.2%</td>
-  <td>37MB</td>
-  <td>2502</td>
-  <td>500Mbps</td>
-  <td>580Mbps</td>
-  <td>35%</td>
-  <td>0.8s</td>
-</tr>
-<tr>
-  <td>SRS</td>
-  <td>72.9%</td>
-  <td>38MB</td>
-  <td>2503</td>
-  <td>500Mbps</td>
-  <td>613Mbps</td>
-  <td>24%</td>
-  <td>0.8s</td>
-</tr>
-</table>
+| Server | CPU | Memory | Clients | ExpectNbps | ActualNbps | st-load | Latency |
+| ------ | --- | ------- | ------ | ---------- | ---------- | ------ | -------- |
+| nginx-rtmp | 8.3% | 13MB | 502 | 100Mbps | 120Mbps | 16.3% | 0.8s |
+| SRS | 9.0% | 8MB | 503 | 100Mbps | 112Mbps | 12.6% | 0.8s |
+| nginx-rtmp | 27.3% | 19MB | 1002 | 200Mbps | 240Mbps | 30% | 0.8s |
+| SRS | 23.6% | 13MB | 1003 | 200Mbps | 239Mbps | 16.6% | 0.8s |
+| nginx-rtmp | 42.3% | 25MB | 1502 | 300Mbps | 400Mbps | 31% | 0.8s |
+| SRS | 38.6% | 20MB | 1503 | 300Mbps | 360Mbps | 17% | 0.8s |
+| nginx-rtmp | 48.9% | 31MB | 2002 | 400Mbps | 520Mbps | 33% | 0.8s |
+| SRS | 65.2% | 34MB | 2003 | 400Mbps | 480Mbps | 22% | 0.8s |
+| nginx-rtmp | 74.2% | 37MB | 2502 | 500Mbps | 580Mbps | 35% | 0.8s |
+| SRS | 72.9% | 38MB | 2503 | 500Mbps | 613Mbps | 24% | 0.8s |
 
 ## Performance Banchmark 4k
 
