@@ -127,44 +127,19 @@ vhost __defaultVhost__ {
 
 SRS的转码参数全是FFMPEG的参数，有些参数SRS做了自定义，见下表。
 
-<table>
-<tr>
-<th>SRS参数</th><th>FFMPEG参数</th><th>实例</th><th>说明</th>
-</tr>
-<tr>
-<td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>指定视频编码器</td>
-</tr>
-<tr>
-<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>输出的视频码率</td>
-</tr>
-<tr>
-<td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>输出的视频帧率</td>
-</tr>
-<tr>
-<td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>输出的视频宽度x高度，以及宽高比</td>
-</tr>
-<tr>
-<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>编码线程数</td>
-</tr>
-<tr>
-<td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>编码x264的profile</td>
-</tr>
-<tr>
-<td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>编码x264的preset</td>
-</tr>
-<tr>
-<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libaacplus ...</td><td>音频编码器</td>
-</tr>
-<tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>音频输出码率。libaacplus：16-72k</td>
-</tr>
-<tr>
-<td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>音频采样率</td>
-</tr>
-<tr>
-<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>音频声道</td>
-</tr>
-</table>
+| SRS参数 | FFMPEG参数 | 实例 | 说明 |
+| ------ | ---------- | ----- | -- |
+| vcodec | vcodec | ffmpeg ... -vcodec libx264 ... | 指定视频编码器 | 
+| vbitrate | b:v | ffmpeg ... -b:v 500000 ... | 输出的视频码率 | 
+| vfps | r | ffmpeg ... -r 25 ... | 输出的视频帧率 | 
+| vwidth/vheight | s | ffmpeg ... -s 400x300 -aspect 400:300 ... | 输出的视频宽度x高度，以及宽高比 | 
+| vthreads | threads | ffmpeg ... -threads 8 ... | 编码线程数 | 
+| vprofile | profile:v | ffmpeg ... -profile:v high ... | 编码x264的profile | 
+| vpreset | preset | ffmpeg ... -preset medium ... | 编码x264的preset | 
+| acodec | acodec | ffmpeg ... -acodec libaacplus ... | 音频编码器 | 
+| abitrate | b:a | ffmpeg ... -b:a 70000 ... | 音频输出码率。libaacplus：16-72k | 
+| asample_rate | ar | ffmpeg ... -ar 44100 ... | 音频采样率 | 
+| achannels | ac | ffmpeg ... -ac 2 ... | 音频声道 |
 
 另外，还有三个是可以加其他ffmpeg参数：
 * vfilter：添加在vcodec之前的滤镜参数。

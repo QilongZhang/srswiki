@@ -125,44 +125,18 @@ vhost __defaultVhost__ {
 
 All params of SRS transcode is for FFMPEG, and SRS rename some parameters:
 
-<table>
-<tr>
-<th>SRS</th><th>FFMPEG</th><th>Exammple</th><th>Description</th>
-</tr>
-<tr>
-<td>vcodec</td><td>vcodec</td><td>ffmpeg ... -vcodec libx264 ...</td><td>The codec to use.</td>
-</tr>
-<tr>
-<td>vbitrate</td><td>b:v</td><td>ffmpeg ... -b:v 500000 ...</td><td>The bitrate in kbps(for SRS) or bps(for FFMPEG) to output transcode stream.</td>
-</tr>
-<tr>
-<td>vfps</td><td>r</td><td>ffmpeg ... -r 25 ...</td><td>The output framerate.</td>
-</tr>
-<tr>
-<td>vwidth/vheight</td><td>s</td><td>ffmpeg ... -s 400x300 -aspect 400:300 ...</td><td>The output video size, the width x height and the aspect set to width:height.</td>
-</tr>
-<tr>
-<td>vthreads</td><td>threads</td><td>ffmpeg ... -threads 8 ...</td><td>The encode thread for x264.</td>
-</tr>
-<tr>
-<td>vprofile</td><td>profile:v</td><td>ffmpeg ... -profile:v high ...</td><td>The profile for x264.</td>
-</tr>
-<tr>
-<td>vpreset</td><td>preset</td><td>ffmpeg ... -preset medium ...</td><td>The preset for x264.</td>
-</tr>
-<tr>
-<td>acodec</td><td>acodec</td><td>ffmpeg ... -acodec libaacplus ...</td><td>The codec for audio.</td>
-</tr>
-<tr>
-<td>abitrate</td><td>b:a</td><td>ffmpeg ... -b:a 70000 ...</td><td>The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k</td>
-</tr>
-<tr>
-<td>asample_rate</td><td>ar</td><td>ffmpeg ... -ar 44100 ...</td><td>The audio sample rate.</td>
-</tr>
-<tr>
-<td>achannels</td><td>ac</td><td>ffmpeg ... -ac 2 ...</td><td>THe audio channel.</td>
-</tr>
-</table>
+| SRS | FFMPEG | Exammple | Description |
+| ---- | ------ | ------- | ------------ |
+| vcodec | vcodec | ffmpeg ... -vcodec libx264 ... | The codec to use.|vbitrate | b:v | ffmpeg ... -b:v 500000 ... | The bitrate in kbps(for SRS) or bps(for FFMPEG) to output transcode stream.|
+| vfps | r | ffmpeg ... -r 25 ... | The output framerate.|
+| vwidth/vheight | s | ffmpeg ... -s 400x300 -aspect 400:300 ... | The output video size, the width x height and the aspect set to width:height.|
+| vthreads | threads | ffmpeg ... -threads 8 ... | The encode thread for x264.|
+| vprofile | profile:v | ffmpeg ... -profile:v high ... | The profile for x264.|
+| vpreset | preset | ffmpeg ... -preset medium ... | The preset for x264.|
+| acodec | acodec | ffmpeg ... -acodec libaacplus ... | The codec for audio.|
+| abitrate | b:a | ffmpeg ... -b:a 70000 ... | The bitrate in kbps(for SRS) and bps(for FFMPEG) for output audio. For libaacplus：16-72k|
+| asample_rate | ar | ffmpeg ... -ar 44100 ... | The audio sample rate.|
+| achannels | ac | ffmpeg ... -ac 2 ... | THe audio channel. |
 
 There are more parameter of SRS:
 * vfilter：Parameters added before the vcodec, for the FFMPEG filters.
