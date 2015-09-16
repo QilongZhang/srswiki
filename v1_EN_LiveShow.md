@@ -38,7 +38,8 @@ Thanks all to donate SRS, I spent these money to buy the virtual public server. 
 
 The public server list：
 
-| Provider | Internet IP | City | Open? | Bandwidth | Disk | Link | | 
+| Provider | Internet IP | City | Open? | Bandwidth | Disk | Link |
+| ---- | ---- | ---- | ----- | --- | ---- | ---- |
 | <a href="http://www.aliyun.com/product/ecs/">Aliyun</a> | 182.92.80.26 | Beijing | Open | 5Mbps | 100GB | <a href="http://182.92.80.26" target="_blank">SRS</a> |
 
 ## SRS Config
