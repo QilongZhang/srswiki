@@ -92,7 +92,6 @@ Dev code: OuXuli, my college teacher, the founder of [Qgzxol.com][qgzxol].
 * [plan]Support HLS edge server, read [#466][bug466].
 * [plan]Support HLS realtime latency mode, read [#468][bug468].
 * [plan]Support Integration with Kafka/Spark Big-Data system, read [#467][bug467].
-* [plan]Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
 * [plan]Others.
 
 [SRS Release 3.0][3.0release] plan to release at 2016.12.
@@ -104,6 +103,7 @@ SRS 3.0+ features backlog:
 * HTTP Streaming：[HTTP API Authencation][bug83]，[Callback for HTTP][bug52]，[HTTP-MP4 Streaming][bug174]
 * Enhanced RTMP: [Forward Call][bug106]，[RTMP Token][bug71]，[AMF3][bug131]，[SharedObject][bug132]，[Multiple Streams per Connection][bug156]，[Forward With extra params][bug163]，[Edge with extra params][bug164]，[RTMFP][bug93]
 * Realtime：[FRSC][bug90]，[UDP in cluster][bug94]
+* Research SRS.GO implementation, read [SRS.GO project][srs_go] and the [GO Benchmark][blog_go].
 
 SRS features: the best or nothing!
 
