@@ -84,7 +84,7 @@ vhost __defaultVhost__ {
 
 The `http_api` enable the HTTP API, and `stats` used for SRS to stat the system info, including:
 
-* network: Used for heartbeat to report the network info, where heartbeat used to report system info. Please read [Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Heartbeat)
+* network: Used for heartbeat to report the network info, where heartbeat used to report system info. Please read [Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Heartbeat)
 * disk: Used to stat the specified disk iops. You can use command `cat /proc/diskstats` to get the right disk names, for instance, xvda.
 
 ## Start
@@ -596,9 +596,9 @@ The DVR is a subset of Update.
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
-[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
-[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
-[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-query
-[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-update
-[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-vhost
-[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-dvr
+[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw
+[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#reload
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-update
+[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-vhost
+[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-dvr

@@ -69,7 +69,7 @@ vhost __defaultVhost__ {
 
 The `http_api` enable the HTTP API, and `stats` used for SRS to stat the system info, including:
 
-* network: Used for heartbeat to report the network info, where heartbeat used to report system info. Please read [Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Heartbeat)
+* network: Used for heartbeat to report the network info, where heartbeat used to report system info. Please read [Heartbeat](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Heartbeat)
 * disk: Used to stat the specified disk iops. You can use command `cat /proc/diskstats` to get the right disk names, for instance, xvda.
 
 ## Start

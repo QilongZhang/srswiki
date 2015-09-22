@@ -6,7 +6,7 @@ Note: Never use SRS HTTP server for online service.
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
-<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_CN_Git)
+<strong>Step 1, get SRS.</strong> For detail, read [GIT](v1_EN_Git)
 
 ```bash
 git clone https://github.com/simple-rtmp-server/srs

@@ -83,7 +83,7 @@ vhost __defaultVhost__ {
         # it's strongly recommend to open the debug_srs_upnode,
         # when connect to upnode, it will take the debug info, 
         # for example, the id, source id, pid.
-        # please see: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLog
+        # please see: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLog
         # default: on
         debug_srs_upnode    on;
     }

@@ -6,18 +6,21 @@ if [[ 0 -eq $? ]]; then
     sed -i '' "s/v2_EN_/v2_CN_/g" v*_CN_*
     sed -i '' "s/v3_EN_/v3_CN_/g" v*_CN_*
     echo "all EN correct to CN"
+
+    sed -i '' "s/v1_CN_/v1_EN_/g" v*_EN_*
+    sed -i '' "s/v2_CN_/v2_EN_/g" v*_EN_*
+    sed -i '' "s/v3_CN_/v3_EN_/g" v*_EN_*
+    echo "all CN correct to EN"
 else
     sed -i "s/v1_EN_/v1_CN_/g" v*_CN_*
     sed -i "s/v2_EN_/v2_CN_/g" v*_CN_*
     sed -i "s/v3_EN_/v3_CN_/g" v*_CN_*
     echo "all EN correct to CN"
+
+    sed -i "s/v1_CN_/v1_EN_/g" v*_EN_*
+    sed -i "s/v2_CN_/v2_EN_/g" v*_EN_*
+    sed -i "s/v3_CN_/v3_EN_/g" v*_EN_*
+    echo "all CN correct to EN"
 fi
-
-exit 0
-
-sed -i '' "s/v1_CN_/v1_EN_/g" v*_EN_*
-sed -i '' "s/v2_CN_/v2_EN_/g" v*_EN_*
-sed -i '' "s/v3_CN_/v3_EN_/g" v*_EN_*
-echo "all CN correct to EN"
 
 echo "ok"

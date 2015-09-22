@@ -108,7 +108,7 @@ The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
 
 The dvr apply is a filter which enable or disable the dvr of specified stream.
 This feature is similar to nginx control module, but stronger than nginx.
-User can use [http raw api](v3_CN_HTTPApi) to control when to dvr specified stream.
+User can use [http raw api](v3_EN_HTTPApi) to control when to dvr specified stream.
 Please read [351](https://github.com/simple-rtmp-server/srs/issues/459#issuecomment-134983742).
 
 The following exmaple dvr `live/stream1`和`live/stream2`, the config:
