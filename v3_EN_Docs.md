@@ -24,9 +24,9 @@ Is there a public server for an SRS demo? I provide a server with public ip and 
 
 Who is using SRS? What can you use SRS for, for your project and customers? Please read [Applications](v1_EN_Sample)
 
-## [Build SRS](v2_EN_Build)
+## [Build SRS](v3_EN_Build)
 
-How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please read [Build SRS](v2_EN_Build)
+How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please read [Build SRS](v3_EN_Build)
 
 ## [SRS Init.d Script](v1_EN_LinuxService)
 

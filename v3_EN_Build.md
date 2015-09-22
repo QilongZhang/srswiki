@@ -134,13 +134,13 @@ The options of configure:
 * --with-ssl support RTMP complex handshake. Please read [RTMP Handshake](v1_EN_RTMPHandshake)。
 * --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](v2_EN_DeliveryHLS)
 * --with-hds support output HDS for Adobe OSMF. See: [HDS](v2_EN_DeliveryHDS)
-* --with-dvr dvr RTMP to FLV file. Please read [DVR](v2_EN_DVR)
+* --with-dvr dvr RTMP to FLV file. Please read [DVR](v3_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
 * --with-http-callback support http callback, for authentication, statistic and event handler. Please read [HTTP callback](v2_EN_HTTPCallback)
-* --with-http-api support http api. Please read [HTTP API](v2_EN_HTTPApi)
+* --with-http-api support http api. Please read [HTTP API](v3_EN_HTTPApi)
 * --with-http-server enable embeded http server to delivery HTTP files and stream. Please read [HTTP Server](v2_EN_HTTPServer)
 * --with-stream-caster enable the stream caster, read [Stream Caster](v2_EN_Streamer)
-* --with-kafka report log to Kafka cluster for big-data. Please read [Kafka](v3_CN_Kafka)
+* --with-kafka report log to Kafka cluster for big-data. Please read [Kafka](v3_EN_Kafka)
 * --with-ffmpeg build FFMPEG for transcode, remux and ingest. Please read [FFMPEG](v2_EN_FFMPEG)
 * --with-transcode live stream transcode. Please read [FFMPEG](v2_EN_FFMPEG)
 * --with-ingest ingest file, stream or device to RTMP to SRS. Please read [Ingest](v1_EN_Ingest)
@@ -154,7 +154,7 @@ The options of configure:
 * --with-gprof use gprof, which will hurt performance. Please read [gprof](v1_EN_GPROF)
 * --with-librtmp client librtmp. Please read [srs-librtmp](v2_EN_SrsLibrtmp)
 * --with-arm-ubuntu12 cross build SRS for arm on ubuntu12. Please read [srs-arm](v1_EN_SrsLinuxArm)
-* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make. Please read [Build: jobs](v2_EN_Build#jobs-speedup-build)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make. Please read [Build: jobs](v3_EN_Build#jobs-speedup-build)
 * --static use static link for arm. Please read [ARM](v1_EN_SrsLinuxArm)
 
 The preset of configure:

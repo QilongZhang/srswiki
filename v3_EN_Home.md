@@ -6,7 +6,7 @@ SRS is industrial-strength live streaming cluster, for the best conceptual integ
 
 ## Downloading
 
-Get SRS from the [downloads page][website] of the project website. If you'd like to build SRS from scratch, visit [[Build SRS | v1_EN_Build]].
+Get SRS from the [downloads page][website] of the project website. If you'd like to build SRS from scratch, visit [[Build SRS | v3_EN_Build]].
 
 SRS runs on Linuxs, for instace, Centos and Ubuntu, and x86, x86-64, ARM and MIPS is ok. MacOS only supports code edit and build. SRS does not support other Unix-like system, neither windows. SRS build on the coroutine library [state-threads][st], which simplify the complex protocol imlementations.
 

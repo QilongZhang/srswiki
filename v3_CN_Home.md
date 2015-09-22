@@ -6,7 +6,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 
 ## Downloading
 
-SRS发布版本提供安装包下载，请访问[**ossrs.net**][website]。若您需要自己编译SRS，请参考[[编译SRS | v1_CN_Build]]。
+SRS发布版本提供安装包下载，请访问[**ossrs.net**][website]。若您需要自己编译SRS，请参考[[编译SRS | v3_CN_Build]]。
 
 SRS主要运行在Linux系统上，譬如Centos和Ubuntu，包括x86、x86-64、ARM和MIPS。MacOS支持代码编辑和编译。其他Unix-like系统不支持，SRS也不支持Windows系统。SRS的系统偏好主要是由于[state-threads][st]导致的，它极大的简化了服务器在复杂协议的处理。
 

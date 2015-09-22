@@ -18,7 +18,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](v2_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v3_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl && make

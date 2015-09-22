@@ -7,7 +7,7 @@ SRS supports DVR RTMP stream to flv file.
 Use `--with-dvr` to enable dvr, while `--without-dvr` to disable it.
 
 For information about the dvr option, read 
-[Build](v2_EN_Build)
+[Build](v3_EN_Build)
 
 ## Config
 

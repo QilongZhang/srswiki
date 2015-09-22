@@ -136,10 +136,10 @@ SRS的配置(configure)参数说明如下：
 * --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](v1_CN_RTMPHandshake)。
 * --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](v2_CN_DeliveryHLS)
 * --with-hds 支持HDS输出，OSMF可以播放HDS流。参考：[HDS](v2_CN_DeliveryHDS)
-* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](v2_CN_DVR)
+* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](v3_CN_DVR)
 * --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
 * --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](v2_CN_HTTPCallback)
-* --with-http-api 打开HTTP管理接口。参考：[HTTP API](v2_CN_HTTPApi)
+* --with-http-api 打开HTTP管理接口。参考：[HTTP API](v3_CN_HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](v2_CN_HTTPServer)
 * --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](v2_CN_Streamer)
 * --with-kafka 打开Kafka支持，SRS将关键数据对接到Kafka集群。参考：[Kafka](v3_CN_Kafka)
@@ -156,7 +156,7 @@ SRS的配置(configure)参数说明如下：
 * --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](v1_CN_GPROF)
 * --with-librtmp 客户端推流/播放库，参考[srs-librtmp](v2_CN_SrsLibrtmp)
 * --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](v1_CN_SrsLinuxArm)
-* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](v2_CN_Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
+* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](v3_CN_Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
 * --static 使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](v1_CN_SrsLinuxArm)
 
 预设集：

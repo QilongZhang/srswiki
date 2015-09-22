@@ -6,7 +6,7 @@ SRS支持将RTMP流录制成flv文件。
 
 DVR的编译选项为`--with-dvr`，关闭DVR的选项为`--without-dvr`。
 
-参考：[Build](v2_CN_Build)
+参考：[Build](v3_CN_Build)
 
 ## Config
 
