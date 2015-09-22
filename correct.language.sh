@@ -2,12 +2,12 @@
 
 uname -s |grep "Darwin" >/dev/null 2>&1
 if [[ 0 -eq $? ]]; then
-    sed -i '' "s/v1_EN_/v1_CN_/g" v*_CN_*.md
+    PARAM="''"
 else
-    SED="sed -i"
+    PARAM=""
 fi
-echo "sed is $SED"
 
+sed -i $PARAM "s/v1_EN_/v1_CN_/g" v*_CN_*
 exit 0
 $SED "s/v2_EN_/v2_CN_/g" v*_CN_*
 $SED "s/v3_EN_/v3_CN_/g" v*_CN_*
