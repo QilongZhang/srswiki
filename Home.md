@@ -18,6 +18,11 @@ Please select your language:
 * [SRS 3.0 English][en3]
 * [SRS 3.0 Chinese][cn3]
 
+## Links
+
+* [lemonbinary: srswiki](http://blog.csdn.net/lemonbinary/article/details/48574739)
+* [zjqlovell: srs](http://blog.csdn.net/zjqlovell/article/category/5710003)
+
 Winlin 2014.5
 
 [en1]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Home
