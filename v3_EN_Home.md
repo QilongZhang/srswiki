@@ -2,7 +2,7 @@
 
 ## SRS Overview
 
-SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v1_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_CN_DeliveryHDS]], [[DVR to FLV | v1_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v1_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v2_CN_SampleHttpFlvCluster]]、[[Kafka | v3_EN_Kafka]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_CN_Security]], [[HTTP API | v1_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
+SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v3_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_CN_DeliveryHDS]], [[DVR to FLV | v3_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v3_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v3_CN_SampleHttpFlvCluster]]、[[Kafka | v3_EN_Kafka]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_CN_Security]], [[HTTP API | v3_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
 
 ## Downloading
 
@@ -30,8 +30,8 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [[Delivery HTTP FLV|v2_CN_SampleHttpFlv]]: How to remux RTMP to HTTP FLV stream.
 * [[Delivery HDS|v2_CN_DeliveryHDS]]: How to delivery HDS using SRS.
 * [[Transcode|v1_CN_SampleFFMPEG]]: How to transcode the RTMP stream.
-* [[Forward|v1_CN_SampleForward]]: How to forward RTMP to other servers.
-* [[Low latency|v1_CN_SampleRealtime]]: How to deploy the low latency SRS.
+* [[Forward|v3_CN_SampleForward]]: How to forward RTMP to other servers.
+* [[Low latency|v3_CN_SampleRealtime]]: How to deploy the low latency SRS.
 * [[Ingest|v1_CN_SampleIngest]]: How to ingest other streams to SRS.
 * [[HTTP Server|v1_CN_SampleHTTP]]: How to deploy SRS as HTTP server.
 * [[SRS DEMO|v1_CN_SampleDemo]]: How to deploy the demo of SRS.
@@ -40,8 +40,8 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 
 ***Cluster Guides:***
 
-* [[RTMP Cluster|v1_CN_SampleRTMPCluster]]: Deploy the RTMP cluster for CDN.
-* [[FLV Cluster|v2_CN_SampleHttpFlvCluster]]: Deploy the HTTP-FLV cluser for CDN.
+* [[RTMP Cluster|v3_CN_SampleRTMPCluster]]: Deploy the RTMP cluster for CDN.
+* [[FLV Cluster|v3_CN_SampleHttpFlvCluster]]: Deploy the HTTP-FLV cluser for CDN.
 * [[VHOST|v1_CN_RtmpUrlVhost]]: Support multiple customers in the same cluster by vhost.
 * [[Reload|v1_CN_Reload]]: Apply changed config by reload.
 * [[Tracable Log|v1_CN_SrsLog]]: Debug and trace user in cluster log.
@@ -50,7 +50,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 ***Integration Guides:***
 
 * [[HTTP Callback | v1_CN_HTTPCallback]]: Use HTTP callback to hook the events of SRS.
-* [[HTTP API | v1_CN_HTTPApi]]: Get system data from HTTP API of SRS.
+* [[HTTP API | v3_CN_HTTPApi]]: Get system data from HTTP API of SRS.
 * [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: Use bandwidth api to test the available bandwidth for SRS.
 * [[Special Control | v3_EN_SpecialControl]]: Some special control config for expert.
 

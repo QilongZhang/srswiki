@@ -63,8 +63,8 @@ vhost your_vhost {
         #       dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
         #       =>
         #       dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v2_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_CN_DVR#custom-path
         # default: ./objs/nginx/html/[app]/[stream].[timestamp].flv
         dvr_path        ./objs/nginx/html/[app]/[stream].[timestamp].flv;
         # the dvr plan. canbe:

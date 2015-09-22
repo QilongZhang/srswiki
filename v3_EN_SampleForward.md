@@ -29,7 +29,7 @@ git pull
 ./configure --disable-all --with-ssl && make
 ```
 
-<strong>Step 3, config master SRS.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 3, config master SRS.</strong> For detail, read [Forward](v3_EN_Forward)
 
 Save bellow as config, or use `conf/forward.master.conf`:
 
@@ -48,13 +48,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, start master SRS.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 4, start master SRS.</strong> For detail, read [Forward](v3_EN_Forward)
 
 ```bash
 ./objs/srs -c conf/forward.master.conf
 ```
 
-<strong>Step 5, config slave SRS.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 5, config slave SRS.</strong> For detail, read [Forward](v3_EN_Forward)
 
 Save bellow as config, or use `conf/forward.slave.conf`:
 
@@ -68,7 +68,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 6, start slave SRS.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 6, start slave SRS.</strong> For detail, read [Forward](v3_EN_Forward)
 
 ```bash
 ./objs/srs -c conf/forward.slave.conf
@@ -82,7 +82,7 @@ tcp        0      0 0.0.0.0:1935                0.0.0.0:*                   LIST
 tcp        0      0 0.0.0.0:19350               0.0.0.0:*                   LISTEN      7834/srs
 ```
 
-<strong>Step 7, start encoder.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 7, start encoder.</strong> For detail, read [Forward](v3_EN_Forward)
 
 Use FFMPEG to publish stream:
 
@@ -108,7 +108,7 @@ The stream in SRS:
 * Play stream on master: rtmp://192.168.1.170/live/livestream
 * Play strema on slave: rtmp://192.168.1.170:19350/live/livestream
 
-<strong>Step 8, play the stream on master.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 8, play the stream on master.</strong> For detail, read [Forward](v3_EN_Forward)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -118,7 +118,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 9, play the stream on slave.</strong> For detail, read [Forward](v1_EN_Forward)
+<strong>Step 9, play the stream on slave.</strong> For detail, read [Forward](v3_EN_Forward)
 
 RTMP url is: `rtmp://192.168.1.170:19350/live/livestream`
 

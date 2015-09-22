@@ -87,6 +87,6 @@ vhost dvr.srs.com {
 
 ## ATC
 
-[RTMP ATC](v1_CN_RTMP-ATC)开启时，RTMP流分发的时间戳矫正机制变为关闭，不对时间戳做任何处理。
+[RTMP ATC](v3_CN_RTMP-ATC)开启时，RTMP流分发的时间戳矫正机制变为关闭，不对时间戳做任何处理。
 
 Winlin 2015.4
