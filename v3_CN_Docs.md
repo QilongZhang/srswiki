@@ -120,6 +120,10 @@ SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么
 
 使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v1_CN_Forward)
 
+## [对接Kafka/Spark集群](v3_CN_Kafka)
+
+SRS如何对接到Kafka/Spark大数据系统？如何支持超大规模SRS集群的实时分析，动态调度，日志分析？请参考：[对接Kafka/Spark集群](v3_CN_Kafka)
+
 ## [Security禁用或允许连接](v2_CN_Security)
 
 如何使用SRS的安全策略？如何禁止客户端推流到SRS，但是允许播放？如何允许某些IP的客户端？参考：[Security禁用或允许连接](v2_CN_Security)
