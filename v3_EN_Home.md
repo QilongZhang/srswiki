@@ -2,7 +2,7 @@
 
 ## SRS Overview
 
-SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v1_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_CN_DeliveryHDS]], [[DVR to FLV | v1_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v1_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v2_CN_SampleHttpFlvCluster]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_CN_Security]], [[HTTP API | v1_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
+SRS is industrial-strength live streaming cluster, for the best conceptual integrity and the simplest implementation. SRS provides variety of inputs, for example, [[Push RTMP to SRS | v1_EN_SampleRTMP ]], [[Push RTSP/UDP/FLV to SRS | v2_EN_Streamer]], [[Pull Stream to SRS | v1_EN_Ingest]]. SRS can transform the RTMP to other protocols or deliveries, for example, [[RTMP Transcode | v1_EN_SampleFFMPEG]], [[Forward to Other Servers | v1_EN_SampleForward]], [[Remux to HTTP-FLV | v2_EN_SampleHttpFlv]], [[Remux to HLS | v1_EN_SampleHLS]], [[Remux to HDS | v2_CN_DeliveryHDS]], [[DVR to FLV | v1_CN_DVR]]. SRS canbe used in CDN for large stream clusters, for example, [[RTMP Cluster | v1_CN_SampleRTMPCluster]], [[VHOST | v1_CN_RtmpUrlVhost]], [[Reload | v1_CN_Reload]], [[HTTP-FLV Cluster | v2_CN_SampleHttpFlvCluster]]、[[Kafka | v3_EN_Kafka]]. Futhermore, SRS provides apis, for example, [[HTTP Callback | v1_CN_HTTPCallback]], [[Security | v2_CN_Security]], [[HTTP API | v1_CN_HTTPApi]], [[RTMP Bandwidth Test | v1_CN_BandwidthTestTool]].
 
 ## Downloading
 
@@ -45,6 +45,7 @@ SRS is easy to run on a machine, or multiple machines, to run the cluster. SRS i
 * [[VHOST|v1_CN_RtmpUrlVhost]]: Support multiple customers in the same cluster by vhost.
 * [[Reload|v1_CN_Reload]]: Apply changed config by reload.
 * [[Tracable Log|v1_CN_SrsLog]]: Debug and trace user in cluster log.
+* [[Kafka|v3_CN_Kafka]]: SRS report to Kafka/Spark big-data system.
 
 ***Integration Guides:***
 
