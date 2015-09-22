@@ -2,7 +2,7 @@ Welcome to the simple-rtmp-server wiki!
 
 ## [How To Ask Questions](v1_EN_HowToAskQuestion)
 
-To ask questions or file bug reports, please read [HowToAskQuestion](v1_EN_HowToAskQuestion)
+To ask questions or file bug reports. Please read [HowToAskQuestion](v1_EN_HowToAskQuestion)
 
 ## [SRS Product](v1_EN_Product)
 
@@ -10,7 +10,7 @@ What's the product plan of SRS? What are the key features? Please read [SRS Prod
 
 ## [Product Comparison](v2_EN_Compare)
 
-For a comparison of SRS and other streaming media servers, please read [Product Comparison](v2_EN_Compare)
+For a comparison of SRS and other streaming media servers. Please read [Product Comparison](v2_EN_Compare)
 
 ## [SRS Features](v2_EN_Features)
 
@@ -182,31 +182,31 @@ Does SRS support VOD? What about the FLV VOD stream? How to support time-shift f
 
 ## [GPERF Memory and Performance Analysis](v1_EN_GPERF)
 
-How to figure out memory leaks? Why use gmc? Why isn't valgrind supported by SRS? How to figure out performance bottlenecks? Please see: [GPERF Memory and Performance Analysis](v1_EN_GPERF)
+How to figure out memory leaks? Why use gmc? Why isn't valgrind supported by SRS? How to figure out performance bottlenecks? Please read [GPERF Memory and Performance Analysis](v1_EN_GPERF)
 
 ## [GPROF Performance Analysis](v1_EN_GPROF)
 
-How to figure out the performance issues of SRS? How to use gprof? How to draw performance graphs using dot? Please see: [GPROF Performance Analysis](v1_EN_GPROF)
+How to figure out the performance issues of SRS? How to use gprof? How to draw performance graphs using dot? Please read [GPROF Performance Analysis](v1_EN_GPROF)
 
 ## [Perf Performance Analysis](v1_EN_Perf)
 
-How to use the kernel performance tool perf to figure out the performance issues of SRS? Please see: [Perf Performance Analysis](v1_EN_Perf)
+How to use the kernel performance tool perf to figure out the performance issues of SRS? Please read [Perf Performance Analysis](v1_EN_Perf)
 
 ## [C++ IDE](v2_EN_IDE)
 
-How to choose a C++ IDE? We recommend the UltimateC++ or Clion. Please see: [C++ IDE](v2_EN_IDE)
+How to choose a C++ IDE? We recommend the UltimateC++ or Clion. Please read [C++ IDE](v2_EN_IDE)
 
 ## [GIT Usage](v1_EN_Git)
 
-How to get the stable release of SRS? How to merge master with your branch? How to use CSDN mirror in China? Please see: [GIT Usage](v1_EN_Git)
+How to get the stable release of SRS? How to merge master with your branch? How to use CSDN mirror in China? Please read [GIT Usage](v1_EN_Git)
 
 ## [Usage: RTMP](v1_EN_SampleRTMP)
 
-Usage: How to use SRS to deliver RTMP? Please see: [Usage: RTMP](v1_EN_SampleRTMP)
+Usage: How to use SRS to deliver RTMP? Please read [Usage: RTMP](v1_EN_SampleRTMP)
 
 ## [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
 
-Usage: How to use SRS to deliver RTMP cluster? Please see: [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
+Usage: How to use SRS to deliver RTMP cluster? Please read [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
 
 ## [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
@@ -218,38 +218,38 @@ Usage: How to use SRS to deliver HTTP FLV live streaming cluster? Please read [U
 
 ## [Usage: HLS](v1_EN_SampleHLS)
 
-Usage: How to use SRS to deliver HLS? Please see: [Usage: HLS](v1_EN_SampleHLS)
+Usage: How to use SRS to deliver HLS? Please read [Usage: HLS](v1_EN_SampleHLS)
 
 ## [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
-Usage: How to use SRS to transcode stream (non H.264+AAC) to deliver HLS? Please see: [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
+Usage: How to use SRS to transcode stream (non H.264+AAC) to deliver HLS? Please read [Usage: Transcode2HLS](v1_EN_SampleTranscode2HLS)
 
 ## [Usage: FFMPEG](v1_EN_SampleFFMPEG)
 
-Usage: How to use SRS to transcode streams? How to transcode codecs for HLS? Please see: [Usage: FFMPEG](v1_EN_SampleFFMPEG)
+Usage: How to use SRS to transcode streams? How to transcode codecs for HLS? Please read [Usage: FFMPEG](v1_EN_SampleFFMPEG)
 
 ## [Usage: Ingest](v1_EN_SampleIngest)
 
-Usage: How to ingest files to live stream? How to ingest existing streams to SRS? How to use SRS for virtual live streaming? How to ingest RTSP to SRS? Please see: [Usage: Ingest](v1_EN_SampleIngest)
+Usage: How to ingest files to live stream? How to ingest existing streams to SRS? How to use SRS for virtual live streaming? How to ingest RTSP to SRS? Please read [Usage: Ingest](v1_EN_SampleIngest)
 
 ## [Usage: Forward](v1_EN_SampleForward)
 
-Usage: How to use SRS to build tiny clusters? How to build an origin backup cluster when you only have one stream? How to forward streams to other servers from SRS? How to forward streams to a backup server from SRS? Please see: [Usage: Forward](v1_EN_SampleForward)
+Usage: How to use SRS to build tiny clusters? How to build an origin backup cluster when you only have one stream? How to forward streams to other servers from SRS? How to forward streams to a backup server from SRS? Please read [Usage: Forward](v1_EN_SampleForward)
 
 ## [Usage: Realtime](v2_EN_SampleRealtime)
 
-Usage: How to decrease the latency to <1s? How to configure SRS in minimum latency mode? Please see: [Usage: Realtime](v2_EN_SampleRealtime)
+Usage: How to decrease the latency to <1s? How to configure SRS in minimum latency mode? Please read [Usage: Realtime](v2_EN_SampleRealtime)
 
 ## [Usage: ARM](v1_EN_SampleARM)
 
-Usage: How to run SRS on ARM linux? Please see: [Usage: ARM](v1_EN_SampleARM)
+Usage: How to run SRS on ARM linux? Please read [Usage: ARM](v1_EN_SampleARM)
 
 ## [Usage: HTTP](v2_EN_SampleHTTP)
 
-Usage: How to deliver HLS without an external HTTP server? How to use the embedded HTTP server of SRS? Please see: [Usage: HTTP](v2_EN_SampleHTTP)
+Usage: How to deliver HLS without an external HTTP server? How to use the embedded HTTP server of SRS? Please read [Usage: HTTP](v2_EN_SampleHTTP)
 
 ## [Usage: DEMO](v1_EN_SampleDemo)
 
-Usage: How to deploy the demo of SRS? The SRS demo provides players, flash encoders, live meeting demo, flash HLS player, and transcoding. Please see: [Usage: DEMO](v1_EN_SampleDemo)
+Usage: How to deploy the demo of SRS? The SRS demo provides players, flash encoders, live meeting demo, flash HLS player, and transcoding. Please read [Usage: DEMO](v1_EN_SampleDemo)
 
 Winlin 2015.5
