@@ -356,7 +356,8 @@ st在arm上有个bug，原因是setjmp.h的布局变了。st在setjmp后，开�
 实际上是因为i386和x86_64的setjmp是汇编写的，st自己实现的，所以这个偏移量是有效的。
 但是对于arm，st是使用的默认的setjmp，即libc的函数，而libc的这个jmpbuf是有变更的，
 在2.4以上甚至都不是公开的了（这是为何st要自己实现的原因），具体参考：
-[bug #182](https://github.com/simple-rtmp-server/srs/issues/182)
+[bug #182](https://github.com/simple-rtmp-server/srs/issues/182), 
+[bug #190](https://github.com/simple-rtmp-server/srs/issues/190)
 
 ```bash
 // md.h
