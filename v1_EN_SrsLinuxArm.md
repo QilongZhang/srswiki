@@ -171,7 +171,8 @@ I fixed a bug for ARM in st, the setjmp.h layout changed:
 * x86_64 offset of sp is 6：env[0].__jmp_buf[6]=(long)sp
 * armhf(v7cpu) sp offset is 8, but st use 20.
 
-Read [bug #182](https://github.com/simple-rtmp-server/srs/issues/182)
+Read [bug #182](https://github.com/simple-rtmp-server/srs/issues/182), 
+[bug #190](https://github.com/simple-rtmp-server/srs/issues/190)
 
 ```bash
 // md.h
