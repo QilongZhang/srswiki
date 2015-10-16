@@ -64,4 +64,16 @@ Use configure when make failed.
 
 Please read [Pro Git](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
 
+## Fetch and Push
+
+Please read [Pro Git](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
+
+## Patch
+
+You can format patch and email to `winlin at vip.126.com`, for example, patch SRS2:
+
+```
+git format-patch origin/2.0release
+```
+
 Winlin 2014.11
