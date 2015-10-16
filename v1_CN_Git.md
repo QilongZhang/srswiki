@@ -86,7 +86,7 @@ git pull
 可以生成patch后发送邮件给`winlin at vip.126.com`，例如针对SRS2的patch：
 
 ```
-git format-patch 2.0release
+git format-patch origin/2.0release
 ```
 
 Winlin 2014.3
