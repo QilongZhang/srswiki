@@ -81,4 +81,12 @@ git pull
 
 具体参考：[Pro Git](http://git-scm.com/book/zh/v2/GitHub-%E5%AF%B9%E9%A1%B9%E7%9B%AE%E5%81%9A%E5%87%BA%E8%B4%A1%E7%8C%AE)
 
+## Patch
+
+可以生成patch后发送邮件给`winlin at vip.126.com`，例如针对SRS2的patch：
+
+```
+git format-patch 2.0release
+```
+
 Winlin 2014.3
