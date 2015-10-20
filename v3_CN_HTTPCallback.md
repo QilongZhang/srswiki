@@ -183,4 +183,8 @@ SRS自带了一个默认的处理HTTP Callback的服务器，启动时需要指�
 127.0.0.1 - - [27/Feb/2014:09:41:50] "POST /api/v1/clients HTTP/1.1" 200 1 "" "srs(simple rtmp server)0.9.2"
 ```
 
+## Snapshot
+
+HttpCallback也可以用来截图，参考[snapshot](https://github.com/simple-rtmp-server/srs/wiki/v3_CN_Snapshot#httpcallback)
+
 Winlin 2015.1
