@@ -206,4 +206,8 @@ When playing a stream on SRS, SRS will call the registered HTTP callback:
 127.0.0.1 - - [27/Feb/2014:09:41:50] "POST /api/v1/clients HTTP/1.1" 200 1 "" "srs(simple rtmp server)0.9.2"
 ```
 
+## Snapshot
+
+The HttpCallback can used to snapshot, please read [snapshot](https://github.com/simple-rtmp-server/srs/wiki/v3_EN_Snapshot#httpcallback)
+
 Winlin 2015.1
