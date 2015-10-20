@@ -53,6 +53,6 @@ winlin:srs winlin$ ls -lh research/api-server/static-dir/*.png
 -rw-r--r--  1 winlin  staff    27K Oct 20 11:50 research/api-server/static-dir/live-livestream.png
 ```
 
-可以通过HTTP访问，譬如： [http://localhost:8085/live-livestream.png](http://localhost:8085/live-livestream.png)
+可以通过HTTP访问，譬如：[http://localhost:8085/live-livestream.png](http://localhost:8085/live-livestream.png)
 
 Winlin 2015.10
