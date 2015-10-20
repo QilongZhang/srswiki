@@ -63,4 +63,60 @@ lrwxr-xr-x  1 winlin  staff   105B Oct 20 13:35 livestream-best.png ->  livestre
 
 可以通过HTTP访问，譬如：[http://localhost:8085/live/livestream-best.png](http://localhost:8085/live/livestream-best.png)
 
+## Transcoder
+
+也可以使用Transcoder直接截图。SRS配置如下：
+
+```
+listen              1935;
+max_connections     1000;
+daemon              off;
+srs_log_tank        console;
+vhost __defaultVhost__ {
+    transcode {
+        enabled on;
+        ffmpeg ./objs/ffmpeg/bin/ffmpeg;
+        engine snapshot {
+            enabled on;
+            iformat flv;
+            vfilter {
+                vf fps=1;
+            }
+            vcodec png;
+            vparams {
+                vframes 6;
+            }
+            acodec an;
+            oformat image2;
+            output ./objs/nginx/html/[app]/[stream]-%03d.png;
+        }
+    }
+    ingest {
+        enabled on;
+        input {
+            type file;
+            url ./doc/source.200kbps.768x320.flv;
+        }
+        ffmpeg ./objs/ffmpeg/bin/ffmpeg;
+        engine {
+            enabled off;
+            output rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
+        }
+    }
+}
+```
+
+启动SRS就可以生成截图：
+```
+winlin:srs winlin$ ls -lh objs/nginx/html/live/*.png
+-rw-r--r--  1 winlin  staff   265K Oct 20 14:52 livestream-001.png
+-rw-r--r--  1 winlin  staff   265K Oct 20 14:52 livestream-002.png
+-rw-r--r--  1 winlin  staff   287K Oct 20 14:52 livestream-003.png
+-rw-r--r--  1 winlin  staff   235K Oct 20 14:52 livestream-004.png
+-rw-r--r--  1 winlin  staff   315K Oct 20 14:52 livestream-005.png
+-rw-r--r--  1 winlin  staff   405K Oct 20 14:52 livestream-006.png
+```
+
+注意：SRS没有办法选出最佳的截图。
+
 Winlin 2015.10
