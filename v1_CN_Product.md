@@ -92,6 +92,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * 支持NGINX-RTMP的EXEC功能。参考：[#367][bug367].
 * 支持NGINX-RTMP的dvr control module功能。参考：[#459][bug459].
 * 支持安全的可读写的HTTP API（HTTP Security Raw Api）。参考：[#470][bug470], [#319][bug319], [#459][bug459].
+* [plan]支持截图，HttpCallback和Transcoder两种方式。参考：[#152][bug152].
 * [plan]支持源站集群，负载均衡和热备。参考：[#464][bug464]，[RTMP 302][bug92].
 * [plan]支持h.265直播，在RTMP中加入265支持，输出HLS。参考：[#465][bug465].
 * [plan]支持MPEG-DASH，可能的未来标准。参考：[#299][bug299].
@@ -163,6 +164,7 @@ Winlin
 [bug459]: https://github.com/simple-rtmp-server/srs/issues/459
 [bug470]: https://github.com/simple-rtmp-server/srs/issues/470
 [bug319]: https://github.com/simple-rtmp-server/srs/issues/319
+[bug152]: https://github.com/simple-rtmp-server/srs/issues/152
 
 [3.0release]: https://github.com/simple-rtmp-server/srs/tree/develop
 [2.0release]: https://github.com/simple-rtmp-server/srs/tree/2.0release
