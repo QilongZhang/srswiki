@@ -50,9 +50,11 @@ Thrird, start SRS and the ingest will publish RTMP stream, which will trigger th
 The snapshot generate thumbnails to directory:
 ```
 winlin:srs winlin$ ls -lh research/api-server/static-dir/*.png
--rw-r--r--  1 winlin  staff    27K Oct 20 11:50 research/api-server/static-dir/live-livestream.png
+-rw-r--r--  1 winlin  staff  74737 Oct 20 12:18 live-livestream-001.png
+-rw-r--r--  1 winlin  staff  92856 Oct 20 12:18 live-livestream-002.png
+-rw-r--r--  1 winlin  staff  11371 Oct 20 12:18 live-livestream-003.png
 ```
 
-User can access it by http server: [http://localhost:8085/live-livestream.png](http://localhost:8085/live-livestream.png)
+User can access it by http server: [http://localhost:8085/live-livestream-001.png](http://localhost:8085/live-livestream-001.png)
 
 Winlin 2015.10
