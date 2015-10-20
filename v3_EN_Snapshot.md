@@ -63,4 +63,60 @@ The thumbnail `live-livestream-best.png` will link to the big one to avoid blank
 
 User can access it by http server: [http://localhost:8085/live/livestream-best.png](http://localhost:8085/live/livestream-best.png)
 
+## Transcoder
+
+The transcoder can used for snapshot:
+
+```
+listen              1935;
+max_connections     1000;
+daemon              off;
+srs_log_tank        console;
+vhost __defaultVhost__ {
+    transcode {
+        enabled on;
+        ffmpeg ./objs/ffmpeg/bin/ffmpeg;
+        engine snapshot {
+            enabled on;
+            iformat flv;
+            vfilter {
+                vf fps=1;
+            }
+            vcodec png;
+            vparams {
+                vframes 6;
+            }
+            acodec an;
+            oformat image2;
+            output ./objs/nginx/html/[app]/[stream]-%03d.png;
+        }
+    }
+    ingest {
+        enabled on;
+        input {
+            type file;
+            url ./doc/source.200kbps.768x320.flv;
+        }
+        ffmpeg ./objs/ffmpeg/bin/ffmpeg;
+        engine {
+            enabled off;
+            output rtmp://127.0.0.1:[port]/live?vhost=[vhost]/livestream;
+        }
+    }
+}
+```
+
+The thumbnails:
+```
+winlin:srs winlin$ ls -lh objs/nginx/html/live/*.png
+-rw-r--r--  1 winlin  staff   265K Oct 20 14:52 livestream-001.png
+-rw-r--r--  1 winlin  staff   265K Oct 20 14:52 livestream-002.png
+-rw-r--r--  1 winlin  staff   287K Oct 20 14:52 livestream-003.png
+-rw-r--r--  1 winlin  staff   235K Oct 20 14:52 livestream-004.png
+-rw-r--r--  1 winlin  staff   315K Oct 20 14:52 livestream-005.png
+-rw-r--r--  1 winlin  staff   405K Oct 20 14:52 livestream-006.png
+```
+
+Note: SRS never choose the best thumbnail.
+
 Winlin 2015.10
