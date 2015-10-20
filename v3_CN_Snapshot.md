@@ -50,10 +50,13 @@ vhost __defaultVhost__ {
 截图生成的目录：
 ```
 winlin:srs winlin$ ls -lh research/api-server/static-dir/live/*.png
--rw-r--r--  1 winlin  staff   268K Oct 20 13:30 livestream-001.png
--rw-r--r--  1 winlin  staff   237K Oct 20 13:30 livestream-002.png
--rw-r--r--  1 winlin  staff    42K Oct 20 13:30 livestream-003.png
-lrwxr-xr-x  1 winlin  staff   105B Oct 20 13:30 livestream-best.png ->  livestream-002.png
+-rw-r--r--  1 winlin  staff    73K Oct 20 13:35 livestream-001.png
+-rw-r--r--  1 winlin  staff    91K Oct 20 13:35 livestream-002.png
+-rw-r--r--  1 winlin  staff    11K Oct 20 13:35 livestream-003.png
+-rw-r--r--  1 winlin  staff   167K Oct 20 13:35 livestream-004.png
+-rw-r--r--  1 winlin  staff   172K Oct 20 13:35 livestream-005.png
+-rw-r--r--  1 winlin  staff   264K Oct 20 13:35 livestream-006.png
+lrwxr-xr-x  1 winlin  staff   105B Oct 20 13:35 livestream-best.png ->  livestream-006.png
 ```
 
 其中，`live-livestream-best.png`会软链到尺寸最大的那个截图，避免生成黑屏的截图。
