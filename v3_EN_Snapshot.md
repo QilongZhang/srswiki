@@ -25,6 +25,7 @@ vhost __defaultVhost__ {
     http_hooks {
         enabled on;
         on_publish http://127.0.0.1:8085/api/v1/snapshots;
+        on_unpublish http://127.0.0.1:8085/api/v1/snapshots;
     }
     ingest {
         enabled on;
