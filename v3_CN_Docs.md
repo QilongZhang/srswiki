@@ -52,9 +52,9 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v
 
 RTMP为何要依赖ssl？什么是RTMP简单握手和复杂握手？什么时候用Simple就足够了？参考：[RTMP握手协议](v1_CN_RTMPHandshake)
 
-## [FFMPEG直播流转码](v1_CN_FFMPEG)
+## [FFMPEG直播流转码](v3_CN_FFMPEG)
 
-如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](v1_CN_FFMPEG)
+如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](v3_CN_FFMPEG)
 
 ## [RTMP分发](v1_CN_DeliveryRTMP)
 
