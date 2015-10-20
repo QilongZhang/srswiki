@@ -21,10 +21,6 @@ listen              1935;
 max_connections     1000;
 daemon              off;
 srs_log_tank        console;
-http_server {
-    enabled         on;
-    listen          8080;
-}
 vhost __defaultVhost__ {
     http_hooks {
         enabled on;
