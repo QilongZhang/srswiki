@@ -84,9 +84,9 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](v1
 
 如何将直播RTMP流录制为flv文件？如何让每一片都从关键帧开始？什么是DVR的plan，什么是segment和session方式的plan？如何自定义dvr的文件名和路径？参考：[DVR] (v2_CN_DVR)
 
-## [DRM防盗链] (v1_CN_DRM)
+## [DRM防盗链] (v2_CN_DRM)
 
-SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v1_CN_DRM)
+SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v2_CN_DRM)
 
 ## [Reload](v1_CN_Reload)
 
@@ -116,9 +116,9 @@ SRS如何接收RTSP流？如何Push MPEG-TS over UDP到SRS？如何接收其他�
 
 SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](v2_CN_Edge)
 
-## [Forward搭建小型集群](v1_CN_Forward)
+## [Forward搭建小型集群](v2_CN_Forward)
 
-使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v1_CN_Forward)
+使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v2_CN_Forward)
 
 ## [Security禁用或允许连接](v2_CN_Security)
 
@@ -160,9 +160,9 @@ SRS在windows上支持到什么程度？客户端库支持得如何？服务器�
 
 视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽，支持RTMP测速。参考：[SRS带宽测试](v1_CN_BandwidthTestTool)(BandwidthTestTool, BWTC)
 
-## [RTMP ATC](v1_CN_RTMP-ATC)
+## [RTMP ATC](v2_CN_RTMP-ATC)
 
-如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](v1_CN_RTMP-ATC)
+如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](v2_CN_RTMP-ATC)
 
 ## [TimeJitter时间戳矫正](v2_CN_TimeJitter)
 
@@ -200,9 +200,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发RTMP直播流？参考：[Usage: RTMP](v1_CN_SampleRTMP)
 
-## [Usage: RTMP Cluster](v1_CN_SampleRTMPCluster)
+## [Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
 
-使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v1_CN_SampleRTMPCluster)
+使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v2_CN_SampleRTMPCluster)
 
 ## [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
 
@@ -228,9 +228,9 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何将文件变成直播流？如何将已有流采集到SRS？如何做虚拟直播？如何抓取RTSP流？参考：[Usage: Ingest](v1_CN_SampleIngest)
 
-## [Usage: Forward](v1_CN_SampleForward)
+## [Usage: Forward](v2_CN_SampleForward)
 
-使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](v1_CN_SampleForward)
+使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](v2_CN_SampleForward)
 
 ## [Usage: Realtime](v2_CN_SampleRealtime)
 

@@ -2,7 +2,7 @@
 
 SRS不支持服务器脚本（参考：[服务器端脚本](v1_CN_ServerSideScript)），服务器端定制有一个重要的替代功能，就是HTTP回调。譬如当客户端连接到SRS时，回调指定的http地址，这样可以实现验证功能。
 
-关于Token认证，即基于http回调的认证，参考：[Token Authentication](v1_CN_DRM#token-authentication)
+关于Token认证，即基于http回调的认证，参考：[Token Authentication](v2_CN_DRM#token-authentication)
 
 ## Compile
 

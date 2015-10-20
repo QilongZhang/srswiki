@@ -2,7 +2,7 @@
 
 ## SRS Overview
 
-SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS提供了丰富的接入方案将RTMP流接入SRS，包括[[推送RTMP到SRS | v1_CN_SampleRTMP ]]、[[推送RTSP/UDP/FLV到SRS | v2_CN_Streamer]]、[[拉取流到SRS | v1_CN_Ingest]]。SRS还支持将接入的RTMP流进行各种变换，譬如[[将RTMP流转码 | v1_CN_SampleFFMPEG]]、[[流截图| v3_CN_Snapshot]]、[[转发给其他服务器 | v3_CN_SampleForward]]、[[转封装成HTTP-FLV流 | v2_CN_SampleHttpFlv]]、[[转封装成HLS | v1_CN_SampleHLS]]、[[转封装成HDS | v2_CN_DeliveryHDS]]、[[录制成FLV | v3_CN_DVR]]。SRS包含支大规模集群如CDN业务的关键特性，譬如[[RTMP多级集群 | v3_CN_SampleRTMPCluster]]、[[VHOST虚拟服务器  | v1_CN_RtmpUrlVhost]]、[[无中断服务Reload | v1_CN_Reload]]、[[HTTP-FLV集群 | v3_CN_SampleHttpFlvCluster]]、[[Kafka对接 | v3_CN_Kafka]]。此外，SRS还提供丰富的应用接口，包括[[HTTP回调 | v1_CN_HTTPCallback]]、[[安全策略Security | v2_CN_Security]]、[[HTTP API接口 | v3_CN_HTTPApi]]、[[RTMP测速 | v1_CN_BandwidthTestTool]]。
+SRS定位是运营级的互联网直播服务器集群，追求更好的概念完整性和最简单实现的代码。SRS提供了丰富的接入方案将RTMP流接入SRS，包括[[推送RTMP到SRS | v1_CN_SampleRTMP ]]、[[推送RTSP/UDP/FLV到SRS | v2_CN_Streamer]]、[[拉取流到SRS | v1_CN_Ingest]]。SRS还支持将接入的RTMP流进行各种变换，譬如[[将RTMP流转码 | v1_CN_SampleFFMPEG]]、[[流截图| v3_CN_Snapshot]]、[[转发给其他服务器 | v3_CN_SampleForward]]、[[转封装成HTTP-FLV流 | v2_CN_SampleHttpFlv]]、[[转封装成HLS | v1_CN_SampleHLS]]、[[转封装成HDS | v2_CN_DeliveryHDS]]、[[录制成FLV | v3_CN_DVR]]。SRS包含支大规模集群如CDN业务的关键特性，譬如[[RTMP多级集群 | v3_CN_SampleRTMPCluster]]、[[VHOST虚拟服务器  | v1_CN_RtmpUrlVhost]]、[[无中断服务Reload | v1_CN_Reload]]、[[HTTP-FLV集群 | v3_CN_SampleHttpFlvCluster]]、[[Kafka对接 | v3_CN_Kafka]]。此外，SRS还提供丰富的应用接口，包括[[HTTP回调 | v3_CN_HTTPCallback]]、[[安全策略Security | v2_CN_Security]]、[[HTTP API接口 | v3_CN_HTTPApi]]、[[RTMP测速 | v1_CN_BandwidthTestTool]]。
 
 ## Downloading
 
@@ -50,7 +50,7 @@ SRS可以在一台服务器上运行集群，或者在多台服务器上也可�
 
 ***Integration Guides:***
 
-* [[HTTP Callback | v1_CN_HTTPCallback]]: 使用HTTP回调侦听SRS的事件。
+* [[HTTP Callback | v3_CN_HTTPCallback]]: 使用HTTP回调侦听SRS的事件。
 * [[HTTP API | v3_CN_HTTPApi]]: 使用SRS的HTTP API获取数据。
 * [[RTMP Bandwidth | v1_CN_BandwidthTestTool]]: 使用SRS测速接口获取带宽数据。
 * [[Special Control | v3_CN_SpecialControl]]: 一些特殊的控制配置。

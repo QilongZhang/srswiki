@@ -136,7 +136,7 @@ The options of configure:
 * --with-hds support output HDS for Adobe OSMF. See: [HDS](v2_EN_DeliveryHDS)
 * --with-dvr dvr RTMP to FLV file. Please read [DVR](v3_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
-* --with-http-callback support http callback, for authentication, statistic and event handler. Please read [HTTP callback](v2_EN_HTTPCallback)
+* --with-http-callback support http callback, for authentication, statistic and event handler. Please read [HTTP callback](v3_EN_HTTPCallback)
 * --with-http-api support http api. Please read [HTTP API](v3_EN_HTTPApi)
 * --with-http-server enable embeded http server to delivery HTTP files and stream. Please read [HTTP Server](v2_EN_HTTPServer)
 * --with-stream-caster enable the stream caster, read [Stream Caster](v2_EN_Streamer)

@@ -138,7 +138,7 @@ SRS的配置(configure)参数说明如下：
 * --with-hds 支持HDS输出，OSMF可以播放HDS流。参考：[HDS](v2_CN_DeliveryHDS)
 * --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](v3_CN_DVR)
 * --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
-* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](v2_CN_HTTPCallback)
+* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](v3_CN_HTTPCallback)
 * --with-http-api 打开HTTP管理接口。参考：[HTTP API](v3_CN_HTTPApi)
 * --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](v2_CN_HTTPServer)
 * --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](v2_CN_Streamer)

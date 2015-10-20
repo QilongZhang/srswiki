@@ -204,7 +204,7 @@ The log of api-server for api dvrs：
 127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
 ```
 
-For more information, read about [HttpCallback](v2_EN_HTTPCallback)
+For more information, read about [HttpCallback](v3_EN_HTTPCallback)
 
 ## Bug
 

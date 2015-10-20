@@ -206,7 +206,7 @@ api-server的日志：
 127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
 ```
 
-更多HTTP回调的信息，请参考 [HttpCallback](v2_CN_HTTPCallback)
+更多HTTP回调的信息，请参考 [HttpCallback](v3_CN_HTTPCallback)
 
 ## Bug
 

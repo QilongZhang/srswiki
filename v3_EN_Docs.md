@@ -92,9 +92,9 @@ How to reload SRS? How to add new vhosts without restarting the server? How to c
 
 How to use SRS in pseudo realtime? What is the latency? What is the minimum latency of SRS in a commercial scenario, for example, CDN networks? Please read [Low Latency](v3_EN_LowLatency)
 
-## [HTTP Callback](v2_EN_HTTPCallback)
+## [HTTP Callback](v3_EN_HTTPCallback)
 
-About the HttpCallback or HttpHooks. How to authenticate the client? How to make callbacks to external HTTP APIs when clients publish a stream? How to notify your system when clients connect or disconnect? How to hook into the DVR? Please read [HTTP Callback](v2_EN_HTTPCallback)
+About the HttpCallback or HttpHooks. How to authenticate the client? How to make callbacks to external HTTP APIs when clients publish a stream? How to notify your system when clients connect or disconnect? How to hook into the DVR? Please read [HTTP Callback](v3_EN_HTTPCallback)
 
 ## [HTTP Management API](v3_EN_HTTPApi)
 

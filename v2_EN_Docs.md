@@ -80,9 +80,9 @@ Can SRS support HTTP? How to delivery files over HTTP by SRS? Why SRS support em
 
 How to record live stream to flv file? How to record to pieces of files which start from keyframe with similar duration? What is the dvr plan, for example, segment and session plan? How to specify the path and filename? Please see: [DVR record live stream] (v2_EN_DVR)
 
-## [DRM] (v1_EN_DRM)
+## [DRM] (v2_EN_DRM)
 
-How to support hotlink denial? Does SRS support DRM? How to config refer DRM? How to implement token DRM? Does SRS support FMS token traverse? Please see: [DRM] (v1_EN_DRM)
+How to support hotlink denial? Does SRS support DRM? How to config refer DRM? How to implement token DRM? Does SRS support FMS token traverse? Please see: [DRM] (v2_EN_DRM)
 
 ## [Reload](v1_EN_Reload)
 
@@ -112,9 +112,9 @@ How to push RTSP to SRS? How does SRS accept RTSP stream? How to push MPEG-TS ov
 
 How to use SRS in CDN? Does SRS suport the key freatures for CDN: vhost, edge, reload, http api and MIT source code? Why forward and ingest is not ok for huge live cluster? Does SRS support FMS edge mode? Please see: [Edge: Huge Live Cluster](v2_EN_Edge)
 
-## [Forward: Tiny Live Cluster](v1_EN_Forward)
+## [Forward: Tiny Live Cluster](v2_EN_Forward)
 
-How to use SRS for few stream and servers cluster? How to build origin fault backup when only one stream? Please see: [Forward: Tiny Live Cluster](v1_EN_Forward)
+How to use SRS for few stream and servers cluster? How to build origin fault backup when only one stream? Please see: [Forward: Tiny Live Cluster](v2_EN_Forward)
 
 ## [Security: Allow or Deny clients](v2_EN_Security)
 
@@ -156,9 +156,9 @@ What is the status of SRS windows branch? Why SRS windows branch is experiment a
 
 What is the bandwidth between the player and the SRS server? SRS provides c(in srs-librtmp), js and flash sdk to test the bandwidth. Please see: [SRS Bandwidth Test](v1_EN_BandwidthTestTool)(BandwidthTestTool, BWTC)
 
-## [RTMP ATC](v1_EN_RTMP-ATC)
+## [RTMP ATC](v2_EN_RTMP-ATC)
 
-How to delivery stream with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please see: [RTMP ATC](v1_EN_RTMP-ATC)
+How to delivery stream with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please see: [RTMP ATC](v2_EN_RTMP-ATC)
 
 ## [TimeJitter Timestamp Correct](v2_EN_TimeJitter)
 
@@ -196,9 +196,9 @@ How to get the stable release of SRS? How to merge master with your branch? How 
 
 Usage: How to use SRS to delivery RTMP? Please see: [Usage: RTMP](v1_EN_SampleRTMP)
 
-## [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
+## [Usage: RTMP Cluster](v2_EN_SampleRTMPCluster)
 
-Usage: How to use SRS to delivery RTMP Cluster? Please see: [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
+Usage: How to use SRS to delivery RTMP Cluster? Please see: [Usage: RTMP Cluster](v2_EN_SampleRTMPCluster)
 
 ## [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
@@ -224,9 +224,9 @@ Usage: How to use SRS to transcode stream? How to transcode the codec for HLS? P
 
 Usage: How to ingest file to live stream? How to ingest exists stream to SRS? How to use SRS for virtual live streaming? How to ingest RTSP to SRS? Please see: [Usage: Ingest](v1_EN_SampleIngest)
 
-## [Usage: Forward](v1_EN_SampleForward)
+## [Usage: Forward](v2_EN_SampleForward)
 
-Usage: How to use SRS to build tiny cluster? How to build origin backup cluster when only one stream? How to forward stream to other servers from SRS? How to forward stream to backup server from SRS? Please see: [Usage: Forward](v1_EN_SampleForward)
+Usage: How to use SRS to build tiny cluster? How to build origin backup cluster when only one stream? How to forward stream to other servers from SRS? How to forward stream to backup server from SRS? Please see: [Usage: Forward](v2_EN_SampleForward)
 
 ## [Usage: Realtime](v2_EN_SampleRealtime)
 

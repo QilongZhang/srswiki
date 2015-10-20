@@ -96,9 +96,9 @@ SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token�
 
 如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](v3_CN_LowLatency)
 
-## [HTTP Callback](v2_CN_HTTPCallback)
+## [HTTP Callback](v3_CN_HTTPCallback)
 
-关于HttpCallback，即HttpHooks。如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？如何hook dvr事件？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](v2_CN_HTTPCallback)
+关于HttpCallback，即HttpHooks。如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？如何hook dvr事件？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](v3_CN_HTTPCallback)
 
 ## [HTTP管理接口](v3_CN_HTTPApi)
 
