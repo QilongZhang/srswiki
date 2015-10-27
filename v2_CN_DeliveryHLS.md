@@ -105,10 +105,10 @@ vhost __defaultVhost__ {
         hls_td_ratio    1.5;
         # the audio overflow ratio.
         # for pure audio, the duration to reap the segment.
-        # for example, the hls_fragment is 10s, hsl_aof_ratio is 3.0,
-        # the segemnt will reap to 30s for pure audio.
-        # default: 3.0
-        hls_aof_ratio   3.0;
+        # for example, the hls_fragment is 10s, hsl_aof_ratio is 2.0,
+        # the segemnt will reap to 20s for pure audio.
+        # default: 2.0
+        hls_aof_ratio   2.0;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
@@ -231,7 +231,7 @@ gop_size：编码器配置的gop的长度，譬如ffmpeg指定fps为20帧/秒，
 那么，最终ts的时长为max(5, 10) = 10秒。这也是为什么有些流配置了hls_fragment，但是ts时长仍然比这个大的原因。
 ```
 * hls_td_ratio：倍数。控制m3u8的EXT-X-TARGETDURATION，参考：https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
-* hls_aof_ratio: 倍数。纯音频时，当ts时长超过配置的ls_fragment乘以这个系数时就切割文件。例如，当ls_fragment是10秒，hls_aof_ratio是3.0时，对于纯音频，10s*3.0=30秒时就切割ts文件。
+* hls_aof_ratio: 倍数。纯音频时，当ts时长超过配置的ls_fragment乘以这个系数时就切割文件。例如，当ls_fragment是10秒，hls_aof_ratio是2.0时，对于纯音频，10s*2.0=20秒时就切割ts文件。
 * hls_window：秒，指定HLS窗口大小，即m3u8中ts文件的时长之和，超过总时长后，丢弃第一个m3u8中的第一个切片，直到ts的总时长在这个配置项范围之内。即SRS保证下面的公式：
 ```bash
 hls_window >= sum(m3u8中每个ts的时长)
