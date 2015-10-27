@@ -110,10 +110,10 @@ vhost __defaultVhost__ {
         hls_td_ratio    1.5;
         # the audio overflow ratio.
         # for pure audio, the duration to reap the segment.
-        # for example, the hls_fragment is 10s, hsl_aof_ratio is 2.0,
-        # the segemnt will reap to 20s for pure audio.
-        # default: 2.0
-        hls_aof_ratio   2.0;
+        # for example, the hls_fragment is 10s, hsl_aof_ratio is 3.0,
+        # the segemnt will reap to 30s for pure audio.
+        # default: 3.0
+        hls_aof_ratio   3.0;
         # the hls window in seconds, the number of ts in m3u8.
         # default: 60
         hls_window      60;
@@ -236,7 +236,7 @@ gop_size: The stream gop size, for example, the fps is 20, gop is 200frames, the
 So, the actual ts duration is max(5, 10)=10s, that is why the ts duration is larger than hls_fragment.
 ```
 * hls_td_ratio: The ratio to calculate the m3u8 EXT-X-TARGETDURATION, read https://github.com/simple-rtmp-server/srs/issues/304#issuecomment-74000081
-* hls_aof_ratio: The ratio to determine whether the pure audio should be reap. For example, when hls_fragment is 10s, the hls_aof_ratio is 2.0, for pure audio, reap ts every 10s*2.0=20s.
+* hls_aof_ratio: The ratio to determine whether the pure audio should be reap. For example, when hls_fragment is 10s, the hls_aof_ratio is 3.0, for pure audio, reap ts every 10s*3.0=30s.
 * hls_window: The total HLS windows size in seconds, the sum of all ts durations in the m3u8. SRS will drop the old ts file in the m3u8 and delete the files from the filesystem. SRS will keep:
 ```bash
 hls_window >= sum(each ts duration in m3u8)
