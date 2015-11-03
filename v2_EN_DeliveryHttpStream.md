@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-About the HTTP flv vod stream, read [v1_EN_FlvVodStream](v1_EN_FlvVodStream)
+About the HTTP flv vod stream, read [v2_EN_FlvVodStream](v2_EN_FlvVodStream)
 
 ## HTTP FLV Live Stream
 
@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](v1_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP TS Live Stream
 
@@ -44,7 +44,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](v1_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Mp3 Live Stream
 
@@ -66,7 +66,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](v1_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Aac Live Stream
 
@@ -88,7 +88,7 @@ vhost your_vhost {
 }
 ```
 
-@remark For more information about config, read [following detail config](v1_EN_DeliveryHttpStream#http-live-stream-config).
+@remark For more information about config, read [following detail config](v2_EN_DeliveryHttpStream#http-live-stream-config).
 
 ## HTTP Live Stream Config
 
@@ -145,7 +145,7 @@ vhost your_vhost {
 
 Remark: Use forward+vhost to support multiple http live stream for a stream.
 
-Remark: The http server config section, read [HTTP Server](v1_EN_HTTPServer#config)
+Remark: The http server config section, read [HTTP Server](v2_EN_HTTPServer#config)
 
 ## HSTRS
 
@@ -194,7 +194,7 @@ Why SRS supports HTTP FLV?
 
 The config sample, read https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
-To config HTTP FLV, read [Sample](v1_EN_SampleHttpFlv)
+To config HTTP FLV, read [Sample](v2_EN_SampleHttpFlv)
 
 Winlin 2015.1
 

@@ -124,7 +124,7 @@ The outputs of configure and make are put in objs.
 * ./objs/nginx/sbin/nginx delivery HLS.
 * research/api-server/server.py the api-server for demo of SRS.
 * ./objs/ffmpeg/bin/ffmpeg the FFMEPG tool to transcode for SRS.
-* ./objs/lib/srs_librtmp.a the client librtmp of SRS, see: <a href="https://github.com/simple-rtmp-server/srs/wiki/v1_EN_SrsLibrtmp">srs-librtmp</a>
+* ./objs/lib/srs_librtmp.a the client librtmp of SRS, see: <a href="https://github.com/simple-rtmp-server/srs/wiki/v2_EN_SrsLibrtmp">srs-librtmp</a>
 * ./objs/nginx/html/players the players of demo of SRS.
 
 ## Configure Options
@@ -132,16 +132,16 @@ The outputs of configure and make are put in objs.
 The options of configure:
 * --help print help and exit.
 * --with-ssl support RTMP complex handshake, see: [RTMP Handshake](v1_EN_RTMPHandshake)。
-* --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](v1_EN_DeliveryHLS)
-* --with-hds support output HDS for Adobe OSMF. See: [HDS](v1_EN_DeliveryHDS)
-* --with-dvr dvr RTMP to FLV file, see: [DVR](v1_EN_DVR)
+* --with-hls support output HLS for mobile(IOS/Android), and PC can use HLS now. See: [HLS](v2_EN_DeliveryHLS)
+* --with-hds support output HDS for Adobe OSMF. See: [HDS](v2_EN_DeliveryHDS)
+* --with-dvr dvr RTMP to FLV file, see: [DVR](v2_EN_DVR)
 * --with-nginx build nginx to delivery HLS files and demo pages of SRS.
-* --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](v1_EN_HTTPCallback)
-* --with-http-api support http api, see: [HTTP API](v1_EN_HTTPApi)
-* --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](v1_EN_HTTPServer)
-* --with-stream-caster enable the stream caster, read [Stream Caster](v1_EN_Streamer)
-* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](v1_EN_FFMPEG)
-* --with-transcode live stream transcode, see: [FFMPEG](v1_EN_FFMPEG)
+* --with-http-callback support http callback, for authentication, statistic and event handler, see: [HTTP callback](v2_EN_HTTPCallback)
+* --with-http-api support http api, see: [HTTP API](v2_EN_HTTPApi)
+* --with-http-server enable embeded http server to delivery HTTP files and stream, see: [HTTP Server](v2_EN_HTTPServer)
+* --with-stream-caster enable the stream caster, read [Stream Caster](v2_EN_Streamer)
+* --with-ffmpeg build FFMPEG for transcode, remux and ingest, see: [FFMPEG](v2_EN_FFMPEG)
+* --with-transcode live stream transcode, see: [FFMPEG](v2_EN_FFMPEG)
 * --with-ingest ingest file, stream or device to RTMP to SRS, see: [Ingest](v1_EN_Ingest)
 * --with-stat stat the cpu, memory, network and disk io, user can access stat by http api(not supported by darwin/OSX).
 * --with-research buidl the research tools, for instance, ts info, ingest flv/rtmp, flv parser and bandwidth test.
@@ -151,9 +151,9 @@ The options of configure:
 * --with-gmp use gperf memory performance analysis, which will hurt performance, only for memory performance analysis, see: [gperf](v1_EN_GPERF)
 * --with-gcp use gperf cpu profile, which will hurt performance, only for cpu profile, see: [gperf](v1_EN_GPERF)
 * --with-gprof use gprof, which will hurt performance, see: [gprof](v1_EN_GPROF)
-* --with-librtmp client librtmp, see: [srs-librtmp](v1_EN_SrsLibrtmp)
+* --with-librtmp client librtmp, see: [srs-librtmp](v2_EN_SrsLibrtmp)
 * --with-arm-ubuntu12 cross build SRS for arm on ubuntu12, see: [srs-arm](v1_EN_SrsLinuxArm)
-* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](v1_EN_Build#jobs-speedup-build)
+* --jobs[=N] the parallelly process to build, sames to the -j/--jobs of make, see: [Build: jobs](v2_EN_Build#jobs-speedup-build)
 * --static use static link for arm, see: [ARM](v1_EN_SrsLinuxArm)
 
 The preset of configure:

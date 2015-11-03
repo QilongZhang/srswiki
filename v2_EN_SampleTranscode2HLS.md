@@ -19,7 +19,7 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v2_EN_Build)
 
 ```bash
 ./configure --disable-all \
@@ -27,7 +27,7 @@ git pull
     --with-ffmpeg --with-transcode && make
 ```
 
-<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 3, start nginx to delivery hls(m3u8+ts).</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 ```bash
 sudo ./objs/nginx/sbin/nginx
@@ -35,7 +35,7 @@ sudo ./objs/nginx/sbin/nginx
 
 Note: Ensure nginx is ok, to access [nginx][nginx].
 
-<strong>Step 4, config srs.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 4, config srs.</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 Save bellow as config, or use `conf/transcode2hls.audio.only.conf`:
 
@@ -68,13 +68,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 5, strat SRS.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 5, strat SRS.</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 ```bash
 ./objs/srs -c conf/transcode2hls.audio.only.conf
 ```
 
-<strong>Step 6, start encoder.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 6, start encoder.</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 Use FFMPEG to publish stream:
 
@@ -101,7 +101,7 @@ The stream in SRS:
 
 Note: we can use another vhost to output HLS, other codecs transcode then output to this vhost.
 
-<strong>Step 7, play RTMP.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 7, play RTMP.</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream_ff`
 
@@ -111,7 +111,7 @@ Or, use online SRS player: [srs-player-ff][srs-player-ff]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 8, play HLS.</strong> For detail, read [HLS](v1_EN_DeliveryHLS)
+<strong>Step 8, play HLS.</strong> For detail, read [HLS](v2_EN_DeliveryHLS)
 
 HLS url: `http://192.168.1.170/live/livestream_ff.m3u8`
 
@@ -129,4 +129,4 @@ Winlin 2014.11
 [srs-player-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/srs_player.html?vhost=__defaultVhost__&autostart=true&server=192.168.1.170&app=live&stream=livestream_ff
 [jwplayer]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream&hls_port=8080
 [jwplayer-ff]: http://winlinvip.github.io/srs.release/trunk/research/players/jwplayer6.html?vhost=__defaultVhost__&hls_autostart=true&server=192.168.1.170&app=live&stream=livestream_ff&hls_port=8080
-[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DeliveryHLS#hlsaudioonly
+[HLS-Audio-Only]: https://github.com/simple-rtmp-server/srs/wiki/v2_EN_DeliveryHLS#hlsaudioonly

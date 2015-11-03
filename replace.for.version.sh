@@ -17,6 +17,7 @@ for file in $files; do
     for exist in $exists; do
         #echo "for $file, replace $from to $to on $exist"
         sed -i '' "s/${from}_CN_${exist}/${to}_CN_${exist}/g" $file
+        sed -i '' "s/${from}_EN_${exist}/${to}_EN_${exist}/g" $file
     done
 done
 exit 0
