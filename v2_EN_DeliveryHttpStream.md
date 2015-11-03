@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-About the HTTP flv vod stream, read https://github.com/simple-rtmp-server/srs/wiki/v2_EN_FlvVodStream
+About the HTTP flv vod stream, read [v2_EN_FlvVodStream](v2_EN_FlvVodStream)
 
 ## HTTP FLV Live Stream
 
