@@ -126,7 +126,7 @@ configure和make将会生成一些项目，都在objs目录，其他会自动软
 * ./objs/nginx/sbin/nginx 分发HLS用到的nginx服务器
 * research/api-server/server.py 启动HTTP hooks和DEMO视频会议用到的api-server
 * ./objs/ffmpeg/bin/ffmpeg SRS转码用的FFMPEG，DEMO推流也是用它
-* ./objs/lib/srs_librtmp.a SRS提供的客户端库，参考<a href="https://github.com/simple-rtmp-server/srs/wiki/v1_CN_SrsLibrtmp">srs-librtmp</a>
+* ./objs/lib/srs_librtmp.a SRS提供的客户端库，参考<a href="https://github.com/simple-rtmp-server/srs/wiki/v2_CN_SrsLibrtmp">srs-librtmp</a>
 * ./objs/nginx/html/players SRS的DEMO的静态页面，当没有开启HttpCallback时
 
 ## 配置参数说明
@@ -134,16 +134,16 @@ configure和make将会生成一些项目，都在objs目录，其他会自动软
 SRS的配置(configure)参数说明如下：
 * --help 配置的帮助信息
 * --with-ssl 添加ssl支持，ssl用来支持复杂握手。参考：[RTMP Handshake](v1_CN_RTMPHandshake)。
-* --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](v1_CN_DeliveryHLS)
-* --with-hds 支持HDS输出，OSMF可以播放HDS流。参考：[HDS](v1_CN_DeliveryHDS)
-* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](v1_CN_DVR)
+* --with-hls 支持HLS输出，将RTMP流切片成ts，可用于支持移动端HLS（IOS/Android），不过PC端jwplayer也支持HLS。参考：[HLS](v2_CN_DeliveryHLS)
+* --with-hds 支持HDS输出，OSMF可以播放HDS流。参考：[HDS](v2_CN_DeliveryHDS)
+* --with-dvr 支持将RTMP流录制成FLV。参考：[DVR](v2_CN_DVR)
 * --with-nginx 编译nginx，使用nginx作为web服务器分发HLS文件，以及demo的静态页等。
-* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](v1_CN_HTTPCallback)
-* --with-http-api 打开HTTP管理接口。参考：[HTTP API](v1_CN_HTTPApi)
-* --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](v1_CN_HTTPServer)
-* --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](v1_CN_Streamer)
-* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](v1_CN_FFMPEG)
-* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](v1_CN_FFMPEG)
+* --with-http-callback 支持http回调接口，用于认证，统计，事件处理等。参考：[HTTP callback](v2_CN_HTTPCallback)
+* --with-http-api 打开HTTP管理接口。参考：[HTTP API](v2_CN_HTTPApi)
+* --with-http-server 打开内置HTTP服务器，支持分发HTTP流。参考：[HTTP Server](v2_CN_HTTPServer)
+* --with-stream-caster 打开StreamCaster输入流协议转换功能。参考：[Stream Caster](v2_CN_Streamer)
+* --with-ffmpeg 编译转码/转封装/采集用的工具FFMPEG。参考：[FFMPEG](v2_CN_FFMPEG)
+* --with-transcode 直播流转码功能。需要在配置中指定转码工具。参考：[FFMPEG](v2_CN_FFMPEG)
 * --with-ingest 采集文件/流/设备数据，封装为RTMP流后，推送到SRS。参考：[Ingest](v1_CN_Ingest)
 * --with-stat 是否开启数据统计功能，SRS可以采集cpu/内存/网络/磁盘IO等数据，共监控系统通过http-api获取。（目前osx不支持）。
 * --with-research 是否编译research目录的文件，research目录是一些调研，譬如ts info是做HLS时调研的ts标准。和SRS的功能没有关系，仅供参考。
@@ -153,9 +153,9 @@ SRS的配置(configure)参数说明如下：
 * --with-gmp 是否使用gperf的内存性能分析，编译后srs退出时会生成内存分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](v1_CN_GPERF)
 * --with-gcp 是否启用gperf的CPU性能分析，编译后srs退出时会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gperf](v1_CN_GPERF)
 * --with-gprof 是否启用gprof性能分析，编译后srs会生成CPU分析报告。这个选项会导致地性能，只应该在调优时开启。默认关闭。参考：[gprof](v1_CN_GPROF)
-* --with-librtmp 客户端推流/播放库，参考[srs-librtmp](v1_CN_SrsLibrtmp)
+* --with-librtmp 客户端推流/播放库，参考[srs-librtmp](v2_CN_SrsLibrtmp)
 * --with-arm-ubuntu12 交叉编译ARM上运行的SRS，要求系统是Ubuntu12。参考[srs-arm](v1_CN_SrsLinuxArm)
-* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](v1_CN_Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
+* --jobs[=N] 开启的编译进程数，和make的-j（--jobs）一样，在configure时可能会编译nginx/ffmpeg等工具，可以开启多个jobs编译，可以显著加速。参考：[Build: jobs](v2_CN_Build#wiki-jobs%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91)
 * --static 使用静态链接。指定arm编译时，会自动打开这个选项。手动编译需要用户自身打开。参考：[ARM](v1_CN_SrsLinuxArm)
 
 预设集：

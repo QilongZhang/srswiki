@@ -47,7 +47,7 @@ SRS应用安全策略的方式是:
 
 ## Kickoff Client
 
-可以踢掉连接的用户，参考[WIKI](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#kickoff-client)。
+可以踢掉连接的用户，参考[WIKI](https://github.com/simple-rtmp-server/srs/wiki/v2_CN_HTTPApi#kickoff-client)。
 
 ## Bug
 

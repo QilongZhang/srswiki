@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-关于HTTP flv 点播流，参考：[v1_CN_FlvVodStream](v1_CN_FlvVodStream)
+关于HTTP flv 点播流，参考：[v2_CN_FlvVodStream](v2_CN_FlvVodStream)
 
 ## HTTP FLV Live Stream
 
@@ -23,7 +23,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](v1_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP TS Live Stream
 
@@ -44,7 +44,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](v1_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Mp3 Live Stream
 
@@ -66,7 +66,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](v1_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Aac Live Stream
 
@@ -88,7 +88,7 @@ vhost your_vhost {
 }
 ```
 
-配置项的详细信息参考下面的[配置章节](v1_CN_DeliveryHttpStream#http-live-stream-config)的说明。
+配置项的详细信息参考下面的[配置章节](v2_CN_DeliveryHttpStream#http-live-stream-config)的说明。
 
 ## HTTP Live Stream Config
 
@@ -145,7 +145,7 @@ vhost your_vhost {
 
 备注：若需要同时分发不同的http live stream，可以使用forward到其他vhost，不同的vhost配置不同的http live stream。
 
-备注：HTTP服务器配置，参考[HTTP Server](v1_CN_HTTPServer#config)
+备注：HTTP服务器配置，参考[HTTP Server](v2_CN_HTTPServer#config)
 
 ## HSTRS
 
@@ -194,7 +194,7 @@ SRS的HTTP FLV容易和下面的几种分发方式混淆：
 
 配置实例参考：https://github.com/simple-rtmp-server/srs/issues/293#issuecomment-70449126
 
-一步一步配置HTTP FLV： [Sample](v1_CN_SampleHttpFlv)
+一步一步配置HTTP FLV： [Sample](v2_CN_SampleHttpFlv)
 
 Winlin 2015.1
 

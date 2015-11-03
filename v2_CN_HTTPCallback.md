@@ -8,7 +8,7 @@ SRS不支持服务器脚本（参考：[服务器端脚本](v1_CN_ServerSideScri
 
 HttpCallback的编译选项为`--with-http-callback`，关闭HttpCallback的选项为`--without-http-callback`。
 
-参考：[Build](v1_CN_Build)
+参考：[Build](v2_CN_Build)
 
 ## Config SRS
 

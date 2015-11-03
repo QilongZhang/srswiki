@@ -1,6 +1,6 @@
 # SRS-HTTP-FLV集群部署实例
 
-SRS支持HTTP FLV直播流集群分发，详细参考[HTTP FLV](v1_CN_DeliveryHttpStream#about-http-flv)
+SRS支持HTTP FLV直播流集群分发，详细参考[HTTP FLV](v2_CN_DeliveryHttpStream#about-http-flv)
 
 SRS的HTTP FLV边缘只能使用单进程，如何做到多进程呢？可以使用HTTP反向代理，SRS提供了go-sharp，支持根据SRS边缘的负载均衡以及心跳检测。参考：[go-sharp][go-sharp]
 
@@ -21,7 +21,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
+<strong>第二步，编译SRS。</strong>详细参考[Build](v2_CN_Build)
 
 ```bash
 ./configure --disable-all \
@@ -30,7 +30,7 @@ git pull
 make
 ```
 
-<strong>第三步，编写SRS源站配置文件。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第三步，编写SRS源站配置文件。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 将以下内容保存为文件，譬如`conf/http.flv.live.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -52,7 +52,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第四步，编写SRS边缘配置文件。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第四步，编写SRS边缘配置文件。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 将以下内容保存为文件，譬如`conf/http.flv.live.edge1.conf`和`conf/http.flv.live.edge2.conf`，服务器启动时指定该配置文件(srs的conf文件夹有该文件)。
 
@@ -78,7 +78,7 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>第五步，启动SRS。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第五步，启动SRS。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 ```bash
 ./objs/srs -c conf/http.flv.live.conf &&
@@ -86,7 +86,7 @@ vhost __defaultVhost__ {
 ./objs/srs -c conf/http.flv.live.edg2.conf
 ```
 
-<strong>第六步，启动推流编码器。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第六步，启动推流编码器。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 使用FFMPEG命令推流：
 
@@ -118,7 +118,7 @@ Stream: livestream
 * RTMP流地址为：`rtmp://192.168.1.170:19352/live/livestream`
 * HTTP FLV: `http://192.168.1.170:8082/live/livestream.flv`
 
-<strong>第七步，观看RTMP流。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第七步，观看RTMP流。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 源站RTMP流地址为：`rtmp://192.168.1.170/live/livestream`，可以使用VLC观看，或者使用在线SRS播放器播放：[srs-player][srs-player]
 
@@ -128,7 +128,7 @@ Stream: livestream
 
 备注：请将所有实例的IP地址192.168.1.170都换成部署的服务器IP地址。
 
-<strong>第八步，观看HTTP流。</strong>详细参考[HTTP FLV](v1_CN_DeliveryHttpStream)
+<strong>第八步，观看HTTP流。</strong>详细参考[HTTP FLV](v2_CN_DeliveryHttpStream)
 
 源站HTTP FLV流地址为： `http://192.168.1.170:8080/live/livestream.flv`，可以使用VLC观看，或者使用在线SRS播放器播放：[jwplayer-flv][jwplayer-flv]
 
