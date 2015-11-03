@@ -7,7 +7,7 @@ SRS supports DVR RTMP stream to flv file.
 Use `--with-dvr` to enable dvr, while `--without-dvr` to disable it.
 
 For information about the dvr option, read 
-[Build](v3_EN_Build)
+[Build](v1_EN_Build)
 
 ## Config
 
@@ -62,8 +62,8 @@ Config for DVR:
         #       dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
         #       =>
         #       dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_EN_DVR#custom-path
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_EN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v1_EN_DVR#custom-path
         # default: ./objs/nginx/html/[app]/[stream].[timestamp].flv
         dvr_path        ./objs/nginx/html/[app]/[stream].[timestamp].flv;
         # the dvr plan. canbe:
@@ -108,7 +108,7 @@ The config file can also use `conf/dvr.segment.conf` or `conf/dvr.session.conf`.
 
 The dvr apply is a filter which enable or disable the dvr of specified stream.
 This feature is similar to nginx control module, but stronger than nginx.
-User can use [http raw api](v3_EN_HTTPApi) to control when to dvr specified stream.
+User can use [http raw api](v1_EN_HTTPApi) to control when to dvr specified stream.
 Please read [351](https://github.com/simple-rtmp-server/srs/issues/459#issuecomment-134983742).
 
 The following exmaple dvr `live/stream1`和`live/stream2`, the config:
@@ -120,7 +120,7 @@ vhost xxx {
 }
 ```
 
-About the RAW API to control DVR, read [319](https://github.com/simple-rtmp-server/srs/issues/319) and [wiki](https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-dvr).
+About the RAW API to control DVR, read [319](https://github.com/simple-rtmp-server/srs/issues/319) and [wiki](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw-dvr).
 
 ## Custom Path
 
@@ -204,7 +204,7 @@ The log of api-server for api dvrs：
 127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
 ```
 
-For more information, read about [HttpCallback](v3_EN_HTTPCallback)
+For more information, read about [HttpCallback](v1_EN_HTTPCallback)
 
 ## Bug
 

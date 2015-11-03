@@ -21,7 +21,7 @@ cd simple-rtmp-server/trunk
 git pull
 ```
 
-<strong>第二步，编译SRS。</strong>详细参考[Build](v3_CN_Build)
+<strong>第二步，编译SRS。</strong>详细参考[Build](v1_CN_Build)
 
 ```bash
 ./configure --disable-all \

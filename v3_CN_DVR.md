@@ -6,7 +6,7 @@ SRS支持将RTMP流录制成flv文件。
 
 DVR的编译选项为`--with-dvr`，关闭DVR的选项为`--without-dvr`。
 
-参考：[Build](v3_CN_Build)
+参考：[Build](v1_CN_Build)
 
 ## Config
 
@@ -63,8 +63,8 @@ vhost your_vhost {
         #       dvr_path /data/[vhost]/[app]/[2006]/[01]/[stream]-[02]-[15].[04].[05].[999].flv;
         #       =>
         #       dvr_path /data/ossrs.net/live/2015/01/livestream-03-10.57.30.776.flv;
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_CN_DVR#custom-path
-        # @see https://github.com/simple-rtmp-server/srs/wiki/v3_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DVR#custom-path
+        # @see https://github.com/simple-rtmp-server/srs/wiki/v1_CN_DVR#custom-path
         # default: ./objs/nginx/html/[app]/[stream].[timestamp].flv
         dvr_path        ./objs/nginx/html/[app]/[stream].[timestamp].flv;
         # the dvr plan. canbe:
@@ -110,7 +110,7 @@ DVR的计划即决定什么时候关闭flv文件，打开新的flv文件，主�
 
 DVR的apply决定了是否对某个流开启dvr，默认的all是对所有开启。
 这个功能是SRS实现nginx提供的control module的一个基础，而且更丰富。
-也就是可以支持用户调用[http raw api](v3_CN_HTTPApi)控制是否以及何时DVR。
+也就是可以支持用户调用[http raw api](v1_CN_HTTPApi)控制是否以及何时DVR。
 参考[351](https://github.com/simple-rtmp-server/srs/issues/459#issuecomment-134983742)
 
 Apply可以对多个流进行录制，譬如对`live/stream1`和`live/stream2`录制，可以配置成：
@@ -122,7 +122,7 @@ vhost xxx {
 }
 ```
 
-可以使用RAW API控制DVR，参考[319](https://github.com/simple-rtmp-server/srs/issues/319)和[wiki](https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-dvr).
+可以使用RAW API控制DVR，参考[319](https://github.com/simple-rtmp-server/srs/issues/319)和[wiki](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw-dvr).
 
 ## Custom Path
 
@@ -206,7 +206,7 @@ api-server的日志：
 127.0.0.1 - - [03/Jan/2015:15:25:48] "POST /api/v1/dvrs HTTP/1.1" 200 1 "" "SRS(Simple RTMP Server)2.0.88"
 ```
 
-更多HTTP回调的信息，请参考 [HttpCallback](v3_CN_HTTPCallback)
+更多HTTP回调的信息，请参考 [HttpCallback](v1_CN_HTTPCallback)
 
 ## Bug
 

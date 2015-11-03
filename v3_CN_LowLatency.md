@@ -2,7 +2,7 @@
 
 直播应用中，RTMP和HLS基本上可以覆盖所有客户端观看（参考：[DeliveryHLS](v2_CN_DeliveryHLS)），HLS主要是延时比较大，RTMP主要优势在于延时低。
 
-低延迟的部署实例参考：[Usage: Realtime](v3_CN_SampleRealtime)
+低延迟的部署实例参考：[Usage: Realtime](v1_CN_SampleRealtime)
 
 ## 应用场景
 
@@ -59,7 +59,7 @@ vhost mrw.srs.com {
 }
 ```
 
-部署低延时的实例，参考：[wiki]([EN](v3_CN_SampleRealtime), [CN](v3_CN_SampleRealtime)).
+部署低延时的实例，参考：[wiki]([EN](v1_CN_SampleRealtime), [CN](v1_CN_SampleRealtime)).
 
 ## Merged-Read
 

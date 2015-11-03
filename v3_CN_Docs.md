@@ -28,9 +28,9 @@ SRS是否提供公用服务器？供大家测试，演示，版本发布，自�
 
 SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](v1_CN_Sample)
 
-## [编译SRS](v3_CN_Build)
+## [编译SRS](v1_CN_Build)
 
-编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](v3_CN_Build)
+编译SRS的常见选项，SRS的功能，以及应用场景，编译和启动，DEMO的查看方法。链接：[编译SRS](v1_CN_Build)
 
 ## [SRS启动](v1_CN_LinuxService)
 
@@ -40,9 +40,9 @@ SRS的实际应用，可以用SRS实际做点什么？参考：[应用实例](v1
 
 如何查看SRS的日志？如何不以nohup但是后台启动？如何将日志打印到控制台？如何打印出更多或者更少的日志？如何打印出详细级别的日志？如何只打印出警告以上的日志？参考：[SRS日志](v1_CN_SrsLog)
 
-## [SRS的架构](v3_CN_Architecture)
+## [SRS的架构](v1_CN_Architecture)
 
-SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v3_CN_Architecture)
+SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v1_CN_Architecture)
 
 ## [RTMP URL & Vhost](v1_CN_RtmpUrlVhost)
 
@@ -52,9 +52,9 @@ SRS开发者必看的基础wiki，SRS的基础架构。链接：[SRS的架构](v
 
 RTMP为何要依赖ssl？什么是RTMP简单握手和复杂握手？什么时候用Simple就足够了？参考：[RTMP握手协议](v1_CN_RTMPHandshake)
 
-## [FFMPEG直播流转码](v3_CN_FFMPEG)
+## [FFMPEG直播流转码](v1_CN_FFMPEG)
 
-如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](v3_CN_FFMPEG)
+如何使用SRS对直播流转码？如何只对视频或音频转码？如何配置台标？转码参数的意义和顺序？参考：[FFMPEG直播流转码](v1_CN_FFMPEG)
 
 ## [RTMP分发](v1_CN_DeliveryRTMP)
 
@@ -80,29 +80,29 @@ SRS如何支持RTMP流？如何配置SRS分发RTMP流？参考：[RTMP分发](v1
 
 如何不依赖外部web服务器直接可分发HTTP流譬如HLS？SRS为何支持内置的HTTP服务器？参考：[内置HTTP服务器](v2_CN_HTTPServer)
 
-## [DVR录制] (v3_CN_DVR)
+## [DVR录制] (v1_CN_DVR)
 
-如何将直播RTMP流录制为flv文件？如何让每一片都从关键帧开始？什么是DVR的plan，什么是segment和session方式的plan？如何自定义dvr的文件名和路径？参考：[DVR] (v3_CN_DVR)
+如何将直播RTMP流录制为flv文件？如何让每一片都从关键帧开始？什么是DVR的plan，什么是segment和session方式的plan？如何自定义dvr的文件名和路径？参考：[DVR] (v1_CN_DVR)
 
-## [DRM防盗链] (v3_CN_DRM)
+## [DRM防盗链] (v1_CN_DRM)
 
-SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v3_CN_DRM)
+SRS如何支持DRM？如何支持防盗链？Refer防盗链如何配置？Token防盗链如何使用？参考：[DRM] (v1_CN_DRM)
 
 ## [Reload](v1_CN_Reload)
 
 如何在不影响正在服务的用户的前提下：将一个转码流的码率调低？如何禁用某些频道的HLS？如何添加和删除频道？参考：[Reload](v1_CN_Reload)
 
-## [低延时应用](v3_CN_LowLatency)
+## [低延时应用](v1_CN_LowLatency)
 
-如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](v3_CN_LowLatency)
+如何配置低延时？延时到底受哪些因素的影响？SRS如何配置？SRS延迟多大？参考：[低延时应用](v1_CN_LowLatency)
 
-## [HTTP Callback](v3_CN_HTTPCallback)
+## [HTTP Callback](v1_CN_HTTPCallback)
 
-关于HttpCallback，即HttpHooks。如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？如何hook dvr事件？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](v3_CN_HTTPCallback)
+关于HttpCallback，即HttpHooks。如何认证客户端连接？如何在发布流时通知外部程序？如何在客户端连接和关闭时加入额外处理逻辑？如何hook dvr事件？SRS在各种事件时可以回调HTTP接口。参考：[HTTP回调](v1_CN_HTTPCallback)
 
-## [HTTP管理接口](v3_CN_HTTPApi)
+## [HTTP管理接口](v1_CN_HTTPApi)
 
-如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](v3_CN_HTTPApi)
+如何管理服务器？页面js如何重启服务器，获取信息？php管理系统如何管理SRS服务器？参考：[HTTP管理接口](v1_CN_HTTPApi)
 
 ## [Ingest采集](v1_CN_Ingest)
 
@@ -112,25 +112,25 @@ SRS如何拉流？如何将已经存在的RTSP流分发成RTMP/HLS？如何将�
 
 SRS如何接收RTSP流？如何Push MPEG-TS over UDP到SRS？如何接收其他协议的流？参考：[Streamer](v2_CN_Streamer)
 
-## [Edge搭建大型集群](v3_CN_Edge)
+## [Edge搭建大型集群](v1_CN_Edge)
 
-SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](v3_CN_Edge)
+SRS如何支持大规模CDN集群？在流众多时forward/ingest太浪费怎么办？如何支持FMS Edge方式，在访问时才回源？参考：[Edge搭建大型集群](v1_CN_Edge)
 
-## [Forward搭建小型集群](v3_CN_Forward)
+## [Forward搭建小型集群](v1_CN_Forward)
 
-使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v3_CN_Forward)
+使用forward搭建小型集群的配置方法。链接：[Forward搭建小型集群](v1_CN_Forward)
 
-## [对接Kafka/Spark集群](v3_CN_Kafka)
+## [对接Kafka/Spark集群](v1_CN_Kafka)
 
-SRS如何对接到Kafka/Spark大数据系统？如何支持超大规模SRS集群的实时分析，动态调度，日志分析？请参考：[对接Kafka/Spark集群](v3_CN_Kafka)
+SRS如何对接到Kafka/Spark大数据系统？如何支持超大规模SRS集群的实时分析，动态调度，日志分析？请参考：[对接Kafka/Spark集群](v1_CN_Kafka)
 
 ## [Security禁用或允许连接](v2_CN_Security)
 
 如何使用SRS的安全策略？如何禁止客户端推流到SRS，但是允许播放？如何允许某些IP的客户端？参考：[Security禁用或允许连接](v2_CN_Security)
 
-## [Exec启动外部程序](v3_CN_NgExec)
+## [Exec启动外部程序](v1_CN_NgExec)
 
-如何像nginx-rtmp一样在publish时执行外部程序？如何支持exec？如何支持exec_publish？参考：[Exec启动外部程序](v3_CN_NgExec)
+如何像nginx-rtmp一样在publish时执行外部程序？如何支持exec？如何支持exec_publish？参考：[Exec启动外部程序](v1_CN_NgExec)
 
 ## [性能测试和对比](v1_CN_Performance)
 
@@ -168,13 +168,13 @@ SRS在windows上支持到什么程度？客户端库支持得如何？服务器�
 
 视频很卡，播放不了，缓冲区突然很大，推流上不来，都有可能是带宽过低，SRS支持测试客户端到服务器的带宽。参考：[SRS带宽测试](v1_CN_BandwidthTestTool)(BandwidthTestTool, BWTC)
 
-## [RTMP ATC](v3_CN_RTMP-ATC)
+## [RTMP ATC](v1_CN_RTMP-ATC)
 
-如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](v3_CN_RTMP-ATC)
+如何让SRS分发ATC时间（即不从零开始）？如何支持HDS/HLS源站热备？参考：[RTMP ATC](v1_CN_RTMP-ATC)
 
-## [TimeJitter时间戳矫正](v3_CN_TimeJitter)
+## [TimeJitter时间戳矫正](v1_CN_TimeJitter)
 
-SRS如何矫正时间戳？时间戳抖动如何处理？RTMP时间戳单增如何处理？参考：[TimeJitter时间戳矫正](v3_CN_TimeJitter)
+SRS如何矫正时间戳？时间戳抖动如何处理？RTMP时间戳单增如何处理？参考：[TimeJitter时间戳矫正](v1_CN_TimeJitter)
 
 ## [Heartbeat](v1_CN_Heartbeat)
 
@@ -208,17 +208,17 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何使用SRS分发RTMP直播流？参考：[Usage: RTMP](v1_CN_SampleRTMP)
 
-## [Usage: RTMP Cluster](v3_CN_SampleRTMPCluster)
+## [Usage: RTMP Cluster](v1_CN_SampleRTMPCluster)
 
-使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v3_CN_SampleRTMPCluster)
+使用实例：如何使用SRS分发RTMP直播流集群？参考：[Usage: RTMP Cluster](v1_CN_SampleRTMPCluster)
 
 ## [Usage: HTTP FLV](v2_CN_SampleHttpFlv)
 
 使用实例：如何使用SRS分发HTTP FLV直播流？参考：[Usage: HTTP FLV](v2_CN_SampleHttpFlv)
 
-## [Usage: HTTP FLV Cluster](v3_CN_SampleHttpFlvCluster)
+## [Usage: HTTP FLV Cluster](v1_CN_SampleHttpFlvCluster)
 
-使用实例：如何使用SRS分发HTTP FLV直播流集群？参考：[Usage: HTTP FLV Cluster](v3_CN_SampleHttpFlvCluster)
+使用实例：如何使用SRS分发HTTP FLV直播流集群？参考：[Usage: HTTP FLV Cluster](v1_CN_SampleHttpFlvCluster)
 
 ## [Usage: HTTP FLV](v1_CN_SampleRTMP)
 
@@ -240,13 +240,13 @@ SRS的稳定版本是什么？如何获取SRS最新代码？GIT下载很慢怎�
 
 使用实例：如何将文件变成直播流？如何将已有流采集到SRS？如何做虚拟直播？如何抓取RTSP流？参考：[Usage: Ingest](v1_CN_SampleIngest)
 
-## [Usage: Forward](v3_CN_SampleForward)
+## [Usage: Forward](v1_CN_SampleForward)
 
-使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](v3_CN_SampleForward)
+使用实例：如何使用SRS搭建小型集群？一路流如何做主备？如何将送到SRS的自动转发到备用服务器？参考：[Usage: Forward](v1_CN_SampleForward)
 
-## [Usage: Realtime](v3_CN_SampleRealtime)
+## [Usage: Realtime](v1_CN_SampleRealtime)
 
-使用实例：如何尽量降低延迟到1秒之内？SRS最低延迟的配置？参考：[Usage: Realtime](v3_CN_SampleRealtime)
+使用实例：如何尽量降低延迟到1秒之内？SRS最低延迟的配置？参考：[Usage: Realtime](v1_CN_SampleRealtime)
 
 ## [Usage: ARM](v1_CN_SampleARM)
 

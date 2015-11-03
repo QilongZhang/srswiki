@@ -8,7 +8,7 @@ The important use scenario of FFMPEG:
 * One in N out: Publish a high resolution video with big bitrate, for intance, h.264 5Mbps 1080p. Then use FFMPEG to transcode to multiple bitrates, for example, 1080p/720p/576p, the 576p is for mobile devices.
 * Support multiple screen: The stream published by flash is in h264/vp6/mp3/speex codec. Use FFMPEG to transcode to HLS(h264+aac) for IOS/Android.
 * Stream filters: For example, add logo to stream. SRS supports all filters from FFMPEG.
-* Snapshot: Please read [snapshot by transcoder](https://github.com/simple-rtmp-server/srs/wiki/v3_EN_Snapshot#transcoder)
+* Snapshot: Please read [snapshot by transcoder](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Snapshot#transcoder)
 
 ## Workflow
 
@@ -344,7 +344,7 @@ There are lots of vhost in conf/full.conf for transcoding, or refer to FFMPEG:
 
 SRS can fork FFMEPG on ARM, see: [Raspberry pi Transcode](v1_EN_ARMTranscode)
 
-Note: To use your own tool, you can disable ffmpeg by `--without-ffmpeg`, but you must open a transcoder by using `--with-transcode`, see: [Build](v3_EN_Build)
+Note: To use your own tool, you can disable ffmpeg by `--without-ffmpeg`, but you must open a transcoder by using `--with-transcode`, see: [Build](v1_EN_Build)
 
 ## FFMPEG Transcoding Streams by Flash Encoder
 

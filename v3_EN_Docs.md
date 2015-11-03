@@ -24,9 +24,9 @@ Is there a public server for an SRS demo? I provide a server with public ip and 
 
 Who is using SRS? What can you use SRS for, for your project and customers? Please read [Applications](v1_EN_Sample)
 
-## [Build SRS](v3_EN_Build)
+## [Build SRS](v1_EN_Build)
 
-How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please read [Build SRS](v3_EN_Build)
+How to build SRS? How to enable or disable the feature of SRS? How to build and start the demo pages of SRS? Please read [Build SRS](v1_EN_Build)
 
 ## [SRS Init.d Script](v1_EN_LinuxService)
 
@@ -36,9 +36,9 @@ How to use init.d script to start SRS as a system service? How to run SRS as a d
 
 How to get the SRS logs? How to trace logs to console? How to get less verbose logs because the log files are too large? How to get more detailed log levels? How to get warning level log only? Please read [SRS Log](v1_EN_SrsLog)
 
-## [SRS Architecture](v3_EN_Architecture)
+## [SRS Architecture](v1_EN_Architecture)
 
-The architecture for all SRS developers。Please read [SRS Architecture](v3_EN_Architecture)
+The architecture for all SRS developers。Please read [SRS Architecture](v1_EN_Architecture)
 
 ## [RTMP URL & Vhost](v1_EN_RtmpUrlVhost)
 
@@ -48,9 +48,9 @@ What is the vhost or app or stream of RTMP? How to pass the authentication param
 
 Why build openssl for RTMP server? What are the simple and complex handshakes of RTMP? Which scenarios should use simple handshake? Please read [RTMP Handshake](v1_EN_RTMPHandshake)
 
-## [FFMPEG Live Transcoding](v3_EN_FFMPEG)
+## [FFMPEG Live Transcoding](v1_EN_FFMPEG)
 
-How to use SRS to transcode live streams? How to transcode audio only? How to passthrough audio or video? How to add a logo to a stream? What are the transcode params and the sequence for FFPMEG? Please read [FFMPEG Live Transcoding](v3_EN_FFMPEG)
+How to use SRS to transcode live streams? How to transcode audio only? How to passthrough audio or video? How to add a logo to a stream? What are the transcode params and the sequence for FFPMEG? Please read [FFMPEG Live Transcoding](v1_EN_FFMPEG)
 
 ## [RTMP Delivery](v1_EN_DeliveryRTMP)
 
@@ -76,29 +76,29 @@ How to choose a delivery protocol? What about RTMP? What about HTTP? What about 
 
 Can SRS support HTTP? How to deliver files over HTTP with SRS? Why does SRS support an embedded HTTP server? Can you use an external HTTP Server? Please read [Embedded HTTP Server](v2_EN_HTTPServer)
 
-## [DVR record live stream] (v3_EN_DVR)
+## [DVR record live stream] (v1_EN_DVR)
 
-How to record a live stream to an FLV file? How to record to pieces of files which start from keyframes with similar duration? What is the DVR plan, for example, segment and session plan? How to specify the path and filename? Please read [DVR record live stream] (v3_EN_DVR)
+How to record a live stream to an FLV file? How to record to pieces of files which start from keyframes with similar duration? What is the DVR plan, for example, segment and session plan? How to specify the path and filename? Please read [DVR record live stream] (v1_EN_DVR)
 
-## [DRM] (v3_EN_DRM)
+## [DRM] (v1_EN_DRM)
 
-How to support hotlink denial? Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please read [DRM] (v3_EN_DRM)
+How to support hotlink denial? Does SRS support DRM? How to configure referrer DRM? How to implement token DRM? Does SRS support FMS token traversal? Please read [DRM] (v1_EN_DRM)
 
 ## [Reload](v1_EN_Reload)
 
 How to reload SRS? How to add new vhosts without restarting the server? How to change the configuration without restarting the server? Please read [Reload](v1_EN_Reload)
 
-## [Low Latency](v3_EN_LowLatency)
+## [Low Latency](v1_EN_LowLatency)
 
-How to use SRS in pseudo realtime? What is the latency? What is the minimum latency of SRS in a commercial scenario, for example, CDN networks? Please read [Low Latency](v3_EN_LowLatency)
+How to use SRS in pseudo realtime? What is the latency? What is the minimum latency of SRS in a commercial scenario, for example, CDN networks? Please read [Low Latency](v1_EN_LowLatency)
 
-## [HTTP Callback](v3_EN_HTTPCallback)
+## [HTTP Callback](v1_EN_HTTPCallback)
 
-About the HttpCallback or HttpHooks. How to authenticate the client? How to make callbacks to external HTTP APIs when clients publish a stream? How to notify your system when clients connect or disconnect? How to hook into the DVR? Please read [HTTP Callback](v3_EN_HTTPCallback)
+About the HttpCallback or HttpHooks. How to authenticate the client? How to make callbacks to external HTTP APIs when clients publish a stream? How to notify your system when clients connect or disconnect? How to hook into the DVR? Please read [HTTP Callback](v1_EN_HTTPCallback)
 
-## [HTTP Management API](v3_EN_HTTPApi)
+## [HTTP Management API](v1_EN_HTTPApi)
 
-How to manage the server via the HTTP management API? How to manage the server, for example, to get server status in HTML pages? How can PHP/python management systems manage SRS? Please read [HTTP Management API](v3_EN_HTTPApi)
+How to manage the server via the HTTP management API? How to manage the server, for example, to get server status in HTML pages? How can PHP/python management systems manage SRS? Please read [HTTP Management API](v1_EN_HTTPApi)
 
 ## [Ingest](v1_EN_Ingest)
 
@@ -108,25 +108,25 @@ How does SRS pull specified RTMP/RTSP/HTTP streams and deliver them? How to deli
 
 How to push RTSP to SRS? How does SRS accept RTSP streams? How to push MPEG-TS over UDP to SRS? How does SRS accept streams over other protocols? Read [Streamer](v2_EN_Streamer)
 
-## [Edge: Huge Live Cluster](v3_EN_Edge)
+## [Edge: Huge Live Cluster](v1_EN_Edge)
 
-How to use SRS with CDNs? Does SRS support the key features for CDN: vhost, edge, reload, HTTP API and MIT source code? Why forwarding and ingesting is not okay for huge live clusters? Does SRS support FMS edge mode? Please read [Edge: Huge Live Cluster](v3_EN_Edge)
+How to use SRS with CDNs? Does SRS support the key features for CDN: vhost, edge, reload, HTTP API and MIT source code? Why forwarding and ingesting is not okay for huge live clusters? Does SRS support FMS edge mode? Please read [Edge: Huge Live Cluster](v1_EN_Edge)
 
-## [Forward: Tiny Live Cluster](v3_EN_Forward)
+## [Forward: Tiny Live Cluster](v1_EN_Forward)
 
-How to use SRS for a small number of streams and server cluster? How to build origin fault backup with only one stream? Please read [Forward: Tiny Live Cluster](v3_EN_Forward)
+How to use SRS for a small number of streams and server cluster? How to build origin fault backup with only one stream? Please read [Forward: Tiny Live Cluster](v1_EN_Forward)
 
-## [Kafka/Spark Cluster](v3_EN_Kafka)
+## [Kafka/Spark Cluster](v1_EN_Kafka)
 
-SRS how to report to Kafka/Spark big-data system? How to analysis and manage the big SRS clusters? Please read [Kafka/Spark Cluster](v3_EN_Kafka)
+SRS how to report to Kafka/Spark big-data system? How to analysis and manage the big SRS clusters? Please read [Kafka/Spark Cluster](v1_EN_Kafka)
 
 ## [Security: Allow or Deny Clients](v2_EN_Security)
 
 How to apply a security strategy? How to deny all publishing and allow all playback? How to deny clients by specified IP addresses? Please read [Security: Allow or Deny Clients](v2_EN_Security)
 
-## [Exec: Fork external program](v3_EN_NgExec)
+## [Exec: Fork external program](v1_EN_NgExec)
 
-How to support exec or exec_publish like nginx-rtmp? Please read [Exec: Fork external program](v3_EN_NgExec)
+How to support exec or exec_publish like nginx-rtmp? Please read [Exec: Fork external program](v1_EN_NgExec)
 
 ## [Performance Benchmark](v1_EN_Performance)
 
@@ -164,13 +164,13 @@ What is the status of the SRS Windows branch? Why is the SRS Windows branch expe
 
 What is the bandwidth between the player and the SRS server? SRS provides c (in srs-librtmp), javascript and flash SDKs to test the bandwidth. Please read [SRS Bandwidth Test](v1_EN_BandwidthTestTool)(BandwidthTestTool, BWTC)
 
-## [RTMP ATC](v3_EN_RTMP-ATC)
+## [RTMP ATC](v1_EN_RTMP-ATC)
 
-How to deliver streams with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please read [RTMP ATC](v3_EN_RTMP-ATC)
+How to deliver streams with ATC timestamp? How to support HDS/HLS origin server fault-backup? Please read [RTMP ATC](v1_EN_RTMP-ATC)
 
-## [TimeJitter Timestamp Correct](v3_EN_TimeJitter)
+## [TimeJitter Timestamp Correct](v1_EN_TimeJitter)
 
-How does SRS correct the timestamps of streams? How to correct the time jitter? How to ensure the timestamp of RTMP to increase monotonically? Please read [TimeJitter Timestamp Correct](v3_EN_TimeJitter)
+How does SRS correct the timestamps of streams? How to correct the time jitter? How to ensure the timestamp of RTMP to increase monotonically? Please read [TimeJitter Timestamp Correct](v1_EN_TimeJitter)
 
 ## [Heartbeat](v1_EN_Heartbeat)
 
@@ -204,17 +204,17 @@ How to get the stable release of SRS? How to merge master with your branch? How 
 
 Usage: How to use SRS to deliver RTMP? Please read [Usage: RTMP](v1_EN_SampleRTMP)
 
-## [Usage: RTMP Cluster](v3_EN_SampleRTMPCluster)
+## [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
 
-Usage: How to use SRS to deliver RTMP cluster? Please read [Usage: RTMP Cluster](v3_EN_SampleRTMPCluster)
+Usage: How to use SRS to deliver RTMP cluster? Please read [Usage: RTMP Cluster](v1_EN_SampleRTMPCluster)
 
 ## [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
 Usage: How to use SRS to deliver HTTP FLV live streaming? Please read [Usage: HTTP FLV](v2_EN_SampleHttpFlv)
 
-## [Usage: HTTP FLV Cluster](v3_EN_SampleHttpFlvCluster)
+## [Usage: HTTP FLV Cluster](v1_EN_SampleHttpFlvCluster)
 
-Usage: How to use SRS to deliver HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v3_EN_SampleHttpFlvCluster)
+Usage: How to use SRS to deliver HTTP FLV live streaming cluster? Please read [Usage: HTTP FLV Cluster](v1_EN_SampleHttpFlvCluster)
 
 ## [Usage: HLS](v1_EN_SampleHLS)
 
@@ -232,13 +232,13 @@ Usage: How to use SRS to transcode streams? How to transcode codecs for HLS? Ple
 
 Usage: How to ingest files to live stream? How to ingest existing streams to SRS? How to use SRS for virtual live streaming? How to ingest RTSP to SRS? Please read [Usage: Ingest](v1_EN_SampleIngest)
 
-## [Usage: Forward](v3_EN_SampleForward)
+## [Usage: Forward](v1_EN_SampleForward)
 
-Usage: How to use SRS to build tiny clusters? How to build an origin backup cluster when you only have one stream? How to forward streams to other servers from SRS? How to forward streams to a backup server from SRS? Please read [Usage: Forward](v3_EN_SampleForward)
+Usage: How to use SRS to build tiny clusters? How to build an origin backup cluster when you only have one stream? How to forward streams to other servers from SRS? How to forward streams to a backup server from SRS? Please read [Usage: Forward](v1_EN_SampleForward)
 
-## [Usage: Realtime](v3_EN_SampleRealtime)
+## [Usage: Realtime](v1_EN_SampleRealtime)
 
-Usage: How to decrease the latency to <1s? How to configure SRS in minimum latency mode? Please read [Usage: Realtime](v3_EN_SampleRealtime)
+Usage: How to decrease the latency to <1s? How to configure SRS in minimum latency mode? Please read [Usage: Realtime](v1_EN_SampleRealtime)
 
 ## [Usage: ARM](v1_EN_SampleARM)
 
