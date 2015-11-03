@@ -2,7 +2,7 @@
 
 ## HTTP FLV VOD Stream
 
-关于HTTP flv 点播流，参考：https://github.com/simple-rtmp-server/srs/wiki/v2_CN_FlvVodStream
+关于HTTP flv 点播流，参考：[v2_CN_FlvVodStream](v2_CN_FlvVodStream)
 
 ## HTTP FLV Live Stream
 
