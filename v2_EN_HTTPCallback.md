@@ -3,13 +3,13 @@
 SRS does not support server-side scripting, instead it supports
 HTTP callbacks; read [ServerSide script](v1_EN_ServerSideScript).
 
-For token authentication based on HTTP callbacks, read [Token Authentication](v2_EN_DRM#token-authentication)
+For token authentication based on HTTP callbacks, read [Token Authentication](v1_EN_DRM#token-authentication)
 
 ## Compile
 
 Use `--with-http-callback` to enable HttpCallback, while `--without-http-callback` to disable it.
 
-For more information, read [Build](v2_EN_Build)
+For more information, read [Build](v1_EN_Build)
 
 ## Configuring SRS
 

@@ -31,6 +31,6 @@ SRS的HTTP服务器已经重写，稳定可以商用。
 
 ## Config
 
-参考[HTTP Server](v2_CN_HTTPServer#config)
+参考[HTTP Server](v1_CN_HTTPServer#config)
 
 Winlin 2015.1

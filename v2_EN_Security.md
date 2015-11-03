@@ -40,7 +40,7 @@ Please see `conf/security.deny.publish.conf` for detail.
 
 ## Kickoff Client
 
-SRS provides api to kickoff user, read [wiki](https://github.com/simple-rtmp-server/srs/wiki/v2_EN_HTTPApi#kickoff-client).
+SRS provides api to kickoff user, read [wiki](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#kickoff-client).
 
 ## Bug
 

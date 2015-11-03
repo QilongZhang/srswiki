@@ -9,7 +9,7 @@ The use scenarios of librtmp:
 * Publish RTMP stream: Publish RTMP stream to server.
 * Use sync block socket: It's ok for client.
 * ARM: Can used for linux arm, for some embed device, to publish stream to server.
-* Publish h.264 raw stream: SRS2.0 supports this feature, read [publish-h264-raw-data](v2_EN_SrsLibrtmp#publish-h264-raw-data)
+* Publish h.264 raw stream: SRS2.0 supports this feature, read [publish-h264-raw-data](v1_EN_SrsLibrtmp#publish-h264-raw-data)
 
 Note: About the openssl, complex and simple handshake, read [RTMP protocol](v1_EN_RTMPHandshake)
 
@@ -30,8 +30,8 @@ SRS provides different librtmp:
 * NO ST, srs-librtmp does not depends on st.
 * Provides bandwidth api, to get the bandwidth data to server, read [Bandwidth Test](v1_EN_BandwidthTestTool)
 * Provides tracable log, to get the information on server of client, read [Tracable log](v1_EN_SrsLog)
-* Supports directly publish h.264 raw stream, read [publish-h264-raw-data](v2_EN_SrsLibrtmp#publish-h264-raw-data)
-* Exports SRS to srs-librtmp as single project which can be make to .h and .a, or exports SRS to a single .h and .cpp file, read [export srs librtmp](v2_EN_SrsLibrtmp#export-srs-librtmp)
+* Supports directly publish h.264 raw stream, read [publish-h264-raw-data](v1_EN_SrsLibrtmp#publish-h264-raw-data)
+* Exports SRS to srs-librtmp as single project which can be make to .h and .a, or exports SRS to a single .h and .cpp file, read [export srs librtmp](v1_EN_SrsLibrtmp#export-srs-librtmp)
 
 In a word, SRS provides more efficient and simple client library srs-librtmp.
 
@@ -71,7 +71,7 @@ When make SRS, the srs-librtmp will auto generated when configure with librtmp:
 ./configure --with-librtmp --without-ssl && make
 ```
 
-All examples are built, read [Examples](v2_EN_SrsLibrtmp#srs-librtmp-examples).
+All examples are built, read [Examples](v1_EN_SrsLibrtmp#srs-librtmp-examples).
 
 <strong>Note: Recomment to disable ssl, for librtmp does not depends on ssl.</strong>
 
@@ -83,7 +83,7 @@ When build ok, user can use .h and .a library to build client application.
 
 srs-librtmp only depends on libc++, so can be build on windows.
 
-SRS 2.0 can export srs-librtmp to single project, or a .h and a .cpp file, read [export srs librtmp](v2_EN_SrsLibrtmp#export-srs-librtmp).
+SRS 2.0 can export srs-librtmp to single project, or a .h and a .cpp file, read [export srs librtmp](v1_EN_SrsLibrtmp#export-srs-librtmp).
 
 Need to port some linux header files.
 
@@ -96,7 +96,7 @@ This section descrips the RTMP packet specification, for the srs-librtmp api to 
 The api about data:
 * Read RTMP packet from server: int srs_read_packet(int* type, u_int32_t* timestamp, char** data, int* size)
 * Write RTMP packet to server: int srs_write_packet(int type, u_int32_t timestamp, char* data, int size)
-* Write h.264 raw data to server, read [publish-h264-raw-data](v2_EN_SrsLibrtmp#publish-h264-raw-data)
+* Write h.264 raw data to server, read [publish-h264-raw-data](v1_EN_SrsLibrtmp#publish-h264-raw-data)
 
 The RTMP packet(char* data) for api, is format in flv Video/Audio, read the trunk/doc [video_file_format_spec_v10_1.pdf](https://raw.github.com/winlinvip/simple-rtmp-server/master/trunk/doc/video_file_format_spec_v10_1.pdf)
 * Audio data, read `E.4.2.1 AUDIODATA`，p76, for example, the aac codec audio data.
@@ -291,7 +291,7 @@ extern srs_bool srs_aac_is_adts(char* aac_raw_data, int ac_raw_size);
 extern int srs_aac_adts_frame_size(char* aac_raw_data, int ac_raw_size);
 ```
 
-The example for bug [#212](https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](v2_EN_SrsLibrtmp#srs-librtmp-examples).
+The example for bug [#212](https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63648892) is srs_audio_raw_publish.c and srs_aac_raw_publish.c, read [examples](v1_EN_SrsLibrtmp#srs-librtmp-examples).
 
 About the api, read https://github.com/simple-rtmp-server/srs/issues/212#issuecomment-63755405
 

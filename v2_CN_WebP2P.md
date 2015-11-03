@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**CN(2.0)**](v2_CN_Home) > [**Flash/Android/IOS P2P**](v2_CN_WebP2P)
+[**HOME**](Home) > [**CN(2.0)**](v1_CN_Home) > [**Flash/Android/IOS P2P**](v1_CN_WebP2P)
 
 很多朋友关心SRS是否有计划支持RTMFP，是否计划支持P2P，这篇文章详细介绍了SRS和P2P的关系。
 

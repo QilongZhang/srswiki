@@ -35,6 +35,6 @@ for arm is not easy to build some server.
 
 ## Config
 
-Read [HTTP Server](v2_EN_HTTPServer#config)
+Read [HTTP Server](v1_EN_HTTPServer#config)
 
 Winlin 2015.1

@@ -1,4 +1,4 @@
-[**HOME**](Home) > [**EN(2.0)**](v2_EN_Home) > [**Flash/Android/IOS P2P**](v2_EN_WebP2P)
+[**HOME**](Home) > [**EN(2.0)**](v1_EN_Home) > [**Flash/Android/IOS P2P**](v1_EN_WebP2P)
 
 Does SRS plan to support RTMFP or P2P? Let's talk about SRS and media P2P system.
 

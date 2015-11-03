@@ -1,7 +1,7 @@
 # Transcode deploy example
 
 FFMPEG can used to transcode the live stream, output the other RTMP server.
-For detail, read [FFMPEG](v2_EN_FFMPEG).
+For detail, read [FFMPEG](v1_EN_FFMPEG).
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
 
@@ -18,13 +18,13 @@ Or update the exists code:
 git pull
 ```
 
-<strong>Step 2, build SRS.</strong> For detail, read [Build](v2_EN_Build)
+<strong>Step 2, build SRS.</strong> For detail, read [Build](v1_EN_Build)
 
 ```bash
 ./configure --disable-all --with-ssl --with-ffmpeg --with-transcode && make
 ```
 
-<strong>Step 3, config file.</strong> For detail, read [FFMPEG](v2_EN_FFMPEG)
+<strong>Step 3, config file.</strong> For detail, read [FFMPEG](v1_EN_FFMPEG)
 
 Save the bellow as config file, or use `conf/ffmpeg.transcode.conf` instead:
 
@@ -62,13 +62,13 @@ vhost __defaultVhost__ {
 }
 ```
 
-<strong>Step 4, start SRS.</strong> For detail, read [FFMPEG](v2_EN_FFMPEG)
+<strong>Step 4, start SRS.</strong> For detail, read [FFMPEG](v1_EN_FFMPEG)
 
 ```bash
 ./objs/srs -c conf/ffmpeg.conf
 ```
 
-<strong>Step 5, start encoder.</strong> For detail, read [FFMPEG](v2_EN_FFMPEG)
+<strong>Step 5, start encoder.</strong> For detail, read [FFMPEG](v1_EN_FFMPEG)
 
 Use FFMPEG to publish stream:
 
@@ -93,7 +93,7 @@ The stream in SRS:
 * Play the original stream: rtmp://192.168.1.170:1935/live/livestream
 * Play the transcoded stream: rtmp://192.168.1.170:1935/live/livestream_ff
 
-<strong>Step 6, play the stream.</strong> For detail, read [FFMPEG](v2_EN_FFMPEG)
+<strong>Step 6, play the stream.</strong> For detail, read [FFMPEG](v1_EN_FFMPEG)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream`
 
@@ -103,7 +103,7 @@ Or, use online SRS player: [srs-player][srs-player]
 
 Note: Please replace all ip 192.168.1.170 to your server ip.
 
-<strong>Step 7, play the transcoded stream.</strong> For detail, read [FFMPEG](v2_EN_FFMPEG)
+<strong>Step 7, play the transcoded stream.</strong> For detail, read [FFMPEG](v1_EN_FFMPEG)
 
 RTMP url is: `rtmp://192.168.1.170:1935/live/livestream_ff`
 
