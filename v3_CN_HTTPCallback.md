@@ -2,13 +2,13 @@
 
 SRS不支持服务器脚本（参考：[服务器端脚本](v1_CN_ServerSideScript)），服务器端定制有一个重要的替代功能，就是HTTP回调。譬如当客户端连接到SRS时，回调指定的http地址，这样可以实现验证功能。
 
-关于Token认证，即基于http回调的认证，参考：[Token Authentication](v1_CN_DRM#token-authentication)
+关于Token认证，即基于http回调的认证，参考：[Token Authentication](v3_CN_DRM#token-authentication)
 
 ## Compile
 
 HttpCallback的编译选项为`--with-http-callback`，关闭HttpCallback的选项为`--without-http-callback`。
 
-参考：[Build](v1_CN_Build)
+参考：[Build](v3_CN_Build)
 
 ## Config SRS
 
@@ -185,6 +185,6 @@ SRS自带了一个默认的处理HTTP Callback的服务器，启动时需要指�
 
 ## Snapshot
 
-HttpCallback也可以用来截图，参考[snapshot](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Snapshot#httpcallback)
+HttpCallback也可以用来截图，参考[snapshot](https://github.com/simple-rtmp-server/srs/wiki/v3_CN_Snapshot#httpcallback)
 
 Winlin 2015.1

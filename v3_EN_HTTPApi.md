@@ -17,7 +17,7 @@ The HTTP API of SRS follows the simple priciple:
 ## Build
 
 To enable http api, configure SRS with `--with-http-api`, 
-read [configure](v1_EN_Build)
+read [configure](v3_EN_Build)
 
 ```bash
 ./configure --with-http-api && make
@@ -596,9 +596,9 @@ The DVR is a subset of Update.
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
-[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw
-[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#reload
-[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw-query
-[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw-update
-[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw-vhost
-[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v1_EN_HTTPApi#raw-dvr
+[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw
+[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#reload
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-update
+[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-vhost
+[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v3_EN_HTTPApi#raw-dvr

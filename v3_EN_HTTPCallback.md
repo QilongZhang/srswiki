@@ -3,13 +3,13 @@
 SRS does not support server-side scripting, instead it supports
 HTTP callbacks; read [ServerSide script](v1_EN_ServerSideScript).
 
-For token authentication based on HTTP callbacks, read [Token Authentication](v1_EN_DRM#token-authentication)
+For token authentication based on HTTP callbacks, read [Token Authentication](v3_EN_DRM#token-authentication)
 
 ## Compile
 
 Use `--with-http-callback` to enable HttpCallback, while `--without-http-callback` to disable it.
 
-For more information, read [Build](v1_EN_Build)
+For more information, read [Build](v3_EN_Build)
 
 ## Configuring SRS
 
@@ -208,6 +208,6 @@ When playing a stream on SRS, SRS will call the registered HTTP callback:
 
 ## Snapshot
 
-The HttpCallback can used to snapshot, please read [snapshot](https://github.com/simple-rtmp-server/srs/wiki/v1_EN_Snapshot#httpcallback)
+The HttpCallback can used to snapshot, please read [snapshot](https://github.com/simple-rtmp-server/srs/wiki/v3_EN_Snapshot#httpcallback)
 
 Winlin 2015.1

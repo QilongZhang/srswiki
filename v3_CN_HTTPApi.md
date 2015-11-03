@@ -15,7 +15,7 @@ SRS的HTTP接口遵循最简单原则，主要包括：
 
 ## Build
 
-SRS需要打开HTTPApi选项，参考：[configure选项](v1_CN_Build)
+SRS需要打开HTTPApi选项，参考：[configure选项](v3_CN_Build)
 
 ```bash
 ./configure --with-http-api && make
@@ -617,9 +617,9 @@ DVR操作是Update的一个子集。
 Winlin 2015.8
 
 [HttpRawAPI]: https://github.com/simple-rtmp-server/srs/issues/319
-[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw
-[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#reload
-[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw-query
-[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw-update
-[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw-vhost
-[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v1_CN_HTTPApi#raw-dvr
+[raw-raw]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw
+[raw-reload]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#reload
+[raw-query]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-query
+[raw-update]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-update
+[raw-vhost]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-vhost
+[raw-dvr]: https://github.com/simple-rtmp-server/srs/wiki/v3_CN_HTTPApi#raw-dvr

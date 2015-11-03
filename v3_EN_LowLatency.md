@@ -4,7 +4,7 @@ The RTMP and HLS can cover all requires for internet live stream,
 read  [DeliveryHLS](v2_EN_DeliveryHLS),
 while RTMP is designed for low latency live stream.
 
-The deploy for low latency, read [Usage: Realtime](v1_EN_SampleRealtime)
+The deploy for low latency, read [Usage: Realtime](v3_EN_SampleRealtime)
 
 ## Use Scenario
 
@@ -51,7 +51,7 @@ vhost mrw.srs.com {
 }
 ```
 
-For example to deploy realtime stream, read [wiki]([EN](v1_EN_SampleRealtime), [CN](v1_EN_SampleRealtime)).
+For example to deploy realtime stream, read [wiki]([EN](v3_EN_SampleRealtime), [CN](v3_EN_SampleRealtime)).
 
 ## Merged-Read
 
