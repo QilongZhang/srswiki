@@ -1,6 +1,6 @@
 # HLS部署实例
 
-SRS支持HLS的详细步骤。
+SRS支持HLS的详细步骤；本文介绍的是使用NGINX作为HTTP服务器，可以使用SRS作为HTTP服务器，参考[v2_CN_SampleHTTP](v2_CN_SampleHTTP)。
 
 <strong>假设服务器的IP是：192.168.1.170</strong>
 
