@@ -1,5 +1,7 @@
 # HLS deploy example
 
+This article use NGINX to delivery HLS files, user can use SRS to delivery, please read [v2_EN_SampleHTTP](v2_EN_SampleHTTP).
+
 To deploy HLS on SRS:
 
 <strong>Suppose the server ip is 192.168.1.170</strong>
