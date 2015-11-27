@@ -12,9 +12,11 @@ If you spot a bug, then please raise an issue in ou GitHub project (`winlinvip/s
 
 If you want to talk directly to us (e.g. about a commercially sensitive issue), email is the easiest way.
 
-## Skype
+## Skype or Gitter
 
 Skype ID：winterserver
+
+Gitter: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ossrs/go-oryx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 For international user who can not use TencentQQ.
 
