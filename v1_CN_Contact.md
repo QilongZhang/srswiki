@@ -15,6 +15,7 @@
 ## Skype or Gitter
 
 Skype帐号：winterserver
+
 Gitter链接：[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ossrs/go-oryx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 国外用户，没有QQ，可以考虑用Skype或Gitter。
