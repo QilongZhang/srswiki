@@ -17,7 +17,7 @@ BMS和SRS的主要区别如下：
 
 ## Detail Compare
 
-BMS和SRS的详细对比如下（注意对比的是发行版）：
+BMS和SRS的详细对比如下（注意对比的是发行版，即SRS1和BMS3）：
 
 | Feature | SRS | BMS | Remark |
 | ------  | ---- | ---- | ----- |
