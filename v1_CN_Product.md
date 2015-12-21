@@ -114,6 +114,10 @@ SRS 3.0+ 的功能列表，可能的方向：
 
 SRS对于所有新功能都持推延态度；有悖于系统一致性和概念完整性的功能绝对不做，譬如支持Windows系统就有悖于一致性和完整性（服务器系统的差异太大）；对于确定要做的功能SRS也会仔细斟酌最佳方案，譬如支持多进程就是在选最佳方案；对于已有方案要做到最好，譬如最低延迟方案。对于功能点，只要属于系统一致性和概念完整性范围内都会考虑添加，或者说，大部分都不做，要做就要做到最好，the best or nothing!
 
+## Commercial SRS
+
+The [BMS](https://github.com/ossrs/srs/wiki/BravoMediaServer) is commercial version SRS.
+
 Beijing, 2014.3<br/>
 Winlin
 
