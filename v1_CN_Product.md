@@ -81,7 +81,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [experimental]支持远程控制台，链接： [console][console].
 * 其他小功能的完善。
 
-[SRS Release 2.0][2.0release]预计在2015.12发布。
+[SRS Release 2.0][2.0release]预计在2015.12发布alpha，暂时没有release版本的发布计划。
 
 ## Release3.0
 
@@ -101,7 +101,7 @@ SRS定位是运营级的互联网直播服务器集群，追求更好的概念�
 * [plan]支持HLS低延迟模式。参考：[#468][bug468].
 * [plan]其他。
 
-[SRS Release 3.0][3.0release]预计在2016.12发布。
+[SRS Release 3.0][3.0release]暂时没有发布计划。
 
 ## Backlog
 
