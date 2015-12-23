@@ -75,7 +75,7 @@ Dev code: ZhouGuowen, my teacher.
 * [experimental]Support remote console management, read [console][console].
 * Other small changes.
 
-[SRS Release 2.0][2.0release] planned release on 2015.12.
+[SRS Release 2.0][2.0release] planned alpha on 2015.12, no plan for release.
 
 ## Release3.0
 
@@ -95,7 +95,7 @@ Dev code: OuXuli, my college teacher, the founder of [Qgzxol.com][qgzxol].
 * [plan]Support HLS realtime latency mode, read [#468][bug468].
 * [plan]Others.
 
-[SRS Release 3.0][3.0release] plan to release at 2016.12.
+[SRS Release 3.0][3.0release] no plan for release.
 
 ## Backlog
 
