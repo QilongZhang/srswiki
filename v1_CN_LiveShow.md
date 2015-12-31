@@ -18,9 +18,8 @@
 * 观看：默认直播流在顺序播放完后，会将新的文件加入轮播列表。
 
 观看地址：
-* [RTMP: verycloud加速](http://182.92.80.26:8085/players/srs_player.html?vhost=srs-rtmp.verycloud.cn&server=srs-rtmp.verycloud.cn&stream=livestream&autostart=true)
-* [源站RTMP，请不要观看，带宽太低](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
-* [源站HLS，请不要观看，带宽太低](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
+* [源站RTMP](http://182.92.80.26:8085/players/srs_player.html?stream=livestream&autostart=true)
+* [源站HLS](http://182.92.80.26:8085/players/jwplayer6.html?stream=livestream&hls_autostart=true&hls_port=80)
 
 感谢[verycloud.cn](http://verycloud.cn/)给SRS轮播流提供加速。
 
