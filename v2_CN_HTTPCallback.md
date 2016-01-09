@@ -133,7 +133,7 @@ SRS的回调事件包括：
 | --- | ---- | ---- |
 | on_connect|{<br/> "action": "on_connect",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "tcUrl": "rtmp://x/x?key=xxx",<br/> "pageUrl": "http://x/x.html"<br/> } | 当客户端连接到指定的vhost和app时| 
 | on_close|{<br/> "action": "on_close",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live", <br/> "send_bytes": 10240, <br/> "recv_bytes": 10240 <br/> } | 当客户端关闭连接，或者SRS主动关闭连接时| 
-| on_publish|{<br/> "action": "on_publish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端发布流时，譬如flash/FMLE方式推流到服务器| 
+| on_publish|{<br/> "action": "on_publish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "tcUrl": "rtmp://x/x?key=xxx",<br/> "stream": "livestream"<br/> } | 当客户端发布流时，譬如flash/FMLE方式推流到服务器| 
 | on_unpublish|{<br/> "action": "on_unpublish",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端停止发布流时| 
 | on_play|{<br/> "action": "on_play",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream",<br/> "pageUrl": "http://www.test.com/live.html"<br/> } | 当客户端开始播放流时| 
 | on_stop|{<br/> "action": "on_stop",<br/> "client_id": 1985,<br/> "ip": "192.168.1.10", <br/> "vhost": "video.test.com", <br/> "app": "live",<br/> "stream": "livestream"<br/> } | 当客户端停止播放时。备注：停止播放可能不会关闭连接，还能再继续播放。| 
