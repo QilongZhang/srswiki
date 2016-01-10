@@ -245,6 +245,7 @@ It simplify the url, the palyer and publisher only need user to input a url, not
 The RTMP URL of SRS:
 
 | URL | Description |
+| ---- | ------ |
 | rtmp://demo.srs.com/live/livestream | Standard RTMP URL |
 | rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream | URL specifies vhost |
 | rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream | URL specifies token authentication |
@@ -253,7 +254,7 @@ The RTMP URL of SRS:
 
 The full.conf of conf of SRS contains many vhost, which used to show each feature. All features is put into the vhost demo.srs.com:
 
-| Category | Vhost | 说明 |
+| Category | Vhost | Description |
 | -------- | ----- | ---- |
 | RTMP | __defaultVhost__ | Default Vhost, only RTMP.| 
 | RTMP | chunksize.vhost.com | Sample to set the chunk_size.| 
