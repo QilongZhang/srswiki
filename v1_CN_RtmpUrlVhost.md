@@ -245,6 +245,7 @@ stream: 2013
 SRS常见的三种RTMP URL，详细见下表：
 
 | URL | 说明 |
+| ---- | ------ |
 | rtmp://demo.srs.com/live/livestream | 普通用户的标准访问方式，观看直播流 |
 | rtmp://192.168.1.10/live?vhost=demo.srs.com/livestream | 运维对特定服务器排错 |
 | rtmp://demo.srs.com/live?key=ER892ID839KD9D0A1D87D/livestream | token验证用户，或者带宽测试的key验证 |
