@@ -46,15 +46,7 @@ Gitter链接：[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://git
 
 ## SrsDeveloper
 
-关于如何基于SRS做定制或者开发，欢迎加入SRS开发者群，请咨询QQ(1900013283)，非请勿入。
-
-加入SRS开发者群的条件，以及可获得的帮助：
-
-1. 请先咨询QQ(1900013283)，SRS开发者群不接受用户加入，必须由管理员添加。
-1. 适用于有研发团队的公司，给研发提供帮助，而不是直接解决问题和直接实现功能。
-1. 具体提供的服务范围包括：回答关于现有SRS代码结构的问题，新增功能的建议，CR(CodeReview)，方案推荐和评审，提供服务器和流媒体经验帮助。
-1. SRS开发者的费用是每年$99，也就是每年600人民币。和Apple的开发者一个价格。支付方式为转账到支付宝（可以转账到捐献的那个支付宝帐号），参考[Donation](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Contact#donation)。
-1. SRS的使用者可以加入[SRS使用者QQ群](https://github.com/simple-rtmp-server/srs/wiki/v1_CN_Contact#tencentqq)，按照WIKI使用SRS即可。发现SRS的BUG或者希望加新功能，都可以向SRS的issue提交。
+专业的SRS开发者群，加入请参考[https://notehub.org/38z44](https://notehub.org/38z44)
 
 Winlin 2015.3
 
