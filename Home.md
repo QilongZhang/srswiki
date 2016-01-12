@@ -22,6 +22,7 @@ Please select your language:
 
 * [lemonbinary: srswiki](http://blog.csdn.net/lemonbinary/article/details/48574739)
 * [zjqlovell: srs](http://blog.csdn.net/zjqlovell/article/category/5710003)
+* [hrybird: authentication](http://www.cnblogs.com/hrybird/p/5125182.html)
 
 Winlin 2014.5
 
