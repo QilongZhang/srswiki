@@ -36,7 +36,7 @@ SRS支持设置日志级别，通过设置`srs_log_level`：
 ```bash
 # the log level, for all log tanks.
 # can be: verbose, info, trace, warn, error
-# defualt: trace
+# default: trace
 srs_log_level       trace;
 ```
 
